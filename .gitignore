@@ -341,3 +341,6 @@ healthchecksdb
 
 #Ignore README.md
 README.md
+
+#Ignore .gitignore
+.gitignore
