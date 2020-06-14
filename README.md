@@ -12,6 +12,8 @@ Rama principal, implementaremos los cambios de las demás ramas a esta una vez q
 
 Estado inicial del proyecto en la rama master = proyecto vacío.
 
-Estado medio del proyecto en la rama master = implementación de las ramas que sean necesarias para cada entrega.
+Estado medio del proyecto en la rama master = proyecto vacío.
 
 Estado final del proyecto en la rama master = implementación total de todas las ramas del proyecto.
+
+Para cada entrega se creará una rama nueva que sea igual a la combinación de todas las ramas requeridas para dicha entrega (Ejemplo, primera entrega: Interfaz gráfica + validaciones).
