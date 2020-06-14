@@ -9,3 +9,9 @@ Proyecto de finalización de curso de 3ro bachillerato de informática, ITI, Mon
                                        https://github.com/anark1stx/Proyecto_UTU/tree/Validaciones
 
 Rama principal, implementaremos los cambios de las demás ramas a esta una vez que comprobemos que todas estén funcionando bien.
+
+Estado inicial del proyecto en la rama master = proyecto vacío.
+
+Estado medio del proyecto en la rama master = implementación de las ramas que sean necesarias para cada entrega.
+
+Estado final del proyecto en la rama master = implementación total de todas las ramas del proyecto.
