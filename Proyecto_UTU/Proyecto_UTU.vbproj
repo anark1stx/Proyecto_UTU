@@ -80,10 +80,29 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmIngreso_Usuario.Designer.vb">
+      <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmIngreso_Usuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedico.Designer.vb">
+      <DependentUpon>frmMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaciente.Designer.vb">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,6 +116,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmIngreso_Usuario.resx">
+      <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaciente.resx">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
