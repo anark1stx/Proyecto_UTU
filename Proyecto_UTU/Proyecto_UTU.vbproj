@@ -80,22 +80,28 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIngreso_Usuario.Designer.vb">
+    <Compile Include="Formularios\Auxiliar\frmAuxiliar.Designer.vb">
+      <DependentUpon>frmAuxiliar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Auxiliar\frmAuxiliar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmIngreso_Usuario.Designer.vb">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmIngreso_Usuario.vb">
+    <Compile Include="Formularios\frmIngreso_Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMedico.Designer.vb">
+    <Compile Include="Formularios\Medico\frmMedico.Designer.vb">
       <DependentUpon>frmMedico.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmMedico.vb">
+    <Compile Include="Formularios\Medico\frmMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPaciente.Designer.vb">
+    <Compile Include="Formularios\Paciente\frmPaciente.Designer.vb">
       <DependentUpon>frmPaciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPaciente.vb">
+    <Compile Include="Formularios\Paciente\frmPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -116,10 +122,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmIngreso_Usuario.resx">
+    <EmbeddedResource Include="Formularios\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPaciente.resx">
+    <EmbeddedResource Include="Formularios\Paciente\frmPaciente.resx">
       <DependentUpon>frmPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -139,7 +145,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
