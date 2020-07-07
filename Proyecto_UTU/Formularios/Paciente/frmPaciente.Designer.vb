@@ -25,6 +25,12 @@ Partial Class frmPaciente
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPaciente))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabGestion = New System.Windows.Forms.TabPage()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -35,15 +41,10 @@ Partial Class frmPaciente
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.TabDiagnostico = New System.Windows.Forms.TabPage()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.cbDiagnosticos = New System.Windows.Forms.ComboBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.cbAnalisis = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.tabGestion.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +89,66 @@ Partial Class frmPaciente
         Me.tabGestion.Size = New System.Drawing.Size(948, 620)
         Me.tabGestion.TabIndex = 0
         Me.tabGestion.Text = "Gestion"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(282, 226)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(196, 20)
+        Me.Label9.TabIndex = 24
+        Me.Label9.Text = "Contacto de emergencia:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(499, 226)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(111, 20)
+        Me.Label10.TabIndex = 23
+        Me.Label10.Text = "Matias Ponce"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(282, 155)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(78, 20)
+        Me.Label11.TabIndex = 22
+        Me.Label11.Text = "Teléfono:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(376, 156)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(90, 20)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = "099459207"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(282, 191)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 20)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "Correo:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(376, 191)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(213, 20)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "mateocarriqui7@gmail.com"
         '
         'Label5
         '
@@ -183,6 +244,7 @@ Partial Class frmPaciente
         'TabDiagnostico
         '
         Me.TabDiagnostico.BackColor = System.Drawing.Color.LightBlue
+        Me.TabDiagnostico.Controls.Add(Me.Panel1)
         Me.TabDiagnostico.Controls.Add(Me.cbDiagnosticos)
         Me.TabDiagnostico.Location = New System.Drawing.Point(4, 25)
         Me.TabDiagnostico.Name = "TabDiagnostico"
@@ -190,6 +252,17 @@ Partial Class frmPaciente
         Me.TabDiagnostico.Size = New System.Drawing.Size(948, 620)
         Me.TabDiagnostico.TabIndex = 1
         Me.TabDiagnostico.Text = "Diagnostico"
+        '
+        'cbDiagnosticos
+        '
+        Me.cbDiagnosticos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbDiagnosticos.FormattingEnabled = True
+        Me.cbDiagnosticos.Items.AddRange(New Object() {"03/01/20 - Oftalmología", "04/20/20 - Emergencia", "05/10/20 - Odontología"})
+        Me.cbDiagnosticos.Location = New System.Drawing.Point(712, 587)
+        Me.cbDiagnosticos.Name = "cbDiagnosticos"
+        Me.cbDiagnosticos.Size = New System.Drawing.Size(228, 24)
+        Me.cbDiagnosticos.Sorted = True
+        Me.cbDiagnosticos.TabIndex = 0
         '
         'TabPage1
         '
@@ -201,76 +274,6 @@ Partial Class frmPaciente
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Análisis"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(282, 191)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(65, 20)
-        Me.Label7.TabIndex = 18
-        Me.Label7.Text = "Correo:"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(376, 191)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(213, 20)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "mateocarriqui7@gmail.com"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(282, 155)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(78, 20)
-        Me.Label11.TabIndex = 22
-        Me.Label11.Text = "Teléfono:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(376, 156)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(90, 20)
-        Me.Label12.TabIndex = 21
-        Me.Label12.Text = "099459207"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(282, 226)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(196, 20)
-        Me.Label9.TabIndex = 24
-        Me.Label9.Text = "Contacto de emergencia:"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(499, 226)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(111, 20)
-        Me.Label10.TabIndex = 23
-        Me.Label10.Text = "Matias Ponce"
-        '
-        'cbDiagnosticos
-        '
-        Me.cbDiagnosticos.FormattingEnabled = True
-        Me.cbDiagnosticos.Items.AddRange(New Object() {"03/01/20 - Oftalmología", "04/20/20 - Emergencia", "05/10/20 - Odontología"})
-        Me.cbDiagnosticos.Location = New System.Drawing.Point(759, 590)
-        Me.cbDiagnosticos.Name = "cbDiagnosticos"
-        Me.cbDiagnosticos.Size = New System.Drawing.Size(181, 24)
-        Me.cbDiagnosticos.Sorted = True
-        Me.cbDiagnosticos.TabIndex = 0
-        '
         'cbAnalisis
         '
         Me.cbAnalisis.FormattingEnabled = True
@@ -280,6 +283,13 @@ Partial Class frmPaciente
         Me.cbAnalisis.Size = New System.Drawing.Size(181, 24)
         Me.cbAnalisis.Sorted = True
         Me.cbAnalisis.TabIndex = 1
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(8, 6)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(932, 575)
+        Me.Panel1.TabIndex = 1
         '
         'frmPaciente
         '
@@ -321,4 +331,5 @@ Partial Class frmPaciente
     Friend WithEvents Label10 As Label
     Friend WithEvents cbDiagnosticos As ComboBox
     Friend WithEvents cbAnalisis As ComboBox
+    Friend WithEvents Panel1 As Panel
 End Class
