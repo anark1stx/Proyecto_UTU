@@ -42,6 +42,6 @@
     End Sub
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        InstanciarFormulario("Consulta")
     End Sub
 End Class

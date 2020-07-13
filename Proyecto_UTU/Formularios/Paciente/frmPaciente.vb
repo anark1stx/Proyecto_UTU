@@ -59,4 +59,7 @@
 
     End Sub
 
+    Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        InstanciarFormulario("Gestion")
+    End Sub
 End Class
