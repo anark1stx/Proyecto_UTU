@@ -55,7 +55,7 @@ Partial Class frmMedico
         '
         Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 27)
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
-        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 564)
+        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
         'frmMedico

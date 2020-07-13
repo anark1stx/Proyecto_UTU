@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmGestionMedico
+Partial Class frmAnalisis
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -28,22 +28,22 @@ Partial Class frmGestionMedico
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(347, 119)
+        Me.Label1.Location = New System.Drawing.Point(473, 152)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 17)
+        Me.Label1.Size = New System.Drawing.Size(68, 17)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Gestion"
+        Me.Label1.Text = "ANALISIS"
         '
-        'frmGestionMedico
+        'frmAnalisis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(896, 555)
+        Me.ClientSize = New System.Drawing.Size(896, 551)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmGestionMedico"
-        Me.Text = "frmGestion"
+        Me.Name = "frmAnalisis"
+        Me.Text = "Analisis"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -110,6 +110,24 @@
     <Compile Include="Formularios\Medico\frmMedico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Paciente\frmAnalisis.Designer.vb">
+      <DependentUpon>frmAnalisis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmAnalisis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmDiagnosticos.Designer.vb">
+      <DependentUpon>frmDiagnosticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmDiagnosticos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmGestionPaciente.Designer.vb">
+      <DependentUpon>frmGestionPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmGestionPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Paciente\frmPaciente.Designer.vb">
       <DependentUpon>frmPaciente.vb</DependentUpon>
     </Compile>
@@ -145,6 +163,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmMedico.resx">
       <DependentUpon>frmMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmAnalisis.resx">
+      <DependentUpon>frmAnalisis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmDiagnosticos.resx">
+      <DependentUpon>frmDiagnosticos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmGestionPaciente.resx">
+      <DependentUpon>frmGestionPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Paciente\frmPaciente.resx">
       <DependentUpon>frmPaciente.vb</DependentUpon>
