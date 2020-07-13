@@ -41,10 +41,10 @@ Partial Class frmPaciente
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.TabDiagnostico = New System.Windows.Forms.TabPage()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cbDiagnosticos = New System.Windows.Forms.ComboBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.cbAnalisis = New System.Windows.Forms.ComboBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.tabGestion.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -253,6 +253,13 @@ Partial Class frmPaciente
         Me.TabDiagnostico.TabIndex = 1
         Me.TabDiagnostico.Text = "Diagnostico"
         '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(8, 6)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(932, 575)
+        Me.Panel1.TabIndex = 1
+        '
         'cbDiagnosticos
         '
         Me.cbDiagnosticos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -283,13 +290,6 @@ Partial Class frmPaciente
         Me.cbAnalisis.Size = New System.Drawing.Size(181, 24)
         Me.cbAnalisis.Sorted = True
         Me.cbAnalisis.TabIndex = 1
-        '
-        'Panel1
-        '
-        Me.Panel1.Location = New System.Drawing.Point(8, 6)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(932, 575)
-        Me.Panel1.TabIndex = 1
         '
         'frmPaciente
         '
