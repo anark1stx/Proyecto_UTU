@@ -73,22 +73,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedico.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedico.Designer.vb">
       <DependentUpon>frmDatosMedico.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedico.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedicoModificar.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedicoModificar.Designer.vb">
       <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedicoModificar.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedicoModificar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPacienteModificar.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosPacienteModificar.Designer.vb">
       <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPacienteModificar.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosPacienteModificar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Administrador\frmAdministrador.Designer.vb">
@@ -97,10 +97,10 @@
     <Compile Include="Formularios\Administrador\frmAdministrador.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPaciente.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosPaciente.Designer.vb">
       <DependentUpon>frmDatosPaciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPaciente.vb">
+    <Compile Include="Formularios\FormulariosABMLB\frmDatosPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Administrador\frmGestion.Designer.vb">
@@ -145,22 +145,22 @@
     <Compile Include="Formularios\Medico\frmMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Paciente\frmAnalisis.Designer.vb">
+    <Compile Include="Formularios\Paciente\Formularios\frmAnalisis.Designer.vb">
       <DependentUpon>frmAnalisis.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Paciente\frmAnalisis.vb">
+    <Compile Include="Formularios\Paciente\Formularios\frmAnalisis.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Paciente\frmDiagnosticos.Designer.vb">
+    <Compile Include="Formularios\Paciente\Formularios\frmDiagnosticos.Designer.vb">
       <DependentUpon>frmDiagnosticos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Paciente\frmDiagnosticos.vb">
+    <Compile Include="Formularios\Paciente\Formularios\frmDiagnosticos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Paciente\frmGestionPaciente.Designer.vb">
+    <Compile Include="Formularios\Paciente\Formularios\frmGestionPaciente.Designer.vb">
       <DependentUpon>frmGestionPaciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Paciente\frmGestionPaciente.vb">
+    <Compile Include="Formularios\Paciente\Formularios\frmGestionPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Paciente\frmPaciente.Designer.vb">
@@ -187,19 +187,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedico.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosMedico.resx">
       <DependentUpon>frmDatosMedico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedicoModificar.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosMedicoModificar.resx">
       <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosPacienteModificar.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosPacienteModificar.resx">
       <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosPaciente.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosPaciente.resx">
       <DependentUpon>frmDatosPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
@@ -220,13 +220,13 @@
     <EmbeddedResource Include="Formularios\Medico\frmMedico.resx">
       <DependentUpon>frmMedico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Paciente\frmAnalisis.resx">
+    <EmbeddedResource Include="Formularios\Paciente\Formularios\frmAnalisis.resx">
       <DependentUpon>frmAnalisis.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Paciente\frmDiagnosticos.resx">
+    <EmbeddedResource Include="Formularios\Paciente\Formularios\frmDiagnosticos.resx">
       <DependentUpon>frmDiagnosticos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Paciente\frmGestionPaciente.resx">
+    <EmbeddedResource Include="Formularios\Paciente\Formularios\frmGestionPaciente.resx">
       <DependentUpon>frmGestionPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Paciente\frmPaciente.resx">

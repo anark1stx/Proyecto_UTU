@@ -22,18 +22,9 @@ Partial Class frmDiagnosticos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.cbDiagnostico = New System.Windows.Forms.ComboBox()
+        Me.pnlInformacionDiagnostico = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(345, 145)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(103, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "DIAGNOSTICO"
         '
         'cbDiagnostico
         '
@@ -44,22 +35,27 @@ Partial Class frmDiagnosticos
         Me.cbDiagnostico.Size = New System.Drawing.Size(191, 24)
         Me.cbDiagnostico.TabIndex = 1
         '
+        'pnlInformacionDiagnostico
+        '
+        Me.pnlInformacionDiagnostico.Location = New System.Drawing.Point(12, 45)
+        Me.pnlInformacionDiagnostico.Name = "pnlInformacionDiagnostico"
+        Me.pnlInformacionDiagnostico.Size = New System.Drawing.Size(872, 494)
+        Me.pnlInformacionDiagnostico.TabIndex = 2
+        '
         'frmDiagnosticos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 551)
+        Me.Controls.Add(Me.pnlInformacionDiagnostico)
         Me.Controls.Add(Me.cbDiagnostico)
-        Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDiagnosticos"
         Me.Text = "frmDiagnosticos"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents cbDiagnostico As ComboBox
+    Friend WithEvents pnlInformacionDiagnostico As Panel
 End Class
