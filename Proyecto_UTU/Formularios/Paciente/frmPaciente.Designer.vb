@@ -44,19 +44,19 @@ Partial Class frmPaciente
         'GestiónToolStripMenuItem
         '
         Me.GestiónToolStripMenuItem.Name = "GestiónToolStripMenuItem"
-        Me.GestiónToolStripMenuItem.Size = New System.Drawing.Size(73, 26)
+        Me.GestiónToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.GestiónToolStripMenuItem.Text = "Gestión"
         '
         'DiagnósticoToolStripMenuItem
         '
         Me.DiagnósticoToolStripMenuItem.Name = "DiagnósticoToolStripMenuItem"
-        Me.DiagnósticoToolStripMenuItem.Size = New System.Drawing.Size(103, 26)
+        Me.DiagnósticoToolStripMenuItem.Size = New System.Drawing.Size(103, 24)
         Me.DiagnósticoToolStripMenuItem.Text = "Diagnóstico"
         '
         'AnálisisToolStripMenuItem
         '
         Me.AnálisisToolStripMenuItem.Name = "AnálisisToolStripMenuItem"
-        Me.AnálisisToolStripMenuItem.Size = New System.Drawing.Size(73, 26)
+        Me.AnálisisToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.AnálisisToolStripMenuItem.Text = "Análisis"
         '
         'pnlContenedorFormularios
@@ -76,7 +76,7 @@ Partial Class frmPaciente
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmPaciente"
-        Me.Text = "Paciente - Hospital Ricardo Ramón"
+        Me.Text = "Paciente - Hospital xxxx xxxx"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

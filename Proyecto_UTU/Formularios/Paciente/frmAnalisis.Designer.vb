@@ -23,6 +23,7 @@ Partial Class frmAnalisis
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbAnalisis = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -34,12 +35,22 @@ Partial Class frmAnalisis
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "ANALISIS"
         '
+        'cbAnalisis
+        '
+        Me.cbAnalisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbAnalisis.FormattingEnabled = True
+        Me.cbAnalisis.Location = New System.Drawing.Point(693, 12)
+        Me.cbAnalisis.Name = "cbAnalisis"
+        Me.cbAnalisis.Size = New System.Drawing.Size(191, 24)
+        Me.cbAnalisis.TabIndex = 2
+        '
         'frmAnalisis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 551)
+        Me.Controls.Add(Me.cbAnalisis)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAnalisis"
@@ -50,4 +61,5 @@ Partial Class frmAnalisis
     End Sub
 
     Friend WithEvents Label1 As Label
+    Friend WithEvents cbAnalisis As ComboBox
 End Class

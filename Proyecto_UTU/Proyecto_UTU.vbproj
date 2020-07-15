@@ -73,11 +73,46 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedico.Designer.vb">
+      <DependentUpon>frmDatosMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedicoModificar.Designer.vb">
+      <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedicoModificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPacienteModificar.Designer.vb">
+      <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPacienteModificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmAdministrador.Designer.vb">
+      <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmAdministrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPaciente.Designer.vb">
+      <DependentUpon>frmDatosPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\FormulariosABMLB\frmDatosPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmGestion.Designer.vb">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmGestion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmInicioAdministrador.Designer.vb">
+      <DependentUpon>frmInicioAdministrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmInicioAdministrador.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Auxiliar\frmAuxiliar.Designer.vb">
@@ -152,6 +187,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedico.resx">
+      <DependentUpon>frmDatosMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosMedicoModificar.resx">
+      <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosPacienteModificar.resx">
+      <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
+      <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\frmDatosPaciente.resx">
+      <DependentUpon>frmDatosPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmInicioAdministrador.resx">
+      <DependentUpon>frmInicioAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
@@ -194,5 +250,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

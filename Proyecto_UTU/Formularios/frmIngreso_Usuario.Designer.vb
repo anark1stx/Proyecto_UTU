@@ -36,18 +36,18 @@ Partial Class frmIngreso_Usuario
         Me.lblNomHospital.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblNomHospital.AutoSize = True
         Me.lblNomHospital.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomHospital.Location = New System.Drawing.Point(494, 9)
+        Me.lblNomHospital.Location = New System.Drawing.Point(293, 9)
         Me.lblNomHospital.Name = "lblNomHospital"
-        Me.lblNomHospital.Size = New System.Drawing.Size(338, 36)
+        Me.lblNomHospital.Size = New System.Drawing.Size(284, 36)
         Me.lblNomHospital.TabIndex = 0
-        Me.lblNomHospital.Text = "Hospital Ricardo Ramón"
+        Me.lblNomHospital.Text = "Nombre del Hospital"
         Me.lblNomHospital.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtIngresarCi
         '
         Me.txtIngresarCi.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtIngresarCi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIngresarCi.Location = New System.Drawing.Point(504, 136)
+        Me.txtIngresarCi.Location = New System.Drawing.Point(278, 136)
         Me.txtIngresarCi.Name = "txtIngresarCi"
         Me.txtIngresarCi.Size = New System.Drawing.Size(332, 30)
         Me.txtIngresarCi.TabIndex = 1
@@ -57,7 +57,7 @@ Partial Class frmIngreso_Usuario
         Me.lblIngreseCI.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblIngreseCI.AutoSize = True
         Me.lblIngreseCI.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIngreseCI.Location = New System.Drawing.Point(520, 108)
+        Me.lblIngreseCI.Location = New System.Drawing.Point(294, 108)
         Me.lblIngreseCI.Name = "lblIngreseCI"
         Me.lblIngreseCI.Size = New System.Drawing.Size(277, 25)
         Me.lblIngreseCI.TabIndex = 2
@@ -68,7 +68,7 @@ Partial Class frmIngreso_Usuario
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(553, 189)
+        Me.Label1.Location = New System.Drawing.Point(327, 189)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(205, 25)
         Me.Label1.TabIndex = 4
@@ -78,7 +78,7 @@ Partial Class frmIngreso_Usuario
         '
         Me.txtIngresarContrasena.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtIngresarContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIngresarContrasena.Location = New System.Drawing.Point(504, 217)
+        Me.txtIngresarContrasena.Location = New System.Drawing.Point(278, 217)
         Me.txtIngresarContrasena.Name = "txtIngresarContrasena"
         Me.txtIngresarContrasena.Size = New System.Drawing.Size(332, 30)
         Me.txtIngresarContrasena.TabIndex = 3
@@ -87,7 +87,7 @@ Partial Class frmIngreso_Usuario
         '
         Me.btnIngresar.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnIngresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIngresar.Location = New System.Drawing.Point(575, 296)
+        Me.btnIngresar.Location = New System.Drawing.Point(349, 296)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(166, 48)
         Me.btnIngresar.TabIndex = 5
@@ -98,7 +98,7 @@ Partial Class frmIngreso_Usuario
         '
         Me.L_lblContrasenaOlvidada.AutoSize = True
         Me.L_lblContrasenaOlvidada.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.L_lblContrasenaOlvidada.Location = New System.Drawing.Point(675, 250)
+        Me.L_lblContrasenaOlvidada.Location = New System.Drawing.Point(459, 250)
         Me.L_lblContrasenaOlvidada.Name = "L_lblContrasenaOlvidada"
         Me.L_lblContrasenaOlvidada.Size = New System.Drawing.Size(151, 18)
         Me.L_lblContrasenaOlvidada.TabIndex = 6
@@ -110,7 +110,7 @@ Partial Class frmIngreso_Usuario
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1348, 753)
+        Me.ClientSize = New System.Drawing.Size(896, 583)
         Me.Controls.Add(Me.L_lblContrasenaOlvidada)
         Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.Label1)

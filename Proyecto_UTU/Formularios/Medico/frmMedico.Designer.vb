@@ -68,7 +68,7 @@ Partial Class frmMedico
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMedico"
-        Me.Text = "frmMedico"
+        Me.Text = "Médico - Hospital xxxx xxxx"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
