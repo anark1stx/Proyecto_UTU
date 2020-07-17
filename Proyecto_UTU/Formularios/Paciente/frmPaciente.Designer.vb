@@ -74,8 +74,11 @@ Partial Class frmPaciente
         Me.ClientSize = New System.Drawing.Size(896, 583)
         Me.Controls.Add(Me.pnlContenedorFormularios)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "frmPaciente"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Paciente - Hospital xxxx xxxx"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

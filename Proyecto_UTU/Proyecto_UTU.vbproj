@@ -73,22 +73,40 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedico.Designer.vb">
+    <Compile Include="Formularios\Administrador\frmInicioAdm.Designer.vb">
+      <DependentUpon>frmInicioAdm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmInicioAdm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormulariosABMLB\Auxiliar\frmDatosAuxiliar.Designer.vb">
+      <DependentUpon>frmDatosAuxiliar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormulariosABMLB\Auxiliar\frmDatosAuxiliar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormulariosABMLB\Auxiliar\frmDatosAuxiliarModificar.Designer.vb">
+      <DependentUpon>frmDatosAuxiliarModificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormulariosABMLB\Auxiliar\frmDatosAuxiliarModificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormulariosABMLB\Medico\frmDatosMedico.Designer.vb">
       <DependentUpon>frmDatosMedico.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedico.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Medico\frmDatosMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedicoModificar.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Medico\frmDatosMedicoModificar.Designer.vb">
       <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosMedicoModificar.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Medico\frmDatosMedicoModificar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosPacienteModificar.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Paciente\frmDatosPacienteModificar.Designer.vb">
       <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosPacienteModificar.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Paciente\frmDatosPacienteModificar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Administrador\frmAdministrador.Designer.vb">
@@ -97,10 +115,10 @@
     <Compile Include="Formularios\Administrador\frmAdministrador.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosPaciente.Designer.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Paciente\frmDatosPaciente.Designer.vb">
       <DependentUpon>frmDatosPaciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormulariosABMLB\frmDatosPaciente.vb">
+    <Compile Include="Formularios\FormulariosABMLB\Paciente\frmDatosPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Administrador\frmGestion.Designer.vb">
@@ -187,19 +205,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosMedico.resx">
+    <EmbeddedResource Include="Formularios\Administrador\frmInicioAdm.resx">
+      <DependentUpon>frmInicioAdm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\Auxiliar\frmDatosAuxiliar.resx">
+      <DependentUpon>frmDatosAuxiliar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\Auxiliar\frmDatosAuxiliarModificar.resx">
+      <DependentUpon>frmDatosAuxiliarModificar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\Medico\frmDatosMedico.resx">
       <DependentUpon>frmDatosMedico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosMedicoModificar.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\Medico\frmDatosMedicoModificar.resx">
       <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosPacienteModificar.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\Paciente\frmDatosPacienteModificar.resx">
       <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormulariosABMLB\frmDatosPaciente.resx">
+    <EmbeddedResource Include="Formularios\FormulariosABMLB\Paciente\frmDatosPaciente.resx">
       <DependentUpon>frmDatosPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">

@@ -1,4 +1,4 @@
-﻿Public Class frmInicioAdministrador
+﻿Public Class frmInicioAdm
     Private Sub btnAltaMedico_Click(sender As Object, e As EventArgs) Handles btnAltaMedico.Click
         frmAdministrador.InstanciarFormulario("Gestion", "AltaMedico")
     End Sub
@@ -31,7 +31,19 @@
         frmAdministrador.InstanciarFormulario("Gestion", "DatosPaciente")
     End Sub
 
-    Private Sub frmInicioAdministrador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnAltaAuxiliar_Click(sender As Object, e As EventArgs) Handles btnAltaAuxiliar.Click
+        frmAdministrador.InstanciarFormulario("Gestion", "AltaAuxiliar")
+    End Sub
 
+    Private Sub btnBajaAuxiliar_Click(sender As Object, e As EventArgs) Handles btnBajaAuxiliar.Click
+        frmAdministrador.InstanciarFormulario("Gestion", "BajaAuxiliar")
+    End Sub
+
+    Private Sub btnModificarAuxiliar_Click(sender As Object, e As EventArgs) Handles btnModificarAuxiliar.Click
+        frmAdministrador.InstanciarFormulario("Gestion", "ModificarAuxiliar")
+    End Sub
+
+    Private Sub btnBuscarAuxiliar_Click(sender As Object, e As EventArgs) Handles btnBuscarAuxiliar.Click
+        frmAdministrador.InstanciarFormulario("Gestion", "DatosAuxiliar")
     End Sub
 End Class

@@ -1,14 +1,18 @@
 ﻿Public Class frmAdministrador
 #Region "Instancias_formularios"
-    Dim _frmInicio As New frmInicioAdministrador
-    Dim _frmGestion As New frmGestion
+    Dim _frmInicio As New frmInicioAdm 'Este es el formulario que muestra los botones grandes para hacer ABMLB
 
-    Dim _frmDatosPaciente As New frmDatosPaciente
-    Dim _frmDatosMedico As New frmDatosMedico
+    Dim _frmGestion As New frmGestion 'Gestion muestra Datos[tipoUsuario] + DatagridView que lista a los usuarios según parametros de busqueda
+
+    Dim _frmDatosPaciente As New frmDatosPaciente 'Muestra los datos de los pacientes según sus atributos de la BD.
+    Dim _frmDatosMedico As New frmDatosMedico 'Muestra los datos de los pacientes según sus atributos de la BD.
+    Dim _frmDatosAuxiliar As New frmDatosAuxiliar 'Muestra los datos de los auxiliares según sus atributos de la BD.
 
     Dim _frmModificarPaciente As New frmDatosPacienteModificar 'El formulario de modificación es el mismo que el formulario de alta.
     Dim _frmModificarMedico As New frmDatosMedicoModificar 'El formulario de modificación es el mismo que el formulario de alta.
+    Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar
 #End Region
+
 
     Public Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
 
@@ -28,13 +32,14 @@
 
                 If Not pnlContenedor.Controls.Contains(_frmGestion) Then
                     pnlContenedor.Controls.Clear()
-                    _frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    _frmGestion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedor.Controls.Add(_frmGestion) 'Añadir el formulario al panel
+                    _frmGestion.TopLevel = False
+                    _frmGestion.TopMost = True
+                    Me.pnlContenedor.Controls.Add(_frmGestion)
                     _frmGestion.Show()
                 End If
 
                 Select Case formularioHijo
+#Region "Paciente"
                     Case "DatosPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
 
                         _frmGestion.pnlDatosUsuario.Controls.Clear()
@@ -43,18 +48,7 @@
                         _frmDatosPaciente.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosPaciente)
 
-
                         _frmDatosPaciente.Show()
-
-                    Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosMedico.TopLevel = False
-                        _frmDatosMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosMedico)
-
-                        _frmDatosMedico.Show()
 
                     Case "ModificarPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
 
@@ -66,27 +60,7 @@
 
                         _frmModificarPaciente.Show()
 
-                    Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarMedico.TopLevel = False
-                        _frmModificarMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
-
-                        _frmModificarMedico.Show()
-
                     Case "BajaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosPaciente.TopLevel = False
-                        _frmDatosPaciente.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosPaciente)
-
-                        _frmDatosPaciente.Show()
-
-                    Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Paciente
 
                         _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Show()
@@ -106,7 +80,39 @@
 
                         _frmModificarPaciente.Show()
 
-                    Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+#End Region
+#Region "Medico"
+                    Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmDatosMedico.TopLevel = False
+                        _frmDatosMedico.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosMedico)
+
+                        _frmDatosMedico.Show()
+
+                    Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmModificarMedico.TopLevel = False
+                        _frmModificarMedico.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
+
+                        _frmModificarMedico.Show()
+
+                    Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmDatosPaciente.TopLevel = False
+                        _frmDatosPaciente.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosPaciente)
+
+                        _frmDatosPaciente.Show()
+
+                    Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
 
                         _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Hide()
@@ -115,6 +121,48 @@
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
 
                         _frmModificarMedico.Show()
+#End Region
+#Region "Auxiliar"
+                    Case "DatosAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmDatosAuxiliar.TopLevel = False
+                        _frmDatosAuxiliar.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosAuxiliar)
+
+                        _frmDatosAuxiliar.Show()
+
+                    Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmModificarAuxiliar.TopLevel = False
+                        _frmModificarAuxiliar.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarAuxiliar)
+
+                        _frmModificarAuxiliar.Show()
+
+                    Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmDatosAuxiliar.TopLevel = False
+                        _frmDatosAuxiliar.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosAuxiliar)
+
+                        _frmDatosAuxiliar.Show()
+
+                    Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
+
+                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        _frmGestion.pnlContenedorBusqueda.Hide()
+                        _frmModificarAuxiliar.TopLevel = False
+                        _frmModificarAuxiliar.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarAuxiliar)
+
+                        _frmModificarAuxiliar.Show()
+#End Region
                 End Select
 
         End Select
@@ -160,6 +208,22 @@
 
     Private Sub frmAdministrador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InicioToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub AuxiliarMenuItemAlta_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemAlta.Click
+        InstanciarFormulario("Gestion", "AltaAuxiliar")
+    End Sub
+
+    Private Sub AuxiliarMenuItemBaja_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemBaja.Click
+        InstanciarFormulario("Gestion", "BajaAuxiliar")
+    End Sub
+
+    Private Sub AuxiliarMenuItemModificar_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemModificar.Click
+        InstanciarFormulario("Gestion", "ModificarAuxiliar")
+    End Sub
+
+    Private Sub AuxiliarToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles AuxiliarToolStripMenuItem3.Click
+        InstanciarFormulario("Gestion", "DatosAuxiliar")
     End Sub
 #End Region
 

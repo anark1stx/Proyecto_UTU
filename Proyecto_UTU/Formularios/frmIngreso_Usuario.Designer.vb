@@ -119,10 +119,12 @@ Partial Class frmIngreso_Usuario
         Me.Controls.Add(Me.txtIngresarCi)
         Me.Controls.Add(Me.lblNomHospital)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1366, 800)
         Me.MinimumSize = New System.Drawing.Size(660, 380)
         Me.Name = "frmIngreso_Usuario"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ingreso de usuarios"
         Me.ResumeLayout(False)
         Me.PerformLayout()
