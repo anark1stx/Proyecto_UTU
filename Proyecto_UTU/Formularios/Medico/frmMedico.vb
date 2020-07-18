@@ -1,15 +1,11 @@
 ﻿Public Class frmMedico
     Dim frmConsulta As New frmConsultaConPaciente 'Instancia del formulario de consulta con el paciente
     Dim frmGestion As New frmGestionMedico 'Instancia del formulario de gestion del medico
-    Private Sub GestiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónToolStripMenuItem.Click
+
+    Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
+    Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
-    End Sub
-
-    Private Sub ConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem.Click
-        'Cargar formulario de consulta con el paciente.
-
-        InstanciarFormulario("Consulta")
     End Sub
 
     Public Sub InstanciarFormulario(formulario As String)
@@ -36,13 +32,35 @@
                     frmGestion.Show()
 
                 End If
-
         End Select
 
     End Sub
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        InstanciarFormulario("Gestion")
+    End Sub
+
+    Private Sub EntrevistaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificacionMenuItem.Click
         InstanciarFormulario("Consulta")
     End Sub
 
+    Private Sub ElegirFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles ElegirFormularioMenuItem.Click
+        If llenoIdentificacion = False Then
+            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis>Identificación.")
+        Else
+            'Abrir menú con todos los formularios guardados en la BD y dejarlo elegir, u ofrecerle los que ya dejemos nosotros pre-hechos
+        End If
+    End Sub
+
+    Private Sub EntrevistaMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistaMenuItem.Click
+        If llenoIdentificacion = False Then
+            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis>Identificación.")
+        Else
+            'Abrir menú con todos los formularios guardados en la BD y dejarlo elegir, , u ofrecerle los que ya dejemos nosotros pre-hechos
+        End If
+    End Sub
+
+    Private Sub CrearFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles CrearFormularioMenuItem.Click
+        'Abrir la ventana interactiva con items drag&drop
+    End Sub
 End Class

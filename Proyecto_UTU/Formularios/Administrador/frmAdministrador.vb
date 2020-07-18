@@ -27,7 +27,6 @@
                     _frmInicio.Show()
                 End If
 
-
             Case "Gestion"
 
                 If Not pnlContenedor.Controls.Contains(_frmGestion) Then
@@ -169,7 +168,7 @@
     End Sub
 
 #Region "Eventos"
-    Private Sub MédicoBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles MédicoBusquedaMenuItem.Click
+    Private Sub MédicoBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoBusquedaMenuItem.Click
         InstanciarFormulario("Gestion", "DatosMedico")
     End Sub
 
@@ -180,7 +179,6 @@
     Private Sub PacienteModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteModificacionMenuItem.Click
         InstanciarFormulario("Gestion", "ModificarPaciente")
     End Sub
-
 
     Private Sub MedicoModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoModificacionMenuItem.Click
         InstanciarFormulario("Gestion", "ModificarMedico")
@@ -202,7 +200,7 @@
         InstanciarFormulario("Gestion", "AltaMedico")
     End Sub
 
-    Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
+    Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioMenuItem.Click
         InstanciarFormulario("Inicio", "")
     End Sub
 
@@ -222,9 +220,10 @@
         InstanciarFormulario("Gestion", "ModificarAuxiliar")
     End Sub
 
-    Private Sub AuxiliarToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles AuxiliarToolStripMenuItem3.Click
+    Private Sub AuxiliarBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click
         InstanciarFormulario("Gestion", "DatosAuxiliar")
     End Sub
+
 #End Region
 
 End Class

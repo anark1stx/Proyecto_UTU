@@ -22,31 +22,22 @@ Partial Class frmAnalisis
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.tabPanelDiagnostico = New System.Windows.Forms.TabControl()
-        Me.tabDetalles = New System.Windows.Forms.TabPage()
+        Me.tabPanelAnalisis = New System.Windows.Forms.TabControl()
         Me.tabPageResultado = New System.Windows.Forms.TabPage()
+        Me.tabPageDetalles = New System.Windows.Forms.TabPage()
         Me.cbAnalisis = New System.Windows.Forms.ComboBox()
-        Me.tabPanelDiagnostico.SuspendLayout()
+        Me.tabPanelAnalisis.SuspendLayout()
         Me.SuspendLayout()
         '
-        'tabPanelDiagnostico
+        'tabPanelAnalisis
         '
-        Me.tabPanelDiagnostico.Controls.Add(Me.tabPageResultado)
-        Me.tabPanelDiagnostico.Controls.Add(Me.tabDetalles)
-        Me.tabPanelDiagnostico.Location = New System.Drawing.Point(12, 43)
-        Me.tabPanelDiagnostico.Name = "tabPanelDiagnostico"
-        Me.tabPanelDiagnostico.SelectedIndex = 0
-        Me.tabPanelDiagnostico.Size = New System.Drawing.Size(872, 496)
-        Me.tabPanelDiagnostico.TabIndex = 4
-        '
-        'tabDetalles
-        '
-        Me.tabDetalles.Location = New System.Drawing.Point(4, 25)
-        Me.tabDetalles.Name = "tabDetalles"
-        Me.tabDetalles.Size = New System.Drawing.Size(864, 467)
-        Me.tabDetalles.TabIndex = 2
-        Me.tabDetalles.Text = "Detalles"
-        Me.tabDetalles.UseVisualStyleBackColor = True
+        Me.tabPanelAnalisis.Controls.Add(Me.tabPageResultado)
+        Me.tabPanelAnalisis.Controls.Add(Me.tabPageDetalles)
+        Me.tabPanelAnalisis.Location = New System.Drawing.Point(12, 43)
+        Me.tabPanelAnalisis.Name = "tabPanelAnalisis"
+        Me.tabPanelAnalisis.SelectedIndex = 0
+        Me.tabPanelAnalisis.Size = New System.Drawing.Size(872, 496)
+        Me.tabPanelAnalisis.TabIndex = 4
         '
         'tabPageResultado
         '
@@ -57,6 +48,15 @@ Partial Class frmAnalisis
         Me.tabPageResultado.TabIndex = 0
         Me.tabPageResultado.Text = "Resultado"
         Me.tabPageResultado.UseVisualStyleBackColor = True
+        '
+        'tabPageDetalles
+        '
+        Me.tabPageDetalles.Location = New System.Drawing.Point(4, 25)
+        Me.tabPageDetalles.Name = "tabPageDetalles"
+        Me.tabPageDetalles.Size = New System.Drawing.Size(864, 467)
+        Me.tabPageDetalles.TabIndex = 2
+        Me.tabPageDetalles.Text = "Detalles"
+        Me.tabPageDetalles.UseVisualStyleBackColor = True
         '
         'cbAnalisis
         '
@@ -73,18 +73,18 @@ Partial Class frmAnalisis
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 551)
-        Me.Controls.Add(Me.tabPanelDiagnostico)
+        Me.Controls.Add(Me.tabPanelAnalisis)
         Me.Controls.Add(Me.cbAnalisis)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAnalisis"
         Me.Text = "Analisis"
-        Me.tabPanelDiagnostico.ResumeLayout(False)
+        Me.tabPanelAnalisis.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents tabPanelDiagnostico As TabControl
+    Friend WithEvents tabPanelAnalisis As TabControl
     Friend WithEvents tabPageResultado As TabPage
-    Friend WithEvents tabDetalles As TabPage
+    Friend WithEvents tabPageDetalles As TabPage
     Friend WithEvents cbAnalisis As ComboBox
 End Class

@@ -23,9 +23,9 @@ Partial Class frmPaciente
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.GestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DiagnósticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AnálisisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DiagnosticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnalisisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -33,7 +33,7 @@ Partial Class frmPaciente
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestiónToolStripMenuItem, Me.DiagnósticoToolStripMenuItem, Me.AnálisisToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionToolStripMenuItem, Me.DiagnosticoToolStripMenuItem, Me.AnalisisToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -41,23 +41,23 @@ Partial Class frmPaciente
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'GestiónToolStripMenuItem
+        'GestionToolStripMenuItem
         '
-        Me.GestiónToolStripMenuItem.Name = "GestiónToolStripMenuItem"
-        Me.GestiónToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
-        Me.GestiónToolStripMenuItem.Text = "Gestión"
+        Me.GestionToolStripMenuItem.Name = "GestionToolStripMenuItem"
+        Me.GestionToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
+        Me.GestionToolStripMenuItem.Text = "Gestión"
         '
-        'DiagnósticoToolStripMenuItem
+        'DiagnosticoToolStripMenuItem
         '
-        Me.DiagnósticoToolStripMenuItem.Name = "DiagnósticoToolStripMenuItem"
-        Me.DiagnósticoToolStripMenuItem.Size = New System.Drawing.Size(103, 24)
-        Me.DiagnósticoToolStripMenuItem.Text = "Diagnóstico"
+        Me.DiagnosticoToolStripMenuItem.Name = "DiagnosticoToolStripMenuItem"
+        Me.DiagnosticoToolStripMenuItem.Size = New System.Drawing.Size(103, 24)
+        Me.DiagnosticoToolStripMenuItem.Text = "Diagnóstico"
         '
-        'AnálisisToolStripMenuItem
+        'AnalisisToolStripMenuItem
         '
-        Me.AnálisisToolStripMenuItem.Name = "AnálisisToolStripMenuItem"
-        Me.AnálisisToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
-        Me.AnálisisToolStripMenuItem.Text = "Análisis"
+        Me.AnalisisToolStripMenuItem.Name = "AnalisisToolStripMenuItem"
+        Me.AnalisisToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
+        Me.AnalisisToolStripMenuItem.Text = "Análisis"
         '
         'pnlContenedorFormularios
         '
@@ -88,8 +88,8 @@ Partial Class frmPaciente
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents GestiónToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DiagnósticoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AnálisisToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DiagnosticoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AnalisisToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents pnlContenedorFormularios As Panel
 End Class

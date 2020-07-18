@@ -2,18 +2,18 @@
     Dim frmDiagnostico As New frmDiagnosticos 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmAnalisis As New frmAnalisis 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
-    Private Sub GestiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónToolStripMenuItem.Click
+    Private Sub GestiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
     End Sub
 
-    Private Sub DiagnósticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiagnósticoToolStripMenuItem.Click
+    Private Sub DiagnósticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiagnosticoToolStripMenuItem.Click
         'Cargar formulario de consulta con el paciente.
 
         InstanciarFormulario("Diagnostico")
     End Sub
 
-    Private Sub AnálisisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnálisisToolStripMenuItem.Click
+    Private Sub AnálisisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisToolStripMenuItem.Click
         'Cargar formulario de consulta con el paciente.
 
         InstanciarFormulario("Analisis")
