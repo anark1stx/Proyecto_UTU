@@ -29,6 +29,7 @@ Partial Class frmIngreso_Usuario
         Me.txtIngresarContrasena = New System.Windows.Forms.TextBox()
         Me.btnIngresar = New System.Windows.Forms.Button()
         Me.L_lblContrasenaOlvidada = New System.Windows.Forms.LinkLabel()
+        Me.lblMensajeErrorCI = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblNomHospital
@@ -80,6 +81,7 @@ Partial Class frmIngreso_Usuario
         Me.txtIngresarContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIngresarContrasena.Location = New System.Drawing.Point(278, 217)
         Me.txtIngresarContrasena.Name = "txtIngresarContrasena"
+        Me.txtIngresarContrasena.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtIngresarContrasena.Size = New System.Drawing.Size(332, 30)
         Me.txtIngresarContrasena.TabIndex = 3
         '
@@ -105,12 +107,24 @@ Partial Class frmIngreso_Usuario
         Me.L_lblContrasenaOlvidada.TabStop = True
         Me.L_lblContrasenaOlvidada.Text = "Olvidé mi contraseña."
         '
+        'lblMensajeErrorCI
+        '
+        Me.lblMensajeErrorCI.AutoSize = True
+        Me.lblMensajeErrorCI.ForeColor = System.Drawing.Color.Red
+        Me.lblMensajeErrorCI.Location = New System.Drawing.Point(277, 169)
+        Me.lblMensajeErrorCI.Name = "lblMensajeErrorCI"
+        Me.lblMensajeErrorCI.Size = New System.Drawing.Size(69, 17)
+        Me.lblMensajeErrorCI.TabIndex = 7
+        Me.lblMensajeErrorCI.Text = "Msg error"
+        Me.lblMensajeErrorCI.Visible = False
+        '
         'frmIngreso_Usuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 583)
+        Me.Controls.Add(Me.lblMensajeErrorCI)
         Me.Controls.Add(Me.L_lblContrasenaOlvidada)
         Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.Label1)
@@ -138,4 +152,5 @@ Partial Class frmIngreso_Usuario
     Friend WithEvents txtIngresarContrasena As TextBox
     Friend WithEvents btnIngresar As Button
     Friend WithEvents L_lblContrasenaOlvidada As LinkLabel
+    Friend WithEvents lblMensajeErrorCI As Label
 End Class

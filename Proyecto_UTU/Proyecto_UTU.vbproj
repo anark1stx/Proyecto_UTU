@@ -140,10 +140,10 @@
     <Compile Include="Formularios\Auxiliar\frmAuxiliar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmIngreso_Usuario.Designer.vb">
+    <Compile Include="Formularios\Usuario\frmIngreso_Usuario.Designer.vb">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmIngreso_Usuario.vb">
+    <Compile Include="Formularios\Usuario\frmIngreso_Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\frmConsultaConPaciente.Designer.vb">
@@ -186,6 +186,12 @@
       <DependentUpon>frmPaciente.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Paciente\frmPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuario\frmOlvideMiContrasena.Designer.vb">
+      <DependentUpon>frmOlvideMiContrasena.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuario\frmOlvideMiContrasena.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\mdlChecker.vb" />
@@ -239,7 +245,7 @@
     <EmbeddedResource Include="Formularios\Administrador\frmInicioAdministrador.resx">
       <DependentUpon>frmInicioAdministrador.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmIngreso_Usuario.resx">
+    <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmConsultaConPaciente.resx">
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Paciente\frmPaciente.resx">
       <DependentUpon>frmPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuario\frmOlvideMiContrasena.resx">
+      <DependentUpon>frmOlvideMiContrasena.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
