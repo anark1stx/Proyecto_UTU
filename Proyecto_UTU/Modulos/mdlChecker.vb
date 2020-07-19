@@ -28,6 +28,54 @@
         End If
 
     End Function
+
+    Public Function check_caracteres(propiedad As String) As Boolean
+
+        Const caracteres = "~^;:><?¿[]()/&%@$#!¡|°¬=,.+ `´{}-_*'"
+
+        For i = 0 To caracteres.Length - 1
+
+            If propiedad.Contains(caracteres(i)) Then
+                Return 1
+            End If
+
+        Next
+
+        Return 0
+
+    End Function
+
+    Public Function check_Sexo(sexo As String) As Boolean
+        If sexo.Equals("Masculino") Or sexo.Equals("Femenino") Then
+            Return 1
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Function check_edad(edad As String) As Boolean
+
+        If Not IsNumeric(edad) Then
+            optMsg = "Ingrese un valor numerico válido."
+            Return 0
+
+            If edad < 0 Or edad > 160 Then
+                optMsg = "Ingrese un valor numerico válido."
+                Return 0
+            End If
+        End If
+
+        Return 1
+    End Function
+
+    Public Function check_Estado_Civil(estado As String) As Boolean
+        If estado.Equals("Soltero") Or estado.Equals("Casado") Then
+            Return 1
+        Else
+            Return 0
+        End If
+    End Function
+
     Public Function check_Correo(correo As String) As Boolean
 
         If Not check_Largo(correo, 15, 45, True) Or Not correo.Contains("@") Then
@@ -49,10 +97,9 @@
         If Not lista_dominios.Contains(correo_despues_arroba) Then
             optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com"
             Return 0
-        Else
-            Return 1
         End If
 
+        Return 1
     End Function
     Public Function check_Telefonos(telefonos As List(Of String)) As Boolean
 
@@ -121,28 +168,83 @@
         If Not digito_verificador = verificador_ingresado_x_usuario Then
             optMsg = "Su cédula es incorrecta, verifique que haya ingresado los 8 números que se muestran en el documento"
             Return 0
-        Else
-            Return 1
         End If
 
+        Return 1
+
     End Function
-    Public Function check_caracteres(propiedad As String) As Boolean
 
-        Const caracteres = "~^;:><?¿[]()/&%@$#!¡|°¬=,.+ `´{}-_*'"
+    Public Function check_Usuario(usuario As Usuario, Optional medico As Medico = Nothing, Optional paciente As Paciente = Nothing) As Boolean
 
-        For i = 0 To caracteres.Length - 1
+        If Not check_Cedula(usuario.Cedula) Then
+            Return 0
+        End If
 
-            If propiedad.Contains(caracteres(i)) Then
-                Return 1
+        If Not check_Largo(usuario.Nombre1, 3, 15, True) Then
+            Return 0
+        Else
+            If check_contieneNumeros(usuario.Nombre1) Then
+                Return 0
+            End If
+        End If
+
+        If Not check_Largo(usuario.Nombre2, 3, 15, False) Then
+            Return 0
+        Else
+            If check_contieneNumeros(usuario.Nombre2) Then
+                Return 0
+            End If
+        End If
+
+        If Not check_Largo(usuario.Apellido1, 3, 15, True) Then
+            Return 0
+        Else
+            If check_contieneNumeros(usuario.Apellido1) Then
+                Return 0
+            End If
+        End If
+
+        If Not check_Largo(usuario.Apellido2, 3, 15, False) Then
+            Return 0
+        Else
+            If check_contieneNumeros(usuario.Apellido2) Then
+                Return 0
+            End If
+        End If
+
+        If Not check_Correo(usuario.Correo) Then
+            Return 0
+        End If
+
+        If Not check_Telefonos(usuario.telefonosLista) Then
+            Return 0
+        End If
+
+        If Not medico.Equals(Nothing) Then 'Verificar que tipo de usuario estamos validando
+            'Return(check_Especialidad(especialidad))
+
+        ElseIf Not paciente.Equals(Nothing) Then
+
+            If Not check_edad(paciente.Edad) Then
+                Return 0
             End If
 
-        Next
+            If Not check_Sexo(paciente.Sexo) Then
+                Return 0
+            End If
 
-        Return 0
+            If Not check_Estado_Civil(paciente.Estado_civil) Then
+                Return 0
+            End If
+
+        End If
+
+        Return 1
 
     End Function
-    Public Function check_UsuarioExiste(usuario As String) As Boolean
-        'Si el usuario existe, retornamos 1, si no existe, retornamos 0
+
+    Public Function check_CedulaExiste(cedula As String) As Boolean
+        'Si la CI existe, retornamos 1, si no existe, retornamos 0
         Return 0
     End Function
     Public Function check_ContrasenaOk(contrasena As String) As Boolean
@@ -153,11 +255,5 @@
         'Si el correo existe, retornamos 1, si no existe, retornamos 0
         Return 0
     End Function
-
-    Public Function check_Usuario_Medico_Ingreso() As Boolean
-
-    End Function
-
-
 
 End Module
