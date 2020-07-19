@@ -2,6 +2,8 @@
     Dim frmConsulta As New frmConsultaConPaciente 'Instancia del formulario de consulta con el paciente
     Dim frmGestion As New frmGestionMedico 'Instancia del formulario de gestion del medico
 
+    Dim frmCrearFrm As New frmCrearFormulario
+
     Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
         'Cargar Formulario de gestión para el médico.
@@ -32,6 +34,10 @@
                     frmGestion.Show()
 
                 End If
+
+            Case "CrearFormulario"
+
+                frmCrearFrm.Show()
         End Select
 
     End Sub
@@ -62,5 +68,6 @@
 
     Private Sub CrearFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles CrearFormularioMenuItem.Click
         'Abrir la ventana interactiva con items drag&drop
+        InstanciarFormulario("CrearFormulario")
     End Sub
 End Class
