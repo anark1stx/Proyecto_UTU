@@ -105,11 +105,11 @@
 
                         _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosPaciente.TopLevel = False
-                        _frmDatosPaciente.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosPaciente)
+                        _frmModificarMedico.TopLevel = False
+                        _frmModificarMedico.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
 
-                        _frmDatosPaciente.Show()
+                        _frmModificarMedico.Show()
 
                     Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
 

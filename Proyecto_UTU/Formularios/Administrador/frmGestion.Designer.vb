@@ -31,7 +31,6 @@ Partial Class frmGestion
         Me.rdBtnCedula = New System.Windows.Forms.RadioButton()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.btnBaja = New System.Windows.Forms.Button()
         Me.pnlContenedorBusqueda.SuspendLayout()
         Me.pnl_rdbtns_ci_nom_ap.SuspendLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +46,6 @@ Partial Class frmGestion
         '
         'pnlContenedorBusqueda
         '
-        Me.pnlContenedorBusqueda.Controls.Add(Me.btnBaja)
         Me.pnlContenedorBusqueda.Controls.Add(Me.btnBuscar)
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnl_rdbtns_ci_nom_ap)
         Me.pnlContenedorBusqueda.Controls.Add(Me.txtBuscar)
@@ -60,7 +58,7 @@ Partial Class frmGestion
         'btnBuscar
         '
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.Location = New System.Drawing.Point(966, 0)
+        Me.btnBuscar.Location = New System.Drawing.Point(1004, 0)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(34, 32)
         Me.btnBuscar.TabIndex = 110
@@ -70,7 +68,7 @@ Partial Class frmGestion
         '
         Me.pnl_rdbtns_ci_nom_ap.Controls.Add(Me.rdBtnNomyAp)
         Me.pnl_rdbtns_ci_nom_ap.Controls.Add(Me.rdBtnCedula)
-        Me.pnl_rdbtns_ci_nom_ap.Location = New System.Drawing.Point(530, 0)
+        Me.pnl_rdbtns_ci_nom_ap.Location = New System.Drawing.Point(564, 0)
         Me.pnl_rdbtns_ci_nom_ap.Name = "pnl_rdbtns_ci_nom_ap"
         Me.pnl_rdbtns_ci_nom_ap.Size = New System.Drawing.Size(294, 32)
         Me.pnl_rdbtns_ci_nom_ap.TabIndex = 109
@@ -79,18 +77,18 @@ Partial Class frmGestion
         '
         Me.rdBtnNomyAp.AutoSize = True
         Me.rdBtnNomyAp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdBtnNomyAp.Location = New System.Drawing.Point(111, 5)
+        Me.rdBtnNomyAp.Location = New System.Drawing.Point(202, 5)
         Me.rdBtnNomyAp.Name = "rdBtnNomyAp"
-        Me.rdBtnNomyAp.Size = New System.Drawing.Size(166, 24)
+        Me.rdBtnNomyAp.Size = New System.Drawing.Size(89, 24)
         Me.rdBtnNomyAp.TabIndex = 1
-        Me.rdBtnNomyAp.Text = "Nombre y Apellido"
+        Me.rdBtnNomyAp.Text = "Apellido"
         Me.rdBtnNomyAp.UseVisualStyleBackColor = True
         '
         'rdBtnCedula
         '
         Me.rdBtnCedula.AutoSize = True
         Me.rdBtnCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdBtnCedula.Location = New System.Drawing.Point(14, 5)
+        Me.rdBtnCedula.Location = New System.Drawing.Point(100, 5)
         Me.rdBtnCedula.Name = "rdBtnCedula"
         Me.rdBtnCedula.Size = New System.Drawing.Size(82, 24)
         Me.rdBtnCedula.TabIndex = 0
@@ -100,7 +98,7 @@ Partial Class frmGestion
         'txtBuscar
         '
         Me.txtBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscar.Location = New System.Drawing.Point(830, 2)
+        Me.txtBuscar.Location = New System.Drawing.Point(868, 2)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(131, 27)
         Me.txtBuscar.TabIndex = 108
@@ -114,16 +112,6 @@ Partial Class frmGestion
         Me.dgwUsuarios.RowTemplate.Height = 24
         Me.dgwUsuarios.Size = New System.Drawing.Size(1038, 351)
         Me.dgwUsuarios.TabIndex = 107
-        '
-        'btnBaja
-        '
-        Me.btnBaja.FlatAppearance.BorderSize = 0
-        Me.btnBaja.Image = CType(resources.GetObject("btnBaja.Image"), System.Drawing.Image)
-        Me.btnBaja.Location = New System.Drawing.Point(1003, 0)
-        Me.btnBaja.Name = "btnBaja"
-        Me.btnBaja.Size = New System.Drawing.Size(34, 32)
-        Me.btnBaja.TabIndex = 111
-        Me.btnBaja.UseVisualStyleBackColor = True
         '
         'frmGestion
         '
@@ -153,5 +141,4 @@ Partial Class frmGestion
     Friend WithEvents rdBtnCedula As RadioButton
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents dgwUsuarios As DataGridView
-    Friend WithEvents btnBaja As Button
 End Class
