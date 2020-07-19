@@ -10,12 +10,11 @@
 
     Dim txtSintomas_ingresados As Integer = 0
 
-
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-
+#Region "Eventos para el TextBox"
     Private Sub txtControl_MouseDown(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             Dim _txt As New TextBox
@@ -47,9 +46,44 @@
         TipoDeTxt.Show()
 
     End Sub
+#End Region
+
+#Region "eventos para la Label"
+    Private Sub lblLabel_MouseDown(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseDown
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            Dim _lbl As New Label
+            temp_control_type = "Label"
+            _lbl.Size = New Size(122, 55)
+            _lbl.Name = "lbl"
+            _lbl.Text = "Texto"
+            _instancia = _lbl
+            Me.Controls.Add(_instancia)
+            _instancia.BringToFront()
+            ubicacion_mouse = e.Location
+        End If
+    End Sub
+
+    Private Sub lblLabel_MouseMove(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseMove
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
+            _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
+
+            If _instancia.Location.X > pnlControles.Width Then
+                pnlFormularioPersonalizado.Controls.Add(_instancia)
+            End If
+
+        End If
+    End Sub
+
+    Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
+        setType("lbl")
+    End Sub
+
+#End Region
+
+
 
     Public Sub setType(nombre As String)
-
         _instancia.Name = nombre
         _instancia.Name = setControlName()
 
@@ -59,16 +93,35 @@
     End Sub
 
     Public Function setControlName() As String
-        If _instancia.Name = "Síntoma" Then
-            txtSintomas_ingresados += 1
-            Return "txtSintoma" & txtSintomas_ingresados.ToString()
-        ElseIf _instancia.Name = "Frecuencia Cardíaca" Then
-            txtSintomas_ingresados += 1
+
+        Select Case _instancia.Name
+            Case "Síntoma"
+                txtSintomas_ingresados += 1
                 Return "txtSintoma" & txtSintomas_ingresados.ToString()
-            Else
-            control_count += 1
-            Return temp_control_type & control_count.ToString()
-        End If
+
+            Case "frecuencia_cardiaca"
+                Return "txtFrecCard"
+
+            Case "frecuencia_respiratoria"
+                Return "txtFrecResp"
+
+            Case "Temperatura"
+                Return "txtTemperatura"
+
+            Case "Pulso"
+                Return "txtPulso"
+
+            Case "Grado de Nutrición"
+                Return "txtGradoNutr"
+
+            Case "Grado de Hidratación"
+                Return "txtGradoHidr"
+
+            Case Else
+                control_count += 1
+                Return temp_control_type & control_count.ToString()
+        End Select
+
     End Function
 
 

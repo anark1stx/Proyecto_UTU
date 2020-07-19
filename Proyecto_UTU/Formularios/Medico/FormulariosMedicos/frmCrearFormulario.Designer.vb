@@ -25,7 +25,7 @@ Partial Class frmCrearFormulario
         Me.pnlControles = New System.Windows.Forms.Panel()
         Me.txtSintoma0 = New System.Windows.Forms.TextBox()
         Me.pnlFormularioPersonalizado = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblLabel = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.pnlControles.SuspendLayout()
         Me.SuspendLayout()
@@ -34,7 +34,7 @@ Partial Class frmCrearFormulario
         '
         Me.pnlControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlControles.Controls.Add(Me.CheckBox1)
-        Me.pnlControles.Controls.Add(Me.Label1)
+        Me.pnlControles.Controls.Add(Me.lblLabel)
         Me.pnlControles.Controls.Add(Me.txtSintoma0)
         Me.pnlControles.Location = New System.Drawing.Point(12, 12)
         Me.pnlControles.Name = "pnlControles"
@@ -56,14 +56,14 @@ Partial Class frmCrearFormulario
         Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(753, 640)
         Me.pnlFormularioPersonalizado.TabIndex = 1
         '
-        'Label1
+        'lblLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(49, 118)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Titulo"
+        Me.lblLabel.AutoSize = True
+        Me.lblLabel.Location = New System.Drawing.Point(49, 118)
+        Me.lblLabel.Name = "lblLabel"
+        Me.lblLabel.Size = New System.Drawing.Size(43, 17)
+        Me.lblLabel.TabIndex = 0
+        Me.lblLabel.Text = "Titulo"
         '
         'CheckBox1
         '
@@ -95,5 +95,5 @@ Partial Class frmCrearFormulario
     Friend WithEvents pnlFormularioPersonalizado As Panel
     Friend WithEvents txtSintoma0 As TextBox
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblLabel As Label
 End Class

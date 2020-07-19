@@ -8,6 +8,13 @@
             cbTipoDeDato.Items.RemoveAt(cbTipoDeDato.SelectedIndex) 'Sacamos el item de la combobox para evitar tener 2 pulsos, 2 frecuencias cardíacas, etc.
         End If
 
+        If valorSeleccionado.Equals("Frecuencia cardíaca") Then
+            valorSeleccionado = "frecuencia_cardiaca"
+        ElseIf valorSeleccionado.Equals("Frecuencia respiratoria") Then
+            valorSeleccionado = "frecuencia_respiratoria"
+
+        End If
+
         frmCrearFormulario.setType(valorSeleccionado)
         Me.Hide()
     End Sub
