@@ -154,4 +154,10 @@
         Return 0
     End Function
 
+    Public Function check_Usuario_Medico_Ingreso() As Boolean
+
+    End Function
+
+
+
 End Module

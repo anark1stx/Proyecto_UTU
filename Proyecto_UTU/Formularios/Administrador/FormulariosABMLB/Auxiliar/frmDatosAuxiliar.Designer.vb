@@ -36,8 +36,8 @@ Partial Class frmDatosAuxiliar
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.lblCorreoTitulo = New System.Windows.Forms.Label()
         Me.lblCorreo = New System.Windows.Forms.Label()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnBaja = New System.Windows.Forms.Button()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -172,25 +172,25 @@ Partial Class frmDatosAuxiliar
         Me.lblCorreo.TabIndex = 167
         Me.lblCorreo.Text = "Correo"
         '
-        'btnLimpiar
+        'btnEditar
         '
-        Me.btnLimpiar.BackgroundImage = CType(resources.GetObject("btnLimpiar.BackgroundImage"), System.Drawing.Image)
-        Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnLimpiar.Location = New System.Drawing.Point(915, 149)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(48, 40)
-        Me.btnLimpiar.TabIndex = 231
-        Me.btnLimpiar.UseVisualStyleBackColor = True
+        Me.btnEditar.BackgroundImage = CType(resources.GetObject("btnEditar.BackgroundImage"), System.Drawing.Image)
+        Me.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnEditar.Location = New System.Drawing.Point(915, 149)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(48, 40)
+        Me.btnEditar.TabIndex = 231
+        Me.btnEditar.UseVisualStyleBackColor = True
         '
-        'btnAceptar
+        'btnBaja
         '
-        Me.btnAceptar.BackgroundImage = CType(resources.GetObject("btnAceptar.BackgroundImage"), System.Drawing.Image)
-        Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAceptar.Location = New System.Drawing.Point(969, 149)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
-        Me.btnAceptar.TabIndex = 230
-        Me.btnAceptar.UseVisualStyleBackColor = True
+        Me.btnBaja.BackgroundImage = CType(resources.GetObject("btnBaja.BackgroundImage"), System.Drawing.Image)
+        Me.btnBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBaja.Location = New System.Drawing.Point(969, 149)
+        Me.btnBaja.Name = "btnBaja"
+        Me.btnBaja.Size = New System.Drawing.Size(48, 40)
+        Me.btnBaja.TabIndex = 230
+        Me.btnBaja.UseVisualStyleBackColor = True
         '
         'frmDatosAuxiliar
         '
@@ -198,8 +198,8 @@ Partial Class frmDatosAuxiliar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1038, 203)
-        Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.btnEditar)
+        Me.Controls.Add(Me.btnBaja)
         Me.Controls.Add(Me.lblCorreoTitulo)
         Me.Controls.Add(Me.lblCorreo)
         Me.Controls.Add(Me.lblCedulaTitulo)
@@ -235,6 +235,6 @@ Partial Class frmDatosAuxiliar
     Friend WithEvents pBoxFotoPaciente As PictureBox
     Friend WithEvents lblCorreoTitulo As Label
     Friend WithEvents lblCorreo As Label
-    Friend WithEvents btnLimpiar As Button
-    Friend WithEvents btnAceptar As Button
+    Friend WithEvents btnEditar As Button
+    Friend WithEvents btnBaja As Button
 End Class

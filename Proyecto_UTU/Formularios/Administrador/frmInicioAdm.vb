@@ -46,4 +46,5 @@
     Private Sub btnBuscarAuxiliar_Click(sender As Object, e As EventArgs) Handles btnBuscarAuxiliar.Click
         frmAdministrador.InstanciarFormulario("Gestion", "DatosAuxiliar")
     End Sub
+
 End Class

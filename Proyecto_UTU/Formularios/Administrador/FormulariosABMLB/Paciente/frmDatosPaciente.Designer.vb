@@ -27,13 +27,10 @@ Partial Class frmDatosPaciente
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblDireccionTitulo = New System.Windows.Forms.Label()
         Me.lblDireccion = New System.Windows.Forms.Label()
-        Me.lblEscolaridadTitulo = New System.Windows.Forms.Label()
-        Me.lblEstadoEscolaridad = New System.Windows.Forms.Label()
         Me.lblEstadoCivilTitulo = New System.Windows.Forms.Label()
         Me.lblEstadoCivil = New System.Windows.Forms.Label()
         Me.lblOcupacionTitulo = New System.Windows.Forms.Label()
         Me.lblOcupacion = New System.Windows.Forms.Label()
-        Me.lblSexoTitulo = New System.Windows.Forms.Label()
         Me.lblSexo = New System.Windows.Forms.Label()
         Me.lblEdadTitulo = New System.Windows.Forms.Label()
         Me.lblEdad = New System.Windows.Forms.Label()
@@ -44,10 +41,9 @@ Partial Class frmDatosPaciente
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
-        Me.lblAcompananteTitulo = New System.Windows.Forms.Label()
-        Me.lblNomAcompanante = New System.Windows.Forms.Label()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnBaja = New System.Windows.Forms.Button()
+        Me.lblSexoTitulo = New System.Windows.Forms.Label()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,7 +71,7 @@ Partial Class frmDatosPaciente
         '
         Me.lblDireccionTitulo.AutoSize = True
         Me.lblDireccionTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTitulo.Location = New System.Drawing.Point(672, 70)
+        Me.lblDireccionTitulo.Location = New System.Drawing.Point(672, 41)
         Me.lblDireccionTitulo.Name = "lblDireccionTitulo"
         Me.lblDireccionTitulo.Size = New System.Drawing.Size(86, 20)
         Me.lblDireccionTitulo.TabIndex = 165
@@ -85,31 +81,11 @@ Partial Class frmDatosPaciente
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(803, 70)
+        Me.lblDireccion.Location = New System.Drawing.Point(803, 41)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(81, 20)
         Me.lblDireccion.TabIndex = 164
         Me.lblDireccion.Text = "Dirección"
-        '
-        'lblEscolaridadTitulo
-        '
-        Me.lblEscolaridadTitulo.AutoSize = True
-        Me.lblEscolaridadTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEscolaridadTitulo.Location = New System.Drawing.Point(672, 38)
-        Me.lblEscolaridadTitulo.Name = "lblEscolaridadTitulo"
-        Me.lblEscolaridadTitulo.Size = New System.Drawing.Size(102, 20)
-        Me.lblEscolaridadTitulo.TabIndex = 163
-        Me.lblEscolaridadTitulo.Text = "Escolaridad:"
-        '
-        'lblEstadoEscolaridad
-        '
-        Me.lblEstadoEscolaridad.AutoSize = True
-        Me.lblEstadoEscolaridad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoEscolaridad.Location = New System.Drawing.Point(803, 38)
-        Me.lblEstadoEscolaridad.Name = "lblEstadoEscolaridad"
-        Me.lblEstadoEscolaridad.Size = New System.Drawing.Size(97, 20)
-        Me.lblEstadoEscolaridad.TabIndex = 162
-        Me.lblEstadoEscolaridad.Text = "Escolaridad"
         '
         'lblEstadoCivilTitulo
         '
@@ -135,7 +111,7 @@ Partial Class frmDatosPaciente
         '
         Me.lblOcupacionTitulo.AutoSize = True
         Me.lblOcupacionTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacionTitulo.Location = New System.Drawing.Point(243, 169)
+        Me.lblOcupacionTitulo.Location = New System.Drawing.Point(241, 138)
         Me.lblOcupacionTitulo.Name = "lblOcupacionTitulo"
         Me.lblOcupacionTitulo.Size = New System.Drawing.Size(94, 20)
         Me.lblOcupacionTitulo.TabIndex = 159
@@ -145,27 +121,17 @@ Partial Class frmDatosPaciente
         '
         Me.lblOcupacion.AutoSize = True
         Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(374, 169)
+        Me.lblOcupacion.Location = New System.Drawing.Point(373, 138)
         Me.lblOcupacion.Name = "lblOcupacion"
         Me.lblOcupacion.Size = New System.Drawing.Size(89, 20)
         Me.lblOcupacion.TabIndex = 158
         Me.lblOcupacion.Text = "Ocupación"
         '
-        'lblSexoTitulo
-        '
-        Me.lblSexoTitulo.AutoSize = True
-        Me.lblSexoTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexoTitulo.Location = New System.Drawing.Point(242, 139)
-        Me.lblSexoTitulo.Name = "lblSexoTitulo"
-        Me.lblSexoTitulo.Size = New System.Drawing.Size(69, 20)
-        Me.lblSexoTitulo.TabIndex = 157
-        Me.lblSexoTitulo.Text = "Género:"
-        '
         'lblSexo
         '
         Me.lblSexo.AutoSize = True
         Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(374, 139)
+        Me.lblSexo.Location = New System.Drawing.Point(803, 109)
         Me.lblSexo.Name = "lblSexo"
         Me.lblSexo.Size = New System.Drawing.Size(46, 20)
         Me.lblSexo.TabIndex = 156
@@ -195,7 +161,7 @@ Partial Class frmDatosPaciente
         '
         Me.lblTelefonoTitulo.AutoSize = True
         Me.lblTelefonoTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTitulo.Location = New System.Drawing.Point(672, 102)
+        Me.lblTelefonoTitulo.Location = New System.Drawing.Point(672, 73)
         Me.lblTelefonoTitulo.Name = "lblTelefonoTitulo"
         Me.lblTelefonoTitulo.Size = New System.Drawing.Size(78, 20)
         Me.lblTelefonoTitulo.TabIndex = 153
@@ -205,7 +171,7 @@ Partial Class frmDatosPaciente
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(803, 102)
+        Me.lblTelefono.Location = New System.Drawing.Point(803, 73)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(108, 20)
         Me.lblTelefono.TabIndex = 152
@@ -262,45 +228,35 @@ Partial Class frmDatosPaciente
         Me.pBoxFotoPaciente.TabIndex = 146
         Me.pBoxFotoPaciente.TabStop = False
         '
-        'lblAcompananteTitulo
+        'btnEditar
         '
-        Me.lblAcompananteTitulo.AutoSize = True
-        Me.lblAcompananteTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcompananteTitulo.Location = New System.Drawing.Point(672, 128)
-        Me.lblAcompananteTitulo.Name = "lblAcompananteTitulo"
-        Me.lblAcompananteTitulo.Size = New System.Drawing.Size(116, 20)
-        Me.lblAcompananteTitulo.TabIndex = 198
-        Me.lblAcompananteTitulo.Text = "Acompañante:"
+        Me.btnEditar.BackgroundImage = CType(resources.GetObject("btnEditar.BackgroundImage"), System.Drawing.Image)
+        Me.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnEditar.Location = New System.Drawing.Point(916, 154)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(48, 40)
+        Me.btnEditar.TabIndex = 248
+        Me.btnEditar.UseVisualStyleBackColor = True
         '
-        'lblNomAcompanante
+        'btnBaja
         '
-        Me.lblNomAcompanante.AutoSize = True
-        Me.lblNomAcompanante.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomAcompanante.Location = New System.Drawing.Point(803, 128)
-        Me.lblNomAcompanante.Name = "lblNomAcompanante"
-        Me.lblNomAcompanante.Size = New System.Drawing.Size(216, 20)
-        Me.lblNomAcompanante.TabIndex = 199
-        Me.lblNomAcompanante.Text = "NOMBRE ACOMPAÑANTE"
+        Me.btnBaja.BackgroundImage = CType(resources.GetObject("btnBaja.BackgroundImage"), System.Drawing.Image)
+        Me.btnBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBaja.Location = New System.Drawing.Point(970, 154)
+        Me.btnBaja.Name = "btnBaja"
+        Me.btnBaja.Size = New System.Drawing.Size(48, 40)
+        Me.btnBaja.TabIndex = 247
+        Me.btnBaja.UseVisualStyleBackColor = True
         '
-        'btnLimpiar
+        'lblSexoTitulo
         '
-        Me.btnLimpiar.BackgroundImage = CType(resources.GetObject("btnLimpiar.BackgroundImage"), System.Drawing.Image)
-        Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnLimpiar.Location = New System.Drawing.Point(916, 154)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(48, 40)
-        Me.btnLimpiar.TabIndex = 248
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
-        'btnAceptar
-        '
-        Me.btnAceptar.BackgroundImage = CType(resources.GetObject("btnAceptar.BackgroundImage"), System.Drawing.Image)
-        Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAceptar.Location = New System.Drawing.Point(970, 154)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
-        Me.btnAceptar.TabIndex = 247
-        Me.btnAceptar.UseVisualStyleBackColor = True
+        Me.lblSexoTitulo.AutoSize = True
+        Me.lblSexoTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSexoTitulo.Location = New System.Drawing.Point(672, 109)
+        Me.lblSexoTitulo.Name = "lblSexoTitulo"
+        Me.lblSexoTitulo.Size = New System.Drawing.Size(51, 20)
+        Me.lblSexoTitulo.TabIndex = 157
+        Me.lblSexoTitulo.Text = "Sexo:"
         '
         'frmDatosPaciente
         '
@@ -308,16 +264,12 @@ Partial Class frmDatosPaciente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1038, 203)
-        Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.lblNomAcompanante)
-        Me.Controls.Add(Me.lblAcompananteTitulo)
+        Me.Controls.Add(Me.btnEditar)
+        Me.Controls.Add(Me.btnBaja)
         Me.Controls.Add(Me.lblCedulaTitulo)
         Me.Controls.Add(Me.lblCedula)
         Me.Controls.Add(Me.lblDireccionTitulo)
         Me.Controls.Add(Me.lblDireccion)
-        Me.Controls.Add(Me.lblEscolaridadTitulo)
-        Me.Controls.Add(Me.lblEstadoEscolaridad)
         Me.Controls.Add(Me.lblEstadoCivilTitulo)
         Me.Controls.Add(Me.lblEstadoCivil)
         Me.Controls.Add(Me.lblOcupacionTitulo)
@@ -343,28 +295,24 @@ Partial Class frmDatosPaciente
     End Sub
 
     Friend WithEvents lblCedulaTitulo As Label
-    Friend WithEvents lblCedula As Label
     Friend WithEvents lblDireccionTitulo As Label
-    Friend WithEvents lblDireccion As Label
-    Friend WithEvents lblEscolaridadTitulo As Label
-    Friend WithEvents lblEstadoEscolaridad As Label
     Friend WithEvents lblEstadoCivilTitulo As Label
-    Friend WithEvents lblEstadoCivil As Label
     Friend WithEvents lblOcupacionTitulo As Label
-    Friend WithEvents lblOcupacion As Label
-    Friend WithEvents lblSexoTitulo As Label
-    Friend WithEvents lblSexo As Label
     Friend WithEvents lblEdadTitulo As Label
-    Friend WithEvents lblEdad As Label
     Friend WithEvents lblTelefonoTitulo As Label
-    Friend WithEvents lblTelefono As Label
     Friend WithEvents lblApellidosTitulo As Label
     Friend WithEvents lblNombresTitulo As Label
-    Friend WithEvents lblApellidos As Label
-    Friend WithEvents lblNombres As Label
     Friend WithEvents pBoxFotoPaciente As PictureBox
-    Friend WithEvents lblAcompananteTitulo As Label
-    Friend WithEvents lblNomAcompanante As Label
-    Friend WithEvents btnLimpiar As Button
-    Friend WithEvents btnAceptar As Button
+    Friend WithEvents btnEditar As Button
+    Friend WithEvents btnBaja As Button
+    Public WithEvents lblCedula As Label
+    Public WithEvents lblDireccion As Label
+    Public WithEvents lblEstadoCivil As Label
+    Public WithEvents lblOcupacion As Label
+    Public WithEvents lblSexo As Label
+    Public WithEvents lblEdad As Label
+    Public WithEvents lblTelefono As Label
+    Public WithEvents lblApellidos As Label
+    Public WithEvents lblNombres As Label
+    Friend WithEvents lblSexoTitulo As Label
 End Class

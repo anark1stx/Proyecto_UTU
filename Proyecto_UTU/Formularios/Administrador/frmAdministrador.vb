@@ -13,7 +13,6 @@
     Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar
 #End Region
 
-
     Public Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
 
         Select Case formularioPadre
@@ -105,11 +104,11 @@
 
                         _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarMedico.TopLevel = False
-                        _frmModificarMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
+                        _frmDatosMedico.TopLevel = False
+                        _frmDatosMedico.TopMost = True
+                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosMedico)
 
-                        _frmModificarMedico.Show()
+                        _frmDatosMedico.Show()
 
                     Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
 
@@ -163,6 +162,38 @@
                         _frmModificarAuxiliar.Show()
 #End Region
                 End Select
+
+        End Select
+    End Sub
+
+    Public Sub solicitarConfirmacion(accion As String, tipo As String)
+        Select Case accion
+            Case "Baja"
+                Select Case tipo
+                    Case "Paciente"
+                        Dim baja = MsgBox("Seguro que desea dar de baja al paciente " & _frmDatosPaciente.lblNombres.Text & " " & _frmDatosPaciente.lblApellidos.Text & "?", vbYesNo)
+
+                        If baja = DialogResult.Yes Then
+                            '-->Dar de baja en la BD
+
+                        End If
+                    Case "Medico"
+                        Dim baja = MsgBox("Seguro que desea dar de baja al médico " & _frmDatosMedico.lblNombres.Text & " " & _frmDatosMedico.lblApellidos.Text & "?", vbYesNo)
+
+                        If baja = DialogResult.Yes Then
+                            '-->Dar de baja en la BD
+
+                        End If
+                    Case "Auxiliar"
+                        Dim baja = MsgBox("Seguro que desea dar de baja al auxiliar " & _frmDatosAuxiliar.lblNombres.Text & " " & _frmDatosAuxiliar.lblApellidos.Text & "?", vbYesNo)
+
+                        If baja = DialogResult.Yes Then
+                            '-->Dar de baja en la BD
+
+                        End If
+
+                End Select
+            Case "Modificación"
 
         End Select
     End Sub

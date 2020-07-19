@@ -81,8 +81,6 @@
 
 #End Region
 
-
-
     Public Sub setType(nombre As String)
         _instancia.Name = nombre
         _instancia.Name = setControlName()
