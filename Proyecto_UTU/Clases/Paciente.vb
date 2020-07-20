@@ -12,7 +12,8 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = ""
-        _telefonosLista = New List(Of String)
+        _telefonosLista = {}
+        _direccion = {}
         _cedula = ""
         _edad = ""
         _sexo = ""
@@ -20,7 +21,7 @@
         _estado_civil = ""
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String, telefonosLista As List(Of String), correo As String, contrasena As String, edad As String, sexo As String, ocupacion As String, estado_civil As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String(), telefonosLista As String(), correo As String, contrasena As String, edad As String, sexo As String, ocupacion As String, estado_civil As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -71,7 +72,5 @@
             _estado_civil = value
         End Set
     End Property
-
-
 
 End Class

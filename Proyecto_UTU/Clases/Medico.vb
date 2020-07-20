@@ -10,13 +10,13 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = ""
-        _telefonosLista = New List(Of String)
+        _telefonosLista = {}
         _cedula = ""
-        _direccion = ""
+        _direccion = {}
         _especialidad = ""
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String, telefonosLista As List(Of String), correo As String, contrasena As String, especialidad As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String(), telefonosLista As String(), correo As String, contrasena As String, especialidad As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1

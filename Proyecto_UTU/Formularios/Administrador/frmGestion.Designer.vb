@@ -41,7 +41,7 @@ Partial Class frmGestion
         Me.pnlDatosUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlDatosUsuario.Location = New System.Drawing.Point(12, 4)
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
-        Me.pnlDatosUsuario.Size = New System.Drawing.Size(1038, 203)
+        Me.pnlDatosUsuario.Size = New System.Drawing.Size(1038, 238)
         Me.pnlDatosUsuario.TabIndex = 103
         '
         'pnlContenedorBusqueda
@@ -50,15 +50,15 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnl_rdbtns_ci_nom_ap)
         Me.pnlContenedorBusqueda.Controls.Add(Me.txtBuscar)
         Me.pnlContenedorBusqueda.Controls.Add(Me.dgwUsuarios)
-        Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(12, 235)
+        Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(12, 248)
         Me.pnlContenedorBusqueda.Name = "pnlContenedorBusqueda"
-        Me.pnlContenedorBusqueda.Size = New System.Drawing.Size(1038, 392)
+        Me.pnlContenedorBusqueda.Size = New System.Drawing.Size(1038, 379)
         Me.pnlContenedorBusqueda.TabIndex = 104
         '
         'btnBuscar
         '
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.Location = New System.Drawing.Point(1004, 0)
+        Me.btnBuscar.Location = New System.Drawing.Point(1004, 13)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(34, 32)
         Me.btnBuscar.TabIndex = 110
@@ -68,7 +68,7 @@ Partial Class frmGestion
         '
         Me.pnl_rdbtns_ci_nom_ap.Controls.Add(Me.rdBtnNomyAp)
         Me.pnl_rdbtns_ci_nom_ap.Controls.Add(Me.rdBtnCedula)
-        Me.pnl_rdbtns_ci_nom_ap.Location = New System.Drawing.Point(564, 0)
+        Me.pnl_rdbtns_ci_nom_ap.Location = New System.Drawing.Point(564, 13)
         Me.pnl_rdbtns_ci_nom_ap.Name = "pnl_rdbtns_ci_nom_ap"
         Me.pnl_rdbtns_ci_nom_ap.Size = New System.Drawing.Size(294, 32)
         Me.pnl_rdbtns_ci_nom_ap.TabIndex = 109
@@ -98,7 +98,7 @@ Partial Class frmGestion
         'txtBuscar
         '
         Me.txtBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscar.Location = New System.Drawing.Point(868, 2)
+        Me.txtBuscar.Location = New System.Drawing.Point(868, 15)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(131, 27)
         Me.txtBuscar.TabIndex = 108
@@ -106,11 +106,11 @@ Partial Class frmGestion
         'dgwUsuarios
         '
         Me.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwUsuarios.Location = New System.Drawing.Point(0, 38)
+        Me.dgwUsuarios.Location = New System.Drawing.Point(0, 51)
         Me.dgwUsuarios.Name = "dgwUsuarios"
         Me.dgwUsuarios.RowHeadersWidth = 51
         Me.dgwUsuarios.RowTemplate.Height = 24
-        Me.dgwUsuarios.Size = New System.Drawing.Size(1038, 351)
+        Me.dgwUsuarios.Size = New System.Drawing.Size(1038, 325)
         Me.dgwUsuarios.TabIndex = 107
         '
         'frmGestion

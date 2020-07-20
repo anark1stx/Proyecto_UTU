@@ -7,8 +7,8 @@
     Protected _apellido2 As String
     Protected _correo As String
     Protected _contrasena As String
-    Protected _telefonosLista As List(Of String)
-    Protected _direccion As String ' -> Podria ser As String() para pasarle directamente {Barrio, nroPuerta, calle}
+    Protected _telefonosLista As String() '-> {099523212, 23363539}
+    Protected _direccion As String() ' -> Para pasarle directamente {calle, nroPuerta}
 
     'CONSTRUCTOR VACIO
     Sub New()
@@ -18,7 +18,7 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = ""
-        _telefonosLista = New List(Of String)
+        _telefonosLista = {}
         _cedula = ""
     End Sub
 
@@ -30,11 +30,11 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = contrasena
-        _telefonosLista = New List(Of String)
+        _telefonosLista = {}
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String, telefonosLista As List(Of String), correo As String, contrasena As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String(), telefonosLista As String(), correo As String, contrasena As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -101,11 +101,11 @@
         End Set
     End Property
 
-    Property telefonosLista() As List(Of String)
+    Property telefonosLista() As String()
         Get
             Return (_telefonosLista)
         End Get
-        Set(ByVal value As List(Of String))
+        Set(ByVal value As String())
             _telefonosLista = value
         End Set
     End Property
@@ -116,6 +116,15 @@
         End Get
         Set(ByVal value As String)
             _cedula = value
+        End Set
+    End Property
+
+    Property direccion() As String()
+        Get
+            Return (_direccion)
+        End Get
+        Set(ByVal value As String())
+            _direccion = value
         End Set
     End Property
 

@@ -205,6 +205,7 @@
     <Compile Include="Modulos\mdlChecker.vb" />
     <Compile Include="Modulos\mdlGestionControles.vb" />
     <Compile Include="Modulos\mdlMensajes.vb" />
+    <Compile Include="Modulos\mdlMetodosGenerales.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

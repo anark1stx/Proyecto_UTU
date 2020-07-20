@@ -10,7 +10,7 @@
 
     Dim _frmModificarPaciente As New frmDatosPacienteModificar 'El formulario de modificación es el mismo que el formulario de alta.
     Dim _frmModificarMedico As New frmDatosMedicoModificar 'El formulario de modificación es el mismo que el formulario de alta.
-    Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar
+    Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar 'El formulario de modificación es el mismo que el formulario de alta.
 #End Region
 
     Public Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
@@ -171,7 +171,7 @@
             Case "Baja"
                 Select Case tipo
                     Case "Paciente"
-                        Dim baja = MsgBox("Seguro que desea dar de baja al paciente " & _frmDatosPaciente.lblNombres.Text & " " & _frmDatosPaciente.lblApellidos.Text & "?", vbYesNo)
+                        Dim baja = MsgBox("Seguro que desea dar de baja al paciente " & _frmDatosPaciente.lblNombre1.Text & " " & _frmDatosPaciente.lblApellido1.Text & "?", vbYesNo)
 
                         If baja = DialogResult.Yes Then
                             Dim ci As String = _frmDatosPaciente.lblCedula.Text
@@ -179,7 +179,7 @@
 
                         End If
                     Case "Medico"
-                        Dim baja = MsgBox("Seguro que desea dar de baja al médico " & _frmDatosMedico.lblNombres.Text & " " & _frmDatosMedico.lblApellidos.Text & "?", vbYesNo)
+                        Dim baja = MsgBox("Seguro que desea dar de baja al médico " & _frmDatosMedico.lblNombre1.Text & " " & _frmDatosMedico.lblApellido1.Text & "?", vbYesNo)
 
                         If baja = DialogResult.Yes Then
                             Dim ci As String = _frmDatosMedico.lblCedula.Text
@@ -187,7 +187,7 @@
 
                         End If
                     Case "Auxiliar"
-                        Dim baja = MsgBox("Seguro que desea dar de baja al auxiliar " & _frmDatosAuxiliar.lblNombres.Text & " " & _frmDatosAuxiliar.lblApellidos.Text & "?", vbYesNo)
+                        Dim baja = MsgBox("Seguro que desea dar de baja al auxiliar " & _frmDatosAuxiliar.lblNombre1.Text & " " & _frmDatosAuxiliar.lblApellido1.Text & "?", vbYesNo)
 
                         If baja = DialogResult.Yes Then
                             Dim ci As String = _frmDatosAuxiliar.lblCedula.Text
@@ -199,7 +199,7 @@
             Case "Modificación"
                 Select Case tipo
                     Case "Paciente"
-                        Dim modif = MsgBox("Seguro que desea modificar al paciente " & _frmDatosPaciente.lblNombres.Text & " " & _frmDatosPaciente.lblApellidos.Text & "?", vbYesNo)
+                        Dim modif = MsgBox("Seguro que desea modificar al paciente " & _frmDatosPaciente.lblNombre1.Text & " " & _frmDatosPaciente.lblApellido1.Text & "?", vbYesNo)
 
                         If modif = DialogResult.Yes Then
                             Dim ci As String = _frmDatosPaciente.lblCedula.Text
@@ -207,7 +207,7 @@
 
                         End If
                     Case "Medico"
-                        Dim modif = MsgBox("Seguro que desea modificar al médico " & _frmDatosMedico.lblNombres.Text & " " & _frmDatosMedico.lblApellidos.Text & "?", vbYesNo)
+                        Dim modif = MsgBox("Seguro que desea modificar al médico " & _frmDatosMedico.lblNombre1.Text & " " & _frmDatosMedico.lblApellido1.Text & "?", vbYesNo)
 
                         If modif = DialogResult.Yes Then
                             Dim ci As String = _frmDatosMedico.lblCedula.Text
@@ -215,7 +215,7 @@
 
                         End If
                     Case "Auxiliar"
-                        Dim modif = MsgBox("Seguro que desea modificar al auxiliar " & _frmDatosAuxiliar.lblNombres.Text & " " & _frmDatosAuxiliar.lblApellidos.Text & "?", vbYesNo)
+                        Dim modif = MsgBox("Seguro que desea modificar al auxiliar " & _frmDatosAuxiliar.lblNombre1.Text & " " & _frmDatosAuxiliar.lblApellido1.Text & "?", vbYesNo)
 
                         If modif = DialogResult.Yes Then
                             Dim ci As String = _frmDatosAuxiliar.lblCedula.Text

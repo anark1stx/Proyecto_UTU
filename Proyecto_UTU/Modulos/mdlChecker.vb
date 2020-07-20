@@ -31,17 +31,11 @@
 
     Public Function check_caracteres(propiedad As String) As Boolean
 
-        Const caracteres = "~^;:><?¿[]()/&%@$#!¡|°¬=,.+ `´{}-_*'"
-
-        For i = 0 To caracteres.Length - 1
-
-            If propiedad.Contains(caracteres(i)) Then
-                Return 1
-            End If
-
-        Next
-
-        Return 0
+        If System.Text.RegularExpressions.Regex.IsMatch(propiedad, "^[a-zA-Z0-9]+$") Then 'Verificar si solo tiene letras y numeros
+            Return 0
+        Else ' Entonces tendrá simbolos o caracteres no alfanumericos.
+            Return 1
+        End If
 
     End Function
 
@@ -83,7 +77,7 @@
             Return 0
         End If
 
-        Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"})
+        Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"}) '-> Guardar esto en la BD para que el administrador pueda modificarlo luego, por si quiere agregar o sacar dominios
 
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
@@ -95,13 +89,13 @@
         Dim correo_despues_arroba As String = correo.Substring(index_arroba, index_ultimo_char)
 
         If Not lista_dominios.Contains(correo_despues_arroba) Then
-            optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com"
+            optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com y que el domino sea válido."
             Return 0
         End If
 
         Return 1
     End Function
-    Public Function check_Telefonos(telefonos As List(Of String)) As Boolean
+    Public Function check_Telefonos(telefonos As String()) As Boolean
 
         'If telefonos.Count = 1 Then
         '    If telefonos(0) = "" Then
@@ -174,6 +168,26 @@
 
     End Function
 
+    Public Function check_direccion(direccion As String()) As Boolean
+        optMsg = "Ingrese de la forma: 'Calle, n°puerta'"
+
+        If direccion.Length > 2 Then
+            Return 0
+        Else
+
+            If Not check_Largo(direccion(1), 2, 4, True) Then 'En Montevideo los numeros de puerta van desde 2 digitos hasta 4.
+                Return 0
+            End If
+            If Not IsNumeric(direccion(1)) Then
+                Return 0
+            End If
+
+            Return 1
+
+        End If
+
+    End Function
+
     Public Function check_Usuario(usuario As Usuario, Optional medico As Medico = Nothing, Optional paciente As Paciente = Nothing) As Boolean
 
         If Not check_Cedula(usuario.Cedula) Then
@@ -216,7 +230,11 @@
             Return 0
         End If
 
-        If Not check_Telefonos(usuario.telefonosLista) Then
+        If Not check_Telefonos(usuario.telefonosLista()) Then
+            Return 0
+        End If
+
+        If Not check_direccion(usuario.direccion) Then
             Return 0
         End If
 
