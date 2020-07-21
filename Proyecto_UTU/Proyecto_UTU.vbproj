@@ -52,6 +52,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -136,12 +137,19 @@
     <Compile Include="Formularios\Auxiliar\frmAuxiliar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\formularioPlano.Designer.vb">
+      <DependentUpon>formularioPlano.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\formularioPlano.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.Designer.vb">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\GestorXML.vb" />
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxTipoDeTextBox.Designer.vb">
       <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
     </Compile>
@@ -251,6 +259,9 @@
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\formularioPlano.resx">
+      <DependentUpon>formularioPlano.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.resx">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +312,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
