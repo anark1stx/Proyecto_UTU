@@ -13,7 +13,10 @@
             valorSeleccionado = "frecuencia_cardiaca"
         ElseIf valorSeleccionado.Equals("Frecuencia respiratoria") Then
             valorSeleccionado = "frecuencia_respiratoria"
-
+        ElseIf valorSeleccionado.Equals("Grado de nutrición") Then
+            valorSeleccionado = "grado_nutricion"
+        ElseIf valorSeleccionado.Equals("Grado de hidratación") Then
+            valorSeleccionado = "grado_hidratacion"
         End If
 
         'frmCrearFormulario.setType(valorSeleccionado)

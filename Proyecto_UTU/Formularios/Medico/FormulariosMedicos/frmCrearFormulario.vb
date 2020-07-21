@@ -2,15 +2,17 @@
     Public tempname As String = ""
     Dim frmPlano As New formularioPlano
 
-    Dim ubicacion_mouse As Point
+    Public ubicacion_mouse As Point
+    Dim drop As Point
 
-    Dim instancia As New Control 'Para guardar instancias temporales
-    Dim _instancia As New Control 'Para limpiar la variable de arriba
+
+    Dim instancia As New Control 'Para limpiar instancias en caso que fuera necesario
+    Dim _instancia As New Control
     Dim controlesInstanciados As New List(Of Object)
     Dim control_count As Integer = 0
     Dim temp_control_type As String
 
-    Dim txtSintomas_ingresados As Integer = 0
+    Dim txtSintomas_ingresados As Integer = 0 'Esto va a servir para cuando tengamos el DER del predictivo definitivo, solo vamos a tomar x sintomas.
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
 
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -44,7 +46,7 @@
 
     Public Sub txtSintoma0_MouseUp(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseUp
         If _instancia.Location.X > pnlControles.Width Then
-
+            drop = e.Location
             Dim tipo = TipoDeTxt.ShowDialog()
 
             setType(TipoDeTxt.valorSeleccionado)
@@ -59,7 +61,7 @@
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             Dim _lbl As New Label
             temp_control_type = "Label"
-            _lbl.Size = New Size(122, 55)
+            _lbl.Size = New Size(50, 25)
             _lbl.Name = "lbl"
             _lbl.Text = "Texto"
             _instancia = _lbl
@@ -73,15 +75,11 @@
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
-
-            If _instancia.Location.X > pnlControles.Width Then
-                frmPlano.Controls.Add(_instancia)
-            End If
-
         End If
     End Sub
 
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
+        drop = e.Location
         setType("lbl")
     End Sub
 
@@ -91,9 +89,14 @@
         _instancia.Name = nombre
         _instancia.Name = setControlName()
         tempname = _instancia.Name
-        instancia = _instancia
         frmPlano.Controls.Add(_instancia)
+
+        Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
+        Dim marginY As Double = _instancia.Size.Height / 2
+
+        _instancia.Location -= New Point(marginX, marginY)
         TipoDeTxt.Hide()
+
     End Sub
 
     Public Function setControlName() As String
@@ -115,10 +118,10 @@
             Case "Pulso"
                 Return "txtPulso"
 
-            Case "Grado de Nutrición"
+            Case "grado_nutricion"
                 Return "txtGradoNutr"
 
-            Case "Grado de Hidratación"
+            Case "grado_hidratacion"
                 Return "txtGradoHidr"
 
             Case Else
@@ -132,11 +135,8 @@
 
         Dim archivo As New Xml.XmlDocument
 
-        'Dim _xml As String = String.Format("<?xml version='1.0' encoding='utf-8'?><button><x>{0}</x><y>{1}</y><name>{2}</name></button>", x, y, Name)
-
         For Each i As Control In frmPlano.Controls
             controlesInstanciados.Add(i)
-            Console.WriteLine(i.Name)
         Next
 
         Dim gestor As New GestorXML
@@ -151,7 +151,6 @@
 
         If guardarFormulario.ShowDialog() = DialogResult.OK Then
             Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
-
             archivo.Save(path)
         End If
 

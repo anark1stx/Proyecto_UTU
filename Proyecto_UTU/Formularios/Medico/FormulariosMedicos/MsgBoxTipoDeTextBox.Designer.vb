@@ -31,7 +31,7 @@ Partial Class MsgBoxTipoDeTextBox
         Me.lblSeleccioneTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSeleccioneTipoDeDato.Location = New System.Drawing.Point(12, 9)
         Me.lblSeleccioneTipoDeDato.Name = "lblSeleccioneTipoDeDato"
-        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(451, 36)
+        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(553, 36)
         Me.lblSeleccioneTipoDeDato.TabIndex = 3
         Me.lblSeleccioneTipoDeDato.Text = "Seleccione el tipo de dato que guardará este campo"
         '
@@ -43,17 +43,20 @@ Partial Class MsgBoxTipoDeTextBox
         Me.cbTipoDeDato.Items.AddRange(New Object() {"Síntoma", "Frecuencia cardíaca", "Frecuencia respiratoria", "Temperatura", "Pulso", "Grado de nutrición", "Grado de hidratación", "Otro"})
         Me.cbTipoDeDato.Location = New System.Drawing.Point(16, 57)
         Me.cbTipoDeDato.Name = "cbTipoDeDato"
-        Me.cbTipoDeDato.Size = New System.Drawing.Size(442, 24)
+        Me.cbTipoDeDato.Size = New System.Drawing.Size(514, 24)
         Me.cbTipoDeDato.TabIndex = 2
         '
         'MsgBoxTipoDeTextBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(472, 102)
+        Me.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.ClientSize = New System.Drawing.Size(566, 102)
         Me.Controls.Add(Me.lblSeleccioneTipoDeDato)
         Me.Controls.Add(Me.cbTipoDeDato)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "MsgBoxTipoDeTextBox"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MsgBoxTipoDeTextBox"
