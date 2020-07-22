@@ -1,0 +1,84 @@
+﻿Imports System.Reflection
+'TODO LO REFERIDO A LOS COLORES EN ESTE SCRIPT FUE EXTRAIDO DE: https://www.daniweb.com/programming/software-development/code/495380/color-combobox-in-vb
+Public Class MsgBoxControlSettings
+    Public fuente As Font = System.Drawing.SystemFonts.DefaultFont
+    Public multilinea As Boolean = False
+    Public texto As String = ""
+    Public color As Color = New Color
+    Private Sub MsgBoxControlSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Me.CargarColoresCBWeb()
+        Me.CargarColoresCBSistema()
+
+
+        For Each fuente As FontFamily In FontFamily.Families
+            cbFuente.Items.Add(fuente.Name.ToString())
+        Next
+
+        For i As Integer = 10 To 24
+            cbTamanoLetra.Items.Add(i.ToString())
+        Next
+
+        cbFuente.SelectedIndex = 0 'DEFAULT: ArilistaColores
+        cbTamanoLetra.SelectedIndex = 4 'DEFAULT: 12
+        cbColores.SelectedIndex = 0
+
+    End Sub
+
+    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+
+        Dim tamano As Double = Val(cbTamanoLetra.SelectedItem.ToString())
+        fuente = New Font(cbFuente.Text, tamano)
+        texto = txtIngreseTexto.Text
+        multilinea = chkMultilinea.Checked
+
+        color = Color.FromName(cbColores.SelectedItem.ToString())
+
+        Me.txtIngreseTexto.Text = ""
+        Me.Hide()
+    End Sub
+
+    Private Sub cbColores_DrawItem(sender As Object, e As DrawItemEventArgs) Handles cbColores.DrawItem 'Este evento se activa cada vez que se ingresa un color al combobox.
+
+        If e.Index = -1 Then
+            Exit Sub
+        End If
+
+        Dim colBrush As Brush = New SolidBrush(Color.FromName(DirectCast(cbColores.Items(e.Index), String)))
+
+        e.Graphics.DrawString(DirectCast(cbColores.Items(e.Index), String), cbColores.Font, Brushes.Black, 35, e.Bounds.Top + 2)
+
+        e.Graphics.DrawRectangle(New Pen(Brushes.Black), e.Bounds.Left + 2, e.Bounds.Top + 2, 30, e.Bounds.Height - 5)
+        e.Graphics.FillRectangle(colBrush, e.Bounds.Left + 3, e.Bounds.Top + 3, 29, e.Bounds.Height - 6)
+
+    End Sub
+
+    Public Sub CargarColoresCBWeb()
+
+        cbColores.DrawMode = DrawMode.OwnerDrawFixed
+
+        Dim colType As Type = GetType(System.Drawing.Color)
+        For Each prop As PropertyInfo In colType.GetProperties()
+            If prop.PropertyType Is GetType(System.Drawing.Color) Then
+                cbColores.Items.Add(prop.Name)
+            End If
+        Next
+
+    End Sub
+
+    Private Sub CargarColoresCBSistema()
+
+        cbColores.DrawMode = DrawMode.OwnerDrawFixed
+
+        Dim sysType As Type = GetType(System.Drawing.SystemColors)
+        For Each prop As PropertyInfo In sysType.GetProperties()
+            If prop.PropertyType Is GetType(System.Drawing.Color) Then
+                cbColores.Items.Add(prop.Name)
+            End If
+        Next
+
+    End Sub
+
+End Class
+
+

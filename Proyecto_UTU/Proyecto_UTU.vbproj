@@ -150,10 +150,16 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\GestorXML.vb" />
-    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxTipoDeTextBox.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.Designer.vb">
+      <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.Designer.vb">
       <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxTipoDeTextBox.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.Designer.vb">
@@ -265,7 +271,10 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.resx">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxTipoDeTextBox.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.resx">
+      <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.resx">
       <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">

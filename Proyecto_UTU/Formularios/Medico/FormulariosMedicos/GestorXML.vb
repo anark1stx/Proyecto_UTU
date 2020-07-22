@@ -10,9 +10,7 @@
         Dim control_Fuente As String = SystemFonts.DefaultFont.Name
         Dim control_Fuente_tamano As String = SystemFonts.DefaultFont.SizeInPoints
         Dim control_tamano As Size = New Size(0, 0)
-        Dim control_ColorR As Integer = 0
-        Dim control_ColorG As Integer = 0
-        Dim control_ColorB As Integer = 0
+        Dim control_ColorR As String
         For Each control In listaControles
 
             Select Case control.GetType().ToString()
@@ -24,16 +22,14 @@
                     control_Fuente = txt.Font.Name
                     control_Fuente_tamano = txt.Font.SizeInPoints
                     control_tamano = txt.Size
-                    control_ColorR = txt.ForeColor.R
-                    control_ColorR = txt.ForeColor.G
-                    control_ColorR = txt.ForeColor.B
-                    string_control = String.Format("<TextBox><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><Color><Red>{7}</Red><Green>{8}</Green><Blue>{9}</Blue></Color></TextBox>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR, control_ColorG, control_ColorB)
+                    control_ColorR = txt.ForeColor.Name
+                    string_control = String.Format("<TextBox><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><ColorName>{7}</ColorName></TextBox>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR)
 
                     string_armado += string_control
 
                 Case "System.Windows.Forms.Label"
                     Dim lbl As New Label
-                    lbl = control '<-- Es necesario cambiar su tipo de Object a Label, sino no podremos ver sus propiedades como TEXTBOX.
+                    lbl = control '<-- Es necesario cambiar su tipo de Object a Label, sino no podremos ver sus propiedades como LABEL.
                     control_nombre = lbl.Name
                     control_Pos = lbl.Location
                     control_Fuente = lbl.Font.Name
@@ -43,7 +39,7 @@
                     control_ColorR = lbl.ForeColor.G
                     control_ColorR = lbl.ForeColor.B
                     control_texto = lbl.Text
-                    string_control = String.Format("<Label><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><Color><Red>{7}</Red><Green>{8}</Green><Blue>{9}</Blue></Color><Texto>{10}</Texto></Label>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR, control_ColorG, control_ColorB, control_texto)
+                    string_control = String.Format("<Label><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><ColorName>{7}</ColorName><Texto>{8}</Texto></Label>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR, control_texto)
 
                     string_armado += string_control
             End Select

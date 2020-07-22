@@ -14,7 +14,7 @@
 
     Dim txtSintomas_ingresados As Integer = 0 'Esto va a servir para cuando tengamos el DER del predictivo definitivo, solo vamos a tomar x sintomas.
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
-
+    Dim settings As New MsgBoxControlSettings
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         frmPlano.TopLevel = False
         frmPlano.TopMost = True
@@ -64,6 +64,7 @@
             _lbl.Size = New Size(50, 25)
             _lbl.Name = "lbl"
             _lbl.Text = "Texto"
+            _lbl.AutoSize = True
             _instancia = _lbl
             Me.Controls.Add(_instancia)
             _instancia.BringToFront()
@@ -80,7 +81,10 @@
 
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
         drop = e.Location
+        settings.ShowDialog()
+
         setType("lbl")
+        'Abrir dialogo para Fuente y texto
     End Sub
 
 #End Region
@@ -89,6 +93,11 @@
         _instancia.Name = nombre
         _instancia.Name = setControlName()
         tempname = _instancia.Name
+
+        _instancia.Text = settings.texto
+        _instancia.Font = settings.fuente
+        _instancia.ForeColor = settings.color
+
         frmPlano.Controls.Add(_instancia)
 
         Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
@@ -96,7 +105,9 @@
 
         _instancia.Location -= New Point(marginX, marginY)
         TipoDeTxt.Hide()
-
+        settings.texto = ""
+        settings.fuente = SystemFonts.DefaultFont
+        settings.color = New Color
     End Sub
 
     Public Function setControlName() As String
