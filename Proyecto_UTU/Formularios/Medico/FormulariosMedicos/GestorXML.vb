@@ -35,9 +35,7 @@
                     control_Fuente = lbl.Font.Name
                     control_Fuente_tamano = lbl.Font.SizeInPoints
                     control_tamano = lbl.Size
-                    control_ColorR = lbl.ForeColor.R
-                    control_ColorR = lbl.ForeColor.G
-                    control_ColorR = lbl.ForeColor.B
+                    control_ColorR = lbl.ForeColor.Name
                     control_texto = lbl.Text
                     string_control = String.Format("<Label><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><ColorName>{7}</ColorName><Texto>{8}</Texto></Label>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR, control_texto)
 
@@ -51,9 +49,7 @@
                     control_Fuente = chk.Font.Name
                     control_Fuente_tamano = chk.Font.SizeInPoints
                     control_tamano = chk.Size
-                    control_ColorR = chk.ForeColor.R
-                    control_ColorR = chk.ForeColor.G
-                    control_ColorR = chk.ForeColor.B
+                    control_ColorR = chk.ForeColor.Name
                     control_texto = chk.Text
                     string_control = String.Format("<CheckBox><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><ColorName>{7}</ColorName><Texto>{8}</Texto></CheckBox>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR, control_texto)
 
@@ -66,6 +62,4 @@
         Return string_armado & "</Controles>"
 
     End Function
-
-
 End Class
