@@ -19,9 +19,9 @@ Public Class MsgBoxControlSettings
             cbTamanoLetra.Items.Add(i.ToString())
         Next
 
-        cbFuente.SelectedIndex = 0 'DEFAULT: ArilistaColores
+        cbFuente.SelectedIndex = 0 'DEFAULT: Arial
         cbTamanoLetra.SelectedIndex = 4 'DEFAULT: 12
-        cbColores.SelectedIndex = 0
+        cbColores.SelectedIndex = 8 'DEFAULT: Black
 
     End Sub
 

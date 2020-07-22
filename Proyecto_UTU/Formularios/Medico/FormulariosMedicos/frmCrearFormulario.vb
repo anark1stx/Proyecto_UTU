@@ -1,4 +1,6 @@
 ﻿Public Class frmCrearFormulario
+
+    Dim cursor As Cursor = System.Windows.Forms.Cursors.Hand
     Public tempname As String = ""
     Dim frmPlano As New formularioPlano
 
@@ -24,11 +26,17 @@
 #Region "Eventos para el TextBox"
     Private Sub txtControl_MouseDown(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            System.Windows.Forms.Cursor.Current = cursor
             Dim _txt As New TextBox
+
+            AddHandler _txt.MouseDown, AddressOf frmPlano._MouseDown 'Agregar eventos de mouse, para poder moverlos en tiempo real.
+            AddHandler _txt.MouseMove, AddressOf frmPlano._MouseMove
+
             temp_control_type = "TextBox"
             _txt.Size = New Size(122, 55)
             _txt.Name = "txt"
             _instancia = _txt
+
             Me.Controls.Add(_instancia)
             _instancia.BringToFront()
             ubicacion_mouse = e.Location
@@ -38,6 +46,7 @@
     Private Sub txtControl_MouseMove(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseMove
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            System.Windows.Forms.Cursor.Current = cursor
             _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
 
@@ -59,7 +68,10 @@
 #Region "eventos para la Label"
     Private Sub lblLabel_MouseDown(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            System.Windows.Forms.Cursor.Current = cursor
             Dim _lbl As New Label
+            AddHandler _lbl.MouseDown, AddressOf frmPlano._MouseDown
+            AddHandler _lbl.MouseMove, AddressOf frmPlano._MouseMove
             temp_control_type = "Label"
             _lbl.Size = New Size(50, 25)
             _lbl.Name = "lbl"
@@ -74,8 +86,9 @@
 
     Private Sub lblLabel_MouseMove(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseMove
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
-            _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
+            System.Windows.Forms.Cursor.Current = cursor
+            _instancia.Left = e.X + lblLabel.Left - ubicacion_mouse.X
+            _instancia.Top = e.Y + lblLabel.Top - ubicacion_mouse.Y
         End If
     End Sub
 
@@ -88,6 +101,43 @@
     End Sub
 
 #End Region
+
+#Region "eventos para el CheckBox"
+    Private Sub chkBox_MouseDown(sender As Object, e As MouseEventArgs) Handles chkBox.MouseDown
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            System.Windows.Forms.Cursor.Current = cursor
+            Dim _chk As New CheckBox
+            AddHandler _chk.MouseDown, AddressOf frmPlano._MouseDown
+            AddHandler _chk.MouseMove, AddressOf frmPlano._MouseMove
+            temp_control_type = "CheckBox"
+            _chk.Size = New Size(50, 25)
+            _chk.Name = "lbl"
+            _chk.Text = "Texto"
+            _chk.AutoSize = True
+            _instancia = _chk
+            Me.Controls.Add(_instancia)
+            _instancia.BringToFront()
+            ubicacion_mouse = e.Location
+        End If
+    End Sub
+
+    Private Sub chkBox_MouseMove(sender As Object, e As MouseEventArgs) Handles chkBox.MouseMove
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            System.Windows.Forms.Cursor.Current = cursor
+            _instancia.Left = e.X + chkBox.Left - ubicacion_mouse.X
+            _instancia.Top = e.Y + chkBox.Top - ubicacion_mouse.Y
+        End If
+    End Sub
+
+    Private Sub chkBox_MouseUp(sender As Object, e As MouseEventArgs) Handles chkBox.MouseUp
+        drop = e.Location
+        settings.ShowDialog()
+        setType("chk")
+        'Abrir dialogo para Fuente y texto
+    End Sub
+#End Region
+
+
 
     Public Sub setType(nombre As String)
         _instancia.Name = nombre
@@ -108,6 +158,8 @@
         settings.texto = ""
         settings.fuente = SystemFonts.DefaultFont
         settings.color = New Color
+
+
     End Sub
 
     Public Function setControlName() As String
@@ -165,5 +217,14 @@
             archivo.Save(path)
         End If
 
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Hide()
+        Me.frmPlano.Controls.Clear()
+    End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        frmPlano.Controls.Clear()
     End Sub
 End Class

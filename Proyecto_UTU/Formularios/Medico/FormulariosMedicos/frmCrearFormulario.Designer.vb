@@ -27,20 +27,22 @@ Partial Class frmCrearFormulario
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkBox = New System.Windows.Forms.CheckBox()
         Me.lblLabel = New System.Windows.Forms.Label()
         Me.txtSintoma0 = New System.Windows.Forms.TextBox()
         Me.pnlFormularioPersonalizado = New System.Windows.Forms.Panel()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.pnlControles.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlControles
         '
         Me.pnlControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlControles.Controls.Add(Me.btnLimpiar)
         Me.pnlControles.Controls.Add(Me.btnSalir)
         Me.pnlControles.Controls.Add(Me.Button1)
         Me.pnlControles.Controls.Add(Me.btnGuardar)
-        Me.pnlControles.Controls.Add(Me.CheckBox1)
+        Me.pnlControles.Controls.Add(Me.chkBox)
         Me.pnlControles.Controls.Add(Me.lblLabel)
         Me.pnlControles.Controls.Add(Me.txtSintoma0)
         Me.pnlControles.Location = New System.Drawing.Point(12, 12)
@@ -61,7 +63,7 @@ Partial Class frmCrearFormulario
         '
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.Location = New System.Drawing.Point(85, 536)
+        Me.Button1.Location = New System.Drawing.Point(85, 501)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(70, 64)
         Me.Button1.TabIndex = 1
@@ -71,21 +73,21 @@ Partial Class frmCrearFormulario
         '
         Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnGuardar.Location = New System.Drawing.Point(3, 536)
+        Me.btnGuardar.Location = New System.Drawing.Point(3, 501)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(70, 64)
         Me.btnGuardar.TabIndex = 0
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'chkBox
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(27, 172)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(96, 21)
-        Me.CheckBox1.TabIndex = 0
-        Me.CheckBox1.Text = "Check Box"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkBox.AutoSize = True
+        Me.chkBox.Location = New System.Drawing.Point(27, 172)
+        Me.chkBox.Name = "chkBox"
+        Me.chkBox.Size = New System.Drawing.Size(96, 21)
+        Me.chkBox.TabIndex = 0
+        Me.chkBox.Text = "Check Box"
+        Me.chkBox.UseVisualStyleBackColor = True
         '
         'lblLabel
         '
@@ -100,6 +102,7 @@ Partial Class frmCrearFormulario
         '
         Me.txtSintoma0.Location = New System.Drawing.Point(27, 58)
         Me.txtSintoma0.Name = "txtSintoma0"
+        Me.txtSintoma0.ReadOnly = True
         Me.txtSintoma0.Size = New System.Drawing.Size(100, 22)
         Me.txtSintoma0.TabIndex = 0
         '
@@ -110,6 +113,15 @@ Partial Class frmCrearFormulario
         Me.pnlFormularioPersonalizado.Name = "pnlFormularioPersonalizado"
         Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(753, 640)
         Me.pnlFormularioPersonalizado.TabIndex = 1
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 571)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(152, 29)
+        Me.btnLimpiar.TabIndex = 3
+        Me.btnLimpiar.Text = "LIMPIAR"
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'frmCrearFormulario
         '
@@ -130,9 +142,10 @@ Partial Class frmCrearFormulario
     Friend WithEvents pnlControles As Panel
     Friend WithEvents pnlFormularioPersonalizado As Panel
     Friend WithEvents txtSintoma0 As TextBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents chkBox As CheckBox
     Friend WithEvents lblLabel As Label
     Friend WithEvents btnGuardar As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents btnLimpiar As Button
 End Class
