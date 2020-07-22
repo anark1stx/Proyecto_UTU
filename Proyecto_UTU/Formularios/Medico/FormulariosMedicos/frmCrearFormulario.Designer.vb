@@ -24,14 +24,14 @@ Partial Class frmCrearFormulario
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCrearFormulario))
         Me.pnlControles = New System.Windows.Forms.Panel()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAbrir = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.chkBox = New System.Windows.Forms.CheckBox()
         Me.lblLabel = New System.Windows.Forms.Label()
         Me.txtSintoma0 = New System.Windows.Forms.TextBox()
         Me.pnlFormularioPersonalizado = New System.Windows.Forms.Panel()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.pnlControles.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -40,7 +40,7 @@ Partial Class frmCrearFormulario
         Me.pnlControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlControles.Controls.Add(Me.btnLimpiar)
         Me.pnlControles.Controls.Add(Me.btnSalir)
-        Me.pnlControles.Controls.Add(Me.Button1)
+        Me.pnlControles.Controls.Add(Me.btnAbrir)
         Me.pnlControles.Controls.Add(Me.btnGuardar)
         Me.pnlControles.Controls.Add(Me.chkBox)
         Me.pnlControles.Controls.Add(Me.lblLabel)
@@ -49,6 +49,15 @@ Partial Class frmCrearFormulario
         Me.pnlControles.Name = "pnlControles"
         Me.pnlControles.Size = New System.Drawing.Size(160, 640)
         Me.pnlControles.TabIndex = 0
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 571)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(152, 29)
+        Me.btnLimpiar.TabIndex = 3
+        Me.btnLimpiar.Text = "LIMPIAR"
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'btnSalir
         '
@@ -59,15 +68,15 @@ Partial Class frmCrearFormulario
         Me.btnSalir.Text = "SALIR"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnAbrir
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.Location = New System.Drawing.Point(85, 501)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(70, 64)
-        Me.Button1.TabIndex = 1
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAbrir.BackgroundImage = CType(resources.GetObject("btnAbrir.BackgroundImage"), System.Drawing.Image)
+        Me.btnAbrir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnAbrir.Location = New System.Drawing.Point(85, 501)
+        Me.btnAbrir.Name = "btnAbrir"
+        Me.btnAbrir.Size = New System.Drawing.Size(70, 64)
+        Me.btnAbrir.TabIndex = 1
+        Me.btnAbrir.UseVisualStyleBackColor = True
         '
         'btnGuardar
         '
@@ -114,15 +123,6 @@ Partial Class frmCrearFormulario
         Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(753, 640)
         Me.pnlFormularioPersonalizado.TabIndex = 1
         '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.Location = New System.Drawing.Point(3, 571)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(152, 29)
-        Me.btnLimpiar.TabIndex = 3
-        Me.btnLimpiar.Text = "LIMPIAR"
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
         'frmCrearFormulario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -145,7 +145,7 @@ Partial Class frmCrearFormulario
     Friend WithEvents chkBox As CheckBox
     Friend WithEvents lblLabel As Label
     Friend WithEvents btnGuardar As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAbrir As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLimpiar As Button
 End Class

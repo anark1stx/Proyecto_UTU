@@ -3,7 +3,6 @@
     Public Function guardarXML(listaControles As List(Of Object)) As String 'Retornar un string XML entero con todos los datos.
         Dim string_armado As String = encabezado
         Dim string_control As String = ""
-
         Dim control_nombre As String = ""
         Dim control_texto As String = ""
         Dim control_Pos As Point = New Point(0, 0)
@@ -62,4 +61,77 @@
         Return string_armado & "</Controles>"
 
     End Function
+
+    Public Function generarInstancias(doc As Xml.XmlDocument) As List(Of Object)
+
+        Dim listaObj As New List(Of Object)
+
+        For Each nodo As Xml.XmlNode In doc.GetElementsByTagName("TextBox")
+
+            Dim Nombre As String = nodo.SelectSingleNode("Name").InnerText
+            Dim X As String = nodo.SelectSingleNode("X").InnerText
+            Dim Y As String = nodo.SelectSingleNode("Y").InnerText
+            Dim Width As String = nodo.SelectSingleNode("SizeW").InnerText
+            Dim Height As String = nodo.SelectSingleNode("SizeH").InnerText
+            Dim NomFuente As String = nodo.SelectSingleNode("Font").ChildNodes(0).InnerText
+            Dim tamanoFuente As String = nodo.SelectSingleNode("Font").ChildNodes(1).InnerText
+            Dim nomColor As String = nodo.SelectSingleNode("ColorName").InnerText
+
+            Dim propsList As New List(Of String)({Nombre, X, Y, Width, Height, NomFuente, tamanoFuente, nomColor})
+
+            listaObj.Add(buildTextBox(propsList))
+
+        Next
+
+        For Each nodo As Xml.XmlNode In doc.GetElementsByTagName("Label")
+
+            Dim Nombre As String = nodo.SelectSingleNode("Name").InnerText
+            Dim X As String = nodo.SelectSingleNode("X").InnerText
+            Dim Y As String = nodo.SelectSingleNode("Y").InnerText
+            Dim Width As String = nodo.SelectSingleNode("SizeW").InnerText
+            Dim Height As String = nodo.SelectSingleNode("SizeH").InnerText
+            Dim NomFuente As String = nodo.SelectSingleNode("Font").ChildNodes(0).InnerText
+            Dim tamanoFuente As String = nodo.SelectSingleNode("Font").ChildNodes(1).InnerText
+            Dim nomColor As String = nodo.SelectSingleNode("ColorName").InnerText
+            Dim texto As String = nodo.SelectSingleNode("Texto").InnerText
+            Dim propsList As New List(Of String)({Nombre, X, Y, Width, Height, NomFuente, tamanoFuente, nomColor, texto})
+
+            listaObj.Add(buildLabel(propsList))
+
+        Next
+
+        Return listaObj
+    End Function
+
+    Public Function buildTextBox(propiedades As List(Of String)) As TextBox
+        Dim txtBuild As New TextBox
+        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor
+
+        txtBuild.Name = propiedades(0)
+        txtBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
+        txtBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
+        Dim fntConverter As New FontConverter
+        txtBuild.Font = fntConverter.ConvertFromString(propiedades(5) & ", " & propiedades(6))
+        txtBuild.ForeColor = Color.FromName(propiedades(7))
+
+        Return txtBuild
+    End Function
+
+    Public Function buildLabel(propiedades As List(Of String)) As Label
+
+        Dim lblBuild As New Label
+        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor, {8} = Texto
+
+        lblBuild.Name = propiedades(0)
+        lblBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
+        lblBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
+        Dim fntConverter As New FontConverter
+        lblBuild.Font = fntConverter.ConvertFromString(propiedades(5) & ", " & propiedades(6))
+        lblBuild.ForeColor = Color.FromName(propiedades(7))
+        lblBuild.Text = propiedades(8)
+
+        Return lblBuild
+    End Function
+
+
 End Class

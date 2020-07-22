@@ -1,6 +1,6 @@
 ﻿Public Class frmCrearFormulario
 
-    Dim cursor As Cursor = System.Windows.Forms.Cursors.Hand
+    Dim _cursor As Cursor = System.Windows.Forms.Cursors.Hand
     Public tempname As String = ""
     Dim frmPlano As New formularioPlano
 
@@ -26,7 +26,7 @@
 #Region "Eventos para el TextBox"
     Private Sub txtControl_MouseDown(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = cursor
+            System.Windows.Forms.Cursor.Current = _cursor
             Dim _txt As New TextBox
 
             AddHandler _txt.MouseDown, AddressOf frmPlano._MouseDown 'Agregar eventos de mouse, para poder moverlos en tiempo real.
@@ -46,7 +46,7 @@
     Private Sub txtControl_MouseMove(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseMove
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = cursor
+            System.Windows.Forms.Cursor.Current = _cursor
             _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
 
@@ -68,7 +68,7 @@
 #Region "eventos para la Label"
     Private Sub lblLabel_MouseDown(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = cursor
+            System.Windows.Forms.Cursor.Current = _cursor
             Dim _lbl As New Label
             AddHandler _lbl.MouseDown, AddressOf frmPlano._MouseDown
             AddHandler _lbl.MouseMove, AddressOf frmPlano._MouseMove
@@ -86,7 +86,7 @@
 
     Private Sub lblLabel_MouseMove(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseMove
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = cursor
+            System.Windows.Forms.Cursor.Current = _cursor
             _instancia.Left = e.X + lblLabel.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + lblLabel.Top - ubicacion_mouse.Y
         End If
@@ -105,7 +105,7 @@
 #Region "eventos para el CheckBox"
     Private Sub chkBox_MouseDown(sender As Object, e As MouseEventArgs) Handles chkBox.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = cursor
+            System.Windows.Forms.Cursor.Current = _cursor
             Dim _chk As New CheckBox
             AddHandler _chk.MouseDown, AddressOf frmPlano._MouseDown
             AddHandler _chk.MouseMove, AddressOf frmPlano._MouseMove
@@ -123,7 +123,7 @@
 
     Private Sub chkBox_MouseMove(sender As Object, e As MouseEventArgs) Handles chkBox.MouseMove
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = cursor
+            System.Windows.Forms.Cursor.Current = _cursor
             _instancia.Left = e.X + chkBox.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + chkBox.Top - ubicacion_mouse.Y
         End If
@@ -226,5 +226,31 @@
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         frmPlano.Controls.Clear()
+    End Sub
+
+    Private Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
+        Dim abrirFormulario As New OpenFileDialog
+        abrirFormulario.Filter = "XML|*.xml"
+        abrirFormulario.Title = "Abrir Formulario"
+        abrirFormulario.RestoreDirectory = True
+        Dim archivo As New Xml.XmlDocument
+        Dim path As String = ""
+
+        If abrirFormulario.ShowDialog() = DialogResult.OK Then
+            path = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
+            archivo.Load(path)
+        End If
+
+        Dim gestor As New GestorXML
+
+        Dim controles = gestor.generarInstancias(archivo)
+
+        For Each control As Control In controles
+
+            frmPlano.Controls.Add(control)
+
+        Next
+
+
     End Sub
 End Class
