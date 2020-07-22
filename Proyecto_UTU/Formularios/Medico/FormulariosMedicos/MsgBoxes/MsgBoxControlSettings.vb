@@ -15,9 +15,13 @@ Public Class MsgBoxControlSettings
             cbFuente.Items.Add(fuente.Name.ToString())
         Next
 
-        For i As Integer = 10 To 24
-            cbTamanoLetra.Items.Add(i.ToString())
-        Next
+        If cbTamanoLetra.Items.Count < 14 Then
+            For i As Integer = 10 To 24
+                cbTamanoLetra.Items.Add(i.ToString())
+            Next
+        End If
+
+
 
         cbFuente.SelectedIndex = 0 'DEFAULT: Arial
         cbTamanoLetra.SelectedIndex = 4 'DEFAULT: 12

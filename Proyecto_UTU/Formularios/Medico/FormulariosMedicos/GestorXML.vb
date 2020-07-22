@@ -7,7 +7,7 @@
         Dim control_texto As String = ""
         Dim control_Pos As Point = New Point(0, 0)
         Dim control_Fuente As String = SystemFonts.DefaultFont.Name
-        Dim control_Fuente_tamano As String = SystemFonts.DefaultFont.SizeInPoints
+        Dim control_Fuente_tamano As String = SystemFonts.DefaultFont.Size
         Dim control_tamano As Size = New Size(0, 0)
         Dim control_ColorR As String
         For Each control In listaControles
@@ -19,7 +19,7 @@
                     control_nombre = txt.Name
                     control_Pos = txt.Location
                     control_Fuente = txt.Font.Name
-                    control_Fuente_tamano = txt.Font.SizeInPoints
+                    control_Fuente_tamano = txt.Font.Size
                     control_tamano = txt.Size
                     control_ColorR = txt.ForeColor.Name
                     string_control = String.Format("<TextBox><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><ColorName>{7}</ColorName></TextBox>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR)
@@ -32,7 +32,7 @@
                     control_nombre = lbl.Name
                     control_Pos = lbl.Location
                     control_Fuente = lbl.Font.Name
-                    control_Fuente_tamano = lbl.Font.SizeInPoints
+                    control_Fuente_tamano = lbl.Font.Size
                     control_tamano = lbl.Size
                     control_ColorR = lbl.ForeColor.Name
                     control_texto = lbl.Text
@@ -46,7 +46,7 @@
                     control_nombre = chk.Name
                     control_Pos = chk.Location
                     control_Fuente = chk.Font.Name
-                    control_Fuente_tamano = chk.Font.SizeInPoints
+                    control_Fuente_tamano = chk.Font.Size
                     control_tamano = chk.Size
                     control_ColorR = chk.ForeColor.Name
                     control_texto = chk.Text
@@ -100,6 +100,23 @@
 
         Next
 
+        For Each nodo As Xml.XmlNode In doc.GetElementsByTagName("CheckBox")
+
+            Dim Nombre As String = nodo.SelectSingleNode("Name").InnerText
+            Dim X As String = nodo.SelectSingleNode("X").InnerText
+            Dim Y As String = nodo.SelectSingleNode("Y").InnerText
+            Dim Width As String = nodo.SelectSingleNode("SizeW").InnerText
+            Dim Height As String = nodo.SelectSingleNode("SizeH").InnerText
+            Dim NomFuente As String = nodo.SelectSingleNode("Font").ChildNodes(0).InnerText
+            Dim tamanoFuente As String = nodo.SelectSingleNode("Font").ChildNodes(1).InnerText
+            Dim nomColor As String = nodo.SelectSingleNode("ColorName").InnerText
+            Dim texto As String = nodo.SelectSingleNode("Texto").InnerText
+            Dim propsList As New List(Of String)({Nombre, X, Y, Width, Height, NomFuente, tamanoFuente, nomColor, texto})
+
+            listaObj.Add(buildCheckBox(propsList))
+
+        Next
+
         Return listaObj
     End Function
 
@@ -111,7 +128,8 @@
         txtBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
         txtBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
         Dim fntConverter As New FontConverter
-        txtBuild.Font = fntConverter.ConvertFromString(propiedades(5) & ", " & propiedades(6))
+        Dim tmpFont As Font = New Font(propiedades(5), Single.Parse(propiedades(6)), FontStyle.Regular)
+        txtBuild.Font = tmpFont
         txtBuild.ForeColor = Color.FromName(propiedades(7))
 
         Return txtBuild
@@ -126,11 +144,28 @@
         lblBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
         lblBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
         Dim fntConverter As New FontConverter
-        lblBuild.Font = fntConverter.ConvertFromString(propiedades(5) & ", " & propiedades(6))
+
+        Dim tmpFont As Font = New Font(propiedades(5), Single.Parse(propiedades(6)), FontStyle.Regular)
+        lblBuild.Font = tmpFont
         lblBuild.ForeColor = Color.FromName(propiedades(7))
         lblBuild.Text = propiedades(8)
 
         Return lblBuild
+    End Function
+
+    Public Function buildCheckBox(propiedades As List(Of String)) As CheckBox
+
+        Dim chkBuild As New CheckBox
+        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor, {8} = Texto
+
+        chkBuild.Name = propiedades(0)
+        chkBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
+        chkBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
+        Dim tmpFont As Font = New Font(propiedades(5), Single.Parse(propiedades(6)), FontStyle.Regular)
+        chkBuild.Font = tmpFont
+        chkBuild.Text = propiedades(8)
+
+        Return chkBuild
     End Function
 
 
