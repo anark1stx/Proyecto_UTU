@@ -1,4 +1,4 @@
-﻿Public Class frmOlvideMiContrasena
+﻿Public Class frmOlvideMiContrasena ' #WONT WORK ON -> Esta feature no será trabajada, si bien es útil en cualquier contexto no parece muy útil en el hospital, habría que evaluar mejor su implementación
     Private Sub btnReestablecerPWD_Click(sender As Object, e As EventArgs) Handles btnReestablecerPWD.Click
         'Verificar que esa cédula exista en la BD.
         'Posteriormente enviar notificacion a administrador

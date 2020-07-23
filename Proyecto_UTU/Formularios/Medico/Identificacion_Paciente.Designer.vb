@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmConsultaConPaciente
+Partial Class Identificacion_Paciente
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class frmConsultaConPaciente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaConPaciente))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.lblDireccionTXT = New System.Windows.Forms.Label()
         Me.lblEscolaridad = New System.Windows.Forms.Label()
@@ -273,11 +273,12 @@ Partial Class frmConsultaConPaciente
         'txtCIPaciente
         '
         Me.txtCIPaciente.Location = New System.Drawing.Point(555, 49)
+        Me.txtCIPaciente.MaxLength = 8
         Me.txtCIPaciente.Name = "txtCIPaciente"
         Me.txtCIPaciente.Size = New System.Drawing.Size(177, 22)
         Me.txtCIPaciente.TabIndex = 99
         '
-        'frmConsultaConPaciente
+        'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -307,7 +308,7 @@ Partial Class frmConsultaConPaciente
         Me.Controls.Add(Me.lblNombresTXT)
         Me.Controls.Add(Me.pBoxFotoPaciente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmConsultaConPaciente"
+        Me.Name = "Identificacion_Paciente"
         Me.Text = "frmConsultaConPaciente"
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

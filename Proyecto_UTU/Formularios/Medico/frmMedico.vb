@@ -1,10 +1,13 @@
 ﻿Public Class frmMedico
-    Dim frmConsulta As New frmConsultaConPaciente 'Instancia del formulario de consulta con el paciente
+    Dim frmIdentificacion As New Identificacion_Paciente 'Instancia del formulario de consulta con el paciente
     Dim frmGestion As New frmGestionMedico 'Instancia del formulario de gestion del medico
 
-    Dim frmCrearFrm As New frmCrearFormulario
+    Dim frmCrearFrm As New frmCrearFormulario 'Creacion de formularios personalizados
 
     Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
+
+    Public frmPlano As New formularioPlano 'Usado para cargar las entrevistas en el.
+
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
@@ -15,12 +18,12 @@
         Select Case formulario
             Case "Consulta"
 
-                If Not pnlContenedorFormularios.Controls.Contains(frmConsulta) Then
+                If Not pnlContenedorFormularios.Controls.Contains(frmIdentificacion) Then
                     pnlContenedorFormularios.Controls.Clear()
-                    frmConsulta.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    frmConsulta.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedorFormularios.Controls.Add(frmConsulta) 'Añadir el formulario al panel
-                    frmConsulta.Show()
+                    frmIdentificacion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmIdentificacion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+                    Me.pnlContenedorFormularios.Controls.Add(frmIdentificacion) 'Añadir el formulario al panel
+                    frmIdentificacion.Show()
 
                 End If
 
@@ -28,7 +31,7 @@
 
                 If Not pnlContenedorFormularios.Controls.Contains(frmGestion) Then
                     pnlContenedorFormularios.Controls.Clear()
-                    frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
+                    frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
                     frmGestion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
                     Me.pnlContenedorFormularios.Controls.Add(frmGestion) 'Añadir el formulario al panel
                     frmGestion.Show()
@@ -38,11 +41,25 @@
             Case "CrearFormulario"
 
                 frmCrearFrm.Show()
+
+            Case "Entrevista"
+                If Not pnlContenedorFormularios.Controls.Contains(frmPlano) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmPlano.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmPlano.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+                    Me.pnlContenedorFormularios.Controls.Add(frmPlano) 'Añadir el formulario al panel
+                    frmPlano.Show()
+
+                End If
+
         End Select
 
     End Sub
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        fixSize()
+
         InstanciarFormulario("Gestion")
     End Sub
 
@@ -52,15 +69,25 @@
 
     Private Sub ElegirFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles ElegirFormularioMenuItem.Click
         If llenoIdentificacion = False Then
-            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis>Identificación.")
+            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis > Identificación.")
         Else
             'Abrir menú con todos los formularios guardados en la BD y dejarlo elegir, u ofrecerle los que ya dejemos nosotros pre-hechos
+            Dim controles = ImportarFormulario()
+
+            For Each control As Control In controles
+
+                frmPlano.Controls.Add(control)
+
+            Next
+
+            InstanciarFormulario("Entrevista")
+
         End If
     End Sub
 
     Private Sub EntrevistaMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistaMenuItem.Click
         If llenoIdentificacion = False Then
-            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis>Identificación.")
+            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis > Identificación.")
         Else
             'Abrir menú con todos los formularios guardados en la BD y dejarlo elegir, , u ofrecerle los que ya dejemos nosotros pre-hechos
         End If
@@ -69,5 +96,31 @@
     Private Sub CrearFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles CrearFormularioMenuItem.Click
         'Abrir la ventana interactiva con items drag&drop
         InstanciarFormulario("CrearFormulario")
+    End Sub
+
+    Public Sub ciChecked(code As Integer) '0 = Cédula invalida, 1 = No existe en BD, 2 = All gucci.
+
+        If code = 0 Then
+            MsgBox("Cédula inválida.", MessageBoxIcon.Error)
+        ElseIf code = 1 Then
+            MsgBox("Paciente no registrado en el sistema.", MessageBoxIcon.Error)
+        ElseIf code = 2 Then
+            llenoIdentificacion = True
+        End If
+
+    End Sub
+
+    Public Sub fixSize() 'Metodo para redimensionar controles sin tener que entrar a las propiedades de cada uno a cambiarlo
+        For Each c As Control In Me.Controls
+
+            If c IsNot MenuStrip1 Then 'El unico control que no queremos modificar es el menu superior
+                c.Anchor += AnchorStyles.Bottom
+                c.Anchor += AnchorStyles.Top
+                c.Anchor += AnchorStyles.Left
+                c.Anchor += AnchorStyles.Right
+                c.Dock = DockStyle.Top
+            End If
+
+        Next
     End Sub
 End Class

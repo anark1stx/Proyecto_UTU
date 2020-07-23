@@ -5,10 +5,7 @@
     Dim frmPlano As New formularioPlano
 
     Public ubicacion_mouse As Point
-    Dim drop As Point
 
-
-    Dim instancia As New Control 'Para limpiar instancias en caso que fuera necesario
     Dim _instancia As New Control
     Dim controlesInstanciados As New List(Of Object)
     Dim control_count As Integer = 0
@@ -20,13 +17,18 @@
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         frmPlano.TopLevel = False
         frmPlano.TopMost = True
+        pnlFormularioPersonalizado.Anchor += AnchorStyles.Bottom
+        pnlFormularioPersonalizado.Anchor += AnchorStyles.Right
+        frmPlano.Anchor += AnchorStyles.Bottom
+        frmPlano.Anchor += AnchorStyles.Right
         pnlFormularioPersonalizado.Controls.Add(frmPlano)
         frmPlano.Show()
+
     End Sub
 #Region "Eventos para el TextBox"
     Private Sub txtControl_MouseDown(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = _cursor
+            MostrarManito()
             Dim _txt As New TextBox
 
             AddHandler _txt.MouseDown, AddressOf frmPlano._MouseDown 'Agregar eventos de mouse, para poder moverlos en tiempo real.
@@ -46,7 +48,7 @@
     Private Sub txtControl_MouseMove(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseMove
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = _cursor
+            MostrarManito()
             _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
 
@@ -55,7 +57,6 @@
 
     Public Sub txtSintoma0_MouseUp(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseUp
         If _instancia.Location.X > pnlControles.Width Then
-            drop = e.Location
             Dim tipo = TipoDeTxt.ShowDialog()
 
             setType(TipoDeTxt.valorSeleccionado)
@@ -68,7 +69,7 @@
 #Region "eventos para la Label"
     Private Sub lblLabel_MouseDown(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = _cursor
+            MostrarManito()
             Dim _lbl As New Label
             AddHandler _lbl.MouseDown, AddressOf frmPlano._MouseDown
             AddHandler _lbl.MouseMove, AddressOf frmPlano._MouseMove
@@ -86,14 +87,13 @@
 
     Private Sub lblLabel_MouseMove(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseMove
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = _cursor
+            MostrarManito()
             _instancia.Left = e.X + lblLabel.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + lblLabel.Top - ubicacion_mouse.Y
         End If
     End Sub
 
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
-        drop = e.Location
         settings.ShowDialog()
 
         setType("lbl")
@@ -105,7 +105,7 @@
 #Region "eventos para el CheckBox"
     Private Sub chkBox_MouseDown(sender As Object, e As MouseEventArgs) Handles chkBox.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = _cursor
+            MostrarManito()
             Dim _chk As New CheckBox
             AddHandler _chk.MouseDown, AddressOf frmPlano._MouseDown
             AddHandler _chk.MouseMove, AddressOf frmPlano._MouseMove
@@ -123,21 +123,18 @@
 
     Private Sub chkBox_MouseMove(sender As Object, e As MouseEventArgs) Handles chkBox.MouseMove
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
-            System.Windows.Forms.Cursor.Current = _cursor
+            MostrarManito()
             _instancia.Left = e.X + chkBox.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + chkBox.Top - ubicacion_mouse.Y
         End If
     End Sub
 
     Private Sub chkBox_MouseUp(sender As Object, e As MouseEventArgs) Handles chkBox.MouseUp
-        drop = e.Location
         settings.ShowDialog()
         setType("chk")
         'Abrir dialogo para Fuente y texto
     End Sub
 #End Region
-
-
 
     Public Sub setType(nombre As String)
         _instancia.Name = nombre
@@ -151,14 +148,13 @@
         frmPlano.Controls.Add(_instancia)
 
         Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
-        Dim marginY As Double = _instancia.Size.Height / 2
+        Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
 
         _instancia.Location -= New Point(marginX, marginY)
         TipoDeTxt.Hide()
-        settings.texto = ""
+        settings.texto = "" 'Limpiar las settings
         settings.fuente = SystemFonts.DefaultFont
         settings.color = New Color
-
 
     End Sub
 
@@ -196,26 +192,16 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        Dim archivo As New Xml.XmlDocument
+        If frmPlano.Controls.Count < 5 Then
+            MsgBox("Agregue más controles al formulario personalizado.")
+            Exit Sub
+        End If
 
         For Each i As Control In frmPlano.Controls
             controlesInstanciados.Add(i)
         Next
 
-        Dim gestor As New GestorXML
-
-        Dim xmlstring As String = gestor.guardarXML(controlesInstanciados)
-        archivo.LoadXml(xmlstring)
-
-        Dim guardarFormulario As New SaveFileDialog
-        guardarFormulario.Filter = "XML|*.xml"
-        guardarFormulario.Title = "Guardar Formulario"
-        guardarFormulario.RestoreDirectory = True
-
-        If guardarFormulario.ShowDialog() = DialogResult.OK Then
-            Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
-            archivo.Save(path)
-        End If
+        GuardarFormulario(controlesInstanciados)
 
     End Sub
 
@@ -229,28 +215,27 @@
     End Sub
 
     Private Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
-        Dim abrirFormulario As New OpenFileDialog
-        abrirFormulario.Filter = "XML|*.xml"
-        abrirFormulario.Title = "Abrir Formulario"
-        abrirFormulario.RestoreDirectory = True
-        Dim archivo As New Xml.XmlDocument
-        Dim path As String = ""
 
-        If abrirFormulario.ShowDialog() = DialogResult.OK Then
-            path = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
-            archivo.Load(path)
-        End If
-
-        Dim gestor As New GestorXML
-
-        Dim controles = gestor.generarInstancias(archivo)
+        Dim controles = ImportarFormulario()
 
         For Each control As Control In controles
 
             frmPlano.Controls.Add(control)
 
         Next
-
-
     End Sub
+
+    Private Sub frmCrearFormulario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            e.Cancel = True
+            frmPlano.Controls.Clear()
+            Me.Hide()
+        End If
+    End Sub
+
+    Private Sub MostrarManito()
+        System.Windows.Forms.Cursor.Current = _cursor
+    End Sub
+
+
 End Class

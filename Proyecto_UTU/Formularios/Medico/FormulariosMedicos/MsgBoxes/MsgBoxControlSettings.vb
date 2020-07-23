@@ -11,7 +11,7 @@ Public Class MsgBoxControlSettings
         Me.CargarColoresCBSistema()
 
 
-        For Each fuente As FontFamily In FontFamily.Families
+        For Each fuente As FontFamily In FontFamily.Families 'PENDIENTE: FIJRASE QUE ESTO NO ESTE AGREGANDO LAS FUENTES CADA VEZ QUE SE ABRE EL CUADRO
             cbFuente.Items.Add(fuente.Name.ToString())
         Next
 
@@ -20,8 +20,6 @@ Public Class MsgBoxControlSettings
                 cbTamanoLetra.Items.Add(i.ToString())
             Next
         End If
-
-
 
         cbFuente.SelectedIndex = 0 'DEFAULT: Arial
         cbTamanoLetra.SelectedIndex = 4 'DEFAULT: 12

@@ -40,7 +40,7 @@ Partial Class frmMedico
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionMenuItem, Me.AnamnesisMenuItem, Me.FormulariosMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(896, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(896, 30)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -65,7 +65,6 @@ Partial Class frmMedico
         '
         'EntrevistaMenuItem
         '
-        Me.EntrevistaMenuItem.Enabled = False
         Me.EntrevistaMenuItem.Name = "EntrevistaMenuItem"
         Me.EntrevistaMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.EntrevistaMenuItem.Text = "Entrevista"
@@ -80,17 +79,21 @@ Partial Class frmMedico
         'CrearFormularioMenuItem
         '
         Me.CrearFormularioMenuItem.Name = "CrearFormularioMenuItem"
-        Me.CrearFormularioMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.CrearFormularioMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.CrearFormularioMenuItem.Text = "Crear Formulario"
         '
         'ElegirFormularioMenuItem
         '
         Me.ElegirFormularioMenuItem.Name = "ElegirFormularioMenuItem"
-        Me.ElegirFormularioMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.ElegirFormularioMenuItem.Size = New System.Drawing.Size(206, 26)
         Me.ElegirFormularioMenuItem.Text = "Elegir Formulario"
         '
         'pnlContenedorFormularios
         '
+        Me.pnlContenedorFormularios.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlContenedorFormularios.AutoSize = True
         Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 27)
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
         Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
@@ -106,7 +109,6 @@ Partial Class frmMedico
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
         Me.Name = "frmMedico"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Médico - Hospital xxxx xxxx"

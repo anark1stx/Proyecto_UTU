@@ -37,6 +37,8 @@ Partial Class frmCrearFormulario
         '
         'pnlControles
         '
+        Me.pnlControles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlControles.Controls.Add(Me.btnLimpiar)
         Me.pnlControles.Controls.Add(Me.btnSalir)
@@ -52,18 +54,20 @@ Partial Class frmCrearFormulario
         '
         'btnLimpiar
         '
-        Me.btnLimpiar.Location = New System.Drawing.Point(3, 571)
+        Me.btnLimpiar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnLimpiar.Location = New System.Drawing.Point(0, 452)
         Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(152, 29)
+        Me.btnLimpiar.Size = New System.Drawing.Size(158, 29)
         Me.btnLimpiar.TabIndex = 3
         Me.btnLimpiar.Text = "LIMPIAR"
         Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(3, 606)
+        Me.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnSalir.Location = New System.Drawing.Point(0, 481)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(152, 29)
+        Me.btnSalir.Size = New System.Drawing.Size(158, 29)
         Me.btnSalir.TabIndex = 2
         Me.btnSalir.Text = "SALIR"
         Me.btnSalir.UseVisualStyleBackColor = True
@@ -72,9 +76,10 @@ Partial Class frmCrearFormulario
         '
         Me.btnAbrir.BackgroundImage = CType(resources.GetObject("btnAbrir.BackgroundImage"), System.Drawing.Image)
         Me.btnAbrir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAbrir.Location = New System.Drawing.Point(85, 501)
+        Me.btnAbrir.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnAbrir.Location = New System.Drawing.Point(0, 510)
         Me.btnAbrir.Name = "btnAbrir"
-        Me.btnAbrir.Size = New System.Drawing.Size(70, 64)
+        Me.btnAbrir.Size = New System.Drawing.Size(158, 64)
         Me.btnAbrir.TabIndex = 1
         Me.btnAbrir.UseVisualStyleBackColor = True
         '
@@ -82,9 +87,10 @@ Partial Class frmCrearFormulario
         '
         Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnGuardar.Location = New System.Drawing.Point(3, 501)
+        Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnGuardar.Location = New System.Drawing.Point(0, 574)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(70, 64)
+        Me.btnGuardar.Size = New System.Drawing.Size(158, 64)
         Me.btnGuardar.TabIndex = 0
         Me.btnGuardar.UseVisualStyleBackColor = True
         '

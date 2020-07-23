@@ -149,7 +149,7 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\GestorXML.vb" />
+    <Compile Include="Clases\GestorXML.vb" />
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.Designer.vb">
       <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
     </Compile>
@@ -168,10 +168,10 @@
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\frmConsultaConPaciente.Designer.vb">
-      <DependentUpon>frmConsultaConPaciente.vb</DependentUpon>
+    <Compile Include="Formularios\Medico\Identificacion_Paciente.Designer.vb">
+      <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\frmConsultaConPaciente.vb">
+    <Compile Include="Formularios\Medico\Identificacion_Paciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\frmGestionMedico.Designer.vb">
@@ -220,6 +220,7 @@
     <Compile Include="Modulos\mdlGestionControles.vb" />
     <Compile Include="Modulos\mdlMensajes.vb" />
     <Compile Include="Modulos\mdlMetodosGenerales.vb" />
+    <Compile Include="Modulos\mdlUtilidades.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -280,8 +281,8 @@
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\frmConsultaConPaciente.resx">
-      <DependentUpon>frmConsultaConPaciente.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\Medico\Identificacion_Paciente.resx">
+      <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.resx">
       <DependentUpon>frmGestionMedico.vb</DependentUpon>
@@ -321,7 +322,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
