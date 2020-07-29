@@ -46,6 +46,7 @@ Partial Class Identificacion_Paciente
         Me.lblNombresTXT = New System.Windows.Forms.Label()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.txtCIPaciente = New System.Windows.Forms.TextBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -278,12 +279,22 @@ Partial Class Identificacion_Paciente
         Me.txtCIPaciente.Size = New System.Drawing.Size(177, 22)
         Me.txtCIPaciente.TabIndex = 99
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.Location = New System.Drawing.Point(747, 48)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(72, 28)
+        Me.btnBuscar.TabIndex = 100
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 555)
+        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtCIPaciente)
         Me.Controls.Add(Me.lblDireccion)
         Me.Controls.Add(Me.lblDireccionTXT)
@@ -338,4 +349,5 @@ Partial Class Identificacion_Paciente
     Friend WithEvents lblNombresTXT As Label
     Friend WithEvents pBoxFotoPaciente As PictureBox
     Friend WithEvents txtCIPaciente As TextBox
+    Friend WithEvents btnBuscar As Button
 End Class

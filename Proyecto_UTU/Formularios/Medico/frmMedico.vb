@@ -1,13 +1,13 @@
 ﻿Public Class frmMedico
+    Dim frmIni As New frmInicio
     Dim frmIdentificacion As New Identificacion_Paciente 'Instancia del formulario de consulta con el paciente
+    Dim frmOpsConsulta As New frmOpcionesConsulta
     Dim frmGestion As New frmGestionMedico 'Instancia del formulario de gestion del medico
-
-    Dim frmCrearFrm As New frmCrearFormulario 'Creacion de formularios personalizados
-
-    Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
-
-    Public frmPlano As New formularioPlano 'Usado para cargar las entrevistas en el.
-
+    Dim frmEntrevista As New frmSeleccionarFormularioEntrevista
+    Dim frmCrear As New frmCrearFormulario
+    Dim frmPlano As New formularioPlano
+    Public llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
+    Public Ci As String = ""
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
@@ -16,14 +16,20 @@
     Public Sub InstanciarFormulario(formulario As String)
 
         Select Case formulario
-            Case "Consulta"
 
-                If Not pnlContenedorFormularios.Controls.Contains(frmIdentificacion) Then
+            Case "Inicio"
+
+                If Not pnlContenedorFormularios.Controls.Contains(frmIni) Then
                     pnlContenedorFormularios.Controls.Clear()
-                    frmIdentificacion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
-                    frmIdentificacion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedorFormularios.Controls.Add(frmIdentificacion) 'Añadir el formulario al panel
-                    frmIdentificacion.Show()
+                    frmIni.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmIni.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+                    Me.pnlContenedorFormularios.Controls.Add(frmIni) 'Añadir el formulario al panel
+
+                    frmIni.Anchor += AnchorStyles.Bottom
+                    frmIni.Anchor += AnchorStyles.Right
+                    frmIni.Dock = DockStyle.Fill
+
+                    frmIni.Show()
 
                 End If
 
@@ -38,46 +44,119 @@
 
                 End If
 
-            Case "CrearFormulario"
+            Case "Atender"
 
-                frmCrearFrm.Show()
+                If pnlContenedorFormularios.Controls.Contains(frmIdentificacion) Then
+                    Ci = frmIdentificacion.txtCIPaciente.Text
+                End If
+
+                If Not pnlContenedorFormularios.Controls.Contains(frmOpsConsulta) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmOpsConsulta.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmOpsConsulta.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+                    Me.pnlContenedorFormularios.Controls.Add(frmOpsConsulta) 'Añadir el formulario al panel
+
+                    frmOpsConsulta.Anchor += AnchorStyles.Bottom
+                    frmOpsConsulta.Anchor += AnchorStyles.Right
+                    frmOpsConsulta.Dock = DockStyle.Fill
+
+                    frmOpsConsulta.Show()
+
+                End If
+
+            Case "Identificacion"
+
+                If Not pnlContenedorFormularios.Controls.Contains(frmIdentificacion) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmIdentificacion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmIdentificacion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+                    Me.pnlContenedorFormularios.Controls.Add(frmIdentificacion) 'Añadir el formulario al panel
+                    frmIdentificacion.Show()
+
+                End If
 
             Case "Entrevista"
+
+                If check_Cedula(Ci) Then
+                    llenoIdentificacion = True
+                Else
+                    llenoIdentificacion = False
+                End If
+
+                If Not llenoIdentificacion Then
+                    MsgBox("Debe identificar primero al paciente antes de proceder con su entrevista.")
+                Else
+                    If Not pnlContenedorFormularios.Controls.Contains(frmEntrevista) Then
+                        pnlContenedorFormularios.Controls.Clear()
+                        frmEntrevista.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                        frmEntrevista.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+
+                        frmEntrevista.Anchor += AnchorStyles.Bottom
+                        frmEntrevista.Anchor += AnchorStyles.Right
+                        frmEntrevista.Dock = DockStyle.Fill
+
+                        Me.pnlContenedorFormularios.Controls.Add(frmEntrevista) 'Añadir el formulario al panel
+                        frmEntrevista.Show()
+
+                    End If
+                End If
+
+            Case "Generico"
+                Dim generico As New frmGenerico
+
+                If Not pnlContenedorFormularios.Controls.Contains(generico) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    generico.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    generico.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+
+                    generico.Width = pnlContenedorFormularios.Width - 20
+                    generico.Height = pnlContenedorFormularios.Height
+                    Me.pnlContenedorFormularios.Controls.Add(generico) 'Añadir el formulario al panel
+                    generico.Show()
+
+                End If
+            Case "Dolor"
+                'Instanciar frmDolor
+            Case "Fiebre"
+                'Instanciar frmFiebre
+
+            Case "Malestar"
+                'Instanciar frmMalestar
+
+            Case "Otro"
+
                 If Not pnlContenedorFormularios.Controls.Contains(frmPlano) Then
                     pnlContenedorFormularios.Controls.Clear()
                     frmPlano.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
                     frmPlano.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
 
-                    frmPlano.Anchor += AnchorStyles.Bottom
-                    frmPlano.Anchor += AnchorStyles.Right
-                    frmPlano.Dock = DockStyle.Fill
-
+                    frmPlano.Width = pnlContenedorFormularios.Width - 20
+                    frmPlano.Height = pnlContenedorFormularios.Height
                     Me.pnlContenedorFormularios.Controls.Add(frmPlano) 'Añadir el formulario al panel
-                    frmPlano.Show()
-
                 End If
+
+                Dim controles = ImportarFormulario()
+
+                For Each control As Control In controles
+                    frmPlano.Controls.Add(control)
+
+                Next
+                frmPlano.Dock = DockStyle.Fill
+                frmPlano.Show()
+            Case "CrearFormulario"
+
+                frmCrear.Show()
 
         End Select
 
     End Sub
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        'fixSize()
-
-        InstanciarFormulario("Gestion")
+        InstanciarFormulario("Inicio")
     End Sub
 
-    Private Sub EntrevistaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificacionMenuItem.Click
-        InstanciarFormulario("Consulta")
-    End Sub
-
-    Private Sub EntrevistaMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistaMenuItem.Click
-        If llenoIdentificacion = False Then
-            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis > Identificación.")
-        Else
-            'Abrir menú con todos los formularios guardados en la BD y dejarlo elegir, , u ofrecerle los que ya dejemos nosotros pre-hechos
-        End If
+    Private Sub EntrevistaToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        InstanciarFormulario("Identificacion")
     End Sub
 
     Private Sub CrearFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles CrearFormularioMenuItem.Click
@@ -89,12 +168,20 @@
 
         If code = 0 Then
             MsgBox("Cédula inválida.", MessageBoxIcon.Error)
+            llenoIdentificacion = False
         ElseIf code = 1 Then
             MsgBox("Paciente no registrado en el sistema.", MessageBoxIcon.Error)
+            llenoIdentificacion = False
         ElseIf code = 2 Then
             llenoIdentificacion = True
+            MsgBox("Paciente Encontrado")
+            LlenarDatosPaciente()
         End If
+        Console.WriteLine(code)
+    End Sub
 
+    Public Sub LlenarDatosPaciente()
+        'Este evento necesita integracion con la BD
     End Sub
 
     Public Sub fixSize() 'Metodo para redimensionar controles sin tener que entrar a las propiedades de cada uno a cambiarlo
@@ -111,32 +198,25 @@
         Next
     End Sub
 
-    Private Sub GenericoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenericoToolStripMenuItem.Click
-        'Instanciar formulario generico
+    Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
+        InstanciarFormulario("Inicio")
     End Sub
 
-    Private Sub FiebreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FiebreToolStripMenuItem.Click
-        'Instanciar formulario para la fiebre
+    Private Sub AtenderMenuItem_Click(sender As Object, e As EventArgs) Handles AtenderMenuItem.Click
+        InstanciarFormulario("Atender")
     End Sub
 
-    Private Sub DolorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DolorToolStripMenuItem.Click
-        'Instanciar formulario para el dolor
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Dim _event = New FormClosingEventArgs(CloseReason.UserClosing, False)
+        frmMedico_FormClosing(sender, _event)
     End Sub
-
-    Private Sub OtroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OtroToolStripMenuItem.Click
-        'Abrir menú en el que puede cargar formularios desde la base de datos y la carpeta compartida de la VLAN de los medicos.
-        Dim controles = ImportarFormulario()
-
-        If controles.Count < 4 Then
-            Exit Sub
+    Private Sub frmMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            e.Cancel = True
+            Me.pnlContenedorFormularios.Controls.Clear()
+            Me.Hide()
+            frmIngreso_Usuario.Show()
         End If
-
-        For Each control As Control In controles
-
-            frmPlano.Controls.Add(control)
-
-        Next
-
-        InstanciarFormulario("Entrevista")
     End Sub
+
 End Class

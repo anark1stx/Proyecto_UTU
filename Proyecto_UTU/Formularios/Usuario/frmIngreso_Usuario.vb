@@ -30,4 +30,12 @@
 
     End Sub
 
+    Private Sub frmIngresoUsuario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            e.Cancel = False
+            Me.Dispose()
+            Application.Exit() 'Salir completamente del programa y cerrar todas las ventanas que estaban Hide
+        End If
+    End Sub
+
 End Class

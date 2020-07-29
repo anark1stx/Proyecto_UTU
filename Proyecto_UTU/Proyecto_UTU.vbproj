@@ -143,10 +143,22 @@
     <Compile Include="Formularios\formularioPlano.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmOpcionesConsulta.Designer.vb">
+      <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmOpcionesConsulta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.Designer.vb">
+      <DependentUpon>frmGenerico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.Designer.vb">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\GestorXML.vb" />
@@ -162,16 +174,28 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\frmInicio.Designer.vb">
+      <DependentUpon>frmInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmSeleccionarFormularioEntrevista.Designer.vb">
+      <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmSeleccionarFormularioEntrevista.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.Designer.vb">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\Identificacion_Paciente.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Identificacion_Paciente.Designer.vb">
       <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\Identificacion_Paciente.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Identificacion_Paciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\frmGestionMedico.Designer.vb">
@@ -269,7 +293,13 @@
     <EmbeddedResource Include="Formularios\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmOpcionesConsulta.resx">
+      <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.resx">
+      <DependentUpon>frmGenerico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.resx">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.resx">
@@ -278,10 +308,16 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.resx">
       <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmInicio.resx">
+      <DependentUpon>frmInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmSeleccionarFormularioEntrevista.resx">
+      <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\Identificacion_Paciente.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Identificacion_Paciente.resx">
       <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.resx">
