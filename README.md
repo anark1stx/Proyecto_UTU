@@ -5,7 +5,7 @@ Proyecto de finalización de curso de 3ro bachillerato de informática, ITI, Mon
                                        https://github.com/anark1stx/
                                        -Proyect name: Proyecto_UTU
                                        https://github.com/anark1stx/Proyecto_UTU
-                                       -Branch: Interfaz_grafica
+                                       -Branch: Primer-Entrega
                                        https://github.com/anark1stx/Proyecto_UTU/tree/Interfaz_grafica
 
-Rama de interfaz gráfica, el cometido de la misma es unica y exclusivamente para la interfaz gráfica.
+Rama de la primer entrega, resultado del merge entre Validaciones-OOP e Interfaz gráfica
