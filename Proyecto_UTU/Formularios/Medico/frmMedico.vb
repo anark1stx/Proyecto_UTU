@@ -47,6 +47,11 @@
                     pnlContenedorFormularios.Controls.Clear()
                     frmPlano.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
                     frmPlano.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+
+                    frmPlano.Anchor += AnchorStyles.Bottom
+                    frmPlano.Anchor += AnchorStyles.Right
+                    frmPlano.Dock = DockStyle.Fill
+
                     Me.pnlContenedorFormularios.Controls.Add(frmPlano) 'Añadir el formulario al panel
                     frmPlano.Show()
 
@@ -58,31 +63,13 @@
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        fixSize()
+        'fixSize()
 
         InstanciarFormulario("Gestion")
     End Sub
 
     Private Sub EntrevistaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificacionMenuItem.Click
         InstanciarFormulario("Consulta")
-    End Sub
-
-    Private Sub ElegirFormularioMenuItem_Click(sender As Object, e As EventArgs) Handles ElegirFormularioMenuItem.Click
-        If llenoIdentificacion = False Then
-            MsgBox("Ingrese los datos de identificación del paciente primero. Anamnesis > Identificación.")
-        Else
-            'Abrir menú con todos los formularios guardados en la BD y dejarlo elegir, u ofrecerle los que ya dejemos nosotros pre-hechos
-            Dim controles = ImportarFormulario()
-
-            For Each control As Control In controles
-
-                frmPlano.Controls.Add(control)
-
-            Next
-
-            InstanciarFormulario("Entrevista")
-
-        End If
     End Sub
 
     Private Sub EntrevistaMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistaMenuItem.Click
@@ -122,5 +109,34 @@
             End If
 
         Next
+    End Sub
+
+    Private Sub GenericoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenericoToolStripMenuItem.Click
+        'Instanciar formulario generico
+    End Sub
+
+    Private Sub FiebreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FiebreToolStripMenuItem.Click
+        'Instanciar formulario para la fiebre
+    End Sub
+
+    Private Sub DolorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DolorToolStripMenuItem.Click
+        'Instanciar formulario para el dolor
+    End Sub
+
+    Private Sub OtroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OtroToolStripMenuItem.Click
+        'Abrir menú en el que puede cargar formularios desde la base de datos y la carpeta compartida de la VLAN de los medicos.
+        Dim controles = ImportarFormulario()
+
+        If controles.Count < 4 Then
+            Exit Sub
+        End If
+
+        For Each control As Control In controles
+
+            frmPlano.Controls.Add(control)
+
+        Next
+
+        InstanciarFormulario("Entrevista")
     End Sub
 End Class

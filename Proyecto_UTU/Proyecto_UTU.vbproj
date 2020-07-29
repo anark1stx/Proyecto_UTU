@@ -137,10 +137,10 @@
     <Compile Include="Formularios\Auxiliar\frmAuxiliar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\formularioPlano.Designer.vb">
+    <Compile Include="Formularios\formularioPlano.Designer.vb">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\formularioPlano.vb">
+    <Compile Include="Formularios\formularioPlano.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.Designer.vb">
@@ -266,7 +266,7 @@
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\formularioPlano.resx">
+    <EmbeddedResource Include="Formularios\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\frmCrearFormulario.resx">

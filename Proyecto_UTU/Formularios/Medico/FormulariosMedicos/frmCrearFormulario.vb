@@ -237,5 +237,4 @@
         System.Windows.Forms.Cursor.Current = _cursor
     End Sub
 
-
 End Class

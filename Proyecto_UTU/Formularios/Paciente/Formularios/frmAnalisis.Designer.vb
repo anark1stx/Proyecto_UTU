@@ -22,44 +22,21 @@ Partial Class frmAnalisis
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.tabPanelAnalisis = New System.Windows.Forms.TabControl()
-        Me.tabPageResultado = New System.Windows.Forms.TabPage()
-        Me.tabPageDetalles = New System.Windows.Forms.TabPage()
         Me.cbAnalisis = New System.Windows.Forms.ComboBox()
-        Me.tabPanelAnalisis.SuspendLayout()
+        Me.pnlContenedorAnalisis = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.pnlContenedorAnalisis.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'tabPanelAnalisis
-        '
-        Me.tabPanelAnalisis.Controls.Add(Me.tabPageResultado)
-        Me.tabPanelAnalisis.Controls.Add(Me.tabPageDetalles)
-        Me.tabPanelAnalisis.Location = New System.Drawing.Point(12, 43)
-        Me.tabPanelAnalisis.Name = "tabPanelAnalisis"
-        Me.tabPanelAnalisis.SelectedIndex = 0
-        Me.tabPanelAnalisis.Size = New System.Drawing.Size(872, 496)
-        Me.tabPanelAnalisis.TabIndex = 4
-        '
-        'tabPageResultado
-        '
-        Me.tabPageResultado.Location = New System.Drawing.Point(4, 25)
-        Me.tabPageResultado.Name = "tabPageResultado"
-        Me.tabPageResultado.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPageResultado.Size = New System.Drawing.Size(864, 467)
-        Me.tabPageResultado.TabIndex = 0
-        Me.tabPageResultado.Text = "Resultado"
-        Me.tabPageResultado.UseVisualStyleBackColor = True
-        '
-        'tabPageDetalles
-        '
-        Me.tabPageDetalles.Location = New System.Drawing.Point(4, 25)
-        Me.tabPageDetalles.Name = "tabPageDetalles"
-        Me.tabPageDetalles.Size = New System.Drawing.Size(864, 467)
-        Me.tabPageDetalles.TabIndex = 2
-        Me.tabPageDetalles.Text = "Detalles"
-        Me.tabPageDetalles.UseVisualStyleBackColor = True
         '
         'cbAnalisis
         '
+        Me.cbAnalisis.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbAnalisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbAnalisis.FormattingEnabled = True
         Me.cbAnalisis.Location = New System.Drawing.Point(693, 12)
@@ -67,24 +44,143 @@ Partial Class frmAnalisis
         Me.cbAnalisis.Size = New System.Drawing.Size(191, 24)
         Me.cbAnalisis.TabIndex = 3
         '
+        'pnlContenedorAnalisis
+        '
+        Me.pnlContenedorAnalisis.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlContenedorAnalisis.AutoSize = True
+        Me.pnlContenedorAnalisis.BackColor = System.Drawing.Color.Azure
+        Me.pnlContenedorAnalisis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label6)
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label7)
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label4)
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label5)
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label3)
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label2)
+        Me.pnlContenedorAnalisis.Controls.Add(Me.Label1)
+        Me.pnlContenedorAnalisis.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.pnlContenedorAnalisis.Location = New System.Drawing.Point(12, 42)
+        Me.pnlContenedorAnalisis.Name = "pnlContenedorAnalisis"
+        Me.pnlContenedorAnalisis.Size = New System.Drawing.Size(874, 499)
+        Me.pnlContenedorAnalisis.TabIndex = 4
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(194, 224)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(76, 24)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "#XXXX"
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(14, 219)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(42, 29)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "ID:"
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(194, 162)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(110, 24)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "dd/mm/yyyy"
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(14, 157)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 29)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Fecha:"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(194, 108)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(183, 24)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Positivo,Negativo,etc"
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(14, 103)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(128, 29)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Resultado:"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(305, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(229, 32)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Título de análisis"
+        '
         'frmAnalisis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightBlue
+        Me.AutoSize = True
+        Me.BackColor = System.Drawing.Color.MediumTurquoise
         Me.ClientSize = New System.Drawing.Size(896, 551)
-        Me.Controls.Add(Me.tabPanelAnalisis)
+        Me.Controls.Add(Me.pnlContenedorAnalisis)
         Me.Controls.Add(Me.cbAnalisis)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAnalisis"
         Me.Text = "Analisis"
-        Me.tabPanelAnalisis.ResumeLayout(False)
+        Me.pnlContenedorAnalisis.ResumeLayout(False)
+        Me.pnlContenedorAnalisis.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents tabPanelAnalisis As TabControl
-    Friend WithEvents tabPageResultado As TabPage
-    Friend WithEvents tabPageDetalles As TabPage
     Friend WithEvents cbAnalisis As ComboBox
+    Friend WithEvents pnlContenedorAnalisis As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
 End Class

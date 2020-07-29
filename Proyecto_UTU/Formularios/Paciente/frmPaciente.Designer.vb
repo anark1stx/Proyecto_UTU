@@ -61,9 +61,12 @@ Partial Class frmPaciente
         '
         'pnlContenedorFormularios
         '
-        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 31)
+        Me.pnlContenedorFormularios.AutoSize = True
+        Me.pnlContenedorFormularios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 28)
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
-        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 551)
+        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
         'frmPaciente
@@ -76,7 +79,6 @@ Partial Class frmPaciente
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
         Me.Name = "frmPaciente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Paciente - Hospital xxxx xxxx"

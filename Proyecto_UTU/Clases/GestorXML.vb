@@ -58,7 +58,7 @@
 
         Next
 
-        Return string_armado & "</Controles>"
+        Return string_armado & "</Controles>" 'Por último, este documento XML será guardado en la BD, desde la cual el paciente seleccionará para visualizar su diagnóstico hecho con este formulario.
 
     End Function
 

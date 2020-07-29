@@ -61,5 +61,25 @@
 
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InstanciarFormulario("Gestion")
+        'fixSize()
+
     End Sub
+
+    Public Sub fixSize() 'Metodo para redimensionar controles sin tener que entrar a las propiedades de cada uno a cambiarlo
+        For Each c As Control In Me.Controls
+
+            If c IsNot MenuStrip1 AndAlso c IsNot pnlContenedorFormularios Then 'El unico control que no queremos modificar es el menu superior
+                c.Anchor += AnchorStyles.Bottom
+                c.Anchor += AnchorStyles.Top
+                c.Anchor += AnchorStyles.Left
+                c.Anchor += AnchorStyles.Right
+                If TypeOf c Is System.Windows.Forms.Form Then
+                    c.Width = pnlContenedorFormularios.Width
+                    c.Height = pnlContenedorFormularios.Height
+                End If
+            End If
+
+        Next
+    End Sub
+
 End Class
