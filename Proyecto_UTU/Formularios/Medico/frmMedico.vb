@@ -1,4 +1,5 @@
 ﻿Public Class frmMedico
+
     Dim frmIni As New frmInicio
     Dim frmGestion As New frmGestionMedico
     Dim frmOpsConsulta As New frmOpcionesConsulta
@@ -8,13 +9,14 @@
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
 
-
     Dim generico As New frmGenerico
     Dim frmDlr As New frmDolor
-
+    Dim frmFbr As New frmFiebre
+    Dim frmMal As New frmMalestar
 
     Public llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
     Public Ci As String = ""
+
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
@@ -25,7 +27,7 @@
         Select Case formulario
 
             Case "Inicio"
-
+                Me.MaximizeBox = True
                 If Not pnlContenedorFormularios.Controls.Contains(frmIni) Then
                     pnlContenedorFormularios.Controls.Clear()
                     frmIni.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
@@ -41,7 +43,7 @@
                 End If
 
             Case "Gestion"
-
+                Me.MaximizeBox = True
                 If Not pnlContenedorFormularios.Controls.Contains(frmGestion) Then
                     pnlContenedorFormularios.Controls.Clear()
                     frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
@@ -52,7 +54,7 @@
                 End If
 
             Case "Atender"
-
+                Me.MaximizeBox = False
                 If pnlContenedorFormularios.Controls.Contains(frmIdentificacion) Then
                     Ci = frmIdentificacion.txtCIPaciente.Text
                 End If
@@ -84,6 +86,11 @@
 
             Case "Entrevista"
 
+                If Me.WindowState = FormWindowState.Normal Or Me.WindowState = FormWindowState.Minimized Then
+                    Me.WindowState = FormWindowState.Maximized
+                End If
+
+                Me.MaximizeBox = False
                 If check_Cedula(Ci) Then
                     llenoIdentificacion = True
                 Else
@@ -110,7 +117,6 @@
 
             Case "Generico"
 
-
                 If Not pnlContenedorFormularios.Controls.Contains(generico) Then
                     pnlContenedorFormularios.Controls.Clear()
                     generico.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
@@ -135,10 +141,30 @@
 
                 End If
             Case "Fiebre"
-                'Instanciar frmFiebre
+                If Not pnlContenedorFormularios.Controls.Contains(frmFbr) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmFbr.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmFbr.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+
+                    frmFbr.Width = pnlContenedorFormularios.Width - 20
+                    frmFbr.Height = pnlContenedorFormularios.Height
+                    Me.pnlContenedorFormularios.Controls.Add(frmFbr) 'Añadir el formulario al panel
+                    frmFbr.Show()
+
+                End If
 
             Case "Malestar"
-                'Instanciar frmMalestar
+                If Not pnlContenedorFormularios.Controls.Contains(frmMal) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmMal.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmMal.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+
+                    frmMal.Width = pnlContenedorFormularios.Width - 20
+                    frmMal.Height = pnlContenedorFormularios.Height
+                    Me.pnlContenedorFormularios.Controls.Add(frmMal) 'Añadir el formulario al panel
+                    frmMal.Show()
+
+                End If
 
             Case "Otro"
 
@@ -149,17 +175,21 @@
 
                     frmPlano.Width = pnlContenedorFormularios.Width - 20
                     frmPlano.Height = pnlContenedorFormularios.Height
-                    Me.pnlContenedorFormularios.Controls.Add(frmPlano) 'Añadir el formulario al panel
+
                 End If
 
                 Dim controles = ImportarFormulario()
 
-                For Each control As Control In controles
-                    frmPlano.Controls.Add(control)
+                If controles.Count > 1 Then
+                    For Each control As Control In controles
+                        frmPlano.Controls.Add(control)
 
-                Next
-                frmPlano.Dock = DockStyle.Fill
-                frmPlano.Show()
+                    Next
+                    Me.pnlContenedorFormularios.Controls.Add(frmPlano) 'Añadir el formulario al panel
+                    frmPlano.Dock = DockStyle.Fill
+                    frmPlano.Show()
+                End If
+
             Case "CrearFormulario"
 
                 frmCrear.Show()
@@ -191,8 +221,9 @@
             llenoIdentificacion = False
         ElseIf code = 2 Then
             llenoIdentificacion = True
-            MsgBox("Paciente Encontrado")
             LlenarDatosPaciente()
+            MsgBox("Paciente Encontrado")
+            InstanciarFormulario("Entrevista")
         End If
         Console.WriteLine(code)
     End Sub

@@ -111,11 +111,22 @@
             MsgBox("Seleccione al menos una parte del cuerpo para guardar la información.", vbExclamation)
         Else
             If txtDescripcion.TextLength < 5 Then
-                Dim ans = MsgBox("¿Seguro que desea guardar sin haber proveido una descripción detallada?", vbYesNo, vbQuestion)
+                Dim ans = MessageBox.Show("¿Seguro que desea guardar sin haber proveido una descripción detallada?", "Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If ans = vbYes Then
-                    'Guardar datos en la BD
+                    '->Guardar formulario + datos en la BD.
+                    ans = MessageBox.Show("¿Desea volver al Inicio?", "Guardado con éxito.", MessageBoxButtons.YesNo, MessageBoxIcon.None)
+                    If ans = vbYes Then
+                        frmMedico.InstanciarFormulario("Inicio")
+                    End If
+                Else
+                    '->Guardar formulario + datos en la BD.
+                    ans = MessageBox.Show("¿Desea volver al Inicio?", "Guardado con éxito.", MessageBoxButtons.YesNo, MessageBoxIcon.None)
+                    If ans = vbYes Then
+                        frmMedico.InstanciarFormulario("Inicio")
+                    End If
                 End If
             End If
         End If
     End Sub
+
 End Class
