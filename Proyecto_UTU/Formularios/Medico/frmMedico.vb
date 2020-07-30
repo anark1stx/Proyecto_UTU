@@ -43,12 +43,20 @@
                 End If
 
             Case "Gestion"
-                Me.MaximizeBox = True
+                If Me.WindowState = FormWindowState.Maximized Then
+                    Me.WindowState = FormWindowState.Normal
+                End If
+                Me.MaximizeBox = False
                 If Not pnlContenedorFormularios.Controls.Contains(frmGestion) Then
                     pnlContenedorFormularios.Controls.Clear()
                     frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
                     frmGestion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
                     Me.pnlContenedorFormularios.Controls.Add(frmGestion) 'Añadir el formulario al panel
+
+                    frmGestion.Anchor += AnchorStyles.Bottom
+                    frmGestion.Anchor += AnchorStyles.Right
+                    frmGestion.Dock = DockStyle.Fill
+
                     frmGestion.Show()
 
                 End If
@@ -85,21 +93,21 @@
                 End If
 
             Case "Entrevista"
-
-                If Me.WindowState = FormWindowState.Normal Or Me.WindowState = FormWindowState.Minimized Then
-                    Me.WindowState = FormWindowState.Maximized
-                End If
-
                 Me.MaximizeBox = False
                 If check_Cedula(Ci) Then
                     llenoIdentificacion = True
                 Else
                     llenoIdentificacion = False
+
                 End If
 
                 If Not llenoIdentificacion Then
                     MsgBox("Debe identificar primero al paciente antes de proceder con su entrevista.")
+                    Exit Sub
                 Else
+                    If Me.WindowState = FormWindowState.Normal Then
+                        Me.WindowState = FormWindowState.Maximized
+                    End If
                     If Not pnlContenedorFormularios.Controls.Contains(frmEntrevista) Then
                         pnlContenedorFormularios.Controls.Clear()
                         frmEntrevista.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.

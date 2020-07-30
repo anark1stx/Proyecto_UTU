@@ -57,7 +57,7 @@ Partial Class frmInicio
         'btnAtenderPaciente
         '
         Me.btnAtenderPaciente.BackgroundImage = CType(resources.GetObject("btnAtenderPaciente.BackgroundImage"), System.Drawing.Image)
-        Me.btnAtenderPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAtenderPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAtenderPaciente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAtenderPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAtenderPaciente.Location = New System.Drawing.Point(0, 0)
@@ -80,7 +80,7 @@ Partial Class frmInicio
         'btnCrearFormulario
         '
         Me.btnCrearFormulario.BackgroundImage = CType(resources.GetObject("btnCrearFormulario.BackgroundImage"), System.Drawing.Image)
-        Me.btnCrearFormulario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnCrearFormulario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnCrearFormulario.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnCrearFormulario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCrearFormulario.Location = New System.Drawing.Point(0, 0)
@@ -103,7 +103,7 @@ Partial Class frmInicio
         'btnEditarFormulario
         '
         Me.btnEditarFormulario.BackgroundImage = CType(resources.GetObject("btnEditarFormulario.BackgroundImage"), System.Drawing.Image)
-        Me.btnEditarFormulario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnEditarFormulario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnEditarFormulario.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnEditarFormulario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEditarFormulario.Location = New System.Drawing.Point(0, 0)
@@ -175,7 +175,7 @@ Partial Class frmInicio
         'btnGestion
         '
         Me.btnGestion.BackgroundImage = CType(resources.GetObject("btnGestion.BackgroundImage"), System.Drawing.Image)
-        Me.btnGestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnGestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnGestion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGestion.Location = New System.Drawing.Point(0, 0)

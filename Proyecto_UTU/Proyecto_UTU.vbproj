@@ -198,10 +198,10 @@
     <Compile Include="Formularios\Medico\frmInicio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\frmSeleccionarFormularioEntrevista.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.Designer.vb">
       <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\frmSeleccionarFormularioEntrevista.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.Designer.vb">
@@ -335,7 +335,7 @@
     <EmbeddedResource Include="Formularios\Medico\frmInicio.resx">
       <DependentUpon>frmInicio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\frmSeleccionarFormularioEntrevista.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.resx">
       <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
