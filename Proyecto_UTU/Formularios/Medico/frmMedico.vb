@@ -1,11 +1,18 @@
 ﻿Public Class frmMedico
     Dim frmIni As New frmInicio
-    Dim frmIdentificacion As New Identificacion_Paciente 'Instancia del formulario de consulta con el paciente
+    Dim frmGestion As New frmGestionMedico
     Dim frmOpsConsulta As New frmOpcionesConsulta
-    Dim frmGestion As New frmGestionMedico 'Instancia del formulario de gestion del medico
+    Dim frmIdentificacion As New Identificacion_Paciente
     Dim frmEntrevista As New frmSeleccionarFormularioEntrevista
+
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
+
+
+    Dim generico As New frmGenerico
+    Dim frmDlr As New frmDolor
+
+
     Public llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
     Public Ci As String = ""
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
@@ -102,7 +109,7 @@
                 End If
 
             Case "Generico"
-                Dim generico As New frmGenerico
+
 
                 If Not pnlContenedorFormularios.Controls.Contains(generico) Then
                     pnlContenedorFormularios.Controls.Clear()
@@ -116,7 +123,17 @@
 
                 End If
             Case "Dolor"
-                'Instanciar frmDolor
+                If Not pnlContenedorFormularios.Controls.Contains(frmDlr) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmDlr.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+                    frmDlr.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+
+                    frmDlr.Width = pnlContenedorFormularios.Width - 20
+                    frmDlr.Height = pnlContenedorFormularios.Height
+                    Me.pnlContenedorFormularios.Controls.Add(frmDlr) 'Añadir el formulario al panel
+                    frmDlr.Show()
+
+                End If
             Case "Fiebre"
                 'Instanciar frmFiebre
 
