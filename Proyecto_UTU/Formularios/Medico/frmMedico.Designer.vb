@@ -39,33 +39,33 @@ Partial Class frmMedico
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(896, 30)
+        Me.MenuStrip1.Size = New System.Drawing.Size(896, 28)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'InicioToolStripMenuItem
         '
         Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
-        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(59, 26)
+        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(59, 24)
         Me.InicioToolStripMenuItem.Text = "Inicio"
         '
         'GestionMenuItem
         '
         Me.GestionMenuItem.Name = "GestionMenuItem"
-        Me.GestionMenuItem.Size = New System.Drawing.Size(73, 26)
+        Me.GestionMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.GestionMenuItem.Text = "Gestión"
         '
         'AtenderMenuItem
         '
         Me.AtenderMenuItem.Name = "AtenderMenuItem"
-        Me.AtenderMenuItem.Size = New System.Drawing.Size(135, 26)
+        Me.AtenderMenuItem.Size = New System.Drawing.Size(135, 24)
         Me.AtenderMenuItem.Text = "Atender Paciente"
         '
         'FormulariosMenuItem
         '
         Me.FormulariosMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CrearFormularioMenuItem})
         Me.FormulariosMenuItem.Name = "FormulariosMenuItem"
-        Me.FormulariosMenuItem.Size = New System.Drawing.Size(101, 26)
+        Me.FormulariosMenuItem.Size = New System.Drawing.Size(101, 24)
         Me.FormulariosMenuItem.Text = "Formularios"
         '
         'CrearFormularioMenuItem
@@ -77,16 +77,16 @@ Partial Class frmMedico
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 26)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'pnlContenedorFormularios
         '
         Me.pnlContenedorFormularios.AutoSize = True
         Me.pnlContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 30)
+        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 28)
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
-        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 553)
+        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
         'frmMedico

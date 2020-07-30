@@ -267,4 +267,7 @@
         End If
     End Sub
 
+    Private Sub pnlContenedorFormularios_SizeChanged(sender As Object, e As EventArgs) Handles pnlContenedorFormularios.SizeChanged
+        Console.WriteLine(pnlContenedorFormularios.Size)
+    End Sub
 End Class
