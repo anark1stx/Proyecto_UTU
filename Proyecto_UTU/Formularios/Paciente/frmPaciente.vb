@@ -2,6 +2,8 @@
     Dim frmDiagnostico As New frmDiagnosticos 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmAnalisis As New frmAnalisis 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
+    Dim frmIni As New frmInicioPaciente
+
     Private Sub GestiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
@@ -22,6 +24,15 @@
     Public Sub InstanciarFormulario(formulario As String)
 
         Select Case formulario
+            Case "Inicio"
+                If Not pnlContenedorFormularios.Controls.Contains(frmIni) Then
+                    pnlContenedorFormularios.Controls.Clear()
+                    frmIni.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
+                    frmIni.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+                    Me.pnlContenedorFormularios.Controls.Add(frmIni) 'Añadir el formulario al panel
+                    frmIni.Show()
+
+                End If
             Case "Diagnostico"
 
                 If Not pnlContenedorFormularios.Controls.Contains(frmDiagnostico) Then
@@ -60,7 +71,7 @@
     End Sub
 
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        InstanciarFormulario("Gestion")
+        InstanciarFormulario("Inicio")
         'fixSize()
 
     End Sub
@@ -82,4 +93,7 @@
         Next
     End Sub
 
+    Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
+        InstanciarFormulario("Inicio")
+    End Sub
 End Class

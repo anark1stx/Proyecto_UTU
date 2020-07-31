@@ -1,5 +1,5 @@
 ﻿Public Class frmDatosMedicoModificar
-    Public altaOmod As Integer = 0 '1 es para alta, 0 para modificacion
+    Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
 
         For Each txt As TextBox In Me.Controls.OfType(Of TextBox)
@@ -39,6 +39,10 @@
             End If
 
         End If
+
+    End Sub
+
+    Private Sub frmDatosMedicoModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

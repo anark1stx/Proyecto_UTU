@@ -12,7 +12,8 @@
     End Sub
 
     Private Sub btnEditarFormulario_Click(sender As Object, e As EventArgs) Handles btnEditarFormulario.Click
-        frmMedico.InstanciarFormulario("CrearFormulario")
+        frmMedico.InstanciarFormulario("EditarFormulario")
+
         'Activar evento de abrir formulario (el boton de la carpetita)
     End Sub
 

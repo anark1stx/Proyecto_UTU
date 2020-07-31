@@ -5,6 +5,7 @@
     Protected _sexo As String
     Protected _ocupacion As String
     Protected _estado_civil As String
+
     Sub New()
         _nombre1 = ""
         _nombre2 = ""

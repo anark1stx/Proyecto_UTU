@@ -9,8 +9,6 @@
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
-
-
         'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
     End Sub
 End Class

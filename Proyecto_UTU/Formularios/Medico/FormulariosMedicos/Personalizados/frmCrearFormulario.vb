@@ -214,7 +214,7 @@
         frmPlano.Controls.Clear()
     End Sub
 
-    Private Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
+    Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
 
         Dim controles = ImportarFormulario()
 

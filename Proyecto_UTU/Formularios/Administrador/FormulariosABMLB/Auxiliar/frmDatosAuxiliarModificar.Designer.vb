@@ -22,6 +22,7 @@ Partial Class frmDatosAuxiliarModificar
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDatosAuxiliarModificar))
         Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
@@ -37,7 +38,6 @@ Partial Class frmDatosAuxiliarModificar
         Me.lblMensajeError = New System.Windows.Forms.Label()
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.lblCorreo = New System.Windows.Forms.Label()
-        Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.txtApellido1 = New System.Windows.Forms.TextBox()
         Me.txtNombre2 = New System.Windows.Forms.TextBox()
@@ -45,6 +45,8 @@ Partial Class frmDatosAuxiliarModificar
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.imgsBotonAltaModif = New System.Windows.Forms.ImageList(Me.components)
+        Me.btnAceptar = New System.Windows.Forms.Button()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -171,16 +173,6 @@ Partial Class frmDatosAuxiliarModificar
         Me.lblCorreo.TabIndex = 225
         Me.lblCorreo.Text = "Correo:"
         '
-        'btnAceptar
-        '
-        Me.btnAceptar.BackgroundImage = CType(resources.GetObject("btnAceptar.BackgroundImage"), System.Drawing.Image)
-        Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAceptar.Location = New System.Drawing.Point(969, 154)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
-        Me.btnAceptar.TabIndex = 227
-        Me.btnAceptar.UseVisualStyleBackColor = True
-        '
         'btnLimpiar
         '
         Me.btnLimpiar.BackgroundImage = CType(resources.GetObject("btnLimpiar.BackgroundImage"), System.Drawing.Image)
@@ -242,12 +234,31 @@ Partial Class frmDatosAuxiliarModificar
         Me.Label3.TabIndex = 234
         Me.Label3.Text = "Contraseña:"
         '
+        'imgsBotonAltaModif
+        '
+        Me.imgsBotonAltaModif.ImageStream = CType(resources.GetObject("imgsBotonAltaModif.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imgsBotonAltaModif.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgsBotonAltaModif.Images.SetKeyName(0, "plus.png")
+        Me.imgsBotonAltaModif.Images.SetKeyName(1, "accept.png")
+        '
+        'btnAceptar
+        '
+        Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAceptar.ImageIndex = 0
+        Me.btnAceptar.ImageList = Me.imgsBotonAltaModif
+        Me.btnAceptar.Location = New System.Drawing.Point(969, 154)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
+        Me.btnAceptar.TabIndex = 245
+        Me.btnAceptar.UseVisualStyleBackColor = True
+        '
         'frmDatosAuxiliarModificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1038, 203)
+        Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtApellido1)
@@ -255,7 +266,6 @@ Partial Class frmDatosAuxiliarModificar
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.txtCorreo)
         Me.Controls.Add(Me.lblCorreo)
         Me.Controls.Add(Me.lblMensajeError)
@@ -293,7 +303,6 @@ Partial Class frmDatosAuxiliarModificar
     Friend WithEvents lblMensajeError As Label
     Friend WithEvents txtCorreo As TextBox
     Friend WithEvents lblCorreo As Label
-    Friend WithEvents btnAceptar As Button
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents txtApellido1 As TextBox
     Friend WithEvents txtNombre2 As TextBox
@@ -301,4 +310,6 @@ Partial Class frmDatosAuxiliarModificar
     Friend WithEvents Label2 As Label
     Friend WithEvents txtContrasena As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents imgsBotonAltaModif As ImageList
+    Friend WithEvents btnAceptar As Button
 End Class

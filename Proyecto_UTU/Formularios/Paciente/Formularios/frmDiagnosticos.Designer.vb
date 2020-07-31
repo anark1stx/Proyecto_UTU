@@ -60,6 +60,7 @@ Partial Class frmDiagnosticos
         Me.cbDiagnostico.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbDiagnostico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbDiagnostico.FormattingEnabled = True
+        Me.cbDiagnostico.Items.AddRange(New Object() {"Seleccione un diagnóstico"})
         Me.cbDiagnostico.Location = New System.Drawing.Point(693, 12)
         Me.cbDiagnostico.Name = "cbDiagnostico"
         Me.cbDiagnostico.Size = New System.Drawing.Size(191, 24)
@@ -69,7 +70,7 @@ Partial Class frmDiagnosticos
         '
         Me.cbVista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbVista.FormattingEnabled = True
-        Me.cbVista.Items.AddRange(New Object() {"Simple", "Completa"})
+        Me.cbVista.Items.AddRange(New Object() {"Vista Simple", "Vista Completa"})
         Me.cbVista.Location = New System.Drawing.Point(16, 12)
         Me.cbVista.Name = "cbVista"
         Me.cbVista.Size = New System.Drawing.Size(191, 24)

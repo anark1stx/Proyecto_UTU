@@ -55,7 +55,7 @@
                         _frmModificarPaciente.TopLevel = False
                         _frmModificarPaciente.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarPaciente)
-
+                        _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick.
                         _frmModificarPaciente.Show()
 
                     Case "BajaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
@@ -75,7 +75,7 @@
                         _frmModificarPaciente.TopLevel = False
                         _frmModificarPaciente.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarPaciente)
-
+                        _frmModificarPaciente.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con (+).
                         _frmModificarPaciente.Show()
 
 #End Region
@@ -97,7 +97,7 @@
                         _frmModificarMedico.TopLevel = False
                         _frmModificarMedico.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
-
+                        _frmModificarMedico.btnAceptar.ImageIndex = 1
                         _frmModificarMedico.Show()
 
                     Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
@@ -117,7 +117,7 @@
                         _frmModificarMedico.TopLevel = False
                         _frmModificarMedico.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
-
+                        _frmModificarMedico.btnAceptar.ImageIndex = 0
                         _frmModificarMedico.Show()
 #End Region
 #Region "Auxiliar"
@@ -138,9 +138,10 @@
                         _frmModificarAuxiliar.TopLevel = False
                         _frmModificarAuxiliar.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarAuxiliar)
-
+                        _frmModificarMedico.altaOmod = 1
+                        _frmModificarMedico.btnAceptar.ImageIndex = 1
                         _frmModificarAuxiliar.Show()
-
+                        Console.WriteLine("Baja AUX" & _frmModificarMedico.btnAceptar.ImageIndex.ToString())
                     Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
 
                         _frmGestion.pnlDatosUsuario.Controls.Clear()
@@ -158,8 +159,10 @@
                         _frmModificarAuxiliar.TopLevel = False
                         _frmModificarAuxiliar.TopMost = True
                         _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarAuxiliar)
-
+                        _frmModificarMedico.btnAceptar.ImageIndex = 0
+                        _frmModificarMedico.altaOmod = 0
                         _frmModificarAuxiliar.Show()
+                        Console.WriteLine("Alta AUX" & _frmModificarMedico.btnAceptar.ImageIndex.ToString())
 #End Region
                 End Select
 
@@ -269,19 +272,19 @@
     End Sub
 
     Private Sub AuxiliarMenuItemAlta_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemAlta.Click
-        InstanciarFormulario("Gestion", "AltaAuxiliar")
+        InstanciarFormulario("Gestion", "AltaMedico")
     End Sub
 
     Private Sub AuxiliarMenuItemBaja_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemBaja.Click
-        InstanciarFormulario("Gestion", "BajaAuxiliar")
+        InstanciarFormulario("Gestion", "BajaMedico")
     End Sub
 
     Private Sub AuxiliarMenuItemModificar_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemModificar.Click
-        InstanciarFormulario("Gestion", "ModificarAuxiliar")
+        InstanciarFormulario("Gestion", "ModificarMedico")
     End Sub
 
     Private Sub AuxiliarBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click
-        InstanciarFormulario("Gestion", "DatosAuxiliar")
+        InstanciarFormulario("Gestion", "DatosMedico")
     End Sub
 
 #End Region

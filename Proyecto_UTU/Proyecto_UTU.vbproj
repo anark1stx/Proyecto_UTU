@@ -204,6 +204,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Paciente\frmInicioPaciente.Designer.vb">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmInicioPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.Designer.vb">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </Compile>
@@ -338,6 +344,9 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.resx">
       <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.resx">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +382,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DiagramaDeClasesUML.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

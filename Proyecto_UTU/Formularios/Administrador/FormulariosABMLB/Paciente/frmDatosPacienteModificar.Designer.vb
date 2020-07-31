@@ -22,6 +22,7 @@ Partial Class frmDatosPacienteModificar
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDatosPacienteModificar))
         Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
@@ -53,6 +54,7 @@ Partial Class frmDatosPacienteModificar
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.lblContrasena = New System.Windows.Forms.Label()
         Me.lblMensajeError = New System.Windows.Forms.Label()
+        Me.imgsBotonAltaModif = New System.Windows.Forms.ImageList(Me.components)
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -249,8 +251,9 @@ Partial Class frmDatosPacienteModificar
         '
         'btnAceptar
         '
-        Me.btnAceptar.BackgroundImage = CType(resources.GetObject("btnAceptar.BackgroundImage"), System.Drawing.Image)
         Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAceptar.ImageIndex = 0
+        Me.btnAceptar.ImageList = Me.imgsBotonAltaModif
         Me.btnAceptar.Location = New System.Drawing.Point(969, 191)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
@@ -317,6 +320,13 @@ Partial Class frmDatosPacienteModificar
         Me.lblMensajeError.TabIndex = 257
         Me.lblMensajeError.Text = "Msg error"
         Me.lblMensajeError.Visible = False
+        '
+        'imgsBotonAltaModif
+        '
+        Me.imgsBotonAltaModif.ImageStream = CType(resources.GetObject("imgsBotonAltaModif.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imgsBotonAltaModif.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgsBotonAltaModif.Images.SetKeyName(0, "plus.png")
+        Me.imgsBotonAltaModif.Images.SetKeyName(1, "accept.png")
         '
         'frmDatosPacienteModificar
         '
@@ -393,4 +403,5 @@ Partial Class frmDatosPacienteModificar
     Friend WithEvents txtContrasena As TextBox
     Friend WithEvents lblContrasena As Label
     Friend WithEvents lblMensajeError As Label
+    Friend WithEvents imgsBotonAltaModif As ImageList
 End Class

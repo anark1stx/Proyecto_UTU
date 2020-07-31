@@ -1,6 +1,7 @@
 ﻿Public Class frmAnalisis
     Private Sub frmAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        fixSize()
+        Me.Dock = DockStyle.Fill
+        cbAnalisis.SelectedIndex = 0
     End Sub
 
     Public Sub fixSize() 'Metodo para redimensionar controles sin tener que entrar a las propiedades de cada uno a cambiarlo

@@ -4,6 +4,7 @@
     Private Sub cbDiagnostico_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDiagnostico.SelectedIndexChanged
         'Cargar el formulario que corresponde al item seleccionado: 
         'gestor.generarInstancias(...)
+
     End Sub
 
     Private Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -12,6 +13,7 @@
         tabPanelDiagnostico.Hide()
         '->Cargar el ultimo diagnostico que se le hizo desde la BD.
         Me.Dock = DockStyle.Fill
+        cbDiagnostico.SelectedIndex = 0
     End Sub
 
     Private Sub cbVista_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbVista.SelectedIndexChanged

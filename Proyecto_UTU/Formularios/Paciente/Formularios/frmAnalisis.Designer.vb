@@ -24,13 +24,13 @@ Partial Class frmAnalisis
     Private Sub InitializeComponent()
         Me.cbAnalisis = New System.Windows.Forms.ComboBox()
         Me.pnlContenedorAnalisis = New System.Windows.Forms.Panel()
+        Me.lblTituloAnalisis = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlContenedorAnalisis.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,6 +39,7 @@ Partial Class frmAnalisis
         Me.cbAnalisis.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbAnalisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbAnalisis.FormattingEnabled = True
+        Me.cbAnalisis.Items.AddRange(New Object() {"Seleccione un análisis"})
         Me.cbAnalisis.Location = New System.Drawing.Point(693, 12)
         Me.cbAnalisis.Name = "cbAnalisis"
         Me.cbAnalisis.Size = New System.Drawing.Size(191, 24)
@@ -52,18 +53,28 @@ Partial Class frmAnalisis
         Me.pnlContenedorAnalisis.AutoSize = True
         Me.pnlContenedorAnalisis.BackColor = System.Drawing.Color.Azure
         Me.pnlContenedorAnalisis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlContenedorAnalisis.Controls.Add(Me.lblTituloAnalisis)
         Me.pnlContenedorAnalisis.Controls.Add(Me.Label6)
         Me.pnlContenedorAnalisis.Controls.Add(Me.Label7)
         Me.pnlContenedorAnalisis.Controls.Add(Me.Label4)
         Me.pnlContenedorAnalisis.Controls.Add(Me.Label5)
         Me.pnlContenedorAnalisis.Controls.Add(Me.Label3)
         Me.pnlContenedorAnalisis.Controls.Add(Me.Label2)
-        Me.pnlContenedorAnalisis.Controls.Add(Me.Label1)
         Me.pnlContenedorAnalisis.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.pnlContenedorAnalisis.Location = New System.Drawing.Point(12, 42)
         Me.pnlContenedorAnalisis.Name = "pnlContenedorAnalisis"
         Me.pnlContenedorAnalisis.Size = New System.Drawing.Size(874, 499)
         Me.pnlContenedorAnalisis.TabIndex = 4
+        '
+        'lblTituloAnalisis
+        '
+        Me.lblTituloAnalisis.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblTituloAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTituloAnalisis.Location = New System.Drawing.Point(298, 16)
+        Me.lblTituloAnalisis.Name = "lblTituloAnalisis"
+        Me.lblTituloAnalisis.Size = New System.Drawing.Size(248, 29)
+        Me.lblTituloAnalisis.TabIndex = 7
+        Me.lblTituloAnalisis.Text = "Título del Análisis"
         '
         'Label6
         '
@@ -143,19 +154,6 @@ Partial Class frmAnalisis
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Resultado:"
         '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(305, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(229, 32)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Título de análisis"
-        '
         'frmAnalisis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -182,5 +180,5 @@ Partial Class frmAnalisis
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblTituloAnalisis As Label
 End Class

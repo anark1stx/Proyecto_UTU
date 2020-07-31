@@ -1,4 +1,5 @@
 ﻿Public Class frmIngreso_Usuario
+
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
         '1- ValidarDatos()

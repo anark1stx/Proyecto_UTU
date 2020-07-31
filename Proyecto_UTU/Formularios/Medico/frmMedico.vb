@@ -43,10 +43,10 @@
                 End If
 
             Case "Gestion"
-                If Me.WindowState = FormWindowState.Maximized Then
-                    Me.WindowState = FormWindowState.Normal
-                End If
-                Me.MaximizeBox = False
+                'If Me.WindowState = FormWindowState.Maximized Then
+                'Me.WindowState = FormWindowState.Normal
+                'End If
+                'Me.MaximizeBox = False
                 If Not pnlContenedorFormularios.Controls.Contains(frmGestion) Then
                     pnlContenedorFormularios.Controls.Clear()
                     frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
@@ -202,6 +202,12 @@
 
                 frmCrear.Show()
 
+            Case "EditarFormulario"
+
+                frmCrear.Show()
+                Dim sender As Object = New Object()
+                Dim e As EventArgs = New EventArgs()
+                frmCrear.btnAbrir_Click(sender, e)
         End Select
 
     End Sub
@@ -275,7 +281,4 @@
         End If
     End Sub
 
-    Private Sub pnlContenedorFormularios_SizeChanged(sender As Object, e As EventArgs) Handles pnlContenedorFormularios.SizeChanged
-        Console.WriteLine(pnlContenedorFormularios.Size)
-    End Sub
 End Class
