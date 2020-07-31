@@ -23,12 +23,12 @@ Partial Class frmPaciente
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiagnosticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalisisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
-        Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,23 +43,35 @@ Partial Class frmPaciente
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'InicioToolStripMenuItem
+        '
+        Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
+        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(59, 24)
+        Me.InicioToolStripMenuItem.Text = "Inicio"
+        '
         'GestionToolStripMenuItem
         '
         Me.GestionToolStripMenuItem.Name = "GestionToolStripMenuItem"
-        Me.GestionToolStripMenuItem.Size = New System.Drawing.Size(73, 26)
+        Me.GestionToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.GestionToolStripMenuItem.Text = "Gestión"
         '
         'DiagnosticoToolStripMenuItem
         '
         Me.DiagnosticoToolStripMenuItem.Name = "DiagnosticoToolStripMenuItem"
-        Me.DiagnosticoToolStripMenuItem.Size = New System.Drawing.Size(103, 26)
+        Me.DiagnosticoToolStripMenuItem.Size = New System.Drawing.Size(103, 24)
         Me.DiagnosticoToolStripMenuItem.Text = "Diagnóstico"
         '
         'AnalisisToolStripMenuItem
         '
         Me.AnalisisToolStripMenuItem.Name = "AnalisisToolStripMenuItem"
-        Me.AnalisisToolStripMenuItem.Size = New System.Drawing.Size(73, 26)
+        Me.AnalisisToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.AnalisisToolStripMenuItem.Text = "Análisis"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'pnlContenedorFormularios
         '
@@ -70,18 +82,6 @@ Partial Class frmPaciente
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
         Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
         Me.pnlContenedorFormularios.TabIndex = 1
-        '
-        'InicioToolStripMenuItem
-        '
-        Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
-        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(59, 24)
-        Me.InicioToolStripMenuItem.Text = "Inicio"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
-        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'frmPaciente
         '

@@ -1,6 +1,16 @@
 ﻿Public Class frmIngreso_Usuario
 
+    Dim frmPac As New frmPaciente
+    Dim frmMed As New frmMedico
+    Dim frmAdm As New frmAdministrador
+
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
+
+        If txtIngresarCi.Text = "overclodeADM" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for admin
+            Me.Hide()
+            frmAdm.Show()
+            Exit Sub
+        End If
 
         '1- ValidarDatos()
 
@@ -10,10 +20,23 @@
             'es para evitar que alguien que está probando cedulas y contraseñas al azar no pueda ver si le pegó a alguno de los datos.
             Exit Sub
         Else
+
             '2- Abrir ventana que le corresponda segun su tipo de usuario
 
             '3- Esconder esta ventana = Me.Hide() <-- Razon: Cuando un usuario haga click en cerrar, salir o cerrar sesión, volverá a esta primera ventana de Ingreso, dejando el programa disponible para los demás usuarios.
-            Me.Hide()
+            'Me.Hide()
+
+            If txtIngresarCi.Text = "53806188" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for doctors/auxiliars
+                Me.Hide()
+                frmMed.Show()
+                Exit Sub
+            End If
+
+            If txtIngresarCi.Text = "42980147" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for patients
+                Me.Hide()
+                frmPac.Show()
+                Exit Sub
+            End If
         End If
 
     End Sub
@@ -39,4 +62,7 @@
         End If
     End Sub
 
+    Private Sub frmIngreso_Usuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

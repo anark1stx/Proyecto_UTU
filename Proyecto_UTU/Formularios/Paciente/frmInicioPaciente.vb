@@ -16,6 +16,6 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        'PENDIENTE
+        frmPaciente.SalirToolStripMenuItem_Click(sender, e)
     End Sub
 End Class

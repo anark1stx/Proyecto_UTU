@@ -287,6 +287,20 @@
         InstanciarFormulario("Gestion", "DatosMedico")
     End Sub
 
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        e = New FormClosingEventArgs(CloseReason.UserClosing, False)
+        frmAdministrador_FormClosing(sender, e)
+    End Sub
+
+    Private Sub frmAdministrador_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            e.Cancel = True
+            Me.pnlContenedor.Controls.Clear()
+            Me.Hide()
+            frmIngreso_Usuario.Show()
+        End If
+    End Sub
+
 #End Region
 
 End Class

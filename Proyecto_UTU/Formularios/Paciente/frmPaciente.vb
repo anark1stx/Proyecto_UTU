@@ -96,4 +96,18 @@
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
         InstanciarFormulario("Inicio")
     End Sub
+
+    Public Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        e = New FormClosingEventArgs(CloseReason.UserClosing, False)
+        frmPaciente_FormClosing(sender, e)
+    End Sub
+
+    Private Sub frmPaciente_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If e.CloseReason = CloseReason.UserClosing Then
+            e.Cancel = True
+            Me.pnlContenedorFormularios.Controls.Clear()
+            Me.Hide()
+            frmIngreso_Usuario.Show()
+        End If
+    End Sub
 End Class

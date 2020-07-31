@@ -42,6 +42,7 @@ Partial Class frmAdministrador
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.InicioMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -62,19 +63,19 @@ Partial Class frmAdministrador
         'PacienteAltaMenuItem
         '
         Me.PacienteAltaMenuItem.Name = "PacienteAltaMenuItem"
-        Me.PacienteAltaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.PacienteAltaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.PacienteAltaMenuItem.Text = "Paciente"
         '
         'MedicoAltaMenuItem
         '
         Me.MedicoAltaMenuItem.Name = "MedicoAltaMenuItem"
-        Me.MedicoAltaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.MedicoAltaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.MedicoAltaMenuItem.Text = "Médico"
         '
         'AuxiliarMenuItemAlta
         '
         Me.AuxiliarMenuItemAlta.Name = "AuxiliarMenuItemAlta"
-        Me.AuxiliarMenuItemAlta.Size = New System.Drawing.Size(224, 26)
+        Me.AuxiliarMenuItemAlta.Size = New System.Drawing.Size(147, 26)
         Me.AuxiliarMenuItemAlta.Text = "Auxiliar"
         '
         'BajaDeUsuariosToolStripMenuItem
@@ -87,19 +88,19 @@ Partial Class frmAdministrador
         'PacienteBajaMenuItem
         '
         Me.PacienteBajaMenuItem.Name = "PacienteBajaMenuItem"
-        Me.PacienteBajaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.PacienteBajaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.PacienteBajaMenuItem.Text = "Paciente"
         '
         'MedicoBajaMenuItem
         '
         Me.MedicoBajaMenuItem.Name = "MedicoBajaMenuItem"
-        Me.MedicoBajaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.MedicoBajaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.MedicoBajaMenuItem.Text = "Médico"
         '
         'AuxiliarMenuItemBaja
         '
         Me.AuxiliarMenuItemBaja.Name = "AuxiliarMenuItemBaja"
-        Me.AuxiliarMenuItemBaja.Size = New System.Drawing.Size(224, 26)
+        Me.AuxiliarMenuItemBaja.Size = New System.Drawing.Size(147, 26)
         Me.AuxiliarMenuItemBaja.Text = "Auxiliar"
         '
         'ModificacionDeUsuariosToolStripMenuItem
@@ -112,19 +113,19 @@ Partial Class frmAdministrador
         'PacienteModificacionMenuItem
         '
         Me.PacienteModificacionMenuItem.Name = "PacienteModificacionMenuItem"
-        Me.PacienteModificacionMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.PacienteModificacionMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.PacienteModificacionMenuItem.Text = "Paciente"
         '
         'MedicoModificacionMenuItem
         '
         Me.MedicoModificacionMenuItem.Name = "MedicoModificacionMenuItem"
-        Me.MedicoModificacionMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.MedicoModificacionMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.MedicoModificacionMenuItem.Text = "Médico"
         '
         'AuxiliarMenuItemModificar
         '
         Me.AuxiliarMenuItemModificar.Name = "AuxiliarMenuItemModificar"
-        Me.AuxiliarMenuItemModificar.Size = New System.Drawing.Size(224, 26)
+        Me.AuxiliarMenuItemModificar.Size = New System.Drawing.Size(147, 26)
         Me.AuxiliarMenuItemModificar.Text = "Auxiliar"
         '
         'BusquedaDeUsuariosMenuItem
@@ -137,25 +138,25 @@ Partial Class frmAdministrador
         'PacienteBusquedaMenuItem
         '
         Me.PacienteBusquedaMenuItem.Name = "PacienteBusquedaMenuItem"
-        Me.PacienteBusquedaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.PacienteBusquedaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.PacienteBusquedaMenuItem.Text = "Paciente"
         '
         'MedicoBusquedaMenuItem
         '
         Me.MedicoBusquedaMenuItem.Name = "MedicoBusquedaMenuItem"
-        Me.MedicoBusquedaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.MedicoBusquedaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.MedicoBusquedaMenuItem.Text = "Médico"
         '
         'AuxiliarBusquedaMenuItem
         '
         Me.AuxiliarBusquedaMenuItem.Name = "AuxiliarBusquedaMenuItem"
-        Me.AuxiliarBusquedaMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.AuxiliarBusquedaMenuItem.Size = New System.Drawing.Size(147, 26)
         Me.AuxiliarBusquedaMenuItem.Text = "Auxiliar"
         '
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioMenuItem, Me.GestionMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioMenuItem, Me.GestionMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1062, 28)
@@ -174,6 +175,12 @@ Partial Class frmAdministrador
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1062, 639)
         Me.pnlContenedor.TabIndex = 1
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'frmAdministrador
         '
@@ -216,4 +223,5 @@ Partial Class frmAdministrador
     Friend WithEvents AuxiliarMenuItemBaja As ToolStripMenuItem
     Friend WithEvents AuxiliarMenuItemModificar As ToolStripMenuItem
     Friend WithEvents AuxiliarBusquedaMenuItem As ToolStripMenuItem
+    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
 End Class
