@@ -149,7 +149,6 @@
 
                 End If
             Case "Fiebre"
-                Console.WriteLine("instanciando fiebre")
                 If Not pnlContenedorFormularios.Controls.Contains(frmFbr) Then
                     pnlContenedorFormularios.Controls.Clear()
                     frmFbr.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
