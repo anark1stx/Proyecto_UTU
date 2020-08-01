@@ -34,8 +34,7 @@ Partial Class frmDatosAuxiliarModificar
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
-        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
-        Me.lblMensajeError = New System.Windows.Forms.Label()
+        Me.pBoxFotoAux = New System.Windows.Forms.PictureBox()
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.lblCorreo = New System.Windows.Forms.Label()
         Me.btnLimpiar = New System.Windows.Forms.Button()
@@ -47,7 +46,7 @@ Partial Class frmDatosAuxiliarModificar
         Me.Label3 = New System.Windows.Forms.Label()
         Me.imgsBotonAltaModif = New System.Windows.Forms.ImageList(Me.components)
         Me.btnAceptar = New System.Windows.Forms.Button()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pBoxFotoAux, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtTelefono
@@ -135,26 +134,16 @@ Partial Class frmDatosAuxiliarModificar
         Me.lblNombres.TabIndex = 204
         Me.lblNombres.Text = "1° Nombre:"
         '
-        'pBoxFotoPaciente
+        'pBoxFotoAux
         '
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
-        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(12, 12)
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(189, 177)
-        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoPaciente.TabIndex = 203
-        Me.pBoxFotoPaciente.TabStop = False
-        '
-        'lblMensajeError
-        '
-        Me.lblMensajeError.ForeColor = System.Drawing.Color.Red
-        Me.lblMensajeError.Location = New System.Drawing.Point(243, 166)
-        Me.lblMensajeError.Name = "lblMensajeError"
-        Me.lblMensajeError.Size = New System.Drawing.Size(666, 23)
-        Me.lblMensajeError.TabIndex = 224
-        Me.lblMensajeError.Text = "Msg error"
-        Me.lblMensajeError.Visible = False
+        Me.pBoxFotoAux.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoAux.Image = CType(resources.GetObject("pBoxFotoAux.Image"), System.Drawing.Image)
+        Me.pBoxFotoAux.Location = New System.Drawing.Point(12, 12)
+        Me.pBoxFotoAux.Name = "pBoxFotoAux"
+        Me.pBoxFotoAux.Size = New System.Drawing.Size(189, 177)
+        Me.pBoxFotoAux.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pBoxFotoAux.TabIndex = 203
+        Me.pBoxFotoAux.TabStop = False
         '
         'txtCorreo
         '
@@ -268,7 +257,6 @@ Partial Class frmDatosAuxiliarModificar
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.txtCorreo)
         Me.Controls.Add(Me.lblCorreo)
-        Me.Controls.Add(Me.lblMensajeError)
         Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtApellido2)
@@ -279,11 +267,11 @@ Partial Class frmDatosAuxiliarModificar
         Me.Controls.Add(Me.lblTelefono)
         Me.Controls.Add(Me.lblApellidos)
         Me.Controls.Add(Me.lblNombres)
-        Me.Controls.Add(Me.pBoxFotoPaciente)
+        Me.Controls.Add(Me.pBoxFotoAux)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDatosAuxiliarModificar"
         Me.Text = "frmDatosAuxiliarModificar"
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pBoxFotoAux, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -299,8 +287,7 @@ Partial Class frmDatosAuxiliarModificar
     Friend WithEvents lblTelefono As Label
     Friend WithEvents lblApellidos As Label
     Friend WithEvents lblNombres As Label
-    Friend WithEvents pBoxFotoPaciente As PictureBox
-    Friend WithEvents lblMensajeError As Label
+    Friend WithEvents pBoxFotoAux As PictureBox
     Friend WithEvents txtCorreo As TextBox
     Friend WithEvents lblCorreo As Label
     Friend WithEvents btnLimpiar As Button

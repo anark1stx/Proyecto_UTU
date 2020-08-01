@@ -35,7 +35,7 @@ Partial Class frmDatosMedicoModificar
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.lblTelefono = New System.Windows.Forms.Label()
-        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
+        Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.lblEspecialidadTitulo = New System.Windows.Forms.Label()
         Me.txtApellido1 = New System.Windows.Forms.TextBox()
         Me.txtNombre2 = New System.Windows.Forms.TextBox()
@@ -45,11 +45,10 @@ Partial Class frmDatosMedicoModificar
         Me.txtNombre1 = New System.Windows.Forms.TextBox()
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
-        Me.lblMensajeError = New System.Windows.Forms.Label()
         Me.txtEspecialidad = New System.Windows.Forms.TextBox()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.lblContrasena = New System.Windows.Forms.Label()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLimpiar
@@ -148,16 +147,16 @@ Partial Class frmDatosMedicoModificar
         Me.lblTelefono.TabIndex = 234
         Me.lblTelefono.Text = "Teléfono:"
         '
-        'pBoxFotoPaciente
+        'pBoxFotoMedico
         '
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
-        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(12, 12)
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(189, 177)
-        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoPaciente.TabIndex = 230
-        Me.pBoxFotoPaciente.TabStop = False
+        Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoMedico.Image = CType(resources.GetObject("pBoxFotoMedico.Image"), System.Drawing.Image)
+        Me.pBoxFotoMedico.Location = New System.Drawing.Point(12, 12)
+        Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
+        Me.pBoxFotoMedico.Size = New System.Drawing.Size(189, 177)
+        Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pBoxFotoMedico.TabIndex = 230
+        Me.pBoxFotoMedico.TabStop = False
         '
         'lblEspecialidadTitulo
         '
@@ -237,16 +236,6 @@ Partial Class frmDatosMedicoModificar
         Me.lblNombres.TabIndex = 248
         Me.lblNombres.Text = "1° Nombre:"
         '
-        'lblMensajeError
-        '
-        Me.lblMensajeError.ForeColor = System.Drawing.Color.Red
-        Me.lblMensajeError.Location = New System.Drawing.Point(244, 171)
-        Me.lblMensajeError.Name = "lblMensajeError"
-        Me.lblMensajeError.Size = New System.Drawing.Size(666, 23)
-        Me.lblMensajeError.TabIndex = 256
-        Me.lblMensajeError.Text = "Msg error"
-        Me.lblMensajeError.Visible = False
-        '
         'txtEspecialidad
         '
         Me.txtEspecialidad.Location = New System.Drawing.Point(812, 100)
@@ -280,7 +269,6 @@ Partial Class frmDatosMedicoModificar
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.lblContrasena)
         Me.Controls.Add(Me.txtEspecialidad)
-        Me.Controls.Add(Me.lblMensajeError)
         Me.Controls.Add(Me.txtApellido1)
         Me.Controls.Add(Me.txtNombre2)
         Me.Controls.Add(Me.Label2)
@@ -300,11 +288,11 @@ Partial Class frmDatosMedicoModificar
         Me.Controls.Add(Me.lblCedula)
         Me.Controls.Add(Me.lblDireccion)
         Me.Controls.Add(Me.lblTelefono)
-        Me.Controls.Add(Me.pBoxFotoPaciente)
+        Me.Controls.Add(Me.pBoxFotoMedico)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDatosMedicoModificar"
         Me.Text = "frmDatosMedicoModificar"
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -320,7 +308,7 @@ Partial Class frmDatosMedicoModificar
     Friend WithEvents lblCedula As Label
     Friend WithEvents lblDireccion As Label
     Friend WithEvents lblTelefono As Label
-    Friend WithEvents pBoxFotoPaciente As PictureBox
+    Friend WithEvents pBoxFotoMedico As PictureBox
     Friend WithEvents lblEspecialidadTitulo As Label
     Friend WithEvents txtApellido1 As TextBox
     Friend WithEvents txtNombre2 As TextBox
@@ -330,7 +318,6 @@ Partial Class frmDatosMedicoModificar
     Friend WithEvents txtNombre1 As TextBox
     Friend WithEvents lblApellidos As Label
     Friend WithEvents lblNombres As Label
-    Friend WithEvents lblMensajeError As Label
     Friend WithEvents txtEspecialidad As TextBox
     Friend WithEvents txtContrasena As TextBox
     Friend WithEvents lblContrasena As Label

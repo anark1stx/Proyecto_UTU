@@ -80,4 +80,23 @@
             e.Handled = True
         End If
     End Sub
+
+    Private Sub pBoxFotoMedico_Click(sender As Object, e As EventArgs) Handles pBoxFotoMedico.Click
+        Dim imgpath As String 'dónde está la imagen que se va a subir'
+        Try
+            Dim OFD As FileDialog = New OpenFileDialog() 'Esto es lo que nos abre el menú de windows para seleccionar archivos.'
+
+            OFD.Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png" 'Extensiones admitidas para que no te enchufen una reverse shell.'
+
+            If OFD.ShowDialog() = DialogResult.OK Then
+                imgpath = OFD.FileName
+                pBoxFotoMedico.ImageLocation = imgpath
+            End If
+
+            OFD = Nothing
+
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString())
+        End Try
+    End Sub
 End Class
