@@ -83,4 +83,50 @@
     Private Sub chkT_Sens_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Sens_No.Click
         chkT_Sens_Si.Checked = False
     End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+
+        For Each c As Control In Me.Controls
+
+            If TypeOf c Is GroupBox Then
+
+                For Each c2 As Control In c.Controls
+
+                    If TypeOf c2 Is TableLayoutPanel Then
+
+                        For Each c3 As Control In c2.Controls
+
+                            If TypeOf c3 Is CheckBox Then
+
+                                DirectCast(c3, CheckBox).CheckState = CheckState.Unchecked
+
+                            End If
+
+                            If TypeOf c3 Is TextBox Then
+
+                                DirectCast(c3, TextBox).Text = String.Empty
+
+                            End If
+
+                            If TypeOf c3 Is ComboBox Then
+
+                                DirectCast(c3, ComboBox).Text = String.Empty
+
+                            End If
+
+                        Next
+
+                    End If
+
+                Next
+
+
+            End If
+
+        Next
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        '->GuardarEnBD()
+    End Sub
 End Class

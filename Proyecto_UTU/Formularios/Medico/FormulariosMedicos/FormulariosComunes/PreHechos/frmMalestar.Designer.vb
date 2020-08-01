@@ -122,7 +122,7 @@ Partial Class frmMalestar
         Me.lblTitutloFRM.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblTitutloFRM.AutoSize = True
         Me.lblTitutloFRM.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitutloFRM.Location = New System.Drawing.Point(192, 18)
+        Me.lblTitutloFRM.Location = New System.Drawing.Point(181, 18)
         Me.lblTitutloFRM.Name = "lblTitutloFRM"
         Me.lblTitutloFRM.Size = New System.Drawing.Size(694, 33)
         Me.lblTitutloFRM.TabIndex = 47
@@ -141,7 +141,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel17.Controls.Add(Me.Label18, 0, 0)
         Me.TableLayoutPanel17.Controls.Add(Me.chkT_Sens_Si, 1, 0)
         Me.TableLayoutPanel17.Controls.Add(Me.txtTsensoriales, 3, 0)
-        Me.TableLayoutPanel17.Location = New System.Drawing.Point(-26, 525)
+        Me.TableLayoutPanel17.Location = New System.Drawing.Point(-36, 525)
         Me.TableLayoutPanel17.Name = "TableLayoutPanel17"
         Me.TableLayoutPanel17.RowCount = 1
         Me.TableLayoutPanel17.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -214,7 +214,7 @@ Partial Class frmMalestar
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel28)
         Me.GroupBox2.Location = New System.Drawing.Point(21, 72)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1163, 603)
+        Me.GroupBox2.Size = New System.Drawing.Size(1142, 603)
         Me.GroupBox2.TabIndex = 69
         Me.GroupBox2.TabStop = False
         '
@@ -226,7 +226,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.Label9, 0, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.cbGradoHidr, 1, 0)
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(611, 21)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(601, 21)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -264,7 +264,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel30.Controls.Add(Me.chkCambioDieta_No, 2, 0)
         Me.TableLayoutPanel30.Controls.Add(Me.Label32, 0, 0)
         Me.TableLayoutPanel30.Controls.Add(Me.chkCambioDieta_Si, 1, 0)
-        Me.TableLayoutPanel30.Location = New System.Drawing.Point(-26, 445)
+        Me.TableLayoutPanel30.Location = New System.Drawing.Point(-36, 445)
         Me.TableLayoutPanel30.Name = "TableLayoutPanel30"
         Me.TableLayoutPanel30.RowCount = 1
         Me.TableLayoutPanel30.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -313,7 +313,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel29.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.99506!))
         Me.TableLayoutPanel29.Controls.Add(Me.txtDieta, 0, 0)
         Me.TableLayoutPanel29.Controls.Add(Me.Label31, 0, 0)
-        Me.TableLayoutPanel29.Location = New System.Drawing.Point(-26, 485)
+        Me.TableLayoutPanel29.Location = New System.Drawing.Point(-36, 485)
         Me.TableLayoutPanel29.Name = "TableLayoutPanel29"
         Me.TableLayoutPanel29.RowCount = 1
         Me.TableLayoutPanel29.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -350,7 +350,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.TableLayoutPanel15.Controls.Add(Me.Label16, 0, 0)
         Me.TableLayoutPanel15.Controls.Add(Me.cbActitud, 1, 0)
-        Me.TableLayoutPanel15.Location = New System.Drawing.Point(-21, 64)
+        Me.TableLayoutPanel15.Location = New System.Drawing.Point(-31, 64)
         Me.TableLayoutPanel15.Name = "TableLayoutPanel15"
         Me.TableLayoutPanel15.RowCount = 1
         Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -386,7 +386,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.TableLayoutPanel16.Controls.Add(Me.Label17, 0, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.cb_e_nutricion, 1, 0)
-        Me.TableLayoutPanel16.Location = New System.Drawing.Point(611, 64)
+        Me.TableLayoutPanel16.Location = New System.Drawing.Point(601, 64)
         Me.TableLayoutPanel16.Name = "TableLayoutPanel16"
         Me.TableLayoutPanel16.RowCount = 1
         Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -426,7 +426,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel18.Controls.Add(Me.Label19, 0, 0)
         Me.TableLayoutPanel18.Controls.Add(Me.chkTAlimen_Si, 1, 0)
         Me.TableLayoutPanel18.Controls.Add(Me.txtDrugs, 3, 0)
-        Me.TableLayoutPanel18.Location = New System.Drawing.Point(-26, 404)
+        Me.TableLayoutPanel18.Location = New System.Drawing.Point(-36, 404)
         Me.TableLayoutPanel18.Name = "TableLayoutPanel18"
         Me.TableLayoutPanel18.RowCount = 1
         Me.TableLayoutPanel18.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -485,7 +485,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198.0!))
         Me.TableLayoutPanel20.Controls.Add(Me.Label21, 0, 0)
         Me.TableLayoutPanel20.Controls.Add(Me.cbPulso, 1, 0)
-        Me.TableLayoutPanel20.Location = New System.Drawing.Point(-21, 21)
+        Me.TableLayoutPanel20.Location = New System.Drawing.Point(-31, 21)
         Me.TableLayoutPanel20.Name = "TableLayoutPanel20"
         Me.TableLayoutPanel20.RowCount = 1
         Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -525,7 +525,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel19.Controls.Add(Me.Label20, 0, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.chkDrugs_Si, 1, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.TextBox11, 3, 0)
-        Me.TableLayoutPanel19.Location = New System.Drawing.Point(-26, 364)
+        Me.TableLayoutPanel19.Location = New System.Drawing.Point(-36, 364)
         Me.TableLayoutPanel19.Name = "TableLayoutPanel19"
         Me.TableLayoutPanel19.RowCount = 1
         Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -584,7 +584,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.99012!))
         Me.TableLayoutPanel21.Controls.Add(Me.txtOtrosProblemas, 0, 0)
         Me.TableLayoutPanel21.Controls.Add(Me.Label22, 0, 0)
-        Me.TableLayoutPanel21.Location = New System.Drawing.Point(-26, 324)
+        Me.TableLayoutPanel21.Location = New System.Drawing.Point(-36, 324)
         Me.TableLayoutPanel21.Name = "TableLayoutPanel21"
         Me.TableLayoutPanel21.RowCount = 1
         Me.TableLayoutPanel21.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -621,7 +621,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel23.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.90939!))
         Me.TableLayoutPanel23.Controls.Add(Me.txtMedicina, 0, 0)
         Me.TableLayoutPanel23.Controls.Add(Me.Label24, 0, 0)
-        Me.TableLayoutPanel23.Location = New System.Drawing.Point(-26, 284)
+        Me.TableLayoutPanel23.Location = New System.Drawing.Point(-36, 284)
         Me.TableLayoutPanel23.Name = "TableLayoutPanel23"
         Me.TableLayoutPanel23.RowCount = 1
         Me.TableLayoutPanel23.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -660,7 +660,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel24.Controls.Add(Me.chkViaje_No, 2, 0)
         Me.TableLayoutPanel24.Controls.Add(Me.Label25, 0, 0)
         Me.TableLayoutPanel24.Controls.Add(Me.chkViaje_Si, 1, 0)
-        Me.TableLayoutPanel24.Location = New System.Drawing.Point(-26, 244)
+        Me.TableLayoutPanel24.Location = New System.Drawing.Point(-36, 244)
         Me.TableLayoutPanel24.Name = "TableLayoutPanel24"
         Me.TableLayoutPanel24.RowCount = 1
         Me.TableLayoutPanel24.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -713,7 +713,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel25.Controls.Add(Me.Label26, 0, 0)
         Me.TableLayoutPanel25.Controls.Add(Me.chkADiarias_Si, 1, 0)
         Me.TableLayoutPanel25.Controls.Add(Me.txtADiarias, 3, 0)
-        Me.TableLayoutPanel25.Location = New System.Drawing.Point(-26, 204)
+        Me.TableLayoutPanel25.Location = New System.Drawing.Point(-36, 204)
         Me.TableLayoutPanel25.Name = "TableLayoutPanel25"
         Me.TableLayoutPanel25.RowCount = 1
         Me.TableLayoutPanel25.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -774,7 +774,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel26.Controls.Add(Me.chkEpisodico, 2, 0)
         Me.TableLayoutPanel26.Controls.Add(Me.Label27, 0, 0)
         Me.TableLayoutPanel26.Controls.Add(Me.chkConstante, 1, 0)
-        Me.TableLayoutPanel26.Location = New System.Drawing.Point(-26, 164)
+        Me.TableLayoutPanel26.Location = New System.Drawing.Point(-36, 164)
         Me.TableLayoutPanel26.Name = "TableLayoutPanel26"
         Me.TableLayoutPanel26.RowCount = 1
         Me.TableLayoutPanel26.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -827,7 +827,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel27.Controls.Add(Me.chkMeses, 2, 0)
         Me.TableLayoutPanel27.Controls.Add(Me.Label28, 0, 0)
         Me.TableLayoutPanel27.Controls.Add(Me.chkSemanas, 1, 0)
-        Me.TableLayoutPanel27.Location = New System.Drawing.Point(-26, 124)
+        Me.TableLayoutPanel27.Location = New System.Drawing.Point(-36, 124)
         Me.TableLayoutPanel27.Name = "TableLayoutPanel27"
         Me.TableLayoutPanel27.RowCount = 1
         Me.TableLayoutPanel27.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -888,7 +888,7 @@ Partial Class frmMalestar
         Me.TableLayoutPanel28.Controls.Add(Me.Label29, 2, 0)
         Me.TableLayoutPanel28.Controls.Add(Me.Label30, 0, 0)
         Me.TableLayoutPanel28.Controls.Add(Me.TextBox16, 1, 0)
-        Me.TableLayoutPanel28.Location = New System.Drawing.Point(-26, -44)
+        Me.TableLayoutPanel28.Location = New System.Drawing.Point(-36, -44)
         Me.TableLayoutPanel28.Name = "TableLayoutPanel28"
         Me.TableLayoutPanel28.RowCount = 1
         Me.TableLayoutPanel28.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -938,7 +938,7 @@ Partial Class frmMalestar
         Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbResolucion.Location = New System.Drawing.Point(27, 691)
         Me.gbResolucion.Name = "gbResolucion"
-        Me.gbResolucion.Size = New System.Drawing.Size(1161, 392)
+        Me.gbResolucion.Size = New System.Drawing.Size(1140, 392)
         Me.gbResolucion.TabIndex = 70
         Me.gbResolucion.TabStop = False
         Me.gbResolucion.Text = "Resolución"
@@ -948,7 +948,7 @@ Partial Class frmMalestar
         Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomAnalisis.Enabled = False
         Me.txtNomAnalisis.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomAnalisis.Location = New System.Drawing.Point(457, 69)
+        Me.txtNomAnalisis.Location = New System.Drawing.Point(447, 69)
         Me.txtNomAnalisis.Name = "txtNomAnalisis"
         Me.txtNomAnalisis.Size = New System.Drawing.Size(219, 30)
         Me.txtNomAnalisis.TabIndex = 27
@@ -961,7 +961,7 @@ Partial Class frmMalestar
         Me.gbTratamiento.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTratamiento.Location = New System.Drawing.Point(6, 105)
         Me.gbTratamiento.Name = "gbTratamiento"
-        Me.gbTratamiento.Size = New System.Drawing.Size(1155, 281)
+        Me.gbTratamiento.Size = New System.Drawing.Size(1134, 281)
         Me.gbTratamiento.TabIndex = 26
         Me.gbTratamiento.TabStop = False
         Me.gbTratamiento.Text = "Descripción y diagnóstico"
@@ -974,7 +974,7 @@ Partial Class frmMalestar
         Me.txtTratamiento.Location = New System.Drawing.Point(9, 33)
         Me.txtTratamiento.Multiline = True
         Me.txtTratamiento.Name = "txtTratamiento"
-        Me.txtTratamiento.Size = New System.Drawing.Size(1140, 242)
+        Me.txtTratamiento.Size = New System.Drawing.Size(1119, 242)
         Me.txtTratamiento.TabIndex = 2
         '
         'chkAnalisis
@@ -983,7 +983,7 @@ Partial Class frmMalestar
         Me.chkAnalisis.AutoSize = True
         Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(179, 33)
+        Me.chkAnalisis.Location = New System.Drawing.Point(169, 33)
         Me.chkAnalisis.Name = "chkAnalisis"
         Me.chkAnalisis.Size = New System.Drawing.Size(486, 33)
         Me.chkAnalisis.TabIndex = 24
@@ -995,7 +995,7 @@ Partial Class frmMalestar
         Me.lblNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNomAnalisis.AutoSize = True
         Me.lblNomAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomAnalisis.Location = New System.Drawing.Point(184, 72)
+        Me.lblNomAnalisis.Location = New System.Drawing.Point(174, 72)
         Me.lblNomAnalisis.Name = "lblNomAnalisis"
         Me.lblNomAnalisis.Size = New System.Drawing.Size(247, 29)
         Me.lblNomAnalisis.TabIndex = 22
@@ -1046,7 +1046,7 @@ Partial Class frmMalestar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1445, 828)
+        Me.ClientSize = New System.Drawing.Size(1424, 828)
         Me.Controls.Add(Me.btnImprimir)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnGuardar)
