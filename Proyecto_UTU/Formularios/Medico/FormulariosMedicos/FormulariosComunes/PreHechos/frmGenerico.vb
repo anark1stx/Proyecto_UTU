@@ -1,4 +1,7 @@
-﻿Public Class frmGenerico
+﻿Imports System.Globalization
+
+Public Class frmGenerico
+    Dim culture As New CultureInfo("es-ES")
     Private Sub chkPacienteEnfermo_CheckedChanged(sender As Object, e As EventArgs) Handles chkPacienteEnfermo.CheckedChanged
         If chkPacienteEnfermo.Checked Then
             txtEnfermedad.Enabled = True
@@ -76,5 +79,39 @@
                 Next
             End If
         Next
+    End Sub
+
+    Private Sub txtMotivoConsulta_TextChanged(sender As Object, e As EventArgs) Handles txtMotivoConsulta.TextChanged
+
+        If culture.CompareInfo.IndexOf(txtMotivoConsulta.Text, "fiebre", CompareOptions.IgnoreCase) = 0 Then
+            'Sugerir frmFiebre
+            Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la fiebre?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+
+            If eleccion = vbOK Then
+                frmMedico.InstanciarFormulario("Fiebre")
+            End If
+
+        End If
+
+        If culture.CompareInfo.IndexOf(txtMotivoConsulta.Text, "dolor", CompareOptions.IgnoreCase) = 0 Then
+            'Sugerir frmDolor
+            Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la dolor?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+
+            If eleccion = vbOK Then
+                frmMedico.InstanciarFormulario("Dolor")
+            End If
+
+        End If
+
+        If culture.CompareInfo.IndexOf(txtMotivoConsulta.Text, "malestar", CompareOptions.IgnoreCase) = 0 Then
+            'Sugerir frmDolor
+            Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la malestar?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+
+            If eleccion = vbOK Then
+                frmMedico.InstanciarFormulario("Malestar")
+            End If
+
+        End If
+
     End Sub
 End Class

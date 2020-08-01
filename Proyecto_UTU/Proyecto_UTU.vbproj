@@ -322,6 +322,9 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmDolor.resx">
       <DependentUpon>frmDolor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmFiebre.resx">
+      <DependentUpon>frmFiebre.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.resx">
       <DependentUpon>frmGenerico.vb</DependentUpon>
     </EmbeddedResource>
