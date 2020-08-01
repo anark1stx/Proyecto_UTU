@@ -26,6 +26,7 @@ Partial Class frmDatosMedicoModificar
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDatosMedicoModificar))
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.imgsBotonAltaModif = New System.Windows.Forms.ImageList(Me.components)
         Me.txtCorreo = New System.Windows.Forms.TextBox()
         Me.lblCorreo = New System.Windows.Forms.Label()
         Me.txtTelefono = New System.Windows.Forms.TextBox()
@@ -48,7 +49,6 @@ Partial Class frmDatosMedicoModificar
         Me.txtEspecialidad = New System.Windows.Forms.TextBox()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.lblContrasena = New System.Windows.Forms.Label()
-        Me.imgsBotonAltaModif = New System.Windows.Forms.ImageList(Me.components)
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -72,6 +72,13 @@ Partial Class frmDatosMedicoModificar
         Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
         Me.btnAceptar.TabIndex = 244
         Me.btnAceptar.UseVisualStyleBackColor = True
+        '
+        'imgsBotonAltaModif
+        '
+        Me.imgsBotonAltaModif.ImageStream = CType(resources.GetObject("imgsBotonAltaModif.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imgsBotonAltaModif.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgsBotonAltaModif.Images.SetKeyName(0, "plus.png")
+        Me.imgsBotonAltaModif.Images.SetKeyName(1, "accept.png")
         '
         'txtCorreo
         '
@@ -263,13 +270,6 @@ Partial Class frmDatosMedicoModificar
         Me.lblContrasena.Size = New System.Drawing.Size(100, 20)
         Me.lblContrasena.TabIndex = 258
         Me.lblContrasena.Text = "Contraseña:"
-        '
-        'imgsBotonAltaModif
-        '
-        Me.imgsBotonAltaModif.ImageStream = CType(resources.GetObject("imgsBotonAltaModif.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.imgsBotonAltaModif.TransparentColor = System.Drawing.Color.Transparent
-        Me.imgsBotonAltaModif.Images.SetKeyName(0, "plus.png")
-        Me.imgsBotonAltaModif.Images.SetKeyName(1, "accept.png")
         '
         'frmDatosMedicoModificar
         '

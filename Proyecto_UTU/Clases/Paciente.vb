@@ -74,4 +74,20 @@
         End Set
     End Property
 
+    Function checkDatosPaciente() As Boolean
+
+        If Not IsNumeric(Me._edad) Then
+            MessageBox.Show("Edad: " & MensajeDeErrorSoloNumeros(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return 0
+        End If
+
+        If Not check_Largo(Me._ocupacion, 5, 30, True) Then
+            MessageBox.Show("Ocupación: " & MensajeDeErrorLongitud(5, 30), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return 0
+        End If
+
+        Return 1
+
+    End Function
+
 End Class

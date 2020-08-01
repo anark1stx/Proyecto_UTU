@@ -13,6 +13,10 @@
     End Function
     Function check_Largo(propiedad As String, cantidadMinima As Integer, cantidadMaxima As Integer, requerido As Boolean) As Boolean
 
+        If requerido AndAlso String.IsNullOrWhiteSpace(propiedad) Then
+            Return 0
+        End If
+
         If propiedad.Length >= cantidadMinima AndAlso propiedad.Length <= cantidadMaxima Then
             Return 1
         Else
@@ -53,10 +57,11 @@
             optMsg = "Ingrese un valor numerico válido."
             Return 0
 
-            If edad < 0 Or edad > 160 Then
-                optMsg = "Ingrese un valor numerico válido."
-                Return 0
-            End If
+        End If
+
+        If edad < 0 Or edad > 130 Then
+            optMsg = "Ingrese un valor numerico válido."
+            Return 0
         End If
 
         Return 1
@@ -97,13 +102,13 @@
     End Function
     Public Function check_Telefonos(telefonos As String()) As Boolean
 
-        'If telefonos.Count = 1 Then
-        '    If telefonos(0) = "" Then
-        '        optMsg = "Por favor Ingrese un número telefónico"
-        '        Return 0
-        '    End If
+        If telefonos.Count = 1 Then
+            If String.IsNullOrWhiteSpace(telefonos(0)) Then
+                optMsg = "Ingrese un número telefónico de contacto"
+                Return 0
+            End If
 
-        'End If
+        End If
 
         For Each tel In telefonos
 
@@ -116,8 +121,23 @@
 
         For Each tel In telefonos
             If Not check_Largo(tel, 8, 9, True) <> 0 Then
-                optMsg = "El teléfono: " & tel & "es inválido. Ingrese entre 8 y 9 caracteres"
+                optMsg = "El teléfono: " & tel & " es inválido. Los teléfonos celulares tienen 9 digitos, los teléfonos fijos 8."
                 Return 0
+            Else
+
+                If tel.Length = 9 Then 'Longitud acorde a telefono celular
+                    If Not tel.Substring(0, 2).Equals("09") Then 'Formato de los telefonos celulares 09*******
+                        optMsg = "El teléfono: " & tel & " es inválido. Los telefonos celulares empiezan con '09'."
+                        Return 0
+
+                    End If
+                ElseIf tel.Length = 8 Then 'Longitud acorde a telefono fijo
+                    If Not tel(0).ToString().Equals("2") OrElse Not tel(0).ToString().Equals("4") Then 'Los nros de telefono de mvdeo empiezan con 2 y los del interior con 4.
+                        optMsg = "El teléfono: " & tel & " es inválido. Los teléfonos fijos empiezan con '2' o '4'."
+                        Return 0
+
+                    End If
+                End If
             End If
         Next tel
 
@@ -132,7 +152,7 @@
         End If
 
         If Not check_Largo(cedula, 8, 8, True) Then
-            optMsg = "Verifique la longitud de la cédula (8 caracteres)"
+            optMsg = "Verifique la longitud de la cédula (8 dígitos)"
             Return 0
         End If
 
@@ -169,9 +189,9 @@
     End Function
 
     Public Function check_direccion(direccion As String()) As Boolean
-        optMsg = "Ingrese de la forma: 'Calle, n°puerta'"
+        optMsg = "Ingrese de la forma: 'Calle Esq. Calle2, n°puerta'"
 
-        If direccion.Length > 2 Then
+        If direccion.Length <> 2 Then 'Si no hay de dos items pafuera
             Return 0
         Else
 
@@ -187,80 +207,6 @@
         End If
 
     End Function
-
-    Public Function check_Usuario(usuario As Usuario, Optional medico As Medico = Nothing, Optional paciente As Paciente = Nothing) As Boolean
-
-        If Not check_Cedula(usuario.Cedula) Then
-            Return 0
-        End If
-
-        If Not check_Largo(usuario.Nombre1, 3, 15, True) Then
-            Return 0
-        Else
-            If check_contieneNumeros(usuario.Nombre1) Then
-                Return 0
-            End If
-        End If
-
-        If Not check_Largo(usuario.Nombre2, 3, 15, False) Then
-            Return 0
-        Else
-            If check_contieneNumeros(usuario.Nombre2) Then
-                Return 0
-            End If
-        End If
-
-        If Not check_Largo(usuario.Apellido1, 3, 15, True) Then
-            Return 0
-        Else
-            If check_contieneNumeros(usuario.Apellido1) Then
-                Return 0
-            End If
-        End If
-
-        If Not check_Largo(usuario.Apellido2, 3, 15, False) Then
-            Return 0
-        Else
-            If check_contieneNumeros(usuario.Apellido2) Then
-                Return 0
-            End If
-        End If
-
-        If Not check_Correo(usuario.Correo) Then
-            Return 0
-        End If
-
-        If Not check_Telefonos(usuario.telefonosLista()) Then
-            Return 0
-        End If
-
-        If Not check_direccion(usuario.direccion) Then
-            Return 0
-        End If
-
-        If Not medico.Equals(Nothing) Then 'Verificar que tipo de usuario estamos validando
-            'Return(check_Especialidad(especialidad))
-
-        ElseIf Not paciente.Equals(Nothing) Then
-
-            If Not check_edad(paciente.Edad) Then
-                Return 0
-            End If
-
-            If Not check_Sexo(paciente.Sexo) Then
-                Return 0
-            End If
-
-            If Not check_Estado_Civil(paciente.Estado_civil) Then
-                Return 0
-            End If
-
-        End If
-
-        Return 1
-
-    End Function
-
     Public Function check_CedulaExiste(cedula As String) As Boolean
         'Si la CI existe, retornamos 1, si no existe, retornamos 0
         Return 0

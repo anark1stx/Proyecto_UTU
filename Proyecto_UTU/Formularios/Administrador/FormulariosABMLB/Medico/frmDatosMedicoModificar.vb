@@ -3,11 +3,10 @@
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
 
         For Each txt As TextBox In Me.Controls.OfType(Of TextBox)
-            txt.Text = ""
+            txt.Text = String.Empty
         Next
 
     End Sub
-
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
         Dim cedula As String = txtCedula.Text
@@ -15,34 +14,70 @@
         Dim nombre2 As String = txtNombre2.Text
         Dim apellido1 As String = txtApellido1.Text
         Dim apellido2 As String = txtApellido2.Text
-        Dim direccion As String() = txtDireccion.Text.Split(",")
         Dim correo As String = txtCorreo.Text
         Dim contrasena As String = txtContrasena.Text
-        Dim especialidad As String = txtEspecialidad.Text
-        '-> Salida esperada: Luis Alberto de Herrera, 4682
+
+        Dim direccion As String() = txtDireccion.Text.Split(",")
+        '-> Salida esperada: Luis Alberto de Herrera Esq. Francisco Torres, 4682
         '-> Antes de enviarlos, hay que remover los espacios entre las comas
         direccion = RemoverEspacios(direccion)
 
         Dim telefonos As String() = txtTelefono.Text.Split(",")
         telefonos = RemoverEspacios(telefonos)
 
-        Dim medico_base As New Usuario(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena)
-        Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidad)
+        Dim especialidades As String() = txtEspecialidad.Text.Split(",")
 
-        If check_Usuario(medico_base, medico) Then
-            'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
+        especialidades = RemoverEspacios(especialidades)
 
-            If altaOmod = 1 Then
-                'Hacer modificacion
-            Else
-                'Hacer alta
+        Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades)
+
+        If medico.checkDatos() Then 'Datos de clase base Usuario
+            If medico.checkDatosMed() Then 'En el caso del medico, ademas de los datos de la clase base validamos especialidad
+                'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
+                If altaOmod = 1 Then
+                    'Hacer modificacion
+                Else
+                    'Hacer alta
+                End If
             End If
-
+        Else
         End If
 
     End Sub
 
-    Private Sub frmDatosMedicoModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub txtCedula_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCedula.KeyPress 'No dejarlo poner espacios
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
+    End Sub
 
+    Private Sub txtNombre1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre1.KeyPress
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtNombre2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre2.KeyPress
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtApellido1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido1.KeyPress
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtApellido2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido2.KeyPress
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtCorreo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCorreo.KeyPress
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
     End Sub
 End Class

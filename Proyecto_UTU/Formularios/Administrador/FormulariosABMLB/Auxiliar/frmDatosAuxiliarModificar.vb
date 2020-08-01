@@ -29,7 +29,7 @@
 
         Dim aux As New Usuario(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena)
 
-        If check_Usuario(aux) Then
+        If aux.checkDatos() Then
             'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
 
             If altaOmod = 1 Then
@@ -42,4 +42,7 @@
 
     End Sub
 
+    Private Sub frmDatosAuxiliarModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

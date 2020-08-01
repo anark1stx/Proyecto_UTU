@@ -14,6 +14,9 @@
     Function MensajeDeErrorCorreo() As String
         Return "Entrada inválida. " & optMsg
     End Function
+    Function MensajeDeErrorDireccion() As String
+        Return "Entrada inválida. " & optMsg
+    End Function
     Function ElUsuarioYaExiste() As String
         Return "El usuario ya existe"
     End Function
@@ -22,6 +25,14 @@
     End Function
     Function ElCorreoYaExiste() As String
         Return "El correo ya existe"
+    End Function
+
+    Function MensajeDeErrorEspecialidad(esp As String) As String
+        Return "La especialidad: " & esp & " es muy corta"
+    End Function
+
+    Function MensajeDeErrorSoloNumeros() As String
+        Return "Ingrese solo números."
     End Function
 
 End Module
