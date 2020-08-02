@@ -4,18 +4,28 @@
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
     Dim frmIni As New frmInicioPaciente
 
-    Private Sub GestiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
+    Public Sub addFrm(frm As Form)
+        If Not pnlContenedorFormularios.Controls.Contains(frm) Then
+            pnlContenedorFormularios.Controls.Clear()
+            frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
+            frm.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
+            Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
+            frm.Show()
+        End If
+    End Sub
+
+    Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
     End Sub
 
-    Private Sub DiagnósticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiagnosticoToolStripMenuItem.Click
+    Private Sub DiagnosticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiagnosticoToolStripMenuItem.Click
         'Cargar formulario de consulta con el paciente.
 
         InstanciarFormulario("Diagnostico")
     End Sub
 
-    Private Sub AnálisisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisToolStripMenuItem.Click
+    Private Sub AnalisisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisToolStripMenuItem.Click
         'Cargar formulario de consulta con el paciente.
 
         InstanciarFormulario("Analisis")
@@ -25,72 +35,28 @@
 
         Select Case formulario
             Case "Inicio"
-                If Not pnlContenedorFormularios.Controls.Contains(frmIni) Then
-                    pnlContenedorFormularios.Controls.Clear()
-                    frmIni.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    frmIni.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedorFormularios.Controls.Add(frmIni) 'Añadir el formulario al panel
-                    frmIni.Show()
-
-                End If
+                addFrm(frmIni)
             Case "Diagnostico"
 
-                If Not pnlContenedorFormularios.Controls.Contains(frmDiagnostico) Then
-                    pnlContenedorFormularios.Controls.Clear()
-                    frmDiagnostico.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    frmDiagnostico.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedorFormularios.Controls.Add(frmDiagnostico) 'Añadir el formulario al panel
-                    frmDiagnostico.Show()
-
-                End If
+                addFrm(frmDiagnostico)
 
             Case "Gestion"
 
-                If Not pnlContenedorFormularios.Controls.Contains(frmGestion) Then
-                    pnlContenedorFormularios.Controls.Clear()
-                    frmGestion.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    frmGestion.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedorFormularios.Controls.Add(frmGestion) 'Añadir el formulario al panel
-                    frmGestion.Show()
-
-                End If
+                addFrm(frmGestion)
 
             Case "Analisis"
 
-                If Not pnlContenedorFormularios.Controls.Contains(frmAnalisis) Then
-                    pnlContenedorFormularios.Controls.Clear()
-                    frmAnalisis.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    frmAnalisis.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedorFormularios.Controls.Add(frmAnalisis) 'Añadir el formulario al panel
-                    frmAnalisis.Show()
-
-                End If
+                addFrm(frmAnalisis)
 
         End Select
 
     End Sub
 
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        agregarHandlers()
         InstanciarFormulario("Inicio")
         'fixSize()
 
-    End Sub
-
-    Public Sub fixSize() 'Metodo para redimensionar controles sin tener que entrar a las propiedades de cada uno a cambiarlo
-        For Each c As Control In Me.Controls
-
-            If c IsNot MenuStrip1 AndAlso c IsNot pnlContenedorFormularios Then 'El unico control que no queremos modificar es el menu superior
-                c.Anchor += AnchorStyles.Bottom
-                c.Anchor += AnchorStyles.Top
-                c.Anchor += AnchorStyles.Left
-                c.Anchor += AnchorStyles.Right
-                If TypeOf c Is System.Windows.Forms.Form Then
-                    c.Width = pnlContenedorFormularios.Width
-                    c.Height = pnlContenedorFormularios.Height
-                End If
-            End If
-
-        Next
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
@@ -110,4 +76,25 @@
             frmIngreso_Usuario.Show()
         End If
     End Sub
+
+    Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
+
+        Dim sender = New Object
+        Dim e = New EventArgs
+
+        'HANDLERS PARA FORMULARIO INICIO
+        AddHandler frmIni.btnGestion.Click,
+                    Sub()
+                        GestionToolStripMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler frmIni.btnDiagnosticos.Click,
+                    Sub()
+                        DiagnosticoToolStripMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler frmIni.btnAnalisis.Click,
+                    Sub()
+                        AnalisisToolStripMenuItem_Click(sender, e)
+                    End Sub
+    End Sub
+
 End Class
