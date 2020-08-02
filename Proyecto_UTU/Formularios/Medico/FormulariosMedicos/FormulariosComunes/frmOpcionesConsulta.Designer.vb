@@ -24,8 +24,8 @@ Partial Class frmOpcionesConsulta
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOpcionesConsulta))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnIdentificacion = New System.Windows.Forms.Button()
         Me.btnEntrevistaPaciente = New System.Windows.Forms.Button()
+        Me.btnIdentificacion = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -44,20 +44,6 @@ Partial Class frmOpcionesConsulta
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(896, 555)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'btnIdentificacion
-        '
-        Me.btnIdentificacion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnIdentificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIdentificacion.Image = CType(resources.GetObject("btnIdentificacion.Image"), System.Drawing.Image)
-        Me.btnIdentificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnIdentificacion.Location = New System.Drawing.Point(3, 3)
-        Me.btnIdentificacion.Name = "btnIdentificacion"
-        Me.btnIdentificacion.Size = New System.Drawing.Size(890, 271)
-        Me.btnIdentificacion.TabIndex = 2
-        Me.btnIdentificacion.Text = "Identificación del paciente"
-        Me.btnIdentificacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnIdentificacion.UseVisualStyleBackColor = True
-        '
         'btnEntrevistaPaciente
         '
         Me.btnEntrevistaPaciente.Dock = System.Windows.Forms.DockStyle.Fill
@@ -71,6 +57,20 @@ Partial Class frmOpcionesConsulta
         Me.btnEntrevistaPaciente.Text = "Entrevista al paciente"
         Me.btnEntrevistaPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnEntrevistaPaciente.UseVisualStyleBackColor = True
+        '
+        'btnIdentificacion
+        '
+        Me.btnIdentificacion.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnIdentificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIdentificacion.Image = CType(resources.GetObject("btnIdentificacion.Image"), System.Drawing.Image)
+        Me.btnIdentificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnIdentificacion.Location = New System.Drawing.Point(3, 3)
+        Me.btnIdentificacion.Name = "btnIdentificacion"
+        Me.btnIdentificacion.Size = New System.Drawing.Size(890, 271)
+        Me.btnIdentificacion.TabIndex = 2
+        Me.btnIdentificacion.Text = "Identificación del paciente"
+        Me.btnIdentificacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnIdentificacion.UseVisualStyleBackColor = True
         '
         'frmOpcionesConsulta
         '

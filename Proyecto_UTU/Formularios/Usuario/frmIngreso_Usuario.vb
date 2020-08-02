@@ -1,13 +1,15 @@
 ﻿Public Class frmIngreso_Usuario
 
-    Dim frmPac As New frmPaciente
-    Dim frmMed As New frmMedico
     Dim frmAdm As New frmAdministrador
+    Dim frmMed As New frmMedico
+    Dim frmPac As New frmPaciente
 
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
         If txtIngresarCi.Text = "overclodeADM" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for admin
+
             Me.Hide()
+            frmAdm.InstanciarFormulario("Inicio", "")
             frmAdm.Show()
             Exit Sub
         End If
@@ -27,13 +29,17 @@
             'Me.Hide()
 
             If txtIngresarCi.Text = "53806188" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for doctors/auxiliars
+
                 Me.Hide()
+                frmMed.InstanciarFormulario("Inicio")
                 frmMed.Show()
                 Exit Sub
             End If
 
             If txtIngresarCi.Text = "42980147" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for patients
+
                 Me.Hide()
+                frmPac.InstanciarFormulario("Inicio")
                 frmPac.Show()
                 Exit Sub
             End If
@@ -56,7 +62,6 @@
 
     Private Sub frmIngresoUsuario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
-            e.Cancel = False
             Me.Dispose()
             Application.Exit() 'Salir completamente del programa y cerrar todas las ventanas que estaban Hide
         End If

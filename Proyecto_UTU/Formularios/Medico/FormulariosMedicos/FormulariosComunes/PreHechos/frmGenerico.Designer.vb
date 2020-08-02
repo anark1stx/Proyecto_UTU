@@ -84,7 +84,7 @@ Partial Class frmGenerico
         Me.lblEConsciencia.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblEConsciencia.AutoSize = True
         Me.lblEConsciencia.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEConsciencia.Location = New System.Drawing.Point(-119, 49)
+        Me.lblEConsciencia.Location = New System.Drawing.Point(-130, 49)
         Me.lblEConsciencia.Name = "lblEConsciencia"
         Me.lblEConsciencia.Size = New System.Drawing.Size(279, 29)
         Me.lblEConsciencia.TabIndex = 0
@@ -96,7 +96,7 @@ Partial Class frmGenerico
         Me.cbEstadoConsciencia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbEstadoConsciencia.FormattingEnabled = True
         Me.cbEstadoConsciencia.Items.AddRange(New Object() {"Consciente", "Inconsciente"})
-        Me.cbEstadoConsciencia.Location = New System.Drawing.Point(182, 42)
+        Me.cbEstadoConsciencia.Location = New System.Drawing.Point(171, 42)
         Me.cbEstadoConsciencia.Name = "cbEstadoConsciencia"
         Me.cbEstadoConsciencia.Size = New System.Drawing.Size(219, 31)
         Me.cbEstadoConsciencia.TabIndex = 1
@@ -106,7 +106,7 @@ Partial Class frmGenerico
         Me.lblGradoColaboracion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblGradoColaboracion.AutoSize = True
         Me.lblGradoColaboracion.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGradoColaboracion.Location = New System.Drawing.Point(450, 49)
+        Me.lblGradoColaboracion.Location = New System.Drawing.Point(439, 49)
         Me.lblGradoColaboracion.Name = "lblGradoColaboracion"
         Me.lblGradoColaboracion.Size = New System.Drawing.Size(283, 29)
         Me.lblGradoColaboracion.TabIndex = 2
@@ -118,7 +118,7 @@ Partial Class frmGenerico
         Me.cbGradoColab.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbGradoColab.FormattingEnabled = True
         Me.cbGradoColab.Items.AddRange(New Object() {"Bueno", "Malo"})
-        Me.cbGradoColab.Location = New System.Drawing.Point(754, 42)
+        Me.cbGradoColab.Location = New System.Drawing.Point(743, 42)
         Me.cbGradoColab.Name = "cbGradoColab"
         Me.cbGradoColab.Size = New System.Drawing.Size(219, 31)
         Me.cbGradoColab.TabIndex = 3
@@ -128,7 +128,7 @@ Partial Class frmGenerico
         Me.lblMovilidad.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblMovilidad.AutoSize = True
         Me.lblMovilidad.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMovilidad.Location = New System.Drawing.Point(43, 119)
+        Me.lblMovilidad.Location = New System.Drawing.Point(32, 119)
         Me.lblMovilidad.Name = "lblMovilidad"
         Me.lblMovilidad.Size = New System.Drawing.Size(133, 29)
         Me.lblMovilidad.TabIndex = 4
@@ -140,7 +140,7 @@ Partial Class frmGenerico
         Me.cbMovilidad.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMovilidad.FormattingEnabled = True
         Me.cbMovilidad.Items.AddRange(New Object() {"Buena", "Mala", "Con dificultades"})
-        Me.cbMovilidad.Location = New System.Drawing.Point(182, 112)
+        Me.cbMovilidad.Location = New System.Drawing.Point(171, 112)
         Me.cbMovilidad.Name = "cbMovilidad"
         Me.cbMovilidad.Size = New System.Drawing.Size(219, 31)
         Me.cbMovilidad.TabIndex = 5
@@ -150,7 +150,7 @@ Partial Class frmGenerico
         Me.lblActitud.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblActitud.AutoSize = True
         Me.lblActitud.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActitud.Location = New System.Drawing.Point(645, 119)
+        Me.lblActitud.Location = New System.Drawing.Point(634, 119)
         Me.lblActitud.Name = "lblActitud"
         Me.lblActitud.Size = New System.Drawing.Size(103, 29)
         Me.lblActitud.TabIndex = 6
@@ -162,7 +162,7 @@ Partial Class frmGenerico
         Me.cbActitud.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbActitud.FormattingEnabled = True
         Me.cbActitud.Items.AddRange(New Object() {"Apatía", "Coma", "Excitación", "Desmotivación", "Desinterés", "Otro"})
-        Me.cbActitud.Location = New System.Drawing.Point(754, 112)
+        Me.cbActitud.Location = New System.Drawing.Point(743, 112)
         Me.cbActitud.Name = "cbActitud"
         Me.cbActitud.Size = New System.Drawing.Size(219, 31)
         Me.cbActitud.TabIndex = 7
@@ -172,7 +172,7 @@ Partial Class frmGenerico
         Me.lblEstadoNutricion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblEstadoNutricion.AutoSize = True
         Me.lblEstadoNutricion.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoNutricion.Location = New System.Drawing.Point(-79, 177)
+        Me.lblEstadoNutricion.Location = New System.Drawing.Point(-90, 177)
         Me.lblEstadoNutricion.Name = "lblEstadoNutricion"
         Me.lblEstadoNutricion.Size = New System.Drawing.Size(246, 29)
         Me.lblEstadoNutricion.TabIndex = 8
@@ -184,7 +184,7 @@ Partial Class frmGenerico
         Me.cbENutricion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbENutricion.FormattingEnabled = True
         Me.cbENutricion.Items.AddRange(New Object() {"Obesidad", "Anorexia", "Caquexia", "Peso normal"})
-        Me.cbENutricion.Location = New System.Drawing.Point(182, 170)
+        Me.cbENutricion.Location = New System.Drawing.Point(171, 170)
         Me.cbENutricion.Name = "cbENutricion"
         Me.cbENutricion.Size = New System.Drawing.Size(219, 31)
         Me.cbENutricion.TabIndex = 9
@@ -194,7 +194,7 @@ Partial Class frmGenerico
         Me.lblGradoHidratacion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblGradoHidratacion.AutoSize = True
         Me.lblGradoHidratacion.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGradoHidratacion.Location = New System.Drawing.Point(472, 177)
+        Me.lblGradoHidratacion.Location = New System.Drawing.Point(461, 177)
         Me.lblGradoHidratacion.Name = "lblGradoHidratacion"
         Me.lblGradoHidratacion.Size = New System.Drawing.Size(263, 29)
         Me.lblGradoHidratacion.TabIndex = 10
@@ -206,7 +206,7 @@ Partial Class frmGenerico
         Me.cbGradoHidr.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbGradoHidr.FormattingEnabled = True
         Me.cbGradoHidr.Items.AddRange(New Object() {"Hidratado", "Normohidratado", "Hiperhidratado", "Hipohidratado", "Deshidratado", "Rehidratado"})
-        Me.cbGradoHidr.Location = New System.Drawing.Point(754, 170)
+        Me.cbGradoHidr.Location = New System.Drawing.Point(743, 170)
         Me.cbGradoHidr.Name = "cbGradoHidr"
         Me.cbGradoHidr.Size = New System.Drawing.Size(219, 31)
         Me.cbGradoHidr.TabIndex = 11
@@ -230,7 +230,7 @@ Partial Class frmGenerico
         Me.gbInspeccionGeneral.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbInspeccionGeneral.Location = New System.Drawing.Point(18, 214)
         Me.gbInspeccionGeneral.Name = "gbInspeccionGeneral"
-        Me.gbInspeccionGeneral.Size = New System.Drawing.Size(962, 224)
+        Me.gbInspeccionGeneral.Size = New System.Drawing.Size(941, 224)
         Me.gbInspeccionGeneral.TabIndex = 31
         Me.gbInspeccionGeneral.TabStop = False
         Me.gbInspeccionGeneral.Text = "Inspección general"
@@ -240,7 +240,7 @@ Partial Class frmGenerico
         Me.lblTemperatura.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblTemperatura.AutoSize = True
         Me.lblTemperatura.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTemperatura.Location = New System.Drawing.Point(-12, 49)
+        Me.lblTemperatura.Location = New System.Drawing.Point(-23, 49)
         Me.lblTemperatura.Name = "lblTemperatura"
         Me.lblTemperatura.Size = New System.Drawing.Size(162, 29)
         Me.lblTemperatura.TabIndex = 0
@@ -251,7 +251,7 @@ Partial Class frmGenerico
         Me.lblPulso.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblPulso.AutoSize = True
         Me.lblPulso.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPulso.Location = New System.Drawing.Point(636, 49)
+        Me.lblPulso.Location = New System.Drawing.Point(625, 49)
         Me.lblPulso.Name = "lblPulso"
         Me.lblPulso.Size = New System.Drawing.Size(86, 29)
         Me.lblPulso.TabIndex = 2
@@ -262,7 +262,7 @@ Partial Class frmGenerico
         Me.lblFrecuenciaCard.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblFrecuenciaCard.AutoSize = True
         Me.lblFrecuenciaCard.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFrecuenciaCard.Location = New System.Drawing.Point(-112, 97)
+        Me.lblFrecuenciaCard.Location = New System.Drawing.Point(-123, 97)
         Me.lblFrecuenciaCard.Name = "lblFrecuenciaCard"
         Me.lblFrecuenciaCard.Size = New System.Drawing.Size(253, 29)
         Me.lblFrecuenciaCard.TabIndex = 4
@@ -273,7 +273,7 @@ Partial Class frmGenerico
         Me.Label24.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(235, 40)
+        Me.Label24.Location = New System.Drawing.Point(224, 40)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(23, 29)
         Me.Label24.TabIndex = 13
@@ -284,7 +284,7 @@ Partial Class frmGenerico
         Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(238, 97)
+        Me.Label23.Location = New System.Drawing.Point(227, 97)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(38, 18)
         Me.Label23.TabIndex = 15
@@ -295,7 +295,7 @@ Partial Class frmGenerico
         Me.lblFrecuenciaResp.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblFrecuenciaResp.AutoSize = True
         Me.lblFrecuenciaResp.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFrecuenciaResp.Location = New System.Drawing.Point(408, 104)
+        Me.lblFrecuenciaResp.Location = New System.Drawing.Point(397, 104)
         Me.lblFrecuenciaResp.Name = "lblFrecuenciaResp"
         Me.lblFrecuenciaResp.Size = New System.Drawing.Size(292, 29)
         Me.lblFrecuenciaResp.TabIndex = 16
@@ -306,7 +306,7 @@ Partial Class frmGenerico
         Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(814, 97)
+        Me.Label21.Location = New System.Drawing.Point(803, 97)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(35, 18)
         Me.Label21.TabIndex = 18
@@ -330,7 +330,7 @@ Partial Class frmGenerico
         Me.gbConstantesVitales.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbConstantesVitales.Location = New System.Drawing.Point(18, 444)
         Me.gbConstantesVitales.Name = "gbConstantesVitales"
-        Me.gbConstantesVitales.Size = New System.Drawing.Size(962, 151)
+        Me.gbConstantesVitales.Size = New System.Drawing.Size(941, 151)
         Me.gbConstantesVitales.TabIndex = 33
         Me.gbConstantesVitales.TabStop = False
         Me.gbConstantesVitales.Text = "Constantes Vitales"
@@ -339,7 +339,7 @@ Partial Class frmGenerico
         '
         Me.txtFrecuenciaResp.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtFrecuenciaResp.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFrecuenciaResp.Location = New System.Drawing.Point(742, 103)
+        Me.txtFrecuenciaResp.Location = New System.Drawing.Point(731, 103)
         Me.txtFrecuenciaResp.Name = "txtFrecuenciaResp"
         Me.txtFrecuenciaResp.Size = New System.Drawing.Size(66, 30)
         Me.txtFrecuenciaResp.TabIndex = 22
@@ -350,7 +350,7 @@ Partial Class frmGenerico
         Me.cbPulso.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbPulso.FormattingEnabled = True
         Me.cbPulso.Items.AddRange(New Object() {"Fuerte", "Débil", "Filiforme"})
-        Me.cbPulso.Location = New System.Drawing.Point(742, 49)
+        Me.cbPulso.Location = New System.Drawing.Point(731, 49)
         Me.cbPulso.Name = "cbPulso"
         Me.cbPulso.Size = New System.Drawing.Size(219, 31)
         Me.cbPulso.TabIndex = 21
@@ -359,7 +359,7 @@ Partial Class frmGenerico
         '
         Me.txtFrecuenciaCard.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtFrecuenciaCard.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFrecuenciaCard.Location = New System.Drawing.Point(166, 96)
+        Me.txtFrecuenciaCard.Location = New System.Drawing.Point(155, 96)
         Me.txtFrecuenciaCard.Name = "txtFrecuenciaCard"
         Me.txtFrecuenciaCard.Size = New System.Drawing.Size(66, 30)
         Me.txtFrecuenciaCard.TabIndex = 20
@@ -368,7 +368,7 @@ Partial Class frmGenerico
         '
         Me.txtTemperatura.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtTemperatura.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTemperatura.Location = New System.Drawing.Point(166, 48)
+        Me.txtTemperatura.Location = New System.Drawing.Point(155, 48)
         Me.txtTemperatura.Name = "txtTemperatura"
         Me.txtTemperatura.Size = New System.Drawing.Size(66, 30)
         Me.txtTemperatura.TabIndex = 19
@@ -378,7 +378,7 @@ Partial Class frmGenerico
         Me.lblSintoma1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSintoma1.AutoSize = True
         Me.lblSintoma1.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSintoma1.Location = New System.Drawing.Point(-111, 44)
+        Me.lblSintoma1.Location = New System.Drawing.Point(-122, 44)
         Me.lblSintoma1.Name = "lblSintoma1"
         Me.lblSintoma1.Size = New System.Drawing.Size(115, 29)
         Me.lblSintoma1.TabIndex = 19
@@ -389,7 +389,7 @@ Partial Class frmGenerico
         Me.lblSintoma2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSintoma2.AutoSize = True
         Me.lblSintoma2.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSintoma2.Location = New System.Drawing.Point(284, 44)
+        Me.lblSintoma2.Location = New System.Drawing.Point(273, 44)
         Me.lblSintoma2.Name = "lblSintoma2"
         Me.lblSintoma2.Size = New System.Drawing.Size(115, 29)
         Me.lblSintoma2.TabIndex = 21
@@ -400,7 +400,7 @@ Partial Class frmGenerico
         Me.lblSintoma3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSintoma3.AutoSize = True
         Me.lblSintoma3.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSintoma3.Location = New System.Drawing.Point(686, 42)
+        Me.lblSintoma3.Location = New System.Drawing.Point(675, 42)
         Me.lblSintoma3.Name = "lblSintoma3"
         Me.lblSintoma3.Size = New System.Drawing.Size(115, 29)
         Me.lblSintoma3.TabIndex = 23
@@ -410,7 +410,7 @@ Partial Class frmGenerico
         '
         Me.txtSintoma3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSintoma3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSintoma3.Location = New System.Drawing.Point(807, 43)
+        Me.txtSintoma3.Location = New System.Drawing.Point(796, 43)
         Me.txtSintoma3.Name = "txtSintoma3"
         Me.txtSintoma3.Size = New System.Drawing.Size(219, 30)
         Me.txtSintoma3.TabIndex = 24
@@ -428,7 +428,7 @@ Partial Class frmGenerico
         Me.gbSintomas.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbSintomas.Location = New System.Drawing.Point(18, 601)
         Me.gbSintomas.Name = "gbSintomas"
-        Me.gbSintomas.Size = New System.Drawing.Size(962, 100)
+        Me.gbSintomas.Size = New System.Drawing.Size(941, 100)
         Me.gbSintomas.TabIndex = 34
         Me.gbSintomas.TabStop = False
         Me.gbSintomas.Text = "Síntomas"
@@ -437,7 +437,7 @@ Partial Class frmGenerico
         '
         Me.txtSintoma1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSintoma1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSintoma1.Location = New System.Drawing.Point(13, 44)
+        Me.txtSintoma1.Location = New System.Drawing.Point(2, 44)
         Me.txtSintoma1.Name = "txtSintoma1"
         Me.txtSintoma1.Size = New System.Drawing.Size(219, 30)
         Me.txtSintoma1.TabIndex = 26
@@ -446,7 +446,7 @@ Partial Class frmGenerico
         '
         Me.txtSintoma2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSintoma2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSintoma2.Location = New System.Drawing.Point(405, 44)
+        Me.txtSintoma2.Location = New System.Drawing.Point(394, 44)
         Me.txtSintoma2.Name = "txtSintoma2"
         Me.txtSintoma2.Size = New System.Drawing.Size(219, 30)
         Me.txtSintoma2.TabIndex = 25
@@ -458,7 +458,7 @@ Partial Class frmGenerico
         Me.txtMotivoConsulta.Location = New System.Drawing.Point(6, 26)
         Me.txtMotivoConsulta.Multiline = True
         Me.txtMotivoConsulta.Name = "txtMotivoConsulta"
-        Me.txtMotivoConsulta.Size = New System.Drawing.Size(977, 157)
+        Me.txtMotivoConsulta.Size = New System.Drawing.Size(956, 157)
         Me.txtMotivoConsulta.TabIndex = 0
         '
         'gbMotivoConsulta
@@ -469,7 +469,7 @@ Partial Class frmGenerico
         Me.gbMotivoConsulta.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbMotivoConsulta.Location = New System.Drawing.Point(12, 12)
         Me.gbMotivoConsulta.Name = "gbMotivoConsulta"
-        Me.gbMotivoConsulta.Size = New System.Drawing.Size(968, 202)
+        Me.gbMotivoConsulta.Size = New System.Drawing.Size(947, 202)
         Me.gbMotivoConsulta.TabIndex = 32
         Me.gbMotivoConsulta.TabStop = False
         Me.gbMotivoConsulta.Text = "Motivo de consulta"
@@ -479,7 +479,7 @@ Partial Class frmGenerico
         Me.lblPacientePres.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblPacientePres.AutoSize = True
         Me.lblPacientePres.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPacientePres.Location = New System.Drawing.Point(-94, 68)
+        Me.lblPacientePres.Location = New System.Drawing.Point(-105, 68)
         Me.lblPacientePres.Name = "lblPacientePres"
         Me.lblPacientePres.Size = New System.Drawing.Size(253, 29)
         Me.lblPacientePres.TabIndex = 19
@@ -490,7 +490,7 @@ Partial Class frmGenerico
         Me.txtEnfermedad.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtEnfermedad.Enabled = False
         Me.txtEnfermedad.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEnfermedad.Location = New System.Drawing.Point(198, 64)
+        Me.txtEnfermedad.Location = New System.Drawing.Point(187, 64)
         Me.txtEnfermedad.Name = "txtEnfermedad"
         Me.txtEnfermedad.Size = New System.Drawing.Size(219, 30)
         Me.txtEnfermedad.TabIndex = 20
@@ -501,7 +501,7 @@ Partial Class frmGenerico
         Me.chkPacienteEnfermo.AutoSize = True
         Me.chkPacienteEnfermo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkPacienteEnfermo.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkPacienteEnfermo.Location = New System.Drawing.Point(-95, 26)
+        Me.chkPacienteEnfermo.Location = New System.Drawing.Point(-106, 26)
         Me.chkPacienteEnfermo.Name = "chkPacienteEnfermo"
         Me.chkPacienteEnfermo.Size = New System.Drawing.Size(347, 33)
         Me.chkPacienteEnfermo.TabIndex = 21
@@ -513,7 +513,7 @@ Partial Class frmGenerico
         Me.lblNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNomAnalisis.AutoSize = True
         Me.lblNomAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomAnalisis.Location = New System.Drawing.Point(453, 68)
+        Me.lblNomAnalisis.Location = New System.Drawing.Point(442, 68)
         Me.lblNomAnalisis.Name = "lblNomAnalisis"
         Me.lblNomAnalisis.Size = New System.Drawing.Size(247, 29)
         Me.lblNomAnalisis.TabIndex = 22
@@ -525,7 +525,7 @@ Partial Class frmGenerico
         Me.chkAnalisis.AutoSize = True
         Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(448, 29)
+        Me.chkAnalisis.Location = New System.Drawing.Point(437, 29)
         Me.chkAnalisis.Name = "chkAnalisis"
         Me.chkAnalisis.Size = New System.Drawing.Size(486, 33)
         Me.chkAnalisis.TabIndex = 24
@@ -538,7 +538,7 @@ Partial Class frmGenerico
         Me.chkTratamiento.AutoSize = True
         Me.chkTratamiento.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkTratamiento.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkTratamiento.Location = New System.Drawing.Point(198, 121)
+        Me.chkTratamiento.Location = New System.Drawing.Point(187, 121)
         Me.chkTratamiento.Name = "chkTratamiento"
         Me.chkTratamiento.Size = New System.Drawing.Size(508, 33)
         Me.chkTratamiento.TabIndex = 25
@@ -553,7 +553,7 @@ Partial Class frmGenerico
         Me.gbTratamiento.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTratamiento.Location = New System.Drawing.Point(6, 155)
         Me.gbTratamiento.Name = "gbTratamiento"
-        Me.gbTratamiento.Size = New System.Drawing.Size(971, 215)
+        Me.gbTratamiento.Size = New System.Drawing.Size(950, 215)
         Me.gbTratamiento.TabIndex = 26
         Me.gbTratamiento.TabStop = False
         Me.gbTratamiento.Text = "Descripción del tratamiento"
@@ -567,7 +567,7 @@ Partial Class frmGenerico
         Me.txtTratamiento.Location = New System.Drawing.Point(9, 26)
         Me.txtTratamiento.Multiline = True
         Me.txtTratamiento.Name = "txtTratamiento"
-        Me.txtTratamiento.Size = New System.Drawing.Size(951, 176)
+        Me.txtTratamiento.Size = New System.Drawing.Size(930, 176)
         Me.txtTratamiento.TabIndex = 2
         '
         'gbResolucion
@@ -586,7 +586,7 @@ Partial Class frmGenerico
         Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbResolucion.Location = New System.Drawing.Point(18, 707)
         Me.gbResolucion.Name = "gbResolucion"
-        Me.gbResolucion.Size = New System.Drawing.Size(962, 383)
+        Me.gbResolucion.Size = New System.Drawing.Size(941, 383)
         Me.gbResolucion.TabIndex = 35
         Me.gbResolucion.TabStop = False
         Me.gbResolucion.Text = "Resolución"
@@ -596,7 +596,7 @@ Partial Class frmGenerico
         Me.btnPredictivo.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnPredictivo.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnPredictivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPredictivo.Location = New System.Drawing.Point(785, 29)
+        Me.btnPredictivo.Location = New System.Drawing.Point(764, 29)
         Me.btnPredictivo.Name = "btnPredictivo"
         Me.btnPredictivo.Size = New System.Drawing.Size(171, 128)
         Me.btnPredictivo.TabIndex = 28
@@ -608,7 +608,7 @@ Partial Class frmGenerico
         Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomAnalisis.Enabled = False
         Me.txtNomAnalisis.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomAnalisis.Location = New System.Drawing.Point(726, 65)
+        Me.txtNomAnalisis.Location = New System.Drawing.Point(715, 65)
         Me.txtNomAnalisis.Name = "txtNomAnalisis"
         Me.txtNomAnalisis.Size = New System.Drawing.Size(219, 30)
         Me.txtNomAnalisis.TabIndex = 27
@@ -658,7 +658,7 @@ Partial Class frmGenerico
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1193, 1100)
+        Me.ClientSize = New System.Drawing.Size(1214, 1100)
         Me.Controls.Add(Me.btnImprimir)
         Me.Controls.Add(Me.gbResolucion)
         Me.Controls.Add(Me.gbConstantesVitales)

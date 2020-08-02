@@ -348,6 +348,6 @@ Partial Class Identificacion_Paciente
     Friend WithEvents lblApellidosTXT As Label
     Friend WithEvents lblNombresTXT As Label
     Friend WithEvents pBoxFotoPaciente As PictureBox
-    Friend WithEvents txtCIPaciente As TextBox
-    Friend WithEvents btnBuscar As Button
+    Public WithEvents txtCIPaciente As TextBox
+    Public WithEvents btnBuscar As Button
 End Class
