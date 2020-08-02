@@ -55,8 +55,6 @@
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
-        'fixSize()
-
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click

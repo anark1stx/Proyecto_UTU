@@ -41,8 +41,8 @@ Partial Class frmAdministrador
         Me.AuxiliarBusquedaMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.InicioMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -169,18 +169,18 @@ Partial Class frmAdministrador
         Me.InicioMenuItem.Size = New System.Drawing.Size(59, 24)
         Me.InicioMenuItem.Text = "Inicio"
         '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
         'pnlContenedor
         '
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 31)
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1062, 639)
         Me.pnlContenedor.TabIndex = 1
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
-        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'frmAdministrador
         '

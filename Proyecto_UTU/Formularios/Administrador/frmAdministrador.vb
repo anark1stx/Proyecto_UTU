@@ -260,6 +260,10 @@
                     Sub()
                         PacienteBajaMenuItem_Click(sender, e)
                     End Sub
+        AddHandler _frmDatosPaciente.btnEditar.Click,
+            Sub()
+                PacienteModificacionMenuItem_Click(sender, e)
+            End Sub
         AddHandler _frmInicio.btnModificarPaciente.Click,
                     Sub()
                         PacienteModificacionMenuItem_Click(sender, e)
@@ -278,6 +282,10 @@
                     Sub()
                         MedicoBajaMenuItem_Click(sender, e)
                     End Sub
+        AddHandler _frmDatosMedico.btnEditar.Click,
+            Sub()
+                MedicoModificacionMenuItem_Click(sender, e)
+            End Sub
         AddHandler _frmInicio.btnModificarMedico.Click,
                     Sub()
                         MedicoModificacionMenuItem_Click(sender, e)
@@ -295,6 +303,10 @@
                     Sub()
                         AuxiliarBajaMenuItem_Click(sender, e)
                     End Sub
+        AddHandler _frmDatosAuxiliar.btnEditar.Click,
+            Sub()
+                AuxiliarModificacionMenuItem_Click(sender, e)
+            End Sub
         AddHandler _frmInicio.btnModificarAuxiliar.Click,
                     Sub()
                         AuxiliarModificacionMenuItem_Click(sender, e)
