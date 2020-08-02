@@ -7,7 +7,7 @@
         frmAdministrador.InstanciarFormulario("Gestion", "BajaMedico")
     End Sub
 
-    Private Sub btnModificacionMedico_Click(sender As Object, e As EventArgs) Handles btnModificacionMedico.Click
+    Private Sub btnModificacionMedico_Click(sender As Object, e As EventArgs) Handles btnModificarMedico.Click
         frmAdministrador.InstanciarFormulario("Gestion", "ModificarMedico")
     End Sub
 
@@ -43,7 +43,7 @@
         frmAdministrador.InstanciarFormulario("Gestion", "ModificarAuxiliar")
     End Sub
 
-    Private Sub btnBuscarAuxiliar_Click(sender As Object, e As EventArgs) Handles btnBuscarAuxiliar.Click
+    Private Sub btnBuscarAuxiliar_Click(sender As Object, e As EventArgs) Handles btnBusquedaAuxiliar.Click
         frmAdministrador.InstanciarFormulario("Gestion", "DatosAuxiliar")
     End Sub
 

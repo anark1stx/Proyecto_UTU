@@ -235,7 +235,7 @@
         rkJggg==
 </value>
   </data>
-  <data name="btnModificacionMedico.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnModificarMedico.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHwAAACACAYAAADJTg3cAAAABGdBTUEAALGPC/xhBQAAITxJREFUeF7t
         nQl4U9eZ90UAG0hCaNOAWW1DmjRpJ/3SJp10+kyn6SSdtNPJtDOTTvvN9/VJpmnIRgCTsJM4YTMEDMZg
@@ -1055,7 +1055,7 @@
         XCV/PI8/5eWXyr7nz5ygpL9NOcmekecd04z9P6yslBzYxLmPAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnBuscarAuxiliar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBusquedaAuxiliar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGsAAABwCAYAAAAZro5UAAAABGdBTUEAALGPC/xhBQAAIaxJREFUeF7t
         nQdYVFf6/4+u6dloiumJ2ViSaIzGgl2RIlFRYkmMJqb80k00pm00u5ui+a8pplnBBjaQJjAMA4ICShS7

@@ -13,156 +13,98 @@
     Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar 'El formulario de modificación es el mismo que el formulario de alta.
 #End Region
 
+    Public Sub addFrm(frm As Form, pnl As Panel)
+        If Not pnl.Controls.Contains(frm) Then
+            pnl.Controls.Clear()
+
+            frm.TopLevel = False
+            frm.TopMost = True
+            pnl.Controls.Add(frm)
+
+            frm.Show()
+        End If
+
+    End Sub
+
+
     Public Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
 
         Select Case formularioPadre
 
             Case "Inicio"
-                If Not pnlContenedor.Controls.Contains(_frmInicio) Then
-                    pnlContenedor.Controls.Clear()
-                    _frmInicio.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-                    _frmInicio.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-                    Me.pnlContenedor.Controls.Add(_frmInicio) 'Añadir el formulario al panel
-                    _frmInicio.Show()
-                End If
+                addFrm(_frmInicio, pnlContenedor)
 
             Case "Gestion"
-
-                If Not pnlContenedor.Controls.Contains(_frmGestion) Then
-                    pnlContenedor.Controls.Clear()
-                    _frmGestion.TopLevel = False
-                    _frmGestion.TopMost = True
-                    Me.pnlContenedor.Controls.Add(_frmGestion)
-                    _frmGestion.Show()
-                End If
+                addFrm(_frmGestion, pnlContenedor)
 
                 Select Case formularioHijo
 #Region "Paciente"
                     Case "DatosPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosPaciente.TopLevel = False
-                        _frmDatosPaciente.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosPaciente)
-
-                        _frmDatosPaciente.Show()
 
                     Case "ModificarPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarPaciente.TopLevel = False
-                        _frmModificarPaciente.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarPaciente)
-                        _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick.
-                        _frmModificarPaciente.Show()
+                        _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
 
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosPaciente.TopLevel = False
-                        _frmDatosPaciente.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosPaciente)
-
-                        _frmDatosPaciente.Show()
 
                     Case "AltaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+                        addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmModificarPaciente.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
 
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Hide()
-                        _frmModificarPaciente.TopLevel = False
-                        _frmModificarPaciente.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarPaciente)
-                        _frmModificarPaciente.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con (+).
-                        _frmModificarPaciente.Show()
+
 
 #End Region
 #Region "Medico"
                     Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosMedico.TopLevel = False
-                        _frmDatosMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosMedico)
-
-                        _frmDatosMedico.Show()
 
                     Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarMedico.TopLevel = False
-                        _frmModificarMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
-                        _frmModificarMedico.btnAceptar.ImageIndex = 1
-                        _frmModificarMedico.Show()
+                        _frmModificarMedico.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
 
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                        addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosMedico.TopLevel = False
-                        _frmDatosMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosMedico)
-
-                        _frmDatosMedico.Show()
 
                     Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmModificarMedico.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
 
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Hide()
-                        _frmModificarMedico.TopLevel = False
-                        _frmModificarMedico.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarMedico)
-                        _frmModificarMedico.btnAceptar.ImageIndex = 0
-                        _frmModificarMedico.Show()
 #End Region
 #Region "Auxiliar"
-                    Case "DatosAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                    Case "DatosAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosAuxiliar.TopLevel = False
-                        _frmDatosAuxiliar.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosAuxiliar)
 
-                        _frmDatosAuxiliar.Show()
-
-                    Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                    Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarAuxiliar.TopLevel = False
-                        _frmModificarAuxiliar.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarAuxiliar)
-                        _frmModificarMedico.altaOmod = 1
-                        _frmModificarMedico.btnAceptar.ImageIndex = 1
-                        _frmModificarAuxiliar.Show()
-                        Console.WriteLine("Baja AUX" & _frmModificarMedico.btnAceptar.ImageIndex.ToString())
-                    Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        _frmModificarAuxiliar.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
+                    Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+
+                        addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmDatosAuxiliar.TopLevel = False
-                        _frmDatosAuxiliar.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmDatosAuxiliar)
 
-                        _frmDatosAuxiliar.Show()
+                    Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
+                        _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmModificarAuxiliar.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
 
-                    Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
-                        _frmGestion.pnlDatosUsuario.Controls.Clear()
                         _frmGestion.pnlContenedorBusqueda.Hide()
-                        _frmModificarAuxiliar.TopLevel = False
-                        _frmModificarAuxiliar.TopMost = True
-                        _frmGestion.pnlDatosUsuario.Controls.Add(_frmModificarAuxiliar)
-                        _frmModificarMedico.btnAceptar.ImageIndex = 0
-                        _frmModificarMedico.altaOmod = 0
-                        _frmModificarAuxiliar.Show()
-                        Console.WriteLine("Alta AUX" & _frmModificarMedico.btnAceptar.ImageIndex.ToString())
 #End Region
                 End Select
 
@@ -231,7 +173,7 @@
     End Sub
 
 #Region "Eventos"
-    Private Sub MédicoBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoBusquedaMenuItem.Click
+    Private Sub MedicoBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoBusquedaMenuItem.Click
         InstanciarFormulario("Gestion", "DatosMedico")
     End Sub
 
@@ -268,23 +210,24 @@
     End Sub
 
     Private Sub frmAdministrador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        agregarHandlers()
         InicioToolStripMenuItem_Click(sender, e)
     End Sub
 
-    Private Sub AuxiliarMenuItemAlta_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemAlta.Click
-        InstanciarFormulario("Gestion", "AltaMedico")
+    Private Sub AuxiliarAltaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemAlta.Click
+        InstanciarFormulario("Gestion", "AltaAuxiliar")
     End Sub
 
-    Private Sub AuxiliarMenuItemBaja_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemBaja.Click
-        InstanciarFormulario("Gestion", "BajaMedico")
+    Private Sub AuxiliarBajaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemBaja.Click
+        InstanciarFormulario("Gestion", "BajaAuxiliar")
     End Sub
 
-    Private Sub AuxiliarMenuItemModificar_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemModificar.Click
-        InstanciarFormulario("Gestion", "ModificarMedico")
+    Private Sub AuxiliarModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemModificar.Click
+        InstanciarFormulario("Gestion", "ModificarAuxiliar")
     End Sub
 
     Private Sub AuxiliarBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click
-        InstanciarFormulario("Gestion", "DatosMedico")
+        InstanciarFormulario("Gestion", "DatosAuxiliar")
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
@@ -302,5 +245,65 @@
     End Sub
 
 #End Region
+
+    Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
+
+        Dim sender = New Object
+        Dim e = New EventArgs
+
+        'HANDLERS PARA FORMULARIO INICIO -> Acciones Paciente
+        AddHandler _frmInicio.btnAltaPaciente.Click,
+                    Sub()
+                        PacienteAltaMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnBajaPaciente.Click,
+                    Sub()
+                        PacienteBajaMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnModificarPaciente.Click,
+                    Sub()
+                        PacienteModificacionMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnBusquedaPaciente.Click,
+                    Sub()
+                        PacienteBusquedaMenuItem_Click(sender, e)
+                    End Sub
+
+        'HANDLERS PARA FORMULARIO INICIO -> Acciones Medico
+        AddHandler _frmInicio.btnAltaMedico.Click,
+                    Sub()
+                        MedicoAltaMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnBajaMedico.Click,
+                    Sub()
+                        MedicoBajaMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnModificarMedico.Click,
+                    Sub()
+                        MedicoModificacionMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnBusquedaMedico.Click,
+                    Sub()
+                        MedicoBusquedaMenuItem_Click(sender, e)
+                    End Sub
+        'HANDLERS PARA FORMULARIO INICIO -> Acciones Auxiliar
+        AddHandler _frmInicio.btnAltaAuxiliar.Click,
+                    Sub()
+                        AuxiliarAltaMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnBajaAuxiliar.Click,
+                    Sub()
+                        AuxiliarBajaMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnModificarAuxiliar.Click,
+                    Sub()
+                        AuxiliarModificacionMenuItem_Click(sender, e)
+                    End Sub
+        AddHandler _frmInicio.btnBusquedaAuxiliar.Click,
+                    Sub()
+                        AuxiliarBusquedaMenuItem_Click(sender, e)
+                    End Sub
+
+    End Sub
 
 End Class

@@ -25,7 +25,7 @@ Partial Class frmInicioAdm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInicioAdm))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnBusquedaMedico = New System.Windows.Forms.Button()
-        Me.btnModificacionMedico = New System.Windows.Forms.Button()
+        Me.btnModificarMedico = New System.Windows.Forms.Button()
         Me.btnBajaMedico = New System.Windows.Forms.Button()
         Me.btnAltaMedico = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -34,7 +34,7 @@ Partial Class frmInicioAdm
         Me.btnBajaPaciente = New System.Windows.Forms.Button()
         Me.btnAltaPaciente = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnBuscarAuxiliar = New System.Windows.Forms.Button()
+        Me.btnBusquedaAuxiliar = New System.Windows.Forms.Button()
         Me.btnModificarAuxiliar = New System.Windows.Forms.Button()
         Me.btnBajaAuxiliar = New System.Windows.Forms.Button()
         Me.btnAltaAuxiliar = New System.Windows.Forms.Button()
@@ -46,7 +46,7 @@ Partial Class frmInicioAdm
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnBusquedaMedico)
-        Me.GroupBox1.Controls.Add(Me.btnModificacionMedico)
+        Me.GroupBox1.Controls.Add(Me.btnModificarMedico)
         Me.GroupBox1.Controls.Add(Me.btnBajaMedico)
         Me.GroupBox1.Controls.Add(Me.btnAltaMedico)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 226)
@@ -67,16 +67,16 @@ Partial Class frmInicioAdm
         Me.btnBusquedaMedico.TabIndex = 3
         Me.btnBusquedaMedico.UseVisualStyleBackColor = True
         '
-        'btnModificacionMedico
+        'btnModificarMedico
         '
-        Me.btnModificacionMedico.BackgroundImage = CType(resources.GetObject("btnModificacionMedico.BackgroundImage"), System.Drawing.Image)
-        Me.btnModificacionMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnModificacionMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificacionMedico.Location = New System.Drawing.Point(537, 21)
-        Me.btnModificacionMedico.Name = "btnModificacionMedico"
-        Me.btnModificacionMedico.Size = New System.Drawing.Size(211, 169)
-        Me.btnModificacionMedico.TabIndex = 2
-        Me.btnModificacionMedico.UseVisualStyleBackColor = True
+        Me.btnModificarMedico.BackgroundImage = CType(resources.GetObject("btnModificarMedico.BackgroundImage"), System.Drawing.Image)
+        Me.btnModificarMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnModificarMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarMedico.Location = New System.Drawing.Point(537, 21)
+        Me.btnModificarMedico.Name = "btnModificarMedico"
+        Me.btnModificarMedico.Size = New System.Drawing.Size(211, 169)
+        Me.btnModificarMedico.TabIndex = 2
+        Me.btnModificarMedico.UseVisualStyleBackColor = True
         '
         'btnBajaMedico
         '
@@ -159,7 +159,7 @@ Partial Class frmInicioAdm
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.btnBuscarAuxiliar)
+        Me.GroupBox3.Controls.Add(Me.btnBusquedaAuxiliar)
         Me.GroupBox3.Controls.Add(Me.btnModificarAuxiliar)
         Me.GroupBox3.Controls.Add(Me.btnBajaAuxiliar)
         Me.GroupBox3.Controls.Add(Me.btnAltaAuxiliar)
@@ -170,16 +170,16 @@ Partial Class frmInicioAdm
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Gestionar auxiliares"
         '
-        'btnBuscarAuxiliar
+        'btnBusquedaAuxiliar
         '
-        Me.btnBuscarAuxiliar.BackgroundImage = CType(resources.GetObject("btnBuscarAuxiliar.BackgroundImage"), System.Drawing.Image)
-        Me.btnBuscarAuxiliar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscarAuxiliar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarAuxiliar.Location = New System.Drawing.Point(791, 21)
-        Me.btnBuscarAuxiliar.Name = "btnBuscarAuxiliar"
-        Me.btnBuscarAuxiliar.Size = New System.Drawing.Size(211, 169)
-        Me.btnBuscarAuxiliar.TabIndex = 3
-        Me.btnBuscarAuxiliar.UseVisualStyleBackColor = True
+        Me.btnBusquedaAuxiliar.BackgroundImage = CType(resources.GetObject("btnBusquedaAuxiliar.BackgroundImage"), System.Drawing.Image)
+        Me.btnBusquedaAuxiliar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBusquedaAuxiliar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBusquedaAuxiliar.Location = New System.Drawing.Point(791, 21)
+        Me.btnBusquedaAuxiliar.Name = "btnBusquedaAuxiliar"
+        Me.btnBusquedaAuxiliar.Size = New System.Drawing.Size(211, 169)
+        Me.btnBusquedaAuxiliar.TabIndex = 3
+        Me.btnBusquedaAuxiliar.UseVisualStyleBackColor = True
         '
         'btnModificarAuxiliar
         '
@@ -235,7 +235,7 @@ Partial Class frmInicioAdm
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnBusquedaMedico As Button
-    Friend WithEvents btnModificacionMedico As Button
+    Friend WithEvents btnModificarMedico As Button
     Friend WithEvents btnBajaMedico As Button
     Friend WithEvents btnAltaMedico As Button
     Friend WithEvents GroupBox2 As GroupBox
@@ -244,7 +244,7 @@ Partial Class frmInicioAdm
     Friend WithEvents btnBajaPaciente As Button
     Friend WithEvents btnAltaPaciente As Button
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents btnBuscarAuxiliar As Button
+    Friend WithEvents btnBusquedaAuxiliar As Button
     Friend WithEvents btnModificarAuxiliar As Button
     Friend WithEvents btnBajaAuxiliar As Button
     Friend WithEvents btnAltaAuxiliar As Button
