@@ -167,6 +167,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenericoTest.Designer.vb">
+      <DependentUpon>frmGenericoTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenericoTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmMalestar.Designer.vb">
       <DependentUpon>frmMalestar.vb</DependentUpon>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.resx">
       <DependentUpon>frmGenerico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenericoTest.resx">
+      <DependentUpon>frmGenericoTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmMalestar.resx">
       <DependentUpon>frmMalestar.vb</DependentUpon>
