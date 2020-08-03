@@ -11,7 +11,7 @@ Public Class frmMedico
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
 
-    Dim generico As New frmGenericoTest
+    Dim generico As New frmGenerico
     Dim frmDlr As New frmDolor
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar

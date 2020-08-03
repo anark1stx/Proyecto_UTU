@@ -52,7 +52,7 @@
             Return list1
 
         End If
-
+        Return list1
     End Function
 
 
