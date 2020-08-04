@@ -132,11 +132,16 @@
 
                     End If
                 ElseIf tel.Length = 8 Then 'Longitud acorde a telefono fijo
-                    If Not tel(0).ToString().Equals("2") OrElse Not tel(0).ToString().Equals("4") Then 'Los nros de telefono de mvdeo empiezan con 2 y los del interior con 4.
-                        optMsg = "El teléfono: " & tel & " es inválido. Los teléfonos fijos empiezan con '2' o '4'."
-                        Return 0
+                    Dim primerdigito = Val(tel(0))
 
-                    End If
+                    Select Case primerdigito
+                        Case 2, 4
+                            Return 1
+                        Case Else
+                            optMsg = "El teléfono: " & tel & " es inválido. Los teléfonos fijos empiezan con '2' o '4'."
+                            Return 0
+                    End Select
+
                 End If
             End If
         Next tel
@@ -169,7 +174,7 @@
                 Dim producto_corregido = producto.ToString().Substring(1)
                 producto = CInt(producto_corregido)
             End If
-            resultado_cedula = resultado_cedula & producto.ToString()
+            resultado_cedula &= producto.ToString()
         Next i
 
         Dim suma As Integer = 0
@@ -179,12 +184,15 @@
         Next
 
         Dim digito_verificador As Integer = 10 - (suma Mod 10)
+
         If Not digito_verificador = verificador_ingresado_x_usuario Then
             optMsg = "Su cédula es incorrecta, verifique que haya ingresado los 8 números que se muestran en el documento"
             Return 0
+        Else
+
+            Return 1
         End If
 
-        Return 1
 
     End Function
 

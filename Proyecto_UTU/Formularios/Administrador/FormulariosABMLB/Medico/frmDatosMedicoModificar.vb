@@ -1,5 +1,7 @@
 ﻿Public Class frmDatosMedicoModificar
     Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
+    Dim ci_valida As Boolean = 0
+    Dim ci As String
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
 
         For Each txt As TextBox In Me.Controls.OfType(Of TextBox)
@@ -23,7 +25,7 @@
         direccion = RemoverEspacios(direccion)
 
         Dim telefonos As String() = txtTelefono.Text.Split(",")
-        telefonos = RemoverEspacios(telefonos)
+        'telefonos = RemoverEspacios(telefonos)
 
         Dim especialidades As String() = txtEspecialidad.Text.Split(",")
 
@@ -102,18 +104,43 @@
 
     Private Sub frmDatosMedicoModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim controls = Me.Controls
+        configurarControles()
+    End Sub
+
+    Public Sub configurarControles()
         Select Case altaOmod
             Case 0
-                For Each c As Control In controls
+                For Each c As Control In Controls
 
-                    Console.WriteLine(c.Name)
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
-                        c.Enabled = False
+                    If Not ci_valida Then
+                        If TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                            c.Enabled = False
+                        End If
+                    Else
+                        If TypeOf c Is TextBox Then
+                            c.Enabled = True
+                        End If
                     End If
 
                 Next
             Case 1
                 txtCedula.Enabled = False
         End Select
+    End Sub
+
+    Private Sub txtCedula_TextChanged(sender As Object, e As EventArgs) Handles txtCedula.TextChanged
+        ci = txtCedula.Text
+
+        If ci.Length = 8 Then
+            ci_valida = check_Cedula(ci)
+            If ci_valida = False Then
+                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            configurarControles()
+        Else
+            ci_valida = check_Cedula(ci)
+            configurarControles()
+        End If
+
     End Sub
 End Class
