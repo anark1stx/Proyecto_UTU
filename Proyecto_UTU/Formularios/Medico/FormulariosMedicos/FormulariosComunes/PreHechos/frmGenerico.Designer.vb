@@ -73,7 +73,6 @@ Partial Class frmGenerico
         Me.lblTemperatura = New System.Windows.Forms.Label()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Imprimir = New System.Drawing.Printing.PrintDocument()
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.pnlContenedor.SuspendLayout()
         Me.gbSintomas.SuspendLayout()
         Me.gbMotivoConsulta.SuspendLayout()
@@ -677,17 +676,6 @@ Partial Class frmGenerico
         '
         Me.Imprimir.DocumentName = "formulario"
         '
-        'PrintPreviewDialog1
-        '
-        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
-        Me.PrintPreviewDialog1.Document = Me.Imprimir
-        Me.PrintPreviewDialog1.Enabled = True
-        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
-        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
-        Me.PrintPreviewDialog1.Visible = False
-        '
         'frmGenerico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -765,6 +753,5 @@ Partial Class frmGenerico
     Friend WithEvents lblTemperatura As Label
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents Imprimir As Printing.PrintDocument
-    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents txtTratamiento As TextBox
 End Class

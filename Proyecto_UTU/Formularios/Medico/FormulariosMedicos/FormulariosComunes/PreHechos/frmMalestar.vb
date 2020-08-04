@@ -132,11 +132,7 @@
         tmpPanel = pnl
         Imprimir.DefaultPageSettings.Landscape = True
         getPrintArea(pnl)
-
-        PrintPreviewDialog1.Document = Imprimir
-        PrintPreviewDialog1.ShowDialog()
-
-        'Imprimir.Print()
+        Imprimir.Print()
 
     End Sub
 
