@@ -112,7 +112,7 @@ Partial Class frmGenerico
         Me.gbSintomas.Controls.Add(Me.lblSintoma2)
         Me.gbSintomas.Controls.Add(Me.lblSintoma1)
         Me.gbSintomas.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbSintomas.Location = New System.Drawing.Point(-12, 538)
+        Me.gbSintomas.Location = New System.Drawing.Point(-34, 538)
         Me.gbSintomas.Name = "gbSintomas"
         Me.gbSintomas.Size = New System.Drawing.Size(1294, 67)
         Me.gbSintomas.TabIndex = 45
@@ -184,7 +184,7 @@ Partial Class frmGenerico
         Me.gbMotivoConsulta.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.gbMotivoConsulta.Controls.Add(Me.txtMotivoConsulta)
         Me.gbMotivoConsulta.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbMotivoConsulta.Location = New System.Drawing.Point(-12, 3)
+        Me.gbMotivoConsulta.Location = New System.Drawing.Point(-34, 3)
         Me.gbMotivoConsulta.Name = "gbMotivoConsulta"
         Me.gbMotivoConsulta.Size = New System.Drawing.Size(1294, 187)
         Me.gbMotivoConsulta.TabIndex = 43
@@ -215,7 +215,7 @@ Partial Class frmGenerico
         Me.gbResolucion.Controls.Add(Me.txtEnfermedad)
         Me.gbResolucion.Controls.Add(Me.lblPacientePres)
         Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbResolucion.Location = New System.Drawing.Point(-12, 611)
+        Me.gbResolucion.Location = New System.Drawing.Point(-34, 611)
         Me.gbResolucion.Name = "gbResolucion"
         Me.gbResolucion.Size = New System.Drawing.Size(1294, 381)
         Me.gbResolucion.TabIndex = 46
@@ -344,7 +344,7 @@ Partial Class frmGenerico
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(667, 1015)
+        Me.btnGuardar.Location = New System.Drawing.Point(645, 1015)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(146, 45)
         Me.btnGuardar.TabIndex = 47
@@ -358,7 +358,7 @@ Partial Class frmGenerico
         Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
         Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnImprimir.Location = New System.Drawing.Point(515, 1015)
+        Me.btnImprimir.Location = New System.Drawing.Point(493, 1015)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(146, 45)
         Me.btnImprimir.TabIndex = 49
@@ -382,7 +382,7 @@ Partial Class frmGenerico
         Me.gbInspeccionGeneral.Controls.Add(Me.cbEstadoConsciencia)
         Me.gbInspeccionGeneral.Controls.Add(Me.lblEConsciencia)
         Me.gbInspeccionGeneral.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbInspeccionGeneral.Location = New System.Drawing.Point(-12, 196)
+        Me.gbInspeccionGeneral.Location = New System.Drawing.Point(-34, 196)
         Me.gbInspeccionGeneral.Name = "gbInspeccionGeneral"
         Me.gbInspeccionGeneral.Size = New System.Drawing.Size(1294, 203)
         Me.gbInspeccionGeneral.TabIndex = 42
@@ -536,7 +536,7 @@ Partial Class frmGenerico
         Me.gbConstantesVitales.Controls.Add(Me.lblPulso)
         Me.gbConstantesVitales.Controls.Add(Me.lblTemperatura)
         Me.gbConstantesVitales.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbConstantesVitales.Location = New System.Drawing.Point(-12, 405)
+        Me.gbConstantesVitales.Location = New System.Drawing.Point(-34, 405)
         Me.gbConstantesVitales.Name = "gbConstantesVitales"
         Me.gbConstantesVitales.Size = New System.Drawing.Size(1294, 127)
         Me.gbConstantesVitales.TabIndex = 44
@@ -664,7 +664,7 @@ Partial Class frmGenerico
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiar.Location = New System.Drawing.Point(363, 1015)
+        Me.btnLimpiar.Location = New System.Drawing.Point(341, 1015)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(146, 45)
         Me.btnLimpiar.TabIndex = 48

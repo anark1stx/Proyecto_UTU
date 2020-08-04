@@ -99,4 +99,21 @@
             MsgBox(ex.Message.ToString())
         End Try
     End Sub
+
+    Private Sub frmDatosMedicoModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim controls = Me.Controls
+        Select Case altaOmod
+            Case 0
+                For Each c As Control In controls
+
+                    Console.WriteLine(c.Name)
+                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                        c.Enabled = False
+                    End If
+
+                Next
+            Case 1
+                txtCedula.Enabled = False
+        End Select
+    End Sub
 End Class

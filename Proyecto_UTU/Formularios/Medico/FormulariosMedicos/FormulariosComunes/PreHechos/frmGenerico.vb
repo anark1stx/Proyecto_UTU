@@ -123,19 +123,17 @@ Public Class frmGenerico
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        For Each c As Control In Me.Controls
 
-            If TypeOf c Is GroupBox Then
-                For Each c2 As Control In c.Controls
-                    If TypeOf c2 Is TextBox Or TypeOf c2 Is ComboBox Then
-                        c2.ResetText()
-                    End If
-                Next
+        For Each c As Control In pnlContenedor.Controls
+            If TypeOf c Is GroupBox Or TypeOf c Is Panel Then
+                LimpiarControles(c)
             End If
         Next
+        LimpiarControles(gbTratamiento)
     End Sub
 
     Private Sub frmGenericoTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
     End Sub
+
 End Class

@@ -68,6 +68,7 @@
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        _frmModificarMedico.altaOmod = 1
                         addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarMedico.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
@@ -78,6 +79,7 @@
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        _frmModificarMedico.altaOmod = 0
                         addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarMedico.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).

@@ -78,41 +78,18 @@
 
         For Each ctrls In pnlContenedor.Controls
             If TypeOf ctrls Is GroupBox Then
-
                 For Each c2 As Control In ctrls.Controls
 
                     If TypeOf c2 Is TableLayoutPanel Then
-
-                        For Each c3 As Control In c2.Controls
-
-                            If TypeOf c3 Is CheckBox Then
-
-                                DirectCast(c3, CheckBox).CheckState = CheckState.Unchecked
-
-                            End If
-
-                            If TypeOf c3 Is TextBox Then
-
-                                DirectCast(c3, TextBox).Text = String.Empty
-
-                            End If
-
-                            If TypeOf c3 Is ComboBox Then
-
-                                DirectCast(c3, ComboBox).Text = String.Empty
-
-                            End If
-
-                        Next
-
+                        LimpiarControles(c2)
                     End If
 
                 Next
-
-
             End If
-
         Next
+
+        LimpiarControles(gbResolucion)
+        LimpiarControles(gbTratamiento)
 
     End Sub
 
@@ -159,5 +136,4 @@
 
         e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
     End Sub
-
 End Class

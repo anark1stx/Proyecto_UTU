@@ -55,6 +55,31 @@
         Return list1
     End Function
 
+    Public Sub LimpiarControles(contenedor As Control)
+        For Each control As Control In contenedor.Controls
 
+            Select Case control.GetType().ToString().Replace("System.Windows.Forms.", "")
+
+                Case "TextBox"
+                    Dim txt = DirectCast(control, TextBox)
+                    txt.Text = String.Empty
+                Case "ComboBox"
+                    Dim cbox = DirectCast(control, ComboBox)
+
+                    If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
+                        control.ResetText()
+                    Else
+                        cbox.SelectedIndex = 0
+                    End If
+                Case "CheckBox"
+                    Dim chk = DirectCast(control, CheckBox)
+                    chk.Checked = CheckState.Unchecked
+
+                Case "DataGridView"
+                    Dim dgw = DirectCast(control, DataGridView)
+                    dgw.Rows.Clear()
+            End Select
+        Next
+    End Sub
 
 End Module
