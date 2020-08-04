@@ -136,4 +136,5 @@
 
         e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
     End Sub
+
 End Class
