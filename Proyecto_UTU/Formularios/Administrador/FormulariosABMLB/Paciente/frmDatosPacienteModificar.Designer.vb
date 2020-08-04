@@ -104,6 +104,7 @@ Partial Class frmDatosPacienteModificar
         'txtCedula
         '
         Me.txtCedula.Location = New System.Drawing.Point(372, 5)
+        Me.txtCedula.MaxLength = 8
         Me.txtCedula.Name = "txtCedula"
         Me.txtCedula.Size = New System.Drawing.Size(204, 22)
         Me.txtCedula.TabIndex = 187

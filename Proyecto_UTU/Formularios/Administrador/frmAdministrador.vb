@@ -26,7 +26,6 @@
 
     End Sub
 
-
     Public Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
 
         Select Case formularioPadre
@@ -44,6 +43,8 @@
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "ModificarPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+                        _frmModificarPaciente.altaOmod = 1
+                        _frmModificarPaciente.configurarControles()
                         addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
@@ -54,6 +55,8 @@
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "AltaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+                        _frmModificarPaciente.altaOmod = 0
+                        _frmModificarPaciente.configurarControles()
                         addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarPaciente.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
@@ -94,6 +97,8 @@
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        _frmModificarAuxiliar.altaOmod = 1
+                        _frmModificarAuxiliar.configurarControles()
                         addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarAuxiliar.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
@@ -104,6 +109,8 @@
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        _frmModificarAuxiliar.altaOmod = 0
+                        _frmModificarAuxiliar.configurarControles()
                         addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarAuxiliar.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).

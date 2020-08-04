@@ -3,11 +3,7 @@
     Dim ci_valida As Boolean = 0
     Dim ci As String
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-
-        For Each txt As TextBox In Me.Controls.OfType(Of TextBox)
-            txt.Text = String.Empty
-        Next
-
+        LimpiarControles(Me)
     End Sub
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
