@@ -188,11 +188,9 @@
         If Not digito_verificador = verificador_ingresado_x_usuario Then
             optMsg = "Su cédula es incorrecta, verifique que haya ingresado los 8 números que se muestran en el documento"
             Return 0
-        Else
-
-            Return 1
         End If
 
+        Return 1
 
     End Function
 

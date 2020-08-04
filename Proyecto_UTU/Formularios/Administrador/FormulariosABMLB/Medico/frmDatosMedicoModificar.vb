@@ -11,6 +11,13 @@
     End Sub
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
+        If altaOmod = 1 Then
+            If txtCedula.Text = String.Empty Then
+                MsgBox("Seleccione un usuario de la tabla primero.")
+                Exit Sub
+            End If
+        End If
+
         Dim cedula As String = txtCedula.Text
         Dim nombre1 As String = txtNombre1.Text
         Dim nombre2 As String = txtNombre2.Text
@@ -25,7 +32,7 @@
         direccion = RemoverEspacios(direccion)
 
         Dim telefonos As String() = txtTelefono.Text.Split(",")
-        'telefonos = RemoverEspacios(telefonos)
+        telefonos = RemoverEspacios(telefonos)
 
         Dim especialidades As String() = txtEspecialidad.Text.Split(",")
 
@@ -84,11 +91,11 @@
     End Sub
 
     Private Sub pBoxFotoMedico_Click(sender As Object, e As EventArgs) Handles pBoxFotoMedico.Click
-        Dim imgpath As String 'dónde está la imagen que se va a subir'
+        Dim imgpath As String 'donde esta la imagen que se va a subir'
         Try
             Dim OFD As FileDialog = New OpenFileDialog() 'Esto es lo que nos abre el menú de windows para seleccionar archivos.'
 
-            OFD.Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png" 'Extensiones admitidas para que no te enchufen una reverse shell.'
+            OFD.Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png"
 
             If OFD.ShowDialog() = DialogResult.OK Then
                 imgpath = OFD.FileName
@@ -125,6 +132,13 @@
                 Next
             Case 1
                 txtCedula.Enabled = False
+                For Each c As Control In Controls
+
+                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                        c.Enabled = True
+                    End If
+
+                Next
         End Select
     End Sub
 
@@ -143,4 +157,5 @@
         End If
 
     End Sub
+
 End Class
