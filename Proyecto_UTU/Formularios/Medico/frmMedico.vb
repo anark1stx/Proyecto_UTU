@@ -33,7 +33,7 @@ Public Class frmMedico
                 frm.Anchor += AnchorStyles.Right
                 frm.Dock = DockStyle.Fill
             Else
-                frm.Width = pnlContenedorFormularios.Width - 20
+                frm.Dock = DockStyle.Fill
                 frm.Height = pnlContenedorFormularios.Height
             End If
 
