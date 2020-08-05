@@ -130,6 +130,8 @@
 
     Public Function getCtrls(pnl As Panel) As List(Of Object)
 
+        Dim contenedora As New List(Of List(Of Object))
+
         Dim list As New List(Of Object)
 
         For Each c As Control In pnl.Controls
