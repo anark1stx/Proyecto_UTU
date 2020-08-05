@@ -145,9 +145,7 @@
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(0)
-
         Print(pnlContenedor)
-
         hideShowItems(1)
     End Sub
 
@@ -185,9 +183,5 @@
 
         e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
     End Sub
-
-
-
-
 
 End Class
