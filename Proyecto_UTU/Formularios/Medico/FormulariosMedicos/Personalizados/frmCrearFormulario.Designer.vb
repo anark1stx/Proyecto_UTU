@@ -30,9 +30,11 @@ Partial Class frmCrearFormulario
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.chkBox = New System.Windows.Forms.CheckBox()
         Me.lblLabel = New System.Windows.Forms.Label()
-        Me.txtSintoma0 = New System.Windows.Forms.TextBox()
+        Me.txtTextBox = New System.Windows.Forms.TextBox()
         Me.pnlFormularioPersonalizado = New System.Windows.Forms.Panel()
+        Me.pBoxBorrar = New System.Windows.Forms.PictureBox()
         Me.pnlControles.SuspendLayout()
+        CType(Me.pBoxBorrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlControles
@@ -40,13 +42,14 @@ Partial Class frmCrearFormulario
         Me.pnlControles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlControles.Controls.Add(Me.pBoxBorrar)
         Me.pnlControles.Controls.Add(Me.btnLimpiar)
         Me.pnlControles.Controls.Add(Me.btnSalir)
         Me.pnlControles.Controls.Add(Me.btnAbrir)
         Me.pnlControles.Controls.Add(Me.btnGuardar)
         Me.pnlControles.Controls.Add(Me.chkBox)
         Me.pnlControles.Controls.Add(Me.lblLabel)
-        Me.pnlControles.Controls.Add(Me.txtSintoma0)
+        Me.pnlControles.Controls.Add(Me.txtTextBox)
         Me.pnlControles.Location = New System.Drawing.Point(12, 12)
         Me.pnlControles.Name = "pnlControles"
         Me.pnlControles.Size = New System.Drawing.Size(160, 640)
@@ -113,21 +116,35 @@ Partial Class frmCrearFormulario
         Me.lblLabel.TabIndex = 0
         Me.lblLabel.Text = "Titulo"
         '
-        'txtSintoma0
+        'txtTextBox
         '
-        Me.txtSintoma0.Location = New System.Drawing.Point(27, 58)
-        Me.txtSintoma0.Name = "txtSintoma0"
-        Me.txtSintoma0.ReadOnly = True
-        Me.txtSintoma0.Size = New System.Drawing.Size(100, 22)
-        Me.txtSintoma0.TabIndex = 0
+        Me.txtTextBox.Location = New System.Drawing.Point(27, 58)
+        Me.txtTextBox.Name = "txtTextBox"
+        Me.txtTextBox.ReadOnly = True
+        Me.txtTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.txtTextBox.TabIndex = 0
         '
         'pnlFormularioPersonalizado
         '
+        Me.pnlFormularioPersonalizado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFormularioPersonalizado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlFormularioPersonalizado.Location = New System.Drawing.Point(178, 12)
         Me.pnlFormularioPersonalizado.Name = "pnlFormularioPersonalizado"
         Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(753, 640)
         Me.pnlFormularioPersonalizado.TabIndex = 1
+        '
+        'pBoxBorrar
+        '
+        Me.pBoxBorrar.BackgroundImage = CType(resources.GetObject("pBoxBorrar.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.pBoxBorrar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pBoxBorrar.Location = New System.Drawing.Point(0, 343)
+        Me.pBoxBorrar.Name = "pBoxBorrar"
+        Me.pBoxBorrar.Size = New System.Drawing.Size(158, 109)
+        Me.pBoxBorrar.TabIndex = 0
+        Me.pBoxBorrar.TabStop = False
         '
         'frmCrearFormulario
         '
@@ -141,17 +158,19 @@ Partial Class frmCrearFormulario
         Me.Text = "Formulario Personalizado"
         Me.pnlControles.ResumeLayout(False)
         Me.pnlControles.PerformLayout()
+        CType(Me.pBoxBorrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents pnlControles As Panel
     Friend WithEvents pnlFormularioPersonalizado As Panel
-    Friend WithEvents txtSintoma0 As TextBox
+    Friend WithEvents txtTextBox As TextBox
     Friend WithEvents chkBox As CheckBox
     Friend WithEvents lblLabel As Label
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnAbrir As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLimpiar As Button
+    Friend WithEvents pBoxBorrar As PictureBox
 End Class

@@ -118,23 +118,28 @@
             MsgBox("Seleccione al menos una parte del cuerpo para guardar la información.", vbExclamation)
         Else
             If txtDescripcion.TextLength < 5 Then
-                Dim ans = MessageBox.Show("¿Seguro que desea guardar sin haber proveido una descripción detallada?", "Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                If ans = vbYes Then
-                    '->Guardar formulario + datos en la BD.
-                    ans = MessageBox.Show("¿Desea volver al Inicio?", "Guardado con éxito.", MessageBoxButtons.YesNo, MessageBoxIcon.None)
-                    If ans = vbYes Then
-                        frmMedico.InstanciarFormulario("Inicio")
-                    End If
-                Else
-                    '->Guardar formulario + datos en la BD.
-                    ans = MessageBox.Show("¿Desea volver al Inicio?", "Guardado con éxito.", MessageBoxButtons.YesNo, MessageBoxIcon.None)
-                    If ans = vbYes Then
-                        frmMedico.InstanciarFormulario("Inicio")
-                    End If
-                End If
+                MsgBox("Provea una descripcion")
+            Else
+                '->Guardar formulario + datos en la BD.
+                Dim controlesInstanciados = getCtrls(pnlContenedor)
+                Console.WriteLine(controlesInstanciados.Count)
+                GuardarFormulario(controlesInstanciados)
             End If
         End If
     End Sub
+
+    Public Function getCtrls(pnl As Panel) As List(Of Object)
+
+        Dim list As New List(Of Object)
+
+        For Each c As Control In pnl.Controls
+            list.Add(c)
+            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
+                getCtrls(c)
+            End If
+        Next
+        Return list
+    End Function
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(0)
@@ -193,8 +198,8 @@
     End Sub
 
     Sub mLoad() Handles Me.Load
-        TableLayoutPanel1.Anchor += AnchorStyles.Right
-        TableLayoutPanel2.Anchor += AnchorStyles.Right
+        tbDescripcion.Anchor += AnchorStyles.Right
+        tbTorso_Dorso.Anchor += AnchorStyles.Right
     End Sub
 
 End Class

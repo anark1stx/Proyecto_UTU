@@ -1,19 +1,20 @@
 ﻿Public Class GestorXML
     Private encabezado As String = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Controles>"
+    Private string_armado As String = encabezado
+    Private string_control As String = ""
+    Private control_nombre As String = ""
+    Private control_texto As String = ""
+    Private control_Pos As Point = New Point(0, 0)
+    Private control_Fuente As String = SystemFonts.DefaultFont.Name
+    Private control_Fuente_tamano As String = SystemFonts.DefaultFont.Size
+    Private control_tamano As Size = New Size(0, 0)
+    Private control_ColorR As String
     Public Function guardarXML(listaControles As List(Of Object)) As String 'Retornar un string XML entero con todos los datos.
-        Dim string_armado As String = encabezado
-        Dim string_control As String = ""
-        Dim control_nombre As String = ""
-        Dim control_texto As String = ""
-        Dim control_Pos As Point = New Point(0, 0)
-        Dim control_Fuente As String = SystemFonts.DefaultFont.Name
-        Dim control_Fuente_tamano As String = SystemFonts.DefaultFont.Size
-        Dim control_tamano As Size = New Size(0, 0)
-        Dim control_ColorR As String
+
         For Each control In listaControles
 
-            Select Case control.GetType().ToString()
-                Case "System.Windows.Forms.TextBox"
+            Select Case control.GetType().ToString().Replace("System.Windows.Forms.", "")
+                Case "TextBox"
                     Dim txt As New TextBox
                     txt = control '<-- Es necesario cambiar su tipo de Object a TextBox, sino no podremos ver sus propiedades como TEXTBOX.
                     control_nombre = txt.Name
@@ -26,7 +27,7 @@
 
                     string_armado += string_control
 
-                Case "System.Windows.Forms.Label"
+                Case "Label"
                     Dim lbl As New Label
                     lbl = control '<-- Es necesario cambiar su tipo de Object a Label, sino no podremos ver sus propiedades como LABEL.
                     control_nombre = lbl.Name
@@ -40,7 +41,7 @@
 
                     string_armado += string_control
 
-                Case "System.Windows.Forms.CheckBox"
+                Case "CheckBox"
                     Dim chk As New CheckBox
                     chk = control '<-- Es necesario cambiar su tipo de Object a CheckBox, sino no podremos ver sus propiedades como CheckBox.
                     control_nombre = chk.Name
@@ -54,6 +55,65 @@
 
                     string_armado += string_control
 
+                Case "GroupBox"
+                    Dim gb As New GroupBox
+                    gb = control
+                    control_nombre = gb.Name
+                    control_Pos = gb.Location
+                    control_Fuente = gb.Font.Name
+                    control_Fuente_tamano = gb.Font.Size
+                    control_tamano = gb.Size
+                    control_ColorR = gb.BackColor.Name
+                    control_texto = gb.Text
+                    string_control = String.Format("<GroupBox><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><Font><FontName>{5}</FontName><FontSize>{6}</FontSize></Font><ColorName>{7}</ColorName><Texto>{8}</Texto></GroupBox>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_Fuente, control_Fuente_tamano, control_ColorR, control_texto)
+
+                    string_armado += string_control
+                Case "Panel"
+                    Dim pnl As New Panel
+                    pnl = control
+                    control_nombre = pnl.Name
+                    control_Pos = pnl.Location
+                    control_tamano = pnl.Size
+                    control_ColorR = pnl.BackColor.Name
+                    string_control = String.Format("<Panel><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><ColorName>{5}</ColorName></Panel>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_ColorR)
+
+                    string_armado += string_control
+
+                Case "TableLayoutPanel"
+                    Dim tbl As New TableLayoutPanel
+                    tbl = control
+                    control_nombre = tbl.Name
+                    control_Pos = tbl.Location
+                    control_tamano = tbl.Size
+                    control_ColorR = tbl.BackColor.Name
+                    string_control = String.Format("<TableLayoutPanel><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><ColorName>{5}</ColorName></TableLayoutPanel>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_ColorR)
+
+                    string_armado += string_control
+
+                Case "Button"
+                    Dim btn As New Button
+                    btn = control
+                    control_nombre = btn.Name
+                    control_Pos = btn.Location
+                    control_tamano = btn.Size
+                    control_ColorR = btn.BackColor.Name
+
+                    If Not btn.BackgroundImage Is Nothing Then 'Para guardar las imagenes de los botones
+                        Dim picture = btn.BackgroundImage
+
+                        Dim ms As New System.IO.MemoryStream()
+                        picture.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                        Dim byteImg As Byte() = ms.ToArray()
+                        Dim b64 = Convert.ToBase64String(byteImg)
+
+                        string_control = String.Format("<Button><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><ColorName>{5}</ColorName><Picture>{6}</Picture></Button>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_ColorR, b64)
+                    Else
+                        string_control = String.Format("<Button><Name>{0}</Name><X>{1}</X><Y>{2}</Y><SizeW>{3}</SizeW><SizeH>{4}</SizeH><ColorName>{5}</ColorName></Button>", control_nombre, control_Pos.X, control_Pos.Y, control_tamano.Width, control_tamano.Height, control_ColorR)
+
+                    End If
+
+                    string_armado += string_control
             End Select
 
         Next
@@ -159,6 +219,7 @@
             .Location = New Point(Val(propiedades(1)), Val(propiedades(2))),
             .Size = New Size(Val(propiedades(3)), Val(propiedades(4))),
             .Font = tmpFont,
+            .ForeColor = Color.FromName(propiedades(7)),
             .Text = propiedades(8)
         }
 

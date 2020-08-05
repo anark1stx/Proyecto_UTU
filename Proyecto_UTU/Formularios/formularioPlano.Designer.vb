@@ -28,8 +28,9 @@ Partial Class formularioPlano
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ClientSize = New System.Drawing.Size(753, 640)
+        Me.ClientSize = New System.Drawing.Size(900, 844)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formularioPlano"
         Me.Text = "formularioPlano"
