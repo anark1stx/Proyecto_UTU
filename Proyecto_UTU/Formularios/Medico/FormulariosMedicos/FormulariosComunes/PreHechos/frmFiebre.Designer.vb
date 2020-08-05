@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmFiebre
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,19 +20,17 @@ Partial Class frmFiebre
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFiebre))
-        Me.lblTitutloFRM = New System.Windows.Forms.Label()
+        Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.gbResolucion = New System.Windows.Forms.GroupBox()
         Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
         Me.gbTratamiento = New System.Windows.Forms.GroupBox()
         Me.txtTratamiento = New System.Windows.Forms.TextBox()
         Me.chkAnalisis = New System.Windows.Forms.CheckBox()
         Me.lblNomAnalisis = New System.Windows.Forms.Label()
-        Me.btnImprimir = New System.Windows.Forms.Button()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.lblTitutloFRM = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblActitud = New System.Windows.Forms.Label()
@@ -91,6 +89,12 @@ Partial Class frmFiebre
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.pp = New System.Windows.Forms.PrintPreviewDialog()
+        Me.Imprimir = New System.Drawing.Printing.PrintDocument()
+        Me.pnlContenedor.SuspendLayout()
         Me.gbResolucion.SuspendLayout()
         Me.gbTratamiento.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -110,17 +114,20 @@ Partial Class frmFiebre
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'lblTitutloFRM
+        'pnlContenedor
         '
-        Me.lblTitutloFRM.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.lblTitutloFRM.AutoSize = True
-        Me.lblTitutloFRM.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitutloFRM.Location = New System.Drawing.Point(213, 18)
-        Me.lblTitutloFRM.Name = "lblTitutloFRM"
-        Me.lblTitutloFRM.Size = New System.Drawing.Size(657, 33)
-        Me.lblTitutloFRM.TabIndex = 0
-        Me.lblTitutloFRM.Text = "Formulario de entrevista para paciente con fiebre"
-        Me.lblTitutloFRM.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.pnlContenedor.AutoScroll = True
+        Me.pnlContenedor.Controls.Add(Me.gbResolucion)
+        Me.pnlContenedor.Controls.Add(Me.lblTitutloFRM)
+        Me.pnlContenedor.Controls.Add(Me.GroupBox1)
+        Me.pnlContenedor.Controls.Add(Me.btnImprimir)
+        Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
+        Me.pnlContenedor.Controls.Add(Me.btnGuardar)
+        Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
+        Me.pnlContenedor.Name = "pnlContenedor"
+        Me.pnlContenedor.Size = New System.Drawing.Size(1334, 815)
+        Me.pnlContenedor.TabIndex = 0
         '
         'gbResolucion
         '
@@ -131,10 +138,10 @@ Partial Class frmFiebre
         Me.gbResolucion.Controls.Add(Me.chkAnalisis)
         Me.gbResolucion.Controls.Add(Me.lblNomAnalisis)
         Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbResolucion.Location = New System.Drawing.Point(12, 631)
+        Me.gbResolucion.Location = New System.Drawing.Point(80, 610)
         Me.gbResolucion.Name = "gbResolucion"
-        Me.gbResolucion.Size = New System.Drawing.Size(1163, 392)
-        Me.gbResolucion.TabIndex = 36
+        Me.gbResolucion.Size = New System.Drawing.Size(1136, 392)
+        Me.gbResolucion.TabIndex = 48
         Me.gbResolucion.TabStop = False
         Me.gbResolucion.Text = "Resolución"
         '
@@ -143,7 +150,7 @@ Partial Class frmFiebre
         Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomAnalisis.Enabled = False
         Me.txtNomAnalisis.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomAnalisis.Location = New System.Drawing.Point(458, 69)
+        Me.txtNomAnalisis.Location = New System.Drawing.Point(445, 69)
         Me.txtNomAnalisis.Name = "txtNomAnalisis"
         Me.txtNomAnalisis.Size = New System.Drawing.Size(219, 30)
         Me.txtNomAnalisis.TabIndex = 27
@@ -156,7 +163,7 @@ Partial Class frmFiebre
         Me.gbTratamiento.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTratamiento.Location = New System.Drawing.Point(6, 105)
         Me.gbTratamiento.Name = "gbTratamiento"
-        Me.gbTratamiento.Size = New System.Drawing.Size(1157, 281)
+        Me.gbTratamiento.Size = New System.Drawing.Size(1130, 281)
         Me.gbTratamiento.TabIndex = 26
         Me.gbTratamiento.TabStop = False
         Me.gbTratamiento.Text = "Descripción y diagnóstico"
@@ -169,7 +176,7 @@ Partial Class frmFiebre
         Me.txtTratamiento.Location = New System.Drawing.Point(9, 33)
         Me.txtTratamiento.Multiline = True
         Me.txtTratamiento.Name = "txtTratamiento"
-        Me.txtTratamiento.Size = New System.Drawing.Size(1142, 242)
+        Me.txtTratamiento.Size = New System.Drawing.Size(1115, 242)
         Me.txtTratamiento.TabIndex = 2
         '
         'chkAnalisis
@@ -178,7 +185,7 @@ Partial Class frmFiebre
         Me.chkAnalisis.AutoSize = True
         Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(180, 33)
+        Me.chkAnalisis.Location = New System.Drawing.Point(167, 33)
         Me.chkAnalisis.Name = "chkAnalisis"
         Me.chkAnalisis.Size = New System.Drawing.Size(486, 33)
         Me.chkAnalisis.TabIndex = 24
@@ -190,50 +197,23 @@ Partial Class frmFiebre
         Me.lblNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNomAnalisis.AutoSize = True
         Me.lblNomAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomAnalisis.Location = New System.Drawing.Point(185, 72)
+        Me.lblNomAnalisis.Location = New System.Drawing.Point(172, 72)
         Me.lblNomAnalisis.Name = "lblNomAnalisis"
         Me.lblNomAnalisis.Size = New System.Drawing.Size(247, 29)
         Me.lblNomAnalisis.TabIndex = 22
         Me.lblNomAnalisis.Text = "Nombre del análisis:"
         '
-        'btnImprimir
+        'lblTitutloFRM
         '
-        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
-        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnImprimir.Location = New System.Drawing.Point(867, 1029)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(146, 45)
-        Me.btnImprimir.TabIndex = 45
-        Me.btnImprimir.Text = "Imprimir"
-        Me.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnImprimir.UseVisualStyleBackColor = True
-        '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiar.Location = New System.Drawing.Point(715, 1029)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(146, 45)
-        Me.btnLimpiar.TabIndex = 44
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(1019, 1029)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(146, 45)
-        Me.btnGuardar.TabIndex = 43
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.lblTitutloFRM.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblTitutloFRM.AutoSize = True
+        Me.lblTitutloFRM.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitutloFRM.Location = New System.Drawing.Point(270, -3)
+        Me.lblTitutloFRM.Name = "lblTitutloFRM"
+        Me.lblTitutloFRM.Size = New System.Drawing.Size(657, 33)
+        Me.lblTitutloFRM.TabIndex = 47
+        Me.lblTitutloFRM.Text = "Formulario de entrevista para paciente con fiebre"
+        Me.lblTitutloFRM.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'GroupBox1
         '
@@ -253,10 +233,10 @@ Partial Class frmFiebre
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 54)
+        Me.GroupBox1.Location = New System.Drawing.Point(86, 33)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1151, 571)
-        Me.GroupBox1.TabIndex = 46
+        Me.GroupBox1.Size = New System.Drawing.Size(1130, 571)
+        Me.GroupBox1.TabIndex = 52
         Me.GroupBox1.TabStop = False
         '
         'TableLayoutPanel14
@@ -267,7 +247,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.TableLayoutPanel14.Controls.Add(Me.lblActitud, 0, 0)
         Me.TableLayoutPanel14.Controls.Add(Me.cbActitud, 1, 0)
-        Me.TableLayoutPanel14.Location = New System.Drawing.Point(644, 70)
+        Me.TableLayoutPanel14.Location = New System.Drawing.Point(634, 70)
         Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
         Me.TableLayoutPanel14.RowCount = 1
         Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -303,7 +283,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.TableLayoutPanel13.Controls.Add(Me.Label14, 0, 0)
         Me.TableLayoutPanel13.Controls.Add(Me.cbENutricion, 1, 0)
-        Me.TableLayoutPanel13.Location = New System.Drawing.Point(644, 113)
+        Me.TableLayoutPanel13.Location = New System.Drawing.Point(634, 113)
         Me.TableLayoutPanel13.Name = "TableLayoutPanel13"
         Me.TableLayoutPanel13.RowCount = 1
         Me.TableLayoutPanel13.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -338,12 +318,12 @@ Partial Class frmFiebre
         Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.39436!))
         Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
         Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.154929!))
-        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294.0!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301.0!))
         Me.TableLayoutPanel12.Controls.Add(Me.chkT_Sens_No, 2, 0)
         Me.TableLayoutPanel12.Controls.Add(Me.Label13, 0, 0)
         Me.TableLayoutPanel12.Controls.Add(Me.chkT_Sens_Si, 1, 0)
         Me.TableLayoutPanel12.Controls.Add(Me.TextBox6, 3, 0)
-        Me.TableLayoutPanel12.Location = New System.Drawing.Point(4, 512)
+        Me.TableLayoutPanel12.Location = New System.Drawing.Point(-6, 512)
         Me.TableLayoutPanel12.Name = "TableLayoutPanel12"
         Me.TableLayoutPanel12.RowCount = 1
         Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -355,9 +335,9 @@ Partial Class frmFiebre
         '
         Me.chkT_Sens_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Sens_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Sens_No.Location = New System.Drawing.Point(772, 3)
+        Me.chkT_Sens_No.Location = New System.Drawing.Point(766, 3)
         Me.chkT_Sens_No.Name = "chkT_Sens_No"
-        Me.chkT_Sens_No.Size = New System.Drawing.Size(71, 28)
+        Me.chkT_Sens_No.Size = New System.Drawing.Size(70, 28)
         Me.chkT_Sens_No.TabIndex = 4
         Me.chkT_Sens_No.Text = "No"
         Me.chkT_Sens_No.UseVisualStyleBackColor = True
@@ -377,7 +357,7 @@ Partial Class frmFiebre
         '
         Me.chkT_Sens_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Sens_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Sens_Si.Location = New System.Drawing.Point(701, 3)
+        Me.chkT_Sens_Si.Location = New System.Drawing.Point(695, 3)
         Me.chkT_Sens_Si.Name = "chkT_Sens_Si"
         Me.chkT_Sens_Si.Size = New System.Drawing.Size(65, 28)
         Me.chkT_Sens_Si.TabIndex = 3
@@ -388,10 +368,10 @@ Partial Class frmFiebre
         '
         Me.TextBox6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox6.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(849, 3)
+        Me.TextBox6.Location = New System.Drawing.Point(842, 3)
         Me.TextBox6.Multiline = True
         Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(290, 28)
+        Me.TextBox6.Size = New System.Drawing.Size(297, 28)
         Me.TextBox6.TabIndex = 6
         '
         'TableLayoutPanel11
@@ -401,12 +381,12 @@ Partial Class frmFiebre
         Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.39436!))
         Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
         Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.154929!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294.0!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301.0!))
         Me.TableLayoutPanel11.Controls.Add(Me.chkT_Hums_No, 2, 0)
         Me.TableLayoutPanel11.Controls.Add(Me.Label12, 0, 0)
         Me.TableLayoutPanel11.Controls.Add(Me.chkT_Hums_Si, 1, 0)
         Me.TableLayoutPanel11.Controls.Add(Me.TextBox5, 3, 0)
-        Me.TableLayoutPanel11.Location = New System.Drawing.Point(4, 472)
+        Me.TableLayoutPanel11.Location = New System.Drawing.Point(-6, 472)
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 1
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -418,9 +398,9 @@ Partial Class frmFiebre
         '
         Me.chkT_Hums_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Hums_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Hums_No.Location = New System.Drawing.Point(772, 3)
+        Me.chkT_Hums_No.Location = New System.Drawing.Point(766, 3)
         Me.chkT_Hums_No.Name = "chkT_Hums_No"
-        Me.chkT_Hums_No.Size = New System.Drawing.Size(71, 28)
+        Me.chkT_Hums_No.Size = New System.Drawing.Size(70, 28)
         Me.chkT_Hums_No.TabIndex = 4
         Me.chkT_Hums_No.Text = "No"
         Me.chkT_Hums_No.UseVisualStyleBackColor = True
@@ -440,7 +420,7 @@ Partial Class frmFiebre
         '
         Me.chkT_Hums_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Hums_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Hums_Si.Location = New System.Drawing.Point(701, 3)
+        Me.chkT_Hums_Si.Location = New System.Drawing.Point(695, 3)
         Me.chkT_Hums_Si.Name = "chkT_Hums_Si"
         Me.chkT_Hums_Si.Size = New System.Drawing.Size(65, 28)
         Me.chkT_Hums_Si.TabIndex = 3
@@ -451,10 +431,10 @@ Partial Class frmFiebre
         '
         Me.TextBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox5.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(849, 3)
+        Me.TextBox5.Location = New System.Drawing.Point(842, 3)
         Me.TextBox5.Multiline = True
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(290, 28)
+        Me.TextBox5.Size = New System.Drawing.Size(297, 28)
         Me.TextBox5.TabIndex = 6
         '
         'TableLayoutPanel10
@@ -464,12 +444,12 @@ Partial Class frmFiebre
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.39436!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.154929!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.chkT_Digs_No, 2, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.chkT_Digs_Si, 1, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.TextBox4, 3, 0)
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(4, 432)
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(-6, 432)
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
         Me.TableLayoutPanel10.RowCount = 1
         Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -481,9 +461,9 @@ Partial Class frmFiebre
         '
         Me.chkT_Digs_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Digs_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Digs_No.Location = New System.Drawing.Point(772, 3)
+        Me.chkT_Digs_No.Location = New System.Drawing.Point(766, 3)
         Me.chkT_Digs_No.Name = "chkT_Digs_No"
-        Me.chkT_Digs_No.Size = New System.Drawing.Size(71, 28)
+        Me.chkT_Digs_No.Size = New System.Drawing.Size(70, 28)
         Me.chkT_Digs_No.TabIndex = 4
         Me.chkT_Digs_No.Text = "No"
         Me.chkT_Digs_No.UseVisualStyleBackColor = True
@@ -503,7 +483,7 @@ Partial Class frmFiebre
         '
         Me.chkT_Digs_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Digs_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Digs_Si.Location = New System.Drawing.Point(701, 3)
+        Me.chkT_Digs_Si.Location = New System.Drawing.Point(695, 3)
         Me.chkT_Digs_Si.Name = "chkT_Digs_Si"
         Me.chkT_Digs_Si.Size = New System.Drawing.Size(65, 28)
         Me.chkT_Digs_Si.TabIndex = 3
@@ -514,10 +494,10 @@ Partial Class frmFiebre
         '
         Me.TextBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(849, 3)
+        Me.TextBox4.Location = New System.Drawing.Point(842, 3)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(290, 28)
+        Me.TextBox4.Size = New System.Drawing.Size(297, 28)
         Me.TextBox4.TabIndex = 6
         '
         'TableLayoutPanel9
@@ -528,7 +508,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.Label10, 0, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.cbPulso, 1, 0)
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 67)
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(-6, 67)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 1
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -563,12 +543,12 @@ Partial Class frmFiebre
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.39436!))
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.154929!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301.0!))
         Me.TableLayoutPanel8.Controls.Add(Me.chkVacs_No, 2, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.Label8, 0, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.chkVacs_Si, 1, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.TextBox3, 3, 0)
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 392)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(-6, 392)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 1
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -580,9 +560,9 @@ Partial Class frmFiebre
         '
         Me.chkVacs_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkVacs_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkVacs_No.Location = New System.Drawing.Point(772, 3)
+        Me.chkVacs_No.Location = New System.Drawing.Point(766, 3)
         Me.chkVacs_No.Name = "chkVacs_No"
-        Me.chkVacs_No.Size = New System.Drawing.Size(71, 28)
+        Me.chkVacs_No.Size = New System.Drawing.Size(70, 28)
         Me.chkVacs_No.TabIndex = 4
         Me.chkVacs_No.Text = "No"
         Me.chkVacs_No.UseVisualStyleBackColor = True
@@ -602,7 +582,7 @@ Partial Class frmFiebre
         '
         Me.chkVacs_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkVacs_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkVacs_Si.Location = New System.Drawing.Point(701, 3)
+        Me.chkVacs_Si.Location = New System.Drawing.Point(695, 3)
         Me.chkVacs_Si.Name = "chkVacs_Si"
         Me.chkVacs_Si.Size = New System.Drawing.Size(65, 28)
         Me.chkVacs_Si.TabIndex = 3
@@ -613,10 +593,10 @@ Partial Class frmFiebre
         '
         Me.TextBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(849, 3)
+        Me.TextBox3.Location = New System.Drawing.Point(842, 3)
         Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(290, 28)
+        Me.TextBox3.Size = New System.Drawing.Size(297, 28)
         Me.TextBox3.TabIndex = 6
         '
         'TableLayoutPanel7
@@ -627,7 +607,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.Label9, 0, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.cbGradoHidr, 1, 0)
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 110)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(-6, 110)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -665,7 +645,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel6.Controls.Add(Me.chkErups_No, 2, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label7, 0, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.chkErups_Si, 1, 0)
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(4, 352)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(-6, 352)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -716,7 +696,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel5.Controls.Add(Me.chkCalor_No, 2, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.Label6, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.chkCalor_Si, 1, 0)
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 312)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(-6, 312)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -764,12 +744,12 @@ Partial Class frmFiebre
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.39436!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.154929!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.chkMeds_No, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.Label4, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.chkMeds_Si, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.TextBox2, 3, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 272)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(-6, 272)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -781,9 +761,9 @@ Partial Class frmFiebre
         '
         Me.chkMeds_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkMeds_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMeds_No.Location = New System.Drawing.Point(772, 3)
+        Me.chkMeds_No.Location = New System.Drawing.Point(766, 3)
         Me.chkMeds_No.Name = "chkMeds_No"
-        Me.chkMeds_No.Size = New System.Drawing.Size(71, 28)
+        Me.chkMeds_No.Size = New System.Drawing.Size(70, 28)
         Me.chkMeds_No.TabIndex = 4
         Me.chkMeds_No.Text = "No"
         Me.chkMeds_No.UseVisualStyleBackColor = True
@@ -803,7 +783,7 @@ Partial Class frmFiebre
         '
         Me.chkMeds_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkMeds_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMeds_Si.Location = New System.Drawing.Point(701, 3)
+        Me.chkMeds_Si.Location = New System.Drawing.Point(695, 3)
         Me.chkMeds_Si.Name = "chkMeds_Si"
         Me.chkMeds_Si.Size = New System.Drawing.Size(65, 28)
         Me.chkMeds_Si.TabIndex = 3
@@ -814,10 +794,10 @@ Partial Class frmFiebre
         '
         Me.TextBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(849, 3)
+        Me.TextBox2.Location = New System.Drawing.Point(842, 3)
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(290, 28)
+        Me.TextBox2.Size = New System.Drawing.Size(297, 28)
         Me.TextBox2.TabIndex = 6
         '
         'TableLayoutPanel3
@@ -830,7 +810,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel3.Controls.Add(Me.chkD_Resp_No, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.chkD_Resp_Si, 1, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 232)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(-6, 232)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -881,7 +861,7 @@ Partial Class frmFiebre
         Me.TableLayoutPanel2.Controls.Add(Me.chkNoD_Ap, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label5, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.chkSiD_Ap, 1, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 192)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(-6, 192)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -928,11 +908,11 @@ Partial Class frmFiebre
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.27646!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.72354!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox1, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(4, 24)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(-6, 24)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -945,7 +925,7 @@ Partial Class frmFiebre
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(502, 4)
+        Me.Label3.Location = New System.Drawing.Point(499, 4)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(23, 29)
         Me.Label3.TabIndex = 4
@@ -966,27 +946,72 @@ Partial Class frmFiebre
         '
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.TextBox1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(448, 3)
+        Me.TextBox1.Location = New System.Drawing.Point(442, 3)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(45, 30)
         Me.TextBox1.TabIndex = 3
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnImprimir.Location = New System.Drawing.Point(897, 1008)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(146, 45)
+        Me.btnImprimir.TabIndex = 51
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnImprimir.UseVisualStyleBackColor = True
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLimpiar.Location = New System.Drawing.Point(745, 1008)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(146, 45)
+        Me.btnLimpiar.TabIndex = 50
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnLimpiar.UseVisualStyleBackColor = True
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGuardar.Location = New System.Drawing.Point(1049, 1008)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(146, 45)
+        Me.btnGuardar.TabIndex = 49
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnGuardar.UseVisualStyleBackColor = True
+        '
+        'pp
+        '
+        Me.pp.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.pp.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.pp.ClientSize = New System.Drawing.Size(400, 300)
+        Me.pp.Enabled = True
+        Me.pp.Icon = CType(resources.GetObject("pp.Icon"), System.Drawing.Icon)
+        Me.pp.Name = "pp"
+        Me.pp.Visible = False
+        '
+        'Imprimir
+        '
         '
         'frmFiebre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1334, 815)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnImprimir)
-        Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.gbResolucion)
-        Me.Controls.Add(Me.lblTitutloFRM)
+        Me.Controls.Add(Me.pnlContenedor)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmFiebre"
-        Me.Text = "frmFiebre"
+        Me.Text = "frm"
+        Me.pnlContenedor.ResumeLayout(False)
+        Me.pnlContenedor.PerformLayout()
         Me.gbResolucion.ResumeLayout(False)
         Me.gbResolucion.PerformLayout()
         Me.gbTratamiento.ResumeLayout(False)
@@ -1017,20 +1042,17 @@ Partial Class frmFiebre
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents lblTitutloFRM As Label
+    Friend WithEvents pnlContenedor As Panel
     Friend WithEvents gbResolucion As GroupBox
     Friend WithEvents txtNomAnalisis As TextBox
     Friend WithEvents gbTratamiento As GroupBox
     Friend WithEvents txtTratamiento As TextBox
     Friend WithEvents chkAnalisis As CheckBox
     Friend WithEvents lblNomAnalisis As Label
-    Friend WithEvents btnImprimir As Button
-    Friend WithEvents btnLimpiar As Button
-    Friend WithEvents btnGuardar As Button
+    Friend WithEvents lblTitutloFRM As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TableLayoutPanel14 As TableLayoutPanel
     Friend WithEvents lblActitud As Label
@@ -1089,4 +1111,9 @@ Partial Class frmFiebre
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents btnImprimir As Button
+    Friend WithEvents btnLimpiar As Button
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents pp As PrintPreviewDialog
+    Friend WithEvents Imprimir As Printing.PrintDocument
 End Class
