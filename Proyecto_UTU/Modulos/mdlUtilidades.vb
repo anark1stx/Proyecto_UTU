@@ -40,6 +40,12 @@
 
     End Sub
 
+    Public Sub ImprimirFormulario(pnlContenedor As Panel)
+
+    End Sub
+
+
+
     Public Function RemoverEspacios(list1 As String()) As String()
 
         If Not list1 Is Nothing Then
