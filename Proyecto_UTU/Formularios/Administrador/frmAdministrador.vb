@@ -13,7 +13,7 @@
     Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar 'El formulario de modificación es el mismo que el formulario de alta.
 #End Region
 
-    Public Sub addFrm(frm As Form, pnl As Panel)
+    Private Sub addFrm(frm As Form, pnl As Panel)
         If Not pnl.Controls.Contains(frm) Then
             pnl.Controls.Clear()
 
@@ -26,7 +26,7 @@
 
     End Sub
 
-    Public Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
+    Friend Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
 
         Select Case formularioPadre
 

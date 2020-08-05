@@ -1,5 +1,5 @@
 ﻿Public Class GestorXML
-    Public encabezado As String = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Controles>"
+    Private encabezado As String = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Controles>"
     Public Function guardarXML(listaControles As List(Of Object)) As String 'Retornar un string XML entero con todos los datos.
         Dim string_armado As String = encabezado
         Dim string_control As String = ""
@@ -121,52 +121,47 @@
     End Function
 
     Public Function buildTextBox(propiedades As List(Of String)) As TextBox
-        Dim txtBuild As New TextBox
-        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor
 
-        txtBuild.Name = propiedades(0)
-        txtBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
-        txtBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
         Dim fntConverter As New FontConverter
         Dim tmpFont As Font = New Font(propiedades(5), Single.Parse(propiedades(6)), FontStyle.Regular)
-        txtBuild.Font = tmpFont
-        txtBuild.ForeColor = Color.FromName(propiedades(7))
+        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor
+        Dim txtBuild As New TextBox With {
+            .Name = propiedades(0),
+            .Location = New Point(Val(propiedades(1)), Val(propiedades(2))),
+            .Size = New Size(Val(propiedades(3)), Val(propiedades(4))),
+            .Font = tmpFont,
+            .ForeColor = Color.FromName(propiedades(7))
+        }
 
         Return txtBuild
     End Function
 
     Public Function buildLabel(propiedades As List(Of String)) As Label
-
-        Dim lblBuild As New Label
-        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor, {8} = Texto
-
-        lblBuild.Name = propiedades(0)
-        lblBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
-        lblBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
-        Dim fntConverter As New FontConverter
-
         Dim tmpFont As Font = New Font(propiedades(5), Single.Parse(propiedades(6)), FontStyle.Regular)
-        lblBuild.Font = tmpFont
-        lblBuild.ForeColor = Color.FromName(propiedades(7))
-        lblBuild.Text = propiedades(8)
+        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor, {8} = Texto
+        Dim lblBuild As New Label With {
+            .Name = propiedades(0),
+            .Location = New Point(Val(propiedades(1)), Val(propiedades(2))),
+            .Size = New Size(Val(propiedades(3)), Val(propiedades(4))),
+            .Font = tmpFont,
+            .ForeColor = Color.FromName(propiedades(7)),
+            .Text = propiedades(8)
+        }
 
         Return lblBuild
     End Function
 
     Public Function buildCheckBox(propiedades As List(Of String)) As CheckBox
-
-        Dim chkBuild As New CheckBox
-        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor, {8} = Texto
-
-        chkBuild.Name = propiedades(0)
-        chkBuild.Location = New Point(Val(propiedades(1)), Val(propiedades(2)))
-        chkBuild.Size = New Size(Val(propiedades(3)), Val(propiedades(4)))
         Dim tmpFont As Font = New Font(propiedades(5), Single.Parse(propiedades(6)), FontStyle.Regular)
-        chkBuild.Font = tmpFont
-        chkBuild.Text = propiedades(8)
+        '{0} = Nombre, {1} = X, {2} = Y, {3} = Width, {4} = Height, {5} = NomFuente, {6} = tamanoFuente, {7} = nomColor, {8} = Texto
+        Dim chkBuild As New CheckBox With {
+            .Name = propiedades(0),
+            .Location = New Point(Val(propiedades(1)), Val(propiedades(2))),
+            .Size = New Size(Val(propiedades(3)), Val(propiedades(4))),
+            .Font = tmpFont,
+            .Text = propiedades(8)
+        }
 
         Return chkBuild
     End Function
-
-
 End Class

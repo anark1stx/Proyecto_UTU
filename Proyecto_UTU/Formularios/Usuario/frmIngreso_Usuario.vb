@@ -4,6 +4,8 @@
     Dim frmMed As New frmMedico
     Dim frmPac As New frmPaciente
 
+
+
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
         If txtIngresarCi.Text = "overclodeADM" AndAlso txtIngresarContrasena.Text = "_12345678" Then 'Harcoded creds for admin
@@ -66,5 +68,4 @@
             Application.Exit() 'Salir completamente del programa y cerrar todas las ventanas que estaban Hide
         End If
     End Sub
-
 End Class

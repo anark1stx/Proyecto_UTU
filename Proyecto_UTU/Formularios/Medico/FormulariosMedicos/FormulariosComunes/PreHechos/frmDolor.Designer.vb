@@ -32,10 +32,10 @@ Partial Class frmDolor
         Me.lbTorso = New System.Windows.Forms.ListBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnImprimir = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnColDorsalDer = New System.Windows.Forms.Button()
         Me.btnColLumbarDer = New System.Windows.Forms.Button()
         Me.btnColLumbarIzq = New System.Windows.Forms.Button()
@@ -200,6 +200,17 @@ Partial Class frmDolor
         Me.txtDescripcion.Size = New System.Drawing.Size(1099, 190)
         Me.txtDescripcion.TabIndex = 69
         '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(419, 1)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(267, 29)
+        Me.Label4.TabIndex = 69
+        Me.Label4.Text = "Descripción detallada"
+        '
         'btnImprimir
         '
         Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -238,17 +249,6 @@ Partial Class frmDolor
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnGuardar.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(419, 1)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(267, 29)
-        Me.Label4.TabIndex = 69
-        Me.Label4.Text = "Descripción detallada"
         '
         'btnColDorsalDer
         '

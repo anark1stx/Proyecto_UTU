@@ -175,13 +175,6 @@
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
 
-        Dim pagearea As Rectangle = e.PageBounds
-        Dim _fixedpagearea2 As Rectangle = e.PageBounds 'Este rectangulo es para corregir el offset entre la ubicacion del panel y la del formulario en si
-
-        _fixedpagearea2.Width = (pagearea.Width / 2) - (Me.pnlContenedor.Width / 2)
-
-
-        e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
     End Sub
 
 End Class

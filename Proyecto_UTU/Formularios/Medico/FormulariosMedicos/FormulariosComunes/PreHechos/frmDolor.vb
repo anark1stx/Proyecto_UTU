@@ -155,7 +155,6 @@
         PrintPreviewDialog1.Document = Imprimir
         PrintPreviewDialog1.ShowDialog()
         'Imprimir.Print()
-
     End Sub
 
     Public Sub getPrintArea(pnl As Panel)
