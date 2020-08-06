@@ -33,69 +33,65 @@ Partial Class frmMalestar
         Me.txtTratamiento = New System.Windows.Forms.TextBox()
         Me.chkAnalisis = New System.Windows.Forms.CheckBox()
         Me.lblNomAnalisis = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.gbPreguntas = New System.Windows.Forms.GroupBox()
+        Me.tblGrHidr = New System.Windows.Forms.TableLayoutPanel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cbGradoHidr = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel30 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblCambioDieta = New System.Windows.Forms.TableLayoutPanel()
         Me.chkCambioDieta_No = New System.Windows.Forms.CheckBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.chkCambioDieta_Si = New System.Windows.Forms.CheckBox()
-        Me.TableLayoutPanel29 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblDieta = New System.Windows.Forms.TableLayoutPanel()
         Me.txtDieta = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel17 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblTsens = New System.Windows.Forms.TableLayoutPanel()
         Me.chkT_Sens_No = New System.Windows.Forms.CheckBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.chkT_Sens_Si = New System.Windows.Forms.CheckBox()
         Me.txtTsensoriales = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel15 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblActitud = New System.Windows.Forms.TableLayoutPanel()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.cbActitud = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel16 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblENutricion = New System.Windows.Forms.TableLayoutPanel()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.cb_e_nutricion = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel18 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblTAliment = New System.Windows.Forms.TableLayoutPanel()
         Me.chkTAlimen_No = New System.Windows.Forms.CheckBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.chkTAlimen_Si = New System.Windows.Forms.CheckBox()
         Me.txtDrugs = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel20 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblPulso = New System.Windows.Forms.TableLayoutPanel()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cbPulso = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblDrogas = New System.Windows.Forms.TableLayoutPanel()
         Me.chkDrugs_No = New System.Windows.Forms.CheckBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.chkDrugs_Si = New System.Windows.Forms.CheckBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel21 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtDrogas = New System.Windows.Forms.TextBox()
+        Me.tblOtrosProblemas = New System.Windows.Forms.TableLayoutPanel()
         Me.txtOtrosProblemas = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel23 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblMedicina = New System.Windows.Forms.TableLayoutPanel()
         Me.txtMedicina = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel24 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblViajes = New System.Windows.Forms.TableLayoutPanel()
         Me.chkViaje_No = New System.Windows.Forms.CheckBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.chkViaje_Si = New System.Windows.Forms.CheckBox()
-        Me.TableLayoutPanel25 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblActividades = New System.Windows.Forms.TableLayoutPanel()
         Me.chkADiarias_No = New System.Windows.Forms.CheckBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.chkADiarias_Si = New System.Windows.Forms.CheckBox()
         Me.txtADiarias = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel26 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblMalestarConstancia = New System.Windows.Forms.TableLayoutPanel()
         Me.chkEpisodico = New System.Windows.Forms.CheckBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.chkConstante = New System.Windows.Forms.CheckBox()
-        Me.TableLayoutPanel27 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblDuracion = New System.Windows.Forms.TableLayoutPanel()
         Me.txtDuracion = New System.Windows.Forms.TextBox()
         Me.chkMeses = New System.Windows.Forms.CheckBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.chkSemanas = New System.Windows.Forms.CheckBox()
-        Me.TableLayoutPanel28 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
         Me.lblTitutloFRM = New System.Windows.Forms.Label()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Imprimir = New System.Drawing.Printing.PrintDocument()
@@ -103,23 +99,22 @@ Partial Class frmMalestar
         Me.pnlContenedor.SuspendLayout()
         Me.gbResolucion.SuspendLayout()
         Me.gbTratamiento.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.TableLayoutPanel7.SuspendLayout()
-        Me.TableLayoutPanel30.SuspendLayout()
-        Me.TableLayoutPanel29.SuspendLayout()
-        Me.TableLayoutPanel17.SuspendLayout()
-        Me.TableLayoutPanel15.SuspendLayout()
-        Me.TableLayoutPanel16.SuspendLayout()
-        Me.TableLayoutPanel18.SuspendLayout()
-        Me.TableLayoutPanel20.SuspendLayout()
-        Me.TableLayoutPanel19.SuspendLayout()
-        Me.TableLayoutPanel21.SuspendLayout()
-        Me.TableLayoutPanel23.SuspendLayout()
-        Me.TableLayoutPanel24.SuspendLayout()
-        Me.TableLayoutPanel25.SuspendLayout()
-        Me.TableLayoutPanel26.SuspendLayout()
-        Me.TableLayoutPanel27.SuspendLayout()
-        Me.TableLayoutPanel28.SuspendLayout()
+        Me.gbPreguntas.SuspendLayout()
+        Me.tblGrHidr.SuspendLayout()
+        Me.tblCambioDieta.SuspendLayout()
+        Me.tblDieta.SuspendLayout()
+        Me.tblTsens.SuspendLayout()
+        Me.tblActitud.SuspendLayout()
+        Me.tblENutricion.SuspendLayout()
+        Me.tblTAliment.SuspendLayout()
+        Me.tblPulso.SuspendLayout()
+        Me.tblDrogas.SuspendLayout()
+        Me.tblOtrosProblemas.SuspendLayout()
+        Me.tblMedicina.SuspendLayout()
+        Me.tblViajes.SuspendLayout()
+        Me.tblActividades.SuspendLayout()
+        Me.tblMalestarConstancia.SuspendLayout()
+        Me.tblDuracion.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -128,7 +123,7 @@ Partial Class frmMalestar
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
         Me.pnlContenedor.Controls.Add(Me.btnImprimir)
         Me.pnlContenedor.Controls.Add(Me.gbResolucion)
-        Me.pnlContenedor.Controls.Add(Me.GroupBox2)
+        Me.pnlContenedor.Controls.Add(Me.gbPreguntas)
         Me.pnlContenedor.Controls.Add(Me.lblTitutloFRM)
         Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
@@ -209,7 +204,7 @@ Partial Class frmMalestar
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbTratamiento.Controls.Add(Me.txtTratamiento)
         Me.gbTratamiento.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTratamiento.Location = New System.Drawing.Point(-7, 105)
+        Me.gbTratamiento.Location = New System.Drawing.Point(0, 105)
         Me.gbTratamiento.Name = "gbTratamiento"
         Me.gbTratamiento.Size = New System.Drawing.Size(1379, 281)
         Me.gbTratamiento.TabIndex = 26
@@ -251,45 +246,44 @@ Partial Class frmMalestar
         Me.lblNomAnalisis.TabIndex = 22
         Me.lblNomAnalisis.Text = "Nombre del análisis:"
         '
-        'GroupBox2
+        'gbPreguntas
         '
-        Me.GroupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel7)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel30)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel29)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel17)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel15)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel16)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel18)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel20)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel19)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel21)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel23)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel24)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel25)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel26)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel27)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel28)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 35)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1391, 572)
-        Me.GroupBox2.TabIndex = 75
-        Me.GroupBox2.TabStop = False
+        Me.gbPreguntas.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.gbPreguntas.Controls.Add(Me.tblGrHidr)
+        Me.gbPreguntas.Controls.Add(Me.tblCambioDieta)
+        Me.gbPreguntas.Controls.Add(Me.tblDieta)
+        Me.gbPreguntas.Controls.Add(Me.tblTsens)
+        Me.gbPreguntas.Controls.Add(Me.tblActitud)
+        Me.gbPreguntas.Controls.Add(Me.tblENutricion)
+        Me.gbPreguntas.Controls.Add(Me.tblTAliment)
+        Me.gbPreguntas.Controls.Add(Me.tblPulso)
+        Me.gbPreguntas.Controls.Add(Me.tblDrogas)
+        Me.gbPreguntas.Controls.Add(Me.tblOtrosProblemas)
+        Me.gbPreguntas.Controls.Add(Me.tblMedicina)
+        Me.gbPreguntas.Controls.Add(Me.tblViajes)
+        Me.gbPreguntas.Controls.Add(Me.tblActividades)
+        Me.gbPreguntas.Controls.Add(Me.tblMalestarConstancia)
+        Me.gbPreguntas.Controls.Add(Me.tblDuracion)
+        Me.gbPreguntas.Location = New System.Drawing.Point(3, 35)
+        Me.gbPreguntas.Name = "gbPreguntas"
+        Me.gbPreguntas.Size = New System.Drawing.Size(1391, 572)
+        Me.gbPreguntas.TabIndex = 75
+        Me.gbPreguntas.TabStop = False
         '
-        'TableLayoutPanel7
+        'tblGrHidr
         '
-        Me.TableLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel7.ColumnCount = 2
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.Label9, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.cbGradoHidr, 1, 0)
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(725, 19)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 1
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(567, 37)
-        Me.TableLayoutPanel7.TabIndex = 72
+        Me.tblGrHidr.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblGrHidr.ColumnCount = 2
+        Me.tblGrHidr.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
+        Me.tblGrHidr.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
+        Me.tblGrHidr.Controls.Add(Me.Label9, 0, 0)
+        Me.tblGrHidr.Controls.Add(Me.cbGradoHidr, 1, 0)
+        Me.tblGrHidr.Location = New System.Drawing.Point(725, 19)
+        Me.tblGrHidr.Name = "tblGrHidr"
+        Me.tblGrHidr.RowCount = 1
+        Me.tblGrHidr.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblGrHidr.Size = New System.Drawing.Size(567, 37)
+        Me.tblGrHidr.TabIndex = 72
         '
         'Label9
         '
@@ -312,23 +306,23 @@ Partial Class frmMalestar
         Me.cbGradoHidr.Size = New System.Drawing.Size(191, 31)
         Me.cbGradoHidr.TabIndex = 13
         '
-        'TableLayoutPanel30
+        'tblCambioDieta
         '
-        Me.TableLayoutPanel30.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel30.ColumnCount = 3
-        Me.TableLayoutPanel30.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.12304!))
-        Me.TableLayoutPanel30.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.275805!))
-        Me.TableLayoutPanel30.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.60115!))
-        Me.TableLayoutPanel30.Controls.Add(Me.chkCambioDieta_No, 2, 0)
-        Me.TableLayoutPanel30.Controls.Add(Me.Label32, 0, 0)
-        Me.TableLayoutPanel30.Controls.Add(Me.chkCambioDieta_Si, 1, 0)
-        Me.TableLayoutPanel30.Location = New System.Drawing.Point(88, 442)
-        Me.TableLayoutPanel30.Name = "TableLayoutPanel30"
-        Me.TableLayoutPanel30.RowCount = 1
-        Me.TableLayoutPanel30.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel30.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel30.Size = New System.Drawing.Size(1211, 34)
-        Me.TableLayoutPanel30.TabIndex = 69
+        Me.tblCambioDieta.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblCambioDieta.ColumnCount = 3
+        Me.tblCambioDieta.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.12304!))
+        Me.tblCambioDieta.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.275805!))
+        Me.tblCambioDieta.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.60115!))
+        Me.tblCambioDieta.Controls.Add(Me.chkCambioDieta_No, 2, 0)
+        Me.tblCambioDieta.Controls.Add(Me.Label32, 0, 0)
+        Me.tblCambioDieta.Controls.Add(Me.chkCambioDieta_Si, 1, 0)
+        Me.tblCambioDieta.Location = New System.Drawing.Point(88, 442)
+        Me.tblCambioDieta.Name = "tblCambioDieta"
+        Me.tblCambioDieta.RowCount = 1
+        Me.tblCambioDieta.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblCambioDieta.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblCambioDieta.Size = New System.Drawing.Size(1211, 34)
+        Me.tblCambioDieta.TabIndex = 69
         '
         'chkCambioDieta_No
         '
@@ -363,21 +357,21 @@ Partial Class frmMalestar
         Me.chkCambioDieta_Si.Text = "Si"
         Me.chkCambioDieta_Si.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel29
+        'tblDieta
         '
-        Me.TableLayoutPanel29.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel29.ColumnCount = 2
-        Me.TableLayoutPanel29.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.00494!))
-        Me.TableLayoutPanel29.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.99506!))
-        Me.TableLayoutPanel29.Controls.Add(Me.txtDieta, 0, 0)
-        Me.TableLayoutPanel29.Controls.Add(Me.Label31, 0, 0)
-        Me.TableLayoutPanel29.Location = New System.Drawing.Point(88, 482)
-        Me.TableLayoutPanel29.Name = "TableLayoutPanel29"
-        Me.TableLayoutPanel29.RowCount = 1
-        Me.TableLayoutPanel29.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel29.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel29.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel29.TabIndex = 71
+        Me.tblDieta.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblDieta.ColumnCount = 2
+        Me.tblDieta.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.00494!))
+        Me.tblDieta.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.99506!))
+        Me.tblDieta.Controls.Add(Me.txtDieta, 0, 0)
+        Me.tblDieta.Controls.Add(Me.Label31, 0, 0)
+        Me.tblDieta.Location = New System.Drawing.Point(88, 482)
+        Me.tblDieta.Name = "tblDieta"
+        Me.tblDieta.RowCount = 1
+        Me.tblDieta.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblDieta.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblDieta.Size = New System.Drawing.Size(1214, 34)
+        Me.tblDieta.TabIndex = 71
         '
         'txtDieta
         '
@@ -399,33 +393,33 @@ Partial Class frmMalestar
         Me.Label31.TabIndex = 5
         Me.Label31.Text = "Dieta del paciente:"
         '
-        'TableLayoutPanel17
+        'tblTsens
         '
-        Me.TableLayoutPanel17.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel17.ColumnCount = 4
-        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.17789!))
-        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.275731!))
-        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.54638!))
-        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 464.0!))
-        Me.TableLayoutPanel17.Controls.Add(Me.chkT_Sens_No, 2, 0)
-        Me.TableLayoutPanel17.Controls.Add(Me.Label18, 0, 0)
-        Me.TableLayoutPanel17.Controls.Add(Me.chkT_Sens_Si, 1, 0)
-        Me.TableLayoutPanel17.Controls.Add(Me.txtTsensoriales, 3, 0)
-        Me.TableLayoutPanel17.Location = New System.Drawing.Point(88, 522)
-        Me.TableLayoutPanel17.Name = "TableLayoutPanel17"
-        Me.TableLayoutPanel17.RowCount = 1
-        Me.TableLayoutPanel17.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel17.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel17.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel17.TabIndex = 68
+        Me.tblTsens.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblTsens.ColumnCount = 4
+        Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.17789!))
+        Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.275731!))
+        Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.54638!))
+        Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 470.0!))
+        Me.tblTsens.Controls.Add(Me.chkT_Sens_No, 2, 0)
+        Me.tblTsens.Controls.Add(Me.Label18, 0, 0)
+        Me.tblTsens.Controls.Add(Me.chkT_Sens_Si, 1, 0)
+        Me.tblTsens.Controls.Add(Me.txtTsensoriales, 3, 0)
+        Me.tblTsens.Location = New System.Drawing.Point(88, 522)
+        Me.tblTsens.Name = "tblTsens"
+        Me.tblTsens.RowCount = 1
+        Me.tblTsens.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblTsens.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblTsens.Size = New System.Drawing.Size(1214, 34)
+        Me.tblTsens.TabIndex = 68
         '
         'chkT_Sens_No
         '
         Me.chkT_Sens_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Sens_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Sens_No.Location = New System.Drawing.Point(673, 3)
+        Me.chkT_Sens_No.Location = New System.Drawing.Point(668, 3)
         Me.chkT_Sens_No.Name = "chkT_Sens_No"
-        Me.chkT_Sens_No.Size = New System.Drawing.Size(73, 28)
+        Me.chkT_Sens_No.Size = New System.Drawing.Size(72, 28)
         Me.chkT_Sens_No.TabIndex = 4
         Me.chkT_Sens_No.Text = "No"
         Me.chkT_Sens_No.UseVisualStyleBackColor = True
@@ -445,7 +439,7 @@ Partial Class frmMalestar
         '
         Me.chkT_Sens_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Sens_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Sens_Si.Location = New System.Drawing.Point(604, 3)
+        Me.chkT_Sens_Si.Location = New System.Drawing.Point(599, 3)
         Me.chkT_Sens_Si.Name = "chkT_Sens_Si"
         Me.chkT_Sens_Si.Size = New System.Drawing.Size(63, 28)
         Me.chkT_Sens_Si.TabIndex = 3
@@ -456,26 +450,26 @@ Partial Class frmMalestar
         '
         Me.txtTsensoriales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtTsensoriales.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTsensoriales.Location = New System.Drawing.Point(752, 3)
+        Me.txtTsensoriales.Location = New System.Drawing.Point(746, 3)
         Me.txtTsensoriales.Multiline = True
         Me.txtTsensoriales.Name = "txtTsensoriales"
-        Me.txtTsensoriales.Size = New System.Drawing.Size(459, 28)
+        Me.txtTsensoriales.Size = New System.Drawing.Size(465, 28)
         Me.txtTsensoriales.TabIndex = 6
         '
-        'TableLayoutPanel15
+        'tblActitud
         '
-        Me.TableLayoutPanel15.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel15.ColumnCount = 2
-        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
-        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
-        Me.TableLayoutPanel15.Controls.Add(Me.Label16, 0, 0)
-        Me.TableLayoutPanel15.Controls.Add(Me.cbActitud, 1, 0)
-        Me.TableLayoutPanel15.Location = New System.Drawing.Point(93, 62)
-        Me.TableLayoutPanel15.Name = "TableLayoutPanel15"
-        Me.TableLayoutPanel15.RowCount = 1
-        Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel15.Size = New System.Drawing.Size(499, 37)
-        Me.TableLayoutPanel15.TabIndex = 70
+        Me.tblActitud.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblActitud.ColumnCount = 2
+        Me.tblActitud.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
+        Me.tblActitud.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
+        Me.tblActitud.Controls.Add(Me.Label16, 0, 0)
+        Me.tblActitud.Controls.Add(Me.cbActitud, 1, 0)
+        Me.tblActitud.Location = New System.Drawing.Point(93, 62)
+        Me.tblActitud.Name = "tblActitud"
+        Me.tblActitud.RowCount = 1
+        Me.tblActitud.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblActitud.Size = New System.Drawing.Size(499, 37)
+        Me.tblActitud.TabIndex = 70
         '
         'Label16
         '
@@ -498,20 +492,20 @@ Partial Class frmMalestar
         Me.cbActitud.Size = New System.Drawing.Size(191, 31)
         Me.cbActitud.TabIndex = 41
         '
-        'TableLayoutPanel16
+        'tblENutricion
         '
-        Me.TableLayoutPanel16.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel16.ColumnCount = 2
-        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
-        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
-        Me.TableLayoutPanel16.Controls.Add(Me.Label17, 0, 0)
-        Me.TableLayoutPanel16.Controls.Add(Me.cb_e_nutricion, 1, 0)
-        Me.TableLayoutPanel16.Location = New System.Drawing.Point(725, 62)
-        Me.TableLayoutPanel16.Name = "TableLayoutPanel16"
-        Me.TableLayoutPanel16.RowCount = 1
-        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel16.Size = New System.Drawing.Size(567, 37)
-        Me.TableLayoutPanel16.TabIndex = 69
+        Me.tblENutricion.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblENutricion.ColumnCount = 2
+        Me.tblENutricion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
+        Me.tblENutricion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
+        Me.tblENutricion.Controls.Add(Me.Label17, 0, 0)
+        Me.tblENutricion.Controls.Add(Me.cb_e_nutricion, 1, 0)
+        Me.tblENutricion.Location = New System.Drawing.Point(725, 62)
+        Me.tblENutricion.Name = "tblENutricion"
+        Me.tblENutricion.RowCount = 1
+        Me.tblENutricion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblENutricion.Size = New System.Drawing.Size(567, 37)
+        Me.tblENutricion.TabIndex = 69
         '
         'Label17
         '
@@ -534,33 +528,33 @@ Partial Class frmMalestar
         Me.cb_e_nutricion.Size = New System.Drawing.Size(191, 31)
         Me.cb_e_nutricion.TabIndex = 38
         '
-        'TableLayoutPanel18
+        'tblTAliment
         '
-        Me.TableLayoutPanel18.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel18.ColumnCount = 4
-        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.15768!))
-        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.428951!))
-        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.35857!))
-        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 469.0!))
-        Me.TableLayoutPanel18.Controls.Add(Me.chkTAlimen_No, 2, 0)
-        Me.TableLayoutPanel18.Controls.Add(Me.Label19, 0, 0)
-        Me.TableLayoutPanel18.Controls.Add(Me.chkTAlimen_Si, 1, 0)
-        Me.TableLayoutPanel18.Controls.Add(Me.txtDrugs, 3, 0)
-        Me.TableLayoutPanel18.Location = New System.Drawing.Point(88, 401)
-        Me.TableLayoutPanel18.Name = "TableLayoutPanel18"
-        Me.TableLayoutPanel18.RowCount = 1
-        Me.TableLayoutPanel18.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel18.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel18.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel18.TabIndex = 67
+        Me.tblTAliment.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblTAliment.ColumnCount = 4
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.15768!))
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.428951!))
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.35857!))
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 473.0!))
+        Me.tblTAliment.Controls.Add(Me.chkTAlimen_No, 2, 0)
+        Me.tblTAliment.Controls.Add(Me.Label19, 0, 0)
+        Me.tblTAliment.Controls.Add(Me.chkTAlimen_Si, 1, 0)
+        Me.tblTAliment.Controls.Add(Me.txtDrugs, 3, 0)
+        Me.tblTAliment.Location = New System.Drawing.Point(88, 401)
+        Me.tblTAliment.Name = "tblTAliment"
+        Me.tblTAliment.RowCount = 1
+        Me.tblTAliment.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblTAliment.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblTAliment.Size = New System.Drawing.Size(1214, 34)
+        Me.tblTAliment.TabIndex = 67
         '
         'chkTAlimen_No
         '
         Me.chkTAlimen_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkTAlimen_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkTAlimen_No.Location = New System.Drawing.Point(670, 3)
+        Me.chkTAlimen_No.Location = New System.Drawing.Point(666, 3)
         Me.chkTAlimen_No.Name = "chkTAlimen_No"
-        Me.chkTAlimen_No.Size = New System.Drawing.Size(71, 28)
+        Me.chkTAlimen_No.Size = New System.Drawing.Size(70, 28)
         Me.chkTAlimen_No.TabIndex = 4
         Me.chkTAlimen_No.Text = "No"
         Me.chkTAlimen_No.UseVisualStyleBackColor = True
@@ -580,9 +574,9 @@ Partial Class frmMalestar
         '
         Me.chkTAlimen_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkTAlimen_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkTAlimen_Si.Location = New System.Drawing.Point(600, 3)
+        Me.chkTAlimen_Si.Location = New System.Drawing.Point(597, 3)
         Me.chkTAlimen_Si.Name = "chkTAlimen_Si"
-        Me.chkTAlimen_Si.Size = New System.Drawing.Size(64, 28)
+        Me.chkTAlimen_Si.Size = New System.Drawing.Size(63, 28)
         Me.chkTAlimen_Si.TabIndex = 3
         Me.chkTAlimen_Si.Text = "Si"
         Me.chkTAlimen_Si.UseVisualStyleBackColor = True
@@ -591,26 +585,26 @@ Partial Class frmMalestar
         '
         Me.txtDrugs.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDrugs.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDrugs.Location = New System.Drawing.Point(747, 3)
+        Me.txtDrugs.Location = New System.Drawing.Point(742, 3)
         Me.txtDrugs.Multiline = True
         Me.txtDrugs.Name = "txtDrugs"
-        Me.txtDrugs.Size = New System.Drawing.Size(464, 28)
+        Me.txtDrugs.Size = New System.Drawing.Size(469, 28)
         Me.txtDrugs.TabIndex = 6
         '
-        'TableLayoutPanel20
+        'tblPulso
         '
-        Me.TableLayoutPanel20.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel20.ColumnCount = 2
-        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
-        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198.0!))
-        Me.TableLayoutPanel20.Controls.Add(Me.Label21, 0, 0)
-        Me.TableLayoutPanel20.Controls.Add(Me.cbPulso, 1, 0)
-        Me.TableLayoutPanel20.Location = New System.Drawing.Point(93, 19)
-        Me.TableLayoutPanel20.Name = "TableLayoutPanel20"
-        Me.TableLayoutPanel20.RowCount = 1
-        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel20.Size = New System.Drawing.Size(499, 37)
-        Me.TableLayoutPanel20.TabIndex = 65
+        Me.tblPulso.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblPulso.ColumnCount = 2
+        Me.tblPulso.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.7234!))
+        Me.tblPulso.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198.0!))
+        Me.tblPulso.Controls.Add(Me.Label21, 0, 0)
+        Me.tblPulso.Controls.Add(Me.cbPulso, 1, 0)
+        Me.tblPulso.Location = New System.Drawing.Point(93, 19)
+        Me.tblPulso.Name = "tblPulso"
+        Me.tblPulso.RowCount = 1
+        Me.tblPulso.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblPulso.Size = New System.Drawing.Size(499, 37)
+        Me.tblPulso.TabIndex = 65
         '
         'Label21
         '
@@ -633,31 +627,31 @@ Partial Class frmMalestar
         Me.cbPulso.Size = New System.Drawing.Size(192, 31)
         Me.cbPulso.TabIndex = 23
         '
-        'TableLayoutPanel19
+        'tblDrogas
         '
-        Me.TableLayoutPanel19.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel19.ColumnCount = 4
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.74803!))
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.1811!))
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.07087!))
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 610.0!))
-        Me.TableLayoutPanel19.Controls.Add(Me.chkDrugs_No, 2, 0)
-        Me.TableLayoutPanel19.Controls.Add(Me.Label20, 0, 0)
-        Me.TableLayoutPanel19.Controls.Add(Me.chkDrugs_Si, 1, 0)
-        Me.TableLayoutPanel19.Controls.Add(Me.TextBox11, 3, 0)
-        Me.TableLayoutPanel19.Location = New System.Drawing.Point(88, 361)
-        Me.TableLayoutPanel19.Name = "TableLayoutPanel19"
-        Me.TableLayoutPanel19.RowCount = 1
-        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel19.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel19.TabIndex = 66
+        Me.tblDrogas.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblDrogas.ColumnCount = 4
+        Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.74803!))
+        Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.1811!))
+        Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.07087!))
+        Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 615.0!))
+        Me.tblDrogas.Controls.Add(Me.chkDrugs_No, 2, 0)
+        Me.tblDrogas.Controls.Add(Me.Label20, 0, 0)
+        Me.tblDrogas.Controls.Add(Me.chkDrugs_Si, 1, 0)
+        Me.tblDrogas.Controls.Add(Me.txtDrogas, 3, 0)
+        Me.tblDrogas.Location = New System.Drawing.Point(88, 361)
+        Me.tblDrogas.Name = "tblDrogas"
+        Me.tblDrogas.RowCount = 1
+        Me.tblDrogas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblDrogas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblDrogas.Size = New System.Drawing.Size(1214, 34)
+        Me.tblDrogas.TabIndex = 66
         '
         'chkDrugs_No
         '
         Me.chkDrugs_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkDrugs_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDrugs_No.Location = New System.Drawing.Point(527, 3)
+        Me.chkDrugs_No.Location = New System.Drawing.Point(522, 3)
         Me.chkDrugs_No.Name = "chkDrugs_No"
         Me.chkDrugs_No.Size = New System.Drawing.Size(72, 28)
         Me.chkDrugs_No.TabIndex = 4
@@ -679,38 +673,38 @@ Partial Class frmMalestar
         '
         Me.chkDrugs_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkDrugs_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDrugs_Si.Location = New System.Drawing.Point(460, 3)
+        Me.chkDrugs_Si.Location = New System.Drawing.Point(456, 3)
         Me.chkDrugs_Si.Name = "chkDrugs_Si"
-        Me.chkDrugs_Si.Size = New System.Drawing.Size(61, 28)
+        Me.chkDrugs_Si.Size = New System.Drawing.Size(60, 28)
         Me.chkDrugs_Si.TabIndex = 3
         Me.chkDrugs_Si.Text = "Si"
         Me.chkDrugs_Si.UseVisualStyleBackColor = True
         '
-        'TextBox11
+        'txtDrogas
         '
-        Me.TextBox11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox11.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(605, 3)
-        Me.TextBox11.Multiline = True
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(606, 28)
-        Me.TextBox11.TabIndex = 6
+        Me.txtDrogas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtDrogas.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDrogas.Location = New System.Drawing.Point(600, 3)
+        Me.txtDrogas.Multiline = True
+        Me.txtDrogas.Name = "txtDrogas"
+        Me.txtDrogas.Size = New System.Drawing.Size(611, 28)
+        Me.txtDrogas.TabIndex = 6
         '
-        'TableLayoutPanel21
+        'tblOtrosProblemas
         '
-        Me.TableLayoutPanel21.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel21.ColumnCount = 2
-        Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.00988!))
-        Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.99012!))
-        Me.TableLayoutPanel21.Controls.Add(Me.txtOtrosProblemas, 0, 0)
-        Me.TableLayoutPanel21.Controls.Add(Me.Label22, 0, 0)
-        Me.TableLayoutPanel21.Location = New System.Drawing.Point(88, 321)
-        Me.TableLayoutPanel21.Name = "TableLayoutPanel21"
-        Me.TableLayoutPanel21.RowCount = 1
-        Me.TableLayoutPanel21.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel21.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel21.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel21.TabIndex = 64
+        Me.tblOtrosProblemas.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblOtrosProblemas.ColumnCount = 2
+        Me.tblOtrosProblemas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.00988!))
+        Me.tblOtrosProblemas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.99012!))
+        Me.tblOtrosProblemas.Controls.Add(Me.txtOtrosProblemas, 0, 0)
+        Me.tblOtrosProblemas.Controls.Add(Me.Label22, 0, 0)
+        Me.tblOtrosProblemas.Location = New System.Drawing.Point(88, 321)
+        Me.tblOtrosProblemas.Name = "tblOtrosProblemas"
+        Me.tblOtrosProblemas.RowCount = 1
+        Me.tblOtrosProblemas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblOtrosProblemas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblOtrosProblemas.Size = New System.Drawing.Size(1214, 34)
+        Me.tblOtrosProblemas.TabIndex = 64
         '
         'txtOtrosProblemas
         '
@@ -733,21 +727,21 @@ Partial Class frmMalestar
         Me.Label22.TabIndex = 5
         Me.Label22.Text = "¿Qué otros problemas de salud tiene?"
         '
-        'TableLayoutPanel23
+        'tblMedicina
         '
-        Me.TableLayoutPanel23.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel23.ColumnCount = 2
-        Me.TableLayoutPanel23.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.09061!))
-        Me.TableLayoutPanel23.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.90939!))
-        Me.TableLayoutPanel23.Controls.Add(Me.txtMedicina, 0, 0)
-        Me.TableLayoutPanel23.Controls.Add(Me.Label24, 0, 0)
-        Me.TableLayoutPanel23.Location = New System.Drawing.Point(88, 281)
-        Me.TableLayoutPanel23.Name = "TableLayoutPanel23"
-        Me.TableLayoutPanel23.RowCount = 1
-        Me.TableLayoutPanel23.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel23.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel23.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel23.TabIndex = 62
+        Me.tblMedicina.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblMedicina.ColumnCount = 2
+        Me.tblMedicina.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.09061!))
+        Me.tblMedicina.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.90939!))
+        Me.tblMedicina.Controls.Add(Me.txtMedicina, 0, 0)
+        Me.tblMedicina.Controls.Add(Me.Label24, 0, 0)
+        Me.tblMedicina.Location = New System.Drawing.Point(88, 281)
+        Me.tblMedicina.Name = "tblMedicina"
+        Me.tblMedicina.RowCount = 1
+        Me.tblMedicina.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblMedicina.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblMedicina.Size = New System.Drawing.Size(1214, 34)
+        Me.tblMedicina.TabIndex = 62
         '
         'txtMedicina
         '
@@ -770,23 +764,23 @@ Partial Class frmMalestar
         Me.Label24.TabIndex = 5
         Me.Label24.Text = "¿Qué medicinas está tomando?"
         '
-        'TableLayoutPanel24
+        'tblViajes
         '
-        Me.TableLayoutPanel24.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel24.ColumnCount = 3
-        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.62675!))
-        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.780347!))
-        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5929!))
-        Me.TableLayoutPanel24.Controls.Add(Me.chkViaje_No, 2, 0)
-        Me.TableLayoutPanel24.Controls.Add(Me.Label25, 0, 0)
-        Me.TableLayoutPanel24.Controls.Add(Me.chkViaje_Si, 1, 0)
-        Me.TableLayoutPanel24.Location = New System.Drawing.Point(88, 241)
-        Me.TableLayoutPanel24.Name = "TableLayoutPanel24"
-        Me.TableLayoutPanel24.RowCount = 1
-        Me.TableLayoutPanel24.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel24.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel24.Size = New System.Drawing.Size(1211, 34)
-        Me.TableLayoutPanel24.TabIndex = 61
+        Me.tblViajes.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblViajes.ColumnCount = 3
+        Me.tblViajes.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.62675!))
+        Me.tblViajes.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.780347!))
+        Me.tblViajes.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5929!))
+        Me.tblViajes.Controls.Add(Me.chkViaje_No, 2, 0)
+        Me.tblViajes.Controls.Add(Me.Label25, 0, 0)
+        Me.tblViajes.Controls.Add(Me.chkViaje_Si, 1, 0)
+        Me.tblViajes.Location = New System.Drawing.Point(88, 241)
+        Me.tblViajes.Name = "tblViajes"
+        Me.tblViajes.RowCount = 1
+        Me.tblViajes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblViajes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblViajes.Size = New System.Drawing.Size(1211, 34)
+        Me.tblViajes.TabIndex = 61
         '
         'chkViaje_No
         '
@@ -821,25 +815,25 @@ Partial Class frmMalestar
         Me.chkViaje_Si.Text = "Si"
         Me.chkViaje_Si.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel25
+        'tblActividades
         '
-        Me.TableLayoutPanel25.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel25.ColumnCount = 4
-        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.00986!))
-        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.903353!))
-        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.086785!))
-        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
-        Me.TableLayoutPanel25.Controls.Add(Me.chkADiarias_No, 2, 0)
-        Me.TableLayoutPanel25.Controls.Add(Me.Label26, 0, 0)
-        Me.TableLayoutPanel25.Controls.Add(Me.chkADiarias_Si, 1, 0)
-        Me.TableLayoutPanel25.Controls.Add(Me.txtADiarias, 3, 0)
-        Me.TableLayoutPanel25.Location = New System.Drawing.Point(88, 201)
-        Me.TableLayoutPanel25.Name = "TableLayoutPanel25"
-        Me.TableLayoutPanel25.RowCount = 1
-        Me.TableLayoutPanel25.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel25.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel25.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel25.TabIndex = 60
+        Me.tblActividades.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblActividades.ColumnCount = 4
+        Me.tblActividades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.00986!))
+        Me.tblActividades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.903353!))
+        Me.tblActividades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.086785!))
+        Me.tblActividades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.tblActividades.Controls.Add(Me.chkADiarias_No, 2, 0)
+        Me.tblActividades.Controls.Add(Me.Label26, 0, 0)
+        Me.tblActividades.Controls.Add(Me.chkADiarias_Si, 1, 0)
+        Me.tblActividades.Controls.Add(Me.txtADiarias, 3, 0)
+        Me.tblActividades.Location = New System.Drawing.Point(88, 201)
+        Me.tblActividades.Name = "tblActividades"
+        Me.tblActividades.RowCount = 1
+        Me.tblActividades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblActividades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblActividades.Size = New System.Drawing.Size(1214, 34)
+        Me.tblActividades.TabIndex = 60
         '
         'chkADiarias_No
         '
@@ -884,23 +878,23 @@ Partial Class frmMalestar
         Me.txtADiarias.Size = New System.Drawing.Size(194, 28)
         Me.txtADiarias.TabIndex = 6
         '
-        'TableLayoutPanel26
+        'tblMalestarConstancia
         '
-        Me.TableLayoutPanel26.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel26.ColumnCount = 3
-        Me.TableLayoutPanel26.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.78089!))
-        Me.TableLayoutPanel26.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.34432!))
-        Me.TableLayoutPanel26.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.95717!))
-        Me.TableLayoutPanel26.Controls.Add(Me.chkEpisodico, 2, 0)
-        Me.TableLayoutPanel26.Controls.Add(Me.Label27, 0, 0)
-        Me.TableLayoutPanel26.Controls.Add(Me.chkConstante, 1, 0)
-        Me.TableLayoutPanel26.Location = New System.Drawing.Point(88, 161)
-        Me.TableLayoutPanel26.Name = "TableLayoutPanel26"
-        Me.TableLayoutPanel26.RowCount = 1
-        Me.TableLayoutPanel26.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel26.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel26.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel26.TabIndex = 59
+        Me.tblMalestarConstancia.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblMalestarConstancia.ColumnCount = 3
+        Me.tblMalestarConstancia.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.78089!))
+        Me.tblMalestarConstancia.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.34432!))
+        Me.tblMalestarConstancia.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.95717!))
+        Me.tblMalestarConstancia.Controls.Add(Me.chkEpisodico, 2, 0)
+        Me.tblMalestarConstancia.Controls.Add(Me.Label27, 0, 0)
+        Me.tblMalestarConstancia.Controls.Add(Me.chkConstante, 1, 0)
+        Me.tblMalestarConstancia.Location = New System.Drawing.Point(88, 161)
+        Me.tblMalestarConstancia.Name = "tblMalestarConstancia"
+        Me.tblMalestarConstancia.RowCount = 1
+        Me.tblMalestarConstancia.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblMalestarConstancia.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblMalestarConstancia.Size = New System.Drawing.Size(1214, 34)
+        Me.tblMalestarConstancia.TabIndex = 59
         '
         'chkEpisodico
         '
@@ -935,43 +929,43 @@ Partial Class frmMalestar
         Me.chkConstante.Text = "Constante"
         Me.chkConstante.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel27
+        'tblDuracion
         '
-        Me.TableLayoutPanel27.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel27.ColumnCount = 4
-        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.98844!))
-        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13873!))
-        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.77649!))
-        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152.0!))
-        Me.TableLayoutPanel27.Controls.Add(Me.txtDuracion, 0, 0)
-        Me.TableLayoutPanel27.Controls.Add(Me.chkMeses, 2, 0)
-        Me.TableLayoutPanel27.Controls.Add(Me.Label28, 0, 0)
-        Me.TableLayoutPanel27.Controls.Add(Me.chkSemanas, 1, 0)
-        Me.TableLayoutPanel27.Location = New System.Drawing.Point(88, 121)
-        Me.TableLayoutPanel27.Name = "TableLayoutPanel27"
-        Me.TableLayoutPanel27.RowCount = 1
-        Me.TableLayoutPanel27.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel27.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel27.Size = New System.Drawing.Size(1214, 34)
-        Me.TableLayoutPanel27.TabIndex = 58
+        Me.tblDuracion.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tblDuracion.ColumnCount = 4
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.98844!))
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13873!))
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.77649!))
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158.0!))
+        Me.tblDuracion.Controls.Add(Me.txtDuracion, 0, 0)
+        Me.tblDuracion.Controls.Add(Me.chkMeses, 2, 0)
+        Me.tblDuracion.Controls.Add(Me.Label28, 0, 0)
+        Me.tblDuracion.Controls.Add(Me.chkSemanas, 1, 0)
+        Me.tblDuracion.Location = New System.Drawing.Point(88, 121)
+        Me.tblDuracion.Name = "tblDuracion"
+        Me.tblDuracion.RowCount = 1
+        Me.tblDuracion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblDuracion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.tblDuracion.Size = New System.Drawing.Size(1214, 34)
+        Me.tblDuracion.TabIndex = 58
         '
         'txtDuracion
         '
         Me.txtDuracion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDuracion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDuracion.Location = New System.Drawing.Point(789, 3)
+        Me.txtDuracion.Location = New System.Drawing.Point(785, 3)
         Me.txtDuracion.Multiline = True
         Me.txtDuracion.Name = "txtDuracion"
-        Me.txtDuracion.Size = New System.Drawing.Size(123, 28)
+        Me.txtDuracion.Size = New System.Drawing.Size(122, 28)
         Me.txtDuracion.TabIndex = 7
         '
         'chkMeses
         '
         Me.chkMeses.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkMeses.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMeses.Location = New System.Drawing.Point(1064, 3)
+        Me.chkMeses.Location = New System.Drawing.Point(1058, 3)
         Me.chkMeses.Name = "chkMeses"
-        Me.chkMeses.Size = New System.Drawing.Size(147, 28)
+        Me.chkMeses.Size = New System.Drawing.Size(153, 28)
         Me.chkMeses.TabIndex = 4
         Me.chkMeses.Text = "Meses"
         Me.chkMeses.UseVisualStyleBackColor = True
@@ -991,61 +985,12 @@ Partial Class frmMalestar
         '
         Me.chkSemanas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkSemanas.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkSemanas.Location = New System.Drawing.Point(918, 3)
+        Me.chkSemanas.Location = New System.Drawing.Point(913, 3)
         Me.chkSemanas.Name = "chkSemanas"
-        Me.chkSemanas.Size = New System.Drawing.Size(140, 28)
+        Me.chkSemanas.Size = New System.Drawing.Size(139, 28)
         Me.chkSemanas.TabIndex = 3
         Me.chkSemanas.Text = "Semanas"
         Me.chkSemanas.UseVisualStyleBackColor = True
-        '
-        'TableLayoutPanel28
-        '
-        Me.TableLayoutPanel28.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel28.ColumnCount = 3
-        Me.TableLayoutPanel28.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.27646!))
-        Me.TableLayoutPanel28.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.72354!))
-        Me.TableLayoutPanel28.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
-        Me.TableLayoutPanel28.Controls.Add(Me.Label29, 2, 0)
-        Me.TableLayoutPanel28.Controls.Add(Me.Label30, 0, 0)
-        Me.TableLayoutPanel28.Controls.Add(Me.TextBox16, 1, 0)
-        Me.TableLayoutPanel28.Location = New System.Drawing.Point(88, -60)
-        Me.TableLayoutPanel28.Name = "TableLayoutPanel28"
-        Me.TableLayoutPanel28.RowCount = 1
-        Me.TableLayoutPanel28.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel28.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
-        Me.TableLayoutPanel28.Size = New System.Drawing.Size(532, 37)
-        Me.TableLayoutPanel28.TabIndex = 57
-        '
-        'Label29
-        '
-        Me.Label29.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(492, 4)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(23, 29)
-        Me.Label29.TabIndex = 4
-        Me.Label29.Text = "°"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label30.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(3, 0)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(162, 37)
-        Me.Label30.TabIndex = 2
-        Me.Label30.Text = "Temperatura:"
-        '
-        'TextBox16
-        '
-        Me.TextBox16.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TextBox16.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox16.Location = New System.Drawing.Point(427, 3)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(45, 30)
-        Me.TextBox16.TabIndex = 3
         '
         'lblTitutloFRM
         '
@@ -1103,35 +1048,33 @@ Partial Class frmMalestar
         Me.gbResolucion.PerformLayout()
         Me.gbTratamiento.ResumeLayout(False)
         Me.gbTratamiento.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.TableLayoutPanel30.ResumeLayout(False)
-        Me.TableLayoutPanel30.PerformLayout()
-        Me.TableLayoutPanel29.ResumeLayout(False)
-        Me.TableLayoutPanel29.PerformLayout()
-        Me.TableLayoutPanel17.ResumeLayout(False)
-        Me.TableLayoutPanel17.PerformLayout()
-        Me.TableLayoutPanel15.ResumeLayout(False)
-        Me.TableLayoutPanel16.ResumeLayout(False)
-        Me.TableLayoutPanel18.ResumeLayout(False)
-        Me.TableLayoutPanel18.PerformLayout()
-        Me.TableLayoutPanel20.ResumeLayout(False)
-        Me.TableLayoutPanel19.ResumeLayout(False)
-        Me.TableLayoutPanel19.PerformLayout()
-        Me.TableLayoutPanel21.ResumeLayout(False)
-        Me.TableLayoutPanel21.PerformLayout()
-        Me.TableLayoutPanel23.ResumeLayout(False)
-        Me.TableLayoutPanel23.PerformLayout()
-        Me.TableLayoutPanel24.ResumeLayout(False)
-        Me.TableLayoutPanel24.PerformLayout()
-        Me.TableLayoutPanel25.ResumeLayout(False)
-        Me.TableLayoutPanel25.PerformLayout()
-        Me.TableLayoutPanel26.ResumeLayout(False)
-        Me.TableLayoutPanel26.PerformLayout()
-        Me.TableLayoutPanel27.ResumeLayout(False)
-        Me.TableLayoutPanel27.PerformLayout()
-        Me.TableLayoutPanel28.ResumeLayout(False)
-        Me.TableLayoutPanel28.PerformLayout()
+        Me.gbPreguntas.ResumeLayout(False)
+        Me.tblGrHidr.ResumeLayout(False)
+        Me.tblCambioDieta.ResumeLayout(False)
+        Me.tblCambioDieta.PerformLayout()
+        Me.tblDieta.ResumeLayout(False)
+        Me.tblDieta.PerformLayout()
+        Me.tblTsens.ResumeLayout(False)
+        Me.tblTsens.PerformLayout()
+        Me.tblActitud.ResumeLayout(False)
+        Me.tblENutricion.ResumeLayout(False)
+        Me.tblTAliment.ResumeLayout(False)
+        Me.tblTAliment.PerformLayout()
+        Me.tblPulso.ResumeLayout(False)
+        Me.tblDrogas.ResumeLayout(False)
+        Me.tblDrogas.PerformLayout()
+        Me.tblOtrosProblemas.ResumeLayout(False)
+        Me.tblOtrosProblemas.PerformLayout()
+        Me.tblMedicina.ResumeLayout(False)
+        Me.tblMedicina.PerformLayout()
+        Me.tblViajes.ResumeLayout(False)
+        Me.tblViajes.PerformLayout()
+        Me.tblActividades.ResumeLayout(False)
+        Me.tblActividades.PerformLayout()
+        Me.tblMalestarConstancia.ResumeLayout(False)
+        Me.tblMalestarConstancia.PerformLayout()
+        Me.tblDuracion.ResumeLayout(False)
+        Me.tblDuracion.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1145,66 +1088,65 @@ Partial Class frmMalestar
     Friend WithEvents txtTratamiento As TextBox
     Friend WithEvents chkAnalisis As CheckBox
     Friend WithEvents lblNomAnalisis As Label
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
+    Friend WithEvents gbPreguntas As GroupBox
+    Friend WithEvents tblGrHidr As TableLayoutPanel
     Friend WithEvents Label9 As Label
     Friend WithEvents cbGradoHidr As ComboBox
-    Friend WithEvents TableLayoutPanel30 As TableLayoutPanel
+    Friend WithEvents tblCambioDieta As TableLayoutPanel
     Friend WithEvents chkCambioDieta_No As CheckBox
     Friend WithEvents Label32 As Label
     Friend WithEvents chkCambioDieta_Si As CheckBox
-    Friend WithEvents TableLayoutPanel29 As TableLayoutPanel
+    Friend WithEvents tblDieta As TableLayoutPanel
     Friend WithEvents txtDieta As TextBox
     Friend WithEvents Label31 As Label
-    Friend WithEvents TableLayoutPanel17 As TableLayoutPanel
+    Friend WithEvents tblTsens As TableLayoutPanel
     Friend WithEvents chkT_Sens_No As CheckBox
     Friend WithEvents Label18 As Label
     Friend WithEvents chkT_Sens_Si As CheckBox
     Friend WithEvents txtTsensoriales As TextBox
-    Friend WithEvents TableLayoutPanel15 As TableLayoutPanel
+    Friend WithEvents tblActitud As TableLayoutPanel
     Friend WithEvents Label16 As Label
     Friend WithEvents cbActitud As ComboBox
-    Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
+    Friend WithEvents tblENutricion As TableLayoutPanel
     Friend WithEvents Label17 As Label
     Friend WithEvents cb_e_nutricion As ComboBox
-    Friend WithEvents TableLayoutPanel18 As TableLayoutPanel
+    Friend WithEvents tblTAliment As TableLayoutPanel
     Friend WithEvents chkTAlimen_No As CheckBox
     Friend WithEvents Label19 As Label
     Friend WithEvents chkTAlimen_Si As CheckBox
     Friend WithEvents txtDrugs As TextBox
-    Friend WithEvents TableLayoutPanel20 As TableLayoutPanel
+    Friend WithEvents tblPulso As TableLayoutPanel
     Friend WithEvents Label21 As Label
     Friend WithEvents cbPulso As ComboBox
-    Friend WithEvents TableLayoutPanel19 As TableLayoutPanel
+    Friend WithEvents tblDrogas As TableLayoutPanel
     Friend WithEvents chkDrugs_No As CheckBox
     Friend WithEvents Label20 As Label
     Friend WithEvents chkDrugs_Si As CheckBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TableLayoutPanel21 As TableLayoutPanel
+    Friend WithEvents txtDrogas As TextBox
+    Friend WithEvents tblOtrosProblemas As TableLayoutPanel
     Friend WithEvents txtOtrosProblemas As TextBox
     Friend WithEvents Label22 As Label
-    Friend WithEvents TableLayoutPanel23 As TableLayoutPanel
+    Friend WithEvents tblMedicina As TableLayoutPanel
     Friend WithEvents txtMedicina As TextBox
     Friend WithEvents Label24 As Label
-    Friend WithEvents TableLayoutPanel24 As TableLayoutPanel
+    Friend WithEvents tblViajes As TableLayoutPanel
     Friend WithEvents chkViaje_No As CheckBox
     Friend WithEvents Label25 As Label
     Friend WithEvents chkViaje_Si As CheckBox
-    Friend WithEvents TableLayoutPanel25 As TableLayoutPanel
+    Friend WithEvents tblActividades As TableLayoutPanel
     Friend WithEvents chkADiarias_No As CheckBox
     Friend WithEvents Label26 As Label
     Friend WithEvents chkADiarias_Si As CheckBox
     Friend WithEvents txtADiarias As TextBox
-    Friend WithEvents TableLayoutPanel26 As TableLayoutPanel
+    Friend WithEvents tblMalestarConstancia As TableLayoutPanel
     Friend WithEvents chkEpisodico As CheckBox
     Friend WithEvents Label27 As Label
     Friend WithEvents chkConstante As CheckBox
-    Friend WithEvents TableLayoutPanel27 As TableLayoutPanel
+    Friend WithEvents tblDuracion As TableLayoutPanel
     Friend WithEvents txtDuracion As TextBox
     Friend WithEvents chkMeses As CheckBox
     Friend WithEvents Label28 As Label
     Friend WithEvents chkSemanas As CheckBox
-    Friend WithEvents TableLayoutPanel28 As TableLayoutPanel
     Friend WithEvents Label29 As Label
     Friend WithEvents Label30 As Label
     Friend WithEvents TextBox16 As TextBox

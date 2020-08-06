@@ -128,7 +128,7 @@
         End If
     End Sub
 
-    Public Function getCtrls(pnl As Panel) As List(Of Object)
+    Public Function getCtrls(pnl As Control) As List(Of Object)
 
         Dim contenedora As New List(Of List(Of Object))
 
@@ -137,6 +137,7 @@
         For Each c As Control In pnl.Controls
             list.Add(c)
             If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
+
                 getCtrls(c)
             End If
         Next

@@ -111,11 +111,11 @@ Partial Class frmDolor
         Me.tbTorso_Dorso.ColumnCount = 1
         Me.tbTorso_Dorso.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tbTorso_Dorso.Controls.Add(Me.pnlDatosSeleccion, 0, 0)
-        Me.tbTorso_Dorso.Location = New System.Drawing.Point(1184, 5)
+        Me.tbTorso_Dorso.Location = New System.Drawing.Point(1184, 42)
         Me.tbTorso_Dorso.Name = "tbTorso_Dorso"
         Me.tbTorso_Dorso.RowCount = 1
         Me.tbTorso_Dorso.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tbTorso_Dorso.Size = New System.Drawing.Size(444, 758)
+        Me.tbTorso_Dorso.Size = New System.Drawing.Size(444, 721)
         Me.tbTorso_Dorso.TabIndex = 75
         '
         'pnlDatosSeleccion
@@ -127,7 +127,7 @@ Partial Class frmDolor
         Me.pnlDatosSeleccion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlDatosSeleccion.Location = New System.Drawing.Point(3, 3)
         Me.pnlDatosSeleccion.Name = "pnlDatosSeleccion"
-        Me.pnlDatosSeleccion.Size = New System.Drawing.Size(438, 752)
+        Me.pnlDatosSeleccion.Size = New System.Drawing.Size(438, 715)
         Me.pnlDatosSeleccion.TabIndex = 73
         '
         'Label3
@@ -135,7 +135,7 @@ Partial Class frmDolor
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(187, 434)
+        Me.Label3.Location = New System.Drawing.Point(186, 416)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 29)
         Me.Label3.TabIndex = 77
@@ -148,9 +148,9 @@ Partial Class frmDolor
         Me.lbDorso.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDorso.FormattingEnabled = True
         Me.lbDorso.ItemHeight = 23
-        Me.lbDorso.Location = New System.Drawing.Point(3, 466)
+        Me.lbDorso.Location = New System.Drawing.Point(6, 455)
         Me.lbDorso.Name = "lbDorso"
-        Me.lbDorso.Size = New System.Drawing.Size(432, 280)
+        Me.lbDorso.Size = New System.Drawing.Size(432, 257)
         Me.lbDorso.TabIndex = 76
         '
         'Label2
@@ -158,7 +158,7 @@ Partial Class frmDolor
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(187, 9)
+        Me.Label2.Location = New System.Drawing.Point(187, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(89, 29)
         Me.Label2.TabIndex = 75
@@ -171,7 +171,7 @@ Partial Class frmDolor
         Me.lbTorso.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbTorso.FormattingEnabled = True
         Me.lbTorso.ItemHeight = 23
-        Me.lbTorso.Location = New System.Drawing.Point(3, 41)
+        Me.lbTorso.Location = New System.Drawing.Point(3, 32)
         Me.lbTorso.Name = "lbTorso"
         Me.lbTorso.Size = New System.Drawing.Size(432, 372)
         Me.lbTorso.TabIndex = 73

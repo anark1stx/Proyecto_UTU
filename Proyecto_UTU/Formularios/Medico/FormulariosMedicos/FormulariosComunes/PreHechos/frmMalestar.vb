@@ -94,8 +94,25 @@
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        '->GuardarEnBD()
+        Dim controlesInstanciados = getCtrls(pnlContenedor)
+        GuardarFormulario(controlesInstanciados)
     End Sub
+
+
+    Public Function getCtrls(pnl As Control) As List(Of Object)
+
+        Dim list As New List(Of Object)
+
+        For Each c As Control In pnl.Controls
+
+            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
+                list.Add(c)
+                getCtrls(c)
+            End If
+        Next
+        Return list
+    End Function
+
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(0)
@@ -132,7 +149,6 @@
         Dim _fixedpagearea2 As Rectangle = e.PageBounds 'Este rectangulo es para corregir el offset entre la ubicacion del panel y la del formulario en si
 
         _fixedpagearea2.Width = (pagearea.Width / 2) - (Me.pnlContenedor.Width / 2)
-
 
         e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
     End Sub
