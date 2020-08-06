@@ -508,6 +508,7 @@
             Console.WriteLine(propiedades(8))
             Dim bmp As Bitmap = Bitmap.FromStream(ms)
             btnBuild.BackgroundImage = bmp
+            btnBuild.BackgroundImageLayout = ImageLayout.Stretch
         End If
 
         Return btnBuild

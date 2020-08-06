@@ -297,7 +297,7 @@ Partial Class frmDolor
         'btnOmoplatoIzq
         '
         Me.btnOmoplatoIzq.BackgroundImage = CType(resources.GetObject("btnOmoplatoIzq.BackgroundImage"), System.Drawing.Image)
-        Me.btnOmoplatoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOmoplatoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnOmoplatoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOmoplatoIzq.Location = New System.Drawing.Point(676, 225)
         Me.btnOmoplatoIzq.Name = "btnOmoplatoIzq"
@@ -308,7 +308,7 @@ Partial Class frmDolor
         'btnOmoplatoDer
         '
         Me.btnOmoplatoDer.BackgroundImage = CType(resources.GetObject("btnOmoplatoDer.BackgroundImage"), System.Drawing.Image)
-        Me.btnOmoplatoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOmoplatoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnOmoplatoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOmoplatoDer.Location = New System.Drawing.Point(1057, 225)
         Me.btnOmoplatoDer.Name = "btnOmoplatoDer"
