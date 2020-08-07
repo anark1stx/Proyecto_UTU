@@ -60,19 +60,16 @@
     End Function
 
     Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
-        Dim htmlColor As String = ""
 
-        htmlColor = ColorTranslator.ToHtml(col)
+        Dim htmlColor As String = ColorTranslator.ToHtml(col)
 
         Select Case htmlColor
-            Case "buttontext" 'Por alguna razon el color ControlText se guarda como button text (??XD
+            Case "buttontext" 'Por alguna razon el color ControlText se guarda como buttontext (??XD
                 Return "ControlText"
             Case Else
                 Return htmlColor
         End Select
 
     End Function
-
-
 
 End Class

@@ -207,7 +207,4 @@
         tblTorsoDorso.Anchor += AnchorStyles.Right
     End Sub
 
-    Private Sub pnlContenedor_Paint(sender As Object, e As PaintEventArgs) Handles pnlContenedor.Paint
-
-    End Sub
 End Class
