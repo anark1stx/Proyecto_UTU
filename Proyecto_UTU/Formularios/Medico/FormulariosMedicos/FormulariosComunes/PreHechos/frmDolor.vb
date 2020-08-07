@@ -2,6 +2,7 @@
     Dim memobmp As Bitmap
     Dim tmpPanel As Panel
     Private m_Rnd As New Random
+    Dim listaControles As List(Of Control)
     Public Sub AgregarItemALista(item As String, lista As ListBox, btn As Button)
         If Not lista.Items.Contains(item) Then
             lista.Items.Add(item)
@@ -113,28 +114,36 @@
         lbTorso.Items.Clear()
     End Sub
 
+
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If lbTorso.Items.Count < 1 AndAlso lbDorso.Items.Count < 1 Then
-            MsgBox("Seleccione al menos una parte del cuerpo para guardar la información.", vbExclamation)
-        Else
-            If txtDescripcion.TextLength < 5 Then
-                Dim ans = MessageBox.Show("¿Seguro que desea guardar sin haber proveido una descripción detallada?", "Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                If ans = vbYes Then
-                    '->Guardar formulario + datos en la BD.
-                    ans = MessageBox.Show("¿Desea volver al Inicio?", "Guardado con éxito.", MessageBoxButtons.YesNo, MessageBoxIcon.None)
-                    If ans = vbYes Then
-                        frmMedico.InstanciarFormulario("Inicio")
-                    End If
-                Else
-                    '->Guardar formulario + datos en la BD.
-                    ans = MessageBox.Show("¿Desea volver al Inicio?", "Guardado con éxito.", MessageBoxButtons.YesNo, MessageBoxIcon.None)
-                    If ans = vbYes Then
-                        frmMedico.InstanciarFormulario("Inicio")
-                    End If
-                End If
-            End If
-        End If
+
+        Dim fbr As New FabricaDeControles
+
+        Dim lista As New List(Of Control)
+        lista = getCtrls(Me)
+
+
+        Dim gestor As New GestorXMLv2
+
+        Dim _controles As New ControlesGuardados(fbr.Serializar(lista))
+
+        gestor.buildXML(_controles)
+
     End Sub
+
+    Public Function getCtrls(pnl As Control) As List(Of Control)
+
+        Dim list As New List(Of Control)
+
+        For Each c As Control In pnl.Controls
+            list.Add(c)
+            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
+                getCtrls(c)
+            End If
+        Next
+        Return list
+    End Function
+
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(0)
@@ -197,4 +206,7 @@
         TableLayoutPanel2.Anchor += AnchorStyles.Right
     End Sub
 
+    Private Sub pnlContenedor_Paint(sender As Object, e As PaintEventArgs) Handles pnlContenedor.Paint
+
+    End Sub
 End Class

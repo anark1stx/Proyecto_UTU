@@ -74,6 +74,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\ControlesGuardados.vb" />
+    <Compile Include="Clases\FabricaDeControles.vb" />
+    <Compile Include="Clases\GestorXMLv2.vb" />
     <Compile Include="Clases\Medico.vb" />
     <Compile Include="Clases\Paciente.vb" />
     <Compile Include="Clases\Usuario.vb" />
@@ -179,7 +182,6 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clases\GestorXML.vb" />
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.Designer.vb">
       <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
     </Compile>
