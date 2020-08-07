@@ -1,7 +1,6 @@
 ﻿Public Class frmCrearFormulario
 
-    Dim _cursor As Cursor = System.Windows.Forms.Cursors.Hand
-    Public tempname As String = ""
+    Dim _cursor As Cursor = Cursors.Hand
     Dim frmPlano As New formularioPlano
 
     Public ubicacion_mouse As Point
@@ -14,19 +13,19 @@
     Dim txtSintomas_ingresados As Integer = 0 'Esto va a servir para cuando tengamos el DER del predictivo definitivo, solo vamos a tomar x sintomas.
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
+    Dim dragging As Boolean = False
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         frmPlano.TopLevel = False
         frmPlano.TopMost = True
-        pnlFormularioPersonalizado.Anchor += AnchorStyles.Bottom
-        pnlFormularioPersonalizado.Anchor += AnchorStyles.Right
-        frmPlano.Anchor += AnchorStyles.Bottom
-        frmPlano.Anchor += AnchorStyles.Right
+        frmPlano.Dock = DockStyle.Fill
         pnlFormularioPersonalizado.Controls.Add(frmPlano)
+
         frmPlano.Show()
 
     End Sub
 #Region "Eventos para el TextBox"
-    Private Sub txtControl_MouseDown(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseDown
+
+    Private Sub txtControl_MouseDown(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             Dim _txt As New TextBox
@@ -45,22 +44,23 @@
         End If
     End Sub
 
-    Private Sub txtControl_MouseMove(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseMove
+    Private Sub txtControl_MouseMove(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseMove
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
-            _instancia.Left = e.X + txtSintoma0.Left - ubicacion_mouse.X
-            _instancia.Top = e.Y + txtSintoma0.Top - ubicacion_mouse.Y
+            _instancia.Left = e.X + txtTextBox.Left - ubicacion_mouse.X
+            _instancia.Top = e.Y + txtTextBox.Top - ubicacion_mouse.Y
 
         End If
     End Sub
 
-    Public Sub txtSintoma0_MouseUp(sender As Object, e As MouseEventArgs) Handles txtSintoma0.MouseUp
-        If _instancia.Location.X > pnlControles.Width Then
+    Public Sub txtSintoma0_MouseUp(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseUp
+        If e.Location.X > pnlFormularioPersonalizado.Left Then
             Dim tipo = TipoDeTxt.ShowDialog()
 
             setType(TipoDeTxt.valorSeleccionado)
-
+        Else
+            Me.Controls.Remove(_instancia)
         End If
 
     End Sub
@@ -139,7 +139,6 @@
     Public Sub setType(nombre As String)
         _instancia.Name = nombre
         _instancia.Name = setControlName()
-        tempname = _instancia.Name
 
         _instancia.Text = settings.texto
         _instancia.Font = settings.fuente
@@ -221,7 +220,6 @@
         For Each control As Control In controles
 
             frmPlano.Controls.Add(control)
-
         Next
     End Sub
 
@@ -237,4 +235,7 @@
         System.Windows.Forms.Cursor.Current = _cursor
     End Sub
 
+    Private Sub pBoxBorrar_MouseEnter(sender As Object, e As EventArgs) Handles pBoxBorrar.MouseEnter
+        frmPlano.Controls.Remove(frmPlano.ctrl_seleccionado)
+    End Sub
 End Class
