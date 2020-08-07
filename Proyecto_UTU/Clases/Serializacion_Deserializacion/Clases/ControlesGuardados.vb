@@ -1,30 +1,21 @@
-﻿<Serializable(), Xml.Serialization.XmlInclude(GetType(ControlesGuardados.SControl))>
-Public Class ControlesGuardados
-    Public _Controles As List(Of SControl)
-
-    Public Property Controles As List(Of SControl)
-        Get
-            Return _Controles
-        End Get
-        Set(value As List(Of SControl))
-            _Controles = value
-        End Set
-    End Property
-    Public Sub New()
-
-    End Sub
-    Public Sub New(controles As List(Of SControl))
-        _Controles = controles
-    End Sub
+﻿<Serializable()>
+Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaControles)),
     <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button))> 'Todos los controles que heredan directamente de SControl
     Public Class SControl 'Posicion, Nombre y tamaño son las unicas dos propiedades que vamos a tomar de todos los controles de forma obligatoria.
+        <Xml.Serialization.XmlIgnore>
         Public _posicion As Point
+        <Xml.Serialization.XmlIgnore>
         Public _tamano As Size
+        <Xml.Serialization.XmlIgnore>
         Public _nombre As String
+        <Xml.Serialization.XmlIgnore>
         Public _dock As DockStyle
+        <Xml.Serialization.XmlIgnore>
         Public _anchor As AnchorStyles
-        Public _fgColor As Color
-        Public _bgColor As Color
+        <Xml.Serialization.XmlIgnore>
+        Public _fgColor As String
+        <Xml.Serialization.XmlIgnore>
+        Public _bgColor As String
         Property Posicion As Point
             Get
                 Return _posicion
@@ -68,24 +59,24 @@ Public Class ControlesGuardados
             End Set
         End Property
 
-        Property ForeColor As Color
+        Property ForeColor As String
             Get
                 Return _fgColor
             End Get
-            Set(value As Color)
+            Set(value As String)
                 _fgColor = value
             End Set
         End Property
-        Property BackColor As Color
+        Property BackColor As String
             Get
                 Return _bgColor
             End Get
-            Set(value As Color)
+            Set(value As String)
                 _bgColor = value
             End Set
         End Property
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -105,8 +96,9 @@ Public Class ControlesGuardados
     <Xml.Serialization.XmlInclude(GetType(GroupBox)), Xml.Serialization.XmlInclude(GetType(Textbox)), Xml.Serialization.XmlInclude(GetType(Label)), Xml.Serialization.XmlInclude(GetType(ListBox)), Xml.Serialization.XmlInclude(GetType(CheckBox))>
     Public Class TextControl 'Aquellos controles que tienen texto
         Inherits SControl
+        <Xml.Serialization.XmlIgnore>
         Public _texto As String
-        Public _font As Font
+        'Public _font As Font
         Property text As String
             Get
                 Return _texto
@@ -115,17 +107,16 @@ Public Class ControlesGuardados
                 _texto = value
             End Set
         End Property
-
-        Property fuente As Font
-            Get
-                Return _font
-            End Get
-            Set(value As Font)
-                _font = value
-            End Set
-        End Property
+        'Property fuente As Font
+        '    Get
+        '        Return
+        '    End Get
+        '    Set(value As Font)
+        '        _font = value
+        '    End Set
+        'End Property
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, texto As String, fuente As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -136,7 +127,7 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            _font = fuente
+            '_font = fuente
         End Sub
         Sub New()
 
@@ -144,7 +135,9 @@ Public Class ControlesGuardados
     End Class
     Public Class Panel
         Inherits SControl
+        <Xml.Serialization.XmlIgnore>
         Public _autoScroll As Boolean
+        <Xml.Serialization.XmlIgnore>
         Public _childs As List(Of SControl)
 
         Property AutoScroll As Boolean
@@ -168,7 +161,7 @@ Public Class ControlesGuardados
 
         End Sub
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, autoSctroll As Boolean, childs As List(Of SControl))
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, autoSctroll As Boolean, childs As List(Of SControl))
 
             _posicion = posicion
             _tamano = tamano
@@ -184,6 +177,7 @@ Public Class ControlesGuardados
     End Class
     Public Class GroupBox
         Inherits TextControl 'Los groupBoxes suelen tener un texto.
+        <Xml.Serialization.XmlIgnore>
         Public _childs As List(Of SControl)
         Property Childs As List(Of SControl)
             Get
@@ -196,7 +190,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, texto As String, fuente As Font, Childs As List(Of SControl))
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, Childs As List(Of SControl))
 
             _posicion = posicion
             _tamano = tamano
@@ -207,16 +201,63 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            _font = fuente
+            '_font = fuente
             _childs = Childs
         End Sub
     End Class
 
     Public Class TableLayoutPanel 'Si bien TBL esta compuesto de paneles, no nos interesa guardar si tiene autoScroll.
         Inherits SControl
+        Public _childs As List(Of SControl)
+        Public _rows As Integer 'cantidad de filas de la tbl
+        Public _cols As Integer 'Cantidad de las columnas de la tbl
+
+        Property Childs As List(Of SControl)
+            Get
+                Return _childs
+            End Get
+            Set(value As List(Of SControl))
+                _childs = value
+            End Set
+        End Property
+
+        Property Cols As Integer
+            Get
+                Return _cols
+            End Get
+            Set(value As Integer)
+                _cols = value
+            End Set
+        End Property
+
+        Property Rows As Integer
+            Get
+                Return _rows
+            End Get
+            Set(value As Integer)
+                _rows = value
+            End Set
+        End Property
+
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
+            _posicion = posicion
+            _tamano = tamano
+            '_tipo = tipo
+            _nombre = nombre
+            _dock = dock
+            _anchor = anchor
+            _fgColor = fg
+            _bgColor = bg
+            '_font = fuente
+            _childs = Childs
+            _cols = cols
+            _rows = rows
+        End Sub
+
         Sub New()
 
         End Sub
+
     End Class
 
     Public Class Textbox
@@ -225,7 +266,7 @@ Public Class ControlesGuardados
 
         End Sub
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, texto As String, fuente As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -236,7 +277,7 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            _font = fuente
+            '_font = fuente
         End Sub
     End Class
 
@@ -245,7 +286,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, texto As String, fuente As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -256,12 +297,13 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            _font = fuente
+            '_font = fuente
         End Sub
     End Class
 
     Public Class Button
         Inherits SControl
+        <Xml.Serialization.XmlIgnore>
         Public _bgImage As String 'String en base64
 
         Property bgImage As String
@@ -275,7 +317,7 @@ Public Class ControlesGuardados
             End Set
         End Property
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, bg_Image As Bitmap)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, bg_Image As Bitmap)
 
             _posicion = posicion
             _tamano = tamano
@@ -288,6 +330,10 @@ Public Class ControlesGuardados
             _bgImage = BmpToStrB64(bg_Image)
         End Sub
 
+        Sub New()
+
+        End Sub
+
         Public Function B64strToBmp() As Bitmap
             Dim ms As New IO.MemoryStream(Convert.FromBase64String(_bgImage))
             Return Bitmap.FromStream(ms)
@@ -295,16 +341,22 @@ Public Class ControlesGuardados
         End Function
 
         Public Function BmpToStrB64(bmp As Bitmap) As String
-            Dim ms As New IO.MemoryStream()
-            bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
-            Return Convert.ToBase64String(ms.ToArray())
-            ms.Close()
+
+            If Not bmp Is Nothing Then
+                Dim ms As New IO.MemoryStream()
+                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+                Return Convert.ToBase64String(ms.ToArray())
+                ms.Close()
+            End If
+
+            Return 0
         End Function
 
     End Class
     <Xml.Serialization.XmlInclude(GetType(ComboBox))>
     Public Class ListBox
         Inherits TextControl 'Los items tienen fuente.
+        <Xml.Serialization.XmlIgnore>
         Public _items As String()
 
         Property items As String()
@@ -316,7 +368,7 @@ Public Class ControlesGuardados
             End Set
         End Property
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, items As String())
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String())
 
             _posicion = posicion
             _tamano = tamano
@@ -327,6 +379,7 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _items = items
+            '_font = font
         End Sub
 
         Sub New()
@@ -339,7 +392,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, texto As String, fuente As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -350,7 +403,7 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            _font = fuente
+            '_font = fuente
         End Sub
     End Class
 
@@ -359,7 +412,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As Color, bg As Color, items As String())
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String())
 
             _posicion = posicion
             _tamano = tamano
@@ -375,7 +428,6 @@ Public Class ControlesGuardados
 
     Public Class ListaControles
         Public _Controles As List(Of SControl)
-
         Public Property Controles As List(Of SControl)
             Get
                 Return _Controles

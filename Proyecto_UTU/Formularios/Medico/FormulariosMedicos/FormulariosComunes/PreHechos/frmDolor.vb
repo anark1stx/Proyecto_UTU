@@ -123,9 +123,10 @@
         lista = getCtrls(Me)
 
 
+
         Dim gestor As New GestorXMLv2
 
-        Dim _controles As New ControlesGuardados(fbr.Serializar(lista))
+        Dim _controles As New ControlesGuardados.ListaControles(fbr.Serializar(lista))
 
         gestor.buildXML(_controles)
 
@@ -203,7 +204,7 @@
 
     Sub mLoad() Handles Me.Load
         TableLayoutPanel1.Anchor += AnchorStyles.Right
-        TableLayoutPanel2.Anchor += AnchorStyles.Right
+        tblTorsoDorso.Anchor += AnchorStyles.Right
     End Sub
 
     Private Sub pnlContenedor_Paint(sender As Object, e As PaintEventArgs) Handles pnlContenedor.Paint

@@ -24,7 +24,7 @@ Partial Class frmDolor
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDolor))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblTorsoDorso = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlDatosSeleccion = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lbDorso = New System.Windows.Forms.ListBox()
@@ -63,7 +63,7 @@ Partial Class frmDolor
         Me.Imprimir = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.pnlContenedor.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
+        Me.tblTorsoDorso.SuspendLayout()
         Me.pnlDatosSeleccion.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -71,7 +71,7 @@ Partial Class frmDolor
         'pnlContenedor
         '
         Me.pnlContenedor.AutoScroll = True
-        Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel2)
+        Me.pnlContenedor.Controls.Add(Me.tblTorsoDorso)
         Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel1)
         Me.pnlContenedor.Controls.Add(Me.btnImprimir)
         Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
@@ -106,17 +106,17 @@ Partial Class frmDolor
         Me.pnlContenedor.Size = New System.Drawing.Size(1523, 865)
         Me.pnlContenedor.TabIndex = 0
         '
-        'TableLayoutPanel2
+        'tblTorsoDorso
         '
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.pnlDatosSeleccion, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(1184, 5)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(444, 758)
-        Me.TableLayoutPanel2.TabIndex = 75
+        Me.tblTorsoDorso.ColumnCount = 1
+        Me.tblTorsoDorso.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblTorsoDorso.Controls.Add(Me.pnlDatosSeleccion, 0, 0)
+        Me.tblTorsoDorso.Location = New System.Drawing.Point(1184, 5)
+        Me.tblTorsoDorso.Name = "tblTorsoDorso"
+        Me.tblTorsoDorso.RowCount = 1
+        Me.tblTorsoDorso.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblTorsoDorso.Size = New System.Drawing.Size(444, 758)
+        Me.tblTorsoDorso.TabIndex = 75
         '
         'pnlDatosSeleccion
         '
@@ -539,7 +539,7 @@ Partial Class frmDolor
         Me.Name = "frmDolor"
         Me.Text = "tmpDolor"
         Me.pnlContenedor.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.tblTorsoDorso.ResumeLayout(False)
         Me.pnlDatosSeleccion.ResumeLayout(False)
         Me.pnlDatosSeleccion.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -585,6 +585,6 @@ Partial Class frmDolor
     Friend WithEvents pnlDatosSeleccion As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents txtDescripcion As TextBox
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents tblTorsoDorso As TableLayoutPanel
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

@@ -14,29 +14,29 @@
             archivo.Load(path)
         End If
 
-        Dim gestor As New GestorXML
+        'Dim gestor As New GestorXML
 
-        Return gestor.generarInstancias(archivo)
+        'Return gestor.generarInstancias(archivo)
 
     End Function
 
     Public Sub GuardarFormulario(lista_controles As List(Of Object))
 
-        Dim archivo As New Xml.XmlDocument
-        Dim gestor As New GestorXML
+        'Dim archivo As New Xml.XmlDocument
+        'Dim gestor As New GestorXML
 
-        Dim xmlstring As String = gestor.guardarXML(lista_controles)
-        archivo.LoadXml(xmlstring)
+        'Dim xmlstring As String = gestor.guardarXML(lista_controles)
+        'archivo.LoadXml(xmlstring)
 
-        Dim guardarFormulario As New SaveFileDialog
-        guardarFormulario.Filter = "XML|*.xml"
-        guardarFormulario.Title = "Guardar Formulario"
-        guardarFormulario.RestoreDirectory = True
+        'Dim guardarFormulario As New SaveFileDialog
+        'guardarFormulario.Filter = "XML|*.xml"
+        'guardarFormulario.Title = "Guardar Formulario"
+        'guardarFormulario.RestoreDirectory = True
 
-        If guardarFormulario.ShowDialog() = DialogResult.OK Then
-            Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
-            archivo.Save(path)
-        End If
+        'If guardarFormulario.ShowDialog() = DialogResult.OK Then
+        '    Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
+        '    archivo.Save(path)
+        'End If
 
     End Sub
 

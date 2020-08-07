@@ -74,9 +74,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\ControlesGuardados.vb" />
-    <Compile Include="Clases\FabricaDeControles.vb" />
-    <Compile Include="Clases\GestorXMLv2.vb" />
+    <Compile Include="Clases\Serializacion_Deserializacion\Clases\ControlesGuardados.vb" />
+    <Compile Include="Clases\Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
+    <Compile Include="Clases\Serializacion_Deserializacion\XML\GestorXMLv2.vb" />
     <Compile Include="Clases\Medico.vb" />
     <Compile Include="Clases\Paciente.vb" />
     <Compile Include="Clases\Usuario.vb" />

@@ -21,7 +21,7 @@
         End Set
     End Property
 
-    Sub buildXML(controles_a_guardar As ControlesGuardados)
+    Sub buildXML(controles_a_guardar As ControlesGuardados.ListaControles)
         Dim fname As String = "C:/Users/Mat/Desktop/test.xml"
         Console.WriteLine("Writing")
         Dim serializer As New Xml.Serialization.XmlSerializer(controles_a_guardar.GetType())

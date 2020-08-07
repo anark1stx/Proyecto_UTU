@@ -1,5 +1,5 @@
 ﻿Public Class frmDiagnosticos
-    Dim gestor As New GestorXML
+    'Dim gestor As New GestorXML
     Dim formulario_completo As New formularioPlano 'En esta variable va a ir guardado el formulario completo que diseño y lleno el medico
     Private Sub cbDiagnostico_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDiagnostico.SelectedIndexChanged
         'Cargar el formulario que corresponde al item seleccionado: 
