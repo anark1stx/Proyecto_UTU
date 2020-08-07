@@ -25,12 +25,13 @@ Partial Class frmDolor
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDolor))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.tblTorsoDorso = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlDatosSeleccion = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lbDorso = New System.Windows.Forms.ListBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbTorso = New System.Windows.Forms.ListBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tbDescripcion = New System.Windows.Forms.TableLayoutPanel()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnImprimir = New System.Windows.Forms.Button()
@@ -65,7 +66,7 @@ Partial Class frmDolor
         Me.pnlContenedor.SuspendLayout()
         Me.tblTorsoDorso.SuspendLayout()
         Me.pnlDatosSeleccion.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tbDescripcion.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -73,6 +74,7 @@ Partial Class frmDolor
         Me.pnlContenedor.AutoScroll = True
         Me.pnlContenedor.Controls.Add(Me.tblTorsoDorso)
         Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel1)
+        Me.pnlContenedor.Controls.Add(Me.tbDescripcion)
         Me.pnlContenedor.Controls.Add(Me.btnImprimir)
         Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
@@ -117,7 +119,7 @@ Partial Class frmDolor
         Me.tblTorsoDorso.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblTorsoDorso.Size = New System.Drawing.Size(444, 758)
         Me.tblTorsoDorso.TabIndex = 75
-        '
+
         'pnlDatosSeleccion
         '
         Me.pnlDatosSeleccion.Controls.Add(Me.Label3)
@@ -127,7 +129,7 @@ Partial Class frmDolor
         Me.pnlDatosSeleccion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlDatosSeleccion.Location = New System.Drawing.Point(3, 3)
         Me.pnlDatosSeleccion.Name = "pnlDatosSeleccion"
-        Me.pnlDatosSeleccion.Size = New System.Drawing.Size(438, 752)
+        Me.pnlDatosSeleccion.Size = New System.Drawing.Size(438, 715)
         Me.pnlDatosSeleccion.TabIndex = 73
         '
         'Label3
@@ -135,7 +137,7 @@ Partial Class frmDolor
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(187, 434)
+        Me.Label3.Location = New System.Drawing.Point(186, 416)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 29)
         Me.Label3.TabIndex = 77
@@ -148,9 +150,9 @@ Partial Class frmDolor
         Me.lbDorso.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDorso.FormattingEnabled = True
         Me.lbDorso.ItemHeight = 23
-        Me.lbDorso.Location = New System.Drawing.Point(3, 466)
+        Me.lbDorso.Location = New System.Drawing.Point(6, 455)
         Me.lbDorso.Name = "lbDorso"
-        Me.lbDorso.Size = New System.Drawing.Size(432, 280)
+        Me.lbDorso.Size = New System.Drawing.Size(432, 257)
         Me.lbDorso.TabIndex = 76
         '
         'Label2
@@ -158,7 +160,7 @@ Partial Class frmDolor
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(187, 9)
+        Me.Label2.Location = New System.Drawing.Point(187, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(89, 29)
         Me.Label2.TabIndex = 75
@@ -171,24 +173,24 @@ Partial Class frmDolor
         Me.lbTorso.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbTorso.FormattingEnabled = True
         Me.lbTorso.ItemHeight = 23
-        Me.lbTorso.Location = New System.Drawing.Point(3, 41)
+        Me.lbTorso.Location = New System.Drawing.Point(3, 32)
         Me.lbTorso.Name = "lbTorso"
         Me.lbTorso.Size = New System.Drawing.Size(432, 372)
         Me.lbTorso.TabIndex = 73
         '
-        'TableLayoutPanel1
+        'tbDescripcion
         '
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.txtDescripcion, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(526, 766)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1105, 228)
-        Me.TableLayoutPanel1.TabIndex = 74
+        Me.tbDescripcion.ColumnCount = 1
+        Me.tbDescripcion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tbDescripcion.Controls.Add(Me.txtDescripcion, 0, 1)
+        Me.tbDescripcion.Controls.Add(Me.Label4, 0, 0)
+        Me.tbDescripcion.Location = New System.Drawing.Point(526, 766)
+        Me.tbDescripcion.Name = "tbDescripcion"
+        Me.tbDescripcion.RowCount = 2
+        Me.tbDescripcion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tbDescripcion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196.0!))
+        Me.tbDescripcion.Size = New System.Drawing.Size(1105, 228)
+        Me.tbDescripcion.TabIndex = 74
         '
         'txtDescripcion
         '
@@ -297,7 +299,7 @@ Partial Class frmDolor
         'btnOmoplatoIzq
         '
         Me.btnOmoplatoIzq.BackgroundImage = CType(resources.GetObject("btnOmoplatoIzq.BackgroundImage"), System.Drawing.Image)
-        Me.btnOmoplatoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOmoplatoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnOmoplatoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOmoplatoIzq.Location = New System.Drawing.Point(676, 225)
         Me.btnOmoplatoIzq.Name = "btnOmoplatoIzq"
@@ -308,7 +310,7 @@ Partial Class frmDolor
         'btnOmoplatoDer
         '
         Me.btnOmoplatoDer.BackgroundImage = CType(resources.GetObject("btnOmoplatoDer.BackgroundImage"), System.Drawing.Image)
-        Me.btnOmoplatoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOmoplatoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnOmoplatoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOmoplatoDer.Location = New System.Drawing.Point(1057, 225)
         Me.btnOmoplatoDer.Name = "btnOmoplatoDer"
@@ -542,8 +544,8 @@ Partial Class frmDolor
         Me.tblTorsoDorso.ResumeLayout(False)
         Me.pnlDatosSeleccion.ResumeLayout(False)
         Me.pnlDatosSeleccion.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.tbDescripcion.ResumeLayout(False)
+        Me.tbDescripcion.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -583,8 +585,9 @@ Partial Class frmDolor
     Friend WithEvents Label2 As Label
     Friend WithEvents lbTorso As ListBox
     Friend WithEvents pnlDatosSeleccion As Panel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents tbDescripcion As TableLayoutPanel
     Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents tblTorsoDorso As TableLayoutPanel
+    Public Property TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class
