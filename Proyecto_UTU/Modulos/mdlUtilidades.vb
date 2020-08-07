@@ -1,4 +1,6 @@
-﻿Module mdlUtilidades
+﻿Imports System.IO
+
+Module mdlUtilidades
 
     Public Function ImportarFormulario() As List(Of Object)
 
@@ -6,37 +8,39 @@
         abrirFormulario.Filter = "XML|*.xml"
         abrirFormulario.Title = "Abrir Formulario"
         abrirFormulario.RestoreDirectory = True
-        Dim archivo As New Xml.XmlDocument
         Dim path As String = ""
 
         If abrirFormulario.ShowDialog() = DialogResult.OK Then
             path = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
-            archivo.Load(path)
+            Dim contenido As String = File.ReadAllText(path)
+            Dim gestor As New GestorXMLv2
+
+            Dim ctrls As ControlesGuardados.ListaControles = gestor.Deserializar(Of ControlesGuardados.ListaControles)(contenido)
+
+
         End If
 
-        'Dim gestor As New GestorXML
 
-        'Return gestor.generarInstancias(archivo)
 
     End Function
 
-    Public Sub GuardarFormulario(lista_controles As List(Of Object))
+    Public Sub GuardarFormulario(lista_controles As ControlesGuardados.ListaControles)
 
-        'Dim archivo As New Xml.XmlDocument
-        'Dim gestor As New GestorXML
+        Dim archivo As New Xml.XmlDocument
+        Dim gestor As New GestorXMLv2
 
-        'Dim xmlstring As String = gestor.guardarXML(lista_controles)
-        'archivo.LoadXml(xmlstring)
+        Dim xmlstring As String = gestor.buildXML(lista_controles)
+        archivo.LoadXml(xmlstring)
 
-        'Dim guardarFormulario As New SaveFileDialog
-        'guardarFormulario.Filter = "XML|*.xml"
-        'guardarFormulario.Title = "Guardar Formulario"
-        'guardarFormulario.RestoreDirectory = True
+        Dim guardarFormulario As New SaveFileDialog
+        guardarFormulario.Filter = "XML|*.xml"
+        guardarFormulario.Title = "Guardar Formulario"
+        guardarFormulario.RestoreDirectory = True
 
-        'If guardarFormulario.ShowDialog() = DialogResult.OK Then
-        '    Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
-        '    archivo.Save(path)
-        'End If
+        If guardarFormulario.ShowDialog() = DialogResult.OK Then
+            Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
+            archivo.Save(path)
+        End If
 
     End Sub
 

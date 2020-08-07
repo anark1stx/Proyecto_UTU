@@ -200,7 +200,7 @@
             controlesInstanciados.Add(i)
         Next
 
-        GuardarFormulario(controlesInstanciados)
+        'GuardarFormulario(controlesInstanciados)
 
     End Sub
 
