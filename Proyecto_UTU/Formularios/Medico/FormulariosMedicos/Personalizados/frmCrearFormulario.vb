@@ -6,7 +6,7 @@
     Public ubicacion_mouse As Point
 
     Dim _instancia As New Control
-    Dim controlesInstanciados As New List(Of Object)
+    Dim controlesInstanciados As New List(Of Control)
     Dim control_count As Integer = 0
     Dim temp_control_type As String
 
@@ -195,12 +195,12 @@
             MsgBox("Agregue más controles al formulario personalizado.")
             Exit Sub
         End If
-
+        Dim listaControles As New ControlesGuardados.ListaControles()
         For Each i As Control In frmPlano.Controls
             controlesInstanciados.Add(i)
         Next
-
-        'GuardarFormulario(controlesInstanciados)
+        Dim fbr As New FabricaDeControles()
+        GuardarFormulario(fbr.Serializar(controlesInstanciados))
 
     End Sub
 
@@ -217,11 +217,29 @@
 
         Dim controles = ImportarFormulario()
 
-        For Each control As Control In controles
-
-            frmPlano.Controls.Add(control)
+        For Each c As Control In controles
+            frmPlano.Controls.Add(c)
+            Console.WriteLine(c.Name)
         Next
+
     End Sub
+
+    'Public Sub printNames(controles As ControlesGuardados.ListaControles)
+    '    For Each control As ControlesGuardados.SControl In controles.Controles
+    '        Console.WriteLine(control.Nombre)
+    '        If TypeOf control Is ControlesGuardados.Panel Then
+    '            printChilds(DirectCast(control, ControlesGuardados.Panel).Childs)
+    '        End If
+    '    Next
+    'End Sub
+
+    'Public Sub printChilds(contenedor As List(Of ControlesGuardados.SControl))
+
+    '    For Each c As ControlesGuardados.SControl In contenedor
+    '        Console.WriteLine(c.Nombre)
+    '    Next
+
+    'End Sub
 
     Private Sub frmCrearFormulario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then

@@ -81,49 +81,88 @@
 
         Next
 
-
-
         Return lista
 
     End Function
 
 
 
-    Function Crear(controles As List(Of ControlesGuardados.SControl)) As List(Of Control) 'Control de windows forms
+    Function Crear(controles As ControlesGuardados.ListaControles) As List(Of Control) 'Control de windows forms
         Dim lista As New List(Of Control)
 
+        For Each c As ControlesGuardados.SControl In controles.Controles
 
+            lista.Add(ConstruirControl(c))
 
-
-
-
-
+        Next
 
         Return lista
     End Function
 
-
-    Function ConstruirControl(Control As ControlesGuardados.SControl)
+    Function ConstruirControl(Control As ControlesGuardados.SControl) As Control
 
         Select Case Control.GetType()
             Case GetType(ControlesGuardados.Panel)
-                Console.WriteLine("Es un panel")
+                Return buildPanel(Control)
+            Case GetType(ControlesGuardados.Button)
+                Return buildButton(Control)
+            Case GetType(ControlesGuardados.Textbox)
+                Return buildTextBox(Control)
+            Case GetType(ControlesGuardados.Label)
+                Return buildLabel(Control)
             Case Else
                 Console.WriteLine(Control.GetType().ToString())
-
         End Select
 
     End Function
 
-
-    Function ConstruirControl_Panel(Control As ControlesGuardados.SControl)
-        Dim pnl As New Panel
-
-        Return pnl
+    Function buildPanel(control As ControlesGuardados.Panel) As Panel
+        Return New Panel With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor)
+        }
     End Function
 
+    Function buildButton(control As ControlesGuardados.Button) As Button
+        Return New Button With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .BackgroundImage = control.B64strToBmp()
+        }
+    End Function
+    Function buildTextBox(control As ControlesGuardados.Textbox) As TextBox
+        Return New TextBox With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Text = control.text
+        }
+    End Function
 
-
+    Function buildLabel(control As ControlesGuardados.Label) As Label
+        Return New Label With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Text = control.text
+        }
+    End Function
     Function convertirItemsLBOX(lista As ListBox.ObjectCollection) As String()
         Dim _lista As String() = {}
 
@@ -148,5 +187,10 @@
         End Select
 
     End Function
+
+    Function HTMLTOColor(col As String) As Color
+        Return ColorTranslator.FromHtml(col)
+    End Function
+
 
 End Class

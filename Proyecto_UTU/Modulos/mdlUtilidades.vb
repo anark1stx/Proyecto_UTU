@@ -2,7 +2,7 @@
 
 Module mdlUtilidades
 
-    Public Function ImportarFormulario() As List(Of Object)
+    Public Function ImportarFormulario() As List(Of Control)
 
         Dim abrirFormulario As New OpenFileDialog
         abrirFormulario.Filter = "XML|*.xml"
@@ -14,13 +14,12 @@ Module mdlUtilidades
             path = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
             Dim contenido As String = File.ReadAllText(path)
             Dim gestor As New GestorXMLv2
+            Dim fbr As New FabricaDeControles()
+            Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(contenido)
 
-            Dim ctrls As ControlesGuardados.ListaControles = gestor.Deserializar(Of ControlesGuardados.ListaControles)(contenido)
-
+            Return fbr.Crear(lista)
 
         End If
-
-
 
     End Function
 

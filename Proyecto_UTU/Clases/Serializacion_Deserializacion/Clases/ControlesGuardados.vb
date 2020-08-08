@@ -427,6 +427,7 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
     End Class
 
     Public Class ListaControles
+        <Xml.Serialization.XmlIgnore>
         Public _Controles As List(Of SControl)
         Public Property Controles As List(Of SControl)
             Get

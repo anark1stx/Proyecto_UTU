@@ -110,13 +110,13 @@ Public Class frmMedico
 
                 Dim controles = ImportarFormulario()
 
-                If controles.Count > 1 Then
-                    For Each control As Control In controles
-                        frmPlano.Controls.Add(control)
+                'If controles.Count > 1 Then
+                '    For Each control As Control In controles
+                '        frmPlano.Controls.Add(control)
 
-                    Next
-                    addFrm(frmPlano, 1)
-                End If
+                '    Next
+                '    addFrm(frmPlano, 1)
+                'End If
 
             Case "CrearFormulario"
 
