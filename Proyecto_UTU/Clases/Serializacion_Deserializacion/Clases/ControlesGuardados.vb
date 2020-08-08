@@ -247,7 +247,7 @@ Public Class ControlesGuardados
         <Xml.Serialization.XmlIgnore>
         Public _cols As Integer 'Cantidad de las columnas de la tbl
         <Xml.Serialization.XmlIgnore>
-        Public _tuplaControles As TuplaControlesTBL(Of SControl, Integer, Integer)
+        Public _tuplaControles As List(Of TuplaControlesTBL(Of SControl, Integer, Integer))
         Property Childs As List(Of SControl)
             Get
                 Return _childs
@@ -257,11 +257,11 @@ Public Class ControlesGuardados
             End Set
         End Property
 
-        Property TuplaControles As TuplaControlesTBL(Of SControl, Integer, Integer)
+        Property TuplaControles As List(Of TuplaControlesTBL(Of SControl, Integer, Integer))
             Get
                 Return _tuplaControles
             End Get
-            Set(value As TuplaControlesTBL(Of SControl, Integer, Integer))
+            Set(value As List(Of TuplaControlesTBL(Of SControl, Integer, Integer)))
                 _tuplaControles = value
             End Set
         End Property
@@ -350,7 +350,8 @@ Public Class ControlesGuardados
         Inherits SControl
         <Xml.Serialization.XmlIgnore>
         Public _bgImage As String 'String en base64
-
+        <Xml.Serialization.XmlIgnore>
+        Public _bgLayout As ImageLayout
         Property bgImage As String
             Get
                 Return _bgImage
@@ -361,8 +362,18 @@ Public Class ControlesGuardados
 
             End Set
         End Property
+        Property bgLayout As ImageLayout
+            Get
+                Return _bgLayout
+            End Get
+            Set(value As ImageLayout)
+
+                _bgLayout = value
+
+            End Set
+        End Property
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, bg_Image As Bitmap)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, bg_Image As Bitmap, bg_Layout As ImageLayout)
 
             _posicion = posicion
             _tamano = tamano
@@ -373,6 +384,7 @@ Public Class ControlesGuardados
             _fgColor = fg
             _bgColor = bg
             _bgImage = BmpToStrB64(bg_Image)
+            _bgLayout = bg_Layout
         End Sub
 
         Sub New()
@@ -380,7 +392,7 @@ Public Class ControlesGuardados
         End Sub
 
         Public Function B64strToBmp() As Bitmap
-            If Not _bgImage = 0 Then
+            If Not _bgImage = String.Empty Then
                 Dim ms As New IO.MemoryStream(Convert.FromBase64String(_bgImage))
                 Return Bitmap.FromStream(ms)
                 ms.Close()
@@ -495,8 +507,11 @@ Public Class ControlesGuardados
     End Class
 
     Class TuplaControlesTBL(Of T1, T2, T3)
+        <Xml.Serialization.XmlIgnore>
         Protected __child As T1 'SControl
+        <Xml.Serialization.XmlIgnore>
         Protected __col As T2 'Integer -> Col
+        <Xml.Serialization.XmlIgnore>
         Protected __row As T3 'Integer -> Row
         Public Property Child As T1
             Get
@@ -527,6 +542,10 @@ Public Class ControlesGuardados
             __child = child
             __col = col
             __row = row
+        End Sub
+
+        Sub New()
+
         End Sub
 
     End Class
