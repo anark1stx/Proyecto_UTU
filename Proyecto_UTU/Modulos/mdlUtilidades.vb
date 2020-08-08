@@ -18,6 +18,8 @@ Module mdlUtilidades
             Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(contenido)
 
             Return fbr.Crear(lista)
+        Else
+            Return Nothing
 
         End If
 

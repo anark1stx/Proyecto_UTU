@@ -15,17 +15,34 @@
                         Next
 
                         Dim childs = getChilds(tmp_list)
-                        Console.WriteLine(childs.Count)
-                        Dim pnl As New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, childs)
-                        _lista.Add(pnl) 'Necesario castearlo como panel para sacar esa propiedad
+                        Dim pnl As New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, childs) 'Necesario castearlo como panel para sacar esa propiedad
+                        _lista.Add(pnl)
 
                     End If
                 Case GetType(GroupBox)
                     If c.Controls.Count > 0 Then
                         Dim tmp_list As New List(Of Control)
-                        tmp_list.AddRange(c.Controls)
-                        _lista.Add(New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
 
+                        For Each c2 As Control In c.Controls
+                            tmp_list.Add(c2)
+                        Next
+
+                        Dim childs = getChilds(tmp_list)
+                        Dim gb As New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, childs) 'Necesario castearlo como panel para sacar esa propiedad
+                        _lista.Add(gb)
+                    End If
+                Case GetType(TableLayoutPanel)
+                    If c.Controls.Count > 0 Then
+                        Dim tmp_list As New List(Of Control)
+
+                        For Each c2 As Control In c.Controls
+                            tmp_list.Add(c2)
+                        Next
+
+                        Dim childs = getChilds(tmp_list)
+                        Console.WriteLine("TBL!!")
+                        Dim tb As New ControlesGuardados.TableLayoutPanel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), childs, DirectCast(c, TableLayoutPanel).ColumnCount, DirectCast(c, TableLayoutPanel).RowCount) 'Necesario castearlo como panel para sacar esa propiedad
+                        _lista.Add(tb)
                     End If
                 Case GetType(Label)
                     _lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text))
@@ -50,23 +67,28 @@
 
             Select Case c.GetType()
                 Case GetType(Panel)
+
+                    Dim tmp_list As New List(Of Control)
                     If c.Controls.Count > 0 Then
-                        Dim tmp_list As New List(Of Control)
 
                         For Each c2 As Control In c.Controls
                             tmp_list.Add(c2)
                         Next
 
-                        lista.Add(New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
-
                     End If
+
+                    lista.Add(New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
+
                 Case GetType(GroupBox)
+                    Dim tmp_list As New List(Of Control)
                     If c.Controls.Count > 0 Then
-                        Dim tmp_list As New List(Of Control)
-                        tmp_list.AddRange(c.Controls)
-                        lista.Add(New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
 
+                        For Each c2 As Control In c.Controls
+                            tmp_list.Add(c2)
+                        Next
                     End If
+                    lista.Add(New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
+
                 Case GetType(Label)
                     lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text))
 
@@ -76,6 +98,17 @@
                     lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage))
                 Case GetType(ListBox)
                     lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsLBOX(DirectCast(c, ListBox).Items)))
+                Case GetType(TableLayoutPanel)
+
+                    Dim tmp_list As New List(Of Control)
+                    If c.Controls.Count > 0 Then
+
+                        For Each c2 As Control In c.Controls
+                            tmp_list.Add(c2)
+                        Next
+
+                    End If
+                    lista.Add(New ControlesGuardados.TableLayoutPanel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), getChilds(tmp_list), DirectCast(c, TableLayoutPanel).ColumnCount, DirectCast(c, TableLayoutPanel).RowCount))
 
             End Select
 
@@ -85,15 +118,11 @@
 
     End Function
 
-
-
     Function Crear(controles As ControlesGuardados.ListaControles) As List(Of Control) 'Control de windows forms
         Dim lista As New List(Of Control)
 
         For Each c As ControlesGuardados.SControl In controles.Controles
-
             lista.Add(ConstruirControl(c))
-
         Next
 
         Return lista
@@ -110,26 +139,24 @@
                 Return buildTextBox(Control)
             Case GetType(ControlesGuardados.Label)
                 Return buildLabel(Control)
+            Case GetType(ControlesGuardados.GroupBox)
+                Return buildGroupBox(Control)
+            Case GetType(ControlesGuardados.CheckBox)
+                Return buildCheckBox(Control)
+            Case GetType(ControlesGuardados.ComboBox)
+                Return buildComboBox(Control)
+            Case GetType(ControlesGuardados.ListBox)
+                Return buildListBox(Control)
+            Case GetType(ControlesGuardados.TableLayoutPanel)
+                Return buildTableLayoutPanel(Control)
             Case Else
                 Console.WriteLine(Control.GetType().ToString())
         End Select
 
     End Function
 
-    Function buildPanel(control As ControlesGuardados.Panel) As Panel
-        Return New Panel With {
-            .Name = control.Nombre,
-            .Location = control.Posicion,
-            .Size = control.Tamano,
-            .Dock = control.Dock,
-            .Anchor = control.Anchor,
-            .BackColor = HTMLTOColor(control.BackColor),
-            .ForeColor = HTMLTOColor(control.ForeColor)
-        }
-    End Function
-
-    Function buildButton(control As ControlesGuardados.Button) As Button
-        Return New Button With {
+    Private Function buildTableLayoutPanel(control As ControlesGuardados.TableLayoutPanel) As TableLayoutPanel
+        Dim tb As New TableLayoutPanel With {
             .Name = control.Nombre,
             .Location = control.Posicion,
             .Size = control.Tamano,
@@ -137,8 +164,119 @@
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .BackgroundImage = control.B64strToBmp()
+            .RowCount = control.Rows,
+            .ColumnCount = control.Cols
         }
+
+        For Each c As ControlesGuardados.SControl In control.Childs
+            tb.Controls.Add(ConstruirControl(c))
+        Next
+
+        Return tb
+    End Function
+
+    Private Function buildListBox(control As ControlesGuardados.ListBox) As ListBox
+        Dim lb As New ListBox With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Text = control.text
+        } 'AGREGAR FONT
+        lb.Items.AddRange(control.items)
+        Return lb
+    End Function
+
+    Private Function buildComboBox(control As ControlesGuardados.ComboBox) As ComboBox
+        Dim cb As New ComboBox With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Text = control.text
+        } 'AGREGAR FONT
+        cb.Items.AddRange(control.items)
+        Return cb
+    End Function
+
+    Private Function buildCheckBox(control As ControlesGuardados.CheckBox) As CheckBox
+        Return New CheckBox With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Text = control.text
+        } 'AGREGAR FONT
+    End Function
+
+    Function buildPanel(control As ControlesGuardados.Panel) As Panel
+        Dim pnl As New Panel With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .AutoScroll = control.AutoScroll
+        }
+
+        For Each c As ControlesGuardados.SControl In control.Childs
+            pnl.Controls.Add(ConstruirControl(c))
+        Next
+
+        Return pnl
+    End Function
+
+    Function buildGroupBox(control As ControlesGuardados.GroupBox) As GroupBox
+        Dim gb As New GroupBox With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Text = control.text
+        } 'AGREGAR FONT
+
+        For Each c As ControlesGuardados.SControl In control.Childs
+            gb.Controls.Add(ConstruirControl(c))
+        Next
+
+        Return gb
+    End Function
+
+    Function buildButton(control As ControlesGuardados.Button) As Button
+        Dim btn As New Button With {
+            .Name = control.Nombre,
+            .Location = control.Posicion,
+            .Size = control.Tamano,
+            .Dock = control.Dock,
+            .Anchor = control.Anchor,
+            .BackColor = HTMLTOColor(control.BackColor),
+            .ForeColor = HTMLTOColor(control.ForeColor)
+        } 'AGREGAR TEXT, FONT
+
+        If Not control.bgImage = String.Empty Then
+            Try
+                btn.BackgroundImage = control.B64strToBmp()
+            Catch ex As Exception
+                Console.WriteLine("String no valido")
+            End Try
+
+        End If
+
+        Return btn
     End Function
     Function buildTextBox(control As ControlesGuardados.Textbox) As TextBox
         Return New TextBox With {
@@ -149,7 +287,7 @@
             .Anchor = control.Anchor,
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text
-        }
+        } 'AGREGAR FONT
     End Function
 
     Function buildLabel(control As ControlesGuardados.Label) As Label
@@ -161,7 +299,7 @@
             .Anchor = control.Anchor,
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text
-        }
+        } 'AGREGAR FONT
     End Function
     Function convertirItemsLBOX(lista As ListBox.ObjectCollection) As String()
         Dim _lista As String() = {}

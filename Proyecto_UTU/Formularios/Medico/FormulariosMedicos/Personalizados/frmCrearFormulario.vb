@@ -216,11 +216,17 @@
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
 
         Dim controles = ImportarFormulario()
-
-        For Each c As Control In controles
-            frmPlano.Controls.Add(c)
-            Console.WriteLine(c.Name)
-        Next
+        If Not controles Is Nothing Then
+            For Each c As Control In controles
+                frmPlano.Controls.Add(c)
+                Console.WriteLine(c.Name)
+                If c.Controls.Count > 0 Then
+                    For Each c2 As Control In c.Controls
+                        Console.WriteLine(c2.Name)
+                    Next
+                End If
+            Next
+        End If
 
     End Sub
 

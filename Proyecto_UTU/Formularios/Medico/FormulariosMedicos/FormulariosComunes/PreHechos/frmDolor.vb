@@ -134,6 +134,7 @@
         Dim list As New List(Of Control)
 
         For Each c As Control In pnl.Controls
+            Console.WriteLine(c.Name)
             list.Add(c)
             If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
                 getCtrls(c)
@@ -200,7 +201,7 @@
     End Sub
 
     Sub mLoad() Handles Me.Load
-        TableLayoutPanel1.Anchor += AnchorStyles.Right
+        tblDescripcion.Anchor += AnchorStyles.Right
         tblTorsoDorso.Anchor += AnchorStyles.Right
     End Sub
 

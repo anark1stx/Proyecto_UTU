@@ -1,6 +1,6 @@
 ﻿<Serializable()>
 Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaControles)),
-    <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button))> 'Todos los controles que heredan directamente de SControl
+    <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button)), Xml.Serialization.XmlInclude(GetType(TableLayoutPanel))> 'Todos los controles que heredan directamente de SControl
     Public Class SControl 'Posicion, Nombre y tamaño son las unicas dos propiedades que vamos a tomar de todos los controles de forma obligatoria.
         <Xml.Serialization.XmlIgnore>
         Public _posicion As Point
@@ -208,9 +208,13 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
 
     Public Class TableLayoutPanel 'Si bien TBL esta compuesto de paneles, no nos interesa guardar si tiene autoScroll.
         Inherits SControl
+        <Xml.Serialization.XmlIgnore>
         Public _childs As List(Of SControl)
+        <Xml.Serialization.XmlIgnore>
         Public _rows As Integer 'cantidad de filas de la tbl
+        <Xml.Serialization.XmlIgnore>
         Public _cols As Integer 'Cantidad de las columnas de la tbl
+        Public __childs As Tuple(Of SControl, Integer, Integer) 'Control,col,row
 
         Property Childs As List(Of SControl)
             Get
@@ -239,7 +243,7 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
             End Set
         End Property
 
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
             _posicion = posicion
             _tamano = tamano
             '_tipo = tipo
@@ -335,9 +339,12 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
         End Sub
 
         Public Function B64strToBmp() As Bitmap
-            Dim ms As New IO.MemoryStream(Convert.FromBase64String(_bgImage))
-            Return Bitmap.FromStream(ms)
-            ms.Close()
+            If Not _bgImage = 0 Then
+                Dim ms As New IO.MemoryStream(Convert.FromBase64String(_bgImage))
+                Return Bitmap.FromStream(ms)
+                ms.Close()
+            End If
+            Return Nothing
         End Function
 
         Public Function BmpToStrB64(bmp As Bitmap) As String
@@ -349,7 +356,7 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
                 ms.Close()
             End If
 
-            Return 0
+            Return String.Empty
         End Function
 
     End Class
