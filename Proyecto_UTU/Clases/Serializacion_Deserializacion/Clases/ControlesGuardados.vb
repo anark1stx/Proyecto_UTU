@@ -1,5 +1,5 @@
 ﻿<Serializable()>
-Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaControles)),
+Public Class ControlesGuardados
     <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button)), Xml.Serialization.XmlInclude(GetType(TableLayoutPanel))> 'Todos los controles que heredan directamente de SControl
     Public Class SControl 'Posicion, Nombre y tamaño son las unicas dos propiedades que vamos a tomar de todos los controles de forma obligatoria.
         <Xml.Serialization.XmlIgnore>
@@ -16,6 +16,10 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
         Public _fgColor As String
         <Xml.Serialization.XmlIgnore>
         Public _bgColor As String
+        <Xml.Serialization.XmlIgnore>
+        Public _col As Integer 'Ubicacion en columna de una TBL.
+        <Xml.Serialization.XmlIgnore>
+        Public _row As Integer 'Ubicacion en fila de una TBL.
         Property Posicion As Point
             Get
                 Return _posicion
@@ -75,17 +79,45 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
                 _bgColor = value
             End Set
         End Property
-        'tipo As TipoControl
+
+        Property Col As Integer
+            Get
+                Return _col
+            End Get
+            Set(value As Integer)
+                _col = value
+            End Set
+        End Property
+        Property Row As Integer
+            Get
+                Return _row
+            End Get
+            Set(value As Integer)
+                _row = value
+            End Set
+        End Property
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
+        End Sub
+
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, col As Integer, row As Integer)
+
+            _posicion = posicion
+            _tamano = tamano
+            _nombre = nombre
+            _dock = dock
+            _anchor = anchor
+            _fgColor = fg
+            _bgColor = bg
+            _col = col
+            _row = row
         End Sub
 
         Sub New()
@@ -214,7 +246,6 @@ Public Class ControlesGuardados 'Xml.Serialization.XmlInclude(GetType(ListaContr
         Public _rows As Integer 'cantidad de filas de la tbl
         <Xml.Serialization.XmlIgnore>
         Public _cols As Integer 'Cantidad de las columnas de la tbl
-        Public __childs As Tuple(Of SControl, Integer, Integer) 'Control,col,row
 
         Property Childs As List(Of SControl)
             Get
