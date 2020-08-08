@@ -246,13 +246,23 @@ Public Class ControlesGuardados
         Public _rows As Integer 'cantidad de filas de la tbl
         <Xml.Serialization.XmlIgnore>
         Public _cols As Integer 'Cantidad de las columnas de la tbl
-
+        <Xml.Serialization.XmlIgnore>
+        Public _tuplaControles As TuplaControlesTBL(Of SControl, Integer, Integer)
         Property Childs As List(Of SControl)
             Get
                 Return _childs
             End Get
             Set(value As List(Of SControl))
                 _childs = value
+            End Set
+        End Property
+
+        Property TuplaControles As TuplaControlesTBL(Of SControl, Integer, Integer)
+            Get
+                Return _tuplaControles
+            End Get
+            Set(value As TuplaControlesTBL(Of SControl, Integer, Integer))
+                _tuplaControles = value
             End Set
         End Property
 
@@ -480,6 +490,43 @@ Public Class ControlesGuardados
         End Sub
         Public Sub New(controles As List(Of SControl))
             _Controles = controles
+        End Sub
+
+    End Class
+
+    Class TuplaControlesTBL(Of T1, T2, T3)
+        Protected __child As T1 'SControl
+        Protected __col As T2 'Integer -> Col
+        Protected __row As T3 'Integer -> Row
+        Public Property Child As T1
+            Get
+                Return __child
+            End Get
+            Set(value As T1)
+                __child = value
+            End Set
+        End Property
+        Public Property Col As T2
+            Get
+                Return __col
+            End Get
+            Set(value As T2)
+                __col = value
+            End Set
+        End Property
+        Public Property Row As T3
+            Get
+                Return __row
+            End Get
+            Set(value As T3)
+                __row = value
+            End Set
+        End Property
+
+        Sub New(child As T1, col As T2, row As T3)
+            __child = child
+            __col = col
+            __row = row
         End Sub
 
     End Class
