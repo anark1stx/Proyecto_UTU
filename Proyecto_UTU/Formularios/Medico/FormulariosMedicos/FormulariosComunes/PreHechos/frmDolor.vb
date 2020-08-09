@@ -1,6 +1,5 @@
 ﻿Public Class frmDolor
     Dim memobmp As Bitmap
-    Dim tmpPanel As Panel
     Private m_Rnd As New Random
     Dim listaControles As List(Of Control)
     Public Sub AgregarItemALista(item As String, lista As ListBox, btn As Button)
@@ -114,7 +113,6 @@
         lbTorso.Items.Clear()
     End Sub
 
-
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Dim fbr As New FabricaDeControles
@@ -141,37 +139,16 @@
 
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(0)
-        Imprimir.PrinterSettings.DefaultPageSettings.Margins = New Printing.Margins(0, 0, 0, 0)
-        Imprimir.DefaultPageSettings.Margins = New Printing.Margins(0, 0, 0, 0)
-
-        Print(pnlContenedor)
-
-        hideShowItems(1)
-        pnlContenedor.AutoScroll = False 'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
-        pnlContenedor.AutoScroll = True
-    End Sub
-
-    Public Sub Print(pnl As Panel)
-        tmpPanel = pnl
-        Imprimir.DefaultPageSettings.Landscape = True
-        getPrintArea(pnl)
+        hideShowItems(False)
+        pnlContenedor.AutoScroll = False
+        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
         PrintPreviewDialog1.Document = Imprimir
+        pnlContenedor.AutoScroll = True
         PrintPreviewDialog1.ShowDialog()
-        'Imprimir.Print()
-    End Sub
 
-    Public Sub getPrintArea(pnl As Panel)
-        memobmp = New Bitmap(pnl.Width, pnl.Height)
-        pnl.DrawToBitmap(memobmp, New Rectangle(0, 0, pnl.DisplayRectangle.Width, pnl.DisplayRectangle.Height))
-    End Sub
+        'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
 
-    Protected Overrides Sub OnPaint(e As PaintEventArgs)
-        If memobmp IsNot Nothing Then
-            e.Graphics.DrawImage(memobmp, 0, 0)
-            MyBase.OnPaint(e)
-        End If
-
+        hideShowItems(True)
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
