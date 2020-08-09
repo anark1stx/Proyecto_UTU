@@ -254,6 +254,7 @@ Partial Class frmDolor
         '
         Me.btnColDorsalDer.BackgroundImage = CType(resources.GetObject("btnColDorsalDer.BackgroundImage"), System.Drawing.Image)
         Me.btnColDorsalDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnColDorsalDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColDorsalDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnColDorsalDer.Location = New System.Drawing.Point(937, 300)
         Me.btnColDorsalDer.Name = "btnColDorsalDer"
@@ -265,6 +266,7 @@ Partial Class frmDolor
         '
         Me.btnColLumbarDer.BackgroundImage = CType(resources.GetObject("btnColLumbarDer.BackgroundImage"), System.Drawing.Image)
         Me.btnColLumbarDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnColLumbarDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColLumbarDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnColLumbarDer.Location = New System.Drawing.Point(937, 496)
         Me.btnColLumbarDer.Name = "btnColLumbarDer"
@@ -276,6 +278,7 @@ Partial Class frmDolor
         '
         Me.btnColLumbarIzq.BackgroundImage = CType(resources.GetObject("btnColLumbarIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnColLumbarIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnColLumbarIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColLumbarIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnColLumbarIzq.Location = New System.Drawing.Point(803, 496)
         Me.btnColLumbarIzq.Name = "btnColLumbarIzq"
@@ -287,6 +290,7 @@ Partial Class frmDolor
         '
         Me.btnColDorsalIzq.BackgroundImage = CType(resources.GetObject("btnColDorsalIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnColDorsalIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnColDorsalIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColDorsalIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnColDorsalIzq.Location = New System.Drawing.Point(803, 300)
         Me.btnColDorsalIzq.Name = "btnColDorsalIzq"
@@ -298,6 +302,7 @@ Partial Class frmDolor
         '
         Me.btnOmoplatoIzq.BackgroundImage = CType(resources.GetObject("btnOmoplatoIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnOmoplatoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOmoplatoIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnOmoplatoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOmoplatoIzq.Location = New System.Drawing.Point(676, 225)
         Me.btnOmoplatoIzq.Name = "btnOmoplatoIzq"
@@ -309,6 +314,7 @@ Partial Class frmDolor
         '
         Me.btnOmoplatoDer.BackgroundImage = CType(resources.GetObject("btnOmoplatoDer.BackgroundImage"), System.Drawing.Image)
         Me.btnOmoplatoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOmoplatoDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnOmoplatoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOmoplatoDer.Location = New System.Drawing.Point(1057, 225)
         Me.btnOmoplatoDer.Name = "btnOmoplatoDer"
@@ -320,6 +326,7 @@ Partial Class frmDolor
         '
         Me.btnCervicales.BackgroundImage = CType(resources.GetObject("btnCervicales.BackgroundImage"), System.Drawing.Image)
         Me.btnCervicales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCervicales.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCervicales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCervicales.Location = New System.Drawing.Point(803, 164)
         Me.btnCervicales.Name = "btnCervicales"
@@ -331,6 +338,7 @@ Partial Class frmDolor
         '
         Me.btnCabezaDerBack.BackgroundImage = CType(resources.GetObject("btnCabezaDerBack.BackgroundImage"), System.Drawing.Image)
         Me.btnCabezaDerBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnCabezaDerBack.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCabezaDerBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCabezaDerBack.Location = New System.Drawing.Point(937, 5)
         Me.btnCabezaDerBack.Name = "btnCabezaDerBack"
@@ -342,6 +350,7 @@ Partial Class frmDolor
         '
         Me.btnCabezaIzqBack.BackgroundImage = CType(resources.GetObject("btnCabezaIzqBack.BackgroundImage"), System.Drawing.Image)
         Me.btnCabezaIzqBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnCabezaIzqBack.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCabezaIzqBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCabezaIzqBack.Location = New System.Drawing.Point(857, 5)
         Me.btnCabezaIzqBack.Name = "btnCabezaIzqBack"
@@ -353,6 +362,7 @@ Partial Class frmDolor
         '
         Me.btnPiernaIzq.BackgroundImage = CType(resources.GetObject("btnPiernaIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnPiernaIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPiernaIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPiernaIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPiernaIzq.Location = New System.Drawing.Point(356, 564)
         Me.btnPiernaIzq.Name = "btnPiernaIzq"
@@ -364,6 +374,7 @@ Partial Class frmDolor
         '
         Me.btnPiernaDer.BackgroundImage = CType(resources.GetObject("btnPiernaDer.BackgroundImage"), System.Drawing.Image)
         Me.btnPiernaDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPiernaDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPiernaDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPiernaDer.Location = New System.Drawing.Point(200, 564)
         Me.btnPiernaDer.Name = "btnPiernaDer"
@@ -375,6 +386,7 @@ Partial Class frmDolor
         '
         Me.btnAbdominalIzq.BackgroundImage = CType(resources.GetObject("btnAbdominalIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnAbdominalIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAbdominalIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAbdominalIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAbdominalIzq.Location = New System.Drawing.Point(356, 363)
         Me.btnAbdominalIzq.Name = "btnAbdominalIzq"
@@ -386,6 +398,7 @@ Partial Class frmDolor
         '
         Me.btnAbdominalDer.BackgroundImage = CType(resources.GetObject("btnAbdominalDer.BackgroundImage"), System.Drawing.Image)
         Me.btnAbdominalDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAbdominalDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAbdominalDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAbdominalDer.Location = New System.Drawing.Point(245, 363)
         Me.btnAbdominalDer.Name = "btnAbdominalDer"
@@ -397,6 +410,7 @@ Partial Class frmDolor
         '
         Me.btnManoIzq.BackgroundImage = CType(resources.GetObject("btnManoIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnManoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnManoIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnManoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnManoIzq.Location = New System.Drawing.Point(599, 539)
         Me.btnManoIzq.Name = "btnManoIzq"
@@ -408,6 +422,7 @@ Partial Class frmDolor
         '
         Me.btnManoDer.BackgroundImage = CType(resources.GetObject("btnManoDer.BackgroundImage"), System.Drawing.Image)
         Me.btnManoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnManoDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnManoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnManoDer.Location = New System.Drawing.Point(3, 539)
         Me.btnManoDer.Name = "btnManoDer"
@@ -419,6 +434,7 @@ Partial Class frmDolor
         '
         Me.btnBrazoIzq.BackgroundImage = CType(resources.GetObject("btnBrazoIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnBrazoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnBrazoIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnBrazoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBrazoIzq.Location = New System.Drawing.Point(526, 363)
         Me.btnBrazoIzq.Name = "btnBrazoIzq"
@@ -430,6 +446,7 @@ Partial Class frmDolor
         '
         Me.btnBrazoDer.BackgroundImage = CType(resources.GetObject("btnBrazoDer.BackgroundImage"), System.Drawing.Image)
         Me.btnBrazoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnBrazoDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnBrazoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBrazoDer.Location = New System.Drawing.Point(69, 363)
         Me.btnBrazoDer.Name = "btnBrazoDer"
@@ -441,6 +458,7 @@ Partial Class frmDolor
         '
         Me.btnPechoIzq.BackgroundImage = CType(resources.GetObject("btnPechoIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnPechoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnPechoIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPechoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPechoIzq.Location = New System.Drawing.Point(356, 248)
         Me.btnPechoIzq.Name = "btnPechoIzq"
@@ -452,6 +470,7 @@ Partial Class frmDolor
         '
         Me.btnPechoDer.BackgroundImage = CType(resources.GetObject("btnPechoDer.BackgroundImage"), System.Drawing.Image)
         Me.btnPechoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnPechoDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPechoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPechoDer.Location = New System.Drawing.Point(245, 248)
         Me.btnPechoDer.Name = "btnPechoDer"
@@ -463,6 +482,7 @@ Partial Class frmDolor
         '
         Me.btnHombroDer.BackgroundImage = CType(resources.GetObject("btnHombroDer.BackgroundImage"), System.Drawing.Image)
         Me.btnHombroDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnHombroDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnHombroDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHombroDer.Location = New System.Drawing.Point(149, 248)
         Me.btnHombroDer.Name = "btnHombroDer"
@@ -474,6 +494,7 @@ Partial Class frmDolor
         '
         Me.btnHombroIzq.BackgroundImage = CType(resources.GetObject("btnHombroIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnHombroIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnHombroIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnHombroIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHombroIzq.Location = New System.Drawing.Point(467, 248)
         Me.btnHombroIzq.Name = "btnHombroIzq"
@@ -485,6 +506,7 @@ Partial Class frmDolor
         '
         Me.btnCuello.BackgroundImage = CType(resources.GetObject("btnCuello.BackgroundImage"), System.Drawing.Image)
         Me.btnCuello.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCuello.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCuello.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCuello.Location = New System.Drawing.Point(245, 164)
         Me.btnCuello.Name = "btnCuello"
@@ -496,6 +518,7 @@ Partial Class frmDolor
         '
         Me.btnCabezaIzq.BackgroundImage = CType(resources.GetObject("btnCabezaIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnCabezaIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnCabezaIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCabezaIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCabezaIzq.Location = New System.Drawing.Point(356, 5)
         Me.btnCabezaIzq.Name = "btnCabezaIzq"
@@ -507,6 +530,7 @@ Partial Class frmDolor
         '
         Me.btnCabezaDer.BackgroundImage = CType(resources.GetObject("btnCabezaDer.BackgroundImage"), System.Drawing.Image)
         Me.btnCabezaDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnCabezaDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCabezaDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCabezaDer.Location = New System.Drawing.Point(274, 5)
         Me.btnCabezaDer.Name = "btnCabezaDer"

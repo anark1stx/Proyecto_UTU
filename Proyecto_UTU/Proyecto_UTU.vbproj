@@ -267,6 +267,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\mdlChecker.vb" />
+    <Compile Include="Modulos\mdlConexionBD.vb" />
     <Compile Include="Modulos\mdlGestionControles.vb" />
     <Compile Include="Modulos\mdlMensajes.vb" />
     <Compile Include="Modulos\mdlUtilidades.vb" />

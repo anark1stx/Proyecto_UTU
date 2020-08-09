@@ -121,10 +121,6 @@
 
         Dim lista As New List(Of Control)
         lista = getCtrls(Me)
-        'Dim gestor As New GestorXMLv2
-
-        'Dim _controles As New ControlesGuardados.ListaControles(fbr.Serializar(lista))
-
         GuardarFormulario(fbr.Serializar(lista))
 
     End Sub

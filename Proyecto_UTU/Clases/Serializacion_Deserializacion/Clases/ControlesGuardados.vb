@@ -130,7 +130,8 @@ Public Class ControlesGuardados
         Inherits SControl
         <Xml.Serialization.XmlIgnore>
         Public _texto As String
-        'Public _font As Font
+        <Xml.Serialization.XmlIgnore>
+        Public _font As String
         Property text As String
             Get
                 Return _texto
@@ -139,31 +140,46 @@ Public Class ControlesGuardados
                 _texto = value
             End Set
         End Property
-        'Property fuente As Font
-        '    Get
-        '        Return
-        '    End Get
-        '    Set(value As Font)
-        '        _font = value
-        '    End Set
-        'End Property
-        'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
+        Property Font As String
+            Get
+                Return _font
+            End Get
+            Set(value As String)
+                _font = value
+            End Set
+        End Property
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            '_font = fuente
+            _font = FontToStr(font)
         End Sub
         Sub New()
 
         End Sub
+
+        Public Function StrToFont() As Font
+
+            Dim fntConverter As New FontConverter()
+
+            Return fntConverter.ConvertFromString(_font)
+
+        End Function
+        Public Function FontToStr(fnt As Font) As String
+
+            Dim fntConverter As New FontConverter()
+
+            Return fntConverter.ConvertToString(fnt)
+
+        End Function
+
+
     End Class
     Public Class Panel
         Inherits SControl
@@ -222,19 +238,18 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, Childs As List(Of SControl))
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, Childs As List(Of SControl), font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            '_font = fuente
             _childs = Childs
+            _font = FontToStr(font)
         End Sub
     End Class
 
@@ -246,8 +261,6 @@ Public Class ControlesGuardados
         Public _rows As Integer 'cantidad de filas de la tbl
         <Xml.Serialization.XmlIgnore>
         Public _cols As Integer 'Cantidad de las columnas de la tbl
-        <Xml.Serialization.XmlIgnore>
-        Public _tuplaControles As List(Of TuplaControlesTBL(Of SControl, Integer, Integer))
         Property Childs As List(Of SControl)
             Get
                 Return _childs
@@ -257,14 +270,6 @@ Public Class ControlesGuardados
             End Set
         End Property
 
-        Property TuplaControles As List(Of TuplaControlesTBL(Of SControl, Integer, Integer))
-            Get
-                Return _tuplaControles
-            End Get
-            Set(value As List(Of TuplaControlesTBL(Of SControl, Integer, Integer)))
-                _tuplaControles = value
-            End Set
-        End Property
 
         Property Cols As Integer
             Get
@@ -287,13 +292,11 @@ Public Class ControlesGuardados
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            '_font = fuente
             _childs = Childs
             _cols = cols
             _rows = rows
@@ -310,19 +313,17 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            '_font = fuente
+            _font = FontToStr(font)
         End Sub
     End Class
 
@@ -331,18 +332,17 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            '_font = fuente
+            _font = FontToStr(font)
         End Sub
     End Class
 
@@ -428,18 +428,17 @@ Public Class ControlesGuardados
             End Set
         End Property
         'tipo As TipoControl
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String())
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _items = items
-            '_font = font
+            _font = FontToStr(font)
         End Sub
 
         Sub New()
@@ -452,18 +451,17 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _texto = texto
-            '_font = fuente
+            _font = FontToStr(font)
         End Sub
     End Class
 
@@ -472,17 +470,17 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String())
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
             _items = items
+            _font = FontToStr(font)
         End Sub
     End Class
 
@@ -502,50 +500,6 @@ Public Class ControlesGuardados
         End Sub
         Public Sub New(controles As List(Of SControl))
             _Controles = controles
-        End Sub
-
-    End Class
-
-    Class TuplaControlesTBL(Of T1, T2, T3)
-        <Xml.Serialization.XmlIgnore>
-        Protected __child As T1 'SControl
-        <Xml.Serialization.XmlIgnore>
-        Protected __col As T2 'Integer -> Col
-        <Xml.Serialization.XmlIgnore>
-        Protected __row As T3 'Integer -> Row
-        Public Property Child As T1
-            Get
-                Return __child
-            End Get
-            Set(value As T1)
-                __child = value
-            End Set
-        End Property
-        Public Property Col As T2
-            Get
-                Return __col
-            End Get
-            Set(value As T2)
-                __col = value
-            End Set
-        End Property
-        Public Property Row As T3
-            Get
-                Return __row
-            End Get
-            Set(value As T3)
-                __row = value
-            End Set
-        End Property
-
-        Sub New(child As T1, col As T2, row As T3)
-            __child = child
-            __col = col
-            __row = row
-        End Sub
-
-        Sub New()
-
         End Sub
 
     End Class
