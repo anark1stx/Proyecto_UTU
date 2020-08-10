@@ -16,6 +16,7 @@
 
                         Dim childs = getChilds(tmp_list)
                         Dim pnl As New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, childs) 'Necesario castearlo como panel para sacar esa propiedad
+                        Console.WriteLine(c.Location)
                         _lista.Add(pnl)
 
                     End If
@@ -33,14 +34,9 @@
                     End If
                 Case GetType(TableLayoutPanel)
                     If c.Controls.Count > 0 Then
-                        Dim tmp_list As New List(Of Control)
+                        Dim cTBL = DirectCast(c, TableLayoutPanel)
 
-                        For Each c2 As Control In c.Controls
-                            tmp_list.Add(c2)
-                        Next
-
-                        Dim childs = getChilds(tmp_list)
-                        Dim tb As New ControlesGuardados.TableLayoutPanel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), returnChildsTBL(DirectCast(c, TableLayoutPanel)), DirectCast(c, TableLayoutPanel).ColumnCount, DirectCast(c, TableLayoutPanel).RowCount) 'Necesario castearlo como panel para sacar esa propiedad
+                        Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount) 'Necesario castearlo como panel para sacar esa propiedad
                         _lista.Add(tb)
                     End If
                 Case GetType(Label)
@@ -61,6 +57,7 @@
     End Function
 
     Function returnChildsTBL(tbl As TableLayoutPanel) As List(Of ControlesGuardados.TBLControl)
+
         Dim tblControlList As New List(Of ControlesGuardados.TBLControl)
 
         Dim childs As New List(Of Control)
@@ -70,11 +67,15 @@
         Next
 
         Dim scontrol_childs = getChilds(childs)
-
         For Each c As Control In childs
+
+            Console.WriteLine(c.Name)
             For Each c2 As ControlesGuardados.SControl In scontrol_childs
-                Dim col = tbl.GetColumn(c)
-                Dim row = tbl.GetRow(c)
+
+                Dim cell = tbl.GetPositionFromControl(c)
+                Dim col = cell.Column
+                Dim row = cell.Row
+                Console.WriteLine(col.ToString() & " " & row.ToString())
                 tblControlList.Add(New ControlesGuardados.TBLControl(c2, col, row))
             Next
 
@@ -98,7 +99,7 @@
                         Next
 
                     End If
-
+                    Console.WriteLine(c.Location)
                     lista.Add(New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
 
                 Case GetType(GroupBox)
@@ -122,16 +123,10 @@
                     lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsLBOX(DirectCast(c, ListBox).Items), c.Font))
                 Case GetType(TableLayoutPanel)
 
-                    Dim tmp_list As New List(Of Control)
-                    If c.Controls.Count > 0 Then
+                    Dim cTBL = DirectCast(c, TableLayoutPanel)
 
-                        For Each c2 As Control In c.Controls
-                            tmp_list.Add(c2)
-                        Next
-
-                    End If
-                    lista.Add(New ControlesGuardados.TableLayoutPanel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), getChilds(tmp_list), DirectCast(c, TableLayoutPanel).ColumnCount, DirectCast(c, TableLayoutPanel).RowCount))
-
+                    Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount) 'Necesario castearlo como panel para sacar esa propiedad
+                    lista.Add(tb)
             End Select
 
         Next
@@ -185,13 +180,21 @@
             .Dock = control.Dock,
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
-            .ForeColor = HTMLTOColor(control.ForeColor),
-            .RowCount = control.Rows,
-            .ColumnCount = control.Cols
+            .ForeColor = HTMLTOColor(control.ForeColor)
         }
 
-        For Each c As ControlesGuardados.SControl In control.Childs
-            tb.Controls.Add(ConstruirControl(c))
+        For Each c As ControlesGuardados.TBLControl In control.ChildsTuple
+            For i = 0 To control.Cols
+                tb.ColumnCount += 1
+                For j = 0 To control.Rows
+                    tb.RowCount += 1
+                    Dim ctrl = ConstruirControl(c.Control)
+                    Dim cell = New TableLayoutPanelCellPosition(c.ColIndex, c.RowIndex)
+                    tb.SetCellPosition(ctrl, cell)
+                Next
+
+            Next
+
         Next
         Return tb
     End Function

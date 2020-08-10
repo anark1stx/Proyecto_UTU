@@ -16,10 +16,6 @@ Public Class ControlesGuardados
         Public _fgColor As String
         <Xml.Serialization.XmlIgnore>
         Public _bgColor As String
-        <Xml.Serialization.XmlIgnore>
-        Public _col As Integer 'Ubicacion en columna de una TBL.
-        <Xml.Serialization.XmlIgnore>
-        Public _row As Integer 'Ubicacion en fila de una TBL.
         Property Posicion As Point
             Get
                 Return _posicion
@@ -79,23 +75,6 @@ Public Class ControlesGuardados
                 _bgColor = value
             End Set
         End Property
-
-        Property Col As Integer
-            Get
-                Return _col
-            End Get
-            Set(value As Integer)
-                _col = value
-            End Set
-        End Property
-        Property Row As Integer
-            Get
-                Return _row
-            End Get
-            Set(value As Integer)
-                _row = value
-            End Set
-        End Property
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String)
 
             _posicion = posicion
@@ -105,19 +84,6 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-        End Sub
-
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, col As Integer, row As Integer)
-
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = dock
-            _anchor = anchor
-            _fgColor = fg
-            _bgColor = bg
-            _col = col
-            _row = row
         End Sub
 
         Sub New()
@@ -208,12 +174,10 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        'tipo As TipoControl
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, autoSctroll As Boolean, childs As List(Of SControl))
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
@@ -298,18 +262,18 @@ Public Class ControlesGuardados
             End Set
         End Property
 
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = dock
-            _anchor = anchor
-            _fgColor = fg
-            _bgColor = bg
-            _childs = Childs
-            _cols = cols
-            _rows = rows
-        End Sub
+        'Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
+        '    _posicion = posicion
+        '    _tamano = tamano
+        '    _nombre = nombre
+        '    _dock = dock
+        '    _anchor = anchor
+        '    _fgColor = fg
+        '    _bgColor = bg
+        '    _childs = Childs
+        '    _cols = cols
+        '    _rows = rows
+        'End Sub
 
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, childs As List(Of TBLControl), cols As Integer, rows As Integer)
             _posicion = posicion
@@ -394,12 +358,10 @@ Public Class ControlesGuardados
 
             End Set
         End Property
-        'tipo As TipoControl
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, bg_Image As Bitmap, bg_Layout As ImageLayout)
 
             _posicion = posicion
             _tamano = tamano
-            '_tipo = tipo
             _nombre = nombre
             _dock = dock
             _anchor = anchor
@@ -569,7 +531,6 @@ Public Class ControlesGuardados
             _colIndex = colIndex
             _rowIndex = rowIndex
         End Sub
-
 
     End Class
 
