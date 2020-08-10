@@ -220,21 +220,11 @@ Public Class ControlesGuardados
     Public Class TableLayoutPanel 'Si bien TBL esta compuesto de paneles, no nos interesa guardar si tiene autoScroll.
         Inherits SControl
         <Xml.Serialization.XmlIgnore>
-        Public _childs As List(Of SControl)
-        <Xml.Serialization.XmlIgnore>
         Public __childs As List(Of TBLControl)
         <Xml.Serialization.XmlIgnore>
         Public _rows As Integer 'cantidad de filas de la tbl
         <Xml.Serialization.XmlIgnore>
         Public _cols As Integer 'Cantidad de las columnas de la tbl
-        Property Childs As List(Of SControl)
-            Get
-                Return _childs
-            End Get
-            Set(value As List(Of SControl))
-                _childs = value
-            End Set
-        End Property
         Property ChildsTuple As List(Of TBLControl)
             Get
                 Return __childs
@@ -262,18 +252,6 @@ Public Class ControlesGuardados
             End Set
         End Property
 
-        'Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Childs As List(Of SControl), cols As Integer, rows As Integer)
-        '    _posicion = posicion
-        '    _tamano = tamano
-        '    _nombre = nombre
-        '    _dock = dock
-        '    _anchor = anchor
-        '    _fgColor = fg
-        '    _bgColor = bg
-        '    _childs = Childs
-        '    _cols = cols
-        '    _rows = rows
-        'End Sub
 
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, childs As List(Of TBLControl), cols As Integer, rows As Integer)
             _posicion = posicion

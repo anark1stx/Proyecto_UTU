@@ -180,22 +180,36 @@
             .Dock = control.Dock,
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
-            .ForeColor = HTMLTOColor(control.ForeColor)
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .ColumnCount = control.Cols,
+            .RowCount = control.Rows
         }
+        'SERIALIZAR ROWSTYLESCOLLECTION Y COLSTYLESCOLLECTION
+
+        'For i = 0 To control.Cols
+        '    If i = 0 Then
+        '        Exit For
+        '    End If
+        '    tb.ColumnCount = i
+        '    tb.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+
+        'Next i
+
+        'For j = 0 To control.Rows
+        '    If j = 0 Then
+        '        Exit For
+        '    End If
+        '    tb.RowCount = j
+        '    tb.RowStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+
+        'Next j
 
         For Each c As ControlesGuardados.TBLControl In control.ChildsTuple
-            For i = 0 To control.Cols
-                tb.ColumnCount += 1
-                For j = 0 To control.Rows
-                    tb.RowCount += 1
-                    Dim ctrl = ConstruirControl(c.Control)
-                    Dim cell = New TableLayoutPanelCellPosition(c.ColIndex, c.RowIndex)
-                    tb.SetCellPosition(ctrl, cell)
-                Next
 
-            Next
-
+            'Dim ctrl = ConstruirControl(c.Control)
+            tb.Controls.Add(ConstruirControl(c.Control), c.ColIndex, c.RowIndex)
         Next
+
         Return tb
     End Function
 

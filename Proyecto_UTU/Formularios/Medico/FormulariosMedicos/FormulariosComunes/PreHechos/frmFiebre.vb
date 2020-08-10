@@ -138,9 +138,30 @@
         Next
     End Sub
 
+
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        '->GuardarEnBD()
+
+        Dim fbr As New FabricaDeControles
+
+        Dim lista As New List(Of Control)
+        lista = getCtrls(Me)
+        GuardarFormulario(fbr.Serializar(lista))
+
     End Sub
+
+    Public Function getCtrls(pnl As Control) As List(Of Control)
+
+        Dim list As New List(Of Control)
+
+        For Each c As Control In pnl.Controls
+            list.Add(c)
+            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
+                getCtrls(c)
+            End If
+        Next
+        Return list
+    End Function
+
 
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
