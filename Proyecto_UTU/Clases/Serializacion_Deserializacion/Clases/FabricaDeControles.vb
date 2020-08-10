@@ -40,7 +40,7 @@
                         Next
 
                         Dim childs = getChilds(tmp_list)
-                        Dim tb As New ControlesGuardados.TableLayoutPanel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), childs, DirectCast(c, TableLayoutPanel).ColumnCount, DirectCast(c, TableLayoutPanel).RowCount) 'Necesario castearlo como panel para sacar esa propiedad
+                        Dim tb As New ControlesGuardados.TableLayoutPanel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), returnChildsTBL(DirectCast(c, TableLayoutPanel)), DirectCast(c, TableLayoutPanel).ColumnCount, DirectCast(c, TableLayoutPanel).RowCount) 'Necesario castearlo como panel para sacar esa propiedad
                         _lista.Add(tb)
                     End If
                 Case GetType(Label)
@@ -58,6 +58,29 @@
         Next
         Dim lista As New ControlesGuardados.ListaControles(_lista)
         Return lista
+    End Function
+
+    Function returnChildsTBL(tbl As TableLayoutPanel) As List(Of ControlesGuardados.TBLControl)
+        Dim tblControlList As New List(Of ControlesGuardados.TBLControl)
+
+        Dim childs As New List(Of Control)
+
+        For Each c As Control In tbl.Controls
+            childs.Add(c)
+        Next
+
+        Dim scontrol_childs = getChilds(childs)
+
+        For Each c As Control In childs
+            For Each c2 As ControlesGuardados.SControl In scontrol_childs
+                Dim col = tbl.GetColumn(c)
+                Dim row = tbl.GetRow(c)
+                tblControlList.Add(New ControlesGuardados.TBLControl(c2, col, row))
+            Next
+
+        Next
+
+        Return tblControlList
     End Function
 
     Function getChilds(controles As List(Of Control)) As List(Of ControlesGuardados.SControl)

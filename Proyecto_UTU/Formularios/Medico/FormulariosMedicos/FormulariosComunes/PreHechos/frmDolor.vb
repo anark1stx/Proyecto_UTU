@@ -137,7 +137,6 @@
         Return list
     End Function
 
-
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(False)
         pnlContenedor.AutoScroll = False
