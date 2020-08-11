@@ -4,15 +4,13 @@
     Dim frmMed As New frmMedico
     Dim frmPac As New frmPaciente
 
-
-
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
         If verificar_usr(CONNECTION_STRING(txtIngresarCi.Text, txtIngresarContrasena.Text)) = 0 Then
             lblMensajeErrorCI.Visible = True
         Else
             lblMensajeErrorCI.Visible = False
-            determinarUsr()
+            determinarUsr(txtIngresarCi.Text)
         End If
 
     End Sub

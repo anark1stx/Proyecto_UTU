@@ -27,11 +27,6 @@
 
     Public Sub _MouseUp(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.Move
 
-
-
     End Sub
-
-
-
 
 End Class

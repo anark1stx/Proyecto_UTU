@@ -13,7 +13,6 @@
     Dim txtSintomas_ingresados As Integer = 0 'Esto va a servir para cuando tengamos el DER del predictivo definitivo, solo vamos a tomar x sintomas.
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
-    Dim dragging As Boolean = False
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         frmPlano.TopLevel = False
         frmPlano.TopMost = True
@@ -218,35 +217,19 @@
         Dim controles = ImportarFormulario()
         If Not controles Is Nothing Then
             For Each c As Control In controles
-                frmPlano.Controls.Add(c)
-                Console.WriteLine(c.Name)
+
                 If c.Controls.Count > 0 Then
                     For Each c2 As Control In c.Controls
-                        Console.WriteLine(c2.Name)
+                        c2.Location = New Point(c2.Location.X + frmPlano.Left, c2.Location.Y + Me.Location.Y + pnlFormularioPersonalizado.Location.Y)
                     Next
+
+                    frmPlano.Controls.Add(c)
+
                 End If
             Next
         End If
 
     End Sub
-
-    'Public Sub printNames(controles As ControlesGuardados.ListaControles)
-    '    For Each control As ControlesGuardados.SControl In controles.Controles
-    '        Console.WriteLine(control.Nombre)
-    '        If TypeOf control Is ControlesGuardados.Panel Then
-    '            printChilds(DirectCast(control, ControlesGuardados.Panel).Childs)
-    '        End If
-    '    Next
-    'End Sub
-
-    'Public Sub printChilds(contenedor As List(Of ControlesGuardados.SControl))
-
-    '    For Each c As ControlesGuardados.SControl In contenedor
-    '        Console.WriteLine(c.Nombre)
-    '    Next
-
-    'End Sub
-
     Private Sub frmCrearFormulario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True

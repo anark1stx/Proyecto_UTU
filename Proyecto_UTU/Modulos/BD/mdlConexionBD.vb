@@ -7,18 +7,16 @@
     Public Function Conectar() As Integer
         Try
             conn.Open(_str)
-            Return 1
         Catch ex As Exception
-            MsgBox(ex.Message)
             Return 0
         End Try
     End Function
 
-    Public Function verificar_usr(connection_string As String)
+    Public Function verificar_usr(connection_string As String) As Integer
         Try
             conn.Open(connection_string)
             _str = connection_string
-            Return 1
+            conn.Close()
         Catch ex As Exception
             Return 0
         End Try
@@ -26,7 +24,9 @@
 
     'Cerrar conexión'
     Public Sub Cerrar()
-        conn.Close()
+        If Not conn.State = ConnectionState.Closed Then
+            conn.Close()
+        End If
     End Sub
 
     'Retornamos los datos de la conexión como String'
@@ -35,7 +35,7 @@
         Return myConnectionString
     End Function
 
-    Public Function CONNECTION_STRING_USRPublico()
+    Public Function CONNECTION_STRING_USRPublico() As String
         Dim myConnectionString As String = "DSN=SIBIM;UID=publico;PWD=us3r_c0nsult4;"
         Return myConnectionString
     End Function
