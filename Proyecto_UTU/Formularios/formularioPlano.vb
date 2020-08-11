@@ -8,8 +8,6 @@
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
 
             ubicacion_mouse = e.Location
-            ctrl_seleccionado = sender
-            ctrl_seleccionado.BringToFront()
         End If
 
     End Sub
@@ -18,14 +16,21 @@
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
 
+            ctrl_seleccionado = sender
             sender.Left = e.X + sender.Left - ubicacion_mouse.X
             sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
-
         End If
 
     End Sub
 
-    Public Sub _MouseUp(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.Move
+    Public Sub _MouseUp(ByVal sender As System.Object, ByVal e As MouseEventArgs)
+        If sender.Left < Me.Left Then
+
+            Dim contenedor = DirectCast(sender, Control).Parent
+            contenedor.Controls.Remove(DirectCast(sender, Control))
+        Else
+            ctrl_seleccionado = Nothing
+        End If
 
     End Sub
 

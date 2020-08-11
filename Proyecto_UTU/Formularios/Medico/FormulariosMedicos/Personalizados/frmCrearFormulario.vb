@@ -14,6 +14,8 @@
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MaximizedBounds = Screen.FromHandle(Me.Handle).WorkingArea
+        Me.WindowState = FormWindowState.Maximized
         frmPlano.TopLevel = False
         frmPlano.TopMost = True
         frmPlano.Dock = DockStyle.Fill
@@ -29,9 +31,7 @@
             MostrarManito()
             Dim _txt As New TextBox
 
-            AddHandler _txt.MouseDown, AddressOf frmPlano._MouseDown 'Agregar eventos de mouse, para poder moverlos en tiempo real.
-            AddHandler _txt.MouseMove, AddressOf frmPlano._MouseMove
-
+            agregarHandlersBasicos(_txt)
             temp_control_type = "TextBox"
             _txt.Size = New Size(122, 55)
             _txt.Name = "txt"
@@ -70,8 +70,7 @@
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             Dim _lbl As New Label
-            AddHandler _lbl.MouseDown, AddressOf frmPlano._MouseDown
-            AddHandler _lbl.MouseMove, AddressOf frmPlano._MouseMove
+            agregarHandlersBasicos(_lbl)
             temp_control_type = "Label"
             _lbl.Size = New Size(50, 25)
             _lbl.Name = "lbl"
@@ -106,8 +105,7 @@
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             Dim _chk As New CheckBox
-            AddHandler _chk.MouseDown, AddressOf frmPlano._MouseDown
-            AddHandler _chk.MouseMove, AddressOf frmPlano._MouseMove
+            agregarHandlersBasicos(_chk)
             temp_control_type = "CheckBox"
             _chk.Size = New Size(50, 25)
             _chk.Name = "lbl"
@@ -213,23 +211,33 @@
     End Sub
 
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
-
         Dim controles = ImportarFormulario()
         If Not controles Is Nothing Then
             For Each c As Control In controles
-
                 If c.Controls.Count > 0 Then
                     For Each c2 As Control In c.Controls
-                        c2.Location = New Point(c2.Location.X + frmPlano.Left, c2.Location.Y + Me.Location.Y + pnlFormularioPersonalizado.Location.Y)
+                        c2.Location = New Point(c2.Location.X, c2.Location.Y + 50)
+                        agregarHandlersBasicos(c2)
                     Next
-
-                    frmPlano.Controls.Add(c)
-
+                Else
+                    agregarHandlersBasicos(c) 'Esto es para evitar agregarle handlers a un panel contenedor, solo vamos a agregarlo a c en caso de que c no sea un contenedor de otros controles.
                 End If
+                frmPlano.Controls.Add(c)
             Next
         End If
 
     End Sub
+    Public Sub agregarHandlersBasicos(_ctrl As Control)
+        AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
+        AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove
+        AddHandler _ctrl.MouseUp, AddressOf frmPlano._MouseUp
+        If _ctrl.Controls.Count > 0 Then
+            For Each c As Control In _ctrl.Controls
+                agregarHandlersBasicos(c)
+            Next
+        End If
+    End Sub
+
     Private Sub frmCrearFormulario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True

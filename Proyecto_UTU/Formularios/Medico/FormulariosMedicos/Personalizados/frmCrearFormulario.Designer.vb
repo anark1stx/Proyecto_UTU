@@ -24,6 +24,7 @@ Partial Class frmCrearFormulario
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCrearFormulario))
         Me.pnlControles = New System.Windows.Forms.Panel()
+        Me.pBoxBorrar = New System.Windows.Forms.PictureBox()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnAbrir = New System.Windows.Forms.Button()
@@ -32,7 +33,6 @@ Partial Class frmCrearFormulario
         Me.lblLabel = New System.Windows.Forms.Label()
         Me.txtTextBox = New System.Windows.Forms.TextBox()
         Me.pnlFormularioPersonalizado = New System.Windows.Forms.Panel()
-        Me.pBoxBorrar = New System.Windows.Forms.PictureBox()
         Me.pnlControles.SuspendLayout()
         CType(Me.pBoxBorrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -54,6 +54,17 @@ Partial Class frmCrearFormulario
         Me.pnlControles.Name = "pnlControles"
         Me.pnlControles.Size = New System.Drawing.Size(160, 640)
         Me.pnlControles.TabIndex = 0
+        '
+        'pBoxBorrar
+        '
+        Me.pBoxBorrar.BackgroundImage = CType(resources.GetObject("pBoxBorrar.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.pBoxBorrar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pBoxBorrar.Location = New System.Drawing.Point(0, 343)
+        Me.pBoxBorrar.Name = "pBoxBorrar"
+        Me.pBoxBorrar.Size = New System.Drawing.Size(158, 109)
+        Me.pBoxBorrar.TabIndex = 0
+        Me.pBoxBorrar.TabStop = False
         '
         'btnLimpiar
         '
@@ -135,17 +146,6 @@ Partial Class frmCrearFormulario
         Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(753, 640)
         Me.pnlFormularioPersonalizado.TabIndex = 1
         '
-        'pBoxBorrar
-        '
-        Me.pBoxBorrar.BackgroundImage = CType(resources.GetObject("pBoxBorrar.BackgroundImage"), System.Drawing.Image)
-        Me.pBoxBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.pBoxBorrar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pBoxBorrar.Location = New System.Drawing.Point(0, 343)
-        Me.pBoxBorrar.Name = "pBoxBorrar"
-        Me.pBoxBorrar.Size = New System.Drawing.Size(158, 109)
-        Me.pBoxBorrar.TabIndex = 0
-        Me.pBoxBorrar.TabStop = False
-        '
         'frmCrearFormulario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -154,6 +154,8 @@ Partial Class frmCrearFormulario
         Me.ClientSize = New System.Drawing.Size(943, 664)
         Me.Controls.Add(Me.pnlFormularioPersonalizado)
         Me.Controls.Add(Me.pnlControles)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "frmCrearFormulario"
         Me.Text = "Formulario Personalizado"
         Me.pnlControles.ResumeLayout(False)
