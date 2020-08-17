@@ -51,14 +51,14 @@ Partial Class frmDatosAuxiliarModificar
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(813, 42)
+        Me.txtTelefono.Location = New System.Drawing.Point(813, 10)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(204, 22)
         Me.txtTelefono.TabIndex = 223
         '
         'txtDireccion
         '
-        Me.txtDireccion.Location = New System.Drawing.Point(813, 14)
+        Me.txtDireccion.Location = New System.Drawing.Point(374, 175)
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(204, 22)
         Me.txtDireccion.TabIndex = 222
@@ -98,7 +98,7 @@ Partial Class frmDatosAuxiliarModificar
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(672, 14)
+        Me.lblDireccion.Location = New System.Drawing.Point(242, 175)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(86, 20)
         Me.lblDireccion.TabIndex = 213
@@ -108,7 +108,7 @@ Partial Class frmDatosAuxiliarModificar
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(672, 44)
+        Me.lblTelefono.Location = New System.Drawing.Point(672, 12)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(87, 20)
         Me.lblTelefono.TabIndex = 207
@@ -138,16 +138,16 @@ Partial Class frmDatosAuxiliarModificar
         '
         Me.pBoxFotoAux.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pBoxFotoAux.Image = CType(resources.GetObject("pBoxFotoAux.Image"), System.Drawing.Image)
-        Me.pBoxFotoAux.Location = New System.Drawing.Point(12, 12)
+        Me.pBoxFotoAux.Location = New System.Drawing.Point(3, 3)
         Me.pBoxFotoAux.Name = "pBoxFotoAux"
-        Me.pBoxFotoAux.Size = New System.Drawing.Size(189, 177)
+        Me.pBoxFotoAux.Size = New System.Drawing.Size(223, 230)
         Me.pBoxFotoAux.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pBoxFotoAux.TabIndex = 203
         Me.pBoxFotoAux.TabStop = False
         '
         'txtCorreo
         '
-        Me.txtCorreo.Location = New System.Drawing.Point(813, 73)
+        Me.txtCorreo.Location = New System.Drawing.Point(813, 41)
         Me.txtCorreo.Name = "txtCorreo"
         Me.txtCorreo.Size = New System.Drawing.Size(204, 22)
         Me.txtCorreo.TabIndex = 226
@@ -156,7 +156,7 @@ Partial Class frmDatosAuxiliarModificar
         '
         Me.lblCorreo.AutoSize = True
         Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreo.Location = New System.Drawing.Point(672, 75)
+        Me.lblCorreo.Location = New System.Drawing.Point(672, 43)
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(65, 20)
         Me.lblCorreo.TabIndex = 225
@@ -166,7 +166,7 @@ Partial Class frmDatosAuxiliarModificar
         '
         Me.btnLimpiar.BackgroundImage = CType(resources.GetObject("btnLimpiar.BackgroundImage"), System.Drawing.Image)
         Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnLimpiar.Location = New System.Drawing.Point(915, 154)
+        Me.btnLimpiar.Location = New System.Drawing.Point(915, 191)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(48, 40)
         Me.btnLimpiar.TabIndex = 229
@@ -208,7 +208,7 @@ Partial Class frmDatosAuxiliarModificar
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(813, 105)
+        Me.txtContrasena.Location = New System.Drawing.Point(813, 73)
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.Size = New System.Drawing.Size(204, 22)
         Me.txtContrasena.TabIndex = 235
@@ -217,7 +217,7 @@ Partial Class frmDatosAuxiliarModificar
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(672, 107)
+        Me.Label3.Location = New System.Drawing.Point(672, 75)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(100, 20)
         Me.Label3.TabIndex = 234
@@ -235,7 +235,7 @@ Partial Class frmDatosAuxiliarModificar
         Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnAceptar.ImageIndex = 0
         Me.btnAceptar.ImageList = Me.imgsBotonAltaModif
-        Me.btnAceptar.Location = New System.Drawing.Point(969, 154)
+        Me.btnAceptar.Location = New System.Drawing.Point(969, 191)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
         Me.btnAceptar.TabIndex = 245
@@ -246,7 +246,7 @@ Partial Class frmDatosAuxiliarModificar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1038, 203)
+        Me.ClientSize = New System.Drawing.Size(1038, 238)
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.Label3)

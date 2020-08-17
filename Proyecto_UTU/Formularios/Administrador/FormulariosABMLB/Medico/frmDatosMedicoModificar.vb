@@ -126,12 +126,10 @@
             Case 0
                 For Each c As Control In Controls
 
-                    If Not ci_valida Then
-                        If TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
-                            c.Enabled = False
-                        End If
+                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
+                        c.Enabled = False
                     Else
-                        If TypeOf c Is TextBox Then
+                        If TypeOf c Is TextBox Or TypeOf c Is ComboBox Then
                             c.Enabled = True
                         End If
                     End If
@@ -141,7 +139,7 @@
                 txtCedula.Enabled = False
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
                         c.Enabled = True
                     End If
 

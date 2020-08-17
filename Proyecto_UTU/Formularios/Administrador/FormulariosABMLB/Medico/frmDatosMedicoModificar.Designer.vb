@@ -55,7 +55,7 @@ Partial Class frmDatosMedicoModificar
         '
         Me.btnLimpiar.BackgroundImage = CType(resources.GetObject("btnLimpiar.BackgroundImage"), System.Drawing.Image)
         Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnLimpiar.Location = New System.Drawing.Point(914, 157)
+        Me.btnLimpiar.Location = New System.Drawing.Point(915, 191)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(48, 40)
         Me.btnLimpiar.TabIndex = 245
@@ -66,7 +66,7 @@ Partial Class frmDatosMedicoModificar
         Me.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnAceptar.ImageIndex = 0
         Me.btnAceptar.ImageList = Me.imgsBotonAltaModif
-        Me.btnAceptar.Location = New System.Drawing.Point(968, 157)
+        Me.btnAceptar.Location = New System.Drawing.Point(968, 191)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(48, 40)
         Me.btnAceptar.TabIndex = 244
@@ -81,7 +81,7 @@ Partial Class frmDatosMedicoModificar
         '
         'txtCorreo
         '
-        Me.txtCorreo.Location = New System.Drawing.Point(812, 72)
+        Me.txtCorreo.Location = New System.Drawing.Point(812, 45)
         Me.txtCorreo.Name = "txtCorreo"
         Me.txtCorreo.Size = New System.Drawing.Size(204, 22)
         Me.txtCorreo.TabIndex = 243
@@ -90,7 +90,7 @@ Partial Class frmDatosMedicoModificar
         '
         Me.lblCorreo.AutoSize = True
         Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreo.Location = New System.Drawing.Point(671, 74)
+        Me.lblCorreo.Location = New System.Drawing.Point(671, 45)
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(65, 20)
         Me.lblCorreo.TabIndex = 242
@@ -98,14 +98,14 @@ Partial Class frmDatosMedicoModificar
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(812, 41)
+        Me.txtTelefono.Location = New System.Drawing.Point(812, 13)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(204, 22)
         Me.txtTelefono.TabIndex = 240
         '
         'txtDireccion
         '
-        Me.txtDireccion.Location = New System.Drawing.Point(812, 13)
+        Me.txtDireccion.Location = New System.Drawing.Point(374, 176)
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(204, 22)
         Me.txtDireccion.TabIndex = 239
@@ -132,7 +132,7 @@ Partial Class frmDatosMedicoModificar
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(671, 13)
+        Me.lblDireccion.Location = New System.Drawing.Point(243, 176)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(86, 20)
         Me.lblDireccion.TabIndex = 235
@@ -142,7 +142,7 @@ Partial Class frmDatosMedicoModificar
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(671, 43)
+        Me.lblTelefono.Location = New System.Drawing.Point(671, 13)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(78, 20)
         Me.lblTelefono.TabIndex = 234
@@ -152,9 +152,9 @@ Partial Class frmDatosMedicoModificar
         '
         Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pBoxFotoMedico.Image = CType(resources.GetObject("pBoxFotoMedico.Image"), System.Drawing.Image)
-        Me.pBoxFotoMedico.Location = New System.Drawing.Point(12, 12)
+        Me.pBoxFotoMedico.Location = New System.Drawing.Point(3, 3)
         Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
-        Me.pBoxFotoMedico.Size = New System.Drawing.Size(189, 177)
+        Me.pBoxFotoMedico.Size = New System.Drawing.Size(223, 230)
         Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pBoxFotoMedico.TabIndex = 230
         Me.pBoxFotoMedico.TabStop = False
@@ -163,7 +163,7 @@ Partial Class frmDatosMedicoModificar
         '
         Me.lblEspecialidadTitulo.AutoSize = True
         Me.lblEspecialidadTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidadTitulo.Location = New System.Drawing.Point(671, 100)
+        Me.lblEspecialidadTitulo.Location = New System.Drawing.Point(671, 77)
         Me.lblEspecialidadTitulo.Name = "lblEspecialidadTitulo"
         Me.lblEspecialidadTitulo.Size = New System.Drawing.Size(109, 20)
         Me.lblEspecialidadTitulo.TabIndex = 246
@@ -239,14 +239,14 @@ Partial Class frmDatosMedicoModificar
         '
         'txtEspecialidad
         '
-        Me.txtEspecialidad.Location = New System.Drawing.Point(812, 100)
+        Me.txtEspecialidad.Location = New System.Drawing.Point(812, 76)
         Me.txtEspecialidad.Name = "txtEspecialidad"
         Me.txtEspecialidad.Size = New System.Drawing.Size(204, 22)
         Me.txtEspecialidad.TabIndex = 257
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(812, 129)
+        Me.txtContrasena.Location = New System.Drawing.Point(812, 108)
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.Size = New System.Drawing.Size(204, 22)
         Me.txtContrasena.TabIndex = 259
@@ -255,7 +255,7 @@ Partial Class frmDatosMedicoModificar
         '
         Me.lblContrasena.AutoSize = True
         Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasena.Location = New System.Drawing.Point(671, 129)
+        Me.lblContrasena.Location = New System.Drawing.Point(671, 108)
         Me.lblContrasena.Name = "lblContrasena"
         Me.lblContrasena.Size = New System.Drawing.Size(100, 20)
         Me.lblContrasena.TabIndex = 258
@@ -266,7 +266,7 @@ Partial Class frmDatosMedicoModificar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1038, 203)
+        Me.ClientSize = New System.Drawing.Size(1038, 238)
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.lblContrasena)
         Me.Controls.Add(Me.txtEspecialidad)
