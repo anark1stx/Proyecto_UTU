@@ -1,6 +1,7 @@
 ﻿Public Class frmIngreso_Usuario
     Dim frmAdm As New frmAdministrador
     Dim frmMed As New frmMedico
+    Dim frmAux As New frmAuxiliar
     Dim frmPac As New frmPaciente
     Dim _frmOlvideMiContrasena As New frmOlvideMiContrasena
 
@@ -15,9 +16,26 @@
             Conectar()
             If conn.State = ConnectionState.Closed Then
                 lblMensajeErrorCI.Visible = True
+                Cerrar()
             Else
-                'Cerrar() 'Cierro la conexion ya que el siguiente método vuelve a crear una instancia nueva.
-                SQL_SELECT_ROL(CMDSELECTMYSQLUSERROLE(txtIngresarCi.Text))
+                Cerrar() 'Cierro la conexion ya que el siguiente método vuelve a crear una instancia nueva.
+                Dim rol = SQL_SELECT_ROL(CMDSELECTMYSQLUSERROLE(txtIngresarCi.Text))
+
+                Select Case rol
+                    Case 0 'ADMIN
+                        Me.Hide()
+                        frmAdm.Show()
+                    Case 1 'MEDICO
+                        Me.Hide()
+                        frmMed.Show()
+                    Case 2 'AUXILIAR
+                        Me.Hide()
+                        frmAux.Show()
+                    Case 3 'PACIENTE
+                        Me.Hide()
+                        frmPac.Show()
+                End Select
+
                 lblMensajeErrorCI.Visible = False
             End If
         End If
