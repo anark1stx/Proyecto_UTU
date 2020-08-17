@@ -4,7 +4,6 @@
     Dim frmAux As New frmAuxiliar
     Dim frmPac As New frmPaciente
     Dim _frmOlvideMiContrasena As New frmOlvideMiContrasena
-
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         _usr = txtIngresarCi.Text
         _pwd = txtIngresarContrasena.Text
@@ -34,6 +33,8 @@
                     Case 3 'PACIENTE
                         Me.Hide()
                         frmPac.Show()
+                    Case Else
+                        MessageBox.Show("Rol desconocido en la base de datos.", "No se encontro su rol.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Select
 
                 lblMensajeErrorCI.Visible = False
@@ -59,9 +60,5 @@
             Me.Dispose()
             Application.Exit() 'Salir completamente del programa y cerrar todas las ventanas que estaban Hide
         End If
-    End Sub
-
-    Private Sub frmIngreso_Usuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

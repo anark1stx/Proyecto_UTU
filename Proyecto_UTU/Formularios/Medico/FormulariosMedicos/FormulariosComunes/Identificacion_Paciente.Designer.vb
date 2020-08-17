@@ -25,8 +25,6 @@ Partial Class Identificacion_Paciente
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.lblDireccionTXT = New System.Windows.Forms.Label()
-        Me.lblEscolaridad = New System.Windows.Forms.Label()
-        Me.lblEscolaridadTXT = New System.Windows.Forms.Label()
         Me.lblEstadoCivil = New System.Windows.Forms.Label()
         Me.lblEstadoCivilTXT = New System.Windows.Forms.Label()
         Me.lblOcupacion = New System.Windows.Forms.Label()
@@ -35,8 +33,6 @@ Partial Class Identificacion_Paciente
         Me.lblSexoTXT = New System.Windows.Forms.Label()
         Me.lblEdad = New System.Windows.Forms.Label()
         Me.lblEdadTXT = New System.Windows.Forms.Label()
-        Me.lblAcompanante = New System.Windows.Forms.Label()
-        Me.lblAcompananteTXT = New System.Windows.Forms.Label()
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.lblTelefonoTXT = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
@@ -54,7 +50,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(420, 314)
+        Me.lblDireccion.Location = New System.Drawing.Point(420, 278)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(86, 20)
         Me.lblDireccion.TabIndex = 98
@@ -64,31 +60,11 @@ Partial Class Identificacion_Paciente
         '
         Me.lblDireccionTXT.AutoSize = True
         Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(551, 314)
+        Me.lblDireccionTXT.Location = New System.Drawing.Point(551, 278)
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(81, 20)
         Me.lblDireccionTXT.TabIndex = 97
         Me.lblDireccionTXT.Text = "Dirección"
-        '
-        'lblEscolaridad
-        '
-        Me.lblEscolaridad.AutoSize = True
-        Me.lblEscolaridad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEscolaridad.Location = New System.Drawing.Point(420, 282)
-        Me.lblEscolaridad.Name = "lblEscolaridad"
-        Me.lblEscolaridad.Size = New System.Drawing.Size(102, 20)
-        Me.lblEscolaridad.TabIndex = 96
-        Me.lblEscolaridad.Text = "Escolaridad:"
-        '
-        'lblEscolaridadTXT
-        '
-        Me.lblEscolaridadTXT.AutoSize = True
-        Me.lblEscolaridadTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEscolaridadTXT.Location = New System.Drawing.Point(551, 282)
-        Me.lblEscolaridadTXT.Name = "lblEscolaridadTXT"
-        Me.lblEscolaridadTXT.Size = New System.Drawing.Size(97, 20)
-        Me.lblEscolaridadTXT.TabIndex = 95
-        Me.lblEscolaridadTXT.Text = "Escolaridad"
         '
         'lblEstadoCivil
         '
@@ -170,31 +146,11 @@ Partial Class Identificacion_Paciente
         Me.lblEdadTXT.TabIndex = 87
         Me.lblEdadTXT.Text = "Edad"
         '
-        'lblAcompanante
-        '
-        Me.lblAcompanante.AutoSize = True
-        Me.lblAcompanante.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcompanante.Location = New System.Drawing.Point(420, 379)
-        Me.lblAcompanante.Name = "lblAcompanante"
-        Me.lblAcompanante.Size = New System.Drawing.Size(116, 20)
-        Me.lblAcompanante.TabIndex = 86
-        Me.lblAcompanante.Text = "Acompañante:"
-        '
-        'lblAcompananteTXT
-        '
-        Me.lblAcompananteTXT.AutoSize = True
-        Me.lblAcompananteTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcompananteTXT.Location = New System.Drawing.Point(551, 379)
-        Me.lblAcompananteTXT.Name = "lblAcompananteTXT"
-        Me.lblAcompananteTXT.Size = New System.Drawing.Size(181, 20)
-        Me.lblAcompananteTXT.TabIndex = 85
-        Me.lblAcompananteTXT.Text = "NOM ACOMPAÑANTE"
-        '
         'lblTelefono
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(420, 347)
+        Me.lblTelefono.Location = New System.Drawing.Point(420, 309)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(78, 20)
         Me.lblTelefono.TabIndex = 84
@@ -204,7 +160,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblTelefonoTXT.AutoSize = True
         Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(551, 347)
+        Me.lblTelefonoTXT.Location = New System.Drawing.Point(551, 309)
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(108, 20)
         Me.lblTelefonoTXT.TabIndex = 83
@@ -298,8 +254,6 @@ Partial Class Identificacion_Paciente
         Me.Controls.Add(Me.txtCIPaciente)
         Me.Controls.Add(Me.lblDireccion)
         Me.Controls.Add(Me.lblDireccionTXT)
-        Me.Controls.Add(Me.lblEscolaridad)
-        Me.Controls.Add(Me.lblEscolaridadTXT)
         Me.Controls.Add(Me.lblEstadoCivil)
         Me.Controls.Add(Me.lblEstadoCivilTXT)
         Me.Controls.Add(Me.lblOcupacion)
@@ -308,8 +262,6 @@ Partial Class Identificacion_Paciente
         Me.Controls.Add(Me.lblSexoTXT)
         Me.Controls.Add(Me.lblEdad)
         Me.Controls.Add(Me.lblEdadTXT)
-        Me.Controls.Add(Me.lblAcompanante)
-        Me.Controls.Add(Me.lblAcompananteTXT)
         Me.Controls.Add(Me.lblTelefono)
         Me.Controls.Add(Me.lblTelefonoTXT)
         Me.Controls.Add(Me.lblCedula)
@@ -328,8 +280,6 @@ Partial Class Identificacion_Paciente
     End Sub
     Friend WithEvents lblDireccion As Label
     Friend WithEvents lblDireccionTXT As Label
-    Friend WithEvents lblEscolaridad As Label
-    Friend WithEvents lblEscolaridadTXT As Label
     Friend WithEvents lblEstadoCivil As Label
     Friend WithEvents lblEstadoCivilTXT As Label
     Friend WithEvents lblOcupacion As Label
@@ -338,8 +288,6 @@ Partial Class Identificacion_Paciente
     Friend WithEvents lblSexoTXT As Label
     Friend WithEvents lblEdad As Label
     Friend WithEvents lblEdadTXT As Label
-    Friend WithEvents lblAcompanante As Label
-    Friend WithEvents lblAcompananteTXT As Label
     Friend WithEvents lblTelefono As Label
     Friend WithEvents lblTelefonoTXT As Label
     Friend WithEvents lblCedula As Label

@@ -16,8 +16,10 @@ Public Class frmMedico
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar
 
-    Public llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
-    Public Ci As String = ""
+    Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
+    Dim Ci As String = ""
+
+    Dim _paciente As New Paciente
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
@@ -208,7 +210,6 @@ Public Class frmMedico
                         chkCedulaTXTCIPACIENTE()
                         If frmIdentificacion.txtCIPaciente.TextLength < 8 Then
                             Ci = frmIdentificacion.txtCIPaciente.Text
-
                         End If
                     End Sub
         AddHandler frmIdentificacion.txtCIPaciente.TextChanged,
@@ -273,17 +274,21 @@ Public Class frmMedico
                     End Sub
     End Sub
 
-    Public Sub chkCedulaTXTCIPACIENTE() 'Evento para cuando el médico escribe la cédula del textbox del paciente en el sub-formulario de Identificacion_Paciente
+    Private Sub chkCedulaTXTCIPACIENTE() 'Evento para cuando el médico escribe la cédula del textbox del paciente en el sub-formulario de Identificacion_Paciente
         If frmIdentificacion.txtCIPaciente.TextLength = 8 Then
 
             If check_Cedula(frmIdentificacion.txtCIPaciente.Text) Then
                 'Verificar que exista en la BD
+
                 'CargarDatosPaciente() <-- Metodo para buscar y cargar todos los datos del paciente
+
 
                 Ci = frmIdentificacion.txtCIPaciente.Text
                 llenoIdentificacion = True
-                MsgBox("Paciente Encontrado")
-                InstanciarFormulario("Entrevista")
+
+                'CargarDatosPaciente(SQL_SELECT(CMDGenerico("SELECT * FROM paciente WHERE CI=" & Ci)))
+
+                'InstanciarFormulario("Entrevista") -> Mandar esto a otro botón
             Else
                 Ci = frmIdentificacion.txtCIPaciente.Text
                 MsgBox("Cédula inválida.", MessageBoxIcon.Error)
@@ -292,4 +297,25 @@ Public Class frmMedico
 
         End If
     End Sub
+
+    Private Sub CargarDatosPaciente()
+        _paciente.Cedula = Ci.ToString()
+        Dim datosP = _paciente.buscarPorCI()
+        Select Case datosP
+            Case 0
+                MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Case 1
+                frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
+                frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
+                frmIdentificacion.lblDireccionTXT.Text = _paciente.direccion.ToString()
+                frmIdentificacion.lblTelefonoTXT.Text = _paciente.telefonosLista.ToString()
+                frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
+                frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
+                frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
+                frmIdentificacion.lblEdadTXT.Text = _paciente.Edad
+        End Select
+
+
+    End Sub
+
 End Class

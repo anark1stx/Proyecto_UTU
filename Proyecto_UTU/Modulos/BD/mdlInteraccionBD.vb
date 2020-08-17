@@ -1,5 +1,6 @@
 ﻿Module mdlInteraccionBD
-    Public Function SQL_SELECT_ROL(cmd As ADODB.Command) As Integer
+    Dim adpt As New Odbc.OdbcDataAdapter
+    Public Function SQL_SELECT_ROL(cmd As ADODB.Command) As Integer 'Esta funcion es exclusivamente para seleccionar roles
         Conectar()
         Dim retorno = 0
 
@@ -10,7 +11,6 @@
         rs = cmd.Execute()
 
         If rs.RecordCount >= 1 Then
-            MsgBox("Su rol es:" & rs(0).Value)
             Select Case rs(0).Value '0 = administrador, 1 = medico, 2 = auxiliar, 3 = paciente
                 Case "administrador"
                     Return 0
@@ -20,6 +20,8 @@
                     Return 2
                 Case "paciente"
                     Return 3
+                Case Else
+                    Return 999
             End Select
         Else
             MsgBox("No tiene rol en la BD")
@@ -33,5 +35,9 @@ queryErr:
 
         End If
     End Function
+
+
+
+
 
 End Module

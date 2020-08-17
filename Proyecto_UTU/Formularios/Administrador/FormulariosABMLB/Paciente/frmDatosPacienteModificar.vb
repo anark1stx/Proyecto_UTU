@@ -50,6 +50,52 @@
 
             If paciente.checkDatosPaciente() Then
                 'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
+
+                Conectar()
+
+                Dim sqlmysqlUser = String.Format("CREATE USER '{0}'@'localhost' IDENTIFIED BY '{1}' DEFAULT ROLE '{2}'@'localhost'", "u" & paciente.Cedula, paciente.Contrasena, "paciente")
+
+                Try
+                    conn.Execute(sqlmysqlUser)
+                Catch ex As Exception
+                    MsgBox("No se pudo ingresar el USER " & ex.Message)
+                End Try
+
+                Dim sqlGrantRoleUser = String.Format("GRANT 'paciente'@'localhost' TO '{0}'@'localhost';", "u" & paciente.Cedula)
+
+                Try
+                    conn.Execute(sqlGrantRoleUser)
+                Catch ex As Exception
+                    MsgBox("No se pudo dar GRANT")
+                End Try
+
+                Dim sqlUSUARIO = String.Format("INSERT INTO usuario (CI,nombre1,nombre2,apellido1,apellido2,direccion_calle,direccion_nroPuerta, correo) VALUES ({0},{1},{2},{3},{5},{6},{7})", paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), paciente.Correo)
+                Try
+                    conn.Execute(sqlUSUARIO)
+                Catch ex As Exception
+                    MsgBox("No se pudo ingresar el USUARIO")
+                End Try
+
+                For Each t As String In paciente.telefonosLista
+                    Dim sqlTelefonos = String.Format("INSERT INTO usuario_tel (CI,telefono) VALUES ({0},{1})", paciente.Cedula, t)
+
+                    Try
+                        conn.Execute(sqlTelefonos)
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el telefono:" & t)
+                    End Try
+                Next
+
+                Dim sqlPACIENTE = String.Format("INSERT INTO paciente (CI,edad,etapa,e_civil,ocupacion,sexo) VALUES ({0},{1},{2},{3},{5})", paciente.Cedula, paciente.Edad, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo)
+
+                Try
+                    conn.Execute(sqlPACIENTE)
+                Catch ex As Exception
+                    MsgBox("No se pudo ingresar el PACIENTE")
+                End Try
+
+                Cerrar()
+
             End If
 
         End If
@@ -68,8 +114,10 @@
             Case 0
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
-                        c.Enabled = False
+                    If Not ci_valida Then
+                        If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                            c.Enabled = False
+                        End If
                     Else
                         If TypeOf c Is TextBox Or TypeOf c Is ComboBox Then
                             c.Enabled = True
@@ -81,7 +129,7 @@
                 txtCedula.Enabled = False
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
+                    If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
                         c.Enabled = True
                     End If
 

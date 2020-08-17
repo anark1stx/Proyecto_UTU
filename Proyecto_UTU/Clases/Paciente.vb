@@ -90,4 +90,37 @@
 
     End Function
 
+    Function buscarPorCI() As Integer
+        Conectar()
+
+        Dim sql As String = "SELECT * FROM paciente WHERE CI=" & _cedula
+
+        Try
+            rs.Open(sql, conn)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        If rs.RecordCount = 1 Then
+
+            If rs("activo").Value = 0 Then
+                Return 5 'El usuario fue dado de baja
+            End If
+
+            _cedula = rs("CI").Value.ToString()
+            _nombre1 = rs("nombre1").Value
+            _nombre2 = rs("nombre2").Value
+            _apellido1 = rs("apellido1").Value
+            _apellido2 = rs("apellido2").Value
+            _direccion = rs("direccion_calle").Value & rs("direccion_nroPuerta").Value
+            _edad = rs("edad").Value
+            _estado_civil = rs("e_civil").Value
+            _ocupacion = rs("ocupacion").Value
+            _sexo = rs("sexo").Value
+
+        End If
+
+    End Function
+
+
 End Class

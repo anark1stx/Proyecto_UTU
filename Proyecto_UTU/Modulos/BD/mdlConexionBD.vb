@@ -8,7 +8,9 @@
         On Error GoTo AdoError
 
         _str = construirCnString(_usr, _pwd)
-
+        If conn.State = ConnectionState.Open Then
+            Exit Sub
+        End If
         conn.Open(_str)
 AdoError:
         If Err.Number <> 0 Then
