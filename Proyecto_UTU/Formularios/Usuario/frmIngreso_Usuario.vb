@@ -1,5 +1,4 @@
 ﻿Public Class frmIngreso_Usuario
-
     Dim frmAdm As New frmAdministrador
     Dim frmMed As New frmMedico
     Dim frmPac As New frmPaciente
@@ -42,5 +41,9 @@
             Me.Dispose()
             Application.Exit() 'Salir completamente del programa y cerrar todas las ventanas que estaban Hide
         End If
+    End Sub
+
+    Private Sub frmIngreso_Usuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

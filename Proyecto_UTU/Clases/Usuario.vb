@@ -1,12 +1,12 @@
 ﻿Public Class Usuario
     'Pasamos todos los datos como Strings por conveniencia general, a la hora de validar comprobaremos que sean del tipo que tienen que ser (cedula = Int).
     Protected _cedula As String
+    Protected _contrasena As String
     Protected _nombre1 As String
     Protected _nombre2 As String
     Protected _apellido1 As String
     Protected _apellido2 As String
     Protected _correo As String
-    Protected _contrasena As String
     Protected _telefonosLista As String() '-> {099523212, 23363539}
     Protected _direccion As String() ' -> Para pasarle directamente {calle, nroPuerta}
     'CONSTRUCTOR VACIO

@@ -1,13 +1,14 @@
 ﻿Module mdlArmarCMDS
 
     Public Function CMDSELECTMYSQLUSERROLE(usr As String) As ADODB.Command
-        Dim cmd As ADODB.Command
-        cmd = New ADODB.Command With {
-            .CommandType = ADODB.CommandTypeEnum.adCmdText,
-            .CommandText = "SELECT FROM_USER FROM mysql.role_edges WHERE TO_USER = @usr;"
-        }
-        cmd.Parameters.Append(cmd.CreateParameter("@usr", ADODB.DataTypeEnum.adVarChar, ADODB.ParameterDirectionEnum.adParamInput, usr))
-        Console.WriteLine(cmd.CommandText)
+        Dim prm As New ADODB.Parameter
+        Dim cmd = New ADODB.Command
+        cmd.CommandType = ADODB.CommandTypeEnum.adCmdText
+        cmd.CommandText = "SELECT FROM_USER FROM mysql.role_edges WHERE TO_USER= ?;"
+        prm = cmd.CreateParameter("USR", ADODB.DataTypeEnum.adVarChar, ADODB.ParameterDirectionEnum.adParamInput, 255)
+        prm.Value = usr
+
+        cmd.Parameters.Append(prm)
         Return cmd
     End Function
 

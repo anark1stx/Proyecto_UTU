@@ -31,8 +31,8 @@ Partial Class frmIngreso_Usuario
         Me.L_lblContrasenaOlvidada = New System.Windows.Forms.LinkLabel()
         Me.lblMensajeErrorCI = New System.Windows.Forms.Label()
         Me.pnlLogo = New System.Windows.Forms.Panel()
-        Me.lblNomHospital = New System.Windows.Forms.Label()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
+        Me.lblNomHospital = New System.Windows.Forms.Label()
         Me.pnlLogo.SuspendLayout()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -53,7 +53,7 @@ Partial Class frmIngreso_Usuario
         Me.lblIngreseCI.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIngreseCI.Location = New System.Drawing.Point(415, 166)
         Me.lblIngreseCI.Name = "lblIngreseCI"
-        Me.lblIngreseCI.Size = New System.Drawing.Size(297, 39)
+        Me.lblIngreseCI.Size = New System.Drawing.Size(285, 38)
         Me.lblIngreseCI.TabIndex = 2
         Me.lblIngreseCI.Text = "Ingrese su usuario"
         '
@@ -125,6 +125,17 @@ Partial Class frmIngreso_Usuario
         Me.pnlLogo.Size = New System.Drawing.Size(1130, 96)
         Me.pnlLogo.TabIndex = 8
         '
+        'pbLogo
+        '
+        Me.pbLogo.BackgroundImage = CType(resources.GetObject("pbLogo.BackgroundImage"), System.Drawing.Image)
+        Me.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbLogo.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pbLogo.Location = New System.Drawing.Point(0, 0)
+        Me.pbLogo.Name = "pbLogo"
+        Me.pbLogo.Size = New System.Drawing.Size(105, 94)
+        Me.pbLogo.TabIndex = 9
+        Me.pbLogo.TabStop = False
+        '
         'lblNomHospital
         '
         Me.lblNomHospital.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -136,17 +147,6 @@ Partial Class frmIngreso_Usuario
         Me.lblNomHospital.TabIndex = 1
         Me.lblNomHospital.Text = "Ingreso de usuarios"
         Me.lblNomHospital.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pbLogo
-        '
-        Me.pbLogo.BackgroundImage = CType(resources.GetObject("pbLogo.BackgroundImage"), System.Drawing.Image)
-        Me.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbLogo.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pbLogo.Location = New System.Drawing.Point(0, 0)
-        Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(105, 94)
-        Me.pbLogo.TabIndex = 9
-        Me.pbLogo.TabStop = False
         '
         'frmIngreso_Usuario
         '
