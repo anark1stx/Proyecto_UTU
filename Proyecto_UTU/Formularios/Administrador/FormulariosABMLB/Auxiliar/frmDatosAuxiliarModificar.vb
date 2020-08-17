@@ -26,10 +26,10 @@
         Dim contrasena As String = txtContrasena.Text
         '-> Salida esperada: Luis Alberto de Herrera, 4682
         '-> Antes de enviarlos, hay que remover los espacios entre las comas
-        direccion = RemoverEspacios(direccion)
+        'direccion = RemoverEspacios(direccion)
 
         Dim telefonos As String() = txtTelefono.Text.Split(",")
-        telefonos = RemoverEspacios(telefonos)
+        'telefonos = RemoverEspacios(telefonos)
 
         Dim aux As New Usuario(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena)
 

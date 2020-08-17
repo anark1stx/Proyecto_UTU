@@ -25,14 +25,14 @@
         Dim direccion As String() = txtDireccion.Text.Split(",")
         '-> Salida esperada: Luis Alberto de Herrera Esq. Francisco Torres, 4682
         '-> Antes de enviarlos, hay que remover los espacios entre las comas
-        direccion = RemoverEspacios(direccion)
+        'direccion = RemoverEspacios(direccion)
 
         Dim telefonos As String() = txtTelefono.Text.Split(",")
-        telefonos = RemoverEspacios(telefonos)
+        'telefonos = RemoverEspacios(telefonos)
 
         Dim especialidades As String() = txtEspecialidad.Text.Split(",")
 
-        especialidades = RemoverEspacios(especialidades)
+        'especialidades = RemoverEspacios(especialidades)
 
         Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades)
 

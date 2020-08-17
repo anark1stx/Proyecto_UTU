@@ -30,12 +30,20 @@
         Dim e_civil As String = cb_e_civil.SelectedItem
 
         Dim direccion As String() = txtDireccion.Text.Split(",")
+        For i = 0 To direccion.Count - 1
+
+            direccion(i) = RemoverEspacios(direccion(i))
+
+        Next
         '-> Salida esperada: Luis Alberto de Herrera Esq. Francisco Torres, 4682
         '-> Antes de enviarlos, hay que remover los espacios entre las comas
-        direccion = RemoverEspacios(direccion)
-
         Dim telefonos As String() = txtTelefono.Text.Split(",")
-        telefonos = RemoverEspacios(telefonos)
+
+        For Each s As String In telefonos
+
+            RemoverEspacios(telefonos(s))
+
+        Next
 
         Dim paciente As New Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, edad, sexo, ocupacion, e_civil)
 

@@ -45,19 +45,8 @@ Module mdlUtilidades
 
     End Sub
 
-    Public Function RemoverEspacios(list1 As String()) As String()
-
-        If Not list1 Is Nothing Then
-            For Each i In list1
-
-                i.Trim()
-
-            Next
-
-            Return list1
-
-        End If
-        Return list1
+    Public Function RemoverEspacios(str As String) As String
+        Return str.Trim()
     End Function
 
     Public Sub LimpiarControles(contenedor As Control)
