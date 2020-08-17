@@ -1,44 +1,31 @@
 ﻿Module mdlConexionBD 'modulo unicamente orientado a manejar las conexiones/desconexiones con la BD.
     Public conn As New ADODB.Connection
+    Public rs As New ADODB.Recordset
     Public _usr As String = ""
     Public _pwd As String = ""
     Public _str As String = ""
-    'Método para conectarnos a la BD'
-    Public Function Conectar() As Integer
-        Try
-            conn.Open(_str)
-        Catch ex As Exception
-            Return 0
-        End Try
-    End Function
+    Public Sub Conectar() 'Procedimiento para abrir una conexión a la BD
+        On Error GoTo AdoError
 
-    Public Function verificar_usr(connection_string As String) As Integer
-        Try
-            conn.Open(connection_string)
-            _str = connection_string
-            conn.Close()
-        Catch ex As Exception
-            Return 0
-        End Try
-    End Function
+        _str = construirCnString(_usr, _pwd)
 
-    'Cerrar conexión'
-    Public Sub Cerrar()
+        conn.Open(_str)
+AdoError:
+        If Err.Number <> 0 Then
+            MessageBox.Show(Err.Description, "Ha ocurrido un error.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+        Err.Clear()
+        Exit Sub
+    End Sub
+
+    Public Sub Cerrar() 'Procedimiento para cerrar una conexión a la BD
         If Not conn.State = ConnectionState.Closed Then
             conn.Close()
         End If
     End Sub
 
-    'Retornamos los datos de la conexión como String'
-    Public Function CONNECTION_STRING(usr As String, contrasena As String) As String
-        Dim myConnectionString As String = "DSN=SIBIM;UID=" & usr & "; PWD=" & contrasena & ";"
-        Return myConnectionString
+    Public Function construirCnString(usr As String, pwd As String)
+        Return "DSN=SIBIM;UID=" & usr & "; PWD=" & pwd & ";"
     End Function
-
-    Public Function CONNECTION_STRING_USRPublico() As String
-        Dim myConnectionString As String = "DSN=SIBIM;UID=publico;PWD=us3r_c0nsult4;"
-        Return myConnectionString
-    End Function
-
 
 End Module

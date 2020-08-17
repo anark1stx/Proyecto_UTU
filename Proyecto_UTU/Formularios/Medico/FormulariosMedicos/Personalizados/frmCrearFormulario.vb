@@ -216,7 +216,7 @@
             For Each c As Control In controles
                 If c.Controls.Count > 0 Then
                     For Each c2 As Control In c.Controls
-                        c2.Location = New Point(c2.Location.X, c2.Location.Y + 50)
+                        c2.Location = New Point(c2.Location.X, c2.Location.Y + 100)
                         agregarHandlersBasicos(c2)
                     Next
                 Else

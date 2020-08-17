@@ -270,7 +270,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\BD\mdlInteraccionBD.vb" />
-    <Compile Include="Modulos\BD\mdlQueriesComunes.vb" />
+    <Compile Include="Modulos\BD\mdlArmarCMDS.vb" />
     <Compile Include="Modulos\mdlChecker.vb" />
     <Compile Include="Modulos\BD\mdlConexionBD.vb" />
     <Compile Include="Modulos\mdlGestionControles.vb" />

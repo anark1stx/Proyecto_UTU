@@ -98,12 +98,22 @@ Public Class ControlesGuardados
         Public _texto As String
         <Xml.Serialization.XmlIgnore>
         Public _font As String
+        <Xml.Serialization.XmlIgnore>
+        Public _multiline As Boolean
         Property text As String
             Get
                 Return _texto
             End Get
             Set(value As String)
                 _texto = value
+            End Set
+        End Property
+        Property Multiline As Boolean
+            Get
+                Return _multiline
+            End Get
+            Set(value As Boolean)
+                _multiline = value
             End Set
         End Property
         Property Font As String
@@ -114,7 +124,7 @@ Public Class ControlesGuardados
                 _font = value
             End Set
         End Property
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean)
 
             _posicion = posicion
             _tamano = tamano
@@ -125,6 +135,7 @@ Public Class ControlesGuardados
             _bgColor = bg
             _texto = texto
             _font = FontToStr(font)
+            _multiline = multiline
         End Sub
         Sub New()
 
@@ -277,7 +288,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean)
 
             _posicion = posicion
             _tamano = tamano
@@ -288,6 +299,7 @@ Public Class ControlesGuardados
             _bgColor = bg
             _texto = texto
             _font = FontToStr(font)
+            _multiline = multiline
         End Sub
     End Class
 
@@ -389,7 +401,6 @@ Public Class ControlesGuardados
                 _items = value
             End Set
         End Property
-        'tipo As TipoControl
         Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font)
 
             _posicion = posicion

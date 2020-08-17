@@ -16,7 +16,6 @@
 
                         Dim childs = getChilds(tmp_list)
                         Dim pnl As New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, childs) 'Necesario castearlo como panel para sacar esa propiedad
-                        Console.WriteLine(c.Location)
                         _lista.Add(pnl)
 
                     End If
@@ -29,21 +28,21 @@
                         Next
 
                         Dim childs = getChilds(tmp_list)
-                        Dim gb As New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, childs, c.Font) 'Necesario castearlo como panel para sacar esa propiedad
+                        Dim gb As New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, childs, c.Font)
                         _lista.Add(gb)
                     End If
                 Case GetType(TableLayoutPanel)
                     If c.Controls.Count > 0 Then
                         Dim cTBL = DirectCast(c, TableLayoutPanel)
 
-                        Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount) 'Necesario castearlo como panel para sacar esa propiedad
+                        Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount)
                         _lista.Add(tb)
                     End If
                 Case GetType(Label)
                     _lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font))
 
                 Case GetType(TextBox)
-                    _lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font))
+                    _lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline))
                 Case GetType(Button)
                     _lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout))
                 Case GetType(ListBox)
@@ -99,7 +98,6 @@
                         Next
 
                     End If
-                    Console.WriteLine(c.Location)
                     lista.Add(New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
 
                 Case GetType(GroupBox)
@@ -116,7 +114,7 @@
                     lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font))
 
                 Case GetType(TextBox)
-                    lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font))
+                    lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline))
                 Case GetType(Button)
                     lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout))
                 Case GetType(ListBox)
@@ -206,7 +204,6 @@
 
         For Each c As ControlesGuardados.TBLControl In control.ChildsTuple
 
-            'Dim ctrl = ConstruirControl(c.Control)
             tb.Controls.Add(ConstruirControl(c.Control), c.ColIndex, c.RowIndex)
         Next
 
@@ -330,7 +327,8 @@
             .Anchor = control.Anchor,
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text,
-            .Font = control.StrToFont()
+            .Font = control.StrToFont(),
+            .Multiline = control.Multiline
         }
     End Function
 

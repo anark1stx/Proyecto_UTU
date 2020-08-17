@@ -19,8 +19,9 @@
             ctrl_seleccionado = sender
             sender.Left = e.X + sender.Left - ubicacion_mouse.X
             sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
-        End If
 
+            evaluarSiEstoyenTBL(ctrl_seleccionado)
+        End If
     End Sub
 
     Public Sub _MouseUp(ByVal sender As System.Object, ByVal e As MouseEventArgs)
@@ -33,5 +34,18 @@
         End If
 
     End Sub
+
+    Public Sub evaluarSiEstoyenTBL(ctrl As Control)
+
+        If Not ctrl.Parent Is Me.Controls(0) Then '
+            Dim contenedor = ctrl.Parent.Parent
+            ctrl.Dock = DockStyle.None
+            ctrl.Anchor = AnchorStyles.None
+            contenedor.Controls.Add(ctrl)
+            evaluarSiEstoyenTBL(ctrl)
+        End If
+
+    End Sub
+
 
 End Class

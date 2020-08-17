@@ -400,7 +400,7 @@ Partial Class frmMalestar
         Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.17789!))
         Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.275731!))
         Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.54638!))
-        Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 470.0!))
+        Me.tblTsens.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 471.0!))
         Me.tblTsens.Controls.Add(Me.chkT_Sens_No, 2, 0)
         Me.tblTsens.Controls.Add(Me.Label18, 0, 0)
         Me.tblTsens.Controls.Add(Me.chkT_Sens_Si, 1, 0)
@@ -417,7 +417,7 @@ Partial Class frmMalestar
         '
         Me.chkT_Sens_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Sens_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Sens_No.Location = New System.Drawing.Point(668, 3)
+        Me.chkT_Sens_No.Location = New System.Drawing.Point(666, 3)
         Me.chkT_Sens_No.Name = "chkT_Sens_No"
         Me.chkT_Sens_No.Size = New System.Drawing.Size(72, 28)
         Me.chkT_Sens_No.TabIndex = 4
@@ -439,9 +439,9 @@ Partial Class frmMalestar
         '
         Me.chkT_Sens_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkT_Sens_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkT_Sens_Si.Location = New System.Drawing.Point(599, 3)
+        Me.chkT_Sens_Si.Location = New System.Drawing.Point(598, 3)
         Me.chkT_Sens_Si.Name = "chkT_Sens_Si"
-        Me.chkT_Sens_Si.Size = New System.Drawing.Size(63, 28)
+        Me.chkT_Sens_Si.Size = New System.Drawing.Size(62, 28)
         Me.chkT_Sens_Si.TabIndex = 3
         Me.chkT_Sens_Si.Text = "Si"
         Me.chkT_Sens_Si.UseVisualStyleBackColor = True
@@ -450,10 +450,10 @@ Partial Class frmMalestar
         '
         Me.txtTsensoriales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtTsensoriales.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTsensoriales.Location = New System.Drawing.Point(746, 3)
+        Me.txtTsensoriales.Location = New System.Drawing.Point(744, 3)
         Me.txtTsensoriales.Multiline = True
         Me.txtTsensoriales.Name = "txtTsensoriales"
-        Me.txtTsensoriales.Size = New System.Drawing.Size(465, 28)
+        Me.txtTsensoriales.Size = New System.Drawing.Size(467, 28)
         Me.txtTsensoriales.TabIndex = 6
         '
         'tblActitud
@@ -532,10 +532,10 @@ Partial Class frmMalestar
         '
         Me.tblTAliment.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.tblTAliment.ColumnCount = 4
-        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.15768!))
-        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.428951!))
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.52287!))
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.150327!))
         Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.35857!))
-        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 473.0!))
+        Me.tblTAliment.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 448.0!))
         Me.tblTAliment.Controls.Add(Me.chkTAlimen_No, 2, 0)
         Me.tblTAliment.Controls.Add(Me.Label19, 0, 0)
         Me.tblTAliment.Controls.Add(Me.chkTAlimen_Si, 1, 0)
@@ -552,9 +552,9 @@ Partial Class frmMalestar
         '
         Me.chkTAlimen_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkTAlimen_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkTAlimen_No.Location = New System.Drawing.Point(666, 3)
+        Me.chkTAlimen_No.Location = New System.Drawing.Point(689, 3)
         Me.chkTAlimen_No.Name = "chkTAlimen_No"
-        Me.chkTAlimen_No.Size = New System.Drawing.Size(70, 28)
+        Me.chkTAlimen_No.Size = New System.Drawing.Size(73, 28)
         Me.chkTAlimen_No.TabIndex = 4
         Me.chkTAlimen_No.Text = "No"
         Me.chkTAlimen_No.UseVisualStyleBackColor = True
@@ -574,9 +574,9 @@ Partial Class frmMalestar
         '
         Me.chkTAlimen_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkTAlimen_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkTAlimen_Si.Location = New System.Drawing.Point(597, 3)
+        Me.chkTAlimen_Si.Location = New System.Drawing.Point(619, 3)
         Me.chkTAlimen_Si.Name = "chkTAlimen_Si"
-        Me.chkTAlimen_Si.Size = New System.Drawing.Size(63, 28)
+        Me.chkTAlimen_Si.Size = New System.Drawing.Size(64, 28)
         Me.chkTAlimen_Si.TabIndex = 3
         Me.chkTAlimen_Si.Text = "Si"
         Me.chkTAlimen_Si.UseVisualStyleBackColor = True
@@ -585,10 +585,10 @@ Partial Class frmMalestar
         '
         Me.txtDrugs.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDrugs.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDrugs.Location = New System.Drawing.Point(742, 3)
+        Me.txtDrugs.Location = New System.Drawing.Point(768, 3)
         Me.txtDrugs.Multiline = True
         Me.txtDrugs.Name = "txtDrugs"
-        Me.txtDrugs.Size = New System.Drawing.Size(469, 28)
+        Me.txtDrugs.Size = New System.Drawing.Size(443, 28)
         Me.txtDrugs.TabIndex = 6
         '
         'tblPulso
@@ -634,7 +634,7 @@ Partial Class frmMalestar
         Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.74803!))
         Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.1811!))
         Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.07087!))
-        Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 615.0!))
+        Me.tblDrogas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 569.0!))
         Me.tblDrogas.Controls.Add(Me.chkDrugs_No, 2, 0)
         Me.tblDrogas.Controls.Add(Me.Label20, 0, 0)
         Me.tblDrogas.Controls.Add(Me.chkDrugs_Si, 1, 0)
@@ -651,9 +651,9 @@ Partial Class frmMalestar
         '
         Me.chkDrugs_No.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkDrugs_No.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDrugs_No.Location = New System.Drawing.Point(522, 3)
+        Me.chkDrugs_No.Location = New System.Drawing.Point(563, 3)
         Me.chkDrugs_No.Name = "chkDrugs_No"
-        Me.chkDrugs_No.Size = New System.Drawing.Size(72, 28)
+        Me.chkDrugs_No.Size = New System.Drawing.Size(78, 28)
         Me.chkDrugs_No.TabIndex = 4
         Me.chkDrugs_No.Text = "No"
         Me.chkDrugs_No.UseVisualStyleBackColor = True
@@ -673,9 +673,9 @@ Partial Class frmMalestar
         '
         Me.chkDrugs_Si.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkDrugs_Si.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDrugs_Si.Location = New System.Drawing.Point(456, 3)
+        Me.chkDrugs_Si.Location = New System.Drawing.Point(491, 3)
         Me.chkDrugs_Si.Name = "chkDrugs_Si"
-        Me.chkDrugs_Si.Size = New System.Drawing.Size(60, 28)
+        Me.chkDrugs_Si.Size = New System.Drawing.Size(66, 28)
         Me.chkDrugs_Si.TabIndex = 3
         Me.chkDrugs_Si.Text = "Si"
         Me.chkDrugs_Si.UseVisualStyleBackColor = True
@@ -684,10 +684,10 @@ Partial Class frmMalestar
         '
         Me.txtDrogas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDrogas.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDrogas.Location = New System.Drawing.Point(600, 3)
+        Me.txtDrogas.Location = New System.Drawing.Point(647, 3)
         Me.txtDrogas.Multiline = True
         Me.txtDrogas.Name = "txtDrogas"
-        Me.txtDrogas.Size = New System.Drawing.Size(611, 28)
+        Me.txtDrogas.Size = New System.Drawing.Size(564, 28)
         Me.txtDrogas.TabIndex = 6
         '
         'tblOtrosProblemas
@@ -933,10 +933,10 @@ Partial Class frmMalestar
         '
         Me.tblDuracion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.tblDuracion.ColumnCount = 4
-        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.98844!))
-        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13873!))
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.37571!))
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.867172!))
         Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.77649!))
-        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158.0!))
+        Me.tblDuracion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159.0!))
         Me.tblDuracion.Controls.Add(Me.txtDuracion, 0, 0)
         Me.tblDuracion.Controls.Add(Me.chkMeses, 2, 0)
         Me.tblDuracion.Controls.Add(Me.Label28, 0, 0)
@@ -953,19 +953,19 @@ Partial Class frmMalestar
         '
         Me.txtDuracion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDuracion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDuracion.Location = New System.Drawing.Point(785, 3)
+        Me.txtDuracion.Location = New System.Drawing.Point(808, 3)
         Me.txtDuracion.Multiline = True
         Me.txtDuracion.Name = "txtDuracion"
-        Me.txtDuracion.Size = New System.Drawing.Size(122, 28)
+        Me.txtDuracion.Size = New System.Drawing.Size(98, 28)
         Me.txtDuracion.TabIndex = 7
         '
         'chkMeses
         '
         Me.chkMeses.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkMeses.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMeses.Location = New System.Drawing.Point(1058, 3)
+        Me.chkMeses.Location = New System.Drawing.Point(1057, 3)
         Me.chkMeses.Name = "chkMeses"
-        Me.chkMeses.Size = New System.Drawing.Size(153, 28)
+        Me.chkMeses.Size = New System.Drawing.Size(154, 28)
         Me.chkMeses.TabIndex = 4
         Me.chkMeses.Text = "Meses"
         Me.chkMeses.UseVisualStyleBackColor = True
@@ -985,7 +985,7 @@ Partial Class frmMalestar
         '
         Me.chkSemanas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chkSemanas.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkSemanas.Location = New System.Drawing.Point(913, 3)
+        Me.chkSemanas.Location = New System.Drawing.Point(912, 3)
         Me.chkSemanas.Name = "chkSemanas"
         Me.chkSemanas.Size = New System.Drawing.Size(139, 28)
         Me.chkSemanas.TabIndex = 3
