@@ -17,7 +17,7 @@
                 lblMensajeErrorCI.Visible = True
             Else
                 'Cerrar() 'Cierro la conexion ya que el siguiente método vuelve a crear una instancia nueva.
-                SQL_SELECT(CMDSELECTMYSQLUSERROLE(txtIngresarCi.Text))
+                SQL_SELECT_ROL(CMDSELECTMYSQLUSERROLE(txtIngresarCi.Text))
                 lblMensajeErrorCI.Visible = False
             End If
         End If

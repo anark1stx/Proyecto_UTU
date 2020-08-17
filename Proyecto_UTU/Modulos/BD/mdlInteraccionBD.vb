@@ -1,11 +1,12 @@
 ﻿Module mdlInteraccionBD
+    Public Sub SQL_SELECT_ROL(cmd As ADODB.Command)
 
-    Public Function SQL_SELECT(cmd As ADODB.Command) As DataTable
+        Dim retorno = 0
+
         On Error GoTo queryErr
 
         If conn.State = ConnectionState.Closed Then
             Conectar()
-
         End If
 
         conn.CursorLocation = ADODB.CursorLocationEnum.adUseClient
@@ -25,7 +26,7 @@
 
             End Select
         Else
-            MsgBox(rs.RecordCount)
+            MsgBox("No tiene rol en la BD")
         End If
         Cerrar()
 queryErr:
@@ -33,7 +34,6 @@ queryErr:
             MessageBox.Show(Err.Number & ": " & Err.Description, "Ha Ocurrido un error.", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         End If
-
-    End Function
+    End Sub
 
 End Module
