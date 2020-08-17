@@ -35,13 +35,12 @@
             direccion(i) = RemoverEspacios(direccion(i))
 
         Next
-        '-> Salida esperada: Luis Alberto de Herrera Esq. Francisco Torres, 4682
-        '-> Antes de enviarlos, hay que remover los espacios entre las comas
+
         Dim telefonos As String() = txtTelefono.Text.Split(",")
 
-        For Each s As String In telefonos
+        For i = 0 To telefonos.Count - 1
 
-            RemoverEspacios(telefonos(s))
+            telefonos(i) = RemoverEspacios(telefonos(i))
 
         Next
 

@@ -23,16 +23,27 @@
         Dim contrasena As String = txtContrasena.Text
 
         Dim direccion As String() = txtDireccion.Text.Split(",")
-        '-> Salida esperada: Luis Alberto de Herrera Esq. Francisco Torres, 4682
-        '-> Antes de enviarlos, hay que remover los espacios entre las comas
-        'direccion = RemoverEspacios(direccion)
+        For i = 0 To direccion.Count - 1
+
+            direccion(i) = RemoverEspacios(direccion(i))
+
+        Next
 
         Dim telefonos As String() = txtTelefono.Text.Split(",")
-        'telefonos = RemoverEspacios(telefonos)
+
+        For i = 0 To telefonos.Count - 1
+
+            telefonos(i) = RemoverEspacios(telefonos(i))
+
+        Next
 
         Dim especialidades As String() = txtEspecialidad.Text.Split(",")
 
-        'especialidades = RemoverEspacios(especialidades)
+        For i = 0 To especialidades.Count - 1
+
+            especialidades(i) = RemoverEspacios(especialidades(i))
+
+        Next
 
         Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades)
 
