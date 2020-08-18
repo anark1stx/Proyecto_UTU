@@ -50,51 +50,46 @@
 
             If paciente.checkDatosPaciente() Then
                 'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
-
-                Conectar()
-
-                Dim sqlmysqlUser = String.Format("CREATE USER '{0}'@'localhost' IDENTIFIED BY '{1}' DEFAULT ROLE '{2}'@'localhost'", "u" & paciente.Cedula, paciente.Contrasena, "paciente")
-
-                Try
-                    conn.Execute(sqlmysqlUser)
-                Catch ex As Exception
-                    MsgBox("No se pudo ingresar el USER " & ex.Message)
-                End Try
-
-                Dim sqlGrantRoleUser = String.Format("GRANT 'paciente'@'localhost' TO '{0}'@'localhost';", "u" & paciente.Cedula)
-
-                Try
-                    conn.Execute(sqlGrantRoleUser)
-                Catch ex As Exception
-                    MsgBox("No se pudo dar GRANT")
-                End Try
-
-                Dim sqlUSUARIO = String.Format("INSERT INTO usuario (CI,nombre1,nombre2,apellido1,apellido2,direccion_calle,direccion_nroPuerta, correo) VALUES ({0},{1},{2},{3},{5},{6},{7})", paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), paciente.Correo)
-                Try
-                    conn.Execute(sqlUSUARIO)
-                Catch ex As Exception
-                    MsgBox("No se pudo ingresar el USUARIO")
-                End Try
-
-                For Each t As String In paciente.telefonosLista
-                    Dim sqlTelefonos = String.Format("INSERT INTO usuario_tel (CI,telefono) VALUES ({0},{1})", paciente.Cedula, t)
+                If altaOmod = 0 Then
+                    Conectar()
 
                     Try
-                        conn.Execute(sqlTelefonos)
+                        conn.Execute(CREATEUSER("u" & paciente.Cedula, paciente.Contrasena, "paciente"))
                     Catch ex As Exception
-                        MsgBox("No se pudo ingresar el telefono:" & t)
+                        MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
                     End Try
-                Next
 
-                Dim sqlPACIENTE = String.Format("INSERT INTO paciente (CI,edad,etapa,e_civil,ocupacion,sexo) VALUES ({0},{1},{2},{3},{5})", paciente.Cedula, paciente.Edad, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo)
+                    Try
+                        conn.Execute(GRANTROLE("paciente", "u" & paciente.Cedula))
+                    Catch ex As Exception
+                        MsgBox("No se pudo dar ROL")
+                    End Try
 
-                Try
-                    conn.Execute(sqlPACIENTE)
-                Catch ex As Exception
-                    MsgBox("No se pudo ingresar el PACIENTE")
-                End Try
+                    Try
+                        conn.Execute(INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo))
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
+                    End Try
 
-                Cerrar()
+                    For Each t As String In paciente.telefonosLista
+                        Try
+                            conn.Execute(INSERTTELEFONO(paciente.Cedula, t))
+                        Catch ex As Exception
+                            MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
+                        End Try
+                    Next
+
+                    Try
+                        conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.Edad, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el PACIENTE " & " " & ex.Message)
+                    End Try
+
+                    Cerrar()
+                Else ' hacer modificacion
+
+                End If
+
 
             End If
 
