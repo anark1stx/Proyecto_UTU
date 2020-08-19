@@ -45,10 +45,41 @@
         If aux.checkDatos() Then
             'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
 
-            If altaOmod = 1 Then
-                'Hacer modificacion
-            Else
-                'Hacer alta
+            If altaOmod = 0 Then 'Hacer alta
+                Conectar()
+
+                Try
+                    conn.Execute(CREATEUSER("u" & aux.Cedula, aux.Contrasena, "aux"))
+                Catch ex As Exception
+                    MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
+                    Exit Sub
+                End Try
+
+                Try
+                    conn.Execute(GRANTROLE("aux", "u" & aux.Cedula))
+                Catch ex As Exception
+                    MsgBox("No se pudo dar ROL ")
+                    Exit Sub
+                End Try
+
+                Try
+                    conn.Execute(INSERTUSUARIO(aux.Cedula, aux.Nombre1, aux.Nombre2, aux.Apellido1, aux.Apellido2, aux.direccion(0), aux.direccion(1), correo))
+                Catch ex As Exception
+                    MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
+                    Exit Sub
+                End Try
+
+                For Each t As String In aux.telefonosLista
+                    Try
+                        conn.Execute(INSERTTELEFONO(aux.Cedula, t))
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
+                        Exit Sub
+                    End Try
+                Next
+
+            Else 'Hacer modificacion
+
             End If
 
         End If
@@ -96,8 +127,10 @@
             Case 0
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
-                        c.Enabled = False
+                    If Not ci_valida Then
+                        If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                            c.Enabled = False
+                        End If
                     Else
                         If TypeOf c Is TextBox Or TypeOf c Is ComboBox Then
                             c.Enabled = True
@@ -109,7 +142,7 @@
                 txtCedula.Enabled = False
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
+                    If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
                         c.Enabled = True
                     End If
 
