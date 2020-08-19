@@ -32,4 +32,5 @@
         Return String.Format("INSERT INTO medico_especialidad (CI,especialidad) VALUES ('{0}','{1}')", usr, especialidad)
     End Function
 
+
 End Module

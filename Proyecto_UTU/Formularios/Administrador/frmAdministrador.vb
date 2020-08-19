@@ -63,7 +63,6 @@
 
                         _frmGestion.pnlContenedorBusqueda.Hide()
 
-
 #End Region
 #Region "Medico"
                     Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico

@@ -214,7 +214,7 @@
     Overridable Function buscarPorCI() As Integer
         Conectar()
 
-        Dim sql As String = String.Format("SELECT * FROM usuario,usuario_tel,paciente where usuario.CI={0} AND paciente.CI={0}", _cedula)
+        Dim sql As String = String.Format("SELECT * FROM usuario,usuario_tel where usuario.CI={0}", _cedula)
 
         Try
             rs.Open(sql, conn)
@@ -248,6 +248,5 @@
         rs.Close()
 
     End Function
-
 
 End Class

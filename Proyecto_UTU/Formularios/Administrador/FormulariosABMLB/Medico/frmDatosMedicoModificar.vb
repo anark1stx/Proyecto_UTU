@@ -37,7 +37,7 @@
 
         Next
 
-        Dim especialidades As String() = txtEspecialidad.Text.Split(",")
+        Dim especialidades As New List(Of String)(txtEspecialidad.Text.Split(","))
 
         For i = 0 To especialidades.Count - 1
 

@@ -27,7 +27,6 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda = New System.Windows.Forms.Panel()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnl_rdbtns_ci_nom_ap = New System.Windows.Forms.Panel()
-        Me.rdBtnNomyAp = New System.Windows.Forms.RadioButton()
         Me.rdBtnCedula = New System.Windows.Forms.RadioButton()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
@@ -66,32 +65,22 @@ Partial Class frmGestion
         '
         'pnl_rdbtns_ci_nom_ap
         '
-        Me.pnl_rdbtns_ci_nom_ap.Controls.Add(Me.rdBtnNomyAp)
         Me.pnl_rdbtns_ci_nom_ap.Controls.Add(Me.rdBtnCedula)
         Me.pnl_rdbtns_ci_nom_ap.Location = New System.Drawing.Point(564, 13)
         Me.pnl_rdbtns_ci_nom_ap.Name = "pnl_rdbtns_ci_nom_ap"
         Me.pnl_rdbtns_ci_nom_ap.Size = New System.Drawing.Size(294, 32)
         Me.pnl_rdbtns_ci_nom_ap.TabIndex = 109
         '
-        'rdBtnNomyAp
-        '
-        Me.rdBtnNomyAp.AutoSize = True
-        Me.rdBtnNomyAp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdBtnNomyAp.Location = New System.Drawing.Point(202, 5)
-        Me.rdBtnNomyAp.Name = "rdBtnNomyAp"
-        Me.rdBtnNomyAp.Size = New System.Drawing.Size(89, 24)
-        Me.rdBtnNomyAp.TabIndex = 1
-        Me.rdBtnNomyAp.Text = "Apellido"
-        Me.rdBtnNomyAp.UseVisualStyleBackColor = True
-        '
         'rdBtnCedula
         '
         Me.rdBtnCedula.AutoSize = True
+        Me.rdBtnCedula.Checked = True
         Me.rdBtnCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdBtnCedula.Location = New System.Drawing.Point(100, 5)
+        Me.rdBtnCedula.Location = New System.Drawing.Point(209, 5)
         Me.rdBtnCedula.Name = "rdBtnCedula"
         Me.rdBtnCedula.Size = New System.Drawing.Size(82, 24)
         Me.rdBtnCedula.TabIndex = 0
+        Me.rdBtnCedula.TabStop = True
         Me.rdBtnCedula.Text = "Cédula"
         Me.rdBtnCedula.UseVisualStyleBackColor = True
         '
@@ -137,7 +126,6 @@ Partial Class frmGestion
     Friend WithEvents pnlContenedorBusqueda As Panel
     Friend WithEvents btnBuscar As Button
     Friend WithEvents pnl_rdbtns_ci_nom_ap As Panel
-    Friend WithEvents rdBtnNomyAp As RadioButton
     Friend WithEvents rdBtnCedula As RadioButton
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents dgwUsuarios As DataGridView
