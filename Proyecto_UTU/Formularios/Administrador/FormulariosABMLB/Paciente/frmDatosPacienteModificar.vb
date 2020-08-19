@@ -92,6 +92,8 @@
                         Exit Sub
                     End Try
 
+                    MessageBox.Show("El usuario fue ingresado con éxito.", "Operación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                 Else ' hacer modificacion
 
                 End If
