@@ -43,6 +43,7 @@ Partial Class Identificacion_Paciente
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.txtCIPaciente = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.btnEntrevistar = New System.Windows.Forms.Button()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -241,10 +242,25 @@ Partial Class Identificacion_Paciente
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Location = New System.Drawing.Point(778, 9)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(93, 34)
+        Me.btnBuscar.Size = New System.Drawing.Size(106, 34)
         Me.btnBuscar.TabIndex = 100
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'btnEntrevistar
+        '
+        Me.btnEntrevistar.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnEntrevistar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEntrevistar.Image = CType(resources.GetObject("btnEntrevistar.Image"), System.Drawing.Image)
+        Me.btnEntrevistar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEntrevistar.Location = New System.Drawing.Point(12, 376)
+        Me.btnEntrevistar.Name = "btnEntrevistar"
+        Me.btnEntrevistar.Size = New System.Drawing.Size(872, 167)
+        Me.btnEntrevistar.TabIndex = 101
+        Me.btnEntrevistar.Text = "    Entrevistar"
+        Me.btnEntrevistar.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEntrevistar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnEntrevistar.UseVisualStyleBackColor = False
         '
         'Identificacion_Paciente
         '
@@ -252,6 +268,7 @@ Partial Class Identificacion_Paciente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 555)
+        Me.Controls.Add(Me.btnEntrevistar)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtCIPaciente)
         Me.Controls.Add(Me.lblDireccion)
@@ -300,4 +317,5 @@ Partial Class Identificacion_Paciente
     Friend WithEvents pBoxFotoPaciente As PictureBox
     Public WithEvents txtCIPaciente As TextBox
     Public WithEvents btnBuscar As Button
+    Friend WithEvents btnEntrevistar As Button
 End Class

@@ -81,18 +81,17 @@ Public Class frmMedico
                 addFrm(frmIdentificacion, 0)
 
             Case "Entrevista"
+                CargarDatosPaciente()
+                If llenoIdentificacion Then
 
-                If check_Cedula(Ci) Then
-                    llenoIdentificacion = True
+                    Me.MaximizeBox = False
+                    fixSize()
+
+                    addFrm(frmEntrevista, 0)
                 Else
-                    llenoIdentificacion = False
                     MsgBox("Debe identificar primero al paciente antes de proceder con su entrevista.")
                     Exit Sub
                 End If
-                Me.MaximizeBox = False
-                fixSize()
-
-                addFrm(frmEntrevista, 0)
 
             Case "Generico"
                 addFrm(generico, 1)
@@ -207,14 +206,18 @@ Public Class frmMedico
 
         AddHandler frmIdentificacion.btnBuscar.Click,
                     Sub()
-                        chkCedulaTXTCIPACIENTE()
+                        CargarDatosPaciente()
                         If frmIdentificacion.txtCIPaciente.TextLength < 8 Then
                             Ci = frmIdentificacion.txtCIPaciente.Text
                         End If
                     End Sub
         AddHandler frmIdentificacion.txtCIPaciente.TextChanged,
                     Sub()
-                        chkCedulaTXTCIPACIENTE()
+                        CargarDatosPaciente()
+                    End Sub
+        AddHandler frmIdentificacion.btnEntrevistar.Click,
+                    Sub()
+                        InstanciarFormulario("Entrevista")
                     End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 
@@ -274,65 +277,61 @@ Public Class frmMedico
                     End Sub
     End Sub
 
-    Private Sub chkCedulaTXTCIPACIENTE() 'Evento para cuando el médico escribe la cédula del textbox del paciente en el sub-formulario de Identificacion_Paciente
-        If frmIdentificacion.txtCIPaciente.TextLength = 8 Then
+    Private Sub CargarDatosPaciente()
+
+
+        If frmIdentificacion.txtCIPaciente.Text.Length = 8 Then
 
             If check_Cedula(frmIdentificacion.txtCIPaciente.Text) Then
-                'Verificar que exista en la BD
+                _paciente.Cedula = frmIdentificacion.txtCIPaciente.Text
 
-                Ci = frmIdentificacion.txtCIPaciente.Text
-                llenoIdentificacion = True
-                _paciente = New Paciente()
-                CargarDatosPaciente()
+                Dim datosP = _paciente.buscarPorCI()
 
-                'InstanciarFormulario("Entrevista") -> Mandar esto a otro botón
+                Select Case datosP
+                    Case 0
+                        MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        llenoIdentificacion = False
+                        frmIdentificacion.txtCIPaciente.Text = String.Empty
+                        Ci = String.Empty
+                        Exit Sub
+                    Case 1
+                        frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
+                        frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
+
+                        frmIdentificacion.lblDireccionTXT.Text = String.Empty
+                        frmIdentificacion.lblTelefonoTXT.Text = String.Empty
+
+                        For i = 0 To _paciente.direccion.Count - 1
+                            frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
+                        Next
+
+                        For i = 0 To _paciente.telefonosLista.Count - 1
+                            frmIdentificacion.lblTelefonoTXT.Text &= (_paciente.telefonosLista(i) & ", ")
+                        Next
+
+                        frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
+                        frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
+                        frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
+                        frmIdentificacion.lblEdadTXT.Text = _paciente.Edad
+
+                        For Each l As Control In frmIdentificacion.Controls
+                            If TypeOf l Is Label Then
+                                If l.Text.EndsWith(", ") Then
+                                    l.Text = l.Text.Substring(0, l.Text.LastIndexOf(","))
+                                End If
+                            End If
+
+                        Next
+
+                        llenoIdentificacion = True
+
+                End Select
             Else
                 Ci = frmIdentificacion.txtCIPaciente.Text
                 MsgBox("Cédula inválida.", MessageBoxIcon.Error)
                 llenoIdentificacion = False
             End If
-
         End If
-    End Sub
-
-    Private Sub CargarDatosPaciente()
-        _paciente.Cedula = Ci.ToString()
-        Dim datosP = _paciente.buscarPorCI()
-        Select Case datosP
-            Case 0
-                MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Case 1
-                frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
-                frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
-
-                frmIdentificacion.lblDireccionTXT.Text = String.Empty
-                frmIdentificacion.lblTelefonoTXT.Text = String.Empty
-
-                For i = 0 To _paciente.direccion.Count - 1
-                    frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
-                Next
-
-                For i = 0 To _paciente.telefonosLista.Count - 1
-                    frmIdentificacion.lblTelefonoTXT.Text &= (_paciente.telefonosLista(i) & ", ")
-                Next
-
-
-                frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
-                frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
-                frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
-                frmIdentificacion.lblEdadTXT.Text = _paciente.Edad
-
-                For Each l As Control In frmIdentificacion.Controls
-                    If TypeOf l Is Label Then
-                        If l.Text.EndsWith(", ") Then
-                            l.Text = l.Text.Substring(0, l.Text.LastIndexOf(","))
-                        End If
-                    End If
-
-                Next
-
-
-        End Select
 
     End Sub
 
