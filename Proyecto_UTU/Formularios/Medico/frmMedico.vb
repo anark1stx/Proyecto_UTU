@@ -280,12 +280,9 @@ Public Class frmMedico
             If check_Cedula(frmIdentificacion.txtCIPaciente.Text) Then
                 'Verificar que exista en la BD
 
-                'CargarDatosPaciente() <-- Metodo para buscar y cargar todos los datos del paciente
-
-
                 Ci = frmIdentificacion.txtCIPaciente.Text
                 llenoIdentificacion = True
-
+                _paciente = New Paciente()
                 CargarDatosPaciente()
 
                 'InstanciarFormulario("Entrevista") -> Mandar esto a otro botón
@@ -308,8 +305,8 @@ Public Class frmMedico
                 frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
                 frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
 
-                frmIdentificacion.lblDireccionTXT.Text = ""
-                frmIdentificacion.lblTelefonoTXT.Text = ""
+                frmIdentificacion.lblDireccionTXT.Text = String.Empty
+                frmIdentificacion.lblTelefonoTXT.Text = String.Empty
 
                 For i = 0 To _paciente.direccion.Count - 1
                     frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
