@@ -7,8 +7,8 @@
     Protected _apellido1 As String
     Protected _apellido2 As String
     Protected _correo As String
-    Protected _telefonosLista As String() '-> {099523212, 23363539}
-    Protected _direccion As String() ' -> Para pasarle directamente {calle, nroPuerta}
+    Protected _telefonosLista As List(Of String) '-> {099523212, 23363539}
+    Protected _direccion As List(Of String) ' -> Para pasarle directamente {calle, nroPuerta}
     'CONSTRUCTOR VACIO
     Sub New()
         _nombre1 = ""
@@ -17,7 +17,7 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = ""
-        _telefonosLista = {}
+        _telefonosLista = New List(Of String)
         _cedula = ""
     End Sub
 
@@ -29,11 +29,11 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = contrasena
-        _telefonosLista = {}
+        _telefonosLista = New List(Of String)
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String(), telefonosLista As String(), correo As String, contrasena As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -100,11 +100,11 @@
         End Set
     End Property
 
-    Property telefonosLista() As String()
+    Property telefonosLista() As List(Of String)
         Get
             Return (_telefonosLista)
         End Get
-        Set(ByVal value As String())
+        Set(ByVal value As List(Of String))
             _telefonosLista = value
         End Set
     End Property
@@ -118,11 +118,11 @@
         End Set
     End Property
 
-    Property direccion() As String()
+    Property direccion() As List(Of String)
         Get
             Return (_direccion)
         End Get
-        Set(ByVal value As String())
+        Set(ByVal value As List(Of String))
             _direccion = value
         End Set
     End Property
@@ -197,5 +197,40 @@
         Return 1
 
     End Function
+
+    Overridable Function buscarPorCI() As Integer
+        Conectar()
+
+        Dim sql As String = String.Format("SELECT * FROM usuario,usuario_tel,paciente where usuario.CI={0} AND paciente.CI={0}", _cedula)
+
+        Try
+            rs.Open(sql, conn)
+        Catch ex As Exception
+            rs.Close()
+            MsgBox(ex.Message)
+            Return 0
+        End Try
+
+        If rs.RecordCount = 1 Then
+
+            If rs("activo").Value = 0 Then
+                Return 5 'El usuario fue dado de baja
+            End If
+
+            _cedula = rs("CI").Value.ToString()
+            _nombre1 = rs("nombre1").Value
+            _nombre2 = rs("nombre2").Value
+            _apellido1 = rs("apellido1").Value
+            _apellido2 = rs("apellido2").Value
+            _telefonosLista.Add(rs("telefono").Value)
+            _direccion.Add(rs("direccion_calle").Value)
+            _direccion.Add(rs("direccion_nroPuerta").Value)
+
+        End If
+
+        rs.Close()
+
+    End Function
+
 
 End Class

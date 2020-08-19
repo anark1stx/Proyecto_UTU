@@ -22,14 +22,14 @@
         Dim correo As String = txtCorreo.Text
         Dim contrasena As String = txtContrasena.Text
 
-        Dim direccion As String() = txtDireccion.Text.Split(",")
+        Dim direccion As New List(Of String)(txtDireccion.Text.Split(","))
         For i = 0 To direccion.Count - 1
 
             direccion(i) = RemoverEspacios(direccion(i))
 
         Next
 
-        Dim telefonos As String() = txtTelefono.Text.Split(",")
+        Dim telefonos As New List(Of String)(txtTelefono.Text.Split(","))
 
         For i = 0 To telefonos.Count - 1
 

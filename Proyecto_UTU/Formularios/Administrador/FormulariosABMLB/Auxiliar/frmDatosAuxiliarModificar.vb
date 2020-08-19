@@ -26,14 +26,14 @@
         '-> Salida esperada: Luis Alberto de Herrera, 4682
         '-> Antes de enviarlos, hay que remover los espacios entre las comas
 
-        Dim direccion As String() = txtDireccion.Text.Split(",")
+        Dim direccion As New List(Of String)(txtDireccion.Text.Split(","))
         For i = 0 To direccion.Count - 1
 
             direccion(i) = RemoverEspacios(direccion(i))
 
         Next
 
-        Dim telefonos As String() = txtTelefono.Text.Split(",")
+        Dim telefonos As New List(Of String)(txtTelefono.Text.Split(","))
 
         For i = 0 To telefonos.Count - 1
 

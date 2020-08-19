@@ -30,13 +30,19 @@ Partial Class frmMedico
         Me.CrearFormularioMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
+        Me.TratamientosMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnalisisMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresarNuevoTratamientoMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TratamientoSeguimientoMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnalisisIngresarMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnalisisHacerSeguimientoMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.TratamientosMenuItem, Me.AnalisisMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(896, 28)
@@ -89,6 +95,44 @@ Partial Class frmMedico
         Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
+        'TratamientosMenuItem
+        '
+        Me.TratamientosMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarNuevoTratamientoMenuItem, Me.TratamientoSeguimientoMenuItem})
+        Me.TratamientosMenuItem.Name = "TratamientosMenuItem"
+        Me.TratamientosMenuItem.Size = New System.Drawing.Size(109, 24)
+        Me.TratamientosMenuItem.Text = "Tratamientos"
+        '
+        'AnalisisMenuItem
+        '
+        Me.AnalisisMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AnalisisIngresarMenuItem1, Me.AnalisisHacerSeguimientoMenuItem1})
+        Me.AnalisisMenuItem.Name = "AnalisisMenuItem"
+        Me.AnalisisMenuItem.Size = New System.Drawing.Size(73, 24)
+        Me.AnalisisMenuItem.Text = "Análisis"
+        '
+        'IngresarNuevoTratamientoMenuItem
+        '
+        Me.IngresarNuevoTratamientoMenuItem.Name = "IngresarNuevoTratamientoMenuItem"
+        Me.IngresarNuevoTratamientoMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.IngresarNuevoTratamientoMenuItem.Text = "Ingresar nuevo"
+        '
+        'TratamientoSeguimientoMenuItem
+        '
+        Me.TratamientoSeguimientoMenuItem.Name = "TratamientoSeguimientoMenuItem"
+        Me.TratamientoSeguimientoMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.TratamientoSeguimientoMenuItem.Text = "Hacer seguimiento"
+        '
+        'AnalisisIngresarMenuItem1
+        '
+        Me.AnalisisIngresarMenuItem1.Name = "AnalisisIngresarMenuItem1"
+        Me.AnalisisIngresarMenuItem1.Size = New System.Drawing.Size(224, 26)
+        Me.AnalisisIngresarMenuItem1.Text = "Ingresar nuevo"
+        '
+        'AnalisisHacerSeguimientoMenuItem1
+        '
+        Me.AnalisisHacerSeguimientoMenuItem1.Name = "AnalisisHacerSeguimientoMenuItem1"
+        Me.AnalisisHacerSeguimientoMenuItem1.Size = New System.Drawing.Size(224, 26)
+        Me.AnalisisHacerSeguimientoMenuItem1.Text = "Hacer seguimiento"
+        '
         'frmMedico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -117,4 +161,10 @@ Partial Class frmMedico
     Friend WithEvents CrearFormularioMenuItem As ToolStripMenuItem
     Friend WithEvents InicioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TratamientosMenuItem As ToolStripMenuItem
+    Friend WithEvents IngresarNuevoTratamientoMenuItem As ToolStripMenuItem
+    Friend WithEvents TratamientoSeguimientoMenuItem As ToolStripMenuItem
+    Friend WithEvents AnalisisMenuItem As ToolStripMenuItem
+    Friend WithEvents AnalisisIngresarMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AnalisisHacerSeguimientoMenuItem1 As ToolStripMenuItem
 End Class

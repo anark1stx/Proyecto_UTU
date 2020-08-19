@@ -286,7 +286,7 @@ Public Class frmMedico
                 Ci = frmIdentificacion.txtCIPaciente.Text
                 llenoIdentificacion = True
 
-                'CargarDatosPaciente(SQL_SELECT(CMDGenerico("SELECT * FROM paciente WHERE CI=" & Ci)))
+                CargarDatosPaciente()
 
                 'InstanciarFormulario("Entrevista") -> Mandar esto a otro botón
             Else
@@ -307,14 +307,35 @@ Public Class frmMedico
             Case 1
                 frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
                 frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
-                frmIdentificacion.lblDireccionTXT.Text = _paciente.direccion.ToString()
-                frmIdentificacion.lblTelefonoTXT.Text = _paciente.telefonosLista.ToString()
+
+                frmIdentificacion.lblDireccionTXT.Text = ""
+                frmIdentificacion.lblTelefonoTXT.Text = ""
+
+                For i = 0 To _paciente.direccion.Count - 1
+                    frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
+                Next
+
+                For i = 0 To _paciente.telefonosLista.Count - 1
+                    frmIdentificacion.lblTelefonoTXT.Text &= (_paciente.telefonosLista(i) & ", ")
+                Next
+
+
                 frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
                 frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
                 frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
                 frmIdentificacion.lblEdadTXT.Text = _paciente.Edad
-        End Select
 
+                For Each l As Control In frmIdentificacion.Controls
+                    If TypeOf l Is Label Then
+                        If l.Text.EndsWith(", ") Then
+                            l.Text = l.Text.Substring(0, l.Text.LastIndexOf(","))
+                        End If
+                    End If
+
+                Next
+
+
+        End Select
 
     End Sub
 

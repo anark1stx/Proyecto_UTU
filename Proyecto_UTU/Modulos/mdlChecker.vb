@@ -100,7 +100,7 @@
 
         Return 1
     End Function
-    Public Function check_Telefonos(telefonos As String()) As Boolean
+    Public Function check_Telefonos(telefonos As List(Of String)) As Boolean
 
         If telefonos.Count = 1 Then
             If String.IsNullOrWhiteSpace(telefonos(0)) Then
@@ -194,10 +194,10 @@
 
     End Function
 
-    Public Function check_direccion(direccion As String()) As Boolean
+    Public Function check_direccion(direccion As List(Of String)) As Boolean
         optMsg = "Ingrese de la forma: 'Calle Esq. Calle2, n°puerta'"
 
-        If direccion.Length <> 2 Then 'Si no hay de dos items pafuera
+        If direccion.Count <> 2 Then 'Si no hay de dos items pafuera
             Return 0
         Else
 

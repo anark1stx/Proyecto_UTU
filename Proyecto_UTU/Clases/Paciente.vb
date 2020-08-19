@@ -13,8 +13,8 @@
         _apellido2 = ""
         _correo = ""
         _contrasena = ""
-        _telefonosLista = {}
-        _direccion = {}
+        _telefonosLista = New List(Of String)
+        _direccion = New List(Of String)
         _cedula = ""
         _edad = ""
         _sexo = ""
@@ -22,7 +22,7 @@
         _estado_civil = ""
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As String(), telefonosLista As String(), correo As String, contrasena As String, edad As String, sexo As String, ocupacion As String, estado_civil As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, edad As String, sexo As String, ocupacion As String, estado_civil As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -90,39 +90,34 @@
 
     End Function
 
-    Function buscarPorCI() As Integer
+    Overrides Function buscarPorCI() As Integer
         Conectar()
-
-        Dim sql As String = "SELECT * FROM paciente WHERE CI=" & _cedula
+        Dim sql As String = String.Format("SELECT * FROM usuario,usuario_tel,paciente where usuario.CI={0} AND paciente.CI={0}", _cedula)
 
         Try
             rs.Open(sql, conn)
         Catch ex As Exception
-            rs.Close()
             MsgBox(ex.Message)
             Return 0
         End Try
 
         If rs.RecordCount = 1 Then
-
-            If rs("activo").Value = 0 Then
-                Return 5 'El usuario fue dado de baja
-            End If
-
             _cedula = rs("CI").Value.ToString()
             _nombre1 = rs("nombre1").Value
             _nombre2 = rs("nombre2").Value
             _apellido1 = rs("apellido1").Value
             _apellido2 = rs("apellido2").Value
-            _direccion = rs("direccion_calle").Value & rs("direccion_nroPuerta").Value
+            _telefonosLista.Add(rs("telefono").Value)
+            _direccion.Add(rs("direccion_calle").Value)
+            _direccion.Add(rs("direccion_nroPuerta").Value)
             _edad = rs("edad").Value
             _estado_civil = rs("e_civil").Value
             _ocupacion = rs("ocupacion").Value
             _sexo = rs("sexo").Value
-
+            Return 1
         End If
-
         rs.Close()
+
 
     End Function
 
