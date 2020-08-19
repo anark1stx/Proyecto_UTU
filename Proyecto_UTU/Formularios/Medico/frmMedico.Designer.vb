@@ -45,7 +45,7 @@ Partial Class frmMedico
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.TratamientosMenuItem, Me.AnalisisMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 30)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -90,9 +90,9 @@ Partial Class frmMedico
         '
         Me.pnlContenedorFormularios.AutoSize = True
         Me.pnlContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 28)
+        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 30)
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
-        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(1130, 720)
+        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(1130, 718)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
         'TratamientosMenuItem

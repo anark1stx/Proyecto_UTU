@@ -20,8 +20,8 @@
         Return String.Format("INSERT INTO usuario_tel (CI,telefono) VALUES ({0},{1})", usr, tel)
     End Function
 
-    Public Function INSERTPACIENTE(usr As String, edad As String, etapa As String, e_civil As String, ocupacion As String, sexo As String) As String
-        Return String.Format("INSERT INTO paciente (CI,edad,etapa,e_civil,ocupacion,sexo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", usr, edad, "a", e_civil, ocupacion, sexo)
+    Public Function INSERTPACIENTE(usr As String, fecha As String, etapa As String, e_civil As String, ocupacion As String, sexo As String) As String
+        Return String.Format("INSERT INTO paciente (CI,fecha_nac,etapa,e_civil,ocupacion,sexo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", usr, fecha, "a", e_civil, ocupacion, sexo)
     End Function
 
     Public Function INSERTMEDICO(usr As String) As String

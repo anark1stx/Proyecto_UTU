@@ -8,6 +8,9 @@ Public Class frmMedico
     Dim frmIdentificacion As New Identificacion_Paciente
     Dim frmEntrevista As New frmSeleccionarFormularioEntrevista
 
+    Dim frmTratamientoC As New frmTratamientoCrear
+    Dim frmTratamientoS As New frmTratamientoSeguir
+
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
 
@@ -131,9 +134,9 @@ Public Class frmMedico
                 frmCrear.btnAbrir_Click(sender, e)
 
             Case "IngresarTratamiento"
-
+                addFrm(frmTratamientoC, 0)
             Case "HacerSeguimiento"
-
+                addFrm(frmTratamientoS, 0)
         End Select
 
     End Sub
@@ -339,4 +342,11 @@ Public Class frmMedico
 
     End Sub
 
+    Private Sub IngresarNuevoTratamientoMenuItem_Click(sender As Object, e As EventArgs) Handles IngresarNuevoTratamientoMenuItem.Click
+        InstanciarFormulario("IngresarTratamiento")
+    End Sub
+
+    Private Sub TratamientoSeguimientoMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientoSeguimientoMenuItem.Click
+        InstanciarFormulario("HacerSeguimiento")
+    End Sub
 End Class

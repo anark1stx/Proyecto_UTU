@@ -27,12 +27,6 @@ Partial Class frmTratamientoSeguir
         Me.btnImprimir = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.txtDuracion = New System.Windows.Forms.TextBox()
-        Me.lblDuracion = New System.Windows.Forms.Label()
-        Me.lblFechaFin = New System.Windows.Forms.Label()
-        Me.dtpFechaFin = New System.Windows.Forms.DateTimePicker()
-        Me.lblFechaInicio = New System.Windows.Forms.Label()
-        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.lblIndicaciones = New System.Windows.Forms.Label()
         Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
         Me.lblNombreTratamiento = New System.Windows.Forms.Label()
@@ -41,6 +35,12 @@ Partial Class frmTratamientoSeguir
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.txtDuracion = New System.Windows.Forms.TextBox()
+        Me.lblDuracion = New System.Windows.Forms.Label()
+        Me.lblFechaFin = New System.Windows.Forms.Label()
+        Me.lblFechaInicio = New System.Windows.Forms.Label()
+        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.pnlContenedor.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -48,6 +48,12 @@ Partial Class frmTratamientoSeguir
         '
         Me.pnlContenedor.AutoScroll = True
         Me.pnlContenedor.AutoSize = True
+        Me.pnlContenedor.Controls.Add(Me.DateTimePicker2)
+        Me.pnlContenedor.Controls.Add(Me.txtDuracion)
+        Me.pnlContenedor.Controls.Add(Me.lblDuracion)
+        Me.pnlContenedor.Controls.Add(Me.lblFechaFin)
+        Me.pnlContenedor.Controls.Add(Me.lblFechaInicio)
+        Me.pnlContenedor.Controls.Add(Me.dtpFechaInicio)
         Me.pnlContenedor.Controls.Add(Me.TextBox1)
         Me.pnlContenedor.Controls.Add(Me.Label1)
         Me.pnlContenedor.Controls.Add(Me.DateTimePicker1)
@@ -56,12 +62,6 @@ Partial Class frmTratamientoSeguir
         Me.pnlContenedor.Controls.Add(Me.btnImprimir)
         Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
-        Me.pnlContenedor.Controls.Add(Me.txtDuracion)
-        Me.pnlContenedor.Controls.Add(Me.lblDuracion)
-        Me.pnlContenedor.Controls.Add(Me.lblFechaFin)
-        Me.pnlContenedor.Controls.Add(Me.dtpFechaFin)
-        Me.pnlContenedor.Controls.Add(Me.lblFechaInicio)
-        Me.pnlContenedor.Controls.Add(Me.dtpFechaInicio)
         Me.pnlContenedor.Controls.Add(Me.lblIndicaciones)
         Me.pnlContenedor.Controls.Add(Me.txtDescripcionTratamiento)
         Me.pnlContenedor.Controls.Add(Me.lblNombreTratamiento)
@@ -73,6 +73,7 @@ Partial Class frmTratamientoSeguir
         '
         'btnImprimir
         '
+        Me.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
         Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -86,6 +87,7 @@ Partial Class frmTratamientoSeguir
         '
         'btnLimpiar
         '
+        Me.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -99,6 +101,7 @@ Partial Class frmTratamientoSeguir
         '
         'btnGuardar
         '
+        Me.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -110,68 +113,9 @@ Partial Class frmTratamientoSeguir
         Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
-        'txtDuracion
-        '
-        Me.txtDuracion.Enabled = False
-        Me.txtDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDuracion.Location = New System.Drawing.Point(969, 83)
-        Me.txtDuracion.Name = "txtDuracion"
-        Me.txtDuracion.Size = New System.Drawing.Size(159, 30)
-        Me.txtDuracion.TabIndex = 98
-        '
-        'lblDuracion
-        '
-        Me.lblDuracion.AutoSize = True
-        Me.lblDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDuracion.Location = New System.Drawing.Point(781, 85)
-        Me.lblDuracion.Name = "lblDuracion"
-        Me.lblDuracion.Size = New System.Drawing.Size(182, 29)
-        Me.lblDuracion.TabIndex = 97
-        Me.lblDuracion.Text = "Duración (días):"
-        '
-        'lblFechaFin
-        '
-        Me.lblFechaFin.AutoSize = True
-        Me.lblFechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaFin.Location = New System.Drawing.Point(358, 85)
-        Me.lblFechaFin.Name = "lblFechaFin"
-        Me.lblFechaFin.Size = New System.Drawing.Size(245, 29)
-        Me.lblFechaFin.TabIndex = 96
-        Me.lblFechaFin.Text = "Fecha de finalización:"
-        '
-        'dtpFechaFin
-        '
-        Me.dtpFechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaFin.Location = New System.Drawing.Point(609, 83)
-        Me.dtpFechaFin.Name = "dtpFechaFin"
-        Me.dtpFechaFin.Size = New System.Drawing.Size(156, 30)
-        Me.dtpFechaFin.TabIndex = 95
-        Me.dtpFechaFin.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
-        '
-        'lblFechaInicio
-        '
-        Me.lblFechaInicio.AutoSize = True
-        Me.lblFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaInicio.Location = New System.Drawing.Point(12, 85)
-        Me.lblFechaInicio.Name = "lblFechaInicio"
-        Me.lblFechaInicio.Size = New System.Drawing.Size(183, 29)
-        Me.lblFechaInicio.TabIndex = 94
-        Me.lblFechaInicio.Text = "Fecha de inicio:"
-        '
-        'dtpFechaInicio
-        '
-        Me.dtpFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaInicio.Location = New System.Drawing.Point(193, 83)
-        Me.dtpFechaInicio.Name = "dtpFechaInicio"
-        Me.dtpFechaInicio.Size = New System.Drawing.Size(159, 30)
-        Me.dtpFechaInicio.TabIndex = 93
-        Me.dtpFechaInicio.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
-        '
         'lblIndicaciones
         '
-        Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblIndicaciones.AutoSize = True
         Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIndicaciones.Location = New System.Drawing.Point(402, 137)
@@ -213,7 +157,7 @@ Partial Class frmTratamientoSeguir
         '
         'lblSeguimiento
         '
-        Me.lblSeguimiento.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblSeguimiento.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblSeguimiento.AutoSize = True
         Me.lblSeguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSeguimiento.Location = New System.Drawing.Point(467, 640)
@@ -253,6 +197,67 @@ Partial Class frmTratamientoSeguir
         Me.TextBox1.Size = New System.Drawing.Size(1125, 209)
         Me.TextBox1.TabIndex = 106
         '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(617, 65)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(145, 30)
+        Me.DateTimePicker2.TabIndex = 112
+        Me.DateTimePicker2.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
+        '
+        'txtDuracion
+        '
+        Me.txtDuracion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDuracion.Enabled = False
+        Me.txtDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDuracion.Location = New System.Drawing.Point(969, 67)
+        Me.txtDuracion.Name = "txtDuracion"
+        Me.txtDuracion.Size = New System.Drawing.Size(159, 30)
+        Me.txtDuracion.TabIndex = 111
+        '
+        'lblDuracion
+        '
+        Me.lblDuracion.AutoSize = True
+        Me.lblDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDuracion.Location = New System.Drawing.Point(781, 67)
+        Me.lblDuracion.Name = "lblDuracion"
+        Me.lblDuracion.Size = New System.Drawing.Size(182, 29)
+        Me.lblDuracion.TabIndex = 110
+        Me.lblDuracion.Text = "Duración (días):"
+        '
+        'lblFechaFin
+        '
+        Me.lblFechaFin.AutoSize = True
+        Me.lblFechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaFin.Location = New System.Drawing.Point(366, 67)
+        Me.lblFechaFin.Name = "lblFechaFin"
+        Me.lblFechaFin.Size = New System.Drawing.Size(245, 29)
+        Me.lblFechaFin.TabIndex = 109
+        Me.lblFechaFin.Text = "Fecha de finalización:"
+        '
+        'lblFechaInicio
+        '
+        Me.lblFechaInicio.AutoSize = True
+        Me.lblFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaInicio.Location = New System.Drawing.Point(12, 67)
+        Me.lblFechaInicio.Name = "lblFechaInicio"
+        Me.lblFechaInicio.Size = New System.Drawing.Size(183, 29)
+        Me.lblFechaInicio.TabIndex = 108
+        Me.lblFechaInicio.Text = "Fecha de inicio:"
+        '
+        'dtpFechaInicio
+        '
+        Me.dtpFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaInicio.Location = New System.Drawing.Point(215, 65)
+        Me.dtpFechaInicio.Name = "dtpFechaInicio"
+        Me.dtpFechaInicio.Size = New System.Drawing.Size(145, 30)
+        Me.dtpFechaInicio.TabIndex = 107
+        Me.dtpFechaInicio.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
+        '
         'frmTratamientoSeguir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -274,12 +279,6 @@ Partial Class frmTratamientoSeguir
     Friend WithEvents btnImprimir As Button
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents btnGuardar As Button
-    Friend WithEvents txtDuracion As TextBox
-    Friend WithEvents lblDuracion As Label
-    Friend WithEvents lblFechaFin As Label
-    Friend WithEvents dtpFechaFin As DateTimePicker
-    Friend WithEvents lblFechaInicio As Label
-    Friend WithEvents dtpFechaInicio As DateTimePicker
     Friend WithEvents lblIndicaciones As Label
     Friend WithEvents txtDescripcionTratamiento As TextBox
     Friend WithEvents lblNombreTratamiento As Label
@@ -288,4 +287,10 @@ Partial Class frmTratamientoSeguir
     Friend WithEvents Label1 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents txtDuracion As TextBox
+    Friend WithEvents lblDuracion As Label
+    Friend WithEvents lblFechaFin As Label
+    Friend WithEvents lblFechaInicio As Label
+    Friend WithEvents dtpFechaInicio As DateTimePicker
 End Class

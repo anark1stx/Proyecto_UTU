@@ -24,7 +24,7 @@
         Dim apellido2 As String = txtApellido2.Text
         Dim correo As String = txtCorreo.Text
         Dim contrasena As String = txtContrasena.Text
-        Dim fechaNacimiento As String = dateFechaNacimiento.Text
+        Dim fechaNacimiento As String = dateFechaNacimiento.Value.ToString("yyyy-MM-dd")
         Dim sexo As String = cbSexo.SelectedItem
         Dim ocupacion As String = txtOcupacion.Text
         Dim e_civil As String = cb_e_civil.SelectedItem
@@ -177,5 +177,9 @@
         Catch ex As Exception
             MsgBox(ex.Message.ToString())
         End Try
+    End Sub
+
+    Private Sub dateFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles dateFechaNacimiento.ValueChanged
+
     End Sub
 End Class
