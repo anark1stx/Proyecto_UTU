@@ -45,11 +45,27 @@
 
         Next
 
-        Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades)
+        Dim arrImg() As Byte = {}
+
+        If pBoxFotoMedico.Image Is Nothing Then
+            If MessageBox.Show("¿Desea ingresar al usuario sin una imagen de identificación?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+                Exit Sub
+            End If
+        Else
+            Dim mStream As New IO.MemoryStream
+            Dim tamanoFoto As UInteger = mStream.Length
+            pBoxFotoMedico.Image.Save(mStream, Imaging.ImageFormat.Png)
+            arrImg = mStream.GetBuffer()
+            mStream.Close()
+
+        End If
+
+        Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades, arrImg)
 
         If medico.checkDatos() Then 'Datos de clase base Usuario
             If medico.checkDatosMed() Then 'En el caso del medico, ademas de los datos de la clase base validamos especialidad
                 'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
+
                 If altaOmod = 0 Then 'Hacer alta
                     Conectar()
 
@@ -68,7 +84,7 @@
                     End Try
 
                     Try
-                        conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo))
+                        conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo, arrImg))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
                         Exit Sub
@@ -110,43 +126,43 @@
 
     End Sub
 
-    Private Sub txtCedula_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCedula.KeyPress 'No dejarlo poner espacios
+    Private Sub txtCedula_KeyPress(sender As Object, e As KeyPressEventArgs)  'No dejarlo poner espacios
         If e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtNombre1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre1.KeyPress
+    Private Sub txtNombre1_KeyPress(sender As Object, e As KeyPressEventArgs)
         If e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtNombre2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre2.KeyPress
+    Private Sub txtNombre2_KeyPress(sender As Object, e As KeyPressEventArgs)
         If e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtApellido1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido1.KeyPress
+    Private Sub txtApellido1_KeyPress(sender As Object, e As KeyPressEventArgs)
         If e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtApellido2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido2.KeyPress
+    Private Sub txtApellido2_KeyPress(sender As Object, e As KeyPressEventArgs)
         If e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtCorreo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCorreo.KeyPress
+    Private Sub txtCorreo_KeyPress(sender As Object, e As KeyPressEventArgs)
         If e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub pBoxFotoMedico_Click(sender As Object, e As EventArgs) Handles pBoxFotoMedico.Click
+    Private Sub pBoxFotoMedico_Click(sender As Object, e As EventArgs)
         Dim imgpath As String 'donde esta la imagen que se va a subir'
         Try
             Dim OFD As FileDialog = New OpenFileDialog() 'Esto es lo que nos abre el menú de windows para seleccionar archivos.'
@@ -199,7 +215,7 @@
         End Select
     End Sub
 
-    Private Sub txtCedula_TextChanged(sender As Object, e As EventArgs) Handles txtCedula.TextChanged
+    Private Sub txtCedula_TextChanged(sender As Object, e As EventArgs)
         ci = txtCedula.Text
 
         If ci.Length = 8 Then

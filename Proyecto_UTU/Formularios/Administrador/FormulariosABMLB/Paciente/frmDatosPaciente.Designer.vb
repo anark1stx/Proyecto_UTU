@@ -23,134 +23,41 @@ Partial Class frmDatosPaciente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDatosPaciente))
+        Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnBaja = New System.Windows.Forms.Button()
+        Me.lblCorreo = New System.Windows.Forms.Label()
+        Me.lblApellido2 = New System.Windows.Forms.Label()
+        Me.lblNombre2 = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.lblEstadoCivil = New System.Windows.Forms.Label()
+        Me.lblOcupacion = New System.Windows.Forms.Label()
         Me.lblSexo = New System.Windows.Forms.Label()
         Me.lblEdad = New System.Windows.Forms.Label()
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.lblApellido1 = New System.Windows.Forms.Label()
         Me.lblNombre1 = New System.Windows.Forms.Label()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
-        Me.btnEditar = New System.Windows.Forms.Button()
-        Me.btnBaja = New System.Windows.Forms.Button()
-        Me.lblContrasenaTitulo = New System.Windows.Forms.Label()
-        Me.lblApellido2Titulo = New System.Windows.Forms.Label()
-        Me.lblNombre2Titulo = New System.Windows.Forms.Label()
-        Me.lblAcompananteTitulo = New System.Windows.Forms.Label()
-        Me.lblCedulaTitulo = New System.Windows.Forms.Label()
-        Me.lblDireccionTitulo = New System.Windows.Forms.Label()
-        Me.lblEstadoCivilTitulo = New System.Windows.Forms.Label()
-        Me.lblOcupacionTitulo = New System.Windows.Forms.Label()
-        Me.lblSexoTitulo = New System.Windows.Forms.Label()
-        Me.lblEdadTitulo = New System.Windows.Forms.Label()
-        Me.lblTelefonoTitulo = New System.Windows.Forms.Label()
-        Me.lblApellido1Titulo = New System.Windows.Forms.Label()
-        Me.lblNombre1Titulo = New System.Windows.Forms.Label()
-        Me.lblApellido2 = New System.Windows.Forms.Label()
-        Me.lblNombre2 = New System.Windows.Forms.Label()
-        Me.lblOcupacion = New System.Windows.Forms.Label()
-        Me.lblAcompanante = New System.Windows.Forms.Label()
-        Me.lblContrasena = New System.Windows.Forms.Label()
+        Me.lblTelefonoTXT = New System.Windows.Forms.Label()
+        Me.lblDireccionTXT = New System.Windows.Forms.Label()
+        Me.lblCorreoTXT = New System.Windows.Forms.Label()
+        Me.lblApellido2TXT = New System.Windows.Forms.Label()
+        Me.lblApellido1TXT = New System.Windows.Forms.Label()
+        Me.lblNombre2TXT = New System.Windows.Forms.Label()
+        Me.lblNombre1TXT = New System.Windows.Forms.Label()
+        Me.lblCedulaTXT = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblSexoTXT = New System.Windows.Forms.Label()
+        Me.lblEstadoCivilTXT = New System.Windows.Forms.Label()
+        Me.lblOcupacionTXT = New System.Windows.Forms.Label()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lblCedula
-        '
-        Me.lblCedula.AutoSize = True
-        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(373, 12)
-        Me.lblCedula.Name = "lblCedula"
-        Me.lblCedula.Size = New System.Drawing.Size(78, 20)
-        Me.lblCedula.TabIndex = 166
-        Me.lblCedula.Text = "CÉDULA"
-        '
-        'lblDireccion
-        '
-        Me.lblDireccion.AutoSize = True
-        Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(803, 70)
-        Me.lblDireccion.Name = "lblDireccion"
-        Me.lblDireccion.Size = New System.Drawing.Size(81, 20)
-        Me.lblDireccion.TabIndex = 164
-        Me.lblDireccion.Text = "Dirección"
-        '
-        'lblEstadoCivil
-        '
-        Me.lblEstadoCivil.AutoSize = True
-        Me.lblEstadoCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoCivil.Location = New System.Drawing.Point(803, 9)
-        Me.lblEstadoCivil.Name = "lblEstadoCivil"
-        Me.lblEstadoCivil.Size = New System.Drawing.Size(95, 20)
-        Me.lblEstadoCivil.TabIndex = 160
-        Me.lblEstadoCivil.Text = "Estado civil"
-        '
-        'lblSexo
-        '
-        Me.lblSexo.AutoSize = True
-        Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(374, 190)
-        Me.lblSexo.Name = "lblSexo"
-        Me.lblSexo.Size = New System.Drawing.Size(46, 20)
-        Me.lblSexo.TabIndex = 156
-        Me.lblSexo.Text = "Sexo"
-        '
-        'lblEdad
-        '
-        Me.lblEdad.AutoSize = True
-        Me.lblEdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEdad.Location = New System.Drawing.Point(373, 160)
-        Me.lblEdad.Name = "lblEdad"
-        Me.lblEdad.Size = New System.Drawing.Size(47, 20)
-        Me.lblEdad.TabIndex = 154
-        Me.lblEdad.Text = "Edad"
-        '
-        'lblTelefono
-        '
-        Me.lblTelefono.AutoSize = True
-        Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(803, 101)
-        Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(108, 20)
-        Me.lblTelefono.TabIndex = 152
-        Me.lblTelefono.Text = "TELEFONO1"
-        '
-        'lblApellido1
-        '
-        Me.lblApellido1.AutoSize = True
-        Me.lblApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1.Location = New System.Drawing.Point(373, 101)
-        Me.lblApellido1.Name = "lblApellido1"
-        Me.lblApellido1.Size = New System.Drawing.Size(106, 20)
-        Me.lblApellido1.TabIndex = 148
-        Me.lblApellido1.Text = "APELLIDO 1"
-        '
-        'lblNombre1
-        '
-        Me.lblNombre1.AutoSize = True
-        Me.lblNombre1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre1.Location = New System.Drawing.Point(373, 41)
-        Me.lblNombre1.Name = "lblNombre1"
-        Me.lblNombre1.Size = New System.Drawing.Size(102, 20)
-        Me.lblNombre1.TabIndex = 147
-        Me.lblNombre1.Text = "NOMBRE 1 "
-        '
-        'pBoxFotoPaciente
-        '
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
-        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(12, 12)
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(189, 177)
-        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoPaciente.TabIndex = 146
-        Me.pBoxFotoPaciente.TabStop = False
         '
         'btnEditar
         '
         Me.btnEditar.BackgroundImage = CType(resources.GetObject("btnEditar.BackgroundImage"), System.Drawing.Image)
         Me.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnEditar.Location = New System.Drawing.Point(918, 186)
+        Me.btnEditar.Location = New System.Drawing.Point(924, 191)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(48, 40)
         Me.btnEditar.TabIndex = 248
@@ -160,191 +67,263 @@ Partial Class frmDatosPaciente
         '
         Me.btnBaja.BackgroundImage = CType(resources.GetObject("btnBaja.BackgroundImage"), System.Drawing.Image)
         Me.btnBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBaja.Location = New System.Drawing.Point(972, 186)
+        Me.btnBaja.Location = New System.Drawing.Point(978, 191)
         Me.btnBaja.Name = "btnBaja"
         Me.btnBaja.Size = New System.Drawing.Size(48, 40)
         Me.btnBaja.TabIndex = 247
         Me.btnBaja.UseVisualStyleBackColor = True
         '
-        'lblContrasenaTitulo
+        'lblCorreo
         '
-        Me.lblContrasenaTitulo.AutoSize = True
-        Me.lblContrasenaTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasenaTitulo.Location = New System.Drawing.Point(674, 160)
-        Me.lblContrasenaTitulo.Name = "lblContrasenaTitulo"
-        Me.lblContrasenaTitulo.Size = New System.Drawing.Size(100, 20)
-        Me.lblContrasenaTitulo.TabIndex = 265
-        Me.lblContrasenaTitulo.Text = "Contraseña:"
-        '
-        'lblApellido2Titulo
-        '
-        Me.lblApellido2Titulo.AutoSize = True
-        Me.lblApellido2Titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2Titulo.Location = New System.Drawing.Point(245, 131)
-        Me.lblApellido2Titulo.Name = "lblApellido2Titulo"
-        Me.lblApellido2Titulo.Size = New System.Drawing.Size(94, 20)
-        Me.lblApellido2Titulo.TabIndex = 264
-        Me.lblApellido2Titulo.Text = "2° Apellido:"
-        '
-        'lblNombre2Titulo
-        '
-        Me.lblNombre2Titulo.AutoSize = True
-        Me.lblNombre2Titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre2Titulo.Location = New System.Drawing.Point(245, 70)
-        Me.lblNombre2Titulo.Name = "lblNombre2Titulo"
-        Me.lblNombre2Titulo.Size = New System.Drawing.Size(94, 20)
-        Me.lblNombre2Titulo.TabIndex = 263
-        Me.lblNombre2Titulo.Text = "2° Nombre:"
-        '
-        'lblAcompananteTitulo
-        '
-        Me.lblAcompananteTitulo.AutoSize = True
-        Me.lblAcompananteTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcompananteTitulo.Location = New System.Drawing.Point(674, 131)
-        Me.lblAcompananteTitulo.Name = "lblAcompananteTitulo"
-        Me.lblAcompananteTitulo.Size = New System.Drawing.Size(116, 20)
-        Me.lblAcompananteTitulo.TabIndex = 262
-        Me.lblAcompananteTitulo.Text = "Acompañante:"
-        '
-        'lblCedulaTitulo
-        '
-        Me.lblCedulaTitulo.AutoSize = True
-        Me.lblCedulaTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTitulo.Location = New System.Drawing.Point(245, 12)
-        Me.lblCedulaTitulo.Name = "lblCedulaTitulo"
-        Me.lblCedulaTitulo.Size = New System.Drawing.Size(66, 20)
-        Me.lblCedulaTitulo.TabIndex = 255
-        Me.lblCedulaTitulo.Text = "Cédula:"
-        '
-        'lblDireccionTitulo
-        '
-        Me.lblDireccionTitulo.AutoSize = True
-        Me.lblDireccionTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTitulo.Location = New System.Drawing.Point(674, 70)
-        Me.lblDireccionTitulo.Name = "lblDireccionTitulo"
-        Me.lblDireccionTitulo.Size = New System.Drawing.Size(86, 20)
-        Me.lblDireccionTitulo.TabIndex = 261
-        Me.lblDireccionTitulo.Text = "Dirección:"
-        '
-        'lblEstadoCivilTitulo
-        '
-        Me.lblEstadoCivilTitulo.AutoSize = True
-        Me.lblEstadoCivilTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoCivilTitulo.Location = New System.Drawing.Point(674, 9)
-        Me.lblEstadoCivilTitulo.Name = "lblEstadoCivilTitulo"
-        Me.lblEstadoCivilTitulo.Size = New System.Drawing.Size(100, 20)
-        Me.lblEstadoCivilTitulo.TabIndex = 260
-        Me.lblEstadoCivilTitulo.Text = "Estado civíl:"
-        '
-        'lblOcupacionTitulo
-        '
-        Me.lblOcupacionTitulo.AutoSize = True
-        Me.lblOcupacionTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacionTitulo.Location = New System.Drawing.Point(674, 40)
-        Me.lblOcupacionTitulo.Name = "lblOcupacionTitulo"
-        Me.lblOcupacionTitulo.Size = New System.Drawing.Size(94, 20)
-        Me.lblOcupacionTitulo.TabIndex = 259
-        Me.lblOcupacionTitulo.Text = "Ocupación:"
-        '
-        'lblSexoTitulo
-        '
-        Me.lblSexoTitulo.AutoSize = True
-        Me.lblSexoTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexoTitulo.Location = New System.Drawing.Point(244, 190)
-        Me.lblSexoTitulo.Name = "lblSexoTitulo"
-        Me.lblSexoTitulo.Size = New System.Drawing.Size(51, 20)
-        Me.lblSexoTitulo.TabIndex = 258
-        Me.lblSexoTitulo.Text = "Sexo:"
-        '
-        'lblEdadTitulo
-        '
-        Me.lblEdadTitulo.AutoSize = True
-        Me.lblEdadTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEdadTitulo.Location = New System.Drawing.Point(244, 160)
-        Me.lblEdadTitulo.Name = "lblEdadTitulo"
-        Me.lblEdadTitulo.Size = New System.Drawing.Size(52, 20)
-        Me.lblEdadTitulo.TabIndex = 257
-        Me.lblEdadTitulo.Text = "Edad:"
-        '
-        'lblTelefonoTitulo
-        '
-        Me.lblTelefonoTitulo.AutoSize = True
-        Me.lblTelefonoTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTitulo.Location = New System.Drawing.Point(674, 101)
-        Me.lblTelefonoTitulo.Name = "lblTelefonoTitulo"
-        Me.lblTelefonoTitulo.Size = New System.Drawing.Size(78, 20)
-        Me.lblTelefonoTitulo.TabIndex = 256
-        Me.lblTelefonoTitulo.Text = "Teléfono:"
-        '
-        'lblApellido1Titulo
-        '
-        Me.lblApellido1Titulo.AutoSize = True
-        Me.lblApellido1Titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1Titulo.Location = New System.Drawing.Point(245, 101)
-        Me.lblApellido1Titulo.Name = "lblApellido1Titulo"
-        Me.lblApellido1Titulo.Size = New System.Drawing.Size(94, 20)
-        Me.lblApellido1Titulo.TabIndex = 254
-        Me.lblApellido1Titulo.Text = "1° Apellido:"
-        '
-        'lblNombre1Titulo
-        '
-        Me.lblNombre1Titulo.AutoSize = True
-        Me.lblNombre1Titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre1Titulo.Location = New System.Drawing.Point(244, 42)
-        Me.lblNombre1Titulo.Name = "lblNombre1Titulo"
-        Me.lblNombre1Titulo.Size = New System.Drawing.Size(94, 20)
-        Me.lblNombre1Titulo.TabIndex = 253
-        Me.lblNombre1Titulo.Text = "1° Nombre:"
+        Me.lblCorreo.AutoSize = True
+        Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCorreo.Location = New System.Drawing.Point(672, 8)
+        Me.lblCorreo.Name = "lblCorreo"
+        Me.lblCorreo.Size = New System.Drawing.Size(73, 24)
+        Me.lblCorreo.TabIndex = 268
+        Me.lblCorreo.Text = "Correo:"
         '
         'lblApellido2
         '
         Me.lblApellido2.AutoSize = True
-        Me.lblApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2.Location = New System.Drawing.Point(373, 131)
+        Me.lblApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblApellido2.Location = New System.Drawing.Point(242, 139)
         Me.lblApellido2.Name = "lblApellido2"
-        Me.lblApellido2.Size = New System.Drawing.Size(106, 20)
+        Me.lblApellido2.Size = New System.Drawing.Size(105, 24)
         Me.lblApellido2.TabIndex = 266
-        Me.lblApellido2.Text = "APELLIDO 2"
+        Me.lblApellido2.Text = "2° Apellido:"
         '
         'lblNombre2
         '
         Me.lblNombre2.AutoSize = True
-        Me.lblNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre2.Location = New System.Drawing.Point(373, 70)
+        Me.lblNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombre2.Location = New System.Drawing.Point(242, 73)
         Me.lblNombre2.Name = "lblNombre2"
-        Me.lblNombre2.Size = New System.Drawing.Size(102, 20)
-        Me.lblNombre2.TabIndex = 267
-        Me.lblNombre2.Text = "NOMBRE 2 "
+        Me.lblNombre2.Size = New System.Drawing.Size(105, 24)
+        Me.lblNombre2.TabIndex = 265
+        Me.lblNombre2.Text = "2° Nombre:"
+        '
+        'lblCedula
+        '
+        Me.lblCedula.AutoSize = True
+        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCedula.Location = New System.Drawing.Point(243, 9)
+        Me.lblCedula.Name = "lblCedula"
+        Me.lblCedula.Size = New System.Drawing.Size(75, 24)
+        Me.lblCedula.TabIndex = 258
+        Me.lblCedula.Text = "Cédula:"
+        '
+        'lblDireccion
+        '
+        Me.lblDireccion.AutoSize = True
+        Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDireccion.Location = New System.Drawing.Point(672, 103)
+        Me.lblDireccion.Name = "lblDireccion"
+        Me.lblDireccion.Size = New System.Drawing.Size(95, 24)
+        Me.lblDireccion.TabIndex = 264
+        Me.lblDireccion.Text = "Dirección:"
+        '
+        'lblEstadoCivil
+        '
+        Me.lblEstadoCivil.AutoSize = True
+        Me.lblEstadoCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoCivil.Location = New System.Drawing.Point(672, 41)
+        Me.lblEstadoCivil.Name = "lblEstadoCivil"
+        Me.lblEstadoCivil.Size = New System.Drawing.Size(109, 24)
+        Me.lblEstadoCivil.TabIndex = 263
+        Me.lblEstadoCivil.Text = "Estado civíl:"
         '
         'lblOcupacion
         '
         Me.lblOcupacion.AutoSize = True
-        Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(803, 40)
+        Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOcupacion.Location = New System.Drawing.Point(672, 73)
         Me.lblOcupacion.Name = "lblOcupacion"
-        Me.lblOcupacion.Size = New System.Drawing.Size(89, 20)
-        Me.lblOcupacion.TabIndex = 268
-        Me.lblOcupacion.Text = "Ocupación"
+        Me.lblOcupacion.Size = New System.Drawing.Size(108, 24)
+        Me.lblOcupacion.TabIndex = 262
+        Me.lblOcupacion.Text = "Ocupación:"
         '
-        'lblAcompanante
+        'lblSexo
         '
-        Me.lblAcompanante.AutoSize = True
-        Me.lblAcompanante.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcompanante.Location = New System.Drawing.Point(803, 131)
-        Me.lblAcompanante.Name = "lblAcompanante"
-        Me.lblAcompanante.Size = New System.Drawing.Size(111, 20)
-        Me.lblAcompanante.TabIndex = 269
-        Me.lblAcompanante.Text = "Acompañante"
+        Me.lblSexo.AutoSize = True
+        Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSexo.Location = New System.Drawing.Point(243, 207)
+        Me.lblSexo.Name = "lblSexo"
+        Me.lblSexo.Size = New System.Drawing.Size(59, 24)
+        Me.lblSexo.TabIndex = 261
+        Me.lblSexo.Text = "Sexo:"
         '
-        'lblContrasena
+        'lblEdad
         '
-        Me.lblContrasena.AutoSize = True
-        Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasena.Location = New System.Drawing.Point(803, 160)
-        Me.lblContrasena.Name = "lblContrasena"
-        Me.lblContrasena.Size = New System.Drawing.Size(95, 20)
-        Me.lblContrasena.TabIndex = 270
-        Me.lblContrasena.Text = "Contraseña"
+        Me.lblEdad.AutoSize = True
+        Me.lblEdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEdad.Location = New System.Drawing.Point(243, 173)
+        Me.lblEdad.Name = "lblEdad"
+        Me.lblEdad.Size = New System.Drawing.Size(108, 24)
+        Me.lblEdad.TabIndex = 260
+        Me.lblEdad.Text = "Fecha Nac."
+        '
+        'lblTelefono
+        '
+        Me.lblTelefono.AutoSize = True
+        Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTelefono.Location = New System.Drawing.Point(672, 134)
+        Me.lblTelefono.Name = "lblTelefono"
+        Me.lblTelefono.Size = New System.Drawing.Size(90, 24)
+        Me.lblTelefono.TabIndex = 259
+        Me.lblTelefono.Text = "Teléfono:"
+        '
+        'lblApellido1
+        '
+        Me.lblApellido1.AutoSize = True
+        Me.lblApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblApellido1.Location = New System.Drawing.Point(242, 106)
+        Me.lblApellido1.Name = "lblApellido1"
+        Me.lblApellido1.Size = New System.Drawing.Size(105, 24)
+        Me.lblApellido1.TabIndex = 257
+        Me.lblApellido1.Text = "1° Apellido:"
+        '
+        'lblNombre1
+        '
+        Me.lblNombre1.AutoSize = True
+        Me.lblNombre1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombre1.Location = New System.Drawing.Point(242, 41)
+        Me.lblNombre1.Name = "lblNombre1"
+        Me.lblNombre1.Size = New System.Drawing.Size(105, 24)
+        Me.lblNombre1.TabIndex = 256
+        Me.lblNombre1.Text = "1° Nombre:"
+        '
+        'pBoxFotoPaciente
+        '
+        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
+        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
+        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(223, 230)
+        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pBoxFotoPaciente.TabIndex = 255
+        Me.pBoxFotoPaciente.TabStop = False
+        '
+        'lblTelefonoTXT
+        '
+        Me.lblTelefonoTXT.AutoSize = True
+        Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTelefonoTXT.Location = New System.Drawing.Point(821, 134)
+        Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
+        Me.lblTelefonoTXT.Size = New System.Drawing.Size(106, 24)
+        Me.lblTelefonoTXT.TabIndex = 328
+        Me.lblTelefonoTXT.Text = "Teléfono(s)"
+        '
+        'lblDireccionTXT
+        '
+        Me.lblDireccionTXT.AutoSize = True
+        Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDireccionTXT.Location = New System.Drawing.Point(821, 103)
+        Me.lblDireccionTXT.Name = "lblDireccionTXT"
+        Me.lblDireccionTXT.Size = New System.Drawing.Size(90, 24)
+        Me.lblDireccionTXT.TabIndex = 327
+        Me.lblDireccionTXT.Text = "Dirección"
+        '
+        'lblCorreoTXT
+        '
+        Me.lblCorreoTXT.AutoSize = True
+        Me.lblCorreoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCorreoTXT.Location = New System.Drawing.Point(821, 9)
+        Me.lblCorreoTXT.Name = "lblCorreoTXT"
+        Me.lblCorreoTXT.Size = New System.Drawing.Size(68, 24)
+        Me.lblCorreoTXT.TabIndex = 326
+        Me.lblCorreoTXT.Text = "Correo"
+        '
+        'lblApellido2TXT
+        '
+        Me.lblApellido2TXT.AutoSize = True
+        Me.lblApellido2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblApellido2TXT.Location = New System.Drawing.Point(375, 139)
+        Me.lblApellido2TXT.Name = "lblApellido2TXT"
+        Me.lblApellido2TXT.Size = New System.Drawing.Size(100, 24)
+        Me.lblApellido2TXT.TabIndex = 325
+        Me.lblApellido2TXT.Text = "2° Apellido"
+        '
+        'lblApellido1TXT
+        '
+        Me.lblApellido1TXT.AutoSize = True
+        Me.lblApellido1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblApellido1TXT.Location = New System.Drawing.Point(375, 107)
+        Me.lblApellido1TXT.Name = "lblApellido1TXT"
+        Me.lblApellido1TXT.Size = New System.Drawing.Size(100, 24)
+        Me.lblApellido1TXT.TabIndex = 324
+        Me.lblApellido1TXT.Text = "1° Apellido"
+        '
+        'lblNombre2TXT
+        '
+        Me.lblNombre2TXT.AutoSize = True
+        Me.lblNombre2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombre2TXT.Location = New System.Drawing.Point(375, 73)
+        Me.lblNombre2TXT.Name = "lblNombre2TXT"
+        Me.lblNombre2TXT.Size = New System.Drawing.Size(100, 24)
+        Me.lblNombre2TXT.TabIndex = 323
+        Me.lblNombre2TXT.Text = "2° Nombre"
+        '
+        'lblNombre1TXT
+        '
+        Me.lblNombre1TXT.AutoSize = True
+        Me.lblNombre1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombre1TXT.Location = New System.Drawing.Point(375, 41)
+        Me.lblNombre1TXT.Name = "lblNombre1TXT"
+        Me.lblNombre1TXT.Size = New System.Drawing.Size(100, 24)
+        Me.lblNombre1TXT.TabIndex = 322
+        Me.lblNombre1TXT.Text = "1° Nombre"
+        '
+        'lblCedulaTXT
+        '
+        Me.lblCedulaTXT.AutoSize = True
+        Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCedulaTXT.Location = New System.Drawing.Point(375, 9)
+        Me.lblCedulaTXT.Name = "lblCedulaTXT"
+        Me.lblCedulaTXT.Size = New System.Drawing.Size(70, 24)
+        Me.lblCedulaTXT.TabIndex = 321
+        Me.lblCedulaTXT.Text = "Cedula"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(375, 173)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(164, 24)
+        Me.Label1.TabIndex = 329
+        Me.Label1.Text = "Fecha Nacimiento"
+        '
+        'lblSexoTXT
+        '
+        Me.lblSexoTXT.AutoSize = True
+        Me.lblSexoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSexoTXT.Location = New System.Drawing.Point(375, 205)
+        Me.lblSexoTXT.Name = "lblSexoTXT"
+        Me.lblSexoTXT.Size = New System.Drawing.Size(54, 24)
+        Me.lblSexoTXT.TabIndex = 330
+        Me.lblSexoTXT.Text = "Sexo"
+        '
+        'lblEstadoCivilTXT
+        '
+        Me.lblEstadoCivilTXT.AutoSize = True
+        Me.lblEstadoCivilTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoCivilTXT.Location = New System.Drawing.Point(821, 41)
+        Me.lblEstadoCivilTXT.Name = "lblEstadoCivilTXT"
+        Me.lblEstadoCivilTXT.Size = New System.Drawing.Size(107, 24)
+        Me.lblEstadoCivilTXT.TabIndex = 331
+        Me.lblEstadoCivilTXT.Text = "Estado Civil"
+        '
+        'lblOcupacionTXT
+        '
+        Me.lblOcupacionTXT.AutoSize = True
+        Me.lblOcupacionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOcupacionTXT.Location = New System.Drawing.Point(821, 73)
+        Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
+        Me.lblOcupacionTXT.Size = New System.Drawing.Size(103, 24)
+        Me.lblOcupacionTXT.TabIndex = 332
+        Me.lblOcupacionTXT.Text = "Ocupacion"
         '
         'frmDatosPaciente
         '
@@ -352,35 +331,33 @@ Partial Class frmDatosPaciente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1038, 238)
-        Me.Controls.Add(Me.lblContrasena)
-        Me.Controls.Add(Me.lblAcompanante)
-        Me.Controls.Add(Me.lblOcupacion)
-        Me.Controls.Add(Me.lblNombre2)
+        Me.Controls.Add(Me.lblOcupacionTXT)
+        Me.Controls.Add(Me.lblEstadoCivilTXT)
+        Me.Controls.Add(Me.lblSexoTXT)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblTelefonoTXT)
+        Me.Controls.Add(Me.lblDireccionTXT)
+        Me.Controls.Add(Me.lblCorreoTXT)
+        Me.Controls.Add(Me.lblApellido2TXT)
+        Me.Controls.Add(Me.lblApellido1TXT)
+        Me.Controls.Add(Me.lblNombre2TXT)
+        Me.Controls.Add(Me.lblNombre1TXT)
+        Me.Controls.Add(Me.lblCedulaTXT)
+        Me.Controls.Add(Me.lblCorreo)
         Me.Controls.Add(Me.lblApellido2)
-        Me.Controls.Add(Me.lblContrasenaTitulo)
-        Me.Controls.Add(Me.lblApellido2Titulo)
-        Me.Controls.Add(Me.lblNombre2Titulo)
-        Me.Controls.Add(Me.lblAcompananteTitulo)
-        Me.Controls.Add(Me.lblCedulaTitulo)
-        Me.Controls.Add(Me.lblDireccionTitulo)
-        Me.Controls.Add(Me.lblEstadoCivilTitulo)
-        Me.Controls.Add(Me.lblOcupacionTitulo)
-        Me.Controls.Add(Me.lblSexoTitulo)
-        Me.Controls.Add(Me.lblEdadTitulo)
-        Me.Controls.Add(Me.lblTelefonoTitulo)
-        Me.Controls.Add(Me.lblApellido1Titulo)
-        Me.Controls.Add(Me.lblNombre1Titulo)
-        Me.Controls.Add(Me.btnEditar)
-        Me.Controls.Add(Me.btnBaja)
+        Me.Controls.Add(Me.lblNombre2)
         Me.Controls.Add(Me.lblCedula)
         Me.Controls.Add(Me.lblDireccion)
         Me.Controls.Add(Me.lblEstadoCivil)
+        Me.Controls.Add(Me.lblOcupacion)
         Me.Controls.Add(Me.lblSexo)
         Me.Controls.Add(Me.lblEdad)
         Me.Controls.Add(Me.lblTelefono)
         Me.Controls.Add(Me.lblApellido1)
         Me.Controls.Add(Me.lblNombre1)
         Me.Controls.Add(Me.pBoxFotoPaciente)
+        Me.Controls.Add(Me.btnEditar)
+        Me.Controls.Add(Me.btnBaja)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDatosPaciente"
         Me.Text = "frmDatosPaciente"
@@ -389,33 +366,31 @@ Partial Class frmDatosPaciente
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents pBoxFotoPaciente As PictureBox
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnBaja As Button
-    Public WithEvents lblCedula As Label
-    Public WithEvents lblDireccion As Label
-    Public WithEvents lblEstadoCivil As Label
-    Public WithEvents lblSexo As Label
-    Public WithEvents lblEdad As Label
-    Public WithEvents lblTelefono As Label
-    Public WithEvents lblApellido1 As Label
-    Public WithEvents lblNombre1 As Label
-    Friend WithEvents lblContrasenaTitulo As Label
-    Friend WithEvents lblApellido2Titulo As Label
-    Friend WithEvents lblNombre2Titulo As Label
-    Friend WithEvents lblAcompananteTitulo As Label
-    Friend WithEvents lblCedulaTitulo As Label
-    Friend WithEvents lblDireccionTitulo As Label
-    Friend WithEvents lblEstadoCivilTitulo As Label
-    Friend WithEvents lblOcupacionTitulo As Label
-    Friend WithEvents lblSexoTitulo As Label
-    Friend WithEvents lblEdadTitulo As Label
-    Friend WithEvents lblTelefonoTitulo As Label
-    Friend WithEvents lblApellido1Titulo As Label
-    Friend WithEvents lblNombre1Titulo As Label
+    Friend WithEvents lblCorreo As Label
     Friend WithEvents lblApellido2 As Label
-    Public WithEvents lblNombre2 As Label
+    Friend WithEvents lblNombre2 As Label
+    Friend WithEvents lblCedula As Label
+    Friend WithEvents lblDireccion As Label
+    Friend WithEvents lblEstadoCivil As Label
     Friend WithEvents lblOcupacion As Label
-    Friend WithEvents lblAcompanante As Label
-    Friend WithEvents lblContrasena As Label
+    Friend WithEvents lblSexo As Label
+    Friend WithEvents lblEdad As Label
+    Friend WithEvents lblTelefono As Label
+    Friend WithEvents lblApellido1 As Label
+    Friend WithEvents lblNombre1 As Label
+    Friend WithEvents pBoxFotoPaciente As PictureBox
+    Friend WithEvents lblTelefonoTXT As Label
+    Friend WithEvents lblDireccionTXT As Label
+    Friend WithEvents lblCorreoTXT As Label
+    Friend WithEvents lblApellido2TXT As Label
+    Friend WithEvents lblApellido1TXT As Label
+    Friend WithEvents lblNombre2TXT As Label
+    Friend WithEvents lblNombre1TXT As Label
+    Friend WithEvents lblCedulaTXT As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lblSexoTXT As Label
+    Friend WithEvents lblEstadoCivilTXT As Label
+    Friend WithEvents lblOcupacionTXT As Label
 End Class

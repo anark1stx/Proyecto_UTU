@@ -44,13 +44,30 @@
 
         Next
 
-        Dim paciente As New Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil)
+        Dim arrImg() As Byte = {}
+
+        If pBoxFotoPaciente.Image Is Nothing Then
+            If MessageBox.Show("¿Desea ingresar al usuario sin una imagen de identificación?", "Falta guardar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+                Exit Sub
+            End If
+        Else
+            Dim mStream As New IO.MemoryStream
+            Dim tamanoFoto As UInteger = mStream.Length
+            pBoxFotoPaciente.Image.Save(mStream, Imaging.ImageFormat.Png)
+            arrImg = mStream.GetBuffer()
+            mStream.Close()
+
+        End If
+
+        Dim paciente As New Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg)
 
         If paciente.checkDatos() Then
 
             If paciente.checkDatosPaciente() Then
+
                 'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
                 If altaOmod = 0 Then '0 = alta
+
                     Conectar()
 
                     'mandar estos dos try a un método que lo haga 
@@ -68,9 +85,9 @@
                         Exit Sub
                     End Try
 
-                    'mandar estos dos a otro metodo tambien
+                    'AGREGAR LA IMAGEN AL ALTA DEL USUARIO
                     Try
-                        conn.Execute(INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo))
+                        conn.Execute(INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo, arrImg))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
                         Exit Sub
@@ -117,7 +134,7 @@
                 For Each c As Control In Controls
 
                     If Not ci_valida Then
-                        If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                        If TypeOf c Is ComboBox Or TypeOf c Is DateTimePicker Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
                             c.Enabled = False
                         End If
                     Else
@@ -131,7 +148,7 @@
                 txtCedula.Enabled = False
                 For Each c As Control In Controls
 
-                    If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                    If TypeOf c Is ComboBox Or TypeOf c Is DateTimePicker Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
                         c.Enabled = True
                     End If
 
@@ -162,12 +179,13 @@
 
     End Sub
 
+
     Private Sub pBoxFotoPaciente_Click(sender As Object, e As EventArgs) Handles pBoxFotoPaciente.Click
         Dim imgpath As String 'dónde está la imagen que se va a subir'
         Try
             Dim OFD As FileDialog = New OpenFileDialog() 'Esto es lo que nos abre el menú de windows para seleccionar archivos.'
 
-            OFD.Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png" 'Extensiones admitidas para que no te enchufen una reverse shell.'
+            OFD.Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png"
 
             If OFD.ShowDialog() = DialogResult.OK Then
                 imgpath = OFD.FileName
@@ -181,7 +199,4 @@
         End Try
     End Sub
 
-    Private Sub dateFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles dateFechaNacimiento.ValueChanged
-
-    End Sub
 End Class

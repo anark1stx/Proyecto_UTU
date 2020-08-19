@@ -198,8 +198,9 @@ Partial Class frmDatosPacienteModificar
         '
         'pBoxFotoPaciente
         '
+        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
         Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
         Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
         Me.pBoxFotoPaciente.Size = New System.Drawing.Size(223, 230)

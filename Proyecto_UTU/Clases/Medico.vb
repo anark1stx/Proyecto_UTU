@@ -14,9 +14,10 @@
         _cedula = ""
         _direccion = New List(Of String)
         _especialidades = {}
+        _imagen = {}
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, especialidades As String())
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, especialidades As String(), imagen As Byte())
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -27,6 +28,7 @@
         _cedula = cedula
         _direccion = direccion
         _especialidades = especialidades
+        _imagen = imagen
     End Sub
 
     Property Especialidad() As String()

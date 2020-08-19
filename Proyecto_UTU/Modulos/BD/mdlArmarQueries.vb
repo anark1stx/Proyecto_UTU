@@ -12,8 +12,8 @@
         Return String.Format("GRANT '{0}'@'localhost' TO '{1}'@'localhost';", role, usr)
     End Function
 
-    Public Function INSERTUSUARIO(usr As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_nroPuerta As String, correo As String)
-        Return String.Format("INSERT INTO usuario (CI,nombre1,nombre2,apellido1,apellido2,direccion_calle,direccion_nroPuerta,activo,correo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", usr, nombre1, nombre2, apellido1, apellido2, direccion_calle, direccion_nroPuerta, 1, correo)
+    Public Function INSERTUSUARIO(usr As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_nroPuerta As String, correo As String, foto As Byte())
+        Return String.Format("INSERT INTO usuario (CI,nombre1,nombre2,apellido1,apellido2,direccion_calle,direccion_nroPuerta,activo,correo,foto) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", usr, nombre1, nombre2, apellido1, apellido2, direccion_calle, direccion_nroPuerta, 1, correo, foto)
     End Function
 
     Public Function INSERTTELEFONO(usr As String, tel As String) As String

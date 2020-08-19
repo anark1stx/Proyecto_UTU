@@ -20,9 +20,10 @@
         _sexo = ""
         _ocupacion = ""
         _estado_civil = ""
+        _imagen = {}
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As String, ocupacion As String, estado_civil As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As String, ocupacion As String, estado_civil As String, imagen As Byte())
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -36,6 +37,7 @@
         _sexo = sexo
         _ocupacion = ocupacion
         _estado_civil = estado_civil
+        _imagen = imagen
     End Sub
 
     Property FechaNacimiento() As String

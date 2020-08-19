@@ -9,6 +9,7 @@
     Protected _correo As String
     Protected _telefonosLista As List(Of String) '-> {099523212, 23363539}
     Protected _direccion As List(Of String) ' -> Para pasarle directamente {calle, nroPuerta}
+    Protected _imagen As Byte()
     'CONSTRUCTOR VACIO
     Sub New()
         _nombre1 = ""
@@ -19,6 +20,7 @@
         _contrasena = ""
         _telefonosLista = New List(Of String)
         _cedula = ""
+        _imagen = {}
     End Sub
 
     Sub New(cedula As String, contrasena As String) 'CONSTRUCTOR PARA LOGIN
@@ -28,12 +30,13 @@
         _apellido1 = ""
         _apellido2 = ""
         _correo = ""
+        _imagen = {}
         _contrasena = contrasena
         _telefonosLista = New List(Of String)
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte())
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -43,6 +46,7 @@
         _telefonosLista = telefonosLista
         _direccion = direccion
         _cedula = cedula
+        _imagen = imagen
     End Sub
 
     'PROPIEDADES GET & SET
@@ -124,6 +128,15 @@
         End Get
         Set(ByVal value As List(Of String))
             _direccion = value
+        End Set
+    End Property
+
+    Property imagen As Byte()
+        Get
+            Return _imagen
+        End Get
+        Set(value As Byte())
+            _imagen = value
         End Set
     End Property
 

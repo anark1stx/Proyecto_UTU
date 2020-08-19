@@ -40,11 +40,24 @@
             telefonos(i) = RemoverEspacios(telefonos(i))
 
         Next
-        Dim aux As New Usuario(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena)
+
+        Dim arrImg() As Byte = {}
+        If pBoxFotoAux.Image Is Nothing Then
+            If MessageBox.Show("¿Desea ingresar al usuario sin una imagen de identificación?", "Falta guardar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+                Exit Sub
+            End If
+        Else
+            Dim mStream As New IO.MemoryStream
+            Dim tamanoFoto As UInteger = mStream.Length
+            pBoxFotoAux.Image.Save(mStream, Imaging.ImageFormat.Png)
+            arrImg = mStream.GetBuffer()
+            mStream.Close()
+        End If
+
+        Dim aux As New Usuario(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, arrImg)
 
         If aux.checkDatos() Then
             'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
-
             If altaOmod = 0 Then 'Hacer alta
                 Conectar()
 
@@ -63,7 +76,7 @@
                 End Try
 
                 Try
-                    conn.Execute(INSERTUSUARIO(aux.Cedula, aux.Nombre1, aux.Nombre2, aux.Apellido1, aux.Apellido2, aux.direccion(0), aux.direccion(1), correo))
+                    conn.Execute(INSERTUSUARIO(aux.Cedula, aux.Nombre1, aux.Nombre2, aux.Apellido1, aux.Apellido2, aux.direccion(0), aux.direccion(1), correo, arrImg))
                 Catch ex As Exception
                     MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
                     Exit Sub
@@ -86,7 +99,7 @@
 
     End Sub
 
-    Private Sub pBoxFotoAux_Click(sender As Object, e As EventArgs) Handles pBoxFotoAux.Click
+    Private Sub pBoxFotoAux_Click(sender As Object, e As EventArgs)
         Dim imgpath As String 'dónde está la imagen que se va a subir'
         Try
             Dim OFD As FileDialog = New OpenFileDialog() 'Esto es lo que nos abre el menú de windows para seleccionar archivos.'
@@ -105,7 +118,7 @@
         End Try
     End Sub
 
-    Private Sub txtCedula_TextChanged(sender As Object, e As EventArgs) Handles txtCedula.TextChanged
+    Private Sub txtCedula_TextChanged(sender As Object, e As EventArgs)
         ci = txtCedula.Text
 
         If ci.Length = 8 Then
