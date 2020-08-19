@@ -44,6 +44,7 @@ Partial Class Identificacion_Paciente
         Me.txtCIPaciente = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnEntrevistar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,7 +52,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(363, 239)
+        Me.lblDireccion.Location = New System.Drawing.Point(385, 239)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(121, 29)
         Me.lblDireccion.TabIndex = 98
@@ -61,7 +62,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblDireccionTXT.AutoSize = True
         Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(529, 240)
+        Me.lblDireccionTXT.Location = New System.Drawing.Point(551, 240)
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(93, 25)
         Me.lblDireccionTXT.TabIndex = 97
@@ -71,7 +72,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblEstadoCivil.AutoSize = True
         Me.lblEstadoCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoCivil.Location = New System.Drawing.Point(363, 209)
+        Me.lblEstadoCivil.Location = New System.Drawing.Point(385, 209)
         Me.lblEstadoCivil.Name = "lblEstadoCivil"
         Me.lblEstadoCivil.Size = New System.Drawing.Size(141, 29)
         Me.lblEstadoCivil.TabIndex = 94
@@ -81,7 +82,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblEstadoCivilTXT.AutoSize = True
         Me.lblEstadoCivilTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoCivilTXT.Location = New System.Drawing.Point(529, 210)
+        Me.lblEstadoCivilTXT.Location = New System.Drawing.Point(551, 210)
         Me.lblEstadoCivilTXT.Name = "lblEstadoCivilTXT"
         Me.lblEstadoCivilTXT.Size = New System.Drawing.Size(110, 25)
         Me.lblEstadoCivilTXT.TabIndex = 93
@@ -91,7 +92,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblOcupacion.AutoSize = True
         Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(363, 177)
+        Me.lblOcupacion.Location = New System.Drawing.Point(385, 177)
         Me.lblOcupacion.Name = "lblOcupacion"
         Me.lblOcupacion.Size = New System.Drawing.Size(135, 29)
         Me.lblOcupacion.TabIndex = 92
@@ -101,7 +102,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblOcupacionTXT.AutoSize = True
         Me.lblOcupacionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacionTXT.Location = New System.Drawing.Point(529, 178)
+        Me.lblOcupacionTXT.Location = New System.Drawing.Point(551, 178)
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
         Me.lblOcupacionTXT.Size = New System.Drawing.Size(107, 25)
         Me.lblOcupacionTXT.TabIndex = 91
@@ -111,7 +112,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblSexo.AutoSize = True
         Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(362, 147)
+        Me.lblSexo.Location = New System.Drawing.Point(384, 147)
         Me.lblSexo.Name = "lblSexo"
         Me.lblSexo.Size = New System.Drawing.Size(74, 29)
         Me.lblSexo.TabIndex = 90
@@ -121,7 +122,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblSexoTXT.AutoSize = True
         Me.lblSexoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexoTXT.Location = New System.Drawing.Point(529, 148)
+        Me.lblSexoTXT.Location = New System.Drawing.Point(551, 148)
         Me.lblSexoTXT.Name = "lblSexoTXT"
         Me.lblSexoTXT.Size = New System.Drawing.Size(58, 25)
         Me.lblSexoTXT.TabIndex = 89
@@ -131,7 +132,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblEdad.AutoSize = True
         Me.lblEdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEdad.Location = New System.Drawing.Point(362, 115)
+        Me.lblEdad.Location = New System.Drawing.Point(384, 115)
         Me.lblEdad.Name = "lblEdad"
         Me.lblEdad.Size = New System.Drawing.Size(76, 29)
         Me.lblEdad.TabIndex = 88
@@ -141,7 +142,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblEdadTXT.AutoSize = True
         Me.lblEdadTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEdadTXT.Location = New System.Drawing.Point(529, 116)
+        Me.lblEdadTXT.Location = New System.Drawing.Point(551, 116)
         Me.lblEdadTXT.Name = "lblEdadTXT"
         Me.lblEdadTXT.Size = New System.Drawing.Size(58, 25)
         Me.lblEdadTXT.TabIndex = 87
@@ -151,7 +152,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(363, 270)
+        Me.lblTelefono.Location = New System.Drawing.Point(385, 270)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(116, 29)
         Me.lblTelefono.TabIndex = 84
@@ -161,7 +162,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblTelefonoTXT.AutoSize = True
         Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(529, 271)
+        Me.lblTelefonoTXT.Location = New System.Drawing.Point(551, 271)
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(131, 25)
         Me.lblTelefonoTXT.TabIndex = 83
@@ -171,7 +172,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblCedula.AutoSize = True
         Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(363, 12)
+        Me.lblCedula.Location = New System.Drawing.Point(385, 12)
         Me.lblCedula.Name = "lblCedula"
         Me.lblCedula.Size = New System.Drawing.Size(96, 29)
         Me.lblCedula.TabIndex = 82
@@ -181,7 +182,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblApellido.AutoSize = True
         Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(363, 81)
+        Me.lblApellido.Location = New System.Drawing.Point(385, 81)
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(108, 29)
         Me.lblApellido.TabIndex = 81
@@ -191,7 +192,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblNombres.AutoSize = True
         Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(363, 47)
+        Me.lblNombres.Location = New System.Drawing.Point(385, 47)
         Me.lblNombres.Name = "lblNombres"
         Me.lblNombres.Size = New System.Drawing.Size(107, 29)
         Me.lblNombres.TabIndex = 80
@@ -201,7 +202,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblApellidosTXT.AutoSize = True
         Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(529, 82)
+        Me.lblApellidosTXT.Location = New System.Drawing.Point(551, 82)
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
         Me.lblApellidosTXT.Size = New System.Drawing.Size(243, 25)
         Me.lblApellidosTXT.TabIndex = 79
@@ -211,7 +212,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblNombresTXT.AutoSize = True
         Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(529, 48)
+        Me.lblNombresTXT.Location = New System.Drawing.Point(551, 48)
         Me.lblNombresTXT.Name = "lblNombresTXT"
         Me.lblNombresTXT.Size = New System.Drawing.Size(221, 25)
         Me.lblNombresTXT.TabIndex = 78
@@ -223,7 +224,7 @@ Partial Class Identificacion_Paciente
         Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
         Me.pBoxFotoPaciente.Location = New System.Drawing.Point(12, 12)
         Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(325, 287)
+        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(354, 330)
         Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pBoxFotoPaciente.TabIndex = 77
         Me.pBoxFotoPaciente.TabStop = False
@@ -231,7 +232,7 @@ Partial Class Identificacion_Paciente
         'txtCIPaciente
         '
         Me.txtCIPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCIPaciente.Location = New System.Drawing.Point(533, 11)
+        Me.txtCIPaciente.Location = New System.Drawing.Point(555, 11)
         Me.txtCIPaciente.MaxLength = 8
         Me.txtCIPaciente.Name = "txtCIPaciente"
         Me.txtCIPaciente.Size = New System.Drawing.Size(239, 30)
@@ -240,7 +241,7 @@ Partial Class Identificacion_Paciente
         'btnBuscar
         '
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Location = New System.Drawing.Point(778, 9)
+        Me.btnBuscar.Location = New System.Drawing.Point(800, 9)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(106, 34)
         Me.btnBuscar.TabIndex = 100
@@ -249,25 +250,45 @@ Partial Class Identificacion_Paciente
         '
         'btnEntrevistar
         '
+        Me.btnEntrevistar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEntrevistar.BackColor = System.Drawing.Color.LemonChiffon
         Me.btnEntrevistar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEntrevistar.Image = CType(resources.GetObject("btnEntrevistar.Image"), System.Drawing.Image)
         Me.btnEntrevistar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnEntrevistar.Location = New System.Drawing.Point(12, 376)
+        Me.btnEntrevistar.Location = New System.Drawing.Point(12, 354)
         Me.btnEntrevistar.Name = "btnEntrevistar"
-        Me.btnEntrevistar.Size = New System.Drawing.Size(872, 167)
+        Me.btnEntrevistar.Size = New System.Drawing.Size(1106, 174)
         Me.btnEntrevistar.TabIndex = 101
         Me.btnEntrevistar.Text = "    Entrevistar"
         Me.btnEntrevistar.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnEntrevistar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnEntrevistar.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.LightGreen
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.Location = New System.Drawing.Point(12, 534)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(1106, 174)
+        Me.Button1.TabIndex = 102
+        Me.Button1.Text = "      Ver consultas previas"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(896, 555)
+        Me.ClientSize = New System.Drawing.Size(1130, 720)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnEntrevistar)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtCIPaciente)
@@ -318,4 +339,5 @@ Partial Class Identificacion_Paciente
     Public WithEvents txtCIPaciente As TextBox
     Public WithEvents btnBuscar As Button
     Friend WithEvents btnEntrevistar As Button
+    Friend WithEvents Button1 As Button
 End Class

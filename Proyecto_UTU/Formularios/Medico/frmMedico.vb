@@ -129,6 +129,11 @@ Public Class frmMedico
                 Dim sender As Object = New Object()
                 Dim e As EventArgs = New EventArgs()
                 frmCrear.btnAbrir_Click(sender, e)
+
+            Case "IngresarTratamiento"
+
+            Case "HacerSeguimiento"
+
         End Select
 
     End Sub
@@ -279,7 +284,6 @@ Public Class frmMedico
 
     Private Sub CargarDatosPaciente()
 
-
         If frmIdentificacion.txtCIPaciente.Text.Length = 8 Then
 
             If check_Cedula(frmIdentificacion.txtCIPaciente.Text) Then
@@ -312,7 +316,7 @@ Public Class frmMedico
                         frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
                         frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
                         frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
-                        frmIdentificacion.lblEdadTXT.Text = _paciente.Edad
+                        frmIdentificacion.lblEdadTXT.Text = _paciente.FechaNacimiento
 
                         For Each l As Control In frmIdentificacion.Controls
                             If TypeOf l Is Label Then

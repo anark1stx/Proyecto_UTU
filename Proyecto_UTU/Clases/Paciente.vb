@@ -1,7 +1,7 @@
 ﻿Public Class Paciente
     Inherits Usuario
 
-    Protected _edad As String
+    Protected _fechaNacimiento As String
     Protected _sexo As String
     Protected _ocupacion As String
     Protected _estado_civil As String
@@ -16,13 +16,13 @@
         _telefonosLista = New List(Of String)
         _direccion = New List(Of String)
         _cedula = ""
-        _edad = ""
+        _fechaNacimiento = ""
         _sexo = ""
         _ocupacion = ""
         _estado_civil = ""
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, edad As String, sexo As String, ocupacion As String, estado_civil As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As String, ocupacion As String, estado_civil As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -32,18 +32,18 @@
         _telefonosLista = telefonosLista
         _direccion = direccion
         _cedula = cedula
-        _edad = edad
+        _fechaNacimiento = fechaNacimiento
         _sexo = sexo
         _ocupacion = ocupacion
         _estado_civil = estado_civil
     End Sub
 
-    Property Edad() As String
+    Property FechaNacimiento() As String
         Get
-            Return (_edad)
+            Return (_fechaNacimiento)
         End Get
         Set(ByVal value As String)
-            _edad = value
+            _fechaNacimiento = value
         End Set
     End Property
 
@@ -76,11 +76,6 @@
 
     Function checkDatosPaciente() As Boolean
 
-        If Not IsNumeric(Me._edad) Then
-            MessageBox.Show("Edad: " & MensajeDeErrorSoloNumeros(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return 0
-        End If
-
         If Not check_Largo(Me._ocupacion, 5, 30, True) Then
             MessageBox.Show("Ocupación: " & MensajeDeErrorLongitud(5, 30), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return 0
@@ -107,10 +102,15 @@
             _nombre2 = rs("nombre2").Value
             _apellido1 = rs("apellido1").Value
             _apellido2 = rs("apellido2").Value
+
+            _telefonosLista.Clear()
             _telefonosLista.Add(rs("telefono").Value)
+
+            _direccion.Clear()
             _direccion.Add(rs("direccion_calle").Value)
             _direccion.Add(rs("direccion_nroPuerta").Value)
-            _edad = rs("edad").Value
+
+            _fechaNacimiento = rs("fecha_nac").Value
             _estado_civil = rs("e_civil").Value
             _ocupacion = rs("ocupacion").Value
             _sexo = rs("sexo").Value

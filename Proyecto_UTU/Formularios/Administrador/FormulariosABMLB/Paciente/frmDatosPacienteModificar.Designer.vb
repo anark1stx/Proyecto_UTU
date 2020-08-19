@@ -27,7 +27,6 @@ Partial Class frmDatosPacienteModificar
         Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.txtOcupacion = New System.Windows.Forms.TextBox()
-        Me.txtEdad = New System.Windows.Forms.TextBox()
         Me.txtApellido1 = New System.Windows.Forms.TextBox()
         Me.txtNombre1 = New System.Windows.Forms.TextBox()
         Me.txtCedula = New System.Windows.Forms.TextBox()
@@ -56,6 +55,7 @@ Partial Class frmDatosPacienteModificar
         Me.lblCorreo = New System.Windows.Forms.Label()
         Me.cbSexo = New System.Windows.Forms.ComboBox()
         Me.cb_e_civil = New System.Windows.Forms.ComboBox()
+        Me.dateFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -79,13 +79,6 @@ Partial Class frmDatosPacienteModificar
         Me.txtOcupacion.Name = "txtOcupacion"
         Me.txtOcupacion.Size = New System.Drawing.Size(204, 22)
         Me.txtOcupacion.TabIndex = 192
-        '
-        'txtEdad
-        '
-        Me.txtEdad.Location = New System.Drawing.Point(372, 151)
-        Me.txtEdad.Name = "txtEdad"
-        Me.txtEdad.Size = New System.Drawing.Size(204, 22)
-        Me.txtEdad.TabIndex = 190
         '
         'txtApellido1
         '
@@ -343,12 +336,24 @@ Partial Class frmDatosPacienteModificar
         Me.cb_e_civil.Size = New System.Drawing.Size(204, 24)
         Me.cb_e_civil.TabIndex = 257
         '
+        'dateFechaNacimiento
+        '
+        Me.dateFechaNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dateFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dateFechaNacimiento.Location = New System.Drawing.Point(372, 149)
+        Me.dateFechaNacimiento.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dateFechaNacimiento.Name = "dateFechaNacimiento"
+        Me.dateFechaNacimiento.Size = New System.Drawing.Size(204, 28)
+        Me.dateFechaNacimiento.TabIndex = 258
+        Me.dateFechaNacimiento.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
+        '
         'frmDatosPacienteModificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1038, 238)
+        Me.Controls.Add(Me.dateFechaNacimiento)
         Me.Controls.Add(Me.cb_e_civil)
         Me.Controls.Add(Me.cbSexo)
         Me.Controls.Add(Me.txtCorreo)
@@ -366,7 +371,6 @@ Partial Class frmDatosPacienteModificar
         Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtOcupacion)
-        Me.Controls.Add(Me.txtEdad)
         Me.Controls.Add(Me.txtApellido1)
         Me.Controls.Add(Me.txtNombre1)
         Me.Controls.Add(Me.txtCedula)
@@ -392,7 +396,6 @@ Partial Class frmDatosPacienteModificar
     Friend WithEvents txtTelefono As TextBox
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents txtOcupacion As TextBox
-    Friend WithEvents txtEdad As TextBox
     Friend WithEvents txtApellido1 As TextBox
     Friend WithEvents txtNombre1 As TextBox
     Friend WithEvents txtCedula As TextBox
@@ -421,4 +424,5 @@ Partial Class frmDatosPacienteModificar
     Friend WithEvents lblCorreo As Label
     Friend WithEvents cbSexo As ComboBox
     Friend WithEvents cb_e_civil As ComboBox
+    Friend WithEvents dateFechaNacimiento As DateTimePicker
 End Class

@@ -149,10 +149,22 @@
     <Compile Include="Formularios\formularioPlano.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmOpcionesConsulta.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.Designer.vb">
       <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmOpcionesConsulta.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.Designer.vb">
+      <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.Designer.vb">
+      <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmFiebre.Designer.vb">
@@ -203,10 +215,10 @@
     <Compile Include="Formularios\Medico\frmInicio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.Designer.vb">
       <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Paciente\frmInicioPaciente.Designer.vb">
@@ -221,10 +233,10 @@
     <Compile Include="Formularios\Usuario\frmIngreso_Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Identificacion_Paciente.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.Designer.vb">
       <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Identificacion_Paciente.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\frmGestionMedico.Designer.vb">
@@ -325,8 +337,14 @@
     <EmbeddedResource Include="Formularios\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmOpcionesConsulta.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.resx">
       <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.resx">
+      <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.resx">
+      <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmFiebre.resx">
       <DependentUpon>frmFiebre.vb</DependentUpon>
@@ -352,7 +370,7 @@
     <EmbeddedResource Include="Formularios\Medico\frmInicio.resx">
       <DependentUpon>frmInicio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\frmSeleccionarFormularioEntrevista.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.resx">
       <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.resx">
@@ -361,7 +379,7 @@
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Identificacion_Paciente.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.resx">
       <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.resx">
@@ -406,6 +424,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-hospital-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

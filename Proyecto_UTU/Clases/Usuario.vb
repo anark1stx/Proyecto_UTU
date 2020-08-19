@@ -222,7 +222,11 @@
             _nombre2 = rs("nombre2").Value
             _apellido1 = rs("apellido1").Value
             _apellido2 = rs("apellido2").Value
+
+            _telefonosLista.Clear()
             _telefonosLista.Add(rs("telefono").Value)
+
+            _direccion.Clear()
             _direccion.Add(rs("direccion_calle").Value)
             _direccion.Add(rs("direccion_nroPuerta").Value)
 

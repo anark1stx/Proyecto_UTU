@@ -24,7 +24,7 @@
         Dim apellido2 As String = txtApellido2.Text
         Dim correo As String = txtCorreo.Text
         Dim contrasena As String = txtContrasena.Text
-        Dim edad As String = txtEdad.Text
+        Dim fechaNacimiento As String = dateFechaNacimiento.Text
         Dim sexo As String = cbSexo.SelectedItem
         Dim ocupacion As String = txtOcupacion.Text
         Dim e_civil As String = cb_e_civil.SelectedItem
@@ -44,7 +44,7 @@
 
         Next
 
-        Dim paciente As New Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, edad, sexo, ocupacion, e_civil)
+        Dim paciente As New Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil)
 
         If paciente.checkDatos() Then
 
@@ -86,7 +86,7 @@
                     Next
 
                     Try
-                        conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.Edad, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
+                        conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.FechaNacimiento, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el PACIENTE " & " " & ex.Message)
                         Exit Sub
