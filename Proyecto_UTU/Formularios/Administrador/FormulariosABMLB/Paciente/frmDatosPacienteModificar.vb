@@ -50,25 +50,30 @@
 
             If paciente.checkDatosPaciente() Then
                 'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
-                If altaOmod = 0 Then
+                If altaOmod = 0 Then '0 = alta
                     Conectar()
 
+                    'mandar estos dos try a un método que lo haga 
                     Try
                         conn.Execute(CREATEUSER("u" & paciente.Cedula, paciente.Contrasena, "paciente"))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
+                        Exit Sub
                     End Try
 
                     Try
                         conn.Execute(GRANTROLE("paciente", "u" & paciente.Cedula))
                     Catch ex As Exception
-                        MsgBox("No se pudo dar ROL")
+                        MsgBox("No se pudo dar ROL ")
+                        Exit Sub
                     End Try
 
+                    'mandar estos dos a otro metodo tambien
                     Try
                         conn.Execute(INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
+                        Exit Sub
                     End Try
 
                     For Each t As String In paciente.telefonosLista
@@ -76,6 +81,7 @@
                             conn.Execute(INSERTTELEFONO(paciente.Cedula, t))
                         Catch ex As Exception
                             MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
+                            Exit Sub
                         End Try
                     Next
 
@@ -83,13 +89,12 @@
                         conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.Edad, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el PACIENTE " & " " & ex.Message)
+                        Exit Sub
                     End Try
 
-                    Cerrar()
                 Else ' hacer modificacion
 
                 End If
-
 
             End If
 
@@ -138,13 +143,20 @@
         If ci.Length = 8 Then
             ci_valida = check_Cedula(ci)
             If ci_valida = False Then
-                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                If check_UsuarioExiste("u" & ci) Then
+                    ci_valida = False
+                    MessageBox.Show(ElUsuarioYaExiste(), "Usuario ya registrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    ci_valida = True
+                End If
             End If
-            configurarControles()
         Else
             ci_valida = check_Cedula(ci)
-            configurarControles()
         End If
+
+        configurarControles()
 
     End Sub
 

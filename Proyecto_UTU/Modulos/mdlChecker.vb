@@ -213,12 +213,27 @@
         End If
 
     End Function
-    Public Function check_CedulaExiste(cedula As String) As Boolean
+    Public Function check_UsuarioExiste(cedula As String) As Boolean
         'Si la CI existe, retornamos 1, si no existe, retornamos 0
-        Return 0
-    End Function
-    Public Function check_ContrasenaOk(contrasena As String) As Boolean
-        'Si la contrasena está bien, retornamos 1, si esta mal, retornamos 0
+
+        Dim query = USEREXISTS(cedula)
+
+        Try
+
+            Conectar()
+            rs.Open(query, conn)
+        Catch ex As Exception
+            MsgBox("Error consultando MYSQL.USER: " & ex.Message)
+        End Try
+
+        If rs.RecordCount > 0 Then
+            Return 1
+        Else
+            Return 0
+        End If
+
+        rs.Close()
+
         Return 0
     End Function
     Public Function check_CorreoExiste(correo As String) As Boolean

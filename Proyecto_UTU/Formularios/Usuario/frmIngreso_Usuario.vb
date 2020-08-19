@@ -15,9 +15,7 @@
             Conectar()
             If conn.State = ConnectionState.Closed Then
                 lblMensajeErrorCI.Visible = True
-                Cerrar()
             Else
-                Cerrar() 'Cierro la conexion ya que el siguiente método vuelve a crear una instancia nueva.
                 Dim rol = SQL_SELECT_ROL(CMDSELECTMYSQLUSERROLE(txtIngresarCi.Text))
 
                 Select Case rol

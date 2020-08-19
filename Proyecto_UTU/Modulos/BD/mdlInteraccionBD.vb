@@ -26,7 +26,6 @@
         Else
             MsgBox("No tiene rol en la BD")
         End If
-        Cerrar()
 
         Return retorno
 queryErr:

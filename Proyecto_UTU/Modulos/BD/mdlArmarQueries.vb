@@ -1,5 +1,9 @@
 ﻿Module mdlArmarQueries
 
+    Public Function USEREXISTS(usr As String) As String
+        Return String.Format("SELECT USER FROM mysql.user WHERE user = '{0}'", usr)
+    End Function
+
     Public Function CREATEUSER(usr As String, pwd As String, role As String) As String
         Return String.Format("CREATE USER '{0}'@'localhost' IDENTIFIED BY '{1}' DEFAULT ROLE '{2}'@'localhost'", usr, pwd, role)
     End Function
@@ -18,6 +22,14 @@
 
     Public Function INSERTPACIENTE(usr As String, edad As String, etapa As String, e_civil As String, ocupacion As String, sexo As String) As String
         Return String.Format("INSERT INTO paciente (CI,edad,etapa,e_civil,ocupacion,sexo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", usr, edad, "a", e_civil, ocupacion, sexo)
+    End Function
+
+    Public Function INSERTMEDICO(usr As String) As String
+        Return String.Format("INSERT INTO medico (CI) VALUES ('{0}')", usr)
+    End Function
+
+    Public Function INSERTMEDICO_especialidad(usr As String, especialidad As String) As String
+        Return String.Format("INSERT INTO medico_especialidad (CI,especialidad) VALUES ('{0}','{1}')", usr, especialidad)
     End Function
 
 End Module

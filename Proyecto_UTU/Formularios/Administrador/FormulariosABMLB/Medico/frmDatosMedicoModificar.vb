@@ -50,10 +50,64 @@
         If medico.checkDatos() Then 'Datos de clase base Usuario
             If medico.checkDatosMed() Then 'En el caso del medico, ademas de los datos de la clase base validamos especialidad
                 'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
-                If altaOmod = 1 Then
-                    'Hacer modificacion
-                Else
-                    'Hacer alta
+                If altaOmod = 0 Then 'Hacer alta
+                    Conectar()
+
+                    Try
+                        conn.Execute(CREATEUSER("u" & medico.Cedula, medico.Contrasena, "medico"))
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
+                        Exit Sub
+                    End Try
+
+                    Try
+                        conn.Execute(GRANTROLE("medico", "u" & medico.Cedula))
+                    Catch ex As Exception
+                        MsgBox("No se pudo dar ROL ")
+                        Exit Sub
+                    End Try
+
+                    Try
+                        conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo))
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
+                        Exit Sub
+                    End Try
+
+                    For Each t As String In medico.telefonosLista
+                        Try
+                            conn.Execute(INSERTTELEFONO(medico.Cedula, t))
+                        Catch ex As Exception
+                            MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
+                            Exit Sub
+                        End Try
+                    Next
+
+                    Try
+                        conn.Execute(INSERTMEDICO(medico.Cedula))
+                    Catch ex As Exception
+                        MsgBox("No se pudo ingresar el medico " & " " & ex.Message)
+                        Exit Sub
+                    End Try
+
+                    For Each esp As String In medico.Especialidad
+
+                        Try
+                            conn.Execute(INSERTMEDICO_especialidad(medico.Cedula, esp))
+                        Catch ex As Exception
+                            MsgBox("No se pudo ingresar la especialidad " & esp & " " & ex.Message)
+                            Exit Sub
+                        End Try
+
+                    Next
+
+
+
+
+
+
+                Else 'Hacer modificacion
+
                 End If
             End If
         Else
@@ -122,12 +176,15 @@
     End Sub
 
     Public Sub configurarControles()
+
         Select Case altaOmod
             Case 0
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
-                        c.Enabled = False
+                    If Not ci_valida Then
+                        If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
+                            c.Enabled = False
+                        End If
                     Else
                         If TypeOf c Is TextBox Or TypeOf c Is ComboBox Then
                             c.Enabled = True
@@ -139,7 +196,7 @@
                 txtCedula.Enabled = False
                 For Each c As Control In Controls
 
-                    If TypeOf c Is TextBox AndAlso c IsNot txtCedula Or TypeOf c Is ComboBox Then
+                    If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
                         c.Enabled = True
                     End If
 
@@ -153,13 +210,20 @@
         If ci.Length = 8 Then
             ci_valida = check_Cedula(ci)
             If ci_valida = False Then
-                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                If check_UsuarioExiste("u" & ci) Then
+                    ci_valida = False
+                    MessageBox.Show(ElUsuarioYaExiste(), "Usuario ya registrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    ci_valida = True
+                End If
             End If
-            configurarControles()
         Else
             ci_valida = check_Cedula(ci)
-            configurarControles()
         End If
+
+        configurarControles()
 
     End Sub
 

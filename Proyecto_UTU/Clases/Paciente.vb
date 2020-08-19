@@ -98,7 +98,9 @@
         Try
             rs.Open(sql, conn)
         Catch ex As Exception
+            rs.Close()
             MsgBox(ex.Message)
+            Return 0
         End Try
 
         If rs.RecordCount = 1 Then
@@ -119,6 +121,8 @@
             _sexo = rs("sexo").Value
 
         End If
+
+        rs.Close()
 
     End Function
 
