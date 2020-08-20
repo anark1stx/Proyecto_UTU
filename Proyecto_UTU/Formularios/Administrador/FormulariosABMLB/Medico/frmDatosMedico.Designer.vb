@@ -189,6 +189,7 @@ Partial Class frmDatosMedico
         Me.lblContrasenaTXT.Name = "lblContrasenaTXT"
         Me.lblContrasenaTXT.Size = New System.Drawing.Size(106, 24)
         Me.lblContrasenaTXT.TabIndex = 329
+        Me.lblContrasenaTXT.Tag = "datos"
         Me.lblContrasenaTXT.Text = "Contraseña"
         '
         'lblTelefonoTXT
@@ -199,6 +200,7 @@ Partial Class frmDatosMedico
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(106, 24)
         Me.lblTelefonoTXT.TabIndex = 328
+        Me.lblTelefonoTXT.Tag = "datos"
         Me.lblTelefonoTXT.Text = "Teléfono(s)"
         '
         'lblDireccionTXT
@@ -209,6 +211,7 @@ Partial Class frmDatosMedico
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(90, 24)
         Me.lblDireccionTXT.TabIndex = 327
+        Me.lblDireccionTXT.Tag = "datos"
         Me.lblDireccionTXT.Text = "Dirección"
         '
         'lblCorreoTXT
@@ -219,6 +222,7 @@ Partial Class frmDatosMedico
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.Size = New System.Drawing.Size(68, 24)
         Me.lblCorreoTXT.TabIndex = 326
+        Me.lblCorreoTXT.Tag = "datos"
         Me.lblCorreoTXT.Text = "Correo"
         '
         'lblApellido2TXT
@@ -229,6 +233,7 @@ Partial Class frmDatosMedico
         Me.lblApellido2TXT.Name = "lblApellido2TXT"
         Me.lblApellido2TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblApellido2TXT.TabIndex = 325
+        Me.lblApellido2TXT.Tag = "datos"
         Me.lblApellido2TXT.Text = "2° Apellido"
         '
         'lblApellido1TXT
@@ -239,6 +244,7 @@ Partial Class frmDatosMedico
         Me.lblApellido1TXT.Name = "lblApellido1TXT"
         Me.lblApellido1TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblApellido1TXT.TabIndex = 324
+        Me.lblApellido1TXT.Tag = "datos"
         Me.lblApellido1TXT.Text = "1° Apellido"
         '
         'lblNombre2TXT
@@ -249,6 +255,7 @@ Partial Class frmDatosMedico
         Me.lblNombre2TXT.Name = "lblNombre2TXT"
         Me.lblNombre2TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblNombre2TXT.TabIndex = 323
+        Me.lblNombre2TXT.Tag = "datos"
         Me.lblNombre2TXT.Text = "2° Nombre"
         '
         'lblNombre1TXT
@@ -259,6 +266,7 @@ Partial Class frmDatosMedico
         Me.lblNombre1TXT.Name = "lblNombre1TXT"
         Me.lblNombre1TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblNombre1TXT.TabIndex = 322
+        Me.lblNombre1TXT.Tag = "datos"
         Me.lblNombre1TXT.Text = "1° Nombre"
         '
         'lblCedulaTXT
@@ -269,6 +277,7 @@ Partial Class frmDatosMedico
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.Size = New System.Drawing.Size(70, 24)
         Me.lblCedulaTXT.TabIndex = 321
+        Me.lblCedulaTXT.Tag = "datos"
         Me.lblCedulaTXT.Text = "Cedula"
         '
         'lblEspecialidadesTXT
@@ -279,6 +288,7 @@ Partial Class frmDatosMedico
         Me.lblEspecialidadesTXT.Name = "lblEspecialidadesTXT"
         Me.lblEspecialidadesTXT.Size = New System.Drawing.Size(138, 24)
         Me.lblEspecialidadesTXT.TabIndex = 330
+        Me.lblEspecialidadesTXT.Tag = "datos"
         Me.lblEspecialidadesTXT.Text = "Especialidades"
         '
         'frmDatosMedico

@@ -272,6 +272,7 @@ Partial Class frmDolor
         Me.btnColLumbarDer.Name = "btnColLumbarDer"
         Me.btnColLumbarDer.Size = New System.Drawing.Size(114, 238)
         Me.btnColLumbarDer.TabIndex = 61
+        Me.btnColLumbarDer.Tag = "datos"
         Me.btnColLumbarDer.UseVisualStyleBackColor = True
         '
         'btnColLumbarIzq
@@ -284,6 +285,7 @@ Partial Class frmDolor
         Me.btnColLumbarIzq.Name = "btnColLumbarIzq"
         Me.btnColLumbarIzq.Size = New System.Drawing.Size(128, 238)
         Me.btnColLumbarIzq.TabIndex = 60
+        Me.btnColLumbarIzq.Tag = "datos"
         Me.btnColLumbarIzq.UseVisualStyleBackColor = True
         '
         'btnColDorsalIzq
@@ -296,6 +298,7 @@ Partial Class frmDolor
         Me.btnColDorsalIzq.Name = "btnColDorsalIzq"
         Me.btnColDorsalIzq.Size = New System.Drawing.Size(128, 190)
         Me.btnColDorsalIzq.TabIndex = 59
+        Me.btnColDorsalIzq.Tag = "datos"
         Me.btnColDorsalIzq.UseVisualStyleBackColor = True
         '
         'btnOmoplatoIzq
@@ -308,6 +311,7 @@ Partial Class frmDolor
         Me.btnOmoplatoIzq.Name = "btnOmoplatoIzq"
         Me.btnOmoplatoIzq.Size = New System.Drawing.Size(121, 109)
         Me.btnOmoplatoIzq.TabIndex = 58
+        Me.btnOmoplatoIzq.Tag = "datos"
         Me.btnOmoplatoIzq.UseVisualStyleBackColor = True
         '
         'btnOmoplatoDer
@@ -320,6 +324,7 @@ Partial Class frmDolor
         Me.btnOmoplatoDer.Name = "btnOmoplatoDer"
         Me.btnOmoplatoDer.Size = New System.Drawing.Size(121, 109)
         Me.btnOmoplatoDer.TabIndex = 57
+        Me.btnOmoplatoDer.Tag = "datos"
         Me.btnOmoplatoDer.UseVisualStyleBackColor = True
         '
         'btnCervicales
@@ -332,6 +337,7 @@ Partial Class frmDolor
         Me.btnCervicales.Name = "btnCervicales"
         Me.btnCervicales.Size = New System.Drawing.Size(248, 130)
         Me.btnCervicales.TabIndex = 56
+        Me.btnCervicales.Tag = "datos"
         Me.btnCervicales.UseVisualStyleBackColor = True
         '
         'btnCabezaDerBack
@@ -344,6 +350,7 @@ Partial Class frmDolor
         Me.btnCabezaDerBack.Name = "btnCabezaDerBack"
         Me.btnCabezaDerBack.Size = New System.Drawing.Size(74, 153)
         Me.btnCabezaDerBack.TabIndex = 55
+        Me.btnCabezaDerBack.Tag = "datos"
         Me.btnCabezaDerBack.UseVisualStyleBackColor = True
         '
         'btnCabezaIzqBack
@@ -356,6 +363,7 @@ Partial Class frmDolor
         Me.btnCabezaIzqBack.Name = "btnCabezaIzqBack"
         Me.btnCabezaIzqBack.Size = New System.Drawing.Size(74, 153)
         Me.btnCabezaIzqBack.TabIndex = 54
+        Me.btnCabezaIzqBack.Tag = "datos"
         Me.btnCabezaIzqBack.UseVisualStyleBackColor = True
         '
         'btnPiernaIzq
@@ -368,6 +376,7 @@ Partial Class frmDolor
         Me.btnPiernaIzq.Name = "btnPiernaIzq"
         Me.btnPiernaIzq.Size = New System.Drawing.Size(150, 430)
         Me.btnPiernaIzq.TabIndex = 53
+        Me.btnPiernaIzq.Tag = "datos"
         Me.btnPiernaIzq.UseVisualStyleBackColor = True
         '
         'btnPiernaDer
@@ -380,6 +389,7 @@ Partial Class frmDolor
         Me.btnPiernaDer.Name = "btnPiernaDer"
         Me.btnPiernaDer.Size = New System.Drawing.Size(150, 430)
         Me.btnPiernaDer.TabIndex = 52
+        Me.btnPiernaDer.Tag = "datos"
         Me.btnPiernaDer.UseVisualStyleBackColor = True
         '
         'btnAbdominalIzq
@@ -392,6 +402,7 @@ Partial Class frmDolor
         Me.btnAbdominalIzq.Name = "btnAbdominalIzq"
         Me.btnAbdominalIzq.Size = New System.Drawing.Size(105, 195)
         Me.btnAbdominalIzq.TabIndex = 51
+        Me.btnAbdominalIzq.Tag = "datos"
         Me.btnAbdominalIzq.UseVisualStyleBackColor = True
         '
         'btnAbdominalDer
@@ -404,6 +415,7 @@ Partial Class frmDolor
         Me.btnAbdominalDer.Name = "btnAbdominalDer"
         Me.btnAbdominalDer.Size = New System.Drawing.Size(105, 195)
         Me.btnAbdominalDer.TabIndex = 50
+        Me.btnAbdominalDer.Tag = "datos"
         Me.btnAbdominalDer.UseVisualStyleBackColor = True
         '
         'btnManoIzq
@@ -416,6 +428,7 @@ Partial Class frmDolor
         Me.btnManoIzq.Name = "btnManoIzq"
         Me.btnManoIzq.Size = New System.Drawing.Size(101, 87)
         Me.btnManoIzq.TabIndex = 49
+        Me.btnManoIzq.Tag = "datos"
         Me.btnManoIzq.UseVisualStyleBackColor = True
         '
         'btnManoDer
@@ -428,6 +441,7 @@ Partial Class frmDolor
         Me.btnManoDer.Name = "btnManoDer"
         Me.btnManoDer.Size = New System.Drawing.Size(101, 87)
         Me.btnManoDer.TabIndex = 48
+        Me.btnManoDer.Tag = "datos"
         Me.btnManoDer.UseVisualStyleBackColor = True
         '
         'btnBrazoIzq
@@ -440,6 +454,7 @@ Partial Class frmDolor
         Me.btnBrazoIzq.Name = "btnBrazoIzq"
         Me.btnBrazoIzq.Size = New System.Drawing.Size(106, 170)
         Me.btnBrazoIzq.TabIndex = 47
+        Me.btnBrazoIzq.Tag = "datos"
         Me.btnBrazoIzq.UseVisualStyleBackColor = True
         '
         'btnBrazoDer
@@ -452,6 +467,7 @@ Partial Class frmDolor
         Me.btnBrazoDer.Name = "btnBrazoDer"
         Me.btnBrazoDer.Size = New System.Drawing.Size(106, 170)
         Me.btnBrazoDer.TabIndex = 46
+        Me.btnBrazoDer.Tag = "datos"
         Me.btnBrazoDer.UseVisualStyleBackColor = True
         '
         'btnPechoIzq
@@ -464,6 +480,7 @@ Partial Class frmDolor
         Me.btnPechoIzq.Name = "btnPechoIzq"
         Me.btnPechoIzq.Size = New System.Drawing.Size(105, 109)
         Me.btnPechoIzq.TabIndex = 45
+        Me.btnPechoIzq.Tag = "datos"
         Me.btnPechoIzq.UseVisualStyleBackColor = True
         '
         'btnPechoDer
@@ -476,6 +493,7 @@ Partial Class frmDolor
         Me.btnPechoDer.Name = "btnPechoDer"
         Me.btnPechoDer.Size = New System.Drawing.Size(105, 109)
         Me.btnPechoDer.TabIndex = 44
+        Me.btnPechoDer.Tag = "datos"
         Me.btnPechoDer.UseVisualStyleBackColor = True
         '
         'btnHombroDer
@@ -488,6 +506,7 @@ Partial Class frmDolor
         Me.btnHombroDer.Name = "btnHombroDer"
         Me.btnHombroDer.Size = New System.Drawing.Size(90, 109)
         Me.btnHombroDer.TabIndex = 43
+        Me.btnHombroDer.Tag = "datos"
         Me.btnHombroDer.UseVisualStyleBackColor = True
         '
         'btnHombroIzq
@@ -500,6 +519,7 @@ Partial Class frmDolor
         Me.btnHombroIzq.Name = "btnHombroIzq"
         Me.btnHombroIzq.Size = New System.Drawing.Size(90, 109)
         Me.btnHombroIzq.TabIndex = 42
+        Me.btnHombroIzq.Tag = "datos"
         Me.btnHombroIzq.UseVisualStyleBackColor = True
         '
         'btnCuello
@@ -512,6 +532,7 @@ Partial Class frmDolor
         Me.btnCuello.Name = "btnCuello"
         Me.btnCuello.Size = New System.Drawing.Size(202, 77)
         Me.btnCuello.TabIndex = 41
+        Me.btnCuello.Tag = "datos"
         Me.btnCuello.UseVisualStyleBackColor = True
         '
         'btnCabezaIzq
@@ -524,6 +545,7 @@ Partial Class frmDolor
         Me.btnCabezaIzq.Name = "btnCabezaIzq"
         Me.btnCabezaIzq.Size = New System.Drawing.Size(76, 153)
         Me.btnCabezaIzq.TabIndex = 40
+        Me.btnCabezaIzq.Tag = "datos"
         Me.btnCabezaIzq.UseVisualStyleBackColor = True
         '
         'btnCabezaDer
@@ -537,6 +559,7 @@ Partial Class frmDolor
         Me.btnCabezaDer.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnCabezaDer.Size = New System.Drawing.Size(76, 153)
         Me.btnCabezaDer.TabIndex = 39
+        Me.btnCabezaDer.Tag = "datos"
         Me.btnCabezaDer.UseVisualStyleBackColor = True
         '
         'Imprimir

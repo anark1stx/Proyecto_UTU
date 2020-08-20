@@ -122,23 +122,22 @@
     End Sub
 
     Private Sub frmDatosPacienteModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LimpiarControles(Me)
         configurarControles()
-        cbSexo.SelectedIndex = 0
-        cb_e_civil.SelectedIndex = 0
     End Sub
 
     Public Sub configurarControles()
 
         Select Case altaOmod
             Case 0
-                For Each c As Control In Controls
+                For Each c As Control In Me.Controls
 
                     If Not ci_valida Then
                         If TypeOf c Is ComboBox Or TypeOf c Is DateTimePicker Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then
                             c.Enabled = False
                         End If
                     Else
-                        If TypeOf c Is TextBox Or TypeOf c Is ComboBox Then
+                        If TypeOf c Is TextBox Or TypeOf c Is DateTimePicker Or TypeOf c Is ComboBox Then
                             c.Enabled = True
                         End If
                     End If
@@ -178,7 +177,6 @@
         configurarControles()
 
     End Sub
-
 
     Private Sub pBoxFotoPaciente_Click(sender As Object, e As EventArgs) Handles pBoxFotoPaciente.Click
         Dim imgpath As String 'dónde está la imagen que se va a subir'

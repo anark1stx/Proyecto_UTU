@@ -34,7 +34,6 @@
                     Case Else
                         MessageBox.Show("Rol desconocido en la base de datos.", "No se encontro su rol.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Select
-
                 lblMensajeErrorCI.Visible = False
             End If
         End If

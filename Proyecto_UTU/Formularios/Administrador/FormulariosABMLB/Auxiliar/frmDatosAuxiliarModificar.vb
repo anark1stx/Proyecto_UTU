@@ -163,6 +163,7 @@
         End Select
     End Sub
     Private Sub frmDatosAuxiliarModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LimpiarControles(Me)
         configurarControles()
     End Sub
 End Class

@@ -11,6 +11,9 @@ Public Class frmMedico
     Dim frmTratamientoC As New frmTratamientoCrear
     Dim frmTratamientoS As New frmTratamientoSeguir
 
+    Dim frmAnalisisC As New frmAnalisisCrear
+    Dim frmAnalisisS As New frmAnalisisSeguimiento
+
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
 
@@ -80,7 +83,7 @@ Public Class frmMedico
                 addFrm(frmOpsConsulta, 0)
 
             Case "Identificacion"
-
+                LimpiarControles(frmIdentificacion)
                 addFrm(frmIdentificacion, 0)
 
             Case "Entrevista"
@@ -97,15 +100,19 @@ Public Class frmMedico
                 End If
 
             Case "Generico"
+                LimpiarControles(generico)
                 addFrm(generico, 1)
 
             Case "Dolor"
+                LimpiarControles(frmDlr)
                 addFrm(frmDlr, 1)
 
             Case "Fiebre"
+                LimpiarControles(frmFbr)
                 addFrm(frmFbr, 1)
 
             Case "Malestar"
+                LimpiarControles(frmMal)
                 addFrm(frmMal, 1)
 
             Case "Otro"
@@ -134,19 +141,25 @@ Public Class frmMedico
                 frmCrear.btnAbrir_Click(sender, e)
 
             Case "IngresarTratamiento"
+                LimpiarControles(frmTratamientoC)
                 addFrm(frmTratamientoC, 0)
-            Case "HacerSeguimiento"
+            Case "SeguirTratamiento"
+                LimpiarControles(frmTratamientoS)
                 addFrm(frmTratamientoS, 0)
+            Case "IngresarAnalisis"
+                LimpiarControles(frmAnalisisC)
+                addFrm(frmAnalisisC, 0)
+            Case "SeguirAnalisis"
+                LimpiarControles(frmAnalisisS)
+                addFrm(frmAnalisisS, 0)
         End Select
 
     End Sub
-
 
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
     End Sub
-
 
     Private Sub EntrevistaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         InstanciarFormulario("Identificacion")
@@ -163,7 +176,6 @@ Public Class frmMedico
     Private Sub AtenderMenuItem_Click(sender As Object, e As EventArgs) Handles AtenderMenuItem.Click
         InstanciarFormulario("Atender")
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Dim _event = New FormClosingEventArgs(CloseReason.UserClosing, False)
         frmMedico_FormClosing(sender, _event)
@@ -347,6 +359,14 @@ Public Class frmMedico
     End Sub
 
     Private Sub TratamientoSeguimientoMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientoSeguimientoMenuItem.Click
-        InstanciarFormulario("HacerSeguimiento")
+        InstanciarFormulario("SeguirTratamiento")
+    End Sub
+
+    Private Sub AnalisisIngresarMenuItem1_Click(sender As Object, e As EventArgs) Handles AnalisisIngresarMenuItem1.Click
+        InstanciarFormulario("IngresarAnalisis")
+    End Sub
+
+    Private Sub AnalisisHacerSeguimientoMenuItem1_Click(sender As Object, e As EventArgs) Handles AnalisisHacerSeguimientoMenuItem1.Click
+        InstanciarFormulario("SeguirAnalisis")
     End Sub
 End Class

@@ -20,7 +20,7 @@
             sender.Left = e.X + sender.Left - ubicacion_mouse.X
             sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
 
-            evaluarSiEstoyenTBL(ctrl_seleccionado)
+            'evaluarSiEstoyenTBL(ctrl_seleccionado)
         End If
     End Sub
 
@@ -35,17 +35,17 @@
 
     End Sub
 
-    Public Sub evaluarSiEstoyenTBL(ctrl As Control)
+    'Public Sub evaluarSiEstoyenTBL(ctrl As Control)
 
-        If Not ctrl.Parent Is Me.Controls(0) Then '
-            Dim contenedor = ctrl.Parent.Parent
-            ctrl.Dock = DockStyle.None
-            ctrl.Anchor = AnchorStyles.None
-            contenedor.Controls.Add(ctrl)
-            evaluarSiEstoyenTBL(ctrl)
-        End If
+    '    If Not ctrl.Parent Is Me Or Not ctrl.Parent Is Me.Controls(0) Then '
+    '        Dim contenedor = ctrl.Parent.Parent
+    '        ctrl.Dock = DockStyle.None
+    '        ctrl.Anchor = AnchorStyles.None
+    '        contenedor.Controls.Add(ctrl)
+    '        evaluarSiEstoyenTBL(ctrl)
+    '    End If
 
-    End Sub
+    'End Sub
 
 
 End Class

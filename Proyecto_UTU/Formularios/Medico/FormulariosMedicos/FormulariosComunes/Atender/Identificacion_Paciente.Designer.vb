@@ -66,6 +66,7 @@ Partial Class Identificacion_Paciente
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(93, 25)
         Me.lblDireccionTXT.TabIndex = 97
+        Me.lblDireccionTXT.Tag = "datos"
         Me.lblDireccionTXT.Text = "Dirección"
         '
         'lblEstadoCivil
@@ -86,6 +87,7 @@ Partial Class Identificacion_Paciente
         Me.lblEstadoCivilTXT.Name = "lblEstadoCivilTXT"
         Me.lblEstadoCivilTXT.Size = New System.Drawing.Size(110, 25)
         Me.lblEstadoCivilTXT.TabIndex = 93
+        Me.lblEstadoCivilTXT.Tag = "datos"
         Me.lblEstadoCivilTXT.Text = "Estado civil"
         '
         'lblOcupacion
@@ -106,6 +108,7 @@ Partial Class Identificacion_Paciente
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
         Me.lblOcupacionTXT.Size = New System.Drawing.Size(107, 25)
         Me.lblOcupacionTXT.TabIndex = 91
+        Me.lblOcupacionTXT.Tag = "datos"
         Me.lblOcupacionTXT.Text = "Ocupación"
         '
         'lblSexo
@@ -126,6 +129,7 @@ Partial Class Identificacion_Paciente
         Me.lblSexoTXT.Name = "lblSexoTXT"
         Me.lblSexoTXT.Size = New System.Drawing.Size(58, 25)
         Me.lblSexoTXT.TabIndex = 89
+        Me.lblSexoTXT.Tag = "datos"
         Me.lblSexoTXT.Text = "Sexo"
         '
         'lblEdad
@@ -146,6 +150,7 @@ Partial Class Identificacion_Paciente
         Me.lblEdadTXT.Name = "lblEdadTXT"
         Me.lblEdadTXT.Size = New System.Drawing.Size(58, 25)
         Me.lblEdadTXT.TabIndex = 87
+        Me.lblEdadTXT.Tag = "datos"
         Me.lblEdadTXT.Text = "Edad"
         '
         'lblTelefono
@@ -166,6 +171,7 @@ Partial Class Identificacion_Paciente
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(131, 25)
         Me.lblTelefonoTXT.TabIndex = 83
+        Me.lblTelefonoTXT.Tag = "datos"
         Me.lblTelefonoTXT.Text = "TELEFONO1"
         '
         'lblCedula
@@ -206,6 +212,7 @@ Partial Class Identificacion_Paciente
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
         Me.lblApellidosTXT.Size = New System.Drawing.Size(243, 25)
         Me.lblApellidosTXT.TabIndex = 79
+        Me.lblApellidosTXT.Tag = "datos"
         Me.lblApellidosTXT.Text = "APELLIDO 1 APELLIDO 2"
         '
         'lblNombresTXT
@@ -216,12 +223,14 @@ Partial Class Identificacion_Paciente
         Me.lblNombresTXT.Name = "lblNombresTXT"
         Me.lblNombresTXT.Size = New System.Drawing.Size(221, 25)
         Me.lblNombresTXT.TabIndex = 78
+        Me.lblNombresTXT.Tag = "datos"
         Me.lblNombresTXT.Text = "NOMBRE 1 NOMBRE 2"
         '
         'pBoxFotoPaciente
         '
+        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
         Me.pBoxFotoPaciente.Location = New System.Drawing.Point(12, 12)
         Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
         Me.pBoxFotoPaciente.Size = New System.Drawing.Size(354, 330)

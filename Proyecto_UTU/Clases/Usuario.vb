@@ -243,6 +243,7 @@
             _direccion.Add(rs("direccion_calle").Value)
             _direccion.Add(rs("direccion_nroPuerta").Value)
 
+            _imagen = rs("foto").Value
         End If
 
         rs.Close()

@@ -155,6 +155,18 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.Designer.vb">
+      <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisSeguimiento.Designer.vb">
+      <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisSeguimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.Designer.vb">
       <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
     </Compile>
@@ -340,6 +352,12 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.resx">
       <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.resx">
+      <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisSeguimiento.resx">
+      <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.resx">
       <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
     </EmbeddedResource>
@@ -425,8 +443,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-hospital-100.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

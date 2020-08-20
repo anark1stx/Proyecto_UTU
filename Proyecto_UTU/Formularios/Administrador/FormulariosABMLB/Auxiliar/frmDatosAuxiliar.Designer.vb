@@ -177,6 +177,7 @@ Partial Class frmDatosAuxiliar
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.Size = New System.Drawing.Size(70, 24)
         Me.lblCedulaTXT.TabIndex = 312
+        Me.lblCedulaTXT.Tag = "datos"
         Me.lblCedulaTXT.Text = "Cedula"
         '
         'lblNombre1TXT
@@ -187,6 +188,7 @@ Partial Class frmDatosAuxiliar
         Me.lblNombre1TXT.Name = "lblNombre1TXT"
         Me.lblNombre1TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblNombre1TXT.TabIndex = 313
+        Me.lblNombre1TXT.Tag = "datos"
         Me.lblNombre1TXT.Text = "1° Nombre"
         '
         'lblNombre2TXT
@@ -197,6 +199,7 @@ Partial Class frmDatosAuxiliar
         Me.lblNombre2TXT.Name = "lblNombre2TXT"
         Me.lblNombre2TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblNombre2TXT.TabIndex = 314
+        Me.lblNombre2TXT.Tag = "datos"
         Me.lblNombre2TXT.Text = "2° Nombre"
         '
         'lblApellido1TXT
@@ -207,6 +210,7 @@ Partial Class frmDatosAuxiliar
         Me.lblApellido1TXT.Name = "lblApellido1TXT"
         Me.lblApellido1TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblApellido1TXT.TabIndex = 315
+        Me.lblApellido1TXT.Tag = "datos"
         Me.lblApellido1TXT.Text = "1° Apellido"
         '
         'lblApellido2TXT
@@ -217,6 +221,7 @@ Partial Class frmDatosAuxiliar
         Me.lblApellido2TXT.Name = "lblApellido2TXT"
         Me.lblApellido2TXT.Size = New System.Drawing.Size(100, 24)
         Me.lblApellido2TXT.TabIndex = 316
+        Me.lblApellido2TXT.Tag = "datos"
         Me.lblApellido2TXT.Text = "2° Apellido"
         '
         'lblCorreoTXT
@@ -227,6 +232,7 @@ Partial Class frmDatosAuxiliar
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.Size = New System.Drawing.Size(68, 24)
         Me.lblCorreoTXT.TabIndex = 317
+        Me.lblCorreoTXT.Tag = "datos"
         Me.lblCorreoTXT.Text = "Correo"
         '
         'lblDireccionTXT
@@ -237,6 +243,7 @@ Partial Class frmDatosAuxiliar
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(90, 24)
         Me.lblDireccionTXT.TabIndex = 318
+        Me.lblDireccionTXT.Tag = "datos"
         Me.lblDireccionTXT.Text = "Dirección"
         '
         'lblTelefonoTXT
@@ -247,6 +254,7 @@ Partial Class frmDatosAuxiliar
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(106, 24)
         Me.lblTelefonoTXT.TabIndex = 319
+        Me.lblTelefonoTXT.Tag = "datos"
         Me.lblTelefonoTXT.Text = "Teléfono(s)"
         '
         'lblContrasenaTXT
@@ -257,6 +265,7 @@ Partial Class frmDatosAuxiliar
         Me.lblContrasenaTXT.Name = "lblContrasenaTXT"
         Me.lblContrasenaTXT.Size = New System.Drawing.Size(106, 24)
         Me.lblContrasenaTXT.TabIndex = 320
+        Me.lblContrasenaTXT.Tag = "datos"
         Me.lblContrasenaTXT.Text = "Contraseña"
         '
         'frmDatosAuxiliar

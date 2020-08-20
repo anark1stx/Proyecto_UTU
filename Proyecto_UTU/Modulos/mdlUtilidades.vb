@@ -57,14 +57,15 @@ Module mdlUtilidades
                 Case "TextBox"
                     Dim txt = DirectCast(control, TextBox)
                     txt.Text = String.Empty
+
                 Case "ComboBox"
                     Dim cbox = DirectCast(control, ComboBox)
 
                     If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
                         control.ResetText()
-                    Else
-                        cbox.SelectedIndex = 0
                     End If
+                    cbox.SelectedIndex = 0
+
                 Case "CheckBox"
                     Dim chk = DirectCast(control, CheckBox)
                     chk.Checked = CheckState.Unchecked
@@ -72,6 +73,36 @@ Module mdlUtilidades
                 Case "DataGridView"
                     Dim dgw = DirectCast(control, DataGridView)
                     dgw.Rows.Clear()
+                    dgw.Columns.Clear()
+
+                Case "PictureBox"
+                    Dim pbox = DirectCast(control, PictureBox)
+                    pbox.Image = Nothing
+
+                Case "DateTimePicker"
+                    Dim dtp = DirectCast(control, DateTimePicker)
+                    dtp.Value = Today
+
+                Case "ListBox"
+                    Dim lb = DirectCast(control, ListBox)
+                    lb.Items.Clear()
+
+                Case "Label"
+                    Dim lbl = DirectCast(control, Label)
+
+                    If lbl.Tag Is "datos" Then 'Esto es para limpiar solo las labels en las que le cambio su texto original por los datos que llegan de la BD.
+                        lbl.ResetText()
+                    End If
+
+                Case "Button"
+                    Dim btn = DirectCast(control, Button)
+
+                    If btn.Tag Is "datos" Then
+                        btn.BackColor = Nothing
+                    End If
+
+                Case "Panel", "GroupBox", "TableLayoutPanel"
+                    LimpiarControles(control) 'RECURSIVA
             End Select
         Next
     End Sub
@@ -86,7 +117,5 @@ Module mdlUtilidades
 
         Return memobmp
     End Function
-
-
 
 End Module

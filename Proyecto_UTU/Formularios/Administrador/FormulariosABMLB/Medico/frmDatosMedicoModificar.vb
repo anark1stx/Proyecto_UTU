@@ -182,7 +182,7 @@
     End Sub
 
     Private Sub frmDatosMedicoModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim controls = Me.Controls
+        LimpiarControles(Me)
         configurarControles()
     End Sub
 
@@ -190,7 +190,7 @@
 
         Select Case altaOmod
             Case 0
-                For Each c As Control In Controls
+                For Each c As Control In Me.Controls
 
                     If Not ci_valida Then
                         If TypeOf c Is ComboBox Or TypeOf c Is TextBox AndAlso c IsNot txtCedula Then

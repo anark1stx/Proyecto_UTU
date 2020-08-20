@@ -17,15 +17,20 @@
         End If
 
 AdoError:
-        If Err.Number <> 0 Then
-            MessageBox.Show(Err.Description, "Ha ocurrido un error.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
+        Select Case Err.Number
+            Case -2147467259
+                MessageBox.Show("Sus credenciales son incorrectas.", "Ha ocurrido un error. " & Err.Number, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 0
+                'Nada, todo OK
+            Case Else
+                MessageBox.Show(Err.Description, "Ha ocurrido un error. " & Err.Number, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Select
         Err.Clear()
         Exit Sub
     End Sub
 
     Public Function construirCnString(usr As String, pwd As String)
-        Return "DSN=SIBIM;UID=" & usr & "; PWD=" & pwd & ";"
+        Return String.Format("DSN=SIBIM;UID={0}; PWD={1};", usr, pwd)
     End Function
 
 End Module

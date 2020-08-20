@@ -53,4 +53,7 @@
 
     End Sub
 
+    Private Sub frmGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LimpiarControles(Me)
+    End Sub
 End Class

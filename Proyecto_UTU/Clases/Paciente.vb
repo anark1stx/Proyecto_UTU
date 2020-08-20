@@ -116,10 +116,11 @@
             _estado_civil = rs("e_civil").Value
             _ocupacion = rs("ocupacion").Value
             _sexo = rs("sexo").Value
+
+            _imagen = rs("foto").Value
             Return 1
         End If
         rs.Close()
-
 
     End Function
 

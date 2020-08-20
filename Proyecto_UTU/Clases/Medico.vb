@@ -135,6 +135,8 @@
             _direccion.Add(rs("direccion_nroPuerta").Value)
             _especialidades.Add(rs("especialidad").Value)
 
+            _imagen = rs("foto").Value
+
         End If
 
         rs.Close()

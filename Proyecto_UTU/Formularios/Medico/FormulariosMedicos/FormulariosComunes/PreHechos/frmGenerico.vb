@@ -2,7 +2,6 @@
 
 Public Class frmGenerico
     Dim memobmp As Bitmap
-    Dim tmpPanel As Panel
 
     Sub hideShowItems(_case As Boolean)
 
@@ -16,44 +15,20 @@ Public Class frmGenerico
     End Sub
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(0)
+        hideShowItems(False)
+        pnlContenedor.AutoScroll = False
+        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
 
-        Print(pnlContenedor)
+        pnlContenedor.AutoScroll = True
 
-        hideShowItems(1)
-    End Sub
+        'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
 
-    Public Sub Print(pnl As Panel)
-        tmpPanel = pnl
-        Imprimir.DefaultPageSettings.Landscape = True
-        getPrintArea(pnl)
-
-        Imprimir.Print()
-
-    End Sub
-
-    Public Sub getPrintArea(pnl As Panel)
-        memobmp = New Bitmap(pnl.Width, pnl.Height)
-        pnl.DrawToBitmap(memobmp, New Rectangle(0, 0, pnl.Width, pnl.Height))
-    End Sub
-
-    Protected Overrides Sub OnPaint(e As PaintEventArgs)
-        If memobmp IsNot Nothing Then
-            e.Graphics.DrawImage(memobmp, 0, 0)
-            MyBase.OnPaint(e)
-        End If
-
+        hideShowItems(True)
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
 
-        Dim pagearea As Rectangle = e.PageBounds
-        Dim _fixedpagearea2 As Rectangle = e.PageBounds 'Este rectangulo es para corregir el offset entre la ubicacion del panel y la del formulario en si
-
-        _fixedpagearea2.Width = (pagearea.Width / 2) - (Me.pnlContenedor.Width / 2)
-
-
-        e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
+        e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
 
     Private Sub chkPacienteEnfermo_CheckedChanged(sender As Object, e As EventArgs) Handles chkPacienteEnfermo.CheckedChanged
@@ -103,7 +78,7 @@ Public Class frmGenerico
                             Dim ans = MessageBox.Show("El Campo: " & c2.Name & " está vacío, seguro que aún así desea guardar el formulario?", "Falta llenar información.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
                             If ans = vbNo Then
-                                Exit For
+                                Exit Sub
                             End If
                         Else
                             ctrlsLlenos += 1
@@ -129,7 +104,6 @@ Public Class frmGenerico
                 LimpiarControles(c)
             End If
         Next
-        LimpiarControles(gbTratamiento)
     End Sub
 
     Private Sub frmGenericoTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -162,39 +162,21 @@
         Return list
     End Function
 
-
-
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(0)
-        Print(pnlContenedor)
-        hideShowItems(1)
-    End Sub
+        hideShowItems(False)
+        pnlContenedor.AutoScroll = False
+        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        'PrintPreviewDialog1.Document = Imprimir
+        pnlContenedor.AutoScroll = True
+        'PrintPreviewDialog1.ShowDialog()
 
-    Public Sub Print(pnl As Panel)
-        tmpPanel = pnl
-        Imprimir.DefaultPageSettings.Landscape = True
-        getPrintArea(pnl)
+        'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
 
-        pp.Document = Imprimir
-        pp.ShowDialog()
-        'Imprimir.Print()
-
-    End Sub
-
-    Public Sub getPrintArea(pnl As Panel)
-        memobmp = New Bitmap(pnl.Width, pnl.Height)
-        pnl.DrawToBitmap(memobmp, New Rectangle(0, 0, pnl.Width, pnl.Height))
-    End Sub
-
-    Protected Overrides Sub OnPaint(e As PaintEventArgs)
-        If memobmp IsNot Nothing Then
-            e.Graphics.DrawImage(memobmp, 0, 0)
-            MyBase.OnPaint(e)
-        End If
-
+        hideShowItems(True)
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
+
         e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
 End Class

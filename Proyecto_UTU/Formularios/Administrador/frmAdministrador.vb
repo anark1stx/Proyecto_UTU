@@ -39,10 +39,12 @@
                 Select Case formularioHijo
 #Region "Paciente"
                     Case "DatosPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+                        LimpiarControles(_frmDatosPaciente)
                         addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "ModificarPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+                        LimpiarControles(_frmModificarPaciente)
                         _frmModificarPaciente.altaOmod = 1
                         _frmModificarPaciente.configurarControles()
                         addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
@@ -50,11 +52,12 @@
                         _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-
+                        LimpiarControles(_frmDatosPaciente)
                         addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "AltaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
+                        LimpiarControles(_frmModificarPaciente)
                         _frmModificarPaciente.altaOmod = 0
                         _frmModificarPaciente.configurarControles()
                         addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
@@ -66,10 +69,13 @@
 #End Region
 #Region "Medico"
                     Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        LimpiarControles(_frmDatosMedico)
+
                         addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        LimpiarControles(_frmModificarMedico)
                         _frmModificarMedico.altaOmod = 1
                         _frmModificarMedico.configurarControles()
                         addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
@@ -77,11 +83,12 @@
                         _frmModificarMedico.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-
+                        LimpiarControles(_frmDatosMedico)
                         addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
+                        LimpiarControles(_frmModificarMedico)
                         _frmModificarMedico.altaOmod = 0
                         _frmModificarMedico.configurarControles()
                         addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
@@ -92,10 +99,12 @@
 #End Region
 #Region "Auxiliar"
                     Case "DatosAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        LimpiarControles(_frmDatosAuxiliar)
                         addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        LimpiarControles(_frmModificarAuxiliar)
                         _frmModificarAuxiliar.altaOmod = 1
                         _frmModificarAuxiliar.configurarControles()
                         addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
@@ -103,11 +112,12 @@
                         _frmModificarAuxiliar.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
-
+                        LimpiarControles(_frmDatosAuxiliar)
                         addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
 
                     Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
+                        LimpiarControles(_frmModificarAuxiliar)
                         _frmModificarAuxiliar.altaOmod = 0
                         _frmModificarAuxiliar.configurarControles()
                         addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
@@ -248,8 +258,9 @@
     Private Sub frmAdministrador_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True
-            Me.pnlContenedor.Controls.Clear()
+            Me.pnlContenedor.Controls.Clear() 'limpiar los controles
             Me.Hide()
+            InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
             frmIngreso_Usuario.Show()
         End If
     End Sub
