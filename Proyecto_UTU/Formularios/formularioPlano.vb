@@ -1,7 +1,6 @@
 ﻿Public Class formularioPlano
     Public ubicacion_mouse As Point
     Public ctrl_seleccionado As Control
-    Public lista_Tags As New List(Of String)
     Public PreguntasYRespuestas As New List(Of PreguntaRespuesta)
     Public Sub _MouseDown(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.MouseDown
 

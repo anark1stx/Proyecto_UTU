@@ -84,6 +84,7 @@ Public Class MsgBoxControlSettings
 
     Private Sub cbTamanoLetra_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTamanoLetra.SelectedIndexChanged
         tamano = Val(cbTamanoLetra.SelectedItem.ToString())
+        fuente = New Font(cbFuente.Text, tamano)
         txtIngreseTexto.Font = fuente
     End Sub
 

@@ -55,14 +55,18 @@
 
     Public Sub txtTextBox_MouseUp(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseUp
         If e.Location.X > pnlFormularioPersonalizado.Left Then
-
+            TipoDeTxt.cbTipoDeDato.Items.Clear()
             For Each p As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
                 TipoDeTxt.cbTipoDeDato.Items.Add(p.Pregunta.Text)
             Next
 
-            Dim tipo = TipoDeTxt.ShowDialog()
+            TipoDeTxt.cbTipoDeDato.Items.Add("Otro")
+
+            TipoDeTxt.ShowDialog()
 
             setType(TipoDeTxt.valorSeleccionado)
+
+            TipoDeTxt.Hide()
         Else
             Me.Controls.Remove(_instancia)
         End If
@@ -150,7 +154,16 @@
             Dim pyr As New PreguntaRespuesta()
             pyr.Pregunta = _instancia
             frmPlano.PreguntasYRespuestas.Add(pyr)
+        End If
 
+        If TipoDeTxt.valorSeleccionado IsNot "Otro" Then
+
+            For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+
+                If pyr.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
+                    pyr.Respuesta = _instancia
+                End If
+            Next
         End If
 
         frmPlano.Controls.Add(_instancia)
@@ -159,13 +172,10 @@
         Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
 
         _instancia.Location -= New Point(marginX, marginY)
-
-        TipoDeTxt.Hide()
         settings.texto = "" 'Limpiar las settings
         settings.fuente = SystemFonts.DefaultFont
         settings.color = New Color
 
-        frmPlano.Invalidate()
     End Sub
 
     Public Function setControlName() As String
