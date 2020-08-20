@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\ControlesGuardados.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
+    <Compile Include="Clases\Serializacion_Deserializacion\Clases\PreguntaRespuesta.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\XML\GestorXMLv2.vb" />
     <Compile Include="Clases\Medico.vb" />
     <Compile Include="Clases\Paciente.vb" />

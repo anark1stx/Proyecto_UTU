@@ -53,8 +53,13 @@
         End If
     End Sub
 
-    Public Sub txtSintoma0_MouseUp(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseUp
+    Public Sub txtTextBox_MouseUp(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseUp
         If e.Location.X > pnlFormularioPersonalizado.Left Then
+
+            For Each p As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+                TipoDeTxt.cbTipoDeDato.Items.Add(p.Pregunta.Text)
+            Next
+
             Dim tipo = TipoDeTxt.ShowDialog()
 
             setType(TipoDeTxt.valorSeleccionado)
@@ -133,12 +138,20 @@
 #End Region
 
     Public Sub setType(nombre As String)
+
         _instancia.Name = nombre
         _instancia.Name = setControlName()
 
         _instancia.Text = settings.texto
         _instancia.Font = settings.fuente
         _instancia.ForeColor = settings.color
+
+        If settings.chkSoyPregunta.Checked Then
+            Dim pyr As New PreguntaRespuesta()
+            pyr.Pregunta = _instancia
+            frmPlano.PreguntasYRespuestas.Add(pyr)
+
+        End If
 
         frmPlano.Controls.Add(_instancia)
         frmPlano.ctrl_seleccionado = _instancia

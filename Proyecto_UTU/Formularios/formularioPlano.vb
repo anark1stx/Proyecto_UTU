@@ -2,6 +2,7 @@
     Public ubicacion_mouse As Point
     Public ctrl_seleccionado As Control
     Public lista_Tags As New List(Of String)
+    Public PreguntasYRespuestas As New List(Of PreguntaRespuesta)
     Public Sub _MouseDown(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.MouseDown
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
@@ -40,7 +41,4 @@
     '    End If
 
     'End Sub
-
-
-
 End Class

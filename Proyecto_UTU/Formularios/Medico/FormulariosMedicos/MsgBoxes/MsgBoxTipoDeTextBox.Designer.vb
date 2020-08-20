@@ -28,30 +28,32 @@ Partial Class MsgBoxTipoDeTextBox
         '
         'lblSeleccioneTipoDeDato
         '
-        Me.lblSeleccioneTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSeleccioneTipoDeDato.Location = New System.Drawing.Point(12, 9)
+        Me.lblSeleccioneTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSeleccioneTipoDeDato.Location = New System.Drawing.Point(12, 46)
         Me.lblSeleccioneTipoDeDato.Name = "lblSeleccioneTipoDeDato"
-        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(553, 36)
+        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(757, 36)
         Me.lblSeleccioneTipoDeDato.TabIndex = 3
         Me.lblSeleccioneTipoDeDato.Text = "Seleccione el tipo de dato que guardará este campo"
+        Me.lblSeleccioneTipoDeDato.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'cbTipoDeDato
         '
         Me.cbTipoDeDato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoDeDato.FormattingEnabled = True
         Me.cbTipoDeDato.IntegralHeight = False
-        Me.cbTipoDeDato.Items.AddRange(New Object() {"Síntoma", "Frecuencia cardíaca", "Frecuencia respiratoria", "Temperatura", "Pulso", "Grado de nutrición", "Grado de hidratación", "Otro"})
-        Me.cbTipoDeDato.Location = New System.Drawing.Point(16, 57)
+        Me.cbTipoDeDato.Items.AddRange(New Object() {"Otro"})
+        Me.cbTipoDeDato.Location = New System.Drawing.Point(12, 112)
         Me.cbTipoDeDato.Name = "cbTipoDeDato"
-        Me.cbTipoDeDato.Size = New System.Drawing.Size(514, 24)
+        Me.cbTipoDeDato.Size = New System.Drawing.Size(757, 37)
         Me.cbTipoDeDato.TabIndex = 2
         '
         'MsgBoxTipoDeTextBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ClientSize = New System.Drawing.Size(566, 102)
+        Me.BackColor = System.Drawing.Color.LightGreen
+        Me.ClientSize = New System.Drawing.Size(781, 181)
         Me.Controls.Add(Me.lblSeleccioneTipoDeDato)
         Me.Controls.Add(Me.cbTipoDeDato)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
