@@ -32,6 +32,7 @@ Partial Class MsgBoxControlSettings
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbColores = New System.Windows.Forms.ComboBox()
+        Me.chkSoyPregunta = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'cbFuente
@@ -55,10 +56,10 @@ Partial Class MsgBoxControlSettings
         '
         'txtIngreseTexto
         '
-        Me.txtIngreseTexto.Location = New System.Drawing.Point(218, 288)
+        Me.txtIngreseTexto.Location = New System.Drawing.Point(12, 288)
         Me.txtIngreseTexto.Multiline = True
         Me.txtIngreseTexto.Name = "txtIngreseTexto"
-        Me.txtIngreseTexto.Size = New System.Drawing.Size(246, 61)
+        Me.txtIngreseTexto.Size = New System.Drawing.Size(697, 61)
         Me.txtIngreseTexto.TabIndex = 4
         '
         'Label3
@@ -93,8 +94,9 @@ Partial Class MsgBoxControlSettings
         'chkMultilinea
         '
         Me.chkMultilinea.AutoSize = True
+        Me.chkMultilinea.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkMultilinea.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMultilinea.Location = New System.Drawing.Point(278, 355)
+        Me.chkMultilinea.Location = New System.Drawing.Point(274, 407)
         Me.chkMultilinea.Name = "chkMultilinea"
         Me.chkMultilinea.Size = New System.Drawing.Size(111, 28)
         Me.chkMultilinea.TabIndex = 8
@@ -107,7 +109,7 @@ Partial Class MsgBoxControlSettings
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAceptar.Location = New System.Drawing.Point(218, 394)
+        Me.btnAceptar.Location = New System.Drawing.Point(209, 444)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(246, 44)
         Me.btnAceptar.TabIndex = 9
@@ -133,12 +135,25 @@ Partial Class MsgBoxControlSettings
         Me.cbColores.Size = New System.Drawing.Size(246, 24)
         Me.cbColores.TabIndex = 10
         '
+        'chkSoyPregunta
+        '
+        Me.chkSoyPregunta.AutoSize = True
+        Me.chkSoyPregunta.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkSoyPregunta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSoyPregunta.Location = New System.Drawing.Point(71, 364)
+        Me.chkSoyPregunta.Name = "chkSoyPregunta"
+        Me.chkSoyPregunta.Size = New System.Drawing.Size(570, 29)
+        Me.chkSoyPregunta.TabIndex = 12
+        Me.chkSoyPregunta.Text = "Considerar esto como una pregunta de consulta médica"
+        Me.chkSoyPregunta.UseVisualStyleBackColor = True
+        '
         'MsgBoxControlSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(721, 450)
+        Me.ClientSize = New System.Drawing.Size(721, 502)
+        Me.Controls.Add(Me.chkSoyPregunta)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbColores)
         Me.Controls.Add(Me.btnAceptar)
@@ -170,4 +185,5 @@ Partial Class MsgBoxControlSettings
     Friend WithEvents btnAceptar As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents cbColores As ComboBox
+    Friend WithEvents chkSoyPregunta As CheckBox
 End Class

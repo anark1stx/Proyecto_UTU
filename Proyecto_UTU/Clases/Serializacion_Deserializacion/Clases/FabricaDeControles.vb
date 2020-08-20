@@ -166,6 +166,7 @@
                 Return buildTableLayoutPanel(Control)
             Case Else
                 Console.WriteLine(Control.GetType().ToString())
+                Return Nothing
         End Select
 
     End Function

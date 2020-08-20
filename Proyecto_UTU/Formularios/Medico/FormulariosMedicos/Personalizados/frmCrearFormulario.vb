@@ -93,7 +93,6 @@
 
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
         settings.ShowDialog()
-
         setType("lbl")
         'Abrir dialogo para Fuente y texto
     End Sub
@@ -142,16 +141,18 @@
         _instancia.ForeColor = settings.color
 
         frmPlano.Controls.Add(_instancia)
-
+        frmPlano.ctrl_seleccionado = _instancia
         Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
         Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
 
         _instancia.Location -= New Point(marginX, marginY)
+
         TipoDeTxt.Hide()
         settings.texto = "" 'Limpiar las settings
         settings.fuente = SystemFonts.DefaultFont
         settings.color = New Color
 
+        frmPlano.Invalidate()
     End Sub
 
     Public Function setControlName() As String

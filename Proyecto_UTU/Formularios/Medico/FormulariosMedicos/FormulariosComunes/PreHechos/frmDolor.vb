@@ -106,8 +106,8 @@
 
         Dim fbr As New FabricaDeControles
 
-        Dim lista As New List(Of Control)
-        lista = getCtrls(Me)
+        Dim lista As New List(Of Control)(getCtrls(Me))
+
         GuardarFormulario(fbr.Serializar(lista))
 
     End Sub
@@ -140,5 +140,4 @@
         tblDescripcion.Anchor += AnchorStyles.Right
         tblTorsoDorso.Anchor += AnchorStyles.Right
     End Sub
-
 End Class

@@ -8,10 +8,9 @@ Module mdlUtilidades
         abrirFormulario.Filter = "XML|*.xml"
         abrirFormulario.Title = "Abrir Formulario"
         abrirFormulario.RestoreDirectory = True
-        Dim path As String = ""
 
         If abrirFormulario.ShowDialog() = DialogResult.OK Then
-            path = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
+            Dim path As String = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
             Dim contenido As String = File.ReadAllText(path)
             Dim gestor As New GestorXMLv2
             Dim fbr As New FabricaDeControles()
@@ -20,7 +19,6 @@ Module mdlUtilidades
             Return fbr.Crear(lista)
         Else
             Return Nothing
-
         End If
 
     End Function
@@ -119,10 +117,10 @@ Module mdlUtilidades
     End Function
 
     Public Sub pintarFondo(ctrl As Control, selected As Boolean)
-        Dim m_Rnd As New Random
+
 
         If selected Then
-            ctrl.BackColor = Color.FromArgb(m_Rnd.Next(0, 256), m_Rnd.Next(0, 256), m_Rnd.Next(0, 256))
+            ctrl.BackColor = pickRandomColor()
         Else
             ctrl.BackColor = Color.LightBlue
 
@@ -130,13 +128,27 @@ Module mdlUtilidades
 
     End Sub
 
-    Public Sub AgregarItemALista(item As String, lista As ListBox, btn As Button)
+    Public Function pickRandomColor() As Color
+        Dim m_Rnd As New Random
+        Return Color.FromArgb(m_Rnd.Next(0, 256), m_Rnd.Next(0, 256), m_Rnd.Next(0, 256))
+    End Function
+
+
+    Public Sub AgregarItemALista(item As String, lista As ListBox, Optional btn As Button = Nothing) 'btn es porque en el frmDolor (unico formulario el cual usa esta funcion por ahora), pinta el fondo de los botones cuando estos son seleccionados.
+
         If Not lista.Items.Contains(item) Then
             lista.Items.Add(item)
-            pintarFondo(btn, True)
+            If btn IsNot Nothing Then
+                pintarFondo(btn, True)
+            End If
+
         Else
             lista.Items.Remove(item)
-            pintarFondo(btn, False)
+
+            If btn IsNot Nothing Then
+                pintarFondo(btn, False)
+            End If
+
         End If
 
     End Sub
@@ -153,5 +165,12 @@ Module mdlUtilidades
         Next
         Return list
     End Function
+
+    Sub DibujarBorde(control As Control, gr As Graphics, Optional pairColor As Color = Nothing)
+        Dim r As New Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height)
+
+        r.Inflate(4, 4)
+        gr.DrawRectangle(New Pen(pickRandomColor()), r)
+    End Sub
 
 End Module

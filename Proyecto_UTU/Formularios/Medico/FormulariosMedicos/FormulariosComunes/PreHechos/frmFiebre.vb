@@ -1,14 +1,11 @@
 ﻿Public Class frmFiebre
     Dim memobmp As Bitmap
-    Dim tmpPanel As Panel
     Sub hideShowItems(_case As Boolean)
-
 
         For Each c As Control In pnlContenedor.Controls
             If TypeOf c Is Button Then
                 c.Visible = _case
             End If
-
         Next
     End Sub
     Private Sub frmFiebre_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -22,7 +19,6 @@
             txtNomAnalisis.Enabled = False
         End If
     End Sub
-
 
     Private Sub chkSiD_Ap_Click(sender As Object, e As EventArgs) Handles chkSiD_Ap.Click
         chkNoD_Ap.Checked = False
@@ -97,70 +93,17 @@
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-
-        For Each c As Control In Me.Controls
-
-            If TypeOf c Is GroupBox Then
-
-                For Each c2 As Control In c.Controls
-
-                    If TypeOf c2 Is TableLayoutPanel Then
-
-                        For Each c3 As Control In c2.Controls
-
-                            If TypeOf c3 Is CheckBox Then
-
-                                DirectCast(c3, CheckBox).CheckState = CheckState.Unchecked
-
-                            End If
-
-                            If TypeOf c3 Is TextBox Then
-
-                                DirectCast(c3, TextBox).Text = String.Empty
-
-                            End If
-
-                            If TypeOf c3 Is ComboBox Then
-
-                                DirectCast(c3, ComboBox).Text = String.Empty
-
-                            End If
-
-                        Next
-
-                    End If
-
-                Next
-
-
-            End If
-
-        Next
+        LimpiarControles(Me)
     End Sub
-
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Dim fbr As New FabricaDeControles
 
-        Dim lista As New List(Of Control)
-        lista = getCtrls(Me)
+        Dim lista As New List(Of Control)(getCtrls(Me))
         GuardarFormulario(fbr.Serializar(lista))
 
     End Sub
-
-    Public Function getCtrls(pnl As Control) As List(Of Control)
-
-        Dim list As New List(Of Control)
-
-        For Each c As Control In pnl.Controls
-            list.Add(c)
-            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
-                getCtrls(c)
-            End If
-        Next
-        Return list
-    End Function
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(False)

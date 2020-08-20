@@ -99,11 +99,7 @@ Public Class frmGenerico
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
 
-        For Each c As Control In pnlContenedor.Controls
-            If TypeOf c Is GroupBox Or TypeOf c Is Panel Then
-                LimpiarControles(c)
-            End If
-        Next
+        LimpiarControles(Me)
     End Sub
 
     Private Sub frmGenericoTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load

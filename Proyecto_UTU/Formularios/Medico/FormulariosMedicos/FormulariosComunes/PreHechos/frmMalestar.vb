@@ -1,14 +1,11 @@
 ﻿Public Class frmMalestar
     Dim memobmp As Bitmap
-    Dim tmpPanel As Panel
     Sub hideShowItems(_case As Boolean)
-
         btnPredictivo.Visible = _case
         For Each c As Control In pnlContenedor.Controls
             If TypeOf c Is Button Then
                 c.Visible = _case
             End If
-
         Next
     End Sub
     Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged
@@ -75,82 +72,28 @@
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-
-        For Each ctrls In pnlContenedor.Controls
-            If TypeOf ctrls Is GroupBox Then
-                For Each c2 As Control In ctrls.Controls
-
-                    If TypeOf c2 Is TableLayoutPanel Then
-                        LimpiarControles(c2)
-                    End If
-
-                Next
-            End If
-        Next
-
-        LimpiarControles(gbResolucion)
-        LimpiarControles(gbTratamiento)
-
+        LimpiarControles(Me)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Dim fbr As New FabricaDeControles
 
-        Dim lista As New List(Of Control)
-        lista = getCtrls(Me)
+        Dim lista As New List(Of Control)(getCtrls(Me))
         GuardarFormulario(fbr.Serializar(lista))
     End Sub
-    Public Function getCtrls(pnl As Control) As List(Of Control)
-
-        Dim list As New List(Of Control)
-
-        For Each c As Control In pnl.Controls
-            list.Add(c)
-            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
-                getCtrls(c)
-            End If
-        Next
-        Return list
-    End Function
-
-
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(0)
+        hideShowItems(False)
+        pnlContenedor.AutoScroll = False
+        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        PrintPreviewDialog1.Document = Imprimir
+        pnlContenedor.AutoScroll = True
+        PrintPreviewDialog1.ShowDialog()
 
-        Print(pnlContenedor)
-
-        hideShowItems(1)
-    End Sub
-
-    Public Sub Print(pnl As Panel)
-        tmpPanel = pnl
-        Imprimir.DefaultPageSettings.Landscape = True
-        getPrintArea(pnl)
-        Imprimir.Print()
-
-    End Sub
-
-    Public Sub getPrintArea(pnl As Panel)
-        memobmp = New Bitmap(pnl.Width, pnl.Height)
-        pnl.DrawToBitmap(memobmp, New Rectangle(0, 0, pnl.Width, pnl.Height))
-    End Sub
-
-    Protected Overrides Sub OnPaint(e As PaintEventArgs)
-        If memobmp IsNot Nothing Then
-            e.Graphics.DrawImage(memobmp, 0, 0)
-            MyBase.OnPaint(e)
-        End If
-
+        hideShowItems(True)
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
 
-        Dim pagearea As Rectangle = e.PageBounds
-        Dim _fixedpagearea2 As Rectangle = e.PageBounds 'Este rectangulo es para corregir el offset entre la ubicacion del panel y la del formulario en si
-
-        _fixedpagearea2.Width = (pagearea.Width / 2) - (Me.pnlContenedor.Width / 2)
-
-        e.Graphics.DrawImage(memobmp, _fixedpagearea2.Width, Me.pnlContenedor.Location.Y)
+        e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
-
 End Class
