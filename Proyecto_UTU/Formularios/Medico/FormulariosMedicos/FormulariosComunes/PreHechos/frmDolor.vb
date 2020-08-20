@@ -1,17 +1,6 @@
 ﻿Public Class frmDolor
     Dim memobmp As Bitmap
-    Private m_Rnd As New Random
-    Dim listaControles As List(Of Control)
-    Public Sub AgregarItemALista(item As String, lista As ListBox, btn As Button)
-        If Not lista.Items.Contains(item) Then
-            lista.Items.Add(item)
-            pintarFondo(btn, True)
-        Else
-            lista.Items.Remove(item)
-            pintarFondo(btn, False)
-        End If
 
-    End Sub
     Private Sub btnCabezaDer_Click(sender As Object, e As EventArgs) Handles btnCabezaDer.Click
         AgregarItemALista("Cabeza Derecha", lbTorso, btnCabezaDer)
 
@@ -123,19 +112,6 @@
 
     End Sub
 
-    Public Function getCtrls(pnl As Control) As List(Of Control)
-
-        Dim list As New List(Of Control)
-
-        For Each c As Control In pnl.Controls
-            list.Add(c)
-            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
-                getCtrls(c)
-            End If
-        Next
-        Return list
-    End Function
-
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         hideShowItems(False)
         pnlContenedor.AutoScroll = False
@@ -158,17 +134,6 @@
         btnImprimir.Visible = _case
         btnGuardar.Visible = _case
         btnLimpiar.Visible = _case
-    End Sub
-
-    Sub pintarFondo(ctrl As Control, selected As Boolean)
-
-        If selected Then
-            ctrl.BackColor = Color.FromArgb(m_Rnd.Next(0, 256), m_Rnd.Next(0, 256), m_Rnd.Next(0, 256))
-        Else
-            ctrl.BackColor = Color.LightBlue
-
-        End If
-
     End Sub
 
     Sub mLoad() Handles Me.Load

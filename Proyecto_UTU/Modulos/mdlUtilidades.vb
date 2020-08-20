@@ -118,4 +118,40 @@ Module mdlUtilidades
         Return memobmp
     End Function
 
+    Public Sub pintarFondo(ctrl As Control, selected As Boolean)
+        Dim m_Rnd As New Random
+
+        If selected Then
+            ctrl.BackColor = Color.FromArgb(m_Rnd.Next(0, 256), m_Rnd.Next(0, 256), m_Rnd.Next(0, 256))
+        Else
+            ctrl.BackColor = Color.LightBlue
+
+        End If
+
+    End Sub
+
+    Public Sub AgregarItemALista(item As String, lista As ListBox, btn As Button)
+        If Not lista.Items.Contains(item) Then
+            lista.Items.Add(item)
+            pintarFondo(btn, True)
+        Else
+            lista.Items.Remove(item)
+            pintarFondo(btn, False)
+        End If
+
+    End Sub
+
+    Public Function getCtrls(pnl As Control) As List(Of Control)
+
+        Dim list As New List(Of Control)
+
+        For Each c As Control In pnl.Controls
+            list.Add(c)
+            If TypeOf c Is Panel Or TypeOf c Is TableLayoutPanel Or TypeOf c Is GroupBox Then
+                getCtrls(c)
+            End If
+        Next
+        Return list
+    End Function
+
 End Module
