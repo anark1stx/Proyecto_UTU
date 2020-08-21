@@ -38,15 +38,18 @@
                         Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount)
                         _lista.Add(tb)
                     End If
+                Case GetType(ComboBox)
+                    _lista.Add(New ControlesGuardados.ComboBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font, c.Tag))
                 Case GetType(Label)
                     _lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
-
+                Case GetType(CheckBox)
+                    _lista.Add(New ControlesGuardados.CheckBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
                 Case GetType(TextBox)
                     _lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline, c.Tag))
                 Case GetType(Button)
                     _lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout, c.Tag))
                 Case GetType(ListBox)
-                    _lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsLBOX(DirectCast(c, ListBox).Items), c.Font))
+                    _lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font))
 
             End Select
 
@@ -71,7 +74,13 @@
             Console.WriteLine(tbl.Controls(i).Name)
             Dim col = tbl.GetColumn(tbl.Controls(i))
             Dim row = tbl.GetRow(tbl.Controls(i))
-            tblControlList.Add(New ControlesGuardados.TBLControl(SmisSCtrl(i), col, row))
+
+            Try
+                tblControlList.Add(New ControlesGuardados.TBLControl(SmisSCtrl(i), col, row))
+            Catch ex As Exception
+                Console.WriteLine("no puedo: " & tbl.Controls(i).Name)
+            End Try
+
         Next
 
         Return tblControlList
@@ -106,13 +115,16 @@
 
                 Case GetType(Label)
                     lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
-
+                Case GetType(ComboBox)
+                    lista.Add(New ControlesGuardados.ComboBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font, c.Tag))
                 Case GetType(TextBox)
                     lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline, c.Tag))
                 Case GetType(Button)
                     lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout, c.Tag))
                 Case GetType(ListBox)
-                    lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsLBOX(DirectCast(c, ListBox).Items), c.Font))
+                    lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font))
+                Case GetType(CheckBox)
+                    lista.Add(New ControlesGuardados.CheckBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
                 Case GetType(TableLayoutPanel)
 
                     Dim cTBL = DirectCast(c, TableLayoutPanel)
@@ -198,7 +210,10 @@
             .Text = control.text,
             .Font = control.StrToFont()
         }
-        lb.Items.AddRange(control.items)
+        For Each s As String In control.items
+            lb.Items.Add(s)
+        Next
+
         Return lb
     End Function
 
@@ -215,7 +230,9 @@
             .Font = control.StrToFont(),
             .Tag = control.Tag
         }
-        cb.Items.AddRange(control.items)
+        For Each s As String In control.items
+            cb.Items.Add(s)
+        Next
         Return cb
     End Function
 
@@ -325,16 +342,24 @@
             .Tag = control.Tag
         }
     End Function
-    Function convertirItemsLBOX(lista As ListBox.ObjectCollection) As String()
-        Dim _lista As String() = {}
 
-        For Each item In lista
+    Function convertirItemsString(control As Control) As List(Of String)
+        Dim l As New List(Of String)
 
-            _lista.Append(item.ToString())
+        Select Case control.GetType()
+            Case GetType(ListBox)
+                For Each i In DirectCast(control, ListBox).Items
+                    l.Add(i.ToString())
+                Next
 
-        Next
+            Case GetType(ComboBox)
+                For Each i In DirectCast(control, ComboBox).Items
+                    l.Add(i.ToString())
+                Next
 
-        Return _lista
+        End Select
+
+        Return l
     End Function
 
     Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color

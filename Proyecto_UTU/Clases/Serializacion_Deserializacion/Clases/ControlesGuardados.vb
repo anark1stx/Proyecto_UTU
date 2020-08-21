@@ -408,17 +408,17 @@ Public Class ControlesGuardados
     Public Class ListBox
         Inherits TextControl 'Los items tienen fuente.
         <Xml.Serialization.XmlIgnore>
-        Public _items As String()
+        Public _items As New List(Of String)
 
-        Property items As String()
+        Property items As List(Of String)
             Get
                 Return _items
             End Get
-            Set(value As String())
+            Set(value As List(Of String))
                 _items = value
             End Set
         End Property
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As List(Of String), font As Font)
 
             _posicion = posicion
             _tamano = tamano
@@ -460,7 +460,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font, tag As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As List(Of String), font As Font, tag As String)
 
             _posicion = posicion
             _tamano = tamano
