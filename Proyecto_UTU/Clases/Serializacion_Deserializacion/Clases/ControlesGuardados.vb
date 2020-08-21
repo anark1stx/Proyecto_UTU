@@ -16,6 +16,9 @@ Public Class ControlesGuardados
         Public _fgColor As String
         <Xml.Serialization.XmlIgnore>
         Public _bgColor As String
+        <Xml.Serialization.XmlIgnore>
+        Public _tag As String
+
         Property Posicion As Point
             Get
                 Return _posicion
@@ -75,7 +78,16 @@ Public Class ControlesGuardados
                 _bgColor = value
             End Set
         End Property
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String)
+
+        Property Tag As String
+            Get
+                Return _tag
+            End Get
+            Set(value As String)
+                _tag = value
+            End Set
+        End Property
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -84,6 +96,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
+            _tag = tag
         End Sub
 
         Sub New()
@@ -124,7 +137,7 @@ Public Class ControlesGuardados
                 _font = value
             End Set
         End Property
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -136,6 +149,7 @@ Public Class ControlesGuardados
             _texto = texto
             _font = FontToStr(font)
             _multiline = multiline
+            _tag = tag
         End Sub
         Sub New()
 
@@ -288,7 +302,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -300,6 +314,7 @@ Public Class ControlesGuardados
             _texto = texto
             _font = FontToStr(font)
             _multiline = multiline
+            _tag = tag
         End Sub
     End Class
 
@@ -308,7 +323,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -319,6 +334,7 @@ Public Class ControlesGuardados
             _bgColor = bg
             _texto = texto
             _font = FontToStr(font)
+            _tag = tag
         End Sub
     End Class
 
@@ -348,7 +364,7 @@ Public Class ControlesGuardados
 
             End Set
         End Property
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, bg_Image As Bitmap, bg_Layout As ImageLayout)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, bg_Image As Bitmap, bg_Layout As ImageLayout, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -359,6 +375,7 @@ Public Class ControlesGuardados
             _bgColor = bg
             _bgImage = BmpToStrB64(bg_Image)
             _bgLayout = bg_Layout
+            _tag = tag
         End Sub
 
         Sub New()
@@ -424,8 +441,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font)
-
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, tag As String)
             _posicion = posicion
             _tamano = tamano
             _nombre = nombre
@@ -435,6 +451,7 @@ Public Class ControlesGuardados
             _bgColor = bg
             _texto = texto
             _font = FontToStr(font)
+            _tag = tag
         End Sub
     End Class
 
@@ -443,7 +460,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, items As String(), font As Font, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -454,6 +471,7 @@ Public Class ControlesGuardados
             _bgColor = bg
             _items = items
             _font = FontToStr(font)
+            _tag = tag
         End Sub
     End Class
 

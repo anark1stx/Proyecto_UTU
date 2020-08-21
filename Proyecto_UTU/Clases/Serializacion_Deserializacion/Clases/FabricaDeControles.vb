@@ -39,12 +39,12 @@
                         _lista.Add(tb)
                     End If
                 Case GetType(Label)
-                    _lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font))
+                    _lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
 
                 Case GetType(TextBox)
-                    _lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline))
+                    _lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline, c.Tag))
                 Case GetType(Button)
-                    _lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout))
+                    _lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout, c.Tag))
                 Case GetType(ListBox)
                     _lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsLBOX(DirectCast(c, ListBox).Items), c.Font))
 
@@ -111,12 +111,12 @@
                     lista.Add(New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, getChilds(tmp_list), c.Font)) 'Necesario castearlo como panel para sacar esa propiedad
 
                 Case GetType(Label)
-                    lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font))
+                    lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
 
                 Case GetType(TextBox)
-                    lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline))
+                    lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline, c.Tag))
                 Case GetType(Button)
-                    lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout))
+                    lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout, c.Tag))
                 Case GetType(ListBox)
                     lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsLBOX(DirectCast(c, ListBox).Items), c.Font))
                 Case GetType(TableLayoutPanel)
@@ -237,7 +237,8 @@
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text,
-            .Font = control.StrToFont()
+            .Font = control.StrToFont(),
+            .Tag = control.Tag
         }
         cb.Items.AddRange(control.items)
         Return cb
@@ -253,7 +254,8 @@
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text,
-            .Font = control.StrToFont()
+            .Font = control.StrToFont(),
+            .Tag = control.Tag
         }
     End Function
 
@@ -304,7 +306,8 @@
             .Dock = control.Dock,
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
-            .ForeColor = HTMLTOColor(control.ForeColor)
+            .ForeColor = HTMLTOColor(control.ForeColor),
+            .Tag = control.Tag
         } 'AGREGAR TEXT, FONT
 
         If Not control.bgImage = String.Empty Then
@@ -329,7 +332,8 @@
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text,
             .Font = control.StrToFont(),
-            .Multiline = control.Multiline
+            .Multiline = control.Multiline,
+            .Tag = control.Tag
         }
     End Function
 
@@ -342,7 +346,8 @@
             .Anchor = control.Anchor,
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Text = control.text,
-            .Font = control.StrToFont()
+            .Font = control.StrToFont(),
+            .Tag = control.Tag
         }
     End Function
     Function convertirItemsLBOX(lista As ListBox.ObjectCollection) As String()

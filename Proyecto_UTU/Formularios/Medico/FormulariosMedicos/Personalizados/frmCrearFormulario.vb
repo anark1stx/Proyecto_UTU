@@ -153,6 +153,7 @@
         If settings.chkSoyPregunta.Checked Then
             Dim pyr As New PreguntaRespuesta()
             pyr.Pregunta = _instancia
+            _instancia.Tag = _instancia.Text
             frmPlano.PreguntasYRespuestas.Add(pyr)
         End If
 
@@ -162,6 +163,7 @@
 
                 If pyr.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
                     pyr.Respuesta = _instancia
+                    _instancia.Tag = pyr.Pregunta.Text
                 End If
             Next
         End If
@@ -277,4 +279,5 @@
     Private Sub pBoxBorrar_MouseEnter(sender As Object, e As EventArgs) Handles pBoxBorrar.MouseEnter
         frmPlano.Controls.Remove(frmPlano.ctrl_seleccionado)
     End Sub
+
 End Class
