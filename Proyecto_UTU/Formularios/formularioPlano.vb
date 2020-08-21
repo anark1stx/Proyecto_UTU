@@ -10,19 +10,37 @@
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ubicacion_mouse = e.Location
             dragging = False
+
+            For Each p As PreguntaRespuesta In PreguntasYRespuestas
+
+                If Not p.Respuesta Is Nothing Then
+                    Console.WriteLine("pregunta: " & p.Pregunta.Text & " respuesta: " & p.Respuesta.Text)
+                Else
+                    Console.WriteLine("pregunta: " & p.Pregunta.Text & " sin respuesta")
+                End If
+
+            Next
+
         Else
             'Abrir settings para configurar el control
             If TypeOf sender Is TextBox Or TypeOf sender Is ComboBox Or TypeOf sender Is CheckBox Then
                 txtBox.ShowDialog()
                 Dim tipo = sender.GetType()
                 Dim c = DirectCast(sender, Control)
-                c.Text = txtBox.valorSeleccionado
+
+                For Each p As PreguntaRespuesta In PreguntasYRespuestas
+                    If p.Pregunta.Text = txtBox.valorSeleccionado Then
+                        p.Respuesta = c
+                    End If
+                Next
+
             Else
                 Dim c = DirectCast(sender, Control)
                 settings.txtIngreseTexto.Text = c.Text
                 settings.ShowDialog()
                 c.Font = settings.fuente
                 c.Text = settings.texto
+
             End If
 
         End If

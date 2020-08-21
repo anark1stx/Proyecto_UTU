@@ -8,8 +8,6 @@
         End Get
         Set(value As Control)
             _pregunta = value
-            _tag = Pregunta.Text
-            _pregunta.Tag = Tag
         End Set
     End Property
 
@@ -19,7 +17,6 @@
         End Get
         Set(value As Control)
             _respuesta = value
-            _respuesta.Tag = Tag
         End Set
     End Property
 
@@ -29,11 +26,6 @@
         End Get
         Set(value As String)
             _tag = value
-            _pregunta.Tag = value
-            If Not _respuesta Is Nothing Then
-                _respuesta.Tag = value
-            End If
-
         End Set
     End Property
 
@@ -41,8 +33,9 @@
 
     End Sub
 
-    Sub New(pregunta As Control, respuesta As Control)
+    Sub New(pregunta As Control, respuesta As Control, tag As String)
         _pregunta = pregunta
         _respuesta = respuesta
+        _tag = tag
     End Sub
 End Class

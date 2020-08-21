@@ -54,13 +54,31 @@
         If e.Location.X > pnlFormularioPersonalizado.Left Then
             LimpiarControles(TipoDeTxt)
 
-            For Each p As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
-                TipoDeTxt.cbTipoDeDato.Items.Add(p.Pregunta.Text)
-            Next
+            If frmPlano.PreguntasYRespuestas.Count > 0 Then
+                TipoDeTxt.cbTipoDeDato.Items.Clear()
+                For Each p As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+                    TipoDeTxt.cbTipoDeDato.Items.Add(p.Pregunta.Text)
+                Next
+            Else
+                setType()
+                Exit Sub
+            End If
 
             TipoDeTxt.ShowDialog()
 
-            setType(TipoDeTxt.valorSeleccionado)
+            If TipoDeTxt.cbTipoDeDato.SelectedIndex <> -1 Then
+
+                For Each p In frmPlano.PreguntasYRespuestas
+                    Console.WriteLine("pregunta: " & p.Pregunta.Text & " valorS: " & TipoDeTxt.cbTipoDeDato.SelectedItem)
+                    If p.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
+                        Console.WriteLine("iguales!!")
+                        p.Respuesta = _instancia
+                    End If
+                Next
+
+            End If
+
+            setType()
 
             TipoDeTxt.Hide()
         Else
@@ -98,8 +116,18 @@
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
         LimpiarControles(settings)
         settings.ShowDialog()
-        setType("lbl")
-        'Abrir dialogo para Fuente y texto
+        setType()
+        If settings.chkSoyPregunta.Checked Then
+            Dim pyr As New PreguntaRespuesta()
+            pyr.Pregunta = _instancia
+            frmPlano.PreguntasYRespuestas.Add(pyr)
+        End If
+
+        settings.Hide()
+        settings.texto = "" 'Limpiar las settings
+        settings.fuente = SystemFonts.DefaultFont
+        settings.color = New Color
+        settings.tamano = 14
     End Sub
 
 #End Region
@@ -133,36 +161,16 @@
         LimpiarControles(settings)
         settings.ShowDialog()
         TipoDeTxt.valorSeleccionado = _instancia.Text
-        setType("chk")
+        setType()
     End Sub
 #End Region
 
-    Public Sub setType(nombre As String)
+    Public Sub setType()
         _instancia.Name = setControlName()
 
         _instancia.Text = settings.texto
         _instancia.Font = settings.fuente
         _instancia.ForeColor = settings.color
-
-        If settings.chkSoyPregunta.Checked Then
-            Dim pyr As New PreguntaRespuesta With {
-                .Pregunta = _instancia
-            }
-            pyr.Tag = _instancia.Tag
-            frmPlano.PreguntasYRespuestas.Add(pyr)
-        End If
-
-        'If TipoDeTxt.valorSeleccionado IsNot "Otro" Or TipoDeTxt.valorSeleccionado IsNot String.Empty Then
-
-        '    For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
-
-        '        If pyr.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
-        '            _instancia.Tag = pyr.Pregunta.Tag
-        '            pyr.Respuesta = _instancia
-        '        End If
-        '    Next
-
-        'End If
 
         frmPlano.Controls.Add(_instancia)
         frmPlano.ctrl_seleccionado = _instancia
@@ -170,10 +178,6 @@
         Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
 
         _instancia.Location -= New Point(marginX, marginY)
-        settings.texto = "" 'Limpiar las settings
-        settings.fuente = SystemFonts.DefaultFont
-        settings.color = New Color
-        settings.tamano = 14
     End Sub
 
     Public Function setControlName() As String
@@ -183,7 +187,7 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        If frmPlano.Controls.Count < 5 Then
+        If frmPlano.Controls.Count < 10 Then
             MsgBox("Agregue más controles al formulario personalizado.")
             Exit Sub
         End If
@@ -226,9 +230,9 @@
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
         AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove
         AddHandler _ctrl.MouseUp, AddressOf frmPlano._MouseUp
-        If _ctrl.Tag IsNot String.Empty Then
-            frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta())
-        End If
+        'If _ctrl.Tag IsNot String.Empty Then
+        '    frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta())
+        'End If
 
         If _ctrl.Controls.Count > 0 Then
             For Each c As Control In _ctrl.Controls

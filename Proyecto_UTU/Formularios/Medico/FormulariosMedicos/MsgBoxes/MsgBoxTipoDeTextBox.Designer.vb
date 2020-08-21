@@ -42,7 +42,6 @@ Partial Class MsgBoxTipoDeTextBox
         Me.cbTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoDeDato.FormattingEnabled = True
         Me.cbTipoDeDato.IntegralHeight = False
-        Me.cbTipoDeDato.Items.AddRange(New Object() {"Otro"})
         Me.cbTipoDeDato.Location = New System.Drawing.Point(12, 112)
         Me.cbTipoDeDato.Name = "cbTipoDeDato"
         Me.cbTipoDeDato.Size = New System.Drawing.Size(757, 37)
