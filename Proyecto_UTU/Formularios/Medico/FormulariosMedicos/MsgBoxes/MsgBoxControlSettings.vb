@@ -5,7 +5,7 @@ Public Class MsgBoxControlSettings
     Public multilinea As Boolean = False
     Public texto As String = ""
     Public color As Color = New Color
-    Dim tamano As Double = 14
+    Public tamano As Double = 14
     Private Sub MsgBoxControlSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.CargarColoresCBWeb()
@@ -30,6 +30,7 @@ Public Class MsgBoxControlSettings
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+
         texto = txtIngreseTexto.Text
         Me.txtIngreseTexto.Text = ""
         Me.Hide()

@@ -16,7 +16,7 @@
             ctrl_seleccionado = sender
             sender.Left = e.X + sender.Left - ubicacion_mouse.X
             sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
-            'evaluarSiEstoyenTBL(ctrl_seleccionado)
+            evaluarSiEstoyenPanel(ctrl_seleccionado)
         End If
     End Sub
 
@@ -29,15 +29,20 @@
 
     End Sub
 
-    'Public Sub evaluarSiEstoyenTBL(ctrl As Control)
+    Public Sub evaluarSiEstoyenPanel(ctrl As Control)
 
-    '    If Not ctrl.Parent Is Me Or Not ctrl.Parent Is Me.Controls(0) Then '
-    '        Dim contenedor = ctrl.Parent.Parent
-    '        ctrl.Dock = DockStyle.None
-    '        ctrl.Anchor = AnchorStyles.None
-    '        contenedor.Controls.Add(ctrl)
-    '        evaluarSiEstoyenTBL(ctrl)
-    '    End If
+        If TypeOf ctrl.Parent Is TableLayoutPanel Or TypeOf ctrl.Parent Is Panel AndAlso ctrl.Parent IsNot Me.Controls(0) Then
 
-    'End Sub
+            ctrl.Parent.Invalidate()
+
+            ctrl.Dock = DockStyle.None
+            ctrl.Anchor = AnchorStyles.None
+
+            If ctrl.Parent.Parent IsNot Nothing Then
+                ctrl.Parent = ctrl.Parent.Parent
+            End If
+
+        End If
+
+    End Sub
 End Class

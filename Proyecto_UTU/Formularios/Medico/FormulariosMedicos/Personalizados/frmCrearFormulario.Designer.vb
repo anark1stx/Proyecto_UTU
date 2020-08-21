@@ -155,7 +155,6 @@ Partial Class frmCrearFormulario
         Me.Controls.Add(Me.pnlFormularioPersonalizado)
         Me.Controls.Add(Me.pnlControles)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
         Me.Name = "frmCrearFormulario"
         Me.Text = "Formulario Personalizado"
         Me.pnlControles.ResumeLayout(False)

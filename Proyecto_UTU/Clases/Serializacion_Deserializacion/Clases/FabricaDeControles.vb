@@ -59,25 +59,19 @@
 
         Dim tblControlList As New List(Of ControlesGuardados.TBLControl)
 
-        Dim childs As New List(Of Control)
+        Dim misCtrls = New List(Of Control)
 
         For Each c As Control In tbl.Controls
-            childs.Add(c)
+            misCtrls.Add(c)
         Next
 
-        Dim scontrol_childs = getChilds(childs)
-        For Each c As Control In childs
+        Dim SmisSCtrl = New List(Of ControlesGuardados.SControl)(getChilds(misCtrls))
 
-            Console.WriteLine(c.Name)
-            For Each c2 As ControlesGuardados.SControl In scontrol_childs
-
-                Dim cell = tbl.GetPositionFromControl(c)
-                Dim col = cell.Column
-                Dim row = cell.Row
-                Console.WriteLine(col.ToString() & " " & row.ToString())
-                tblControlList.Add(New ControlesGuardados.TBLControl(c2, col, row))
-            Next
-
+        For i = 0 To tbl.Controls.Count - 1
+            Console.WriteLine(tbl.Controls(i).Name)
+            Dim col = tbl.GetColumn(tbl.Controls(i))
+            Dim row = tbl.GetRow(tbl.Controls(i))
+            tblControlList.Add(New ControlesGuardados.TBLControl(SmisSCtrl(i), col, row))
         Next
 
         Return tblControlList
@@ -185,26 +179,7 @@
         }
         'SERIALIZAR ROWSTYLESCOLLECTION Y COLSTYLESCOLLECTION
 
-        'For i = 0 To control.Cols
-        '    If i = 0 Then
-        '        Exit For
-        '    End If
-        '    tb.ColumnCount = i
-        '    tb.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-
-        'Next i
-
-        'For j = 0 To control.Rows
-        '    If j = 0 Then
-        '        Exit For
-        '    End If
-        '    tb.RowCount = j
-        '    tb.RowStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-
-        'Next j
-
         For Each c As ControlesGuardados.TBLControl In control.ChildsTuple
-
             tb.Controls.Add(ConstruirControl(c.Control), c.ColIndex, c.RowIndex)
         Next
 

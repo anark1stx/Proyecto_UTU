@@ -8,9 +8,7 @@
     Dim _instancia As New Control
     Dim controlesInstanciados As New List(Of Control)
     Dim control_count As Integer = 0
-    Dim temp_control_type As String
 
-    Dim txtSintomas_ingresados As Integer = 0 'Esto va a servir para cuando tengamos el DER del predictivo definitivo, solo vamos a tomar x sintomas.
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,7 +30,6 @@
             Dim _txt As New TextBox
 
             agregarHandlersBasicos(_txt)
-            temp_control_type = "TextBox"
             _txt.Size = New Size(122, 55)
             _txt.Name = "txt"
             _instancia = _txt
@@ -55,12 +52,11 @@
 
     Public Sub txtTextBox_MouseUp(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseUp
         If e.Location.X > pnlFormularioPersonalizado.Left Then
-            TipoDeTxt.cbTipoDeDato.Items.Clear()
+            LimpiarControles(TipoDeTxt)
+
             For Each p As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
                 TipoDeTxt.cbTipoDeDato.Items.Add(p.Pregunta.Text)
             Next
-
-            TipoDeTxt.cbTipoDeDato.Items.Add("Otro")
 
             TipoDeTxt.ShowDialog()
 
@@ -80,7 +76,6 @@
             MostrarManito()
             Dim _lbl As New Label
             agregarHandlersBasicos(_lbl)
-            temp_control_type = "Label"
             _lbl.Size = New Size(50, 25)
             _lbl.Name = "lbl"
             _lbl.Text = "Texto"
@@ -101,6 +96,7 @@
     End Sub
 
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
+        LimpiarControles(settings)
         settings.ShowDialog()
         setType("lbl")
         'Abrir dialogo para Fuente y texto
@@ -114,9 +110,8 @@
             MostrarManito()
             Dim _chk As New CheckBox
             agregarHandlersBasicos(_chk)
-            temp_control_type = "CheckBox"
             _chk.Size = New Size(50, 25)
-            _chk.Name = "lbl"
+            _chk.Name = "chk"
             _chk.Text = "Texto"
             _chk.AutoSize = True
             _instancia = _chk
@@ -135,15 +130,14 @@
     End Sub
 
     Private Sub chkBox_MouseUp(sender As Object, e As MouseEventArgs) Handles chkBox.MouseUp
+        LimpiarControles(settings)
         settings.ShowDialog()
+        TipoDeTxt.valorSeleccionado = _instancia.Text
         setType("chk")
-        'Abrir dialogo para Fuente y texto
     End Sub
 #End Region
 
     Public Sub setType(nombre As String)
-
-        _instancia.Name = nombre
         _instancia.Name = setControlName()
 
         _instancia.Text = settings.texto
@@ -151,21 +145,23 @@
         _instancia.ForeColor = settings.color
 
         If settings.chkSoyPregunta.Checked Then
-            Dim pyr As New PreguntaRespuesta()
-            pyr.Pregunta = _instancia
-            _instancia.Tag = _instancia.Text
+            Dim pyr As New PreguntaRespuesta With {
+                .Pregunta = _instancia
+            }
+            pyr.Tag = _instancia.Tag
             frmPlano.PreguntasYRespuestas.Add(pyr)
         End If
 
-        If TipoDeTxt.valorSeleccionado IsNot "Otro" Then
+        If TipoDeTxt.valorSeleccionado IsNot "Otro" Or TipoDeTxt.valorSeleccionado IsNot String.Empty Then
 
             For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
 
                 If pyr.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
+                    _instancia.Tag = pyr.Pregunta.Tag
                     pyr.Respuesta = _instancia
-                    _instancia.Tag = pyr.Pregunta.Text
                 End If
             Next
+
         End If
 
         frmPlano.Controls.Add(_instancia)
@@ -177,39 +173,12 @@
         settings.texto = "" 'Limpiar las settings
         settings.fuente = SystemFonts.DefaultFont
         settings.color = New Color
-
+        settings.tamano = 14
     End Sub
 
     Public Function setControlName() As String
-
-        Select Case _instancia.Name
-            Case "Síntoma"
-                txtSintomas_ingresados += 1
-                Return "txtSintoma" & txtSintomas_ingresados.ToString()
-
-            Case "frecuencia_cardiaca"
-                Return "txtFrecCard"
-
-            Case "frecuencia_respiratoria"
-                Return "txtFrecResp"
-
-            Case "Temperatura"
-                Return "txtTemperatura"
-
-            Case "Pulso"
-                Return "txtPulso"
-
-            Case "grado_nutricion"
-                Return "txtGradoNutr"
-
-            Case "grado_hidratacion"
-                Return "txtGradoHidr"
-
-            Case Else
-                control_count += 1
-                Return temp_control_type & control_count.ToString()
-        End Select
-
+        control_count += 1
+        Return _instancia.GetType().ToString() & control_count.ToString()
     End Function
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -257,6 +226,11 @@
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
         AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove
         AddHandler _ctrl.MouseUp, AddressOf frmPlano._MouseUp
+
+        If _ctrl.Tag IsNot String.Empty Then
+            frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta())
+        End If
+
         If _ctrl.Controls.Count > 0 Then
             For Each c As Control In _ctrl.Controls
                 agregarHandlersBasicos(c)

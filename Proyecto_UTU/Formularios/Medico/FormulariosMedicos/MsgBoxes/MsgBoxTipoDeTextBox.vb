@@ -5,7 +5,6 @@
 
         valorSeleccionado = cbTipoDeDato.Items(cbTipoDeDato.SelectedIndex).ToString()
 
-        'frmCrearFormulario.setType(valorSeleccionado)
         Me.Hide()
     End Sub
 

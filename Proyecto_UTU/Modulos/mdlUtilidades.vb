@@ -50,6 +50,10 @@ Module mdlUtilidades
     Public Sub LimpiarControles(contenedor As Control)
         For Each control As Control In contenedor.Controls
 
+            If control.Tag Is "noLimpiar" Then
+                Exit Sub
+            End If
+
             Select Case control.GetType().ToString().Replace("System.Windows.Forms.", "")
 
                 Case "TextBox"
@@ -66,7 +70,12 @@ Module mdlUtilidades
 
                 Case "CheckBox"
                     Dim chk = DirectCast(control, CheckBox)
-                    chk.Checked = CheckState.Unchecked
+                    If chk.Checked Then
+                        Console.WriteLine("checked")
+                        chk.Checked = False
+                    Else
+                        Console.WriteLine("not checked")
+                    End If
 
                 Case "DataGridView"
                     Dim dgw = DirectCast(control, DataGridView)

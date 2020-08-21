@@ -29,6 +29,8 @@
         End Get
         Set(value As String)
             _tag = value
+            _pregunta.Tag = value
+            _respuesta.Tag = value
         End Set
     End Property
 
