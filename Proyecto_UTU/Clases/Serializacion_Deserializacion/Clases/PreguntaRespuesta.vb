@@ -30,7 +30,10 @@
         Set(value As String)
             _tag = value
             _pregunta.Tag = value
-            _respuesta.Tag = value
+            If Not _respuesta Is Nothing Then
+                _respuesta.Tag = value
+            End If
+
         End Set
     End Property
 

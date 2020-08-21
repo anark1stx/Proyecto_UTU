@@ -152,17 +152,17 @@
             frmPlano.PreguntasYRespuestas.Add(pyr)
         End If
 
-        If TipoDeTxt.valorSeleccionado IsNot "Otro" Or TipoDeTxt.valorSeleccionado IsNot String.Empty Then
+        'If TipoDeTxt.valorSeleccionado IsNot "Otro" Or TipoDeTxt.valorSeleccionado IsNot String.Empty Then
 
-            For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+        '    For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
 
-                If pyr.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
-                    _instancia.Tag = pyr.Pregunta.Tag
-                    pyr.Respuesta = _instancia
-                End If
-            Next
+        '        If pyr.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
+        '            _instancia.Tag = pyr.Pregunta.Tag
+        '            pyr.Respuesta = _instancia
+        '        End If
+        '    Next
 
-        End If
+        'End If
 
         frmPlano.Controls.Add(_instancia)
         frmPlano.ctrl_seleccionado = _instancia
@@ -226,7 +226,6 @@
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
         AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove
         AddHandler _ctrl.MouseUp, AddressOf frmPlano._MouseUp
-
         If _ctrl.Tag IsNot String.Empty Then
             frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta())
         End If
