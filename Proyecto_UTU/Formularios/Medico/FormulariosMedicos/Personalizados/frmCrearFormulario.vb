@@ -160,7 +160,13 @@
     Private Sub chkBox_MouseUp(sender As Object, e As MouseEventArgs) Handles chkBox.MouseUp
         LimpiarControles(settings)
         settings.ShowDialog()
-        TipoDeTxt.valorSeleccionado = _instancia.Text
+        _instancia.Text = TipoDeTxt.valorSeleccionado
+        If settings.chkSoyPregunta.Checked Then
+            Dim pyr As New PreguntaRespuesta()
+            pyr.Pregunta = _instancia 'El paciente .....
+            pyr.Respuesta = _instancia 'Si/No checked/unchecked
+            frmPlano.PreguntasYRespuestas.Add(pyr)
+        End If
         setType()
     End Sub
 #End Region
