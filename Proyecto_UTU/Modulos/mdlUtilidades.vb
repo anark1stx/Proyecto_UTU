@@ -62,7 +62,7 @@ Module mdlUtilidades
                     If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
                         control.ResetText()
                     End If
-                    cbox.SelectedIndex = 0
+                    cbox.SelectedItem = Nothing
 
                 Case "CheckBox"
                     Dim chk = DirectCast(control, CheckBox)
