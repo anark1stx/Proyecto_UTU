@@ -28,7 +28,7 @@ Module mdlUtilidades
         Dim archivo As New Xml.XmlDocument
         Dim gestor As New GestorXMLv2
 
-        Dim xmlstring As String = gestor.buildXML(lista_controles)
+        Dim xmlstring As String = gestor.Serializar(lista_controles)
         archivo.LoadXml(xmlstring)
 
         Dim guardarFormulario As New SaveFileDialog
@@ -127,7 +127,6 @@ Module mdlUtilidades
 
     Public Sub pintarFondo(ctrl As Control, selected As Boolean)
 
-
         If selected Then
             ctrl.BackColor = pickRandomColor()
         Else
@@ -141,7 +140,6 @@ Module mdlUtilidades
         Dim m_Rnd As New Random
         Return Color.FromArgb(m_Rnd.Next(0, 256), m_Rnd.Next(0, 256), m_Rnd.Next(0, 256))
     End Function
-
 
     Public Sub AgregarItemALista(item As String, lista As ListBox, Optional btn As Button = Nothing) 'btn es porque en el frmDolor (unico formulario el cual usa esta funcion por ahora), pinta el fondo de los botones cuando estos son seleccionados.
 
@@ -180,6 +178,14 @@ Module mdlUtilidades
 
         r.Inflate(4, 4)
         gr.DrawRectangle(New Pen(pickRandomColor()), r)
+    End Sub
+
+    Sub hideShowItems(_case As Boolean, ctrls As List(Of Control))
+
+        For Each c As Control In ctrls
+            c.Visible = _case
+        Next
+
     End Sub
 
 End Module

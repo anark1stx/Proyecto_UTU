@@ -81,9 +81,9 @@
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\PreguntaRespuesta.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\XML\GestorXMLv2.vb" />
-    <Compile Include="Clases\Medico.vb" />
-    <Compile Include="Clases\Paciente.vb" />
-    <Compile Include="Clases\Usuario.vb" />
+    <Compile Include="Clases\Usuarios\Medico.vb" />
+    <Compile Include="Clases\Usuarios\Paciente.vb" />
+    <Compile Include="Clases\Usuarios\Usuario.vb" />
     <Compile Include="Formularios\Administrador\frmInicioAdm.Designer.vb">
       <DependentUpon>frmInicioAdm.vb</DependentUpon>
     </Compile>

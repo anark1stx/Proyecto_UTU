@@ -3,19 +3,9 @@
 Public Class frmGenerico
     Dim memobmp As Bitmap
 
-    Sub hideShowItems(_case As Boolean)
-
-        btnPredictivo.Visible = _case
-        For Each c As Control In pnlContenedor.Controls
-            If TypeOf c Is Button Then
-                c.Visible = _case
-            End If
-
-        Next
-    End Sub
-
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(False)
+        hideShowItems(False, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+
         pnlContenedor.AutoScroll = False
         memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
 
@@ -23,7 +13,8 @@ Public Class frmGenerico
 
         'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
 
-        hideShowItems(True)
+        hideShowItems(True, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage

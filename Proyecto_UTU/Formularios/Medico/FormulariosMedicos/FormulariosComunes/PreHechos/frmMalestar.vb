@@ -1,13 +1,5 @@
 ﻿Public Class frmMalestar
     Dim memobmp As Bitmap
-    Sub hideShowItems(_case As Boolean)
-        btnPredictivo.Visible = _case
-        For Each c As Control In pnlContenedor.Controls
-            If TypeOf c Is Button Then
-                c.Visible = _case
-            End If
-        Next
-    End Sub
     Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged
         If chkAnalisis.Checked Then
             txtNomAnalisis.Enabled = True
@@ -82,18 +74,19 @@
         GuardarFormulario(fbr.Serializar(lista))
     End Sub
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(False)
+        hideShowItems(False, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+
         pnlContenedor.AutoScroll = False
         memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
         PrintPreviewDialog1.Document = Imprimir
         pnlContenedor.AutoScroll = True
         PrintPreviewDialog1.ShowDialog()
 
-        hideShowItems(True)
+        hideShowItems(True, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
-
         e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
 End Class
