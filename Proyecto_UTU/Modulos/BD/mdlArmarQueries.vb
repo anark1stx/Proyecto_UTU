@@ -5,11 +5,11 @@
     End Function
 
     Public Function CREATEUSER(usr As String, pwd As String, role As String) As String
-        Return String.Format("CREATE USER '{0}'@'localhost' IDENTIFIED BY '{1}' DEFAULT ROLE '{2}'@'localhost'", usr, pwd, role)
+        Return String.Format("CREATE USER '{0}'@'localhost' IDENTIFIED BY '{1}' DEFAULT ROLE '{2}'", usr, pwd, role)
     End Function
 
     Public Function GRANTROLE(usr As String, role As String) As String
-        Return String.Format("GRANT '{0}'@'localhost' TO '{1}'@'localhost';", role, usr)
+        Return String.Format("GRANT '{0}'@'localhost' TO '{1}';", role, usr)
     End Function
 
     Public Function INSERTUSUARIO(usr As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_nroPuerta As String, correo As String, foto As Byte())

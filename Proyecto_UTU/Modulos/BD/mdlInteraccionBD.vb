@@ -2,9 +2,6 @@
     Dim adpt As New Odbc.OdbcDataAdapter
     Public Function SQL_SELECT_ROL(cmd As ADODB.Command) As Integer 'Esta funcion es exclusivamente para seleccionar roles
         Conectar()
-        Dim retorno = 0
-
-        On Error GoTo queryErr
 
         conn.CursorLocation = ADODB.CursorLocationEnum.adUseClient
         cmd.ActiveConnection = conn
@@ -27,16 +24,7 @@
             MsgBox("No tiene rol en la BD")
         End If
 
-        Return retorno
-queryErr:
-        If Err.Number <> 0 Then
-            MessageBox.Show(Err.Number & ": " & Err.Description, "Ha Ocurrido un error.", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-        End If
     End Function
-
-
-
-
 
 End Module
