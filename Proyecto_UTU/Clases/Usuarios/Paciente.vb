@@ -155,15 +155,18 @@
         End Try
 
         If rs.RecordCount > 0 Then
-            a.ID = rs("ID A").Value
+            a.ID = rs("ID_A").Value
             a.Nombre = rs("Analisis").Value
-            a.Parametros.Add(New Analisis.Parametro(rs("nombre").Value, rs("unidad").Value, rs("minimo").Value, rs("maximo").Value, rs("valor").Value))
-            a.Indicaciones.Add(New Analisis.Indicacion(rs("nombre_i").Value, rs("indicacion").Value))
+            Do While Not rs.State = ConnectionState.Closed
+
+                a.Parametros.Add(New Analisis.Parametro(rs("nombre").Value, rs("unidad").Value, rs("minimo").Value, rs("maximo").Value, rs("valor").Value))
+                a.Indicaciones.Add(New Analisis.Indicacion(rs("nombre_i").Value, rs("indicacion").Value))
+                rs = rs.NextRecordset()
+            Loop
+
         End If
 
         rs.Close()
-
-
 
         Return a
     End Function
