@@ -42,20 +42,22 @@
                         LimpiarControles(_frmDatosPaciente)
                         addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-
+                        _frmGestion.tipo_usuario = "paciente"
                     Case "ModificarPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
                         LimpiarControles(_frmModificarPaciente)
                         _frmModificarPaciente.altaOmod = 1
                         _frmModificarPaciente.configurarControles()
                         addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmGestion.tipo_usuario = "paciente"
                         _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
                         LimpiarControles(_frmDatosPaciente)
                         addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-
+                        _frmGestion.tipo_usuario = "paciente
+"
                     Case "AltaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
                         LimpiarControles(_frmModificarPaciente)
                         _frmModificarPaciente.altaOmod = 0
@@ -65,7 +67,7 @@
                         _frmModificarPaciente.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
 
                         _frmGestion.pnlContenedorBusqueda.Hide()
-
+                        _frmGestion.tipo_usuario = "paciente"
 #End Region
 #Region "Medico"
                     Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
@@ -73,20 +75,21 @@
 
                         addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-
+                        _frmGestion.tipo_usuario = "medico"
                     Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
                         LimpiarControles(_frmModificarMedico)
                         _frmModificarMedico.altaOmod = 1
                         _frmModificarMedico.configurarControles()
                         addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
+                        _frmGestion.tipo_usuario = "medico"
                         _frmModificarMedico.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
 
                     Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
                         LimpiarControles(_frmDatosMedico)
                         addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-
+                        _frmGestion.tipo_usuario = "medico"
                     Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
                         LimpiarControles(_frmModificarMedico)
                         _frmModificarMedico.altaOmod = 0
@@ -94,7 +97,7 @@
                         addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarMedico.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
-
+                        _frmGestion.tipo_usuario = "medico"
                         _frmGestion.pnlContenedorBusqueda.Hide()
 #End Region
 #Region "Auxiliar"
@@ -102,7 +105,7 @@
                         LimpiarControles(_frmDatosAuxiliar)
                         addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-
+                        _frmGestion.tipo_usuario = "auxiliar"
                     Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
                         LimpiarControles(_frmModificarAuxiliar)
                         _frmModificarAuxiliar.altaOmod = 1
@@ -110,12 +113,12 @@
                         addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarAuxiliar.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
-
+                        _frmGestion.tipo_usuario = "auxiliar"
                     Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
                         LimpiarControles(_frmDatosAuxiliar)
                         addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
-
+                        _frmGestion.tipo_usuario = "auxiliar"
                     Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
                         LimpiarControles(_frmModificarAuxiliar)
                         _frmModificarAuxiliar.altaOmod = 0
@@ -123,7 +126,7 @@
                         addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
                         _frmGestion.pnlContenedorBusqueda.Show()
                         _frmModificarAuxiliar.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
-
+                        _frmGestion.tipo_usuario = "auxiliar"
                         _frmGestion.pnlContenedorBusqueda.Hide()
 #End Region
                 End Select
@@ -161,7 +164,7 @@
                         End If
 
                 End Select
-            Case "Modificación"
+            Case "Modificacion"
                 Select Case tipo
                     Case "Paciente"
                         Dim modif = MsgBox("Seguro que desea modificar al paciente " & _frmDatosPaciente.lblNombre1.Text & " " & _frmDatosPaciente.lblApellido1.Text & "?", vbYesNo)
@@ -335,6 +338,33 @@
         AddHandler _frmInicio.btnBusquedaAuxiliar.Click,
                     Sub()
                         AuxiliarBusquedaMenuItem_Click(sender, e)
+                    End Sub
+        'HANDLERS PARA FORMULARIO DATOS PACIENTE
+        AddHandler _frmDatosPaciente.btnBaja.Click,
+                    Sub()
+                        solicitarConfirmacion("Baja", "Paciente")
+                    End Sub
+        AddHandler _frmDatosPaciente.btnEditar.Click,
+                    Sub()
+                        solicitarConfirmacion("Modificacion", "Paciente")
+                    End Sub
+        'HANDLERS PARA FORMULARIO DATOS MEDICO
+        AddHandler _frmDatosMedico.btnBaja.Click,
+                    Sub()
+                        solicitarConfirmacion("Baja", "Medico")
+                    End Sub
+        AddHandler _frmDatosMedico.btnEditar.Click,
+                    Sub()
+                        solicitarConfirmacion("Editar", "Medico")
+                    End Sub
+        'HANDLERS PARA FORMULARIO DATOS AUXILIAR
+        AddHandler _frmDatosAuxiliar.btnBaja.Click,
+                    Sub()
+                        solicitarConfirmacion("Baja", "Auxiliar")
+                    End Sub
+        AddHandler _frmDatosAuxiliar.btnEditar.Click,
+                    Sub()
+                        solicitarConfirmacion("Editar", "Auxiliar")
                     End Sub
 
     End Sub

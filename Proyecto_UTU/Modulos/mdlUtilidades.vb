@@ -77,11 +77,6 @@ Module mdlUtilidades
                         Console.WriteLine("not checked")
                     End If
 
-                Case "DataGridView"
-                    Dim dgw = DirectCast(control, DataGridView)
-                    dgw.Rows.Clear()
-                    dgw.Columns.Clear()
-
                 Case "PictureBox"
                     Dim pbox = DirectCast(control, PictureBox)
                     pbox.Image = Nothing

@@ -23,7 +23,6 @@ Public Class frmMedico
     Dim frmMal As New frmMalestar
 
     Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
-    Dim Ci As String = ""
 
     Dim _paciente As New Paciente
 
@@ -36,7 +35,7 @@ Public Class frmMedico
         If Not pnlContenedorFormularios.Controls.Contains(frm) Then
             pnlContenedorFormularios.Controls.Clear()
 
-            If Not isMedicalForm Then
+            If Not isMedicalForm Then 'Configuracion optima para los formularios de entrevista
                 frm.Anchor += AnchorStyles.Bottom
                 frm.Anchor += AnchorStyles.Right
                 frm.Dock = DockStyle.Fill
@@ -75,10 +74,6 @@ Public Class frmMedico
 
             Case "Atender"
                 Me.MaximizeBox = False
-
-                If pnlContenedorFormularios.Controls.Contains(frmIdentificacion) Then
-                    Ci = frmIdentificacion.txtCIPaciente.Text
-                End If
 
                 addFrm(frmOpsConsulta, 0)
 
@@ -227,9 +222,6 @@ Public Class frmMedico
         AddHandler frmIdentificacion.btnBuscar.Click,
                     Sub()
                         CargarDatosPaciente()
-                        If frmIdentificacion.txtCIPaciente.TextLength < 8 Then
-                            Ci = frmIdentificacion.txtCIPaciente.Text
-                        End If
                     End Sub
         AddHandler frmIdentificacion.txtCIPaciente.TextChanged,
                     Sub()
@@ -311,7 +303,6 @@ Public Class frmMedico
                         MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         llenoIdentificacion = False
                         frmIdentificacion.txtCIPaciente.Text = String.Empty
-                        Ci = String.Empty
                         Exit Sub
 
                     Case 1
@@ -347,10 +338,8 @@ Public Class frmMedico
 
                         llenoIdentificacion = True
 
-
                 End Select
             Else
-                Ci = frmIdentificacion.txtCIPaciente.Text
                 MsgBox("Cédula inválida.", MessageBoxIcon.Error)
                 llenoIdentificacion = False
             End If

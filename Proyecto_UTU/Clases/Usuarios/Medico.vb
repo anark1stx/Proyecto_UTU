@@ -90,19 +90,22 @@
 
             _telefonosLista.Clear()
             _telefonosLista.Add(rs("telefono").Value)
-
+            _correo = rs("correo").Value
             _direccion.Clear()
             _direccion.Add(rs("direccion_calle").Value)
             _direccion.Add(rs("direccion_nroPuerta").Value)
             _especialidades.Add(rs("especialidad").Value)
-
+            Return 1
+        Else
+            Return 0
         End If
 
         rs.Close()
 
     End Function
 
-    Function buscarPorEspecialidad()
+    Function buscarPorEspecialidad() As List(Of Medico)
+        Dim list As New List(Of Medico)
         Conectar()
 
         Dim sql As String = String.Format("SELECT * FROM medico, medico_especialidad where medico_especialidad.especialidad={0}", _especialidades(0))
@@ -112,34 +115,38 @@
         Catch ex As Exception
             rs.Close()
             MsgBox(ex.Message)
-            Return 0
         End Try
 
-        If rs.RecordCount = 1 Then
 
-            If rs("activo").Value = 0 Then
-                Return 5 'El usuario fue dado de baja
+        While Not rs.EOF
+
+            If rs("activo").Value = 1 Then
+
+                Dim m As New Medico()
+                m.Cedula = rs("CI").Value.ToString()
+                m.Nombre1 = rs("nombre1").Value
+                m.Nombre2 = rs("nombre2").Value
+                m.Apellido1 = rs("apellido1").Value
+                m.Apellido2 = rs("apellido2").Value
+
+                m.telefonosLista.Clear()
+                m.telefonosLista.Add(rs("telefono").Value)
+
+                m.direccion.Clear()
+                m.direccion.Add(rs("direccion_calle").Value)
+                m.direccion.Add(rs("direccion_nroPuerta").Value)
+                m.Especialidad.Add(rs("especialidad").Value)
+                m.Correo = rs("correo").Value
+                m.imagen = rs("foto").Value
+                list.Add(m)
             End If
 
-            _cedula = rs("CI").Value.ToString()
-            _nombre1 = rs("nombre1").Value
-            _nombre2 = rs("nombre2").Value
-            _apellido1 = rs("apellido1").Value
-            _apellido2 = rs("apellido2").Value
+        End While
 
-            _telefonosLista.Clear()
-            _telefonosLista.Add(rs("telefono").Value)
-
-            _direccion.Clear()
-            _direccion.Add(rs("direccion_calle").Value)
-            _direccion.Add(rs("direccion_nroPuerta").Value)
-            _especialidades.Add(rs("especialidad").Value)
-
-            _imagen = rs("foto").Value
-
-        End If
 
         rs.Close()
+
+        Return list
 
     End Function
 

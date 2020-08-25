@@ -223,7 +223,7 @@
             MsgBox(ex.Message)
         End Try
 
-        If rs.RecordCount = 1 Then
+        If rs.RecordCount > 0 Then
 
             If rs("activo").Value = 0 Then
                 Return 5 'El usuario fue dado de baja
@@ -241,8 +241,11 @@
             _direccion.Clear()
             _direccion.Add(rs("direccion_calle").Value)
             _direccion.Add(rs("direccion_nroPuerta").Value)
-
+            _correo = rs("correo").Value
             _imagen = rs("foto").Value
+            Return 1
+        Else
+            Return 0
         End If
 
         rs.Close()

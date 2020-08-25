@@ -7,8 +7,8 @@
         cmd.ActiveConnection = conn
         rs = cmd.Execute()
 
-        If rs.RecordCount >= 1 Then
-            Select Case rs(0).Value '0 = administrador, 1 = medico, 2 = auxiliar, 3 = paciente
+        If rs.RecordCount > 0 Then
+            Select Case rs(0).Value '0 = administrador, 1 = medico, 2 = auxiliar, 3 = paciente, '999 = rol desconocido
                 Case "administrador"
                     Return 0
                 Case "medico"
@@ -21,7 +21,7 @@
                     Return 999
             End Select
         Else
-            MsgBox("No tiene rol en la BD")
+            Return -1 'no existe
         End If
 
 

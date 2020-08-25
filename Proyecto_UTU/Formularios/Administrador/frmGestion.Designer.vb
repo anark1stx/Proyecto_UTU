@@ -81,7 +81,7 @@ Partial Class frmGestion
         Me.rdBtnCedula.Size = New System.Drawing.Size(82, 24)
         Me.rdBtnCedula.TabIndex = 0
         Me.rdBtnCedula.TabStop = True
-        Me.rdBtnCedula.Text = "Cédula"
+        Me.rdBtnCedula.Text = "Cedula"
         Me.rdBtnCedula.UseVisualStyleBackColor = True
         '
         'txtBuscar

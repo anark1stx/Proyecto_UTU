@@ -1,6 +1,5 @@
 ﻿Public Class Paciente
     Inherits Usuario
-
     Protected _fechaNacimiento As String
     Protected _sexo As String
     Protected _ocupacion As String
@@ -119,16 +118,12 @@
             _estado_civil = rs("e_civil").Value
             _ocupacion = rs("ocupacion").Value
             _sexo = rs("sexo").Value
-
+            _correo = rs("correo").Value
             _imagen = rs("foto").Value
 
-            'Dim stream As New ADODB.Stream
-            'stream.Open()
-            'stream.Type = ADODB.StreamTypeEnum.adTypeBinary
-            'stream.Write(rs("foto").Value)
-            'stream.Position = 0
-
             Return 1
+        Else
+            Return 0
         End If
         rs.Close()
 
