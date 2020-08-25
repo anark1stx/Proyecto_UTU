@@ -76,7 +76,7 @@
                 End Try
 
                 Try
-                    conn.Execute(INSERTUSUARIO(aux.Cedula, aux.Nombre1, aux.Nombre2, aux.Apellido1, aux.Apellido2, aux.direccion(0), aux.direccion(1), correo, arrImg))
+                    conn.Execute(INSERTUSUARIO(aux.Cedula, aux.Nombre1, aux.Nombre2, aux.Apellido1, aux.Apellido2, aux.direccion(0), aux.direccion(1), correo))
                 Catch ex As Exception
                     MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
                     Exit Sub

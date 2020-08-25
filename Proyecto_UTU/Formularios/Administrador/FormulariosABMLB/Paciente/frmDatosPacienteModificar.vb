@@ -52,9 +52,9 @@
             End If
         Else
             Dim mStream As New IO.MemoryStream
-            Dim tamanoFoto As UInteger = mStream.Length
             pBoxFotoPaciente.Image.Save(mStream, Imaging.ImageFormat.Png)
             arrImg = mStream.GetBuffer()
+
             mStream.Close()
 
         End If
@@ -87,11 +87,24 @@
 
                     'AGREGAR LA IMAGEN AL ALTA DEL USUARIO
                     Try
-                        conn.Execute(INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo, arrImg))
+                        Dim sql = INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo)
+                        Console.WriteLine(sql)
+                        conn.Execute(sql)
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
                         Exit Sub
                     End Try
+
+                    If Not pBoxFotoPaciente.Image Is Nothing Then
+                        Try
+                            rs.Open(SELECTSIBIMUSUARIO(paciente.Cedula), conn, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+                            rs("foto").AppendChunk(paciente.imagen)
+                            rs.Update()
+                        Catch ex As Exception
+                            MsgBox(ex.Message)
+                            Exit Sub
+                        End Try
+                    End If
 
                     For Each t As String In paciente.telefonosLista
                         Try
@@ -103,7 +116,7 @@
                     Next
 
                     Try
-                        conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.FechaNacimiento, String.Empty, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
+                        conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.FechaNacimiento, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el PACIENTE " & " " & ex.Message)
                         Exit Sub

@@ -84,7 +84,7 @@
                     End Try
 
                     Try
-                        conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo, arrImg))
+                        conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo))
                     Catch ex As Exception
                         MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
                         Exit Sub

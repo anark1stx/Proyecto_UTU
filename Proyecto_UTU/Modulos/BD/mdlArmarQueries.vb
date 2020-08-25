@@ -12,15 +12,15 @@
         Return String.Format("GRANT '{0}'@'localhost' TO '{1}';", role, usr)
     End Function
 
-    Public Function INSERTUSUARIO(usr As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_nroPuerta As String, correo As String, foto As Byte())
-        Return String.Format("INSERT INTO usuario (CI,nombre1,nombre2,apellido1,apellido2,direccion_calle,direccion_nroPuerta,activo,correo,foto) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", usr, nombre1, nombre2, apellido1, apellido2, direccion_calle, direccion_nroPuerta, 1, correo, foto)
+    Public Function INSERTUSUARIO(usr As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_nroPuerta As String, correo As String)
+        Return String.Format("INSERT INTO usuario (CI,nombre1,nombre2,apellido1,apellido2,direccion_calle,direccion_nroPuerta,activo,correo,foto) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','')", usr, nombre1, nombre2, apellido1, apellido2, direccion_calle, direccion_nroPuerta, 1, correo)
     End Function
 
     Public Function INSERTTELEFONO(usr As String, tel As String) As String
         Return String.Format("INSERT INTO usuario_tel (CI,telefono) VALUES ({0},{1})", usr, tel)
     End Function
 
-    Public Function INSERTPACIENTE(usr As String, fecha As String, etapa As String, e_civil As String, ocupacion As String, sexo As String) As String
+    Public Function INSERTPACIENTE(usr As String, fecha As String, e_civil As String, ocupacion As String, sexo As String) As String
         Return String.Format("INSERT INTO paciente (CI,fecha_nac,etapa,e_civil,ocupacion,sexo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", usr, fecha, "a", e_civil, ocupacion, sexo)
     End Function
 
@@ -32,5 +32,8 @@
         Return String.Format("INSERT INTO medico_especialidad (CI,especialidad) VALUES ('{0}','{1}')", usr, especialidad)
     End Function
 
+    Public Function SELECTSIBIMUSUARIO(usr As String) As String
+        Return String.Format("SELECT * FROM sibim.usuario WHERE CI = '{0}'", usr)
+    End Function
 
 End Module

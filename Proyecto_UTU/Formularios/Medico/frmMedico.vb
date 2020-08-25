@@ -313,6 +313,7 @@ Public Class frmMedico
                         frmIdentificacion.txtCIPaciente.Text = String.Empty
                         Ci = String.Empty
                         Exit Sub
+
                     Case 1
                         frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
                         frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
@@ -342,7 +343,10 @@ Public Class frmMedico
 
                         Next
 
+                        frmIdentificacion.pBoxFotoPaciente.Image = Bytes2Image(_paciente.imagen)
+
                         llenoIdentificacion = True
+
 
                 End Select
             Else

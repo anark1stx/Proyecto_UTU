@@ -188,4 +188,12 @@ Module mdlUtilidades
 
     End Sub
 
+    Public Function Bytes2Image(ByVal bytes() As Byte) As Image
+
+        Dim ms As New MemoryStream(bytes)
+        Return Image.FromStream(ms)
+
+    End Function
+
+
 End Module

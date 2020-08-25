@@ -89,16 +89,19 @@
 
     Overrides Function buscarPorCI() As Integer
         Conectar()
-        Dim sql As String = String.Format("SELECT * FROM usuario,usuario_tel,paciente where usuario.CI={0} AND paciente.CI={0}", _cedula)
 
+        Dim sql As String = String.Format("SELECT * FROM usuario,usuario_tel,paciente where usuario.CI='{0}' AND paciente.CI='{0}'", _cedula)
+        Console.WriteLine(sql)
         Try
-            rs.Open(sql, conn)
+            rs.Open(sql, conn, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
         Catch ex As Exception
             MsgBox(ex.Message)
+            Console.WriteLine(ex.Message)
+            Console.WriteLine(sql)
             Return 0
         End Try
 
-        If rs.RecordCount = 1 Then
+        If rs.RecordCount > 0 Then
             _cedula = rs("CI").Value.ToString()
             _nombre1 = rs("nombre1").Value
             _nombre2 = rs("nombre2").Value
@@ -118,6 +121,13 @@
             _sexo = rs("sexo").Value
 
             _imagen = rs("foto").Value
+
+            'Dim stream As New ADODB.Stream
+            'stream.Open()
+            'stream.Type = ADODB.StreamTypeEnum.adTypeBinary
+            'stream.Write(rs("foto").Value)
+            'stream.Position = 0
+
             Return 1
         End If
         rs.Close()
