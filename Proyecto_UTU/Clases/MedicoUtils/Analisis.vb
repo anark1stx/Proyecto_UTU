@@ -1,8 +1,17 @@
 ﻿Public Class Analisis
-
+    Protected _id As Integer
     Protected _nombre As String
     Protected _indicaciones As List(Of Indicacion)
     Protected _parametros As List(Of Parametro)
+
+    Property ID As Integer
+        Get
+            Return _id
+        End Get
+        Set(value As Integer)
+            _id = value
+        End Set
+    End Property
 
     Property Nombre As String
         Get
@@ -29,12 +38,22 @@
         End Set
     End Property
 
-    <Xml.Serialization.XmlInclude(GetType(Parametro))>
+    Sub New()
+
+    End Sub
+
+    Sub New(id As Integer, nombre As String, parametros As List(Of Parametro))
+        _id = id
+        _nombre = nombre
+        _parametros = parametros
+    End Sub
+
     Public Class Parametro
         Protected _nombre As String
         Protected _unidad As String
         Protected _valorMinimo As Double
         Protected _valorMaximo As Double
+        Protected _valor As Double
 
         Property Nombre As String
             Get
@@ -72,6 +91,14 @@
             End Set
         End Property
 
+        Property Valor As Double
+            Get
+                Return _valor
+            End Get
+            Set(value As Double)
+                _valor = value
+            End Set
+        End Property
         Sub New()
 
         End Sub
@@ -81,6 +108,14 @@
             _unidad = unidad
             _valorMinimo = valorminimo
             _valorMaximo = valormaximo
+        End Sub
+
+        Sub New(nombre As String, unidad As String, valorminimo As Double, valormaximo As Double, valor As Double)
+            _nombre = nombre
+            _unidad = unidad
+            _valorMinimo = valorminimo
+            _valorMaximo = valormaximo
+            _valor = valor
         End Sub
 
     End Class

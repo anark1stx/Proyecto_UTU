@@ -57,7 +57,7 @@
 
     Private Sub frmAnalisisCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _parametros.Add(txtUnidad) 'Por alguna razon no me deja agregarlos en el evento Load
+        _parametros.Add(txtUnidad)
         _parametros.Add(txtVMax)
         _parametros.Add(txtVMin)
 
@@ -84,10 +84,10 @@
                 Exit Sub
             End If
 
-            'If i.Indicacion.ToLower() = txtIndicacionDescripcion.Text Then
-            '    MessageBox.Show("Ya existe una indicación con esa descripción.", "indicación ya registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            '    Exit Sub
-            'End If
+            If i.Indicacion.ToLower() = txtIndicacionDescripcion.Text Then
+                MessageBox.Show("Ya existe una indicación con esa descripción.", "indicación ya registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
 
         Next
 

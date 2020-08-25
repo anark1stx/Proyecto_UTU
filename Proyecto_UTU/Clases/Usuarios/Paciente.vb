@@ -121,12 +121,51 @@
             _correo = rs("correo").Value
             _imagen = rs("foto").Value
 
-            Return 1
         Else
             Return 0
         End If
+
+        Return 1
         rs.Close()
 
+    End Function
+
+    Public Function buscarAnalisis(id_analisis As Integer, id_consulta As Integer) As Analisis
+        '1- Sacar primero Información del analisis base
+        '2- Sacar luego los resultados del análisis
+
+        Dim a As New Analisis
+        a.ID = id_analisis
+
+        Dim sqlAnalisis As String = String.Format("SELECT analisis.ID AS ID_A, analisis.nombre AS Analisis, parametro.nombre as nombre, parametro.unidad as unidad, parametro.referencia_min as minimo, parametro.referencia_max as maximo FROM analisis,parametro,tiene,analisis_indicacion WHERE analisis.ID='{0}' AND tiene.ID_analisis='{0}' AND analisis_indicacion.ID_analisis='{0}'", id_analisis)
+        Dim sqlAnalisisR As String = String.Format("SELECT datos.ID_parametro, datos.valor, datos.fecha FROM datos WHERE datos.ID_analisis='{0}' AND datos.ID_consulta='{1}'", id_analisis, id_consulta)
+
+        Conectar()
+
+        Try
+            rs.Open(sqlAnalisis, conn, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Try
+            rs.Open(sqlAnalisisR, conn, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        If rs.RecordCount > 0 Then
+            a.ID = rs("ID A").Value
+            a.Nombre = rs("Analisis").Value
+            a.Parametros.Add(New Analisis.Parametro(rs("nombre").Value, rs("unidad").Value, rs("minimo").Value, rs("maximo").Value, rs("valor").Value))
+            a.Indicaciones.Add(New Analisis.Indicacion(rs("nombre_i").Value, rs("indicacion").Value))
+        End If
+
+        rs.Close()
+
+
+
+        Return a
     End Function
 
 

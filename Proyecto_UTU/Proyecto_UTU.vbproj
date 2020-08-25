@@ -163,10 +163,16 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisSeguimiento.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.Designer.vb">
       <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisSeguimiento.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.Designer.vb">
+      <DependentUpon>frmDatosAnalisis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.Designer.vb">
@@ -357,8 +363,11 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.resx">
       <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisSeguimiento.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.resx">
       <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.resx">
+      <DependentUpon>frmDatosAnalisis.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.resx">
       <DependentUpon>frmTratamientoCrear.vb</DependentUpon>

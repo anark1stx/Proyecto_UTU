@@ -13,6 +13,7 @@ Public Class frmMedico
 
     Dim frmAnalisisC As New frmAnalisisCrear
     Dim frmAnalisisS As New frmAnalisisSeguimiento
+    Dim frmAnalisisDatos As New frmDatosAnalisis
 
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
@@ -147,6 +148,37 @@ Public Class frmMedico
             Case "SeguirAnalisis"
                 LimpiarControles(frmAnalisisS)
                 addFrm(frmAnalisisS, 1)
+            Case "DatosAnalisis"
+                LimpiarControles(frmAnalisisS)
+                'DATOS DE PRUEBA, BORRAR LUEGO
+
+                'Dim p As New Analisis.Parametro("Globulos Rojos", "mm3/10e9", 4.0, 5.5)
+                'p.Valor = 3.4
+                'Dim p2 As New Analisis.Parametro("Linfocitos T", "mm3/10e-7", 3.3, 4.1)
+                'p2.Valor = 3.34
+                'Dim p3 As New Analisis.Parametro("Linfocitos T", "mm3/10e-7", 3.3, 4.1)
+                'p3.Valor = 1.4
+                'Dim p4 As New Analisis.Parametro("Linfocitos T", "mm3/10e-7", 3.3, 4.1)
+                'p4.Valor = 4.4
+                'Dim a As New Analisis(0, "Resonancia Magnética", New List(Of Analisis.Parametro)(New Analisis.Parametro() {p, p2, p3, p4}))
+
+                'Dim pac As New Paciente()
+                'pac.Nombre1 = "Mateo"
+                'pac.Apellido1 = "Carriquí"
+
+                'frmAnalisisDatos.AnalisisACargar = a
+                'frmAnalisisDatos._paciente = pac
+
+                Dim pac As New Paciente With {
+                    .Cedula = frmAnalisisS.txtCedulaPaciente.Text
+                }
+
+                pac.buscarPorCI()
+
+                Dim a = pac.buscarAnalisis()
+
+                frmAnalisisDatos._paciente = pac
+                addFrm(frmAnalisisDatos, 1)
         End Select
 
     End Sub
@@ -287,6 +319,14 @@ Public Class frmMedico
                     Sub()
                         InstanciarFormulario("Otro")
                     End Sub
+        'HANDLERS PARA SEGUIMIENTO ANALISIS
+        AddHandler frmAnalisisS.btnConsultarDatos.Click,
+            Sub()
+                InstanciarFormulario("DatosAnalisis")
+
+            End Sub
+
+
     End Sub
 
     Private Sub CargarDatosPaciente()
