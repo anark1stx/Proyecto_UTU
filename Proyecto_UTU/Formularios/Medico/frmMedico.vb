@@ -137,16 +137,16 @@ Public Class frmMedico
 
             Case "IngresarTratamiento"
                 LimpiarControles(frmTratamientoC)
-                addFrm(frmTratamientoC, 0)
+                addFrm(frmTratamientoC, 1)
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
-                addFrm(frmTratamientoS, 0)
+                addFrm(frmTratamientoS, 1)
             Case "IngresarAnalisis"
                 LimpiarControles(frmAnalisisC)
-                addFrm(frmAnalisisC, 0)
+                addFrm(frmAnalisisC, 1)
             Case "SeguirAnalisis"
                 LimpiarControles(frmAnalisisS)
-                addFrm(frmAnalisisS, 0)
+                addFrm(frmAnalisisS, 1)
         End Select
 
     End Sub
