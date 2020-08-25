@@ -1,0 +1,6 @@
+-> Busqueda de usuarios
+-> Baja de usuarios (sencillo de resolver con un UPDATE usuario SET activo = 0)
+-> Alta de analisis_base
+-> Ingreso de datos a un análisis requerido
+-> Alta de tratamiento (tengo q crear su clase)
+-> Seguimiento de tratamiento (alta de tabla "sigue" y "seguimiento" -> Crear clase seguimiento)
