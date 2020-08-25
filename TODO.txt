@@ -4,3 +4,4 @@
 -> Ingreso de datos a un análisis requerido
 -> Alta de tratamiento (tengo q crear su clase)
 -> Seguimiento de tratamiento (alta de tabla "sigue" y "seguimiento" -> Crear clase seguimiento)
+-> Vincular el programa con la REST API de wikimedia: https://www.mediawiki.org/wiki/Wikimedia_REST_API
