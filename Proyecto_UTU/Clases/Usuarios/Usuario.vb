@@ -220,14 +220,10 @@
             rs.Open(sql, conn)
         Catch ex As Exception
             rs.Close()
-            MsgBox(ex.Message)
+            Return 3
         End Try
 
         If rs.RecordCount > 0 Then
-
-            If rs("activo").Value = 0 Then
-                Return 5 'El usuario fue dado de baja
-            End If
 
             _cedula = rs("CI").Value.ToString()
             _nombre1 = rs("nombre1").Value
@@ -243,11 +239,11 @@
             _direccion.Add(rs("direccion_nroPuerta").Value)
             _correo = rs("correo").Value
             _imagen = rs("foto").Value
-            Return 1
         Else
             Return 0
         End If
 
+        Return 1
         rs.Close()
 
     End Function

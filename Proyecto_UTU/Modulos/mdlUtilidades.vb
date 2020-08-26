@@ -4,10 +4,11 @@ Module mdlUtilidades
 
     Public Function ImportarFormulario() As List(Of Control)
 
-        Dim abrirFormulario As New OpenFileDialog
-        abrirFormulario.Filter = "XML|*.xml"
-        abrirFormulario.Title = "Abrir Formulario"
-        abrirFormulario.RestoreDirectory = True
+        Dim abrirFormulario As New OpenFileDialog With {
+            .Filter = "XML|*.xml",
+            .Title = "Abrir Formulario",
+            .RestoreDirectory = True
+        }
 
         If abrirFormulario.ShowDialog() = DialogResult.OK Then
             Dim path As String = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
@@ -188,6 +189,16 @@ Module mdlUtilidades
         Dim ms As New MemoryStream(bytes)
         Return Image.FromStream(ms)
 
+    End Function
+
+    Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
+
+        Return ColorTranslator.ToHtml(col)
+
+    End Function
+
+    Function HTMLTOColor(col As String) As Color
+        Return ColorTranslator.FromHtml(col)
     End Function
 
 
