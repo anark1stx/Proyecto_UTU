@@ -36,6 +36,22 @@
         Return String.Format("SELECT * FROM sibim.usuario WHERE CI = '{0}'", usr)
     End Function
 
+    Public Function INSERTENFERMEDAD(nombre As String, descripcion As String)
+        Return String.Format("INSERT INTO Enfermedad (nombre,descripcion) VALUES ('{0}','{1}')", nombre, descripcion)
+    End Function
+
+    Public Function INSERTENFERMEDAD_Categoria(nombre As String, descripcion As String)
+        Return String.Format("INSERT INTO Categoria(nombre,descripcion) VALUES ('{0}','{1}')", nombre, descripcion)
+    End Function
+
+    Public Function INSERTENFERMEDAD_SubCategoria(cat_padre As String, nombre As String, descripcion As String)
+        Return String.Format("INSERT INTO Categoria(categoriaPadre,nombre,descripcion) VALUES ('{0}','{1}','{2}')", cat_padre, nombre, descripcion)
+    End Function
+
+    Public Function INSERTENFERMEDAD_Clasificacion(nombre As String, categoria As String)
+        Return String.Format("INSERT INTO Categoria(nombre_enfermedad,categoria) VALUES ('{0}','{1}')", nombre, categoria)
+    End Function
+
     Public Function INSERTTRATAMIENTO(nombre As String, descripcion As String) As String
         Return String.Format("INSERT INTO tratamiento (nombre,tratamiento) VALUES ('{0}','{1}')", nombre, descripcion)
     End Function
@@ -62,6 +78,12 @@
     Public Function INSERTPARAMETRO(nombre As String, unidad As String, min As Double, max As Double) As String
         Return String.Format("INSERT INTO parametro (nombre,unidad,referencia_min,referencia_max) VALUES ('{0}','{1}','{2}','{3}')", nombre, unidad, min, max)
     End Function
+
+    Public Function INSERT_ANALISISTIENEPARAMETRO(id_p, id_a)
+        Return String.Format("INSERT INTO tiene (ID_parametro,ID_analisis) VALUES ('{0}','{1}')", id_p, id_a)
+    End Function
+
+
 
 
 End Module
