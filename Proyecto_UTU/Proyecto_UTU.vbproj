@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\MedicoUtils\Analisis.vb" />
+    <Compile Include="Clases\MedicoUtils\Enfermedad.vb" />
+    <Compile Include="Clases\MedicoUtils\Tratamiento.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\ControlesGuardados.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\PreguntaRespuesta.vb" />

@@ -24,18 +24,18 @@ Partial Class frmAnalisisSeguimiento
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAnalisisSeguimiento))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnConsultarDatos = New System.Windows.Forms.Button()
+        Me.btnIngresarDatos = New System.Windows.Forms.Button()
         Me.dgwAnalisisPaciente = New System.Windows.Forms.DataGridView()
         Me.ID_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nom_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
         Me.lblPacienteCI = New System.Windows.Forms.Label()
-        Me.btnConsultarDatos = New System.Windows.Forms.Button()
-        Me.btnIngresarDatos = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlContenedor.SuspendLayout()
-        CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -49,6 +49,50 @@ Partial Class frmAnalisisSeguimiento
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1130, 720)
         Me.pnlContenedor.TabIndex = 0
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.btnConsultarDatos, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnIngresarDatos, 1, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(8, 511)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1110, 197)
+        Me.TableLayoutPanel1.TabIndex = 6
+        '
+        'btnConsultarDatos
+        '
+        Me.btnConsultarDatos.BackColor = System.Drawing.Color.PaleGreen
+        Me.btnConsultarDatos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnConsultarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConsultarDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsultarDatos.Image = CType(resources.GetObject("btnConsultarDatos.Image"), System.Drawing.Image)
+        Me.btnConsultarDatos.Location = New System.Drawing.Point(3, 3)
+        Me.btnConsultarDatos.Name = "btnConsultarDatos"
+        Me.btnConsultarDatos.Size = New System.Drawing.Size(549, 191)
+        Me.btnConsultarDatos.TabIndex = 5
+        Me.btnConsultarDatos.Text = "Consultar datos"
+        Me.btnConsultarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnConsultarDatos.UseVisualStyleBackColor = False
+        '
+        'btnIngresarDatos
+        '
+        Me.btnIngresarDatos.BackColor = System.Drawing.Color.PaleGreen
+        Me.btnIngresarDatos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnIngresarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIngresarDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIngresarDatos.Image = CType(resources.GetObject("btnIngresarDatos.Image"), System.Drawing.Image)
+        Me.btnIngresarDatos.Location = New System.Drawing.Point(558, 3)
+        Me.btnIngresarDatos.Name = "btnIngresarDatos"
+        Me.btnIngresarDatos.Size = New System.Drawing.Size(549, 191)
+        Me.btnIngresarDatos.TabIndex = 4
+        Me.btnIngresarDatos.Text = "Ingresar datos"
+        Me.btnIngresarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnIngresarDatos.UseVisualStyleBackColor = False
         '
         'dgwAnalisisPaciente
         '
@@ -105,50 +149,6 @@ Partial Class frmAnalisisSeguimiento
         Me.lblPacienteCI.Text = "Ingrese la cédula de identidad del paciente del cuál desea consultar un análisis:" &
     ""
         '
-        'btnConsultarDatos
-        '
-        Me.btnConsultarDatos.BackColor = System.Drawing.Color.PaleGreen
-        Me.btnConsultarDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnConsultarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnConsultarDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConsultarDatos.Image = CType(resources.GetObject("btnConsultarDatos.Image"), System.Drawing.Image)
-        Me.btnConsultarDatos.Location = New System.Drawing.Point(3, 3)
-        Me.btnConsultarDatos.Name = "btnConsultarDatos"
-        Me.btnConsultarDatos.Size = New System.Drawing.Size(547, 191)
-        Me.btnConsultarDatos.TabIndex = 5
-        Me.btnConsultarDatos.Text = "Consultar datos"
-        Me.btnConsultarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnConsultarDatos.UseVisualStyleBackColor = False
-        '
-        'btnIngresarDatos
-        '
-        Me.btnIngresarDatos.BackColor = System.Drawing.Color.PaleGreen
-        Me.btnIngresarDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnIngresarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnIngresarDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIngresarDatos.Image = CType(resources.GetObject("btnIngresarDatos.Image"), System.Drawing.Image)
-        Me.btnIngresarDatos.Location = New System.Drawing.Point(556, 3)
-        Me.btnIngresarDatos.Name = "btnIngresarDatos"
-        Me.btnIngresarDatos.Size = New System.Drawing.Size(547, 191)
-        Me.btnIngresarDatos.TabIndex = 4
-        Me.btnIngresarDatos.Text = "Ingresar datos"
-        Me.btnIngresarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnIngresarDatos.UseVisualStyleBackColor = False
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.btnConsultarDatos, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btnIngresarDatos, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 511)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1106, 197)
-        Me.TableLayoutPanel1.TabIndex = 6
-        '
         'frmAnalisisSeguimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -161,8 +161,8 @@ Partial Class frmAnalisisSeguimiento
         Me.Text = "frmAnalisisSeguimiento"
         Me.pnlContenedor.ResumeLayout(False)
         Me.pnlContenedor.PerformLayout()
-        CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
