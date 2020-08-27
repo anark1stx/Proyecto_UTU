@@ -17,6 +17,7 @@ Public Class frmMedico
 
     Dim frmCrear As New frmCrearFormulario
     Dim frmPlano As New formularioPlano
+    Dim frmCatalogo As New frmCatalogoFormulariosBD
 
     Dim generico As New frmGenerico
     Dim frmDlr As New frmDolor
@@ -115,7 +116,9 @@ Public Class frmMedico
 
                 frmPlano.Controls.Clear()
 
-                Dim controles = ImportarFormulario()
+                frmCatalogo.ShowDialog()
+
+                'Dim controles = ImportarFormulario()
 
                 'If controles.Count > 1 Then
                 '    For Each control As Control In controles
@@ -175,7 +178,7 @@ Public Class frmMedico
 
                 pac.buscarPorCI()
 
-                Dim a = pac.buscarAnalisis()
+                'Dim a = pac.buscarAnalisis()
 
                 frmAnalisisDatos._paciente = pac
                 addFrm(frmAnalisisDatos, 1)
