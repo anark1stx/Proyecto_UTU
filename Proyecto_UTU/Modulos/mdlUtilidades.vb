@@ -4,7 +4,7 @@ Module mdlUtilidades
 
     Public Function ImportarFormulario() As List(Of Control)
 
-        Dim abrirFormulario As New OpenFileDialog With {
+        Dim abrirFormulario As New OpenFileDialog With { 'Sustituir esto por un catalogo con los formularios que hay en la BD.
             .Filter = "XML|*.xml",
             .Title = "Abrir Formulario",
             .RestoreDirectory = True

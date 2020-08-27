@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Clases\MedicoUtils\Analisis.vb" />
     <Compile Include="Clases\MedicoUtils\Enfermedad.vb" />
+    <Compile Include="Clases\MedicoUtils\Formulario.vb" />
     <Compile Include="Clases\MedicoUtils\Tratamiento.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\ControlesGuardados.vb" />
     <Compile Include="Clases\Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
@@ -211,6 +212,12 @@
       <DependentUpon>frmDolor.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmDolor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.Designer.vb">
+      <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.Designer.vb">
@@ -388,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmDolor.resx">
       <DependentUpon>frmDolor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.resx">
+      <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.resx">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>

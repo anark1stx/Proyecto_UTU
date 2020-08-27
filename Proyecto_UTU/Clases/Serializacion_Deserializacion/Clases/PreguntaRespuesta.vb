@@ -1,7 +1,7 @@
 ﻿Public Class PreguntaRespuesta
     Protected _pregunta As Control
     Protected _respuesta As Control
-    Protected _tag As String
+    Protected _tag As String 'identificador interno del formulario, va desde 0 a n.
     Public Property Pregunta As Control
         Get
             Return _pregunta

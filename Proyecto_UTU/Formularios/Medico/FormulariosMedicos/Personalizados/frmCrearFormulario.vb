@@ -162,9 +162,10 @@
         settings.ShowDialog()
         _instancia.Text = TipoDeTxt.valorSeleccionado
         If settings.chkSoyPregunta.Checked Then
-            Dim pyr As New PreguntaRespuesta()
-            pyr.Pregunta = _instancia 'El paciente .....
-            pyr.Respuesta = _instancia 'Si/No checked/unchecked
+            Dim pyr As New PreguntaRespuesta With {
+                .Pregunta = _instancia, 'El paciente .....
+                .Respuesta = _instancia 'Si/No checked/unchecked
+                }
             frmPlano.PreguntasYRespuestas.Add(pyr)
         End If
         setType()
@@ -193,14 +194,19 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        If frmPlano.Controls.Count < 10 Then
-            MsgBox("Agregue más controles al formulario personalizado.")
-            Exit Sub
-        End If
-        Dim listaControles As New ControlesGuardados.ListaControles()
+        Select Case frmPlano.Controls.Count
+            Case < 10
+                MsgBox("Agregue más controles al formulario personalizado.")
+                Exit Sub
+            Case > 50
+                MsgBox("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.")
+                Exit Sub
+        End Select
+
         For Each i As Control In frmPlano.Controls
             controlesInstanciados.Add(i)
         Next
+
         Dim fbr As New FabricaDeControles()
         GuardarFormulario(fbr.Serializar(controlesInstanciados))
 
