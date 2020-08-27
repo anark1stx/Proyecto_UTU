@@ -1,4 +1,5 @@
-﻿Public Class formularioPlano
+﻿Imports FormulariosPersonalizados
+Public Class formularioPlano
     Public ubicacion_mouse As Point
     Public ctrl_seleccionado As Control
     Public PreguntasYRespuestas As New List(Of PreguntaRespuesta)

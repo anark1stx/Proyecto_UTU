@@ -1,4 +1,5 @@
-﻿Public Class frmCrearFormulario
+﻿Imports FormulariosPersonalizados
+Public Class frmCrearFormulario
 
     Dim _cursor As Cursor = Cursors.Hand
     Dim frmPlano As New formularioPlano

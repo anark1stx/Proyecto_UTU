@@ -1,4 +1,6 @@
-﻿Public Class PreguntaRespuesta
+﻿Imports System.Windows.Forms
+Imports System.Drawing
+Public Class PreguntaRespuesta
     Protected _pregunta As Control
     Protected _respuesta As Control
     Protected _tag As String 'identificador interno del formulario, va desde 0 a n.

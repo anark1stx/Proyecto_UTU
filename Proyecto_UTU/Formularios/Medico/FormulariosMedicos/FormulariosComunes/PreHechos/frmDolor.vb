@@ -103,11 +103,6 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        Dim fbr As New FabricaDeControles
-
-        Dim lista As New List(Of Control)(getCtrls(Me))
-
-        GuardarFormulario(fbr.Serializar(lista))
 
     End Sub
 

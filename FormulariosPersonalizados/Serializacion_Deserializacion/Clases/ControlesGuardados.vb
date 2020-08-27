@@ -1,4 +1,6 @@
-﻿<Serializable()>
+﻿Imports System.Windows.Forms
+Imports System.Drawing
+<Serializable()>
 Public Class ControlesGuardados
     <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button)), Xml.Serialization.XmlInclude(GetType(TableLayoutPanel))> 'Todos los controles que heredan directamente de SControl
     Public Class SControl 'Posicion, Nombre y tamaño son las unicas dos propiedades que vamos a tomar de todos los controles de forma obligatoria.

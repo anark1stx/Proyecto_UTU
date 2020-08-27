@@ -87,10 +87,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\MedicoUtils\Tratamiento.vb" />
-    <Compile Include="Clases\Serializacion_Deserializacion\Clases\ControlesGuardados.vb" />
-    <Compile Include="Clases\Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
-    <Compile Include="Clases\Serializacion_Deserializacion\Clases\PreguntaRespuesta.vb" />
-    <Compile Include="Clases\Serializacion_Deserializacion\XML\GestorXMLv2.vb" />
     <Compile Include="Clases\Usuarios\Medico.vb" />
     <Compile Include="Clases\Usuarios\Paciente.vb" />
     <Compile Include="Clases\Usuarios\Usuario.vb" />
@@ -483,6 +479,10 @@
     <ProjectReference Include="..\Entidades\Entidades.vbproj">
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulariosPersonalizados\FormulariosPersonalizados.vbproj">
+      <Project>{b5abbd55-bc6c-48db-9d57-784b1bce89eb}</Project>
+      <Name>FormulariosPersonalizados</Name>
     </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.vbproj">
       <Project>{c424e458-2687-4aee-bae4-b2a2fc18d00f}</Project>

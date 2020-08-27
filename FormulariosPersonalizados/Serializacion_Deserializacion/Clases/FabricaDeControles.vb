@@ -1,4 +1,6 @@
-﻿Public Class FabricaDeControles
+﻿Imports System.Windows.Forms
+Imports System.Drawing
+Public Class FabricaDeControles
     'Serializar recibe controles de windows forms, y los transforma a Controles de la clase ControlesGuardados.
     Function Serializar(controles As List(Of Control)) As ControlesGuardados.ListaControles 'Guardar como los types que cree en ControlesGuardados
 
