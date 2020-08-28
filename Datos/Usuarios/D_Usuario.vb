@@ -5,10 +5,10 @@ Imports ADODB.CommandTypeEnum
 Imports ADODB.ParameterDirectionEnum
 Public Class D_Usuario
     Dim conexion As New Connection
-    Public Overridable Function ListarUsuariosCI(ci As String) As E_Usuario
-        conexion.ConnectionString = retornarCString()
+    Public Function BuscarUsuariosCI(ci As String) As E_Usuario
         Dim leer As New Recordset
-
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -23,7 +23,7 @@ Public Class D_Usuario
 
         Dim u As New E_Usuario
 
-        While leer.EOF
+        While Not leer.EOF
             u = New E_Usuario With {
              .Cedula = leer("CI").Value,
              .Nombre1 = leer("nombre1").Value,
@@ -38,16 +38,43 @@ Public Class D_Usuario
             u.TelefonosLista.Add(leer("telefono").Value)
         End While
 
-        conexion.Close()
+
         leer.Close()
+        conexion.Close()
+
 
         Return u
     End Function
 
-    Public Overridable Sub AltaUsuario(u As E_Usuario)
+    Public Function UsuarioExiste(ci As String)
+        Dim leer As New Recordset
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.Open()
+
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "USUARIOEXISTE",
+            .ActiveConnection = conexion
+        }
+
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
+        cmd.Parameters.Append(cmd.CreateParameter("@EXISTE", adInteger, adParamOutput))
+
+        leer = cmd.Execute()
+
+        Dim existe = leer("@EXISTE").Value
+
+        leer.Close()
+        conexion.Close()
+
+        Return existe
+    End Function
+
+    Public Sub AltaUsuario(u As E_Usuario)
 
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -74,10 +101,10 @@ Public Class D_Usuario
 
     End Sub
 
-    Public Overridable Sub AltaUsuarioTelefono(u As E_Usuario)
+    Public Sub AltaUsuarioTelefono(u As E_Usuario)
 
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -95,9 +122,9 @@ Public Class D_Usuario
         conexion.Close()
     End Sub
 
-    Public Overridable Sub ModificarUsuario(u As E_Usuario)
+    Public Sub ModificarUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -121,9 +148,9 @@ Public Class D_Usuario
         conexion.Close()
     End Sub
 
-    Public Overridable Sub BajaLogicaUsuario(u As E_Usuario)
+    Public Sub BajaLogicaUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -137,9 +164,9 @@ Public Class D_Usuario
         conexion.Close()
     End Sub
 
-    Public Overridable Sub AltaLogicaUsuario(u As E_Usuario)
+    Public Sub AltaLogicaUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {

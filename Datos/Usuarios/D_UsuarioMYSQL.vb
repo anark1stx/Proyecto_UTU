@@ -57,6 +57,8 @@ Public Class D_UsuarioMYSQL
             .CommandType = adCmdStoredProc,
             .CommandText = "AltaUsuarioMYSQL"
         }
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
         cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, u.Nombre))
         cmd.Parameters.Append(cmd.CreateParameter("@CONTRASENA", adVarChar, adParamInput, 30, u.Contrasena))

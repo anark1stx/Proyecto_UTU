@@ -7,7 +7,9 @@ Public Class N_Paciente
     Public Function ListarUsuariosCI(CI As String)
         Return objDatos.ListarPacientesCI(CI)
     End Function
-
+    Public Function UsuarioExiste(CI As String)
+        Return objDatos.UsuarioExiste(CI)
+    End Function
     Public Sub AltaPaciente(u As E_Paciente)
         objDatos.AltaPaciente(u)
     End Sub

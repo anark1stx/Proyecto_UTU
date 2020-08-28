@@ -1,6 +1,7 @@
 ﻿Imports Entidades
 Imports Negocio
 Public Class frmDatosPacienteModificar
+    Public paciente As New N_Paciente
     Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
     Dim ci_valida As Boolean = 0
     Dim ci As String
@@ -64,8 +65,6 @@ Public Class frmDatosPacienteModificar
         Dim paciente As New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, CChar("a"))
 
         If altaOmod = 0 Then '0 = alta
-
-
 
         Else '1 = Mod
 
@@ -188,7 +187,7 @@ Public Class frmDatosPacienteModificar
             If ci_valida = False Then
                 MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                If check_UsuarioExiste("u" & ci) Then
+                If paciente.UsuarioExiste(ci) Then
                     ci_valida = False
                     MessageBox.Show(ElUsuarioYaExiste(), "Usuario ya registrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Else

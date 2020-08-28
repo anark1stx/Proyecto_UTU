@@ -6,7 +6,9 @@ Public Class N_Medico
     Public Function ListarUsuariosCI(CI As String)
         Return objDatos.ListarMedicosCI(CI)
     End Function
-
+    Public Function UsuarioExiste(CI As String)
+        Return objDatos.UsuarioExiste(CI)
+    End Function
     Public Sub AltaMedico(u As E_Medico)
         objDatos.AltaMedico(u)
     End Sub

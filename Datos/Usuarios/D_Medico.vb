@@ -8,9 +8,10 @@ Public Class D_Medico
 
     Public Function ListarMedicosCI(ci As String) As E_Medico
         conexion.ConnectionString = retornarCString()
-        Dim leer As New Recordset
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
+
+        Dim leer As New Recordset
 
         Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
@@ -40,16 +41,40 @@ Public Class D_Medico
 
         End While
 
-        conexion.Close()
         leer.Close()
+        conexion.Close()
 
         Return u
     End Function
 
-    Public Sub AltaMedico(u As E_Medico)
-
+    Public Function UsuarioExiste(ci As String)
+        Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.Open()
 
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "USUARIOEXISTE",
+            .ActiveConnection = conexion
+        }
+
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
+        cmd.Parameters.Append(cmd.CreateParameter("@EXISTE", adInteger, adParamOutput))
+
+        leer = cmd.Execute()
+
+        Dim existe = leer("@EXISTE").Value
+
+        leer.Close()
+        conexion.Close()
+
+        Return existe
+    End Function
+
+    Public Sub AltaMedico(u As E_Medico)
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -73,12 +98,13 @@ Public Class D_Medico
 
 
         cmd.Execute()
+
         conexion.Close()
     End Sub
 
     Public Sub AltaMedicoTelefono(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -98,7 +124,7 @@ Public Class D_Medico
 
     Public Sub AltaMedicoEspecialidad(u As E_Medico)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -118,7 +144,7 @@ Public Class D_Medico
 
     Public Sub ModificarUsuarioMedico(u As E_Medico)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -147,7 +173,7 @@ Public Class D_Medico
 
     Public Sub BajaLogicaUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -163,7 +189,7 @@ Public Class D_Medico
 
     Public Sub AltaLogicaUsuario(u As E_Medico)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {

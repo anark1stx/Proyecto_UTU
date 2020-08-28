@@ -6,9 +6,9 @@ Imports ADODB.ParameterDirectionEnum
 Public Class D_Paciente
     Dim conexion As New Connection
     Public Function ListarPacientesCI(ci As String) As E_Paciente
-        conexion.ConnectionString = retornarCString()
         Dim leer As New Recordset
-
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -23,7 +23,7 @@ Public Class D_Paciente
 
         Dim u As New E_Paciente
 
-        While leer.EOF
+        While Not leer.EOF
             u = New E_Paciente With {
              .Cedula = leer("CI").Value,
              .Nombre1 = leer("nombre1").Value,
@@ -47,9 +47,34 @@ Public Class D_Paciente
         Return u
     End Function
 
+    Public Function UsuarioExiste(ci As String)
+        Dim leer As New Recordset
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.Open()
+
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "USUARIOEXISTE",
+            .ActiveConnection = conexion
+        }
+
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput))
+
+        leer = cmd.Execute()
+
+        Dim existe = leer("EXISTE").Value
+
+        leer.Close()
+        conexion.Close()
+
+        Return existe
+    End Function
+
     Public Sub AltaPaciente(u As E_Paciente)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -79,7 +104,7 @@ Public Class D_Paciente
 
     Public Sub ModificarPaciente(u As E_Paciente)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -105,9 +130,9 @@ Public Class D_Paciente
         conexion.Close()
     End Sub
 
-    Public Overridable Sub BajaLogicaUsuario(u As E_Usuario)
+    Public Sub BajaLogicaUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -121,9 +146,9 @@ Public Class D_Paciente
         conexion.Close()
     End Sub
 
-    Public Overridable Sub AltaLogicaUsuario(u As E_Usuario)
+    Public Sub AltaLogicaUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {

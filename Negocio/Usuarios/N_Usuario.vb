@@ -5,7 +5,11 @@ Public Class N_Usuario
     Dim objDatos As New D_Usuario
 
     Public Overridable Function ListarUsuariosCI(CI As String)
-        Return objDatos.ListarUsuariosCI(CI)
+        Return objDatos.BuscarUsuariosCI(CI)
+    End Function
+
+    Public Function UsuarioExiste(CI As String)
+        Return objDatos.UsuarioExiste(CI)
     End Function
 
     Public Overridable Sub AltaUsuario(u As E_Usuario)
