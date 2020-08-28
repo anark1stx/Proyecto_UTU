@@ -1,7 +1,9 @@
-﻿Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
+﻿Imports Negocio
+Imports Entidades
+Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     Public modo As Integer = 0 '0 = consulta, 1 = ingreso
     Public AnalisisACargar As New Analisis
-    Public _paciente As New Paciente
+    Public _paciente As New E_Paciente
     Private Sub frmDatosAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim rowIndex As Integer = 0
 

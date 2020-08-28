@@ -1,5 +1,6 @@
 ﻿Imports System.Globalization
-
+Imports Entidades
+Imports Negocio
 Public Class frmMedico
 
     Dim frmIni As New frmInicio
@@ -26,7 +27,7 @@ Public Class frmMedico
 
     Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
 
-    Dim _paciente As New Paciente
+    Dim _paciente As New E_Paciente
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
@@ -172,11 +173,11 @@ Public Class frmMedico
                 'frmAnalisisDatos.AnalisisACargar = a
                 'frmAnalisisDatos._paciente = pac
 
-                Dim pac As New Paciente With {
+                Dim pac As New E_Paciente With {
                     .Cedula = frmAnalisisS.txtCedulaPaciente.Text
                 }
 
-                pac.buscarPorCI()
+                'pac.buscarPorCI()
 
                 'Dim a = pac.buscarAnalisis()
 
@@ -339,49 +340,49 @@ Public Class frmMedico
             If check_Cedula(frmIdentificacion.txtCIPaciente.Text) Then
                 _paciente.Cedula = frmIdentificacion.txtCIPaciente.Text
 
-                Dim datosP = _paciente.buscarPorCI()
+                ''Dim datosP = _paciente.buscarPorCI()
 
-                Select Case datosP
-                    Case 0
-                        MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        llenoIdentificacion = False
-                        frmIdentificacion.txtCIPaciente.Text = String.Empty
-                        Exit Sub
+                ''Select Case datosP
+                ''    Case 0
+                ''        MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ''        llenoIdentificacion = False
+                ''        frmIdentificacion.txtCIPaciente.Text = String.Empty
+                ''        Exit Sub
 
-                    Case 1
-                        frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
-                        frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
+                ''    Case 1
+                ''        frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
+                ''        frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
 
-                        frmIdentificacion.lblDireccionTXT.Text = String.Empty
-                        frmIdentificacion.lblTelefonoTXT.Text = String.Empty
+                ''        frmIdentificacion.lblDireccionTXT.Text = String.Empty
+                ''        frmIdentificacion.lblTelefonoTXT.Text = String.Empty
 
-                        For i = 0 To _paciente.direccion.Count - 1
-                            frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
-                        Next
+                ''        For i = 0 To _paciente.direccion.Count - 1
+                ''            frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
+                ''        Next
 
-                        For i = 0 To _paciente.telefonosLista.Count - 1
-                            frmIdentificacion.lblTelefonoTXT.Text &= (_paciente.telefonosLista(i) & ", ")
-                        Next
+                ''        For i = 0 To _paciente.telefonosLista.Count - 1
+                ''            frmIdentificacion.lblTelefonoTXT.Text &= (_paciente.telefonosLista(i) & ", ")
+                ''        Next
 
-                        frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
-                        frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
-                        frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
-                        frmIdentificacion.lblEdadTXT.Text = _paciente.FechaNacimiento
+                ''        frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
+                ''        frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
+                ''        frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
+                ''        frmIdentificacion.lblEdadTXT.Text = _paciente.FechaNacimiento
 
-                        For Each l As Control In frmIdentificacion.Controls
-                            If TypeOf l Is Label Then
-                                If l.Text.EndsWith(", ") Then
-                                    l.Text = l.Text.Substring(0, l.Text.LastIndexOf(","))
-                                End If
-                            End If
+                ''        For Each l As Control In frmIdentificacion.Controls
+                ''            If TypeOf l Is Label Then
+                ''                If l.Text.EndsWith(", ") Then
+                ''                    l.Text = l.Text.Substring(0, l.Text.LastIndexOf(","))
+                ''                End If
+                ''            End If
 
-                        Next
+                ''        Next
 
-                        frmIdentificacion.pBoxFotoPaciente.Image = Bytes2Image(_paciente.imagen)
+                ''        frmIdentificacion.pBoxFotoPaciente.Image = Bytes2Image(_paciente.imagen)
 
-                        llenoIdentificacion = True
+                ''        llenoIdentificacion = True
 
-                End Select
+                'End Select
             Else
                 MsgBox("Cédula inválida.", MessageBoxIcon.Error)
                 llenoIdentificacion = False

@@ -83,7 +83,4 @@
         Return String.Format("INSERT INTO tiene (ID_parametro,ID_analisis) VALUES ('{0}','{1}')", id_p, id_a)
     End Function
 
-
-
-
 End Module

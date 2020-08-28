@@ -1,4 +1,6 @@
-﻿Public Class frmDatosPacienteModificar
+﻿Imports Entidades
+Imports Negocio
+Public Class frmDatosPacienteModificar
     Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
     Dim ci_valida As Boolean = 0
     Dim ci As String
@@ -59,78 +61,88 @@
 
         End If
 
-        Dim paciente As New Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg)
+        Dim paciente As New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, CChar("a"))
 
-        If paciente.checkDatos() Then
+        If altaOmod = 0 Then '0 = alta
 
-            If paciente.checkDatosPaciente() Then
 
-                'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
-                If altaOmod = 0 Then '0 = alta
 
-                    Conectar()
-
-                    'mandar estos dos try a un método que lo haga 
-                    Try
-                        conn.Execute(CREATEUSER("u" & paciente.Cedula, paciente.Contrasena, "paciente"))
-                    Catch ex As Exception
-                        MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
-                        Exit Sub
-                    End Try
-
-                    Try
-                        conn.Execute(GRANTROLE("paciente", "u" & paciente.Cedula))
-                    Catch ex As Exception
-                        MsgBox("No se pudo dar ROL ")
-                        Exit Sub
-                    End Try
-
-                    'AGREGAR LA IMAGEN AL ALTA DEL USUARIO
-                    Try
-                        Dim sql = INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo)
-                        Console.WriteLine(sql)
-                        conn.Execute(sql)
-                    Catch ex As Exception
-                        MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
-                        Exit Sub
-                    End Try
-
-                    If Not pBoxFotoPaciente.Image Is Nothing Then
-                        Try
-                            rs.Open(SELECTSIBIMUSUARIO(paciente.Cedula), conn, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-                            rs("foto").AppendChunk(paciente.imagen)
-                            rs.Update()
-                        Catch ex As Exception
-                            MsgBox(ex.Message)
-                            Exit Sub
-                        End Try
-                    End If
-
-                    For Each t As String In paciente.telefonosLista
-                        Try
-                            conn.Execute(INSERTTELEFONO(paciente.Cedula, t))
-                        Catch ex As Exception
-                            MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
-                            Exit Sub
-                        End Try
-                    Next
-
-                    Try
-                        conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.FechaNacimiento, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
-                    Catch ex As Exception
-                        MsgBox("No se pudo ingresar el PACIENTE " & " " & ex.Message)
-                        Exit Sub
-                    End Try
-
-                    MessageBox.Show("El usuario fue ingresado con éxito.", "Operación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                Else ' hacer modificacion
-
-                End If
-
-            End If
+        Else '1 = Mod
 
         End If
+
+
+
+        '    If paciente.checkDatos() Then
+
+        '        If paciente.checkDatosPaciente() Then
+
+        '            'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
+        '            If altaOmod = 0 Then '0 = alta
+
+        '                Conectar()
+
+        '                'mandar estos dos try a un método que lo haga 
+        '                Try
+        '                    conn.Execute(CREATEUSER("u" & paciente.Cedula, paciente.Contrasena, "paciente"))
+        '                Catch ex As Exception
+        '                    MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
+        '                    Exit Sub
+        '                End Try
+
+        '                Try
+        '                    conn.Execute(GRANTROLE("paciente", "u" & paciente.Cedula))
+        '                Catch ex As Exception
+        '                    MsgBox("No se pudo dar ROL ")
+        '                    Exit Sub
+        '                End Try
+
+        '                'AGREGAR LA IMAGEN AL ALTA DEL USUARIO
+        '                Try
+        '                    Dim sql = INSERTUSUARIO(paciente.Cedula, paciente.Nombre1, paciente.Nombre2, paciente.Apellido1, paciente.Apellido2, paciente.direccion(0), paciente.direccion(1), correo)
+        '                    Console.WriteLine(sql)
+        '                    conn.Execute(sql)
+        '                Catch ex As Exception
+        '                    MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
+        '                    Exit Sub
+        '                End Try
+
+        '                If Not pBoxFotoPaciente.Image Is Nothing Then
+        '                    Try
+        '                        rs.Open(SELECTSIBIMUSUARIO(paciente.Cedula), conn, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        '                        rs("foto").AppendChunk(paciente.imagen)
+        '                        rs.Update()
+        '                    Catch ex As Exception
+        '                        MsgBox(ex.Message)
+        '                        Exit Sub
+        '                    End Try
+        '                End If
+
+        '                For Each t As String In paciente.telefonosLista
+        '                    Try
+        '                        conn.Execute(INSERTTELEFONO(paciente.Cedula, t))
+        '                    Catch ex As Exception
+        '                        MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
+        '                        Exit Sub
+        '                    End Try
+        '                Next
+
+        '                Try
+        '                    conn.Execute(INSERTPACIENTE(paciente.Cedula, paciente.FechaNacimiento, paciente.Estado_civil, paciente.Ocupacion, paciente.Sexo.Substring(0, 1)))
+        '                Catch ex As Exception
+        '                    MsgBox("No se pudo ingresar el PACIENTE " & " " & ex.Message)
+        '                    Exit Sub
+        '                End Try
+
+        '                MessageBox.Show("El usuario fue ingresado con éxito.", "Operación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        '            Else ' hacer modificacion
+
+        '            End If
+
+        '        End If
+
+        '    End If
 
     End Sub
 

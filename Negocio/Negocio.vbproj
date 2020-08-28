@@ -79,6 +79,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Usuarios\N_Medico.vb" />
+    <Compile Include="Usuarios\N_Paciente.vb" />
+    <Compile Include="Usuarios\N_Usuario.vb" />
+    <Compile Include="Usuarios\N_UsuarioMYSQL.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

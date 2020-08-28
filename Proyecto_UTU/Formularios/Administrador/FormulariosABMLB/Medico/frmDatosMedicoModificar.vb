@@ -60,69 +60,69 @@
 
         End If
 
-        Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades, arrImg)
+        'Dim medico As New Medico(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, especialidades, arrImg)
 
-        If medico.checkDatos() Then 'Datos de clase base Usuario
-            If medico.checkDatosMed() Then 'En el caso del medico, ademas de los datos de la clase base validamos especialidad
-                'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
+        'If medico.checkDatos() Then 'Datos de clase base Usuario
+        '    If medico.checkDatosMed() Then 'En el caso del medico, ademas de los datos de la clase base validamos especialidad
+        '        'Hacer alta o modificacion dependiendo de lo que haya seleccionado el administrador
 
-                If altaOmod = 0 Then 'Hacer alta
-                    Conectar()
+        '        If altaOmod = 0 Then 'Hacer alta
+        '            Conectar()
 
-                    Try
-                        conn.Execute(CREATEUSER("u" & medico.Cedula, medico.Contrasena, "medico"))
-                    Catch ex As Exception
-                        MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
-                        Exit Sub
-                    End Try
+        '            Try
+        '                conn.Execute(CREATEUSER("u" & medico.Cedula, medico.Contrasena, "medico"))
+        '            Catch ex As Exception
+        '                MsgBox("No se pudo ingresar el USER de MYSQL " & ex.Message)
+        '                Exit Sub
+        '            End Try
 
-                    Try
-                        conn.Execute(GRANTROLE("medico", "u" & medico.Cedula))
-                    Catch ex As Exception
-                        MsgBox("No se pudo dar ROL ")
-                        Exit Sub
-                    End Try
+        '            Try
+        '                conn.Execute(GRANTROLE("medico", "u" & medico.Cedula))
+        '            Catch ex As Exception
+        '                MsgBox("No se pudo dar ROL ")
+        '                Exit Sub
+        '            End Try
 
-                    Try
-                        conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo))
-                    Catch ex As Exception
-                        MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
-                        Exit Sub
-                    End Try
+        '            Try
+        '                conn.Execute(INSERTUSUARIO(medico.Cedula, medico.Nombre1, medico.Nombre2, medico.Apellido1, medico.Apellido2, medico.direccion(0), medico.direccion(1), correo))
+        '            Catch ex As Exception
+        '                MsgBox("No se pudo ingresar el USUARIO de SIBIM" & " " & ex.Message)
+        '                Exit Sub
+        '            End Try
 
-                    For Each t As String In medico.telefonosLista
-                        Try
-                            conn.Execute(INSERTTELEFONO(medico.Cedula, t))
-                        Catch ex As Exception
-                            MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
-                            Exit Sub
-                        End Try
-                    Next
+        '            For Each t As String In medico.telefonosLista
+        '                Try
+        '                    conn.Execute(INSERTTELEFONO(medico.Cedula, t))
+        '                Catch ex As Exception
+        '                    MsgBox("No se pudo ingresar el telefono:" & t & " " & ex.Message)
+        '                    Exit Sub
+        '                End Try
+        '            Next
 
-                    Try
-                        conn.Execute(INSERTMEDICO(medico.Cedula))
-                    Catch ex As Exception
-                        MsgBox("No se pudo ingresar el medico " & " " & ex.Message)
-                        Exit Sub
-                    End Try
+        '            Try
+        '                conn.Execute(INSERTMEDICO(medico.Cedula))
+        '            Catch ex As Exception
+        '                MsgBox("No se pudo ingresar el medico " & " " & ex.Message)
+        '                Exit Sub
+        '            End Try
 
-                    For Each esp As String In medico.Especialidad
+        '            For Each esp As String In medico.Especialidad
 
-                        Try
-                            conn.Execute(INSERTMEDICO_especialidad(medico.Cedula, esp))
-                        Catch ex As Exception
-                            MsgBox("No se pudo ingresar la especialidad " & esp & " " & ex.Message)
-                            Exit Sub
-                        End Try
+        '                Try
+        '                    conn.Execute(INSERTMEDICO_especialidad(medico.Cedula, esp))
+        '                Catch ex As Exception
+        '                    MsgBox("No se pudo ingresar la especialidad " & esp & " " & ex.Message)
+        '                    Exit Sub
+        '                End Try
 
-                    Next
+        '            Next
 
-                Else 'Hacer modificacion
+        '        Else 'Hacer modificacion
 
-                End If
-            End If
-        Else
-        End If
+        '        End If
+        '    End If
+        'Else
+        'End If
 
     End Sub
 

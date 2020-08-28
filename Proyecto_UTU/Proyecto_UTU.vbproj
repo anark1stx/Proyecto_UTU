@@ -52,6 +52,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -87,9 +88,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\MedicoUtils\Tratamiento.vb" />
-    <Compile Include="Clases\Usuarios\Medico.vb" />
-    <Compile Include="Clases\Usuarios\Paciente.vb" />
-    <Compile Include="Clases\Usuarios\Usuario.vb" />
     <Compile Include="Formularios\Administrador\frmInicioAdm.Designer.vb">
       <DependentUpon>frmInicioAdm.vb</DependentUpon>
     </Compile>
@@ -476,6 +474,10 @@
     <None Include="Resources\icons8-hospital-100.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.vbproj">
+      <Project>{aea63ad7-2215-41ff-bd7f-3566fd6c745d}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.vbproj">
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
