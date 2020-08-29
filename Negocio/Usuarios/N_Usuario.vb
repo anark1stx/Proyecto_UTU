@@ -8,13 +8,13 @@ Public Class N_Usuario
         Return objDatos.BuscarUsuariosCI(CI)
     End Function
 
-    Public Function UsuarioExiste(CI As String)
+    Public Function UsuarioExiste(CI As String) As Integer
         Return objDatos.UsuarioExiste(CI)
     End Function
 
-    Public Overridable Sub AltaUsuario(u As E_Usuario)
-        objDatos.AltaUsuario(u)
-    End Sub
+    Public Overridable Function AltaUsuario(u As E_Usuario) As Integer
+        Return objDatos.AltaUsuario(u)
+    End Function
 
     Public Overridable Sub ModificacionUsuario(u As E_Usuario)
         objDatos.ModificarUsuario(u)

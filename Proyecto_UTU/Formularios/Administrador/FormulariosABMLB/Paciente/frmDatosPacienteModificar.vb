@@ -1,7 +1,6 @@
 ﻿Imports Entidades
 Imports Negocio
 Public Class frmDatosPacienteModificar
-    Dim paciente As E_Paciente
     Public Npaciente As New N_Paciente
     Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
     Dim ci_valida As Boolean = 0
@@ -73,7 +72,7 @@ Public Class frmDatosPacienteModificar
 
         End If
 
-        Dim paciente = New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, "a"c)
+        Dim paciente = New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, "a"c, "paciente")
 
         If paciente.ValidarMisDatos() Then
             If altaOmod = 0 Then '0 = alta
@@ -84,8 +83,12 @@ Public Class frmDatosPacienteModificar
                         MessageBox.Show("El paciente no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Case 1
                         MessageBox.Show("Paciente ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        LimpiarControles(Me)
                     Case 2
                         MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Case 3
+                        MessageBox.Show("No se pudo ingresar el telefono " & paciente.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                 End Select
 
             Else '1 = Mod
@@ -266,7 +269,6 @@ Public Class frmDatosPacienteModificar
             Else
                 MessageBox.Show("Ese teléfono ya fue ingresado en la lista.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-
 
         End If
 

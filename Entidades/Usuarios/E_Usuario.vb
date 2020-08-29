@@ -1,7 +1,7 @@
 ﻿Public Class E_Usuario
+    Inherits E_UsuarioMYSQL
     Protected _errMsg As String
     Protected _cedula As Integer
-    Protected _contrasena As String
     Protected _nombre1 As String
     Protected _nombre2 As String
     Protected _apellido1 As String
@@ -15,13 +15,14 @@
 
     End Sub
 
-    Sub New(cedula As Integer, contrasena As String) 'CONSTRUCTOR PARA LOGIN
+    Sub New(cedula As Integer, contrasena As String, rol As String) 'CONSTRUCTOR PARA LOGIN
         _cedula = cedula
         _contrasena = contrasena
+        _rol = rol
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte())
+    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte(), rol As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -32,6 +33,7 @@
         _direccion = direccion
         _cedula = cedula
         _foto = imagen
+        _rol = rol
     End Sub
 
     'PROPIEDADES GET & SET
@@ -77,15 +79,6 @@
         End Get
         Set(ByVal value As String)
             _correo = value
-        End Set
-    End Property
-
-    Property Contrasena() As String
-        Get
-            Return (_contrasena)
-        End Get
-        Set(ByVal value As String)
-            _contrasena = value
         End Set
     End Property
 

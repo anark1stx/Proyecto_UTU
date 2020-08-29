@@ -64,19 +64,17 @@ Module mdlUtilidades
                 Case "ComboBox"
                     Dim cbox = DirectCast(control, ComboBox)
 
-                    If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
-                        control.ResetText()
+                    If cbox.Tag Is "datos" Then
+                        If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
+                            cbox.ResetText()
+                            cbox.Items.Clear()
+                        End If
+                        cbox.SelectedItem = Nothing
                     End If
-                    cbox.SelectedItem = Nothing
 
                 Case "CheckBox"
                     Dim chk = DirectCast(control, CheckBox)
-                    If chk.Checked Then
-                        Console.WriteLine("checked")
-                        chk.Checked = False
-                    Else
-                        Console.WriteLine("not checked")
-                    End If
+                    chk.Checked = False
 
                 Case "PictureBox"
                     Dim pbox = DirectCast(control, PictureBox)

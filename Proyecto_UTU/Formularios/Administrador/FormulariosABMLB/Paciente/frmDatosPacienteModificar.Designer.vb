@@ -343,6 +343,7 @@ Partial Class frmDatosPacienteModificar
         Me.cbTelefonos.Name = "cbTelefonos"
         Me.cbTelefonos.Size = New System.Drawing.Size(134, 26)
         Me.cbTelefonos.TabIndex = 259
+        Me.cbTelefonos.Tag = "datos"
         '
         'btnAgregarTelefono
         '
