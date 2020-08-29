@@ -32,10 +32,11 @@ Module mdlUtilidades
         Dim xmlstring As String = gestor.Serializar(lista_controles)
         archivo.LoadXml(xmlstring)
 
-        Dim guardarFormulario As New SaveFileDialog
-        guardarFormulario.Filter = "XML|*.xml"
-        guardarFormulario.Title = "Guardar Formulario"
-        guardarFormulario.RestoreDirectory = True
+        Dim guardarFormulario As New SaveFileDialog With {
+            .Filter = "XML|*.xml",
+            .Title = "Guardar Formulario",
+            .RestoreDirectory = True
+        }
 
         If guardarFormulario.ShowDialog() = DialogResult.OK Then
             Dim path As String = System.IO.Path.GetFullPath(guardarFormulario.FileName.ToString())

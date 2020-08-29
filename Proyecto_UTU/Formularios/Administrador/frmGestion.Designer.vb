@@ -94,11 +94,17 @@ Partial Class frmGestion
         '
         'dgwUsuarios
         '
+        Me.dgwUsuarios.AllowUserToAddRows = False
+        Me.dgwUsuarios.AllowUserToDeleteRows = False
+        Me.dgwUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgwUsuarios.Location = New System.Drawing.Point(0, 51)
         Me.dgwUsuarios.Name = "dgwUsuarios"
+        Me.dgwUsuarios.ReadOnly = True
+        Me.dgwUsuarios.RowHeadersVisible = False
         Me.dgwUsuarios.RowHeadersWidth = 51
         Me.dgwUsuarios.RowTemplate.Height = 24
+        Me.dgwUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgwUsuarios.Size = New System.Drawing.Size(1038, 325)
         Me.dgwUsuarios.TabIndex = 107
         '

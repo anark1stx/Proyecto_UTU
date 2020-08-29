@@ -3,75 +3,68 @@ Imports ADODB
 Imports ADODB.DataTypeEnum
 Imports ADODB.CommandTypeEnum
 Imports ADODB.ParameterDirectionEnum
+Imports ADODB.CursorLocationEnum
 Public Class D_Paciente
     Inherits D_Usuario
     Dim conexion As New Connection
     Public Function ListarPacientesCI(ci As String) As E_Paciente
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
-            .CommandText = "BuscarUSUARIOxCI",
+            .CommandText = "BuscarPACIENTExCI",
             .ActiveConnection = conexion
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
+        Dim intCI As Integer = Val(ci)
 
-        leer = cmd.Execute()
+        Dim u As New E_Paciente With {
+        .Cedula = intCI
+        }
 
-        Dim u As New E_Paciente
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, intCI))
+        Console.WriteLine("conexion : " & conexion.State)
+        Try
+            leer = cmd.Execute()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conexion.Close()
+            Return u
+        End Try
+        Console.WriteLine("cantidad " & leer.RecordCount)
 
-        While Not leer.EOF
+        Do While Not leer.EOF
             u = New E_Paciente With {
-             .Cedula = leer("CI").Value,
-             .Nombre1 = leer("nombre1").Value,
-             .Nombre2 = leer("nombre2").Value,
-             .Apellido1 = leer("apellido1").Value,
-             .Apellido2 = leer("apellido2").Value,
-             .Correo = leer("correo").Value,
-             .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
-             .Foto = leer("foto").Value,
-             .Estado_civil = leer("e_civil").Value,
-             .FechaNacimiento = leer("fecha_nac").Value,
-             .Ocupacion = leer("ocupacion").Value,
-             .Sexo = leer("sexo").Value
-            }
-            u.TelefonosLista.Add(leer("telefono").Value)
-        End While
+                 .Cedula = intCI,
+                 .Nombre1 = leer("nombre1").Value,
+                 .Nombre2 = leer("nombre2").Value,
+                 .Apellido1 = leer("apellido1").Value,
+                 .Apellido2 = leer("apellido2").Value,
+                 .Correo = leer("correo").Value,
+                 .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
+                 .Foto = leer("foto").Value,
+                 .Estado_civil = leer("e_civil").Value,
+                 .FechaNacimiento = leer("fecha_nac").Value,
+                 .Ocupacion = leer("ocupacion").Value,
+                 .Sexo = leer("sexo").Value
+                }
+            leer.MoveNext()
+        Loop
 
-        conexion.Close()
+        Dim lista As New List(Of String)
+
+        'lista.Add(leer("telefono").Value.ToString())
+
+        'u.TelefonosLista = lista
+        Console.WriteLine(u.Nombre1)
+        Console.WriteLine(u.Cedula)
         leer.Close()
+        conexion.Close()
 
         Return u
-    End Function
-
-    Public Function UsuarioExiste(ci As String) As Boolean
-        Dim leer As New Recordset
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "USUARIOEXISTE",
-            .ActiveConnection = conexion
-        }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
-        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput))
-
-        leer = cmd.Execute()
-
-
-        Dim existe As Boolean = leer("EXISTE").Value
-
-        leer.Close()
-        conexion.Close()
-
-        Return existe
     End Function
 
     Public Function AltaPaciente(u As E_Paciente) As Integer
