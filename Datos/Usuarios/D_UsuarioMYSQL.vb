@@ -52,32 +52,31 @@ Public Class D_UsuarioMYSQL
     End Function
 
     Public Overridable Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
-        Return 1
 
-        'conexion.ConnectionString = retornarCString()
-        'conexion.CursorLocation = CursorLocationEnum.adUseClient
-        'conexion.Open()
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.Open()
 
-        'Dim cmd As New Command With {
-        '    .CommandType = adCmdStoredProc,
-        '    .CommandText = "AltaUsuarioMYSQL",
-        '    .ActiveConnection = conexion
-        '}
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "AltaUsuarioMYSQL",
+            .ActiveConnection = conexion
+        }
 
 
-        'cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, u.Nombre))
-        'cmd.Parameters.Append(cmd.CreateParameter("@CONTRASENA", adVarChar, adParamInput, 30, u.Contrasena))
-        'cmd.Parameters.Append(cmd.CreateParameter("@ROL", adVarChar, adParamInput, 30, u.Rol))
+        cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, u.Nombre))
+        cmd.Parameters.Append(cmd.CreateParameter("@CONTRASENA", adVarChar, adParamInput, 30, u.Contrasena))
+        cmd.Parameters.Append(cmd.CreateParameter("@ROL", adVarChar, adParamInput, 30, u.Rol))
 
-        'Try
-        '    cmd.Execute()
-        '    conexion.Close()
-        '    Return 1
-        'Catch ex As Exception
-        '    Console.WriteLine(ex.Message)
-        '    conexion.Close()
-        '    Return 0
-        'End Try
+        Try
+            cmd.Execute()
+            conexion.Close()
+            Return 1
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            conexion.Close()
+            Return 0
+        End Try
 
     End Function
 
