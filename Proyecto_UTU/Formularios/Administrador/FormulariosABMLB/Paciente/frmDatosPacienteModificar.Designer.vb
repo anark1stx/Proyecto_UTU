@@ -24,7 +24,6 @@ Partial Class frmDatosPacienteModificar
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDatosPacienteModificar))
-        Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.txtOcupacion = New System.Windows.Forms.TextBox()
         Me.txtApellido1 = New System.Windows.Forms.TextBox()
@@ -54,16 +53,11 @@ Partial Class frmDatosPacienteModificar
         Me.cbSexo = New System.Windows.Forms.ComboBox()
         Me.cb_e_civil = New System.Windows.Forms.ComboBox()
         Me.dateFechaNacimiento = New System.Windows.Forms.DateTimePicker()
+        Me.cbTelefonos = New System.Windows.Forms.ComboBox()
+        Me.btnAgregarTelefono = New System.Windows.Forms.Button()
+        Me.btnSacarTelefono = New System.Windows.Forms.Button()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'txtTelefono
-        '
-        Me.txtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTelefono.Location = New System.Drawing.Point(813, 131)
-        Me.txtTelefono.Name = "txtTelefono"
-        Me.txtTelefono.Size = New System.Drawing.Size(204, 27)
-        Me.txtTelefono.TabIndex = 196
         '
         'txtDireccion
         '
@@ -172,9 +166,9 @@ Partial Class frmDatosPacienteModificar
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTelefono.Location = New System.Drawing.Point(672, 134)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(90, 24)
+        Me.lblTelefono.Size = New System.Drawing.Size(99, 24)
         Me.lblTelefono.TabIndex = 180
-        Me.lblTelefono.Text = "Teléfono:"
+        Me.lblTelefono.Text = "Teléfonos:"
         '
         'lblApellido1
         '
@@ -341,12 +335,46 @@ Partial Class frmDatosPacienteModificar
         Me.dateFechaNacimiento.TabIndex = 258
         Me.dateFechaNacimiento.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
         '
+        'cbTelefonos
+        '
+        Me.cbTelefonos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbTelefonos.FormattingEnabled = True
+        Me.cbTelefonos.Location = New System.Drawing.Point(813, 131)
+        Me.cbTelefonos.Name = "cbTelefonos"
+        Me.cbTelefonos.Size = New System.Drawing.Size(134, 26)
+        Me.cbTelefonos.TabIndex = 259
+        '
+        'btnAgregarTelefono
+        '
+        Me.btnAgregarTelefono.BackgroundImage = CType(resources.GetObject("btnAgregarTelefono.BackgroundImage"), System.Drawing.Image)
+        Me.btnAgregarTelefono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAgregarTelefono.ImageIndex = 0
+        Me.btnAgregarTelefono.Location = New System.Drawing.Point(953, 131)
+        Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
+        Me.btnAgregarTelefono.Size = New System.Drawing.Size(29, 27)
+        Me.btnAgregarTelefono.TabIndex = 260
+        Me.btnAgregarTelefono.UseVisualStyleBackColor = True
+        '
+        'btnSacarTelefono
+        '
+        Me.btnSacarTelefono.BackgroundImage = CType(resources.GetObject("btnSacarTelefono.BackgroundImage"), System.Drawing.Image)
+        Me.btnSacarTelefono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSacarTelefono.ImageIndex = 0
+        Me.btnSacarTelefono.Location = New System.Drawing.Point(988, 131)
+        Me.btnSacarTelefono.Name = "btnSacarTelefono"
+        Me.btnSacarTelefono.Size = New System.Drawing.Size(29, 27)
+        Me.btnSacarTelefono.TabIndex = 261
+        Me.btnSacarTelefono.UseVisualStyleBackColor = True
+        '
         'frmDatosPacienteModificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1038, 238)
+        Me.Controls.Add(Me.btnSacarTelefono)
+        Me.Controls.Add(Me.btnAgregarTelefono)
+        Me.Controls.Add(Me.cbTelefonos)
         Me.Controls.Add(Me.dateFechaNacimiento)
         Me.Controls.Add(Me.cb_e_civil)
         Me.Controls.Add(Me.cbSexo)
@@ -360,7 +388,6 @@ Partial Class frmDatosPacienteModificar
         Me.Controls.Add(Me.lblNombre2)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtOcupacion)
         Me.Controls.Add(Me.txtApellido1)
@@ -384,8 +411,6 @@ Partial Class frmDatosPacienteModificar
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents txtTelefono As TextBox
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents txtOcupacion As TextBox
     Friend WithEvents txtApellido1 As TextBox
@@ -415,4 +440,7 @@ Partial Class frmDatosPacienteModificar
     Friend WithEvents cbSexo As ComboBox
     Friend WithEvents cb_e_civil As ComboBox
     Friend WithEvents dateFechaNacimiento As DateTimePicker
+    Friend WithEvents cbTelefonos As ComboBox
+    Friend WithEvents btnAgregarTelefono As Button
+    Friend WithEvents btnSacarTelefono As Button
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports Entidades
 Imports Negocio
 Public Class frmDatosPacienteModificar
+    Dim paciente As E_Paciente
     Public Npaciente As New N_Paciente
     Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
     Dim ci_valida As Boolean = 0
@@ -39,17 +40,22 @@ Public Class frmDatosPacienteModificar
 
         Dim direccion As New List(Of String)(txtDireccion.Text.Split(","))
         For i = 0 To direccion.Count - 1
-
             direccion(i) = RemoverEspacios(direccion(i))
-
         Next
 
-        Dim telefonos As New List(Of String)(txtTelefono.Text.Split(","))
+        If cbTelefonos.Items.Count < 1 Then
+            MessageBox.Show("Ingrese al menos un telefono de contacto.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        Dim telefonos As New List(Of String)
+        For Each t As String In cbTelefonos.Items
+            telefonos.Add(t)
+        Next
+
 
         For i = 0 To telefonos.Count - 1
-
             telefonos(i) = RemoverEspacios(telefonos(i))
-
         Next
 
         Dim arrImg() As Byte = {}
@@ -67,7 +73,7 @@ Public Class frmDatosPacienteModificar
 
         End If
 
-        Dim paciente As New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, "a"c)
+        Dim paciente = New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, "a"c)
 
         If paciente.ValidarMisDatos() Then
             If altaOmod = 0 Then '0 = alta
@@ -243,4 +249,36 @@ Public Class frmDatosPacienteModificar
         End Try
     End Sub
 
+    Private Sub btnAgregarTelefono_Click(sender As Object, e As EventArgs) Handles btnAgregarTelefono.Click
+
+        If cbTelefonos.Text Is String.Empty Then
+            MessageBox.Show("Escriba el teléfono que desea ingresar.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        If Not check_Telefonos(New List(Of String)(New String() {cbTelefonos.Text})) Then
+            MessageBox.Show("Teléfono inválido.", "Información errónea", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        Else
+
+            If cbTelefonos.Items.IndexOf(cbTelefonos.Text) < 0 Then
+                cbTelefonos.Items.Add(cbTelefonos.Text)
+            Else
+                MessageBox.Show("Ese teléfono ya fue ingresado en la lista.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+
+        End If
+
+    End Sub
+
+    Private Sub btnSacarTelefono_Click(sender As Object, e As EventArgs) Handles btnSacarTelefono.Click
+        If cbTelefonos.Text Is String.Empty Then
+            MessageBox.Show("Seleccione el teléfono que desea remover.", "Falta seleccionar elemento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        cbTelefonos.Items.Remove(cbTelefonos.Text)
+
+    End Sub
 End Class
