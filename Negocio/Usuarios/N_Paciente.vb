@@ -10,9 +10,9 @@ Public Class N_Paciente
     Public Function UsuarioExiste(CI As String)
         Return objDatos.UsuarioExiste(CI)
     End Function
-    Public Sub AltaPaciente(u As E_Paciente)
-        objDatos.AltaPaciente(u)
-    End Sub
+    Public Function AltaPaciente(u As E_Paciente) As Integer
+        Return objDatos.AltaPaciente(u)
+    End Function
 
     Public Sub ModificacionPaciente(u As E_Paciente)
         objDatos.ModificarPaciente(u)

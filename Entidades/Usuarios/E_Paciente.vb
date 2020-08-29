@@ -73,4 +73,21 @@
         End Set
     End Property
 
+    Public Overrides Function ValidarMisDatos() As Boolean
+
+        If Not MyBase.ValidarMisDatos() Then
+            _errMsg = MyBase.ErrMsg
+            Return 0
+        Else
+            If Not check_Largo(Me._ocupacion, 5, 30, True) Then
+                _errMsg = "Ocupación: " & MensajeDeErrorLongitud(5, 30)
+                Return 0
+            End If
+
+            Return 1
+        End If
+
+    End Function
+
+
 End Class

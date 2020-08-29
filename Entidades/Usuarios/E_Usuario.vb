@@ -1,4 +1,5 @@
 ﻿Public Class E_Usuario
+    Protected _errMsg As String
     Protected _cedula As Integer
     Protected _contrasena As String
     Protected _nombre1 As String
@@ -132,4 +133,84 @@
             _activo = value
         End Set
     End Property
+
+    Property ErrMsg As String
+        Get
+            Return _errMsg
+        End Get
+        Set(value As String)
+            _errMsg = value
+        End Set
+    End Property
+
+    Public Overridable Function ValidarMisDatos() As Boolean
+        If Not check_Cedula(Me.Cedula) Then
+            _errMsg = MensajeDeErrorCedula()
+            Return 0
+        End If
+
+        If Not check_Largo(Me.Nombre1, 3, 30, True) Then
+            _errMsg = "1° Nombre: " & MensajeDeErrorLongitud(3, 30)
+            Return 0
+        Else
+            If check_contieneNumeros(Me.Nombre1) Then
+                _errMsg = "1° Nombre: " & MensajeDeErrorsoloLetras()
+                Return 0
+            End If
+        End If
+
+        If Not check_Largo(Me.Nombre2, 3, 30, False) Then
+            _errMsg = "2° Nombre: " & MensajeDeErrorLongitud(3, 30)
+            Return 0
+        Else
+            If check_contieneNumeros(Me.Nombre2) Then
+                _errMsg = "2° Nombre: " & MensajeDeErrorsoloLetras()
+                Return 0
+            End If
+        End If
+
+        If Not check_Largo(Me.Apellido1, 3, 30, True) Then
+            _errMsg = "1° Apellido: " & MensajeDeErrorLongitud(3, 30)
+            Return 0
+        Else
+            If check_contieneNumeros(Me.Apellido1) Then
+                _errMsg = "1° Apellido: " & MensajeDeErrorsoloLetras()
+                Return 0
+            End If
+        End If
+
+        If Not check_Largo(Me.Apellido2, 3, 30, False) Then
+            _errMsg = "2° Apellido: " & MensajeDeErrorLongitud(3, 30)
+            Return 0
+        Else
+            If check_contieneNumeros(Me.Apellido2) Then
+                _errMsg = "2° Apellido: " & MensajeDeErrorsoloLetras()
+                Return 0
+            End If
+        End If
+
+        If Not check_Correo(Me.Correo) Then
+            _errMsg = "Correo: " & MensajeDeErrorCorreo()
+            Return 0
+        End If
+
+        If Not check_Telefonos(Me.TelefonosLista()) Then
+            _errMsg = "Teléfonos: " & MensajeDeErrorTelefonos()
+            Return 0
+        End If
+
+        If Not check_direccion(Me.Direccion) Then
+            _errMsg = "Dirección: " & MensajeDeErrorDireccion()
+            Return 0
+        End If
+
+        If Not check_Largo(Me.Contrasena, 8, 30, True) Then
+            _errMsg = "Contraseña: " & MensajeDeErrorLongitud(8, 30)
+            Return 0
+        End If
+
+        Return 1
+
+    End Function
+
 End Class

@@ -74,7 +74,7 @@ Public Class D_Paciente
         Return existe
     End Function
 
-    Public Sub AltaPaciente(u As E_Paciente)
+    Public Function AltaPaciente(u As E_Paciente) As Integer
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, "paciente")
         If MyBase.AltaUsuario(mysqlUser) = 1 Then
             conexion.ConnectionString = retornarCString()
@@ -104,11 +104,20 @@ Public Class D_Paciente
             cmd.Parameters.Append(cmd.CreateParameter("@FECHA_NAC", adDBDate, adParamInput, 50, u.FechaNacimiento))
             cmd.Parameters.Append(cmd.CreateParameter("@ETAPA", adChar, adParamInput, 1, u.Etapa.ToString()))
             cmd.Parameters.Append(cmd.CreateParameter("@SEXO", adChar, adParamInput, 1, u.Sexo.ToString()))
-            cmd.Execute()
-            conexion.Close()
+
+            Try
+                cmd.Execute()
+                Return 1 'Exito
+                conexion.Close()
+            Catch ex As Exception
+                Return 0 'No se pudo crear paciente
+                conexion.Close()
+            End Try
+        Else
+            Return 2 'No se pudo crear usuario mysql
         End If
 
-    End Sub
+    End Function
 
     Public Sub ModificarPaciente(u As E_Paciente)
         conexion.ConnectionString = retornarCString()

@@ -6,19 +6,16 @@ Public Class frmDatosPacienteModificar
     Dim ci_valida As Boolean = 0
     Dim ci As String
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-
         LimpiarControles(Me)
-
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
-        If altaOmod = 1 Then
-            If txtCedula.Text = String.Empty Then
-                MsgBox("Seleccione un usuario de la tabla primero.")
-                Exit Sub
-            End If
+        If Not ci_valida Then
+            MessageBox.Show("Ingrese los datos del usuario para efectuar la acción.", "Falta guardar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
         End If
+
 
         Dim cedula As Integer = Val(txtCedula.Text)
         Dim nombre1 As String = txtNombre1.Text
@@ -72,13 +69,28 @@ Public Class frmDatosPacienteModificar
 
         Dim paciente As New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, "a"c)
 
-        'paciente.ValidarMisDatos()
+        If paciente.ValidarMisDatos() Then
+            If altaOmod = 0 Then '0 = alta
+                Dim resultadoCMD = Npaciente.AltaPaciente(paciente)
 
-        If altaOmod = 0 Then '0 = alta
-            Npaciente.AltaPaciente(paciente)
-        Else '1 = Mod
+                Select Case resultadoCMD
+                    Case 0
+                        MessageBox.Show("El paciente no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Case 1
+                        MessageBox.Show("Paciente ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Case 2
+                        MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Select
 
+            Else '1 = Mod
+
+            End If
+        Else
+            MessageBox.Show(paciente.ErrMsg, "Ingreso de información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
         End If
+
+
 
         '    If paciente.checkDatos() Then
 
@@ -155,6 +167,8 @@ Public Class frmDatosPacienteModificar
 
     Private Sub frmDatosPacienteModificar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiarControles(Me)
+        cbSexo.SelectedIndex = 0
+        cb_e_civil.SelectedIndex = 0
         configurarControles()
     End Sub
 
