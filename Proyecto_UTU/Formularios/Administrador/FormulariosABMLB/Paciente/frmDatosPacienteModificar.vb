@@ -1,7 +1,7 @@
 ﻿Imports Entidades
 Imports Negocio
 Public Class frmDatosPacienteModificar
-    Public paciente As New N_Paciente
+    Public Npaciente As New N_Paciente
     Public altaOmod As Integer = 0 '0 es para alta, 1 para modificacion
     Dim ci_valida As Boolean = 0
     Dim ci As String
@@ -20,7 +20,7 @@ Public Class frmDatosPacienteModificar
             End If
         End If
 
-        Dim cedula As String = txtCedula.Text
+        Dim cedula As Integer = Val(txtCedula.Text)
         Dim nombre1 As String = txtNombre1.Text
         Dim nombre2 As String = txtNombre2.Text
         Dim apellido1 As String = txtApellido1.Text
@@ -28,7 +28,15 @@ Public Class frmDatosPacienteModificar
         Dim correo As String = txtCorreo.Text
         Dim contrasena As String = txtContrasena.Text
         Dim fechaNacimiento As String = dateFechaNacimiento.Value.ToString("yyyy-MM-dd")
-        Dim sexo As String = cbSexo.SelectedItem
+
+        Dim sexo As Char
+        Select Case cbSexo.SelectedItem.ToString()
+            Case "Masculino"
+                sexo = "M"c
+            Case Else
+                sexo = "F"c
+        End Select
+
         Dim ocupacion As String = txtOcupacion.Text
         Dim e_civil As String = cb_e_civil.SelectedItem
 
@@ -62,15 +70,15 @@ Public Class frmDatosPacienteModificar
 
         End If
 
-        Dim paciente As New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, CChar("a"))
+        Dim paciente As New E_Paciente(cedula, nombre1, nombre2, apellido1, apellido2, direccion, telefonos, correo, contrasena, fechaNacimiento, sexo, ocupacion, e_civil, arrImg, "a"c)
+
+        'paciente.ValidarMisDatos()
 
         If altaOmod = 0 Then '0 = alta
-
+            Npaciente.AltaPaciente(paciente)
         Else '1 = Mod
 
         End If
-
-
 
         '    If paciente.checkDatos() Then
 
@@ -187,7 +195,7 @@ Public Class frmDatosPacienteModificar
             If ci_valida = False Then
                 MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                If paciente.UsuarioExiste(ci) Then
+                If Npaciente.UsuarioExiste(ci) Then
                     ci_valida = False
                     MessageBox.Show(ElUsuarioYaExiste(), "Usuario ya registrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Else

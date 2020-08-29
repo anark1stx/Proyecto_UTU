@@ -1,7 +1,7 @@
 ﻿Public Class E_Paciente
     Inherits E_Usuario
     Protected _fechaNacimiento As String
-    Protected _sexo As String
+    Protected _sexo As Char
     Protected _ocupacion As String
     Protected _estado_civil As String
     Protected _etapa As Char
@@ -10,7 +10,7 @@
 
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As String, ocupacion As String, estado_civil As String, foto As Byte(), etapa As Char)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As Char, ocupacion As String, estado_civil As String, foto As Byte(), etapa As Char)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -37,11 +37,11 @@
         End Set
     End Property
 
-    Property Sexo() As String
+    Property Sexo() As Char
         Get
             Return (_sexo)
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Char)
             _sexo = value
         End Set
     End Property
@@ -64,7 +64,7 @@
         End Set
     End Property
 
-    Protected Property Etapa As Char
+    Property Etapa As Char
         Get
             Return _etapa
         End Get

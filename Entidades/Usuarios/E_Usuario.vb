@@ -1,5 +1,5 @@
 ﻿Public Class E_Usuario
-    Protected _cedula As String
+    Protected _cedula As Integer
     Protected _contrasena As String
     Protected _nombre1 As String
     Protected _nombre2 As String
@@ -14,13 +14,13 @@
 
     End Sub
 
-    Sub New(cedula As String, contrasena As String) 'CONSTRUCTOR PARA LOGIN
+    Sub New(cedula As Integer, contrasena As String) 'CONSTRUCTOR PARA LOGIN
         _cedula = cedula
         _contrasena = contrasena
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte())
+    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte())
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -97,11 +97,11 @@
         End Set
     End Property
 
-    Property Cedula() As String
+    Property Cedula() As Integer
         Get
             Return (_cedula)
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _cedula = value
         End Set
     End Property
