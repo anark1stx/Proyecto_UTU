@@ -73,7 +73,7 @@ Public Class D_Paciente
         Select Case code
             Case 1
                 conexion.ConnectionString = retornarCString()
-                conexion.CursorLocation = CursorLocationEnum.adUseClient
+                conexion.CursorLocation = adUseClient
                 conexion.Open()
 
                 Dim cmd As New Command With {
@@ -104,7 +104,7 @@ Public Class D_Paciente
 
     Public Sub ModificarPaciente(u As E_Paciente)
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -130,36 +130,5 @@ Public Class D_Paciente
         conexion.Close()
     End Sub
 
-    Public Sub BajaLogicaUsuario(u As E_Usuario)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "BajaLogicaUsuario",
-            .ActiveConnection = conexion
-        }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-        cmd.Execute()
-        conexion.Close()
-    End Sub
-
-    Public Sub AltaLogicaUsuario(u As E_Usuario)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "AltaLogicaUsuario",
-            .ActiveConnection = conexion
-        }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-        cmd.Execute()
-        conexion.Close()
-    End Sub
 
 End Class

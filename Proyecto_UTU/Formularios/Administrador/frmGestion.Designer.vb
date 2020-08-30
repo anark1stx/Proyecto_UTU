@@ -69,9 +69,10 @@ Partial Class frmGestion
         Me.pnlBusqueda = New System.Windows.Forms.Panel()
         Me.rBtnApellido = New System.Windows.Forms.RadioButton()
         Me.rBtnCedula = New System.Windows.Forms.RadioButton()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
+        Me.rBtnEspecialidad = New System.Windows.Forms.RadioButton()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
         Me.pnlEspecialidadesBtns.SuspendLayout()
@@ -79,7 +80,7 @@ Partial Class frmGestion
         CType(Me.pBoxFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedorBusqueda.SuspendLayout()
         Me.pnlBusqueda.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Accion1
@@ -361,7 +362,7 @@ Partial Class frmGestion
         '
         Me.lblEtapa.AutoSize = True
         Me.lblEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEtapa.Location = New System.Drawing.Point(669, 143)
+        Me.lblEtapa.Location = New System.Drawing.Point(669, 150)
         Me.lblEtapa.Name = "lblEtapa"
         Me.lblEtapa.Size = New System.Drawing.Size(63, 24)
         Me.lblEtapa.TabIndex = 398
@@ -371,7 +372,7 @@ Partial Class frmGestion
         '
         Me.lblEstadoCivil.AutoSize = True
         Me.lblEstadoCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoCivil.Location = New System.Drawing.Point(669, 73)
+        Me.lblEstadoCivil.Location = New System.Drawing.Point(670, 80)
         Me.lblEstadoCivil.Name = "lblEstadoCivil"
         Me.lblEstadoCivil.Size = New System.Drawing.Size(109, 24)
         Me.lblEstadoCivil.TabIndex = 397
@@ -391,7 +392,7 @@ Partial Class frmGestion
         '
         Me.lblSexo.AutoSize = True
         Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(669, 39)
+        Me.lblSexo.Location = New System.Drawing.Point(669, 46)
         Me.lblSexo.Name = "lblSexo"
         Me.lblSexo.Size = New System.Drawing.Size(59, 24)
         Me.lblSexo.TabIndex = 395
@@ -545,7 +546,7 @@ Partial Class frmGestion
         'pnlContenedorBusqueda
         '
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnlBusqueda)
-        Me.pnlContenedorBusqueda.Controls.Add(Me.DataGridView1)
+        Me.pnlContenedorBusqueda.Controls.Add(Me.dgwUsuarios)
         Me.pnlContenedorBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(0, 305)
         Me.pnlContenedorBusqueda.Name = "pnlContenedorBusqueda"
@@ -554,9 +555,10 @@ Partial Class frmGestion
         '
         'pnlBusqueda
         '
+        Me.pnlBusqueda.Controls.Add(Me.rBtnEspecialidad)
         Me.pnlBusqueda.Controls.Add(Me.rBtnApellido)
         Me.pnlBusqueda.Controls.Add(Me.rBtnCedula)
-        Me.pnlBusqueda.Controls.Add(Me.Button1)
+        Me.pnlBusqueda.Controls.Add(Me.btnBuscar)
         Me.pnlBusqueda.Controls.Add(Me.txtBusqueda)
         Me.pnlBusqueda.Location = New System.Drawing.Point(12, 3)
         Me.pnlBusqueda.Name = "pnlBusqueda"
@@ -587,15 +589,15 @@ Partial Class frmGestion
         Me.rBtnCedula.Text = "Cédula"
         Me.rBtnCedula.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnBuscar
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button1.Location = New System.Drawing.Point(990, 10)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(45, 34)
-        Me.Button1.TabIndex = 356
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBuscar.Location = New System.Drawing.Point(990, 10)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(45, 34)
+        Me.btnBuscar.TabIndex = 356
+        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'txtBusqueda
         '
@@ -605,15 +607,27 @@ Partial Class frmGestion
         Me.txtBusqueda.Size = New System.Drawing.Size(207, 34)
         Me.txtBusqueda.TabIndex = 0
         '
-        'DataGridView1
+        'dgwUsuarios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(11, 56)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1039, 272)
-        Me.DataGridView1.TabIndex = 6
+        Me.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgwUsuarios.Location = New System.Drawing.Point(11, 56)
+        Me.dgwUsuarios.Name = "dgwUsuarios"
+        Me.dgwUsuarios.RowHeadersWidth = 51
+        Me.dgwUsuarios.RowTemplate.Height = 24
+        Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 272)
+        Me.dgwUsuarios.TabIndex = 6
+        '
+        'rBtnEspecialidad
+        '
+        Me.rBtnEspecialidad.AutoSize = True
+        Me.rBtnEspecialidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rBtnEspecialidad.Location = New System.Drawing.Point(399, 15)
+        Me.rBtnEspecialidad.Name = "rBtnEspecialidad"
+        Me.rBtnEspecialidad.Size = New System.Drawing.Size(144, 29)
+        Me.rBtnEspecialidad.TabIndex = 359
+        Me.rBtnEspecialidad.TabStop = True
+        Me.rBtnEspecialidad.Text = "Especialidad"
+        Me.rBtnEspecialidad.UseVisualStyleBackColor = True
         '
         'frmGestion
         '
@@ -636,7 +650,7 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda.ResumeLayout(False)
         Me.pnlBusqueda.ResumeLayout(False)
         Me.pnlBusqueda.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -647,9 +661,9 @@ Partial Class frmGestion
     Friend WithEvents pnlBusqueda As Panel
     Friend WithEvents rBtnApellido As RadioButton
     Friend WithEvents rBtnCedula As RadioButton
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnBuscar As Button
     Friend WithEvents txtBusqueda As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgwUsuarios As DataGridView
     Friend WithEvents pnlDspCedula As Panel
     Friend WithEvents pnlEspecialidadesBtns As Panel
     Friend WithEvents btnBorrarEspecialidad As Button
@@ -688,4 +702,5 @@ Partial Class frmGestion
     Friend WithEvents lblApellido2 As Label
     Friend WithEvents lblCedulaTXT As TextBox
     Friend WithEvents lblCedula As Label
+    Friend WithEvents rBtnEspecialidad As RadioButton
 End Class

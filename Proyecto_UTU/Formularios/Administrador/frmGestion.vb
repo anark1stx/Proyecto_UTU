@@ -49,7 +49,7 @@
 
     ReadOnly Property BASEcontrolesM As List(Of Control)
         Get
-            Return New List(Of Control)(New Control() {lblEspecialidades, cbEspecialidades, pnlEspecialidadesBtns})
+            Return New List(Of Control)(New Control() {lblEspecialidades, cbEspecialidades, pnlEspecialidadesBtns, rBtnEspecialidad})
         End Get
     End Property
 
@@ -81,12 +81,11 @@
     End Property
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        RRefresh()
         setup()
     End Sub
 
     Sub setup()
-        LimpiarControles(Me)
+        RRefresh()
         cambiarVisibilidad()
         resetMode()
         ConvertirProps()
@@ -221,6 +220,7 @@
         ControlesMedico = BASEcontrolesM
         ControlesPaciente = BASEcontrolesP
         ControlesUsuario = BASEcontrolesU
+        LimpiarControles(Me)
     End Sub
 
     Private Sub btnAgregarTelefono_Click(sender As Object, e As EventArgs) Handles btnAgregarTelefono.Click
@@ -280,13 +280,6 @@
     End Sub
 
     Private Sub lblCedulaTXT_TextChanged(sender As Object, e As EventArgs) Handles lblCedulaTXT.TextChanged
-        If lblCedulaTXT.Text.Length = 8 Then
-            'if check_CI() ...
-            ci_valida = True
-        Else
-            ci_valida = False
-        End If
-
         configurarControles()
     End Sub
 
@@ -332,7 +325,8 @@
             Case Accion.Alta, Accion.Modificacion 'limpiar
                 LimpiarControles(Me)
             Case Accion.Baja 'editar
-
+                Mode = Accion.Modificacion
+                setup()
         End Select
     End Sub
 
@@ -368,15 +362,15 @@
     End Sub
 
     Sub BajaU()
-
+        '()->BajaLogica
     End Sub
 
     Sub BuscarU()
-
+        '()->Buscar[Usuario]x[PARAMETRO]
     End Sub
 
     Sub ModificarU()
-
+        '()->Modificar[USUARIO]
     End Sub
 
 
