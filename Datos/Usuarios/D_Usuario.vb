@@ -173,21 +173,26 @@ Public Class D_Usuario
         conexion.Close()
     End Sub
 
-    Public Sub BajaLogicaUsuario(u As E_Usuario)
+    Public Function BajaLogicaUsuario(u As E_Usuario) As Integer
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
+            .ActiveConnection = conexion,
             .CommandType = adCmdStoredProc,
-            .CommandText = "BajaLogicaUsuario",
-            .ActiveConnection = conexion
+            .CommandText = "BajaLogicaUsuario"
         }
-
         cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-        cmd.Execute()
-        conexion.Close()
-    End Sub
+        Try
+            cmd.Execute()
+            conexion.Close()
+            Return 1
+        Catch ex As Exception
+            conexion.Close()
+            Return 0
+        End Try
+    End Function
 
     Public Sub AltaLogicaUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()

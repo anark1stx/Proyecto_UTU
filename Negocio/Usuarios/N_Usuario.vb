@@ -20,9 +20,9 @@ Public Class N_Usuario
         objDatos.ModificarUsuario(u)
     End Sub
 
-    Public Overridable Sub BajaLogicaUsuario(u As E_Usuario)
-        objDatos.BajaLogicaUsuario(u)
-    End Sub
+    Public Overridable Function BajaLogicaUsuario(u As E_Usuario) As Integer
+        Return objDatos.BajaLogicaUsuario(u)
+    End Function
 
     Public Overridable Sub AltaLogicaUsuario(u As E_Usuario)
         objDatos.AltaLogicaUsuario(u)

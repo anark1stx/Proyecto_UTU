@@ -455,8 +455,6 @@ Public Class frmGestion
 
                     End Select
                 End If
-
-
             Case TipoUsuario.Auxiliar
 
                 Dim u As New E_Usuario With {
@@ -494,6 +492,21 @@ Public Class frmGestion
 
     Sub BajaU()
         '()->BajaLogica
+
+        Dim u As New E_Usuario With {
+            .Cedula = lblCedulaTXT.Text
+        }
+
+        Dim nu As New N_Usuario
+
+        Dim res = nu.BajaLogicaUsuario(u)
+
+        Select Case res
+            Case 0
+                MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Select
     End Sub
 
     Sub BuscarU()
@@ -518,4 +531,7 @@ Public Class frmGestion
         End Try
     End Sub
 
+    Private Sub dgwUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwUsuarios.CellContentClick
+        'Cargar datos al dgw
+    End Sub
 End Class
