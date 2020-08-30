@@ -284,7 +284,6 @@
         End If
     End Sub
 
-
     Public Sub configurarControles()
 
         Select Case Mode
