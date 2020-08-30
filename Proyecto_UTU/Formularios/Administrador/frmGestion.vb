@@ -367,8 +367,7 @@ Public Class frmGestion
                 Exit Sub
             End If
         End If
-
-            Select Case Usuario
+        Select Case Usuario
             Case TipoUsuario.Paciente
                 'do stuff
                 Dim p As New E_Paciente With {
@@ -413,8 +412,7 @@ Public Class frmGestion
                 End If
 
             Case TipoUsuario.Medico
-                'do stuff
-                If cbTelefonos.Items.Count < 1 Then
+                If cbEspecialidades.Items.Count < 1 Then
                     MessageBox.Show("Ingrese al menos una especialidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
@@ -423,6 +421,37 @@ Public Class frmGestion
                 For Each es As String In cbEspecialidades.Items
                     especialidades.Add(es)
                 Next
+
+                Dim m As New E_Medico With {
+                    .Nombre = "u" & lblCedulaTXT.Text,
+                    .Contrasena = lblContrasenaTXT.Text,
+                    .Rol = "paciente",
+                    .Cedula = Val(lblCedulaTXT.Text),
+                    .Nombre1 = lblNombre1TXT.Text,
+                    .Nombre2 = lblNombre2TXT.Text,
+                    .Apellido1 = lblApellido1TXT.Text,
+                    .Apellido2 = lblApellido2TXT.Text,
+                    .Direccion = direccion,
+                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
+                    .Activo = 1,
+                    .Correo = lblCorreoTXT.Text,
+                    .TelefonosLista = telefonos,
+                    .Especialidad = especialidades
+                }
+                Dim nm As New N_Medico
+                Dim res = nm.AltaMedico(m)
+                Select Case res
+                    Case 0
+                        MessageBox.Show("El paciente no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 1
+                        MessageBox.Show("Médico ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        LimpiarControles(Me)
+                    Case 2
+                        MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 3
+                        MessageBox.Show("No se pudo ingresar el telefono " & m.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                End Select
             Case TipoUsuario.Auxiliar
                 'do stuff
         End Select

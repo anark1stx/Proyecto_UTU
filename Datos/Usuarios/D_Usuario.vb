@@ -3,13 +3,14 @@ Imports ADODB
 Imports ADODB.DataTypeEnum
 Imports ADODB.CommandTypeEnum
 Imports ADODB.ParameterDirectionEnum
+Imports ADODB.CursorLocationEnum
 Public Class D_Usuario
     Inherits D_UsuarioMYSQL
     Dim conexion As New Connection
     Public Function BuscarUsuariosCI(ci As String) As E_Usuario
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -121,7 +122,7 @@ Public Class D_Usuario
     Public Function AltaUsuarioTelefono(u As E_Usuario) As Integer
 
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         For Each t As String In u.TelefonosLista

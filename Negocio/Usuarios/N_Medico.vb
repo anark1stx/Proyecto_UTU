@@ -3,23 +3,15 @@ Imports Datos
 Public Class N_Medico
     Dim objDatos As New D_Medico
 
-    Public Function ListarUsuariosCI(CI As String)
+    Public Function ListarUsuariosCI(CI As String) As E_Medico
         Return objDatos.ListarMedicosCI(CI)
     End Function
-    Public Function UsuarioExiste(CI As String)
+    Public Function UsuarioExiste(CI As String) As Integer
         Return objDatos.UsuarioExiste(CI)
     End Function
-    Public Sub AltaMedico(u As E_Medico)
-        objDatos.AltaMedico(u)
-    End Sub
-
-    Public Sub AltaMedicoTelefonos(u As E_Medico)
-        objDatos.AltaMedicoTelefono(u)
-    End Sub
-
-    Public Sub AltaMedicoEspecialidades(u As E_Medico)
-        objDatos.AltaMedicoEspecialidad(u)
-    End Sub
+    Public Function AltaMedico(u As E_Medico) As Integer
+        Return objDatos.AltaMedico(u)
+    End Function
 
     Public Sub ModificacionMedico(u As E_Medico)
         objDatos.ModificarUsuarioMedico(u)

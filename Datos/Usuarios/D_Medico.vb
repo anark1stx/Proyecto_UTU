@@ -3,12 +3,14 @@ Imports ADODB
 Imports ADODB.DataTypeEnum
 Imports ADODB.CommandTypeEnum
 Imports ADODB.ParameterDirectionEnum
+Imports ADODB.CursorLocationEnum
 Public Class D_Medico
+    Inherits D_Usuario
     Dim conexion As New Connection
 
     Public Function ListarMedicosCI(ci As String) As E_Medico
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim leer As New Recordset
@@ -47,101 +49,65 @@ Public Class D_Medico
         Return u
     End Function
 
-    Public Function UsuarioExiste(ci As String)
-        Dim leer As New Recordset
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
+    Public Function AltaMedico(u As E_Medico)
+        Dim code = MyBase.AltaUsuarioSIBIM(u)
+        Select Case code
+            Case 1
+                conexion.ConnectionString = retornarCString()
+                conexion.CursorLocation = adUseClient
+                conexion.Open()
 
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "USUARIOEXISTE",
-            .ActiveConnection = conexion
-        }
+                Dim cmd As New Command With {
+                    .CommandType = adCmdStoredProc,
+                    .CommandText = "AltaMedico",
+                    .ActiveConnection = conexion
+                }
+                cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
+                Try
+                    cmd.Execute() 'EJECUTO ALTA MEDICOSIBIM
+                    conexion.Close()
+                Catch ex As Exception
+                    conexion.Close()
+                    Return 0 'No se pudo crear medico
+                End Try
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
-        cmd.Parameters.Append(cmd.CreateParameter("@EXISTE", adInteger, adParamOutput))
-
-        leer = cmd.Execute()
-
-        Dim existe = leer("@EXISTE").Value
-
-        leer.Close()
+                If AltaMedicoEspecialidad(u) Then
+                    Return 1 'todo OK
+                Else
+                    Return 3 'fallo ingreso especialidad
+                End If
+            Case Else
+                Return code
+        End Select
         conexion.Close()
-
-        Return existe
     End Function
 
-    Public Sub AltaMedico(u As E_Medico)
+
+    Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
-        Dim cmd As New Command With {
+        For Each es As String In u.Especialidad
+            Dim cmd As New Command With {
+            .ActiveConnection = conexion,
             .CommandType = adCmdStoredProc,
-            .CommandText = "AltaMedicoSIBIM",
-            .ActiveConnection = conexion
-        }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula))
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE1", adVarChar, adParamInput, 30, u.Nombre1))
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE2", adVarChar, adParamInput, 30, u.Nombre2))
-        cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO1", adVarChar, adParamInput, 30, u.Apellido1))
-        cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO2", adVarChar, adParamInput, 30, u.Apellido2))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion(0)))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, CInt(u.Direccion(1))))
-        cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adInteger, adParamInput, 1, u.Activo))
-        cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
-        Dim ParametroFoto = cmd.CreateParameter("@FOTO", adLongVarBinary, adParamInput, u.Foto.Length)
-        ParametroFoto.AppendChunk(u.Foto)
-        cmd.Parameters.Append(ParametroFoto)
-
-
-        cmd.Execute()
-
-        conexion.Close()
-    End Sub
-
-    Public Sub AltaMedicoTelefono(u As E_Usuario)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "AltaUsuarioTelefono",
-            .ActiveConnection = conexion
-        }
-
-        For Each t As String In u.TelefonosLista
-            cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-            cmd.Parameters.Append(cmd.CreateParameter("@TELEFONO", CInt(t)))
-            cmd.Execute()
+            .CommandText = "AltaMedicoEspecialidad"
+            }
+            cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
+            cmd.Parameters.Append(cmd.CreateParameter("@ESPECIALIDAD", adVarChar, adParamInput, es.Length, es))
+            Try
+                cmd.Execute()
+            Catch ex As Exception
+                conexion.Close()
+                u.ErrMsg = "Error ingresando la especialidad: " & es
+                Return 0 ' no se pudo ingresar la especialidad
+            End Try
         Next
 
         conexion.Close()
-    End Sub
-
-    Public Sub AltaMedicoEspecialidad(u As E_Medico)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "AltaMedicoEspecialidad",
-            .ActiveConnection = conexion
-        }
-
-        For Each e As String In u.Especialidad
-            cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-            cmd.Parameters.Append(cmd.CreateParameter("@ESPECIALIDAD", e))
-            cmd.Execute()
-        Next
-
-        conexion.Close()
-    End Sub
-
+        Return 1
+    End Function
     Public Sub ModificarUsuarioMedico(u As E_Medico)
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = CursorLocationEnum.adUseClient
@@ -167,38 +133,6 @@ Public Class D_Medico
         cmd.Parameters.Append(ParametroFoto)
 
 
-        cmd.Execute()
-        conexion.Close()
-    End Sub
-
-    Public Sub BajaLogicaUsuario(u As E_Usuario)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "BajaLogicaUsuario",
-            .ActiveConnection = conexion
-        }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-        cmd.Execute()
-        conexion.Close()
-    End Sub
-
-    Public Sub AltaLogicaUsuario(u As E_Medico)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "AltaLogicaUsuario",
-            .ActiveConnection = conexion
-        }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
         cmd.Execute()
         conexion.Close()
     End Sub
