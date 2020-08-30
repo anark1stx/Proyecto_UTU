@@ -90,6 +90,9 @@
         resetMode()
         ConvertirProps()
         configurarControles()
+        cbEtapa.SelectedIndex = 0
+        cbEstadoCivil.SelectedIndex = 0
+        cbSexo.SelectedIndex = 0
     End Sub
 
     Sub resetMode()
@@ -300,8 +303,10 @@
                 Else
                     pnlDspCedula.Enabled = True
                 End If
+                cbEtapa.Enabled = False
             Case Accion.Modificacion
                 lblCedulaTXT.Enabled = False
+                cbEtapa.Enabled = True
                 If lblCedulaTXT.Text Is String.Empty Then
                     pnlDspCedula.Enabled = False
                 Else
