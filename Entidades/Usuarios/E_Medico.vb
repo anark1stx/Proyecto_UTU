@@ -30,4 +30,20 @@
         _rol = rol
     End Sub
 
+    Public Overrides Function ValidarMisDatos() As Boolean
+        If Not MyBase.ValidarMisDatos() Then
+            Return 0
+        End If
+
+        For Each es As String In Especialidad
+            If Not check_Largo(es, 3, 50, True) Then
+                _errMsg = "Especialidad " & es & " " & MensajeDeErrorLongitud(3, 50)
+                Return 0
+            End If
+        Next
+
+        Return 1
+    End Function
+
+
 End Class

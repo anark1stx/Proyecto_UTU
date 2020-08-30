@@ -394,7 +394,6 @@ Public Class frmGestion
                 If Not p.ValidarMisDatos() Then
                     MessageBox.Show(p.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-                    '()->Alta
                     Dim np As New N_Paciente
                     Dim res = np.AltaPaciente(p)
                     Select Case res
@@ -425,7 +424,7 @@ Public Class frmGestion
                 Dim m As New E_Medico With {
                     .Nombre = "u" & lblCedulaTXT.Text,
                     .Contrasena = lblContrasenaTXT.Text,
-                    .Rol = "paciente",
+                    .Rol = "medico",
                     .Cedula = Val(lblCedulaTXT.Text),
                     .Nombre1 = lblNombre1TXT.Text,
                     .Nombre2 = lblNombre2TXT.Text,
@@ -438,22 +437,57 @@ Public Class frmGestion
                     .TelefonosLista = telefonos,
                     .Especialidad = especialidades
                 }
-                Dim nm As New N_Medico
-                Dim res = nm.AltaMedico(m)
+                If Not m.ValidarMisDatos() Then
+                    MessageBox.Show(m.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    Dim nm As New N_Medico
+                    Dim res = nm.AltaMedico(m)
+                    Select Case res
+                        Case 0
+                            MessageBox.Show("El médico no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 1
+                            MessageBox.Show("Médico ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            LimpiarControles(Me)
+                        Case 2
+                            MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 3
+                            MessageBox.Show("No se pudo ingresar el telefono " & m.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                    End Select
+                End If
+
+
+            Case TipoUsuario.Auxiliar
+
+                Dim u As New E_Usuario With {
+                    .Nombre = "u" & lblCedulaTXT.Text,
+                    .Contrasena = lblContrasenaTXT.Text,
+                    .Rol = "auxiliar",
+                    .Cedula = Val(lblCedulaTXT.Text),
+                    .Nombre1 = lblNombre1TXT.Text,
+                    .Nombre2 = lblNombre2TXT.Text,
+                    .Apellido1 = lblApellido1TXT.Text,
+                    .Apellido2 = lblApellido2TXT.Text,
+                    .Direccion = direccion,
+                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
+                    .Activo = 1,
+                    .Correo = lblCorreoTXT.Text,
+                    .TelefonosLista = telefonos
+                }
+                Dim nu As New N_Usuario
+                Dim res = nu.AltaUsuario(u)
                 Select Case res
                     Case 0
-                        MessageBox.Show("El paciente no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("El auxiliar no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 1
-                        MessageBox.Show("Médico ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("Auxiliar ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         LimpiarControles(Me)
                     Case 2
                         MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 3
-                        MessageBox.Show("No se pudo ingresar el telefono " & m.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("No se pudo ingresar el telefono " & u.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 End Select
-            Case TipoUsuario.Auxiliar
-                'do stuff
         End Select
 
     End Sub
