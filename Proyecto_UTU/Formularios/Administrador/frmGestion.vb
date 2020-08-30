@@ -362,8 +362,13 @@ Public Class frmGestion
             telefonos.Add(t)
         Next
 
+        If pBoxFotoUsuario.Image Is Nothing Then
+            If MessageBox.Show("¿Seguro que desea ingresar al usuario sin imagen?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+                Exit Sub
+            End If
+        End If
 
-        Select Case Usuario
+            Select Case Usuario
             Case TipoUsuario.Paciente
                 'do stuff
                 Dim p As New E_Paciente With {
@@ -389,6 +394,22 @@ Public Class frmGestion
 
                 If Not p.ValidarMisDatos() Then
                     MessageBox.Show(p.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    '()->Alta
+                    Dim np As New N_Paciente
+                    Dim res = np.AltaPaciente(p)
+                    Select Case res
+                        Case 0
+                            MessageBox.Show("El paciente no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 1
+                            MessageBox.Show("Paciente ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            LimpiarControles(Me)
+                        Case 2
+                            MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 3
+                            MessageBox.Show("No se pudo ingresar el telefono " & p.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                    End Select
                 End If
 
             Case TipoUsuario.Medico
