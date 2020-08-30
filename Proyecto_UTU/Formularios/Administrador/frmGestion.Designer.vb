@@ -551,7 +551,7 @@ Partial Class frmGestion
         Me.lblCedulaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCedulaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTXT.Location = New System.Drawing.Point(410, 29)
+        Me.lblCedulaTXT.Location = New System.Drawing.Point(411, 22)
         Me.lblCedulaTXT.MaxLength = 8
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.ReadOnly = True

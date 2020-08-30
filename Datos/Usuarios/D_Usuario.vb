@@ -183,7 +183,7 @@ Public Class D_Usuario
             .CommandType = adCmdStoredProc,
             .CommandText = "BajaLogicaUsuario"
         }
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
+        cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
         Try
             cmd.Execute()
             conexion.Close()

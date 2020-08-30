@@ -522,7 +522,7 @@ Public Class frmGestion
             Case 0
                 MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
-                MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Select
     End Sub
 
@@ -557,6 +557,11 @@ Public Class frmGestion
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 Dim p As E_Paciente = np.ListarUsuariosCI(txtBusqueda.Text)
+
+                If p.Cedula = 0 Then
+                    MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
                 Dim bs As New BindingSource With {
                 .DataSource = p
                 }
