@@ -276,17 +276,6 @@ Public Class frmGestion
 
     Private Sub lblCedulaTXT_TextChanged(sender As Object, e As EventArgs) Handles lblCedulaTXT.TextChanged
         configurarControles()
-        If lblCedulaTXT.Text.Length = lblCedulaTXT.MaxLength Then
-            If Not ci_valida Then
-                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                If Mode = Accion.Alta Then
-                    '()-> verificar existencia en BD
-                    'if existe ()-> ci_valida = false, ()->MsgBox ya existe un usuario registrado con esa cedula
-                    '
-                End If
-            End If
-        End If
     End Sub
 
     Public Sub configurarControles()
@@ -294,10 +283,21 @@ Public Class frmGestion
         Select Case Mode
             Case Accion.Alta
                 lblCedulaTXT.Enabled = True
-                If Not check_Cedula(lblCedulaTXT.Text) Then
-                    ci_valida = False
-                Else
-                    ci_valida = True
+                If lblCedulaTXT.Text.Length = lblCedulaTXT.MaxLength Then
+                    If Not check_Cedula(lblCedulaTXT.Text) Then
+                        MessageBox.Show(MensajeDeErrorCedula(), "Información no válida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    If Mode = Accion.Alta Then
+                        Dim nu As New N_Usuario
+
+                        If nu.UsuarioExiste(lblCedulaTXT.Text) Then
+                            MessageBox.Show("Ya existe un usuario registrado con esa cédula en la base de datos.", "Usuario ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            ci_valida = False
+                        Else
+                            ci_valida = True
+                        End If
+                    End If
                 End If
 
                 If Not ci_valida Then

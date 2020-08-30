@@ -19,7 +19,7 @@ Public Class D_Usuario
             .ActiveConnection = conexion
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, ci))
 
         leer = cmd.Execute()
 
@@ -51,7 +51,7 @@ Public Class D_Usuario
     Public Function UsuarioExiste(ci As String) As Integer
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
@@ -60,12 +60,12 @@ Public Class D_Usuario
             .ActiveConnection = conexion
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
-        cmd.Parameters.Append(cmd.CreateParameter("@EXISTE", adInteger, adParamOutput))
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, Val(ci)))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, 1, adParamOutput))
 
         leer = cmd.Execute()
 
-        Dim existe As Integer = leer("@EXISTE").Value
+        Dim existe As Integer = leer("EXISTE").Value
 
         leer.Close()
         conexion.Close()
