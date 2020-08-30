@@ -21,27 +21,40 @@ Public Class D_Medico
             .ActiveConnection = conexion
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, ci))
+        Dim intCI As Integer = Val(ci)
 
-        leer = cmd.Execute()
+        Dim u As New E_Medico With {
+        .Cedula = intCI
+        }
 
-        Dim u As New E_Medico
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, intCI))
+        Try
+            leer = cmd.Execute()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            u.Cedula = 0
+            conexion.Close()
+            Return u
+        End Try
 
+        Dim listaTel As New List(Of String)
+        Dim listaEsp As New List(Of String)
         While Not leer.EOF
             u = New E_Medico With {
-             .Cedula = leer("CI").Value,
              .Nombre1 = leer("nombre1").Value,
              .Nombre2 = leer("nombre2").Value,
              .Apellido1 = leer("apellido1").Value,
              .Apellido2 = leer("apellido2").Value,
              .Correo = leer("correo").Value,
-             .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
-             .Foto = leer("foto").Value
+             .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value})
             }
-            u.TelefonosLista.Add(leer("telefono").Value)
-            u.Especialidad.Add(leer("especialidad").Value)
-
+            listaTel.Add(leer("telefono").Value)
+            listaEsp.Add(leer("especialidad").Value)
+            leer.MoveNext()
         End While
+        u.Cedula = intCI
+        u.TelefonosLista = listaTel.Distinct().ToList()
+        u.Especialidad = listaEsp.Distinct().ToList()
 
         leer.Close()
         conexion.Close()

@@ -105,6 +105,8 @@ Partial Class frmGestion
         Me.pnlDatosUsuario.Controls.Add(Me.pnlDspCedula)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedulaTXT)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedula)
+        Me.pnlDatosUsuario.Controls.Add(Me.btnAccion2)
+        Me.pnlDatosUsuario.Controls.Add(Me.btnAccion1)
         Me.pnlDatosUsuario.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDatosUsuario.Location = New System.Drawing.Point(0, 0)
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
@@ -137,8 +139,6 @@ Partial Class frmGestion
         Me.pnlDspCedula.Controls.Add(Me.lblFnac)
         Me.pnlDspCedula.Controls.Add(Me.cbTelefonos)
         Me.pnlDspCedula.Controls.Add(Me.pBoxFotoUsuario)
-        Me.pnlDspCedula.Controls.Add(Me.btnAccion1)
-        Me.pnlDspCedula.Controls.Add(Me.btnAccion2)
         Me.pnlDspCedula.Controls.Add(Me.lblNombre1)
         Me.pnlDspCedula.Controls.Add(Me.lblApellido1)
         Me.pnlDspCedula.Controls.Add(Me.lblTelefono)
@@ -460,7 +460,7 @@ Partial Class frmGestion
         '
         Me.btnAccion1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAccion1.ImageList = Me.Accion1
-        Me.btnAccion1.Location = New System.Drawing.Point(1003, 216)
+        Me.btnAccion1.Location = New System.Drawing.Point(1002, 16)
         Me.btnAccion1.Name = "btnAccion1"
         Me.btnAccion1.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion1.TabIndex = 383
@@ -470,7 +470,7 @@ Partial Class frmGestion
         '
         Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAccion2.ImageList = Me.Accion2
-        Me.btnAccion2.Location = New System.Drawing.Point(949, 216)
+        Me.btnAccion2.Location = New System.Drawing.Point(948, 16)
         Me.btnAccion2.Name = "btnAccion2"
         Me.btnAccion2.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion2.TabIndex = 384
@@ -551,7 +551,7 @@ Partial Class frmGestion
         Me.lblCedulaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCedulaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTXT.Location = New System.Drawing.Point(410, 23)
+        Me.lblCedulaTXT.Location = New System.Drawing.Point(410, 29)
         Me.lblCedulaTXT.MaxLength = 8
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.ReadOnly = True

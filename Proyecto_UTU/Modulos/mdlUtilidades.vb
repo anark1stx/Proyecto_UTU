@@ -78,11 +78,12 @@ Module mdlUtilidades
                 Case "TextBox"
                     Dim txt = DirectCast(control, TextBox)
                     txt.Text = String.Empty
-
+                    txt.DataBindings.Clear()
                 Case "ComboBox"
                     Dim cbox = DirectCast(control, ComboBox)
 
                     If cbox.Tag Is "datos" Then
+                        cbox.DataSource = Nothing
                         If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
                             cbox.ResetText()
                             cbox.Items.Clear()

@@ -26,7 +26,6 @@ Public Class D_Paciente
         }
 
         cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, intCI))
-        Console.WriteLine("conexion : " & conexion.State)
         Try
             leer = cmd.Execute()
         Catch ex As Exception
@@ -34,8 +33,8 @@ Public Class D_Paciente
             conexion.Close()
             Return u
         End Try
-        Console.WriteLine("cantidad " & leer.RecordCount)
 
+        Dim lista As New List(Of String)
         While Not leer.EOF
             u = New E_Paciente With {
                  .Cedula = intCI,
@@ -45,22 +44,17 @@ Public Class D_Paciente
                  .Apellido2 = leer("apellido2").Value,
                  .Correo = leer("correo").Value,
                  .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
-                 .Foto = leer("foto").Value,
                  .Estado_civil = leer("e_civil").Value,
                  .FechaNacimiento = leer("fecha_nac").Value,
                  .Ocupacion = leer("ocupacion").Value,
                  .Sexo = leer("sexo").Value
-                }
+            }
+
+            lista.Add(leer("telefono").Value.ToString())
             leer.MoveNext()
         End While
 
-        Dim lista As New List(Of String)
-
-        'lista.Add(leer("telefono").Value.ToString())
-
-        'u.TelefonosLista = lista
-        Console.WriteLine(u.Nombre1)
-        Console.WriteLine(u.Cedula)
+        u.TelefonosLista = lista.Distinct().ToList()
         leer.Close()
         conexion.Close()
 
@@ -129,6 +123,5 @@ Public Class D_Paciente
         cmd.Execute()
         conexion.Close()
     End Sub
-
 
 End Class

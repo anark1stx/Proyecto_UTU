@@ -83,11 +83,11 @@ Public Class frmGestion
     End Property
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RRefresh()
         setup()
     End Sub
 
     Sub setup()
-        RRefresh()
         cambiarVisibilidad()
         resetMode()
         ConvertirProps()
@@ -200,18 +200,14 @@ Public Class frmGestion
                 c.Enabled = Not _readonly
                 Return c
             Case GetType(TextBox)
-                Console.WriteLine("entro en textbox " & c.Name)
-                c.ResetText()
                 DirectCast(c, TextBox).ReadOnly = _readonly
 
                 If _readonly Then
                     c.BackColor = Color.LightBlue
                     DirectCast(c, TextBox).BorderStyle = BorderStyle.None
-                    Console.WriteLine("solo lectura")
                 Else
                     c.BackColor = Color.White
                     DirectCast(c, TextBox).BorderStyle = BorderStyle.Fixed3D
-                    Console.WriteLine("insert")
                 End If
                 Return c
             Case Else
@@ -223,7 +219,6 @@ Public Class frmGestion
         ControlesMedico = BASEcontrolesM
         ControlesPaciente = BASEcontrolesP
         ControlesUsuario = BASEcontrolesU
-        LimpiarControles(Me)
     End Sub
 
     Private Sub btnAgregarTelefono_Click(sender As Object, e As EventArgs) Handles btnAgregarTelefono.Click
@@ -492,10 +487,13 @@ Public Class frmGestion
 
     Sub BajaU()
         '()->BajaLogica
-
-        Dim u As New E_Usuario With {
-            .Cedula = lblCedulaTXT.Text
-        }
+        Dim u As New E_Usuario
+        Try
+            u.Cedula = lblCedulaTXT.Text
+        Catch ex As Exception
+            MessageBox.Show("Seleccione el usuario que desea eliminar primero.")
+            Exit Sub
+        End Try
 
         Dim nu As New N_Usuario
 
@@ -564,6 +562,40 @@ Public Class frmGestion
                 .DataSource = p
                 }
                 dgwUsuarios.DataSource = bs
+            Case TipoUsuario.Medico
+                'LimpiarControles(pnlDatosUsuario)
+                Dim nm As New N_Medico
+                Dim m As E_Medico = nm.ListarUsuariosCI(txtBusqueda.Text)
+                Dim bsM As New BindingSource With {
+                .DataSource = m
+                }
+
+                Dim bsM_tel As New BindingSource With {
+                .DataSource = m.TelefonosLista
+                }
+
+                Dim bsM_Esps As New BindingSource With {
+                .DataSource = m.Especialidad
+                }
+
+                Dim bsM_direccion As New BindingSource With {
+                .DataSource = m.Direccion
+                }
+
+                dgwUsuarios.DataSource = bsM
+
+                lblCedulaTXT.DataBindings.Add("Text", m, "Cedula", False, DataSourceUpdateMode.OnPropertyChanged)
+                lblNombre1TXT.DataBindings.Add("Text", m, "Nombre1", False, DataSourceUpdateMode.OnPropertyChanged)
+                lblNombre2TXT.DataBindings.Add("Text", m, "Nombre2", False, DataSourceUpdateMode.OnPropertyChanged)
+                lblApellido1TXT.DataBindings.Add("Text", m, "Apellido1", False, DataSourceUpdateMode.OnPropertyChanged)
+                lblApellido2TXT.DataBindings.Add("Text", m, "Apellido2", False, DataSourceUpdateMode.OnPropertyChanged)
+                lblCorreoTXT.DataBindings.Add("Text", m, "Correo", False, DataSourceUpdateMode.OnPropertyChanged)
+                lblDireccionTXT.DataBindings.Add("Text", m, "Direccion", True, DataSourceUpdateMode.OnPropertyChanged)
+
+
+                cbEspecialidades.DataSource = bsM_Esps
+                cbTelefonos.DataSource = bsM_tel
+
         End Select
     End Sub
 End Class

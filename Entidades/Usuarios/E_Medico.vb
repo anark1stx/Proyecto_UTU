@@ -1,14 +1,14 @@
 ﻿Public Class E_Medico
     Inherits E_Usuario
 
-    Protected _especialidades As List(Of String)
+    Protected _especialidad As List(Of String)
 
     Property Especialidad() As List(Of String)
         Get
-            Return (_especialidades)
+            Return (_especialidad)
         End Get
         Set(ByVal value As List(Of String))
-            _especialidades = value
+            _especialidad = value
         End Set
     End Property
     Sub New()
@@ -25,7 +25,7 @@
         _contrasena = contrasena
         _telefonosLista = telefonosLista
         _direccion = direccion
-        _especialidades = especialidades
+        _especialidad = especialidades
         _foto = foto
         _rol = rol
     End Sub
