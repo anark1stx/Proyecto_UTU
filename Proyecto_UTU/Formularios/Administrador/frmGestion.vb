@@ -551,6 +551,19 @@ Public Class frmGestion
     End Sub
 
     Private Sub dgwUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwUsuarios.CellContentClick
-        'Cargar datos al dgw
+        'Cargar datos al panel de los datos
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        'Cargar datos a dgw
+        Select Case Usuario
+            Case TipoUsuario.Paciente
+                Dim np As New N_Paciente
+                Dim p As E_Paciente = np.ListarUsuariosCI(txtBusqueda.Text)
+                Dim bs As New BindingSource With {
+                .DataSource = p
+                }
+                dgwUsuarios.DataSource = bs
+        End Select
     End Sub
 End Class
