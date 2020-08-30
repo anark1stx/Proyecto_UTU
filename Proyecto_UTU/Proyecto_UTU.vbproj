@@ -81,6 +81,12 @@
     <Compile Include="Clases\MedicoUtils\Analisis.vb" />
     <Compile Include="Clases\MedicoUtils\Enfermedad.vb" />
     <Compile Include="Clases\MedicoUtils\Formulario.vb" />
+    <Compile Include="Formularios\Administrador\frmGestion.Designer.vb">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmGestion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFormulario.Designer.vb">
       <DependentUpon>frmPresentacionFormulario.vb</DependentUpon>
     </Compile>
@@ -94,52 +100,10 @@
     <Compile Include="Formularios\Administrador\frmInicioAdm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Auxiliar\frmDatosAuxiliar.Designer.vb">
-      <DependentUpon>frmDatosAuxiliar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Auxiliar\frmDatosAuxiliar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Auxiliar\frmDatosAuxiliarModificar.Designer.vb">
-      <DependentUpon>frmDatosAuxiliarModificar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Auxiliar\frmDatosAuxiliarModificar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Medico\frmDatosMedico.Designer.vb">
-      <DependentUpon>frmDatosMedico.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Medico\frmDatosMedico.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Medico\frmDatosMedicoModificar.Designer.vb">
-      <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Medico\frmDatosMedicoModificar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Paciente\frmDatosPacienteModificar.Designer.vb">
-      <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Paciente\frmDatosPacienteModificar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Administrador\frmAdministrador.Designer.vb">
       <DependentUpon>frmAdministrador.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Administrador\frmAdministrador.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Paciente\frmDatosPaciente.Designer.vb">
-      <DependentUpon>frmDatosPaciente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\FormulariosABMLB\Paciente\frmDatosPaciente.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administrador\frmGestion.Designer.vb">
-      <DependentUpon>frmGestion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administrador\frmGestion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Auxiliar\frmAuxiliar.Designer.vb">
@@ -336,35 +300,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFormulario.resx">
       <DependentUpon>frmPresentacionFormulario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmInicioAdm.resx">
       <DependentUpon>frmInicioAdm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\Auxiliar\frmDatosAuxiliar.resx">
-      <DependentUpon>frmDatosAuxiliar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\Auxiliar\frmDatosAuxiliarModificar.resx">
-      <DependentUpon>frmDatosAuxiliarModificar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\Medico\frmDatosMedico.resx">
-      <DependentUpon>frmDatosMedico.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\Medico\frmDatosMedicoModificar.resx">
-      <DependentUpon>frmDatosMedicoModificar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\Paciente\frmDatosPacienteModificar.resx">
-      <DependentUpon>frmDatosPacienteModificar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\FormulariosABMLB\Paciente\frmDatosPaciente.resx">
-      <DependentUpon>frmDatosPaciente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
-      <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>

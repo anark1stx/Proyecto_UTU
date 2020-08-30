@@ -1,17 +1,8 @@
-﻿Public Class frmAdministrador
-#Region "Instancias_formularios"
+﻿Imports Entidades
+Public Class frmAdministrador
     Dim _frmInicio As New frmInicioAdm 'Este es el formulario que muestra los botones grandes para hacer ABMLB
 
     Dim _frmGestion As New frmGestion 'Gestion muestra Datos[tipoUsuario] + DatagridView que lista a los usuarios según parametros de busqueda
-
-    Dim _frmDatosPaciente As New frmDatosPaciente 'Muestra los datos de los pacientes según sus atributos de la BD.
-    Dim _frmDatosMedico As New frmDatosMedico 'Muestra los datos de los pacientes según sus atributos de la BD.
-    Dim _frmDatosAuxiliar As New frmDatosAuxiliar 'Muestra los datos de los auxiliares según sus atributos de la BD.
-
-    Dim _frmModificarPaciente As New frmDatosPacienteModificar 'El formulario de modificación es el mismo que el formulario de alta.
-    Dim _frmModificarMedico As New frmDatosMedicoModificar 'El formulario de modificación es el mismo que el formulario de alta.
-    Dim _frmModificarAuxiliar As New frmDatosAuxiliarModificar 'El formulario de modificación es el mismo que el formulario de alta.
-#End Region
 
     Private Sub addFrm(frm As Form, pnl As Panel)
         If Not pnl.Controls.Contains(frm) Then
@@ -26,7 +17,7 @@
 
     End Sub
 
-    Friend Sub InstanciarFormulario(formularioPadre As String, formularioHijo As String)
+    Friend Sub InstanciarFormulario(formularioPadre As String, Optional uType As frmGestion.TipoUsuario = Nothing, Optional aType As frmGestion.Accion = Nothing)
 
         Select Case formularioPadre
 
@@ -34,202 +25,41 @@
                 addFrm(_frmInicio, pnlContenedor)
 
             Case "Gestion"
+                _frmGestion.Usuario = uType
+                _frmGestion.Mode = aType
                 addFrm(_frmGestion, pnlContenedor)
-
-                Select Case formularioHijo
-#Region "Paciente"
-                    Case "DatosPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-                        LimpiarControles(_frmDatosPaciente)
-                        addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "paciente"
-                    Case "ModificarPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-                        LimpiarControles(_frmModificarPaciente)
-                        _frmModificarPaciente.altaOmod = 1
-                        _frmModificarPaciente.configurarControles()
-                        addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "paciente"
-                        _frmModificarPaciente.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
-
-                    Case "BajaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-                        LimpiarControles(_frmDatosPaciente)
-                        addFrm(_frmDatosPaciente, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "paciente
-"
-                    Case "AltaPaciente" 'Las queries van a filtrar por defecto solo a usuarios Paciente
-                        LimpiarControles(_frmModificarPaciente)
-                        _frmModificarPaciente.altaOmod = 0
-                        _frmModificarPaciente.configurarControles()
-                        addFrm(_frmModificarPaciente, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarPaciente.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
-
-                        _frmGestion.pnlContenedorBusqueda.Hide()
-                        _frmGestion.tipo_usuario = "paciente"
-#End Region
-#Region "Medico"
-                    Case "DatosMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-                        LimpiarControles(_frmDatosMedico)
-
-                        addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "medico"
-                    Case "ModificarMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-                        LimpiarControles(_frmModificarMedico)
-                        _frmModificarMedico.altaOmod = 1
-                        _frmModificarMedico.configurarControles()
-                        addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "medico"
-                        _frmModificarMedico.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
-
-                    Case "BajaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-                        LimpiarControles(_frmDatosMedico)
-                        addFrm(_frmDatosMedico, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "medico"
-                    Case "AltaMedico" 'Las queries van a filtrar por defecto solo a usuarios Medico
-                        LimpiarControles(_frmModificarMedico)
-                        _frmModificarMedico.altaOmod = 0
-                        _frmModificarMedico.configurarControles()
-                        addFrm(_frmModificarMedico, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarMedico.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
-                        _frmGestion.tipo_usuario = "medico"
-                        _frmGestion.pnlContenedorBusqueda.Hide()
-#End Region
-#Region "Auxiliar"
-                    Case "DatosAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
-                        LimpiarControles(_frmDatosAuxiliar)
-                        addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "auxiliar"
-                    Case "ModificarAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
-                        LimpiarControles(_frmModificarAuxiliar)
-                        _frmModificarAuxiliar.altaOmod = 1
-                        _frmModificarAuxiliar.configurarControles()
-                        addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarAuxiliar.btnAceptar.ImageIndex = 1 '1 es para que salga el botón con tick (aceptar modificacion).
-                        _frmGestion.tipo_usuario = "auxiliar"
-                    Case "BajaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
-                        LimpiarControles(_frmDatosAuxiliar)
-                        addFrm(_frmDatosAuxiliar, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmGestion.tipo_usuario = "auxiliar"
-                    Case "AltaAuxiliar" 'Las queries van a filtrar por defecto solo a usuarios Auxiliar
-                        LimpiarControles(_frmModificarAuxiliar)
-                        _frmModificarAuxiliar.altaOmod = 0
-                        _frmModificarAuxiliar.configurarControles()
-                        addFrm(_frmModificarAuxiliar, _frmGestion.pnlDatosUsuario)
-                        _frmGestion.pnlContenedorBusqueda.Show()
-                        _frmModificarAuxiliar.btnAceptar.ImageIndex = 0 '0 es para que salga el botón con + (aceptar alta).
-                        _frmGestion.tipo_usuario = "auxiliar"
-                        _frmGestion.pnlContenedorBusqueda.Hide()
-#End Region
-                End Select
-
-        End Select
-    End Sub
-
-    Public Sub solicitarConfirmacion(accion As String, tipo As String)
-        Select Case accion
-            Case "Baja"
-                Select Case tipo
-                    Case "Paciente"
-                        Dim baja = MsgBox("Seguro que desea dar de baja al paciente " & _frmDatosPaciente.lblNombre1.Text & " " & _frmDatosPaciente.lblApellido1.Text & "?", vbYesNo)
-
-                        If baja = DialogResult.Yes Then
-                            Dim ci As String = _frmDatosPaciente.lblCedula.Text
-                            '-->Dar de baja en la BD
-
-                        End If
-                    Case "Medico"
-                        Dim baja = MsgBox("Seguro que desea dar de baja al médico " & _frmDatosMedico.lblNombre1.Text & " " & _frmDatosMedico.lblApellido1.Text & "?", vbYesNo)
-
-                        If baja = DialogResult.Yes Then
-                            Dim ci As String = _frmDatosMedico.lblCedula.Text
-                            '-->Dar de baja en la BD
-
-                        End If
-                    Case "Auxiliar"
-                        Dim baja = MsgBox("Seguro que desea dar de baja al auxiliar " & _frmDatosAuxiliar.lblNombre1.Text & " " & _frmDatosAuxiliar.lblApellido1.Text & "?", vbYesNo)
-
-                        If baja = DialogResult.Yes Then
-                            Dim ci As String = _frmDatosAuxiliar.lblCedula.Text
-                            '-->Dar de baja en la BD
-
-                        End If
-
-                End Select
-            Case "Modificacion"
-                Select Case tipo
-                    Case "Paciente"
-                        Dim modif = MsgBox("Seguro que desea modificar al paciente " & _frmDatosPaciente.lblNombre1.Text & " " & _frmDatosPaciente.lblApellido1.Text & "?", vbYesNo)
-
-                        If modif = DialogResult.Yes Then
-                            Dim ci As String = _frmDatosPaciente.lblCedula.Text
-                            '-->Modificar en la BD
-
-                        End If
-                    Case "Medico"
-                        Dim modif = MsgBox("Seguro que desea modificar al médico " & _frmDatosMedico.lblNombre1.Text & " " & _frmDatosMedico.lblApellido1.Text & "?", vbYesNo)
-
-                        If modif = DialogResult.Yes Then
-                            Dim ci As String = _frmDatosMedico.lblCedula.Text
-                            '-->Modificar en la BD
-
-                        End If
-                    Case "Auxiliar"
-                        Dim modif = MsgBox("Seguro que desea modificar al auxiliar " & _frmDatosAuxiliar.lblNombre1.Text & " " & _frmDatosAuxiliar.lblApellido1.Text & "?", vbYesNo)
-
-                        If modif = DialogResult.Yes Then
-                            Dim ci As String = _frmDatosAuxiliar.lblCedula.Text
-                            '-->Modificar en la BD
-
-                        End If
-
-                End Select
+                _frmGestion.setup()
         End Select
     End Sub
 
 #Region "Eventos"
-    Private Sub MedicoBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoBusquedaMenuItem.Click
-        InstanciarFormulario("Gestion", "DatosMedico")
-    End Sub
-
-    Private Sub PacienteBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteBusquedaMenuItem.Click
-        InstanciarFormulario("Gestion", "DatosPaciente")
-    End Sub
 
     Private Sub PacienteModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteModificacionMenuItem.Click
-        InstanciarFormulario("Gestion", "ModificarPaciente")
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Paciente, frmGestion.Accion.Modificacion)
     End Sub
 
     Private Sub MedicoModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoModificacionMenuItem.Click
-        InstanciarFormulario("Gestion", "ModificarMedico")
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Medico, frmGestion.Accion.Modificacion)
     End Sub
 
-    Private Sub PacienteBajaMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteBajaMenuItem.Click
-        InstanciarFormulario("Gestion", "BajaPaciente")
+    Private Sub PacienteBajaMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteBajaMenuItem.Click, PacienteBusquedaMenuItem.Click
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Paciente, frmGestion.Accion.Baja)
     End Sub
 
-    Private Sub MedicoBajaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoBajaMenuItem.Click
-        InstanciarFormulario("Gestion", "BajaMedico")
+    Private Sub MedicoBajaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoBajaMenuItem.Click, MedicoBusquedaMenuItem.Click
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Medico, frmGestion.Accion.Baja)
     End Sub
 
     Private Sub PacienteAltaMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteAltaMenuItem.Click
-        InstanciarFormulario("Gestion", "AltaPaciente")
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Paciente, frmGestion.Accion.Alta)
     End Sub
 
     Private Sub MedicoAltaMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoAltaMenuItem.Click
-        InstanciarFormulario("Gestion", "AltaMedico")
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Medico, frmGestion.Accion.Alta)
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioMenuItem.Click
-        InstanciarFormulario("Inicio", "")
+        InstanciarFormulario("Inicio")
     End Sub
 
     Private Sub frmAdministrador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -238,19 +68,15 @@
     End Sub
 
     Private Sub AuxiliarAltaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemAlta.Click
-        InstanciarFormulario("Gestion", "AltaAuxiliar")
-    End Sub
-
-    Private Sub AuxiliarBajaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemBaja.Click
-        InstanciarFormulario("Gestion", "BajaAuxiliar")
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Auxiliar, frmGestion.Accion.Alta)
     End Sub
 
     Private Sub AuxiliarModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarMenuItemModificar.Click
-        InstanciarFormulario("Gestion", "ModificarAuxiliar")
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Auxiliar, frmGestion.Accion.Modificacion)
     End Sub
 
-    Private Sub AuxiliarBusquedaMenuItem_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click
-        InstanciarFormulario("Gestion", "DatosAuxiliar")
+    Private Sub AuxiliarMenuItemBaja_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click, AuxiliarMenuItemBaja.Click
+        InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Auxiliar, frmGestion.Accion.Baja)
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
@@ -276,97 +102,22 @@
         Dim e = New EventArgs
 
         'HANDLERS PARA FORMULARIO INICIO -> Acciones Paciente
-        AddHandler _frmInicio.btnAltaPaciente.Click,
-                    Sub()
-                        PacienteAltaMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmInicio.btnBajaPaciente.Click,
-                    Sub()
-                        PacienteBajaMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmDatosPaciente.btnEditar.Click,
-            Sub()
-                PacienteModificacionMenuItem_Click(sender, e)
-            End Sub
-        AddHandler _frmInicio.btnModificarPaciente.Click,
-                    Sub()
-                        PacienteModificacionMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmInicio.btnBusquedaPaciente.Click,
-                    Sub()
-                        PacienteBusquedaMenuItem_Click(sender, e)
-                    End Sub
+        AddHandler _frmInicio.btnAltaPaciente.Click, AddressOf PacienteAltaMenuItem_Click
+        AddHandler _frmInicio.btnBajaPaciente.Click, AddressOf PacienteBajaMenuItem_Click
+        AddHandler _frmInicio.btnModificarPaciente.Click, AddressOf PacienteModificacionMenuItem_Click
+        AddHandler _frmInicio.btnBusquedaPaciente.Click, AddressOf PacienteBajaMenuItem_Click
 
         'HANDLERS PARA FORMULARIO INICIO -> Acciones Medico
-        AddHandler _frmInicio.btnAltaMedico.Click,
-                    Sub()
-                        MedicoAltaMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmInicio.btnBajaMedico.Click,
-                    Sub()
-                        MedicoBajaMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmDatosMedico.btnEditar.Click,
-            Sub()
-                MedicoModificacionMenuItem_Click(sender, e)
-            End Sub
-        AddHandler _frmInicio.btnModificarMedico.Click,
-                    Sub()
-                        MedicoModificacionMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmInicio.btnBusquedaMedico.Click,
-                    Sub()
-                        MedicoBusquedaMenuItem_Click(sender, e)
-                    End Sub
+        AddHandler _frmInicio.btnAltaMedico.Click, AddressOf MedicoAltaMenuItem_Click
+        AddHandler _frmInicio.btnBajaMedico.Click, AddressOf MedicoBajaMenuItem_Click
+        AddHandler _frmInicio.btnModificarMedico.Click, AddressOf MedicoModificacionMenuItem_Click
+        AddHandler _frmInicio.btnBusquedaMedico.Click, AddressOf MedicoBajaMenuItem_Click
         'HANDLERS PARA FORMULARIO INICIO -> Acciones Auxiliar
-        AddHandler _frmInicio.btnAltaAuxiliar.Click,
-                    Sub()
-                        AuxiliarAltaMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmInicio.btnBajaAuxiliar.Click,
-                    Sub()
-                        AuxiliarBajaMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmDatosAuxiliar.btnEditar.Click,
-            Sub()
-                AuxiliarModificacionMenuItem_Click(sender, e)
-            End Sub
-        AddHandler _frmInicio.btnModificarAuxiliar.Click,
-                    Sub()
-                        AuxiliarModificacionMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler _frmInicio.btnBusquedaAuxiliar.Click,
-                    Sub()
-                        AuxiliarBusquedaMenuItem_Click(sender, e)
-                    End Sub
-        'HANDLERS PARA FORMULARIO DATOS PACIENTE
-        AddHandler _frmDatosPaciente.btnBaja.Click,
-                    Sub()
-                        solicitarConfirmacion("Baja", "Paciente")
-                    End Sub
-        AddHandler _frmDatosPaciente.btnEditar.Click,
-                    Sub()
-                        solicitarConfirmacion("Modificacion", "Paciente")
-                    End Sub
-        'HANDLERS PARA FORMULARIO DATOS MEDICO
-        AddHandler _frmDatosMedico.btnBaja.Click,
-                    Sub()
-                        solicitarConfirmacion("Baja", "Medico")
-                    End Sub
-        AddHandler _frmDatosMedico.btnEditar.Click,
-                    Sub()
-                        solicitarConfirmacion("Editar", "Medico")
-                    End Sub
-        'HANDLERS PARA FORMULARIO DATOS AUXILIAR
-        AddHandler _frmDatosAuxiliar.btnBaja.Click,
-                    Sub()
-                        solicitarConfirmacion("Baja", "Auxiliar")
-                    End Sub
-        AddHandler _frmDatosAuxiliar.btnEditar.Click,
-                    Sub()
-                        solicitarConfirmacion("Editar", "Auxiliar")
-                    End Sub
-
+        AddHandler _frmInicio.btnAltaAuxiliar.Click, AddressOf AuxiliarAltaMenuItem_Click
+        AddHandler _frmInicio.btnBajaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
+        AddHandler _frmInicio.btnModificarAuxiliar.Click, AddressOf AuxiliarModificacionMenuItem_Click
+        AddHandler _frmInicio.btnBusquedaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
     End Sub
+
 
 End Class

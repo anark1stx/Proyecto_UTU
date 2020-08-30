@@ -30,7 +30,7 @@ Public Class D_Paciente
         Try
             leer = cmd.Execute()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            Console.WriteLine(ex.Message)
             conexion.Close()
             Return u
         End Try
