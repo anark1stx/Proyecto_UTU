@@ -553,7 +553,6 @@ Public Class frmGestion
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        'Cargar datos a dgw
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
@@ -561,41 +560,78 @@ Public Class frmGestion
                 Dim bs As New BindingSource With {
                 .DataSource = p
                 }
-                dgwUsuarios.DataSource = bs
+                basicBindings(p)
+                dgwSetup(dgwUsuarios, bs)
+                PacienteBindings(p)
             Case TipoUsuario.Medico
-                'LimpiarControles(pnlDatosUsuario)
                 Dim nm As New N_Medico
                 Dim m As E_Medico = nm.ListarUsuariosCI(txtBusqueda.Text)
                 Dim bsM As New BindingSource With {
                 .DataSource = m
                 }
-
-                Dim bsM_tel As New BindingSource With {
-                .DataSource = m.TelefonosLista
-                }
-
-                Dim bsM_Esps As New BindingSource With {
-                .DataSource = m.Especialidad
-                }
-
-                Dim bsM_direccion As New BindingSource With {
-                .DataSource = m.Direccion
-                }
-
-                dgwUsuarios.DataSource = bsM
-
-                lblCedulaTXT.DataBindings.Add("Text", m, "Cedula", False, DataSourceUpdateMode.OnPropertyChanged)
-                lblNombre1TXT.DataBindings.Add("Text", m, "Nombre1", False, DataSourceUpdateMode.OnPropertyChanged)
-                lblNombre2TXT.DataBindings.Add("Text", m, "Nombre2", False, DataSourceUpdateMode.OnPropertyChanged)
-                lblApellido1TXT.DataBindings.Add("Text", m, "Apellido1", False, DataSourceUpdateMode.OnPropertyChanged)
-                lblApellido2TXT.DataBindings.Add("Text", m, "Apellido2", False, DataSourceUpdateMode.OnPropertyChanged)
-                lblCorreoTXT.DataBindings.Add("Text", m, "Correo", False, DataSourceUpdateMode.OnPropertyChanged)
-                lblDireccionTXT.DataBindings.Add("Text", m, "Direccion", True, DataSourceUpdateMode.OnPropertyChanged)
-
-
-                cbEspecialidades.DataSource = bsM_Esps
-                cbTelefonos.DataSource = bsM_tel
-
+                basicBindings(m)
+                MedicoBindings(m)
+                dgwSetup(dgwUsuarios, bsM)
         End Select
     End Sub
+
+    Private Sub basicBindings(obj As E_Usuario)
+
+        Try
+            lblCedulaTXT.DataBindings.Add("Text", obj, "Cedula", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblNombre1TXT.DataBindings.Add("Text", obj, "Nombre1", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblNombre2TXT.DataBindings.Add("Text", obj, "Nombre2", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblApellido1TXT.DataBindings.Add("Text", obj, "Apellido1", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblApellido2TXT.DataBindings.Add("Text", obj, "Apellido2", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion", False, DataSourceUpdateMode.OnPropertyChanged)
+
+            Dim bsTelefonos As New BindingSource With {
+            .DataSource = obj.TelefonosLista
+            }
+
+            cbTelefonos.DataSource = bsTelefonos
+        Catch ex As Exception
+            Console.WriteLine("already binded")
+        End Try
+    End Sub
+
+    Private Sub MedicoBindings(obj As E_Medico)
+        Try
+            Dim bsM_Esps As New BindingSource With {
+                    .DataSource = obj.Especialidad
+            }
+            cbEspecialidades.DataSource = bsM_Esps
+        Catch ex As Exception
+            Console.WriteLine("Already binded")
+        End Try
+    End Sub
+
+    Private Sub PacienteBindings(obj As E_Paciente)
+        Try
+            lblOcupacionTXT.DataBindings.Add("Text", obj, "Ocupacion", False, DataSourceUpdateMode.OnPropertyChanged)
+            cbEstadoCivil.SelectedItem = obj.Estado_civil
+            cbEtapa.SelectedItem = obj.Etapa
+            Select Case obj.Sexo
+                Case "M"
+                    cbSexo.SelectedItem = "Masculino"
+                Case "F"
+                    cbSexo.SelectedItem = "Femenino"
+            End Select
+
+        Catch ex As Exception
+            Console.WriteLine("already binded")
+        End Try
+    End Sub
+
+    Private Sub dgwSetup(dgw As DataGridView, b As BindingSource)
+        dgw.DataSource = b
+        dgw.Columns("Nombre").Visible = False
+        dgw.Columns("Rol").Visible = False
+        dgw.Columns("Contrasena").Visible = False
+        dgw.Columns("Foto").Visible = False
+        dgw.Columns("Activo").Visible = False
+        dgw.Columns("ErrMsg").Visible = False
+    End Sub
+
 End Class

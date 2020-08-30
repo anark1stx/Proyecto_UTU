@@ -222,7 +222,7 @@ Partial Class frmGestion
         Me.lblCorreoTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCorreoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCorreoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreoTXT.Location = New System.Drawing.Point(410, 217)
+        Me.lblCorreoTXT.Location = New System.Drawing.Point(410, 222)
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.ReadOnly = True
         Me.lblCorreoTXT.Size = New System.Drawing.Size(241, 23)
