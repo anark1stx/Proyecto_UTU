@@ -4,7 +4,7 @@
     Protected ctrlsMedico As List(Of Control)
     Protected _accion As Accion
     Protected _tipo As TipoUsuario
-    Dim ci_valida As Boolean = False
+    Private ci_valida As Boolean = False
     Public Enum Accion
         Alta
         Baja
@@ -155,8 +155,6 @@
                 _readonly = True 'Todo en textboxes pero con fondo celeste, como si fuera label.
         End Select
 
-        Console.WriteLine("Mode: " & Mode.ToString() & " readonly: " & _readonly)
-
         Dim l As New List(Of Control)
         For Each c As Control In ControlesUsuario
             l.Add(convertirC(c, _readonly))
@@ -224,13 +222,9 @@
     End Sub
 
     Private Sub btnAgregarTelefono_Click(sender As Object, e As EventArgs) Handles btnAgregarTelefono.Click
-        If cbTelefonos.Text Is String.Empty Then
-            MessageBox.Show("Escriba el teléfono que desea ingresar.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
 
         If Not check_Telefonos(New List(Of String)(New String() {cbTelefonos.Text})) Then
-            MessageBox.Show("Teléfono inválido.", "Información errónea", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Teléfono inválido. " & optMsg, "Información errónea", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         Else
 
@@ -252,10 +246,6 @@
     End Sub
 
     Private Sub btnAgregarEspecialidad_Click(sender As Object, e As EventArgs) Handles btnAgregarEspecialidad.Click
-        If cbEspecialidades.Text Is String.Empty Then
-            MessageBox.Show("Escriba el teléfono que desea ingresar.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
 
         If Not check_Largo(cbEspecialidades.Text, 3, 50, True) Then
             MessageBox.Show("Especialidad inválida.", "Información errónea", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -281,7 +271,19 @@
 
     Private Sub lblCedulaTXT_TextChanged(sender As Object, e As EventArgs) Handles lblCedulaTXT.TextChanged
         configurarControles()
+        If lblCedulaTXT.Text.Length = lblCedulaTXT.MaxLength Then
+            If Not ci_valida Then
+                MessageBox.Show(MensajeDeErrorCedula(), "Verifique la información ingresada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                If Mode = Accion.Alta Then
+                    '()-> verificar existencia en BD
+                    'if existe ()-> ci_valida = false, ()->MsgBox ya existe un usuario registrado con esa cedula
+                    '
+                End If
+            End If
+        End If
     End Sub
+
 
     Public Sub configurarControles()
 
@@ -290,6 +292,8 @@
                 lblCedulaTXT.Enabled = True
                 If Not check_Cedula(lblCedulaTXT.Text) Then
                     ci_valida = False
+                Else
+                    ci_valida = True
                 End If
 
                 If Not ci_valida Then
@@ -336,10 +340,29 @@
             Exit Sub
         End If
 
+        Dim direccion As New List(Of String)(lblDireccionTXT.Text.Split(","))
+
+        For i = 0 To direccion.Count - 1
+            direccion(i) = RemoverEspacios(direccion(i))
+        Next
+
+        If Not check_direccion(direccion) Then
+            MessageBox.Show(MensajeDeErrorDireccion(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         Dim telefonos As New List(Of String)
         For Each t As String In cbTelefonos.Items
             telefonos.Add(t)
         Next
+
+        Dim ci As Integer = Val(lblCedulaTXT.Text)
+        Dim nombre1 As String = lblNombre1TXT.Text
+        Dim nombre2 As String = lblNombre2TXT.Text
+        Dim apellido1 As String = lblApellido1TXT.Text
+        Dim apellido2 As String = lblApellido2TXT.Text
+        Dim direccion_calle As String = direccion(0)
+        Dim direccion_nroPuerta As Integer = Val(direccion(1))
 
         Select Case Usuario
             Case TipoUsuario.Paciente
@@ -373,5 +396,9 @@
         '()->Modificar[USUARIO]
     End Sub
 
-
+    Private Sub SinEspacios(sender As Object, e As KeyPressEventArgs) Handles lblCedulaTXT.KeyPress, lblCorreoTXT.KeyPress, cbTelefonos.KeyPress
+        If e.KeyChar = " " Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

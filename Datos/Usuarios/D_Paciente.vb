@@ -36,7 +36,7 @@ Public Class D_Paciente
         End Try
         Console.WriteLine("cantidad " & leer.RecordCount)
 
-        Do While Not leer.EOF
+        While Not leer.EOF
             u = New E_Paciente With {
                  .Cedula = intCI,
                  .Nombre1 = leer("nombre1").Value,
@@ -52,7 +52,7 @@ Public Class D_Paciente
                  .Sexo = leer("sexo").Value
                 }
             leer.MoveNext()
-        Loop
+        End While
 
         Dim lista As New List(Of String)
 

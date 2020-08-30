@@ -67,12 +67,12 @@ Partial Class frmGestion
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.pnlContenedorBusqueda = New System.Windows.Forms.Panel()
         Me.pnlBusqueda = New System.Windows.Forms.Panel()
+        Me.rBtnEspecialidad = New System.Windows.Forms.RadioButton()
         Me.rBtnApellido = New System.Windows.Forms.RadioButton()
         Me.rBtnCedula = New System.Windows.Forms.RadioButton()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.rBtnEspecialidad = New System.Windows.Forms.RadioButton()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
         Me.pnlEspecialidadesBtns.SuspendLayout()
@@ -196,7 +196,7 @@ Partial Class frmGestion
         Me.lblCorreoTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCorreoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCorreoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreoTXT.Location = New System.Drawing.Point(411, 204)
+        Me.lblCorreoTXT.Location = New System.Drawing.Point(411, 208)
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.ReadOnly = True
         Me.lblCorreoTXT.Size = New System.Drawing.Size(241, 23)
@@ -208,7 +208,7 @@ Partial Class frmGestion
         Me.lblDireccionTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblDireccionTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(411, 136)
+        Me.lblDireccionTXT.Location = New System.Drawing.Point(411, 140)
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.ReadOnly = True
         Me.lblDireccionTXT.Size = New System.Drawing.Size(241, 23)
@@ -220,7 +220,7 @@ Partial Class frmGestion
         Me.lblApellido2TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblApellido2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblApellido2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2TXT.Location = New System.Drawing.Point(411, 101)
+        Me.lblApellido2TXT.Location = New System.Drawing.Point(411, 106)
         Me.lblApellido2TXT.Name = "lblApellido2TXT"
         Me.lblApellido2TXT.ReadOnly = True
         Me.lblApellido2TXT.Size = New System.Drawing.Size(241, 23)
@@ -232,7 +232,7 @@ Partial Class frmGestion
         Me.lblApellido1TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblApellido1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblApellido1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1TXT.Location = New System.Drawing.Point(411, 68)
+        Me.lblApellido1TXT.Location = New System.Drawing.Point(411, 71)
         Me.lblApellido1TXT.Name = "lblApellido1TXT"
         Me.lblApellido1TXT.ReadOnly = True
         Me.lblApellido1TXT.Size = New System.Drawing.Size(241, 23)
@@ -244,7 +244,7 @@ Partial Class frmGestion
         Me.lblNombre2TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblNombre2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblNombre2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre2TXT.Location = New System.Drawing.Point(411, 35)
+        Me.lblNombre2TXT.Location = New System.Drawing.Point(411, 37)
         Me.lblNombre2TXT.Name = "lblNombre2TXT"
         Me.lblNombre2TXT.ReadOnly = True
         Me.lblNombre2TXT.Size = New System.Drawing.Size(241, 23)
@@ -311,7 +311,7 @@ Partial Class frmGestion
         '
         Me.pnlBotonesTel.Controls.Add(Me.btnSacarTelefono)
         Me.pnlBotonesTel.Controls.Add(Me.btnAgregarTelefono)
-        Me.pnlBotonesTel.Location = New System.Drawing.Point(585, 166)
+        Me.pnlBotonesTel.Location = New System.Drawing.Point(585, 170)
         Me.pnlBotonesTel.Name = "pnlBotonesTel"
         Me.pnlBotonesTel.Size = New System.Drawing.Size(67, 32)
         Me.pnlBotonesTel.TabIndex = 401
@@ -412,7 +412,7 @@ Partial Class frmGestion
         '
         Me.cbTelefonos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTelefonos.FormattingEnabled = True
-        Me.cbTelefonos.Location = New System.Drawing.Point(411, 170)
+        Me.cbTelefonos.Location = New System.Drawing.Point(411, 174)
         Me.cbTelefonos.Name = "cbTelefonos"
         Me.cbTelefonos.Size = New System.Drawing.Size(168, 28)
         Me.cbTelefonos.TabIndex = 393
@@ -474,7 +474,7 @@ Partial Class frmGestion
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(275, 174)
+        Me.lblTelefono.Location = New System.Drawing.Point(275, 175)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(111, 24)
         Me.lblTelefono.TabIndex = 388
@@ -484,7 +484,7 @@ Partial Class frmGestion
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(275, 141)
+        Me.lblDireccion.Location = New System.Drawing.Point(275, 142)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(95, 24)
         Me.lblDireccion.TabIndex = 389
@@ -494,7 +494,7 @@ Partial Class frmGestion
         '
         Me.lblCorreo.AutoSize = True
         Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreo.Location = New System.Drawing.Point(275, 212)
+        Me.lblCorreo.Location = New System.Drawing.Point(275, 213)
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(73, 24)
         Me.lblCorreo.TabIndex = 392
@@ -514,7 +514,7 @@ Partial Class frmGestion
         '
         Me.lblApellido2.AutoSize = True
         Me.lblApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2.Location = New System.Drawing.Point(275, 107)
+        Me.lblApellido2.Location = New System.Drawing.Point(275, 108)
         Me.lblApellido2.Name = "lblApellido2"
         Me.lblApellido2.Size = New System.Drawing.Size(105, 24)
         Me.lblApellido2.TabIndex = 391
@@ -564,6 +564,18 @@ Partial Class frmGestion
         Me.pnlBusqueda.Name = "pnlBusqueda"
         Me.pnlBusqueda.Size = New System.Drawing.Size(1038, 47)
         Me.pnlBusqueda.TabIndex = 7
+        '
+        'rBtnEspecialidad
+        '
+        Me.rBtnEspecialidad.AutoSize = True
+        Me.rBtnEspecialidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rBtnEspecialidad.Location = New System.Drawing.Point(399, 15)
+        Me.rBtnEspecialidad.Name = "rBtnEspecialidad"
+        Me.rBtnEspecialidad.Size = New System.Drawing.Size(144, 29)
+        Me.rBtnEspecialidad.TabIndex = 359
+        Me.rBtnEspecialidad.TabStop = True
+        Me.rBtnEspecialidad.Text = "Especialidad"
+        Me.rBtnEspecialidad.UseVisualStyleBackColor = True
         '
         'rBtnApellido
         '
@@ -616,18 +628,6 @@ Partial Class frmGestion
         Me.dgwUsuarios.RowTemplate.Height = 24
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 272)
         Me.dgwUsuarios.TabIndex = 6
-        '
-        'rBtnEspecialidad
-        '
-        Me.rBtnEspecialidad.AutoSize = True
-        Me.rBtnEspecialidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rBtnEspecialidad.Location = New System.Drawing.Point(399, 15)
-        Me.rBtnEspecialidad.Name = "rBtnEspecialidad"
-        Me.rBtnEspecialidad.Size = New System.Drawing.Size(144, 29)
-        Me.rBtnEspecialidad.TabIndex = 359
-        Me.rBtnEspecialidad.TabStop = True
-        Me.rBtnEspecialidad.Text = "Especialidad"
-        Me.rBtnEspecialidad.UseVisualStyleBackColor = True
         '
         'frmGestion
         '
