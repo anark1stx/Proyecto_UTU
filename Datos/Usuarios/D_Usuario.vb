@@ -194,20 +194,25 @@ Public Class D_Usuario
         End Try
     End Function
 
-    Public Sub AltaLogicaUsuario(u As E_Usuario)
+    Public Function AltaLogicaUsuario(u As E_Usuario) As Integer
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
+            .ActiveConnection = conexion,
             .CommandType = adCmdStoredProc,
-            .CommandText = "AltaLogicaUsuario",
-            .ActiveConnection = conexion
+            .CommandText = "AltaLogicaUsuario"
         }
-
         cmd.Parameters.Append(cmd.CreateParameter("@CI", u.Cedula))
-        cmd.Execute()
-        conexion.Close()
-    End Sub
+        Try
+            cmd.Execute()
+            conexion.Close()
+            Return 1
+        Catch ex As Exception
+            conexion.Close()
+            Return 0
+        End Try
+    End Function
 
 End Class

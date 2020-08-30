@@ -509,6 +509,25 @@ Public Class frmGestion
         End Select
     End Sub
 
+    Sub AltaULogica()
+        '()->AltaLogica
+
+        Dim u As New E_Usuario With {
+            .Cedula = lblCedulaTXT.Text
+        }
+
+        Dim nu As New N_Usuario
+
+        Dim res = nu.AltaLogicaUsuario(u)
+
+        Select Case res
+            Case 0
+                MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Select
+    End Sub
+
     Sub BuscarU()
         '()->Buscar[Usuario]x[PARAMETRO]
     End Sub

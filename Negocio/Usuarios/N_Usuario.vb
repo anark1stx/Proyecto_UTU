@@ -24,8 +24,8 @@ Public Class N_Usuario
         Return objDatos.BajaLogicaUsuario(u)
     End Function
 
-    Public Overridable Sub AltaLogicaUsuario(u As E_Usuario)
-        objDatos.AltaLogicaUsuario(u)
-    End Sub
+    Public Overridable Function AltaLogicaUsuario(u As E_Usuario) As Integer
+        Return objDatos.AltaLogicaUsuario(u)
+    End Function
 
 End Class
