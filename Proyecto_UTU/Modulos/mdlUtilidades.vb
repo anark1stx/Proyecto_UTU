@@ -2,6 +2,23 @@
 Imports FormulariosPersonalizados
 Module mdlUtilidades
 
+    Public Function subirImagen() As Image
+        Dim imgpath As String 'donde esta la imagen que se va a subir'
+
+        Dim OFD As FileDialog = New OpenFileDialog With {
+                .Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png"
+        }
+
+        If OFD.ShowDialog() = DialogResult.OK Then
+            imgpath = OFD.FileName
+            Return Image.FromFile(imgpath)
+        Else
+            Return Nothing
+        End If
+
+
+    End Function
+
     Public Function ImportarFormulario() As List(Of Control)
 
         Dim abrirFormulario As New OpenFileDialog With { 'Sustituir esto por un catalogo con los formularios que hay en la BD.
@@ -190,5 +207,15 @@ Module mdlUtilidades
 
     End Function
 
+    Public Function Image2Bytes(ByVal img As Image) As Byte()
+        If img Is Nothing Then
+            Return {}
+        End If
+        Dim ms = New MemoryStream()
+        img.Save(ms, Imaging.ImageFormat.Jpeg)
+        Dim bytes = ms.ToArray()
+        Return bytes
+
+    End Function
 
 End Module

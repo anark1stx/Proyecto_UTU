@@ -28,6 +28,8 @@ Partial Class frmGestion
         Me.Accion2 = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlDatosUsuario = New System.Windows.Forms.Panel()
         Me.pnlDspCedula = New System.Windows.Forms.Panel()
+        Me.lblContrasenaTXT = New System.Windows.Forms.TextBox()
+        Me.lblContrasena = New System.Windows.Forms.Label()
         Me.pnlEspecialidadesBtns = New System.Windows.Forms.Panel()
         Me.btnBorrarEspecialidad = New System.Windows.Forms.Button()
         Me.btnAgregarEspecialidad = New System.Windows.Forms.Button()
@@ -41,7 +43,7 @@ Partial Class frmGestion
         Me.cbEstadoCivil = New System.Windows.Forms.ComboBox()
         Me.cbEtapa = New System.Windows.Forms.ComboBox()
         Me.cbSexo = New System.Windows.Forms.ComboBox()
-        Me.dateFechaNacimiento = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.pnlBotonesTel = New System.Windows.Forms.Panel()
         Me.btnSacarTelefono = New System.Windows.Forms.Button()
         Me.btnAgregarTelefono = New System.Windows.Forms.Button()
@@ -106,11 +108,13 @@ Partial Class frmGestion
         Me.pnlDatosUsuario.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDatosUsuario.Location = New System.Drawing.Point(0, 0)
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
-        Me.pnlDatosUsuario.Size = New System.Drawing.Size(1062, 299)
+        Me.pnlDatosUsuario.Size = New System.Drawing.Size(1062, 318)
         Me.pnlDatosUsuario.TabIndex = 3
         '
         'pnlDspCedula
         '
+        Me.pnlDspCedula.Controls.Add(Me.lblContrasenaTXT)
+        Me.pnlDspCedula.Controls.Add(Me.lblContrasena)
         Me.pnlDspCedula.Controls.Add(Me.pnlEspecialidadesBtns)
         Me.pnlDspCedula.Controls.Add(Me.lblOcupacionTXT)
         Me.pnlDspCedula.Controls.Add(Me.lblCorreoTXT)
@@ -122,7 +126,7 @@ Partial Class frmGestion
         Me.pnlDspCedula.Controls.Add(Me.cbEstadoCivil)
         Me.pnlDspCedula.Controls.Add(Me.cbEtapa)
         Me.pnlDspCedula.Controls.Add(Me.cbSexo)
-        Me.pnlDspCedula.Controls.Add(Me.dateFechaNacimiento)
+        Me.pnlDspCedula.Controls.Add(Me.dtpFechaNacimiento)
         Me.pnlDspCedula.Controls.Add(Me.pnlBotonesTel)
         Me.pnlDspCedula.Controls.Add(Me.cbEspecialidades)
         Me.pnlDspCedula.Controls.Add(Me.lblEspecialidades)
@@ -143,16 +147,38 @@ Partial Class frmGestion
         Me.pnlDspCedula.Controls.Add(Me.lblNombre2)
         Me.pnlDspCedula.Controls.Add(Me.lblApellido2)
         Me.pnlDspCedula.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlDspCedula.Location = New System.Drawing.Point(0, 52)
+        Me.pnlDspCedula.Location = New System.Drawing.Point(0, 62)
         Me.pnlDspCedula.Name = "pnlDspCedula"
-        Me.pnlDspCedula.Size = New System.Drawing.Size(1062, 247)
+        Me.pnlDspCedula.Size = New System.Drawing.Size(1062, 256)
         Me.pnlDspCedula.TabIndex = 375
+        '
+        'lblContrasenaTXT
+        '
+        Me.lblContrasenaTXT.BackColor = System.Drawing.Color.LightBlue
+        Me.lblContrasenaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblContrasenaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblContrasenaTXT.Location = New System.Drawing.Point(830, 182)
+        Me.lblContrasenaTXT.Name = "lblContrasenaTXT"
+        Me.lblContrasenaTXT.ReadOnly = True
+        Me.lblContrasenaTXT.Size = New System.Drawing.Size(220, 23)
+        Me.lblContrasenaTXT.TabIndex = 415
+        Me.lblContrasenaTXT.Text = "Contraseña"
+        '
+        'lblContrasena
+        '
+        Me.lblContrasena.AutoSize = True
+        Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblContrasena.Location = New System.Drawing.Point(670, 184)
+        Me.lblContrasena.Name = "lblContrasena"
+        Me.lblContrasena.Size = New System.Drawing.Size(111, 24)
+        Me.lblContrasena.TabIndex = 414
+        Me.lblContrasena.Text = "Contraseña:"
         '
         'pnlEspecialidadesBtns
         '
         Me.pnlEspecialidadesBtns.Controls.Add(Me.btnBorrarEspecialidad)
         Me.pnlEspecialidadesBtns.Controls.Add(Me.btnAgregarEspecialidad)
-        Me.pnlEspecialidadesBtns.Location = New System.Drawing.Point(987, 7)
+        Me.pnlEspecialidadesBtns.Location = New System.Drawing.Point(987, 3)
         Me.pnlEspecialidadesBtns.Name = "pnlEspecialidadesBtns"
         Me.pnlEspecialidadesBtns.Size = New System.Drawing.Size(63, 32)
         Me.pnlEspecialidadesBtns.TabIndex = 404
@@ -184,10 +210,10 @@ Partial Class frmGestion
         Me.lblOcupacionTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblOcupacionTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblOcupacionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacionTXT.Location = New System.Drawing.Point(830, 110)
+        Me.lblOcupacionTXT.Location = New System.Drawing.Point(830, 106)
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
         Me.lblOcupacionTXT.ReadOnly = True
-        Me.lblOcupacionTXT.Size = New System.Drawing.Size(220, 23)
+        Me.lblOcupacionTXT.Size = New System.Drawing.Size(221, 23)
         Me.lblOcupacionTXT.TabIndex = 413
         Me.lblOcupacionTXT.Text = "Ocupacion"
         '
@@ -196,7 +222,7 @@ Partial Class frmGestion
         Me.lblCorreoTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCorreoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCorreoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreoTXT.Location = New System.Drawing.Point(411, 208)
+        Me.lblCorreoTXT.Location = New System.Drawing.Point(410, 217)
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.ReadOnly = True
         Me.lblCorreoTXT.Size = New System.Drawing.Size(241, 23)
@@ -208,7 +234,7 @@ Partial Class frmGestion
         Me.lblDireccionTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblDireccionTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(411, 140)
+        Me.lblDireccionTXT.Location = New System.Drawing.Point(411, 144)
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.ReadOnly = True
         Me.lblDireccionTXT.Size = New System.Drawing.Size(241, 23)
@@ -220,7 +246,7 @@ Partial Class frmGestion
         Me.lblApellido2TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblApellido2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblApellido2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2TXT.Location = New System.Drawing.Point(411, 106)
+        Me.lblApellido2TXT.Location = New System.Drawing.Point(411, 110)
         Me.lblApellido2TXT.Name = "lblApellido2TXT"
         Me.lblApellido2TXT.ReadOnly = True
         Me.lblApellido2TXT.Size = New System.Drawing.Size(241, 23)
@@ -232,7 +258,7 @@ Partial Class frmGestion
         Me.lblApellido1TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblApellido1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblApellido1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1TXT.Location = New System.Drawing.Point(411, 71)
+        Me.lblApellido1TXT.Location = New System.Drawing.Point(411, 75)
         Me.lblApellido1TXT.Name = "lblApellido1TXT"
         Me.lblApellido1TXT.ReadOnly = True
         Me.lblApellido1TXT.Size = New System.Drawing.Size(241, 23)
@@ -244,7 +270,7 @@ Partial Class frmGestion
         Me.lblNombre2TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblNombre2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblNombre2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre2TXT.Location = New System.Drawing.Point(411, 37)
+        Me.lblNombre2TXT.Location = New System.Drawing.Point(411, 41)
         Me.lblNombre2TXT.Name = "lblNombre2TXT"
         Me.lblNombre2TXT.ReadOnly = True
         Me.lblNombre2TXT.Size = New System.Drawing.Size(241, 23)
@@ -256,7 +282,7 @@ Partial Class frmGestion
         Me.lblNombre1TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblNombre1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblNombre1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre1TXT.Location = New System.Drawing.Point(411, 3)
+        Me.lblNombre1TXT.Location = New System.Drawing.Point(411, 7)
         Me.lblNombre1TXT.Name = "lblNombre1TXT"
         Me.lblNombre1TXT.ReadOnly = True
         Me.lblNombre1TXT.Size = New System.Drawing.Size(241, 23)
@@ -269,7 +295,7 @@ Partial Class frmGestion
         Me.cbEstadoCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbEstadoCivil.FormattingEnabled = True
         Me.cbEstadoCivil.Items.AddRange(New Object() {"Soltero", "Casado"})
-        Me.cbEstadoCivil.Location = New System.Drawing.Point(830, 76)
+        Me.cbEstadoCivil.Location = New System.Drawing.Point(830, 72)
         Me.cbEstadoCivil.Name = "cbEstadoCivil"
         Me.cbEstadoCivil.Size = New System.Drawing.Size(220, 28)
         Me.cbEstadoCivil.TabIndex = 406
@@ -280,9 +306,9 @@ Partial Class frmGestion
         Me.cbEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbEtapa.FormattingEnabled = True
         Me.cbEtapa.Items.AddRange(New Object() {"a", "b", "c", "d", "e"})
-        Me.cbEtapa.Location = New System.Drawing.Point(830, 146)
+        Me.cbEtapa.Location = New System.Drawing.Point(830, 142)
         Me.cbEtapa.Name = "cbEtapa"
-        Me.cbEtapa.Size = New System.Drawing.Size(221, 28)
+        Me.cbEtapa.Size = New System.Drawing.Size(220, 28)
         Me.cbEtapa.TabIndex = 405
         '
         'cbSexo
@@ -291,27 +317,27 @@ Partial Class frmGestion
         Me.cbSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbSexo.FormattingEnabled = True
         Me.cbSexo.Items.AddRange(New Object() {"Masculino", "Femenino"})
-        Me.cbSexo.Location = New System.Drawing.Point(830, 42)
+        Me.cbSexo.Location = New System.Drawing.Point(830, 38)
         Me.cbSexo.Name = "cbSexo"
         Me.cbSexo.Size = New System.Drawing.Size(220, 28)
         Me.cbSexo.TabIndex = 403
         '
-        'dateFechaNacimiento
+        'dtpFechaNacimiento
         '
-        Me.dateFechaNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dateFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dateFechaNacimiento.Location = New System.Drawing.Point(830, 7)
-        Me.dateFechaNacimiento.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
-        Me.dateFechaNacimiento.Name = "dateFechaNacimiento"
-        Me.dateFechaNacimiento.Size = New System.Drawing.Size(221, 28)
-        Me.dateFechaNacimiento.TabIndex = 402
-        Me.dateFechaNacimiento.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
+        Me.dtpFechaNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaNacimiento.Location = New System.Drawing.Point(830, 3)
+        Me.dtpFechaNacimiento.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpFechaNacimiento.Name = "dtpFechaNacimiento"
+        Me.dtpFechaNacimiento.Size = New System.Drawing.Size(221, 28)
+        Me.dtpFechaNacimiento.TabIndex = 402
+        Me.dtpFechaNacimiento.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
         '
         'pnlBotonesTel
         '
         Me.pnlBotonesTel.Controls.Add(Me.btnSacarTelefono)
         Me.pnlBotonesTel.Controls.Add(Me.btnAgregarTelefono)
-        Me.pnlBotonesTel.Location = New System.Drawing.Point(585, 170)
+        Me.pnlBotonesTel.Location = New System.Drawing.Point(585, 174)
         Me.pnlBotonesTel.Name = "pnlBotonesTel"
         Me.pnlBotonesTel.Size = New System.Drawing.Size(67, 32)
         Me.pnlBotonesTel.TabIndex = 401
@@ -342,7 +368,7 @@ Partial Class frmGestion
         '
         Me.cbEspecialidades.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbEspecialidades.FormattingEnabled = True
-        Me.cbEspecialidades.Location = New System.Drawing.Point(830, 7)
+        Me.cbEspecialidades.Location = New System.Drawing.Point(830, 3)
         Me.cbEspecialidades.Name = "cbEspecialidades"
         Me.cbEspecialidades.Size = New System.Drawing.Size(154, 28)
         Me.cbEspecialidades.TabIndex = 400
@@ -352,7 +378,7 @@ Partial Class frmGestion
         '
         Me.lblEspecialidades.AutoSize = True
         Me.lblEspecialidades.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidades.Location = New System.Drawing.Point(670, 13)
+        Me.lblEspecialidades.Location = New System.Drawing.Point(670, 9)
         Me.lblEspecialidades.Name = "lblEspecialidades"
         Me.lblEspecialidades.Size = New System.Drawing.Size(155, 24)
         Me.lblEspecialidades.TabIndex = 399
@@ -362,7 +388,7 @@ Partial Class frmGestion
         '
         Me.lblEtapa.AutoSize = True
         Me.lblEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEtapa.Location = New System.Drawing.Point(669, 150)
+        Me.lblEtapa.Location = New System.Drawing.Point(669, 146)
         Me.lblEtapa.Name = "lblEtapa"
         Me.lblEtapa.Size = New System.Drawing.Size(63, 24)
         Me.lblEtapa.TabIndex = 398
@@ -372,7 +398,7 @@ Partial Class frmGestion
         '
         Me.lblEstadoCivil.AutoSize = True
         Me.lblEstadoCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoCivil.Location = New System.Drawing.Point(670, 80)
+        Me.lblEstadoCivil.Location = New System.Drawing.Point(670, 76)
         Me.lblEstadoCivil.Name = "lblEstadoCivil"
         Me.lblEstadoCivil.Size = New System.Drawing.Size(109, 24)
         Me.lblEstadoCivil.TabIndex = 397
@@ -382,7 +408,7 @@ Partial Class frmGestion
         '
         Me.lblOcupacion.AutoSize = True
         Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(669, 110)
+        Me.lblOcupacion.Location = New System.Drawing.Point(669, 106)
         Me.lblOcupacion.Name = "lblOcupacion"
         Me.lblOcupacion.Size = New System.Drawing.Size(108, 24)
         Me.lblOcupacion.TabIndex = 396
@@ -392,7 +418,7 @@ Partial Class frmGestion
         '
         Me.lblSexo.AutoSize = True
         Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(669, 46)
+        Me.lblSexo.Location = New System.Drawing.Point(669, 42)
         Me.lblSexo.Name = "lblSexo"
         Me.lblSexo.Size = New System.Drawing.Size(59, 24)
         Me.lblSexo.TabIndex = 395
@@ -402,7 +428,7 @@ Partial Class frmGestion
         '
         Me.lblFnac.AutoSize = True
         Me.lblFnac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFnac.Location = New System.Drawing.Point(669, 9)
+        Me.lblFnac.Location = New System.Drawing.Point(669, 5)
         Me.lblFnac.Name = "lblFnac"
         Me.lblFnac.Size = New System.Drawing.Size(108, 24)
         Me.lblFnac.TabIndex = 394
@@ -412,7 +438,7 @@ Partial Class frmGestion
         '
         Me.cbTelefonos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTelefonos.FormattingEnabled = True
-        Me.cbTelefonos.Location = New System.Drawing.Point(411, 174)
+        Me.cbTelefonos.Location = New System.Drawing.Point(411, 178)
         Me.cbTelefonos.Name = "cbTelefonos"
         Me.cbTelefonos.Size = New System.Drawing.Size(168, 28)
         Me.cbTelefonos.TabIndex = 393
@@ -425,7 +451,7 @@ Partial Class frmGestion
         Me.pBoxFotoUsuario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pBoxFotoUsuario.Location = New System.Drawing.Point(12, 3)
         Me.pBoxFotoUsuario.Name = "pBoxFotoUsuario"
-        Me.pBoxFotoUsuario.Size = New System.Drawing.Size(255, 233)
+        Me.pBoxFotoUsuario.Size = New System.Drawing.Size(255, 247)
         Me.pBoxFotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pBoxFotoUsuario.TabIndex = 385
         Me.pBoxFotoUsuario.TabStop = False
@@ -434,7 +460,7 @@ Partial Class frmGestion
         '
         Me.btnAccion1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAccion1.ImageList = Me.Accion1
-        Me.btnAccion1.Location = New System.Drawing.Point(1003, 204)
+        Me.btnAccion1.Location = New System.Drawing.Point(1003, 216)
         Me.btnAccion1.Name = "btnAccion1"
         Me.btnAccion1.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion1.TabIndex = 383
@@ -444,7 +470,7 @@ Partial Class frmGestion
         '
         Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAccion2.ImageList = Me.Accion2
-        Me.btnAccion2.Location = New System.Drawing.Point(948, 204)
+        Me.btnAccion2.Location = New System.Drawing.Point(949, 216)
         Me.btnAccion2.Name = "btnAccion2"
         Me.btnAccion2.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion2.TabIndex = 384
@@ -454,7 +480,7 @@ Partial Class frmGestion
         '
         Me.lblNombre1.AutoSize = True
         Me.lblNombre1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre1.Location = New System.Drawing.Point(274, 5)
+        Me.lblNombre1.Location = New System.Drawing.Point(274, 9)
         Me.lblNombre1.Name = "lblNombre1"
         Me.lblNombre1.Size = New System.Drawing.Size(105, 24)
         Me.lblNombre1.TabIndex = 386
@@ -464,7 +490,7 @@ Partial Class frmGestion
         '
         Me.lblApellido1.AutoSize = True
         Me.lblApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido1.Location = New System.Drawing.Point(274, 76)
+        Me.lblApellido1.Location = New System.Drawing.Point(274, 80)
         Me.lblApellido1.Name = "lblApellido1"
         Me.lblApellido1.Size = New System.Drawing.Size(105, 24)
         Me.lblApellido1.TabIndex = 387
@@ -474,7 +500,7 @@ Partial Class frmGestion
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(275, 175)
+        Me.lblTelefono.Location = New System.Drawing.Point(275, 179)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(111, 24)
         Me.lblTelefono.TabIndex = 388
@@ -484,7 +510,7 @@ Partial Class frmGestion
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(275, 142)
+        Me.lblDireccion.Location = New System.Drawing.Point(275, 146)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(95, 24)
         Me.lblDireccion.TabIndex = 389
@@ -494,7 +520,7 @@ Partial Class frmGestion
         '
         Me.lblCorreo.AutoSize = True
         Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreo.Location = New System.Drawing.Point(275, 213)
+        Me.lblCorreo.Location = New System.Drawing.Point(274, 224)
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(73, 24)
         Me.lblCorreo.TabIndex = 392
@@ -504,7 +530,7 @@ Partial Class frmGestion
         '
         Me.lblNombre2.AutoSize = True
         Me.lblNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre2.Location = New System.Drawing.Point(275, 43)
+        Me.lblNombre2.Location = New System.Drawing.Point(275, 47)
         Me.lblNombre2.Name = "lblNombre2"
         Me.lblNombre2.Size = New System.Drawing.Size(105, 24)
         Me.lblNombre2.TabIndex = 390
@@ -514,7 +540,7 @@ Partial Class frmGestion
         '
         Me.lblApellido2.AutoSize = True
         Me.lblApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2.Location = New System.Drawing.Point(275, 108)
+        Me.lblApellido2.Location = New System.Drawing.Point(275, 112)
         Me.lblApellido2.Name = "lblApellido2"
         Me.lblApellido2.Size = New System.Drawing.Size(105, 24)
         Me.lblApellido2.TabIndex = 391
@@ -525,7 +551,7 @@ Partial Class frmGestion
         Me.lblCedulaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCedulaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTXT.Location = New System.Drawing.Point(411, 19)
+        Me.lblCedulaTXT.Location = New System.Drawing.Point(410, 23)
         Me.lblCedulaTXT.MaxLength = 8
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.ReadOnly = True
@@ -537,7 +563,7 @@ Partial Class frmGestion
         '
         Me.lblCedula.AutoSize = True
         Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(275, 25)
+        Me.lblCedula.Location = New System.Drawing.Point(274, 29)
         Me.lblCedula.Name = "lblCedula"
         Me.lblCedula.Size = New System.Drawing.Size(75, 24)
         Me.lblCedula.TabIndex = 338
@@ -548,9 +574,9 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnlBusqueda)
         Me.pnlContenedorBusqueda.Controls.Add(Me.dgwUsuarios)
         Me.pnlContenedorBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(0, 305)
+        Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(0, 321)
         Me.pnlContenedorBusqueda.Name = "pnlContenedorBusqueda"
-        Me.pnlContenedorBusqueda.Size = New System.Drawing.Size(1062, 334)
+        Me.pnlContenedorBusqueda.Size = New System.Drawing.Size(1062, 318)
         Me.pnlContenedorBusqueda.TabIndex = 4
         '
         'pnlBusqueda
@@ -678,7 +704,7 @@ Partial Class frmGestion
     Friend WithEvents cbEstadoCivil As ComboBox
     Friend WithEvents cbEtapa As ComboBox
     Friend WithEvents cbSexo As ComboBox
-    Friend WithEvents dateFechaNacimiento As DateTimePicker
+    Friend WithEvents dtpFechaNacimiento As DateTimePicker
     Friend WithEvents pnlBotonesTel As Panel
     Friend WithEvents btnSacarTelefono As Button
     Friend WithEvents btnAgregarTelefono As Button
@@ -703,4 +729,6 @@ Partial Class frmGestion
     Friend WithEvents lblCedulaTXT As TextBox
     Friend WithEvents lblCedula As Label
     Friend WithEvents rBtnEspecialidad As RadioButton
+    Friend WithEvents lblContrasenaTXT As TextBox
+    Friend WithEvents lblContrasena As Label
 End Class

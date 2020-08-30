@@ -1,4 +1,6 @@
-﻿Public Class frmGestion
+﻿Imports Entidades
+Imports Negocio
+Public Class frmGestion
     Protected ctrlsPaciente As List(Of Control)
     Protected ctrlsUsuario As List(Of Control)
     Protected ctrlsMedico As List(Of Control)
@@ -37,13 +39,13 @@
 
     ReadOnly Property BASEcontrolesU As List(Of Control)
         Get
-            Return New List(Of Control)(New Control() {lblCedulaTXT, lblNombre1TXT, lblNombre2TXT, lblApellido1TXT, lblApellido2TXT, lblDireccionTXT, lblCorreoTXT, cbTelefonos})
+            Return New List(Of Control)(New Control() {lblCedulaTXT, lblNombre1TXT, lblNombre2TXT, lblApellido1TXT, lblApellido2TXT, lblDireccionTXT, lblCorreoTXT, cbTelefonos, lblContrasenaTXT})
         End Get
     End Property
 
     ReadOnly Property BASEcontrolesP As List(Of Control)
         Get
-            Return New List(Of Control)(New Control() {lblFnac, dateFechaNacimiento, lblEtapa, cbEtapa, lblEstadoCivil, cbEstadoCivil, lblSexo, cbSexo, lblOcupacion, lblOcupacionTXT})
+            Return New List(Of Control)(New Control() {lblFnac, dtpFechaNacimiento, lblEtapa, cbEtapa, lblEstadoCivil, cbEstadoCivil, lblSexo, cbSexo, lblOcupacion, lblOcupacionTXT})
         End Get
     End Property
 
@@ -360,17 +362,35 @@
             telefonos.Add(t)
         Next
 
-        Dim ci As Integer = Val(lblCedulaTXT.Text)
-        Dim nombre1 As String = lblNombre1TXT.Text
-        Dim nombre2 As String = lblNombre2TXT.Text
-        Dim apellido1 As String = lblApellido1TXT.Text
-        Dim apellido2 As String = lblApellido2TXT.Text
-        Dim direccion_calle As String = direccion(0)
-        Dim direccion_nroPuerta As Integer = Val(direccion(1))
 
         Select Case Usuario
             Case TipoUsuario.Paciente
                 'do stuff
+                Dim p As New E_Paciente With {
+                    .Nombre = "u" & lblCedulaTXT.Text,
+                    .Contrasena = lblContrasenaTXT.Text,
+                    .Rol = "paciente",
+                    .Cedula = Val(lblCedulaTXT.Text),
+                    .Nombre1 = lblNombre1TXT.Text,
+                    .Nombre2 = lblNombre2TXT.Text,
+                    .Apellido1 = lblApellido1TXT.Text,
+                    .Apellido2 = lblApellido2TXT.Text,
+                    .Direccion = direccion,
+                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
+                    .Activo = 1,
+                    .Correo = lblCorreoTXT.Text,
+                    .TelefonosLista = telefonos,
+                    .Etapa = cbEtapa.SelectedItem.ToString(),
+                    .Estado_civil = cbEstadoCivil.SelectedItem().ToString(),
+                    .FechaNacimiento = dtpFechaNacimiento.Value,
+                    .Ocupacion = lblOcupacionTXT.Text,
+                    .Sexo = cbSexo.SelectedItem.ToString()
+                }
+
+                If Not p.ValidarMisDatos() Then
+                    MessageBox.Show(p.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
             Case TipoUsuario.Medico
                 'do stuff
                 If cbTelefonos.Items.Count < 1 Then
@@ -405,4 +425,13 @@
             e.Handled = True
         End If
     End Sub
+
+    Private Sub pBoxFotoUsuario_Click(sender As Object, e As EventArgs) Handles pBoxFotoUsuario.Click
+        Try
+            pBoxFotoUsuario.Image = subirImagen()
+        Catch ex As Exception
+            Console.WriteLine("cancelado")
+        End Try
+    End Sub
+
 End Class
