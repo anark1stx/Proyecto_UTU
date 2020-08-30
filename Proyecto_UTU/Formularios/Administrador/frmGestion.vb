@@ -224,19 +224,59 @@
     End Sub
 
     Private Sub btnAgregarTelefono_Click(sender As Object, e As EventArgs) Handles btnAgregarTelefono.Click
+        If cbTelefonos.Text Is String.Empty Then
+            MessageBox.Show("Escriba el teléfono que desea ingresar.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
 
+        If Not check_Telefonos(New List(Of String)(New String() {cbTelefonos.Text})) Then
+            MessageBox.Show("Teléfono inválido.", "Información errónea", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        Else
+
+            If cbTelefonos.Items.IndexOf(cbTelefonos.Text) < 0 Then
+                cbTelefonos.Items.Add(cbTelefonos.Text)
+            Else
+                MessageBox.Show("Ese teléfono ya fue ingresado en la lista.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
     End Sub
 
     Private Sub btnSacarTelefono_Click(sender As Object, e As EventArgs) Handles btnSacarTelefono.Click
+        If cbTelefonos.Text Is String.Empty Then
+            MessageBox.Show("Seleccione el teléfono que desea remover.", "Falta seleccionar elemento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
 
+        cbTelefonos.Items.Remove(cbTelefonos.Text)
     End Sub
 
     Private Sub btnAgregarEspecialidad_Click(sender As Object, e As EventArgs) Handles btnAgregarEspecialidad.Click
+        If cbEspecialidades.Text Is String.Empty Then
+            MessageBox.Show("Escriba el teléfono que desea ingresar.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
 
+        If Not check_Largo(cbEspecialidades.Text, 3, 50, True) Then
+            MessageBox.Show("Especialidad inválida.", "Información errónea", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        Else
+
+            If cbEspecialidades.Items.IndexOf(cbEspecialidades.Text) < 0 Then
+                cbEspecialidades.Items.Add(cbEspecialidades.Text)
+            Else
+                MessageBox.Show("Esa especialidad ya fue ingresado en la lista.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
     End Sub
 
     Private Sub btnBorrarEspecialidad_Click(sender As Object, e As EventArgs) Handles btnBorrarEspecialidad.Click
+        If cbEspecialidades.Text Is String.Empty Then
+            MessageBox.Show("Seleccione la especialidad que desea remover.", "Falta seleccionar elemento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
 
+        cbEspecialidades.Items.Remove(cbEspecialidades.Text)
     End Sub
 
     Private Sub lblCedulaTXT_TextChanged(sender As Object, e As EventArgs) Handles lblCedulaTXT.TextChanged
@@ -254,7 +294,7 @@
 
         Select Case Mode
             Case Accion.Alta
-
+                lblCedulaTXT.Enabled = True
                 If Not check_Cedula(lblCedulaTXT.Text) Then
                     ci_valida = False
                 End If
@@ -273,8 +313,71 @@
                 End If
             Case Accion.Baja
                 lblCedulaTXT.Enabled = False
+        End Select
+    End Sub
+
+    Private Sub btnAccion1_Click(sender As Object, e As EventArgs) Handles btnAccion1.Click
+        Select Case Mode
+            Case Accion.Alta
+                AltaU()
+            Case Accion.Baja
+                BajaU()
+            Case Accion.Modificacion
+                ModificarU()
+        End Select
+    End Sub
+
+    Private Sub btnAccion2_Click(sender As Object, e As EventArgs) Handles btnAccion2.Click
+        Select Case Mode
+            Case Accion.Alta, Accion.Modificacion 'limpiar
+                LimpiarControles(Me)
+            Case Accion.Baja 'editar
 
         End Select
     End Sub
+
+    Sub AltaU()
+        If cbTelefonos.Items.Count < 1 Then
+            MessageBox.Show("Ingrese al menos un telefono de contacto.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        Dim telefonos As New List(Of String)
+        For Each t As String In cbTelefonos.Items
+            telefonos.Add(t)
+        Next
+
+        Select Case Usuario
+            Case TipoUsuario.Paciente
+                'do stuff
+            Case TipoUsuario.Medico
+                'do stuff
+                If cbTelefonos.Items.Count < 1 Then
+                    MessageBox.Show("Ingrese al menos una especialidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                Dim especialidades As New List(Of String)
+                For Each es As String In cbEspecialidades.Items
+                    especialidades.Add(es)
+                Next
+            Case TipoUsuario.Auxiliar
+                'do stuff
+        End Select
+
+    End Sub
+
+    Sub BajaU()
+
+    End Sub
+
+    Sub BuscarU()
+
+    End Sub
+
+    Sub ModificarU()
+
+    End Sub
+
 
 End Class

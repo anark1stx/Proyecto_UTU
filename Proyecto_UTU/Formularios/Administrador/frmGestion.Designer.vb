@@ -299,10 +299,10 @@ Partial Class frmGestion
         '
         Me.dateFechaNacimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dateFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dateFechaNacimiento.Location = New System.Drawing.Point(831, 8)
+        Me.dateFechaNacimiento.Location = New System.Drawing.Point(830, 7)
         Me.dateFechaNacimiento.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dateFechaNacimiento.Name = "dateFechaNacimiento"
-        Me.dateFechaNacimiento.Size = New System.Drawing.Size(220, 28)
+        Me.dateFechaNacimiento.Size = New System.Drawing.Size(221, 28)
         Me.dateFechaNacimiento.TabIndex = 402
         Me.dateFechaNacimiento.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
         '
@@ -345,6 +345,7 @@ Partial Class frmGestion
         Me.cbEspecialidades.Name = "cbEspecialidades"
         Me.cbEspecialidades.Size = New System.Drawing.Size(154, 28)
         Me.cbEspecialidades.TabIndex = 400
+        Me.cbEspecialidades.Tag = "datos"
         '
         'lblEspecialidades
         '
@@ -414,6 +415,7 @@ Partial Class frmGestion
         Me.cbTelefonos.Name = "cbTelefonos"
         Me.cbTelefonos.Size = New System.Drawing.Size(168, 28)
         Me.cbTelefonos.TabIndex = 393
+        Me.cbTelefonos.Tag = "datos"
         '
         'pBoxFotoUsuario
         '

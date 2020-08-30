@@ -23,9 +23,9 @@ Public Class D_UsuarioMYSQL
         End Try
 
         Dim cmd As New Command With {
+            .ActiveConnection = conexion,
             .CommandType = adCmdStoredProc,
-            .CommandText = "BuscarRolUsuarioMYSQL",
-            .ActiveConnection = conexion
+            .CommandText = "BuscarRolUsuarioMYSQL"
         }
 
         cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, usuario))
