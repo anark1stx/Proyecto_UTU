@@ -34,6 +34,13 @@ Public Class D_Paciente
             Return u
         End Try
 
+        If leer.RecordCount <= 0 Then
+            leer.Close()
+            conexion.Close()
+            u.Cedula = 0
+            Return u
+        End If
+
         Dim lista As New List(Of String)
         While Not leer.EOF
             u = New E_Paciente With {
@@ -44,6 +51,7 @@ Public Class D_Paciente
                  .Apellido2 = leer("apellido2").Value,
                  .Correo = leer("correo").Value,
                  .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
+                 .Foto = leer("foto").Value,
                  .Estado_civil = leer("e_civil").Value,
                  .FechaNacimiento = leer("fecha_nac").Value,
                  .Ocupacion = leer("ocupacion").Value,

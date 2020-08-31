@@ -365,6 +365,7 @@ Public Class frmGestion
         Select Case Usuario
             Case TipoUsuario.Paciente
                 'do stuff
+
                 Dim p As New E_Paciente With {
                     .Nombre = "u" & lblCedulaTXT.Text,
                     .Contrasena = lblContrasenaTXT.Text,
@@ -375,7 +376,7 @@ Public Class frmGestion
                     .Apellido1 = lblApellido1TXT.Text,
                     .Apellido2 = lblApellido2TXT.Text,
                     .Direccion = direccion,
-                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
+                    .Foto = pBoxFotoUsuario.ImageLocation,
                     .Activo = 1,
                     .Correo = lblCorreoTXT.Text,
                     .TelefonosLista = telefonos,
@@ -426,7 +427,7 @@ Public Class frmGestion
                     .Apellido1 = lblApellido1TXT.Text,
                     .Apellido2 = lblApellido2TXT.Text,
                     .Direccion = direccion,
-                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
+                    .Foto = pBoxFotoUsuario.ImageLocation,
                     .Activo = 1,
                     .Correo = lblCorreoTXT.Text,
                     .TelefonosLista = telefonos,
@@ -462,7 +463,7 @@ Public Class frmGestion
                     .Apellido1 = lblApellido1TXT.Text,
                     .Apellido2 = lblApellido2TXT.Text,
                     .Direccion = direccion,
-                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
+                    .Foto = pBoxFotoUsuario.ImageLocation,
                     .Activo = 1,
                     .Correo = lblCorreoTXT.Text,
                     .TelefonosLista = telefonos
@@ -508,8 +509,6 @@ Public Class frmGestion
     End Sub
 
     Sub AltaULogica()
-        '()->AltaLogica
-
         Dim u As New E_Usuario With {
             .Cedula = lblCedulaTXT.Text
         }
@@ -542,7 +541,9 @@ Public Class frmGestion
 
     Private Sub pBoxFotoUsuario_Click(sender As Object, e As EventArgs) Handles pBoxFotoUsuario.Click
         Try
-            pBoxFotoUsuario.Image = subirImagen()
+            pBoxFotoUsuario.ImageLocation = subirImagen()
+            'Console.WriteLine(pBoxFotoUsuario.ImageLocation)
+            'pBoxFotoUsuario.Image = Image.FromFile(pBoxFotoUsuario.ImageLocation)
         Catch ex As Exception
             Console.WriteLine("cancelado")
         End Try
@@ -560,6 +561,7 @@ Public Class frmGestion
 
                 If p.Cedula = 0 Then
                     MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
                 End If
 
                 Dim bs As New BindingSource With {
@@ -571,6 +573,11 @@ Public Class frmGestion
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
                 Dim m As E_Medico = nm.ListarUsuariosCI(txtBusqueda.Text)
+                If m.Cedula = 0 Then
+                    MessageBox.Show("No fue encontrado un médico con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
+
                 Dim bsM As New BindingSource With {
                 .DataSource = m
                 }
@@ -590,7 +597,7 @@ Public Class frmGestion
             lblApellido2TXT.DataBindings.Add("Text", obj, "Apellido2", False, DataSourceUpdateMode.OnPropertyChanged)
             lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.OnPropertyChanged)
             lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion", False, DataSourceUpdateMode.OnPropertyChanged)
-
+            pBoxFotoUsuario.DataBindings.Add("ImageLocation", obj, "Foto", True, DataSourceUpdateMode.OnPropertyChanged)
             Dim bsTelefonos As New BindingSource With {
             .DataSource = obj.TelefonosLista
             }

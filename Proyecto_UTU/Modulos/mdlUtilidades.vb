@@ -2,20 +2,20 @@
 Imports FormulariosPersonalizados
 Module mdlUtilidades
 
-    Public Function subirImagen() As Image
-        Dim imgpath As String 'donde esta la imagen que se va a subir'
+    Public Function subirImagen() As String
 
         Dim OFD As FileDialog = New OpenFileDialog With {
-                .Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png"
+                .Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png",
+                .Title = "Elegir imagen",
+                .RestoreDirectory = True
         }
 
         If OFD.ShowDialog() = DialogResult.OK Then
-            imgpath = OFD.FileName
-            Return Image.FromFile(imgpath)
+            Return OFD.FileName
+
         Else
             Return Nothing
         End If
-
 
     End Function
 

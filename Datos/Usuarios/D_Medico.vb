@@ -37,6 +37,13 @@ Public Class D_Medico
             Return u
         End Try
 
+        If leer.RecordCount <= 0 Then
+            leer.Close()
+            conexion.Close()
+            u.Cedula = 0
+            Return u
+        End If
+
         Dim listaTel As New List(Of String)
         Dim listaEsp As New List(Of String)
         While Not leer.EOF
@@ -46,7 +53,8 @@ Public Class D_Medico
              .Apellido1 = leer("apellido1").Value,
              .Apellido2 = leer("apellido2").Value,
              .Correo = leer("correo").Value,
-             .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value})
+             .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
+             .Foto = leer("foto").Value
             }
             listaTel.Add(leer("telefono").Value)
             listaEsp.Add(leer("especialidad").Value)

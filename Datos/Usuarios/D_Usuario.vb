@@ -34,6 +34,7 @@ Public Class D_Usuario
              .Apellido2 = leer("apellido2").Value,
              .Correo = leer("correo").Value,
              .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
+             .Activo = leer("activo").Value,
              .Foto = leer("foto").Value
             }
 
@@ -95,9 +96,7 @@ Public Class D_Usuario
             cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, CInt(u.Direccion(1))))
             cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adBoolean, adParamInput, 1, u.Activo))
             cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
-            Dim ParametroFoto = cmd.CreateParameter("@FOTO", adLongVarBinary, adParamInput, u.Foto.Length)
-            ParametroFoto.AppendChunk(u.Foto)
-            cmd.Parameters.Append(ParametroFoto)
+            cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adVarChar, adParamInput, u.Foto.Length, u.Foto))
 
             Try
                 cmd.Execute() 'EJECUTO ALTA USUARIOMYSQL-USUARIOSIBIM
