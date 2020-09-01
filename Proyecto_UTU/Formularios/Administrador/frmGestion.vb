@@ -10,6 +10,8 @@ Public Class frmGestion
     Private ci_valida As Boolean = False
     Dim p As New E_Paciente
     Dim pList As New List(Of E_Paciente)
+    Dim m As New E_Medico
+    Dim mList As New List(Of E_Medico)
     Dim bs As New BindingSource
     Dim bsTelefonos As New BindingSource
     Dim bsM_Esps As New BindingSource
@@ -642,6 +644,7 @@ Public Class frmGestion
 
                         If Not check_Cedula(txtBusqueda.Text) Then
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
                         End If
 
                         p = np.ListarPacienteCI(txtBusqueda.Text)
@@ -673,24 +676,40 @@ Public Class frmGestion
 
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
-                Dim m As New E_Medico
                 Select Case Filter
                     Case Filtro.Cedula
-                        m = nm.ListarUsuariosCI(txtBusqueda.Text)
+                        If Not check_Cedula(txtBusqueda.Text) Then
+                            MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
+                        m = nm.ListarMedicoCI(txtBusqueda.Text)
                         If m.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un médico con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
                         End If
+
+                        bs.DataSource = m
+                        basicBindings(m)
+                        MedicoBindings(m)
+                        dgwSetup(dgwUsuarios, bs)
                     Case Filtro.Apellido
-                        'm = nm.ListarUsuariosApellido(txtBusqueda.Text)
+                        mList = nm.BuscarMedicoApellido(txtBusqueda.Text)
+
+                        If mList(0).Cedula = 0 Then
+                            MessageBox.Show("No se encontraron MÉDICOS con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+
+                        m = mList(0)
+
+                        bs.DataSource = mList
+                        basicBindings(m)
+                        dgwSetup(dgwUsuarios, bs)
+                        MedicoBindings(m)
                     Case Filtro.Especialidad
                         'm = nm.ListarMedicosEspecialidad(txtBusqueda.Text)
                 End Select
 
-                bs.DataSource = m
-                basicBindings(m)
-                MedicoBindings(m)
-                dgwSetup(dgwUsuarios, bs)
 
             Case TipoUsuario.Auxiliar
                 Dim naux As New N_Usuario

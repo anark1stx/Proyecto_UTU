@@ -78,7 +78,7 @@ Public Class D_Paciente
         Return u
     End Function
 
-    Public Overridable Function BuscarPacienteApellido(ap As String) As List(Of E_Paciente)
+    Public Function BuscarPacienteApellido(ap As String) As List(Of E_Paciente)
 
         Dim results = MyBase.BuscarUsuariosApellido(ap)
 

@@ -71,6 +71,25 @@ Public Class D_Medico
         Return u
     End Function
 
+    Public Function BuscarMedicoApellido(ap As String) As List(Of E_Medico)
+
+        Dim results = MyBase.BuscarUsuariosApellido(ap)
+
+        If results.Count > 0 Then
+
+            Dim uList As New List(Of E_Medico)
+
+            For Each eu As E_Usuario In results
+                uList.Add(ListarMedicosCI(eu.Cedula))
+            Next
+
+            Return uList
+        Else
+            Return New List(Of E_Medico)
+        End If
+
+    End Function
+
     Public Function AltaMedico(u As E_Medico)
         Dim code = MyBase.AltaUsuarioSIBIM(u)
         Select Case code

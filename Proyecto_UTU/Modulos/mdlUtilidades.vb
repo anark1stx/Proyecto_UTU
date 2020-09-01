@@ -92,6 +92,11 @@ Module mdlUtilidades
                             cbox.SelectedItem = Nothing
                         End If
 
+                    Case "DataGridView"
+                        Dim dgw = DirectCast(control, DataGridView)
+                        dgw.DataSource = Nothing
+                        dgw.Rows.Clear()
+                        dgw.Refresh()
                     Case "CheckBox"
                         Dim chk = DirectCast(control, CheckBox)
                         chk.Checked = False
