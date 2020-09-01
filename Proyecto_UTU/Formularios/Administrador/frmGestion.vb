@@ -6,8 +6,13 @@ Public Class frmGestion
     Protected ctrlsMedico As List(Of Control)
     Protected _accion As Accion
     Protected _tipo As TipoUsuario
+    Protected _filtro As Filtro
     Private ci_valida As Boolean = False
-    Private _filtro As Filtro
+    Dim p As New E_Paciente
+    Dim pList As New List(Of E_Paciente)
+    Dim bs As New BindingSource
+    Dim bsTelefonos As New BindingSource
+    Dim bsM_Esps As New BindingSource
     Public Enum Accion
         Alta
         Baja
@@ -628,27 +633,24 @@ Public Class frmGestion
         End Try
     End Sub
 
-    Private Sub dgwUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwUsuarios.CellContentClick
-        'Cargar datos al panel de los datos
-    End Sub
-
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
-                Dim p As New E_Paciente
-                Dim pList As New List(Of E_Paciente)
                 Select Case Filter
                     Case Filtro.Cedula
+
+                        If Not check_Cedula(txtBusqueda.Text) Then
+                            MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+
                         p = np.ListarPacienteCI(txtBusqueda.Text)
                         If p.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
                         End If
 
-                        Dim bs As New BindingSource With {
-                        .DataSource = p
-                        }
+                        bs.DataSource = p
                         basicBindings(p)
                         dgwSetup(dgwUsuarios, bs)
                         PacienteBindings(p)
@@ -661,9 +663,9 @@ Public Class frmGestion
                             Exit Sub
                         End If
 
-                        Dim bs As New BindingSource With {
-                        .DataSource = pList
-                        }
+                        p = pList(0)
+
+                        bs.DataSource = pList
                         basicBindings(p)
                         dgwSetup(dgwUsuarios, bs)
                         PacienteBindings(p)
@@ -685,12 +687,10 @@ Public Class frmGestion
                         'm = nm.ListarMedicosEspecialidad(txtBusqueda.Text)
                 End Select
 
-                Dim bsM As New BindingSource With {
-                .DataSource = m
-                }
+                bs.DataSource = m
                 basicBindings(m)
                 MedicoBindings(m)
-                dgwSetup(dgwUsuarios, bsM)
+                dgwSetup(dgwUsuarios, bs)
 
             Case TipoUsuario.Auxiliar
                 Dim naux As New N_Usuario
@@ -705,31 +705,26 @@ Public Class frmGestion
                     Case Filtro.Apellido
                         'm = nm.ListarUsuariosApellido(txtBusqueda.Text)
                 End Select
-                Dim bsM As New BindingSource With {
-                .DataSource = aux
-                }
+                bs.DataSource = aux
                 basicBindings(aux)
                 MedicoBindings(aux)
-                dgwSetup(dgwUsuarios, bsM)
+                dgwSetup(dgwUsuarios, bs)
         End Select
     End Sub
 
     Private Sub basicBindings(obj As E_Usuario)
-
+        Console.WriteLine("Binding")
         Try
-            lblCedulaTXT.DataBindings.Add("Text", obj, "Cedula", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblNombre1TXT.DataBindings.Add("Text", obj, "Nombre1", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblNombre2TXT.DataBindings.Add("Text", obj, "Nombre2", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblApellido1TXT.DataBindings.Add("Text", obj, "Apellido1", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblApellido2TXT.DataBindings.Add("Text", obj, "Apellido2", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.OnPropertyChanged)
-            pBoxFotoUsuario.DataBindings.Add("ImageLocation", obj, "Foto", True, DataSourceUpdateMode.OnPropertyChanged)
-            Dim bsTelefonos As New BindingSource With {
-            .DataSource = obj.TelefonosLista
-            }
-
+            lblCedulaTXT.DataBindings.Add("Text", obj, "Cedula", False, DataSourceUpdateMode.Never)
+            lblNombre1TXT.DataBindings.Add("Text", obj, "Nombre1", False, DataSourceUpdateMode.Never)
+            lblNombre2TXT.DataBindings.Add("Text", obj, "Nombre2", False, DataSourceUpdateMode.Never)
+            lblApellido1TXT.DataBindings.Add("Text", obj, "Apellido1", False, DataSourceUpdateMode.Never)
+            lblApellido2TXT.DataBindings.Add("Text", obj, "Apellido2", False, DataSourceUpdateMode.Never)
+            lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.Never)
+            lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.Never)
+            lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.Never)
+            pBoxFotoUsuario.DataBindings.Add("ImageLocation", obj, "Foto", False, DataSourceUpdateMode.Never)
+            bsTelefonos.DataSource = obj.TelefonosLista
             cbTelefonos.DataSource = bsTelefonos
         Catch ex As Exception
             Console.WriteLine("already binded")
@@ -738,9 +733,7 @@ Public Class frmGestion
 
     Private Sub MedicoBindings(obj As E_Medico)
         Try
-            Dim bsM_Esps As New BindingSource With {
-                    .DataSource = obj.Especialidad
-            }
+            bsM_Esps.DataSource = obj.Especialidad
             cbEspecialidades.DataSource = bsM_Esps
         Catch ex As Exception
             Console.WriteLine("Already binded")
@@ -749,7 +742,8 @@ Public Class frmGestion
 
     Private Sub PacienteBindings(obj As E_Paciente)
         Try
-            lblOcupacionTXT.DataBindings.Add("Text", obj, "Ocupacion", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblOcupacionTXT.DataBindings.Add("Text", obj, "Ocupacion", False, DataSourceUpdateMode.Never)
+            dtpFechaNacimiento.DataBindings.Add("Value", obj, "FechaNacimiento", True, DataSourceUpdateMode.Never)
             cbEstadoCivil.SelectedItem = obj.Estado_civil
             cbEtapa.SelectedItem = obj.Etapa
             Select Case obj.Sexo
@@ -778,6 +772,14 @@ Public Class frmGestion
         Try
             Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
         Catch ex As Exception
+            Console.WriteLine("Filtro no registrado en el numerador.")
         End Try
+    End Sub
+
+    Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick
+        LimpiarControles(pnlDatosUsuario)
+        p = pList(dgwUsuarios.CurrentCell.RowIndex)
+        basicBindings(p)
+        PacienteBindings(p)
     End Sub
 End Class

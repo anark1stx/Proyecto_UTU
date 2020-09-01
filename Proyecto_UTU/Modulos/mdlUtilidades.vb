@@ -76,6 +76,10 @@ Module mdlUtilidades
                         Dim txt = DirectCast(control, TextBox)
                         txt.Text = String.Empty
                         txt.DataBindings.Clear()
+                    Case "MaskedTextBox"
+                        Dim txt = DirectCast(control, MaskedTextBox)
+                        txt.Text = String.Empty
+                        txt.DataBindings.Clear()
                     Case "ComboBox"
                         Dim cbox = DirectCast(control, ComboBox)
 
@@ -94,12 +98,14 @@ Module mdlUtilidades
 
                     Case "PictureBox"
                         Dim pbox = DirectCast(control, PictureBox)
+                        pbox.DataBindings.Clear()
                         pbox.Image = Nothing
+                        pbox.ImageLocation = Nothing
 
                     Case "DateTimePicker"
                         Dim dtp = DirectCast(control, DateTimePicker)
                         dtp.Value = Today
-
+                        dtp.DataBindings.Clear()
                     Case "ListBox"
                         Dim lb = DirectCast(control, ListBox)
                         lb.Items.Clear()

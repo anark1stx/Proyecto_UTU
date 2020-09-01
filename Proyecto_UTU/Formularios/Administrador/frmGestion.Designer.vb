@@ -160,7 +160,7 @@ Partial Class frmGestion
         '
         Me.lblComma.AutoSize = True
         Me.lblComma.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComma.Location = New System.Drawing.Point(579, 151)
+        Me.lblComma.Location = New System.Drawing.Point(579, 147)
         Me.lblComma.Name = "lblComma"
         Me.lblComma.Size = New System.Drawing.Size(17, 25)
         Me.lblComma.TabIndex = 385
@@ -679,10 +679,12 @@ Partial Class frmGestion
         Me.dgwUsuarios.AllowUserToDeleteRows = False
         Me.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgwUsuarios.Location = New System.Drawing.Point(11, 56)
+        Me.dgwUsuarios.MultiSelect = False
         Me.dgwUsuarios.Name = "dgwUsuarios"
         Me.dgwUsuarios.ReadOnly = True
         Me.dgwUsuarios.RowHeadersWidth = 51
         Me.dgwUsuarios.RowTemplate.Height = 24
+        Me.dgwUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
         Me.dgwUsuarios.TabIndex = 6
         '

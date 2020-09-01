@@ -1,6 +1,6 @@
 ﻿Public Class E_Paciente
     Inherits E_Usuario
-    Protected _fechaNacimiento As String
+    Protected _fechaNacimiento As Date
     Protected _sexo As Char
     Protected _ocupacion As String
     Protected _estado_civil As String
@@ -10,7 +10,7 @@
 
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As Char, ocupacion As String, estado_civil As String, foto As String, etapa As Char, rol As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As Date, sexo As Char, ocupacion As String, estado_civil As String, foto As String, etapa As Char, rol As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -30,11 +30,11 @@
         _rol = rol
     End Sub
 
-    Property FechaNacimiento() As String
+    Property FechaNacimiento() As Date
         Get
             Return (_fechaNacimiento)
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Date)
             _fechaNacimiento = value
         End Set
     End Property
