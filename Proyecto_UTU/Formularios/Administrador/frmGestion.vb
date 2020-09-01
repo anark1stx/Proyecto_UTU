@@ -7,6 +7,7 @@ Public Class frmGestion
     Protected _accion As Accion
     Protected _tipo As TipoUsuario
     Private ci_valida As Boolean = False
+    Private _filtro As Filtro
     Public Enum Accion
         Alta
         Baja
@@ -17,6 +18,12 @@ Public Class frmGestion
         Paciente
         Medico
         Auxiliar
+    End Enum
+
+    Public Enum Filtro
+        Cedula
+        Apellido
+        Especialidad
     End Enum
 
     Property Mode As Accion
@@ -34,6 +41,15 @@ Public Class frmGestion
         End Get
         Set(value As TipoUsuario)
             _tipo = value
+        End Set
+    End Property
+
+    Property Filter As Filtro
+        Get
+            Return _filtro
+        End Get
+        Set(value As Filtro)
+            _filtro = value
         End Set
     End Property
 
@@ -549,7 +565,6 @@ Public Class frmGestion
     End Function
 
     Sub BajaU()
-        '()->BajaLogica
         Dim u As New E_Usuario
         Try
             u.Cedula = lblCedulaTXT.Text
@@ -557,6 +572,10 @@ Public Class frmGestion
             MessageBox.Show("Seleccione el usuario que desea eliminar primero.")
             Exit Sub
         End Try
+
+        If MessageBox.Show("Seguro que desea dar de baja al usuario " & u.Nombre1 & " " & u.Apellido1 & "?", "Confirmar baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+            Exit Sub
+        End If
 
         Dim nu As New N_Usuario
 
@@ -617,12 +636,18 @@ Public Class frmGestion
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
-                Dim p As E_Paciente = np.ListarUsuariosCI(txtBusqueda.Text)
+                Dim p As New E_Paciente
 
-                If p.Cedula = 0 Then
-                    MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Exit Sub
-                End If
+                Select Case Filter
+                    Case Filtro.Cedula
+                        p = np.ListarUsuariosCI(txtBusqueda.Text)
+                        If p.Cedula = 0 Then
+                            MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    Case Filtro.Apellido
+                        'p = np.ListarUsuariosApellido(txtBusqueda.Text)
+                End Select
 
                 Dim bs As New BindingSource With {
                 .DataSource = p
@@ -630,19 +655,48 @@ Public Class frmGestion
                 basicBindings(p)
                 dgwSetup(dgwUsuarios, bs)
                 PacienteBindings(p)
+
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
-                Dim m As E_Medico = nm.ListarUsuariosCI(txtBusqueda.Text)
-                If m.Cedula = 0 Then
-                    MessageBox.Show("No fue encontrado un médico con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Exit Sub
-                End If
+                Dim m As New E_Medico
+                Select Case Filter
+                    Case Filtro.Cedula
+                        m = nm.ListarUsuariosCI(txtBusqueda.Text)
+                        If m.Cedula = 0 Then
+                            MessageBox.Show("No fue encontrado un médico con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    Case Filtro.Apellido
+                        'm = nm.ListarUsuariosApellido(txtBusqueda.Text)
+                    Case Filtro.Especialidad
+                        'm = nm.ListarMedicosEspecialidad(txtBusqueda.Text)
+                End Select
 
                 Dim bsM As New BindingSource With {
                 .DataSource = m
                 }
                 basicBindings(m)
                 MedicoBindings(m)
+                dgwSetup(dgwUsuarios, bsM)
+
+            Case TipoUsuario.Auxiliar
+                Dim naux As New N_Usuario
+                Dim aux As New E_Usuario
+                Select Case Filter
+                    Case Filtro.Cedula
+                        aux = naux.ListarUsuariosCI(txtBusqueda.Text)
+                        If aux.Cedula = 0 Then
+                            MessageBox.Show("No fue encontrado un auxiliar con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    Case Filtro.Apellido
+                        'm = nm.ListarUsuariosApellido(txtBusqueda.Text)
+                End Select
+                Dim bsM As New BindingSource With {
+                .DataSource = aux
+                }
+                basicBindings(aux)
+                MedicoBindings(aux)
                 dgwSetup(dgwUsuarios, bsM)
         End Select
     End Sub
@@ -703,8 +757,14 @@ Public Class frmGestion
         dgw.Columns("Rol").Visible = False
         dgw.Columns("Contrasena").Visible = False
         dgw.Columns("Foto").Visible = False
-        dgw.Columns("Activo").Visible = False
+        dgw.Columns("Valido").Visible = False
         dgw.Columns("ErrMsg").Visible = False
     End Sub
 
+    Private Sub rBtn_CheckedChanged(sender As Object, e As EventArgs) Handles rBtnCedula.CheckedChanged, rBtnApellido.CheckedChanged, rBtnEspecialidad.CheckedChanged
+        Try
+            Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
+        Catch ex As Exception
+        End Try
+    End Sub
 End Class

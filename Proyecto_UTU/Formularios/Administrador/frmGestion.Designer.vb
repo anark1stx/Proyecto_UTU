@@ -28,6 +28,7 @@ Partial Class frmGestion
         Me.Accion2 = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlDatosUsuario = New System.Windows.Forms.Panel()
         Me.pnlDspCedula = New System.Windows.Forms.Panel()
+        Me.lblComma = New System.Windows.Forms.Label()
         Me.lblDireccionNumeroTXT = New System.Windows.Forms.MaskedTextBox()
         Me.lblContrasenaTXT = New System.Windows.Forms.TextBox()
         Me.lblContrasena = New System.Windows.Forms.Label()
@@ -76,7 +77,6 @@ Partial Class frmGestion
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.lblComma = New System.Windows.Forms.Label()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
         Me.pnlEspecialidadesBtns.SuspendLayout()
@@ -155,6 +155,16 @@ Partial Class frmGestion
         Me.pnlDspCedula.Name = "pnlDspCedula"
         Me.pnlDspCedula.Size = New System.Drawing.Size(1062, 256)
         Me.pnlDspCedula.TabIndex = 375
+        '
+        'lblComma
+        '
+        Me.lblComma.AutoSize = True
+        Me.lblComma.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblComma.Location = New System.Drawing.Point(579, 151)
+        Me.lblComma.Name = "lblComma"
+        Me.lblComma.Size = New System.Drawing.Size(17, 25)
+        Me.lblComma.TabIndex = 385
+        Me.lblComma.Text = ","
         '
         'lblDireccionNumeroTXT
         '
@@ -615,7 +625,7 @@ Partial Class frmGestion
         Me.rBtnEspecialidad.Name = "rBtnEspecialidad"
         Me.rBtnEspecialidad.Size = New System.Drawing.Size(144, 29)
         Me.rBtnEspecialidad.TabIndex = 359
-        Me.rBtnEspecialidad.TabStop = True
+        Me.rBtnEspecialidad.Tag = "Especialidad"
         Me.rBtnEspecialidad.Text = "Especialidad"
         Me.rBtnEspecialidad.UseVisualStyleBackColor = True
         '
@@ -627,19 +637,21 @@ Partial Class frmGestion
         Me.rBtnApellido.Name = "rBtnApellido"
         Me.rBtnApellido.Size = New System.Drawing.Size(103, 29)
         Me.rBtnApellido.TabIndex = 358
-        Me.rBtnApellido.TabStop = True
+        Me.rBtnApellido.Tag = "Apellido"
         Me.rBtnApellido.Text = "Apellido"
         Me.rBtnApellido.UseVisualStyleBackColor = True
         '
         'rBtnCedula
         '
         Me.rBtnCedula.AutoSize = True
+        Me.rBtnCedula.Checked = True
         Me.rBtnCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rBtnCedula.Location = New System.Drawing.Point(675, 14)
         Me.rBtnCedula.Name = "rBtnCedula"
         Me.rBtnCedula.Size = New System.Drawing.Size(96, 29)
         Me.rBtnCedula.TabIndex = 357
         Me.rBtnCedula.TabStop = True
+        Me.rBtnCedula.Tag = "Cedula"
         Me.rBtnCedula.Text = "Cédula"
         Me.rBtnCedula.UseVisualStyleBackColor = True
         '
@@ -673,16 +685,6 @@ Partial Class frmGestion
         Me.dgwUsuarios.RowTemplate.Height = 24
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
         Me.dgwUsuarios.TabIndex = 6
-        '
-        'lblComma
-        '
-        Me.lblComma.AutoSize = True
-        Me.lblComma.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComma.Location = New System.Drawing.Point(579, 151)
-        Me.lblComma.Name = "lblComma"
-        Me.lblComma.Size = New System.Drawing.Size(17, 25)
-        Me.lblComma.TabIndex = 385
-        Me.lblComma.Text = ","
         '
         'frmGestion
         '
