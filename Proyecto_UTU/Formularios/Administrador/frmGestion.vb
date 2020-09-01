@@ -212,17 +212,17 @@ Public Class frmGestion
                 End If
                 Return c
 
-                'Case GetType(MaskedTextBox)
-                '    DirectCast(c, MaskedTextBox).ReadOnly = _readonly
+            Case GetType(MaskedTextBox)
+                DirectCast(c, MaskedTextBox).ReadOnly = _readonly
 
-                '    If _readonly Then
-                '        c.BackColor = Color.LightBlue
-                '        DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.None
-                '    Else
-                '        c.BackColor = Color.White
-                '        DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.Fixed3D
-                '    End If
-                '    Return c
+                If _readonly Then
+                    c.BackColor = Color.LightBlue
+                    DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.None
+                Else
+                    c.BackColor = Color.White
+                    DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.Fixed3D
+                End If
+                Return c
             Case Else
                 Return c
         End Select

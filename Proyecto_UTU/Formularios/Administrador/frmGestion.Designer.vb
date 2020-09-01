@@ -161,7 +161,7 @@ Partial Class frmGestion
         Me.lblDireccionNumeroTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblDireccionNumeroTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblDireccionNumeroTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionNumeroTXT.Location = New System.Drawing.Point(596, 149)
+        Me.lblDireccionNumeroTXT.Location = New System.Drawing.Point(596, 145)
         Me.lblDireccionNumeroTXT.Mask = "9999"
         Me.lblDireccionNumeroTXT.Name = "lblDireccionNumeroTXT"
         Me.lblDireccionNumeroTXT.Size = New System.Drawing.Size(55, 23)
@@ -184,7 +184,7 @@ Partial Class frmGestion
         '
         Me.lblContrasena.AutoSize = True
         Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasena.Location = New System.Drawing.Point(670, 184)
+        Me.lblContrasena.Location = New System.Drawing.Point(670, 187)
         Me.lblContrasena.Name = "lblContrasena"
         Me.lblContrasena.Size = New System.Drawing.Size(111, 24)
         Me.lblContrasena.TabIndex = 414
@@ -424,7 +424,7 @@ Partial Class frmGestion
         '
         Me.lblOcupacion.AutoSize = True
         Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(669, 106)
+        Me.lblOcupacion.Location = New System.Drawing.Point(669, 111)
         Me.lblOcupacion.Name = "lblOcupacion"
         Me.lblOcupacion.Size = New System.Drawing.Size(108, 24)
         Me.lblOcupacion.TabIndex = 396
@@ -476,7 +476,7 @@ Partial Class frmGestion
         '
         Me.lblNombre1.AutoSize = True
         Me.lblNombre1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre1.Location = New System.Drawing.Point(274, 9)
+        Me.lblNombre1.Location = New System.Drawing.Point(274, 11)
         Me.lblNombre1.Name = "lblNombre1"
         Me.lblNombre1.Size = New System.Drawing.Size(105, 24)
         Me.lblNombre1.TabIndex = 386
@@ -496,7 +496,7 @@ Partial Class frmGestion
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(275, 182)
+        Me.lblTelefono.Location = New System.Drawing.Point(275, 184)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(111, 24)
         Me.lblTelefono.TabIndex = 388
@@ -516,7 +516,7 @@ Partial Class frmGestion
         '
         Me.lblCorreo.AutoSize = True
         Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreo.Location = New System.Drawing.Point(274, 224)
+        Me.lblCorreo.Location = New System.Drawing.Point(274, 226)
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(73, 24)
         Me.lblCorreo.TabIndex = 392
@@ -536,7 +536,7 @@ Partial Class frmGestion
         '
         Me.lblApellido2.AutoSize = True
         Me.lblApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido2.Location = New System.Drawing.Point(275, 112)
+        Me.lblApellido2.Location = New System.Drawing.Point(275, 114)
         Me.lblApellido2.Name = "lblApellido2"
         Me.lblApellido2.Size = New System.Drawing.Size(105, 24)
         Me.lblApellido2.TabIndex = 391
@@ -547,7 +547,7 @@ Partial Class frmGestion
         Me.lblCedulaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCedulaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTXT.Location = New System.Drawing.Point(394, 29)
+        Me.lblCedulaTXT.Location = New System.Drawing.Point(394, 26)
         Me.lblCedulaTXT.MaxLength = 8
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.ReadOnly = True
