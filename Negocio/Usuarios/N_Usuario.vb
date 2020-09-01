@@ -4,20 +4,24 @@ Public Class N_Usuario
 
     Dim objDatos As New D_Usuario
 
-    Public Overridable Function ListarUsuariosCI(CI As String) As E_Usuario
-        Return objDatos.BuscarUsuariosCI(CI)
+    Public Overridable Function ListarUsuariosCI(CI As String, auxiliar As Boolean) As E_Usuario
+        Return objDatos.BuscarUsuariosCI(CI, auxiliar)
     End Function
 
-    Public Overridable Function BuscarUsuariosApellido(ap As String) As List(Of E_Usuario)
-        Return objDatos.BuscarUsuariosApellido(ap)
+    Public Overridable Function BuscarUsuariosApellido(ap As String, auxiliar As Boolean) As List(Of E_Usuario)
+        Return objDatos.BuscarUsuariosApellido(ap, auxiliar)
     End Function
 
     Public Overridable Function UsuarioExiste(CI As String) As Integer
         Return objDatos.UsuarioExiste(CI)
     End Function
 
-    Public Function AltaUsuario(u As E_Usuario) As Integer
+    Public Function AltaUsuario(u As E_Usuario) As Integer 'usuario de mysql
         Return objDatos.AltaUsuario(u)
+    End Function
+
+    Public Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
+        Return objDatos.AltaUsuarioSIBIM(u)
     End Function
 
     Public Overridable Sub ModificacionUsuario(u As E_Usuario)

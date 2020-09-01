@@ -7,17 +7,26 @@ Imports ADODB.CursorLocationEnum
 Public Class D_Usuario
     Inherits D_UsuarioMYSQL
     Dim conexion As New Connection
-    Public Function BuscarUsuariosCI(ci As String) As E_Usuario
+    Public Function BuscarUsuariosCI(ci As String, Optional auxiliar As Boolean = False) As E_Usuario
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
+        Dim cmd As New Command
 
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "BuscarUSUARIOxCI",
-            .ActiveConnection = conexion
-        }
+        If Not auxiliar Then
+            cmd = New Command With {
+                .CommandType = adCmdStoredProc,
+                .CommandText = "BuscarUSUARIOxCI",
+                .ActiveConnection = conexion
+            }
+        Else
+            cmd = New Command With {
+                .CommandType = adCmdStoredProc,
+                .CommandText = "BuscarAUXILIARxCI",
+                .ActiveConnection = conexion
+            }
+        End If
 
         cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, ci))
 
@@ -49,17 +58,28 @@ Public Class D_Usuario
         Return u
     End Function
 
-    Public Overridable Function BuscarUsuariosApellido(ap As String, Optional tabla As String = "usuario") As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
+    Public Overridable Function BuscarUsuariosApellido(ap As String, Optional auxiliar As Boolean = False) As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
+        Dim cmd As New Command
 
-        Dim cmd As New Command With {
+        If Not auxiliar Then
+            cmd = New Command With {
             .CommandType = adCmdStoredProc,
             .CommandText = "BuscarUSUARIOxApellido",
             .ActiveConnection = conexion
-        }
+            }
+
+        Else
+            cmd = New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "BuscarAUXILIARxApellido",
+            .ActiveConnection = conexion
+            }
+
+        End If
 
         cmd.Parameters.Append(cmd.CreateParameter("@apellido1", adVarChar, adParamInput, ap.Length, ap))
 

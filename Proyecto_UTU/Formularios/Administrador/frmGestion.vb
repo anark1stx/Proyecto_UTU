@@ -12,6 +12,8 @@ Public Class frmGestion
     Dim pList As New List(Of E_Paciente)
     Dim m As New E_Medico
     Dim mList As New List(Of E_Medico)
+    Dim a As New E_Usuario
+    Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
     Dim bsTelefonos As New BindingSource
     Dim bsM_Esps As New BindingSource
@@ -451,7 +453,7 @@ Public Class frmGestion
                 End If
 
                 Dim nu As New N_Usuario
-                Dim res = nu.AltaUsuario(u)
+                Dim res = nu.AltaUsuarioSIBIM(u)
                 Select Case res
                     Case 0
                         MessageBox.Show("El auxiliar no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -656,7 +658,7 @@ Public Class frmGestion
                         basicBindings(p)
                         dgwSetup(dgwUsuarios, bs)
                         PacienteBindings(p)
-
+                        pList.Add(p)
                     Case Filtro.Apellido
                         pList = np.BuscarPacienteApellido(txtBusqueda.Text)
 
@@ -671,6 +673,7 @@ Public Class frmGestion
                         basicBindings(p)
                         dgwSetup(dgwUsuarios, bs)
                         PacienteBindings(p)
+                        pList.Add(p)
                 End Select
 
             Case TipoUsuario.Medico
@@ -691,6 +694,7 @@ Public Class frmGestion
                         basicBindings(m)
                         MedicoBindings(m)
                         dgwSetup(dgwUsuarios, bs)
+                        mList.Add(m)
                     Case Filtro.Apellido
                         mList = nm.BuscarMedicoApellido(txtBusqueda.Text)
 
@@ -705,6 +709,7 @@ Public Class frmGestion
                         basicBindings(m)
                         dgwSetup(dgwUsuarios, bs)
                         MedicoBindings(m)
+                        mList.Add(m)
                     Case Filtro.Especialidad
                         mList = nm.BuscarMedicoEspecialidad(txtBusqueda.Text)
                         If mList(0).Cedula = 0 Then
@@ -718,25 +723,40 @@ Public Class frmGestion
                         basicBindings(m)
                         dgwSetup(dgwUsuarios, bs)
                         MedicoBindings(m)
+                        mList.Add(m)
                 End Select
 
             Case TipoUsuario.Auxiliar
                 Dim naux As New N_Usuario
-                Dim aux As New E_Usuario
                 Select Case Filter
                     Case Filtro.Cedula
-                        aux = naux.ListarUsuariosCI(txtBusqueda.Text)
-                        If aux.Cedula = 0 Then
+                        If Not check_Cedula(txtBusqueda.Text) Then
+                            MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
+                        a = naux.ListarUsuariosCI(txtBusqueda.Text, True)
+                        If a.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un auxiliar con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
                         End If
+
+                        bs.DataSource = a
+                        basicBindings(a)
+                        dgwSetup(dgwUsuarios, bs)
+                        aList.Add(a)
                     Case Filtro.Apellido
-                        'm = nm.ListarUsuariosApellido(txtBusqueda.Text)
+                        aList = naux.BuscarUsuariosApellido(txtBusqueda.Text, True)
+                        If aList(0).Cedula = 0 Then
+                            MessageBox.Show("No se encontraron AUXILIARES con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+
+                        a = aList(0)
+                        bs.DataSource = aList
+                        basicBindings(a)
+                        dgwSetup(dgwUsuarios, bs)
+                        aList.Add(a)
                 End Select
-                bs.DataSource = aux
-                basicBindings(aux)
-                MedicoBindings(aux)
-                dgwSetup(dgwUsuarios, bs)
         End Select
     End Sub
 
@@ -816,6 +836,9 @@ Public Class frmGestion
                 basicBindings(m)
                 MedicoBindings(m)
             Case TipoUsuario.Auxiliar
+                a = aList(dgwUsuarios.CurrentCell.RowIndex)
+                basicBindings(a)
+                MedicoBindings(a)
         End Select
 
     End Sub
