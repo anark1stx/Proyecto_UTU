@@ -2,7 +2,7 @@
     Protected _nombre As String
     Protected _contrasena As String
     Protected _rol As String
-
+    Protected _valido As Boolean
     Property Nombre As String
         Get
             Return _nombre
@@ -27,6 +27,15 @@
         End Get
         Set(value As String)
             _rol = value
+        End Set
+    End Property
+
+    Property Valido As Boolean
+        Get
+            Return _valido
+        End Get
+        Set(value As Boolean)
+            _valido = value
         End Set
     End Property
 

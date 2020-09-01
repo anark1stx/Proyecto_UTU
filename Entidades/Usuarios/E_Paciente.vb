@@ -10,7 +10,7 @@
 
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As Char, ocupacion As String, estado_civil As String, foto As String, etapa As Char, rol As String)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As String, sexo As Char, ocupacion As String, estado_civil As String, foto As String, etapa As Char, rol As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -18,7 +18,8 @@
         _correo = correo
         _contrasena = contrasena
         _telefonosLista = telefonosLista
-        _direccion = direccion
+        _direccion_calle = direccion_calle
+        _direccion_numero = direccion_numero
         _cedula = cedula
         _fechaNacimiento = fechaNacimiento
         _sexo = sexo

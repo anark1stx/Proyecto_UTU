@@ -39,7 +39,7 @@ Public Class frmGestion
 
     ReadOnly Property BASEcontrolesU As List(Of Control)
         Get
-            Return New List(Of Control)(New Control() {lblCedulaTXT, lblNombre1TXT, lblNombre2TXT, lblApellido1TXT, lblApellido2TXT, lblDireccionTXT, lblCorreoTXT, cbTelefonos, lblContrasenaTXT})
+            Return New List(Of Control)(New Control() {lblCedulaTXT, lblNombre1TXT, lblNombre2TXT, lblApellido1TXT, lblApellido2TXT, lblDireccionTXT, lblDireccionNumeroTXT, lblCorreoTXT, cbTelefonos, lblContrasenaTXT})
         End Get
     End Property
 
@@ -200,6 +200,7 @@ Public Class frmGestion
                 c.Enabled = Not _readonly
                 Return c
             Case GetType(TextBox)
+
                 DirectCast(c, TextBox).ReadOnly = _readonly
 
                 If _readonly Then
@@ -210,6 +211,18 @@ Public Class frmGestion
                     DirectCast(c, TextBox).BorderStyle = BorderStyle.Fixed3D
                 End If
                 Return c
+
+                'Case GetType(MaskedTextBox)
+                '    DirectCast(c, MaskedTextBox).ReadOnly = _readonly
+
+                '    If _readonly Then
+                '        c.BackColor = Color.LightBlue
+                '        DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.None
+                '    Else
+                '        c.BackColor = Color.White
+                '        DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.Fixed3D
+                '    End If
+                '    Return c
             Case Else
                 Return c
         End Select
@@ -278,12 +291,15 @@ Public Class frmGestion
         Select Case Mode
             Case Accion.Alta
                 lblCedulaTXT.Enabled = True
+
                 If lblCedulaTXT.Text.Length = lblCedulaTXT.MaxLength Then
                     If Not check_Cedula(lblCedulaTXT.Text) Then
                         MessageBox.Show(MensajeDeErrorCedula(), "Información no válida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Exit Sub
+                        ci_valida = False
+                    Else
+                        ci_valida = True
                     End If
-                    If Mode = Accion.Alta Then
+                    If Mode = Accion.Alta AndAlso ci_valida Then
                         Dim nu As New N_Usuario
 
                         If nu.UsuarioExiste(lblCedulaTXT.Text) Then
@@ -293,6 +309,8 @@ Public Class frmGestion
                             ci_valida = True
                         End If
                     End If
+                Else
+                    ci_valida = False
                 End If
 
                 If Not ci_valida Then
@@ -301,6 +319,7 @@ Public Class frmGestion
                     pnlDspCedula.Enabled = True
                 End If
                 cbEtapa.Enabled = False
+
             Case Accion.Modificacion
                 lblCedulaTXT.Enabled = False
                 cbEtapa.Enabled = True
@@ -341,54 +360,17 @@ Public Class frmGestion
             Exit Sub
         End If
 
-        Dim direccion As New List(Of String)(lblDireccionTXT.Text.Split(","))
-
-        For i = 0 To direccion.Count - 1
-            direccion(i) = RemoverEspacios(direccion(i))
-        Next
-
-        If Not check_direccion(direccion) Then
-            MessageBox.Show(MensajeDeErrorDireccion(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
-
-        Dim telefonos As New List(Of String)
-        For Each t As String In cbTelefonos.Items
-            telefonos.Add(t)
-        Next
-
-        If pBoxFotoUsuario.Image Is Nothing Then
-            If MessageBox.Show("¿Seguro que desea ingresar al usuario sin imagen?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
-                Exit Sub
-            End If
-        End If
         Select Case Usuario
             Case TipoUsuario.Paciente
-                'do stuff
-
-                Dim p As New E_Paciente With {
-                    .Nombre = "u" & lblCedulaTXT.Text,
-                    .Contrasena = lblContrasenaTXT.Text,
-                    .Rol = "paciente",
-                    .Cedula = Val(lblCedulaTXT.Text),
-                    .Nombre1 = lblNombre1TXT.Text,
-                    .Nombre2 = lblNombre2TXT.Text,
-                    .Apellido1 = lblApellido1TXT.Text,
-                    .Apellido2 = lblApellido2TXT.Text,
-                    .Direccion = direccion,
-                    .Foto = pBoxFotoUsuario.ImageLocation,
-                    .Activo = 1,
-                    .Correo = lblCorreoTXT.Text,
-                    .TelefonosLista = telefonos,
-                    .Etapa = cbEtapa.SelectedItem.ToString(),
-                    .Estado_civil = cbEstadoCivil.SelectedItem().ToString(),
-                    .FechaNacimiento = dtpFechaNacimiento.Value,
-                    .Ocupacion = lblOcupacionTXT.Text,
-                    .Sexo = cbSexo.SelectedItem.ToString()
-                }
+                Dim u = Base_props_user()
+                If u.Cedula = 0 Then
+                    Exit Sub
+                End If
+                Dim p = Base_props_paciente(u)
 
                 If Not p.ValidarMisDatos() Then
                     MessageBox.Show(p.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
                 Else
                     Dim np As New N_Paciente
                     Dim res = np.AltaPaciente(p)
@@ -407,34 +389,16 @@ Public Class frmGestion
                 End If
 
             Case TipoUsuario.Medico
-                If cbEspecialidades.Items.Count < 1 Then
-                    MessageBox.Show("Ingrese al menos una especialidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Dim u = Base_props_user()
+
+                If u.Cedula = 0 Then
                     Exit Sub
                 End If
 
-                Dim especialidades As New List(Of String)
-                For Each es As String In cbEspecialidades.Items
-                    especialidades.Add(es)
-                Next
-
-                Dim m As New E_Medico With {
-                    .Nombre = "u" & lblCedulaTXT.Text,
-                    .Contrasena = lblContrasenaTXT.Text,
-                    .Rol = "medico",
-                    .Cedula = Val(lblCedulaTXT.Text),
-                    .Nombre1 = lblNombre1TXT.Text,
-                    .Nombre2 = lblNombre2TXT.Text,
-                    .Apellido1 = lblApellido1TXT.Text,
-                    .Apellido2 = lblApellido2TXT.Text,
-                    .Direccion = direccion,
-                    .Foto = pBoxFotoUsuario.ImageLocation,
-                    .Activo = 1,
-                    .Correo = lblCorreoTXT.Text,
-                    .TelefonosLista = telefonos,
-                    .Especialidad = especialidades
-                }
+                Dim m = Base_props_medico(u)
                 If Not m.ValidarMisDatos() Then
                     MessageBox.Show(m.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
                 Else
                     Dim nm As New N_Medico
                     Dim res = nm.AltaMedico(m)
@@ -453,21 +417,16 @@ Public Class frmGestion
                 End If
             Case TipoUsuario.Auxiliar
 
-                Dim u As New E_Usuario With {
-                    .Nombre = "u" & lblCedulaTXT.Text,
-                    .Contrasena = lblContrasenaTXT.Text,
-                    .Rol = "auxiliar",
-                    .Cedula = Val(lblCedulaTXT.Text),
-                    .Nombre1 = lblNombre1TXT.Text,
-                    .Nombre2 = lblNombre2TXT.Text,
-                    .Apellido1 = lblApellido1TXT.Text,
-                    .Apellido2 = lblApellido2TXT.Text,
-                    .Direccion = direccion,
-                    .Foto = pBoxFotoUsuario.ImageLocation,
-                    .Activo = 1,
-                    .Correo = lblCorreoTXT.Text,
-                    .TelefonosLista = telefonos
-                }
+                Dim u = Base_props_user()
+                If u.Cedula = 0 Then
+                    Exit Sub
+                End If
+
+                If Not u.ValidarMisDatos() Then
+                    MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
                 Dim nu As New N_Usuario
                 Dim res = nu.AltaUsuario(u)
                 Select Case res
@@ -485,6 +444,109 @@ Public Class frmGestion
         End Select
 
     End Sub
+
+    Function Base_Props_Medico(u As E_Usuario) As E_Medico
+
+        Dim u_default As New E_Usuario
+        If cbEspecialidades.Items.Count < 1 Then
+            MessageBox.Show("Ingrese al menos una especialidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            u_default.Cedula = 0
+            Return u_default
+        End If
+
+        Dim especialidades As New List(Of String)
+        For Each es As String In cbEspecialidades.Items
+            especialidades.Add(es)
+        Next
+
+        Return New E_Medico With {
+                    .Nombre = u.Nombre,
+                    .Contrasena = u.Contrasena,
+                    .Rol = "medico",
+                    .Cedula = u.Cedula,
+                    .Nombre1 = u.Nombre1,
+                    .Nombre2 = u.Nombre2,
+                    .Apellido1 = u.Apellido1,
+                    .Apellido2 = u.Apellido2,
+                    .Direccion_Calle = u.Direccion_Calle,
+                    .Direccion_Numero = u.Direccion_Numero,
+                    .Foto = u.Foto,
+                    .Activo = u.Activo,
+                    .Correo = u.Correo,
+                    .TelefonosLista = u.TelefonosLista,
+                    .Especialidad = especialidades
+        }
+
+    End Function
+
+    Function Base_props_paciente(u As E_Usuario) As E_Paciente
+        Dim u_default As New E_Usuario
+        Return New E_Paciente With {
+            .Nombre = u.Nombre,
+            .Contrasena = u.Contrasena,
+            .Rol = "paciente",
+            .Cedula = u.Cedula,
+            .Nombre1 = u.Nombre1,
+            .Nombre2 = u.Nombre2,
+            .Apellido1 = u.Apellido1,
+            .Apellido2 = u.Apellido2,
+            .Direccion_Calle = u.Direccion_Calle,
+            .Direccion_Numero = u.Direccion_Numero,
+            .Foto = u.Foto,
+            .Activo = u.Activo,
+            .Correo = u.Correo,
+            .TelefonosLista = u.TelefonosLista,
+            .Etapa = cbEtapa.SelectedItem.ToString(),
+            .Estado_civil = cbEstadoCivil.SelectedItem().ToString(),
+            .FechaNacimiento = dtpFechaNacimiento.Value,
+            .Ocupacion = lblOcupacionTXT.Text,
+            .Sexo = cbSexo.SelectedItem.ToString()
+        }
+    End Function
+
+    Function Base_props_user() As E_Usuario
+        Dim u_default As New E_Usuario
+        Dim direccion As New List(Of String)({lblDireccionTXT.Text, lblDireccionNumeroTXT.Text})
+
+        For i = 0 To direccion.Count - 1
+            direccion(i) = RemoverEspacios(direccion(i))
+        Next
+
+        If Not check_direccion(direccion) Then
+            MessageBox.Show(MensajeDeErrorDireccion(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            u_default.Cedula = 0
+            Return u_default
+        End If
+
+        Dim telefonos As New List(Of String)
+        For Each t As String In cbTelefonos.Items
+            telefonos.Add(t)
+        Next
+
+        If pBoxFotoUsuario.Image Is Nothing Then
+            If MessageBox.Show("¿Seguro que desea ingresar al usuario sin imagen?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+                u_default.Cedula = 0
+                Return u_default
+            End If
+        End If
+
+        Return New E_Usuario With {
+                    .Nombre = "u" & lblCedulaTXT.Text,
+                    .Contrasena = lblContrasenaTXT.Text,
+                    .Rol = "auxiliar", 'rol default
+                    .Cedula = Val(lblCedulaTXT.Text),
+                    .Nombre1 = lblNombre1TXT.Text,
+                    .Nombre2 = lblNombre2TXT.Text,
+                    .Apellido1 = lblApellido1TXT.Text,
+                    .Apellido2 = lblApellido2TXT.Text,
+                    .Direccion_Calle = direccion(0),
+                    .Direccion_Numero = direccion(1),
+                    .Foto = pBoxFotoUsuario.ImageLocation,
+                    .Activo = 1,
+                    .Correo = lblCorreoTXT.Text,
+                    .TelefonosLista = telefonos
+        }
+    End Function
 
     Sub BajaU()
         '()->BajaLogica
@@ -542,8 +604,6 @@ Public Class frmGestion
     Private Sub pBoxFotoUsuario_Click(sender As Object, e As EventArgs) Handles pBoxFotoUsuario.Click
         Try
             pBoxFotoUsuario.ImageLocation = subirImagen()
-            'Console.WriteLine(pBoxFotoUsuario.ImageLocation)
-            'pBoxFotoUsuario.Image = Image.FromFile(pBoxFotoUsuario.ImageLocation)
         Catch ex As Exception
             Console.WriteLine("cancelado")
         End Try
@@ -596,7 +656,8 @@ Public Class frmGestion
             lblApellido1TXT.DataBindings.Add("Text", obj, "Apellido1", False, DataSourceUpdateMode.OnPropertyChanged)
             lblApellido2TXT.DataBindings.Add("Text", obj, "Apellido2", False, DataSourceUpdateMode.OnPropertyChanged)
             lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.OnPropertyChanged)
-            lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.OnPropertyChanged)
+            lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.OnPropertyChanged)
             pBoxFotoUsuario.DataBindings.Add("ImageLocation", obj, "Foto", True, DataSourceUpdateMode.OnPropertyChanged)
             Dim bsTelefonos As New BindingSource With {
             .DataSource = obj.TelefonosLista

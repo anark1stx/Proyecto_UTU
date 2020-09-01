@@ -69,61 +69,59 @@ Module mdlUtilidades
     Public Sub LimpiarControles(contenedor As Control)
         For Each control As Control In contenedor.Controls
 
-            If control.Tag Is "noLimpiar" Then
-                Exit Sub
-            End If
+            If Not control.Tag Is "noLimpiar" Then
+                Select Case control.GetType().ToString().Replace("System.Windows.Forms.", "")
 
-            Select Case control.GetType().ToString().Replace("System.Windows.Forms.", "")
+                    Case "TextBox"
+                        Dim txt = DirectCast(control, TextBox)
+                        txt.Text = String.Empty
+                        txt.DataBindings.Clear()
+                    Case "ComboBox"
+                        Dim cbox = DirectCast(control, ComboBox)
 
-                Case "TextBox"
-                    Dim txt = DirectCast(control, TextBox)
-                    txt.Text = String.Empty
-                    txt.DataBindings.Clear()
-                Case "ComboBox"
-                    Dim cbox = DirectCast(control, ComboBox)
-
-                    If cbox.Tag Is "datos" Then
-                        cbox.DataSource = Nothing
-                        If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
-                            cbox.ResetText()
-                            cbox.Items.Clear()
+                        If cbox.Tag Is "datos" Then
+                            cbox.DataSource = Nothing
+                            If cbox.DropDownStyle = ComboBoxStyle.DropDown Then
+                                cbox.ResetText()
+                                cbox.Items.Clear()
+                            End If
+                            cbox.SelectedItem = Nothing
                         End If
-                        cbox.SelectedItem = Nothing
-                    End If
 
-                Case "CheckBox"
-                    Dim chk = DirectCast(control, CheckBox)
-                    chk.Checked = False
+                    Case "CheckBox"
+                        Dim chk = DirectCast(control, CheckBox)
+                        chk.Checked = False
 
-                Case "PictureBox"
-                    Dim pbox = DirectCast(control, PictureBox)
-                    pbox.Image = Nothing
+                    Case "PictureBox"
+                        Dim pbox = DirectCast(control, PictureBox)
+                        pbox.Image = Nothing
 
-                Case "DateTimePicker"
-                    Dim dtp = DirectCast(control, DateTimePicker)
-                    dtp.Value = Today
+                    Case "DateTimePicker"
+                        Dim dtp = DirectCast(control, DateTimePicker)
+                        dtp.Value = Today
 
-                Case "ListBox"
-                    Dim lb = DirectCast(control, ListBox)
-                    lb.Items.Clear()
+                    Case "ListBox"
+                        Dim lb = DirectCast(control, ListBox)
+                        lb.Items.Clear()
 
-                Case "Label"
-                    Dim lbl = DirectCast(control, Label)
+                    Case "Label"
+                        Dim lbl = DirectCast(control, Label)
 
-                    If lbl.Tag Is "datos" Then 'Esto es para limpiar solo las labels en las que le cambio su texto original por los datos que llegan de la BD.
-                        lbl.ResetText()
-                    End If
+                        If lbl.Tag Is "datos" Then 'Esto es para limpiar solo las labels en las que le cambio su texto original por los datos que llegan de la BD.
+                            lbl.ResetText()
+                        End If
 
-                Case "Button"
-                    Dim btn = DirectCast(control, Button)
+                    Case "Button"
+                        Dim btn = DirectCast(control, Button)
 
-                    If btn.Tag Is "datos" Then
-                        btn.BackColor = Nothing
-                    End If
+                        If btn.Tag Is "datos" Then
+                            btn.BackColor = Nothing
+                        End If
 
-                Case "Panel", "GroupBox", "TableLayoutPanel"
-                    LimpiarControles(control) 'RECURSIVA
-            End Select
+                    Case "Panel", "GroupBox", "TableLayoutPanel"
+                        LimpiarControles(control) 'RECURSIVA
+                End Select
+            End If
         Next
     End Sub
 

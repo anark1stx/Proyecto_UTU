@@ -7,6 +7,7 @@ Public Class D_UsuarioMYSQL
     Dim conexion As New Connection
 
     Public Function SeleccionarUsuario(usuario As String, contrasena As String) As E_UsuarioMYSQL
+        Dim u As New E_UsuarioMYSQL
         Dim leer As New Recordset With {
             .CursorType = CursorTypeEnum.adOpenDynamic,
             .LockType = LockTypeEnum.adLockOptimistic
@@ -16,10 +17,12 @@ Public Class D_UsuarioMYSQL
 
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = CursorLocationEnum.adUseClient
+
         Try
             conexion.Open()
         Catch ex As Exception
-            Console.WriteLine("Credenciales Incorrectas, conexion cerrada.")
+            u.Valido = False
+            Return u
         End Try
 
         Dim cmd As New Command With {
@@ -30,17 +33,21 @@ Public Class D_UsuarioMYSQL
 
         cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, usuario))
 
-        leer = cmd.Execute()
-        Console.WriteLine(leer.RecordCount)
-        Dim u As New E_UsuarioMYSQL
+        Try
+            leer = cmd.Execute()
+        Catch ex As Exception
+            Console.WriteLine("no se pudo ejecutar query") '<-REEMPLAZAR ESTO POR ALGO MAS COMUNICATIVO
+        End Try
 
         If leer.RecordCount <> -1 Then
             u = New E_UsuarioMYSQL With {
-             .Rol = leer("ROL").Value
+             .Rol = leer("ROL").Value,
+             .Valido = True
             }
         Else
             u = New E_UsuarioMYSQL With {
-             .Rol = "Desconocido"
+             .Rol = "Desconocido",
+             .Valido = False
             }
 
         End If

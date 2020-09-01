@@ -8,7 +8,8 @@
     Protected _apellido2 As String
     Protected _correo As String
     Protected _telefonosLista As List(Of String) '-> {099523212, 23363539}
-    Protected _direccion As List(Of String) ' -> Para pasarle directamente {calle, nroPuerta}
+    Protected _direccion_calle As String
+    Protected _direccion_numero As Integer
     Protected _foto As String 'path
     Protected _activo As Integer
     Sub New()
@@ -22,7 +23,7 @@
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion As List(Of String), telefonosLista As List(Of String), correo As String, contrasena As String, imagen As String, rol As String)
+    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As String, rol As String)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -30,7 +31,8 @@
         _correo = correo
         _contrasena = contrasena
         _telefonosLista = telefonosLista
-        _direccion = direccion
+        _direccion_calle = direccion_calle
+        _direccion_numero = direccion_numero
         _cedula = cedula
         _foto = imagen
         _rol = rol
@@ -100,12 +102,20 @@
         End Set
     End Property
 
-    Property Direccion() As List(Of String)
+    Property Direccion_Calle() As String
         Get
-            Return (_direccion)
+            Return (_direccion_calle)
         End Get
-        Set(ByVal value As List(Of String))
-            _direccion = value
+        Set(ByVal value As String)
+            _direccion_calle = value
+        End Set
+    End Property
+    Property Direccion_Numero() As Integer
+        Get
+            Return (_direccion_numero)
+        End Get
+        Set(ByVal value As Integer)
+            _direccion_numero = value
         End Set
     End Property
 
@@ -192,7 +202,7 @@
             Return 0
         End If
 
-        If Not check_direccion(Me.Direccion) Then
+        If Not check_direccion(New List(Of String)(New String() {Direccion_Calle, Direccion_Numero.ToString()})) Then
             _errMsg = "Dirección: " & MensajeDeErrorDireccion()
             Return 0
         End If

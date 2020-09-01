@@ -25,6 +25,7 @@ Public Class D_Usuario
 
         Dim u As New E_Usuario
 
+        Dim lista As New List(Of String)
         While Not leer.EOF
             u = New E_Usuario With {
              .Cedula = leer("CI").Value,
@@ -33,19 +34,18 @@ Public Class D_Usuario
              .Apellido1 = leer("apellido1").Value,
              .Apellido2 = leer("apellido2").Value,
              .Correo = leer("correo").Value,
-             .Direccion = New List(Of String)(New String() {leer("direccion_calle").Value, leer("direccion_nroPuerta").Value}),
+             .Direccion_Calle = leer("direccion_calle").Value,
+             .Direccion_Numero = leer("direccion_nroPuerta").Value,
              .Activo = leer("activo").Value,
              .Foto = leer("foto").Value
             }
 
-            u.TelefonosLista.Add(leer("telefono").Value)
+            lista.Add(leer("telefono").Value.ToString())
         End While
-
+        u.TelefonosLista = lista.Distinct().ToList()
 
         leer.Close()
         conexion.Close()
-
-
         Return u
     End Function
 
@@ -92,8 +92,8 @@ Public Class D_Usuario
             cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE2", adVarChar, adParamInput, 30, u.Nombre2))
             cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO1", adVarChar, adParamInput, 30, u.Apellido1))
             cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO2", adVarChar, adParamInput, 30, u.Apellido2))
-            cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion(0)))
-            cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, CInt(u.Direccion(1))))
+            cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion_Calle))
+            cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, u.Direccion_Numero))
             cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adBoolean, adParamInput, 1, u.Activo))
             cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
             cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adVarChar, adParamInput, u.Foto.Length, u.Foto))
@@ -162,11 +162,11 @@ Public Class D_Usuario
         cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE2", adVarChar, adParamInput, 30, u.Nombre2))
         cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO1", adVarChar, adParamInput, 30, u.Apellido1))
         cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO2", adVarChar, adParamInput, 30, u.Apellido2))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion(0)))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, CInt(u.Direccion(1))))
+        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion_Calle))
+        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, u.Direccion_Numero))
         cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adInteger, adParamInput, u.Activo))
         cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
-        cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adBinary, adParamInput, 160, u.Foto))
+        cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adBinary, adParamInput, u.Foto.Length, u.Foto))
 
         cmd.Execute()
         conexion.Close()
