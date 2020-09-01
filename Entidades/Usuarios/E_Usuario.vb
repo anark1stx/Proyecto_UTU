@@ -11,7 +11,7 @@
     Protected _direccion_calle As String
     Protected _direccion_numero As Integer
     Protected _foto As String 'path
-    Protected _activo As Integer
+    Protected _activo As Boolean
     Sub New()
 
     End Sub
@@ -23,7 +23,7 @@
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As String, rol As String)
+    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As String, rol As String, activo As Boolean)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -36,6 +36,7 @@
         _cedula = cedula
         _foto = imagen
         _rol = rol
+        _activo = activo
     End Sub
 
     'PROPIEDADES GET & SET
@@ -128,11 +129,11 @@
         End Set
     End Property
 
-    Property Activo As Integer
+    Property Activo As Boolean
         Get
             Return _activo
         End Get
-        Set(value As Integer)
+        Set(value As Boolean)
             _activo = value
         End Set
     End Property

@@ -93,7 +93,6 @@ Public Class D_Usuario
                 ultima_ci = lastU.Cedula
                 uList.Add(lastU)
             Else
-                Console.WriteLine("else " & lastU.Cedula)
                 uList.ElementAt(uList.IndexOf(lastU)).TelefonosLista.Add("telefono")
             End If
 

@@ -12,7 +12,6 @@ Module mdlUtilidades
 
         If OFD.ShowDialog() = DialogResult.OK Then
             Return OFD.FileName
-
         Else
             Return Nothing
         End If

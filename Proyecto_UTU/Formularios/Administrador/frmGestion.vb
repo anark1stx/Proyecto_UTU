@@ -628,11 +628,10 @@ Public Class frmGestion
     End Sub
 
     Private Sub pBoxFotoUsuario_Click(sender As Object, e As EventArgs) Handles pBoxFotoUsuario.Click
-        Try
-            pBoxFotoUsuario.ImageLocation = subirImagen()
-        Catch ex As Exception
-            Console.WriteLine("cancelado")
-        End Try
+        Dim img = subirImagen()
+        If Not img Is Nothing Then
+            pBoxFotoUsuario.ImageLocation = img
+        End If
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -707,9 +706,19 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         MedicoBindings(m)
                     Case Filtro.Especialidad
-                        'm = nm.ListarMedicosEspecialidad(txtBusqueda.Text)
-                End Select
+                        mList = nm.BuscarMedicoEspecialidad(txtBusqueda.Text)
+                        If mList(0).Cedula = 0 Then
+                            MessageBox.Show("No se encontraron MÉDICOS con esa especialidad", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
 
+                        m = mList(0)
+
+                        bs.DataSource = mList
+                        basicBindings(m)
+                        dgwSetup(dgwUsuarios, bs)
+                        MedicoBindings(m)
+                End Select
 
             Case TipoUsuario.Auxiliar
                 Dim naux As New N_Usuario
@@ -797,8 +806,17 @@ Public Class frmGestion
 
     Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick
         LimpiarControles(pnlDatosUsuario)
-        p = pList(dgwUsuarios.CurrentCell.RowIndex)
-        basicBindings(p)
-        PacienteBindings(p)
+        Select Case Usuario
+            Case TipoUsuario.Paciente
+                p = pList(dgwUsuarios.CurrentCell.RowIndex)
+                basicBindings(p)
+                PacienteBindings(p)
+            Case TipoUsuario.Medico
+                m = mList(dgwUsuarios.CurrentCell.RowIndex)
+                basicBindings(m)
+                MedicoBindings(m)
+            Case TipoUsuario.Auxiliar
+        End Select
+
     End Sub
 End Class

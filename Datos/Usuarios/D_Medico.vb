@@ -55,7 +55,8 @@ Public Class D_Medico
              .Correo = leer("correo").Value,
              .Direccion_Calle = leer("direccion_calle").Value,
              .Direccion_Numero = leer("direccion_nroPuerta").Value,
-             .Foto = leer("foto").Value
+             .Foto = leer("foto").Value,
+             .Activo = leer("activo").Value
             }
             listaTel.Add(leer("telefono").Value)
             listaEsp.Add(leer("especialidad").Value)
@@ -88,6 +89,67 @@ Public Class D_Medico
             Return New List(Of E_Medico)
         End If
 
+    End Function
+
+    Public Function BuscarMedicoEspecialidad(es As String) As List(Of E_Medico)
+
+        Dim ultima_ci As Integer = 0
+        Dim medList As New List(Of E_Medico)
+
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = adUseClient
+        conexion.Open()
+
+        Dim leer As New Recordset
+
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "BuscarMEDICOxEspecialidad",
+            .ActiveConnection = conexion
+        }
+
+        cmd.Parameters.Append(cmd.CreateParameter("@especialidad", adVarChar, adParamInput, es.Length, es))
+
+        Try
+            leer = cmd.Execute()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 0}})
+        End Try
+
+        If leer.RecordCount <= 0 Then
+            leer.Close()
+            conexion.Close()
+            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 0}})
+        End If
+
+        Dim lastU As New E_Medico
+
+        While Not leer.EOF
+            If ultima_ci <> leer("CI").Value Then
+                lastU = New E_Medico With {
+                .Cedula = leer("CI").Value,
+                .Especialidad = New List(Of String)(New String() {})
+                }
+                lastU.Especialidad.Add(leer("especialidad").Value)
+                ultima_ci = lastU.Cedula
+                medList.Add(lastU)
+            Else
+                medList.ElementAt(medList.IndexOf(lastU)).Especialidad.Add("especialidad")
+            End If
+            leer.MoveNext()
+        End While
+
+        leer.Close()
+        conexion.Close()
+
+        Dim finalList As New List(Of E_Medico)
+
+        For Each medico As E_Medico In medList
+            finalList.Add(ListarMedicosCI(medico.Cedula))
+        Next
+
+        Return finalList
     End Function
 
     Public Function AltaMedico(u As E_Medico)

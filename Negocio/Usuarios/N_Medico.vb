@@ -11,6 +11,9 @@ Public Class N_Medico
     Public Function BuscarMedicoApellido(ap As String) As List(Of E_Medico)
         Return objDatos.BuscarMedicoApellido(ap)
     End Function
+    Public Function BuscarMedicoEspecialidad(es As String) As List(Of E_Medico)
+        Return objDatos.BuscarMedicoEspecialidad(es)
+    End Function
 
     Public Function AltaMedico(u As E_Medico) As Integer
         Return objDatos.AltaMedico(u)
