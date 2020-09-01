@@ -637,24 +637,37 @@ Public Class frmGestion
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 Dim p As New E_Paciente
-
+                Dim pList As New List(Of E_Paciente)
                 Select Case Filter
                     Case Filtro.Cedula
-                        p = np.ListarUsuariosCI(txtBusqueda.Text)
+                        p = np.ListarPacienteCI(txtBusqueda.Text)
                         If p.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
                         End If
-                    Case Filtro.Apellido
-                        'p = np.ListarUsuariosApellido(txtBusqueda.Text)
-                End Select
 
-                Dim bs As New BindingSource With {
-                .DataSource = p
-                }
-                basicBindings(p)
-                dgwSetup(dgwUsuarios, bs)
-                PacienteBindings(p)
+                        Dim bs As New BindingSource With {
+                        .DataSource = p
+                        }
+                        basicBindings(p)
+                        dgwSetup(dgwUsuarios, bs)
+                        PacienteBindings(p)
+
+                    Case Filtro.Apellido
+                        pList = np.BuscarPacienteApellido(txtBusqueda.Text)
+
+                        If pList(0).Cedula = 0 Then
+                            MessageBox.Show("No se encontraron PACIENTES con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+
+                        Dim bs As New BindingSource With {
+                        .DataSource = pList
+                        }
+                        basicBindings(p)
+                        dgwSetup(dgwUsuarios, bs)
+                        PacienteBindings(p)
+                End Select
 
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico

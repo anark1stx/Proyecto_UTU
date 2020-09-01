@@ -28,7 +28,7 @@ Public Class D_Usuario
         Dim lista As New List(Of String)
         While Not leer.EOF
             u = New E_Usuario With {
-             .Cedula = leer("CI").Value,
+             .Cedula = ci,
              .Nombre1 = leer("nombre1").Value,
              .Nombre2 = leer("nombre2").Value,
              .Apellido1 = leer("apellido1").Value,
@@ -41,12 +41,68 @@ Public Class D_Usuario
             }
 
             lista.Add(leer("telefono").Value.ToString())
+            leer.MoveNext()
         End While
-        u.TelefonosLista = lista.Distinct().ToList()
 
         leer.Close()
         conexion.Close()
         Return u
+    End Function
+
+    Public Overridable Function BuscarUsuariosApellido(ap As String, Optional tabla As String = "usuario") As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
+        Dim leer As New Recordset
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = adUseClient
+        conexion.Open()
+
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "BuscarUSUARIOxApellido",
+            .ActiveConnection = conexion
+        }
+
+        cmd.Parameters.Append(cmd.CreateParameter("@apellido1", adVarChar, adParamInput, ap.Length, ap))
+
+        leer = cmd.Execute()
+
+        Dim uList As New List(Of E_Usuario)
+
+        Dim listaTel As New List(Of String)
+
+        Dim ultima_ci As Integer = 0
+
+        Dim lastU As New E_Usuario
+
+        While Not leer.EOF
+
+            If ultima_ci <> leer("CI").Value Then
+                lastU = New E_Usuario With {
+                 .Cedula = leer("CI").Value,
+                 .Nombre1 = leer("nombre1").Value,
+                 .Nombre2 = leer("nombre2").Value,
+                 .Apellido1 = leer("apellido1").Value,
+                 .Apellido2 = leer("apellido2").Value,
+                 .Correo = leer("correo").Value,
+                 .Direccion_Calle = leer("direccion_calle").Value,
+                 .Direccion_Numero = leer("direccion_nroPuerta").Value,
+                 .Activo = leer("activo").Value,
+                 .Foto = leer("foto").Value,
+                 .TelefonosLista = New List(Of String)(New String() {})
+                }
+                lastU.TelefonosLista.Add("telefono")
+                ultima_ci = lastU.Cedula
+                uList.Add(lastU)
+            Else
+                Console.WriteLine("else " & lastU.Cedula)
+                uList.ElementAt(uList.IndexOf(lastU)).TelefonosLista.Add("telefono")
+            End If
+
+            leer.MoveNext()
+        End While
+
+        leer.Close()
+        conexion.Close()
+        Return uList
     End Function
 
     Public Function UsuarioExiste(ci As String) As Integer
@@ -79,7 +135,7 @@ Public Class D_Usuario
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
         If MyBase.AltaUsuario(mysqlUser) = 1 Then
             conexion.ConnectionString = retornarCString()
-            conexion.CursorLocation = CursorLocationEnum.adUseClient
+            conexion.CursorLocation = adUseClient
             conexion.Open()
 
             Dim cmd As New Command With {
@@ -148,7 +204,7 @@ Public Class D_Usuario
 
     Public Sub ModificarUsuario(u As E_Usuario)
         conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
+        conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {

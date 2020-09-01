@@ -7,7 +7,16 @@ Imports ADODB.CursorLocationEnum
 Public Class D_Paciente
     Inherits D_Usuario
     Dim conexion As New Connection
-    Public Function ListarPacientesCI(ci As String) As E_Paciente
+    Public Function ListarPacientesCI(ci As Integer) As E_Paciente
+
+        Dim result = MyBase.BuscarUsuariosCI(ci)
+
+        If result.Cedula = 0 Then
+            Return New E_Paciente With {
+            .Cedula = 0
+            }
+        End If
+
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
@@ -19,13 +28,11 @@ Public Class D_Paciente
             .ActiveConnection = conexion
         }
 
-        Dim intCI As Integer = Val(ci)
-
         Dim u As New E_Paciente With {
-        .Cedula = intCI
+        .Cedula = ci
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, intCI))
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, ci))
         Try
             leer = cmd.Execute()
         Catch ex As Exception
@@ -44,15 +51,14 @@ Public Class D_Paciente
         Dim lista As New List(Of String)
         While Not leer.EOF
             u = New E_Paciente With {
-                 .Cedula = intCI,
-                 .Nombre1 = leer("nombre1").Value,
-                 .Nombre2 = leer("nombre2").Value,
-                 .Apellido1 = leer("apellido1").Value,
-                 .Apellido2 = leer("apellido2").Value,
-                 .Correo = leer("correo").Value,
-                 .Direccion_Calle = leer("direccion_calle").Value,
-                 .Direccion_Numero = leer("direccion_nroPuerta").Value,
-                 .Foto = leer("foto").Value,
+                 .Cedula = ci,
+                 .Nombre1 = result.Nombre1,
+                 .Nombre2 = result.Nombre2,
+                 .Apellido1 = result.Apellido1,
+                 .Apellido2 = result.Apellido2,
+                 .Direccion_Calle = result.Direccion_Calle,
+                 .Direccion_Numero = result.Direccion_Calle,
+                 .Foto = result.Foto,
                  .Estado_civil = leer("e_civil").Value,
                  .FechaNacimiento = leer("fecha_nac").Value,
                  .Ocupacion = leer("ocupacion").Value,
@@ -69,6 +75,25 @@ Public Class D_Paciente
         conexion.Close()
 
         Return u
+    End Function
+
+    Public Overridable Function BuscarPacienteApellido(ap As String) As List(Of E_Paciente)
+
+        Dim results = MyBase.BuscarUsuariosApellido(ap)
+
+        If results.Count > 0 Then
+
+            Dim uList As New List(Of E_Paciente)
+
+            For Each p As E_Usuario In results
+                uList.Add(ListarPacientesCI(p.Cedula))
+            Next
+
+            Return uList
+        Else
+            Return New List(Of E_Paciente)
+        End If
+
     End Function
 
     Public Function AltaPaciente(u As E_Paciente) As Integer
