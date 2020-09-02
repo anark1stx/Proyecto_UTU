@@ -2,7 +2,7 @@
     Protected _id As Integer
     Protected _nombre As String
     Protected _xml As String
-    Protected v_previa As Byte()
+    Protected _v_previa As String
 
     Property Nombre As String
         Get
@@ -22,12 +22,12 @@
         End Set
     End Property
 
-    Property VistaPrevia As Byte()
+    Property VistaPrevia As String
         Get
-            Return v_previa
+            Return _v_previa
         End Get
-        Set(value As Byte())
-            v_previa = value
+        Set(value As String)
+            _v_previa = value
         End Set
     End Property
 
@@ -35,17 +35,10 @@
 
     End Sub
 
-    Sub New(nombre As String, xml As String, vPrevia As Byte())
+    Sub New(nombre As String, xml As String, vPrevia As String)
         _nombre = nombre
         _xml = xml
-        v_previa = vPrevia
+        _v_previa = vPrevia
     End Sub
-
-
-    Public Function Alta() As Integer
-        Dim retorno As Integer = 0
-
-        Return retorno
-    End Function
 
 End Class
