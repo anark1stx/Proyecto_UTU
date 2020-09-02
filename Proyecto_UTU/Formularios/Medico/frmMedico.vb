@@ -89,6 +89,7 @@ Public Class frmMedico
 
                 If _paciente.Cedula = 0 Then
                     MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
                 End If
 
                 Me.MaximizeBox = False
@@ -250,6 +251,7 @@ Public Class frmMedico
                     End Sub
         AddHandler frmOpsConsulta.btnEntrevistaPaciente.Click,
                     Sub()
+
                         InstanciarFormulario("Entrevista")
                     End Sub
 
