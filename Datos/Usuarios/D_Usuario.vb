@@ -52,7 +52,7 @@ Public Class D_Usuario
             lista.Add(leer("telefono").Value.ToString())
             leer.MoveNext()
         End While
-
+        Console.WriteLine("cedula: " & u.Cedula)
         leer.Close()
         conexion.Close()
         Return u
@@ -109,11 +109,12 @@ Public Class D_Usuario
                  .Foto = leer("foto").Value,
                  .TelefonosLista = New List(Of String)(New String() {})
                 }
-                lastU.TelefonosLista.Add("telefono")
+
+                lastU.TelefonosLista.Add(leer("telefono").Value)
                 ultima_ci = lastU.Cedula
                 uList.Add(lastU)
             Else
-                uList.ElementAt(uList.IndexOf(lastU)).TelefonosLista.Add("telefono")
+                uList.ElementAt(uList.IndexOf(lastU)).TelefonosLista.Add(leer("telefono").Value)
             End If
 
             leer.MoveNext()
@@ -206,7 +207,7 @@ Public Class D_Usuario
             .ActiveConnection = conexion
             }
             cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
-            cmd.Parameters.Append(cmd.CreateParameter("@TELEFONO", adInteger, adParamInput, t.Length, CInt(t)))
+            cmd.Parameters.Append(cmd.CreateParameter("@TELEFONO", adVarChar, adParamInput, t.Length, t))
             Try
                 cmd.Execute()
                 Console.WriteLine("exec")
