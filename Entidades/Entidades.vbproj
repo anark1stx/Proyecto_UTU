@@ -66,6 +66,10 @@
   <ItemGroup>
     <Compile Include="mdlChecker.vb" />
     <Compile Include="mdlMensajes.vb" />
+    <Compile Include="MedicoUtils\E_Analisis.vb" />
+    <Compile Include="MedicoUtils\E_Enfermedad.vb" />
+    <Compile Include="MedicoUtils\E_Formulario.vb" />
+    <Compile Include="MedicoUtils\E_Tratamiento.vb" />
     <Compile Include="Usuarios\E_Medico.vb" />
     <Compile Include="Usuarios\E_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
