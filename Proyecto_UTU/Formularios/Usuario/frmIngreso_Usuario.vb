@@ -1,4 +1,5 @@
 ﻿Imports Negocio
+Imports Entidades
 Public Class frmIngreso_Usuario
     Dim frmAdm As New frmAdministrador
     Dim frmMed As New frmMedico
@@ -27,12 +28,14 @@ Public Class frmIngreso_Usuario
                 Case "medico" 'MEDICO
                     Me.Hide()
                     frmMed.Show()
+                    'frmMed.MedicoActual.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))
                 Case "auxiliar" 'AUXILIAR
                     Me.Hide()
                     frmAux.Show()
                 Case "paciente" 'PACIENTE
                     Me.Hide()
                     frmPac.Show()
+                    frmPac.PacienteActual = New E_Paciente With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
                 Case Else
                     MessageBox.Show("Rol desconocido en el sistema.", "No se encontro su rol.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Select

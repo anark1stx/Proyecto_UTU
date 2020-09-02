@@ -1,8 +1,21 @@
-﻿Public Class frmPaciente
+﻿Imports Entidades
+Imports Negocio
+Public Class frmPaciente
     Dim frmDiagnostico As New frmDiagnosticos 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmAnalisis As New frmAnalisis 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
     Dim frmIni As New frmInicioPaciente
+    Protected _paciente As E_Paciente
+    Protected negocio As N_paciente
+
+    Property PacienteActual As E_Paciente
+        Get
+            Return _paciente
+        End Get
+        Set(value As E_Paciente)
+            _paciente = value
+        End Set
+    End Property
 
     Public Sub addFrm(frm As Form)
         If Not pnlContenedorFormularios.Controls.Contains(frm) Then
@@ -11,6 +24,7 @@
             frm.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
             Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
             frm.Show()
+            frm.Dock = DockStyle.Fill
         End If
     End Sub
 
@@ -41,7 +55,7 @@
                 addFrm(frmDiagnostico)
 
             Case "Gestion"
-
+                frmGestion.PacienteLogeado = New E_Paciente With {.Cedula = PacienteActual.Cedula}
                 addFrm(frmGestion)
 
             Case "Analisis"
@@ -55,6 +69,7 @@
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
+
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
