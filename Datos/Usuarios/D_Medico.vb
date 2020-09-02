@@ -86,7 +86,7 @@ Public Class D_Medico
 
             Return uList
         Else
-            Return New List(Of E_Medico)
+            Return New List(Of E_Medico)(New E_Medico() With {.Cedula = 0})
         End If
 
     End Function

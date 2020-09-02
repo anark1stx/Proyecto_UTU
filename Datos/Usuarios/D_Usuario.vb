@@ -86,6 +86,10 @@ Public Class D_Usuario
         leer = cmd.Execute()
 
         Dim uList As New List(Of E_Usuario)
+        If leer.RecordCount < 1 Then
+            uList.Add(New E_Usuario With {.Cedula = 0})
+            Return uList
+        End If
 
         Dim listaTel As New List(Of String)
 

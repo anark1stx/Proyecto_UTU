@@ -92,7 +92,7 @@ Public Class D_Paciente
 
             Return uList
         Else
-            Return New List(Of E_Paciente)
+            Return New List(Of E_Paciente)(New E_Paciente() {New E_Paciente With {.Cedula = 0}})
         End If
 
     End Function

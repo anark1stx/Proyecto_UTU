@@ -804,12 +804,8 @@ Public Class frmGestion
     End Sub
 
     Private Sub MedicoBindings(obj As E_Medico)
-        Try
-            cbEspecialidades.Items.AddRange(obj.Especialidad.ToArray)
-            cbEspecialidades.SelectedIndex = 0
-        Catch ex As Exception
-            Console.WriteLine("Already binded")
-        End Try
+        cbEspecialidades.Items.AddRange(obj.Especialidad.ToArray)
+        cbEspecialidades.SelectedIndex = 0
     End Sub
 
     Private Sub PacienteBindings(obj As E_Paciente)
@@ -841,11 +837,7 @@ Public Class frmGestion
     End Sub
 
     Private Sub rBtn_CheckedChanged(sender As Object, e As EventArgs) Handles rBtnCedula.CheckedChanged, rBtnApellido.CheckedChanged, rBtnEspecialidad.CheckedChanged
-        Try
-            Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
-        Catch ex As Exception
-            Console.WriteLine("Filtro no registrado en el numerador.")
-        End Try
+
     End Sub
 
     Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick
@@ -865,5 +857,9 @@ Public Class frmGestion
                 MedicoBindings(a)
         End Select
 
+    End Sub
+
+    Private Sub rBtnCedula_Click(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click
+        Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
     End Sub
 End Class
