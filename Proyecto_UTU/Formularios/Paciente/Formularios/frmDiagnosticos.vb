@@ -38,7 +38,6 @@ Public Class frmDiagnosticos
         '()-> cbDiagnostico.Datasource = na.BuscarDiagnosticos(CI_Paciente)
 
         Me.Dock = DockStyle.Fill
-        cbDiagnostico.SelectedIndex = 0
     End Sub
 
 End Class

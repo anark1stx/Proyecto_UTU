@@ -23,6 +23,7 @@ Partial Class frmDiagnosticos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.cbDiagnostico = New System.Windows.Forms.ComboBox()
+        Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'cbDiagnostico
@@ -36,12 +37,24 @@ Partial Class frmDiagnosticos
         Me.cbDiagnostico.Size = New System.Drawing.Size(191, 24)
         Me.cbDiagnostico.TabIndex = 1
         '
+        'pnlContenedorFormularios
+        '
+        Me.pnlContenedorFormularios.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlContenedorFormularios.AutoScroll = True
+        Me.pnlContenedorFormularios.Location = New System.Drawing.Point(12, 42)
+        Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
+        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(872, 497)
+        Me.pnlContenedorFormularios.TabIndex = 5
+        '
         'frmDiagnosticos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(896, 551)
+        Me.Controls.Add(Me.pnlContenedorFormularios)
         Me.Controls.Add(Me.cbDiagnostico)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDiagnosticos"
@@ -50,4 +63,5 @@ Partial Class frmDiagnosticos
 
     End Sub
     Friend WithEvents cbDiagnostico As ComboBox
+    Friend WithEvents pnlContenedorFormularios As Panel
 End Class
