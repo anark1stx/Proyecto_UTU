@@ -28,7 +28,7 @@ Public Class Identificacion_Paciente
         End If
 
         lblDireccionTXT.Text = String.Format("{0}, {1}", PacienteBuscar.Direccion_Calle, PacienteBuscar.Direccion_Numero)
-        lblFechaNac.Text = PacienteBuscar.FechaNacimiento.ToString()
+        lblFechaNacTXT.Text = PacienteBuscar.FechaNacimiento.ToShortDateString()
         lblOcupacionTXT.Text = PacienteBuscar.Ocupacion
         lblE_CivilTXT.Text = PacienteBuscar.Estado_civil
         lblEtapaTXT.Text = PacienteBuscar.Etapa

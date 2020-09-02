@@ -34,7 +34,7 @@ Public Class frmGestionPaciente
         End If
 
         lblDireccionTXT.Text = String.Format("{0}, {1}", PacienteLogeado.Direccion_Calle, PacienteLogeado.Direccion_Numero)
-        lblFechaNacTXT.Text = PacienteLogeado.FechaNacimiento.ToString()
+        lblFechaNacTXT.Text = PacienteLogeado.FechaNacimiento.ToShortDateString()
         lblOcupacionTXT.Text = PacienteLogeado.Ocupacion
         lblE_CivilTXT.Text = PacienteLogeado.Estado_civil
         lblEtapaTXT.Text = PacienteLogeado.Etapa
