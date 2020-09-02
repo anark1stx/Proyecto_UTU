@@ -1,45 +1,44 @@
-﻿Public Class frmDiagnosticos
-    'Dim gestor As New GestorXML
+﻿Imports Entidades
+Imports Negocio
+Public Class frmDiagnosticos
     Dim formulario_completo As New formularioPlano 'En esta variable va a ir guardado el formulario completo que diseño y lleno el medico
+    Protected _formularioDesdeBD As New E_Formulario
+    Protected _ci_Paciente As Integer
+
+    Property CI_Paciente As Integer
+        Get
+            Return _ci_Paciente
+        End Get
+        Set(value As Integer)
+            _ci_Paciente = value
+        End Set
+    End Property
+
+    Property Formulario As E_Formulario
+        Get
+            Return _formularioDesdeBD
+        End Get
+        Set(value As E_Formulario)
+            _formularioDesdeBD = value
+        End Set
+    End Property
+
     Private Sub cbDiagnostico_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDiagnostico.SelectedIndexChanged
         'Cargar el formulario que corresponde al item seleccionado: 
-        'gestor.generarInstancias(...)
 
+        '()-> Cargar formulario a la prop Formulario
+        '()-> agregar frmPlano y deserializar los controles de la ruta Formulario.XML
+        '()-> Cargar todas las respuestas de Responde a los campos segun su nombre, ex: Sintoma1 -> txtSintoma1.Text
     End Sub
 
     Private Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbVista.SelectedIndex = 1 '1=Formulario completo como lo diseño y guardo el medico ->Obviamente aún no implementado, requerimos conexión con la BD para cargar esos formularios
-        '2=Formulario simple con tabs para facilitar la comprensión de los datos.
-        tabPanelDiagnostico.Hide()
-        '->Cargar el ultimo diagnostico que se le hizo desde la BD.
+
+        '()-> cargar todos los registros de Atiende que su CI = CI_Paciente
+        '()-> Dim na as new N_Atiende
+        '()-> cbDiagnostico.Datasource = na.BuscarDiagnosticos(CI_Paciente)
+
         Me.Dock = DockStyle.Fill
         cbDiagnostico.SelectedIndex = 0
-    End Sub
-
-    Private Sub cbVista_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbVista.SelectedIndexChanged
-        Select Case cbVista.SelectedIndex
-            Case 1
-                tabPanelDiagnostico.Hide()
-                'controls = gestor.generarInstancias(...)
-                'formulario_completo.Controls.Add(controls)
-                formulario_completo.TopLevel = False
-                formulario_completo.TopMost = True
-                formulario_completo.Anchor += AnchorStyles.Bottom
-                formulario_completo.Anchor += AnchorStyles.Right
-                formulario_completo.Dock = DockStyle.Fill
-                pnlContenedorDiagnosticos.Controls.Add(formulario_completo)
-                formulario_completo.Show()
-            Case 0
-                formulario_completo.Hide()
-                'Con este es parecido, solo que en vez de cargar todos los controles con todos los datos, solo se cargan los datos que se piden en el diagnostico simple.
-                tabPanelDiagnostico.Show()
-                tabPanelDiagnostico.Anchor += AnchorStyles.Bottom
-                tabPanelDiagnostico.Anchor += AnchorStyles.Right
-                tabPanelDiagnostico.Dock = DockStyle.Fill
-
-
-                Console.WriteLine(lblDescripcion.Location)
-        End Select
     End Sub
 
 End Class
