@@ -1,6 +1,8 @@
-﻿Public Class frmAnalisisCrear
-    Dim listaParametros As New List(Of Analisis.Parametro)
-    Dim listaIndicaciones As New List(Of Analisis.Indicacion)
+﻿Imports Entidades
+Imports Negocio
+Public Class frmAnalisisCrear
+    Dim listaParametros As New List(Of E_Analisis.Parametro)
+    Dim listaIndicaciones As New List(Of E_Analisis.Indicacion)
     Dim _parametros As New List(Of Control)
     Dim _indicaciones As New List(Of Control)
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
@@ -10,14 +12,14 @@
             Exit Sub
         End If
 
-        For Each p As Analisis.Parametro In listaParametros
+        For Each p As E_Analisis.Parametro In listaParametros
             If p.Nombre.ToLower() = txtNombrePrm.Text Then
                 MessageBox.Show("El parametro " & p.Nombre & " ya existe", "Parametro ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
             End If
         Next
 
-        Dim prm = New Analisis.Parametro()
+        Dim prm = New E_Analisis.Parametro()
         If txtNombrePrm.Text.ToLower() = "resultado" Then
             prm.Nombre = "Resultado"
             listaParametros.Add(prm)
@@ -50,12 +52,13 @@
             Exit Sub
         End Try
 
-        Dim pr = New Analisis.Parametro(txtNombrePrm.Text, txtUnidad.Text, min, max)
+        Dim pr = New E_Analisis.Parametro(txtNombrePrm.Text, txtUnidad.Text, min, max)
         listaParametros.Add(pr)
         ParametroBindingSource.Add(pr)
+        dgwParametros.DataSource = ParametroBindingSource
     End Sub
 
-    Private Sub frmAnalisisCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmE_AnalisisCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         _parametros.Add(txtUnidad)
         _parametros.Add(txtVMax)
@@ -76,9 +79,10 @@
         End If
     End Sub
 
+
     Private Sub btnAgregarIndicacion_Click(sender As Object, e As EventArgs) Handles btnAgregarIndicacion.Click
 
-        For Each i As Analisis.Indicacion In listaIndicaciones
+        For Each i As E_Analisis.Indicacion In listaIndicaciones
             If i.Nombre.ToLower() = txtNomIndicacion.Text Then
                 MessageBox.Show("La indicación: " & i.Nombre & " ya existe", "indicación ya registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
@@ -98,9 +102,10 @@
             End If
         Next
 
-        Dim ind As New Analisis.Indicacion(txtNomIndicacion.Text, txtIndicacionDescripcion.Text)
+        Dim ind As New E_Analisis.Indicacion With {.Nombre = txtNomIndicacion.Text, .Indicacion = txtIndicacionDescripcion.Text}
         listaIndicaciones.Add(ind)
         IndicacionBindingSource.Add(ind)
+        dgwIndicaciones.DataSource = IndicacionBindingSource
     End Sub
 
     Private Sub dgwIndicaciones_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwIndicaciones.CellContentClick
@@ -112,5 +117,12 @@
                 listaIndicaciones.RemoveAt(e.RowIndex)
             End If
         End If
+    End Sub
+
+    Private Sub dgwParametros_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellClick
+        txtNombrePrm.Text = listaParametros(e.RowIndex).Nombre
+        txtUnidad.Text = listaParametros(e.RowIndex).Unidad
+        txtVMin.Text = listaParametros(e.RowIndex).ValorMinimo
+        txtVMax.Text = listaParametros(e.RowIndex).ValorMaximo
     End Sub
 End Class

@@ -2,7 +2,7 @@
 Imports Entidades
 Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     Public modo As Integer = 0 '0 = consulta, 1 = ingreso
-    Public AnalisisACargar As New Analisis
+    Public AnalisisACargar As New E_Analisis
     Protected _ci_paciente As Integer
     Protected _paciente As E_Paciente
     Property CI_Paciente As Integer
@@ -19,7 +19,7 @@ Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
 
         lblTitulo.Text = String.Format("{0} - Paciente: {1},{2}", AnalisisACargar.Nombre, _paciente.Nombre1, _paciente.Apellido1)
 
-        For Each p As Analisis.Parametro In AnalisisACargar.Parametros
+        For Each p As E_Analisis.Parametro In AnalisisACargar.Parametros
             Dim colCount As Integer = 0
             Dim nomParametro As New Label With {
                     .Text = p.Nombre,

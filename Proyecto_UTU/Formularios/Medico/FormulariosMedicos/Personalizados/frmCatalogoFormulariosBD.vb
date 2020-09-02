@@ -1,6 +1,8 @@
-﻿Public Class frmCatalogoFormulariosBD
+﻿Imports Entidades
+Imports Negocio
+Public Class frmCatalogoFormulariosBD
 
-    Dim listaFormularios As List(Of Formulario) = New List(Of Formulario)(5) 'La cantidad maxima de formularios que voy a estar mostrando por pagina del catalogo
+    Dim listaFormularios As List(Of E_Formulario) = New List(Of E_Formulario)(5) 'La cantidad maxima de formularios que voy a estar mostrando por pagina del catalogo
     Dim cajaFormularios As List(Of frmPresentacionFormulario) = New List(Of frmPresentacionFormulario)(5)
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

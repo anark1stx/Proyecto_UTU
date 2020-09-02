@@ -1,9 +1,11 @@
-﻿Public Class frmTratamientoCrear
-    Dim t As Tratamiento
+﻿Imports Entidades
+Imports Negocio
+Public Class frmTratamientoCrear
+    Dim t As E_Tratamiento
 
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        t = New Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
+        t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
         't.Alta()
     End Sub
 
