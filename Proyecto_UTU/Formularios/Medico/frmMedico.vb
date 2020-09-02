@@ -25,8 +25,6 @@ Public Class frmMedico
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar
 
-    Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
-
     Dim _paciente As New E_Paciente
     Protected _medico As New E_Medico
 
@@ -42,6 +40,7 @@ Public Class frmMedico
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
+        _paciente.Cedula = 0
     End Sub
 
     Public Sub addFrm(frm As Form)
@@ -87,17 +86,15 @@ Public Class frmMedico
                 addFrm(frmIdentificacion)
 
             Case "Entrevista"
-                CargarDatosPaciente()
-                If llenoIdentificacion Then
 
-                    Me.MaximizeBox = False
-                    fixSize()
-
-                    addFrm(frmEntrevista)
-                Else
-                    MsgBox("Debe identificar primero al paciente antes de proceder con su entrevista.")
-                    Exit Sub
+                If _paciente.Cedula = 0 Then
+                    MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
+                Me.MaximizeBox = False
+                fixSize()
+
+                addFrm(frmEntrevista)
 
             Case "Generico"
                 LimpiarControles(generico)
@@ -262,10 +259,6 @@ Public Class frmMedico
                     Sub()
                         CargarDatosPaciente()
                     End Sub
-        AddHandler frmIdentificacion.txtCIPaciente.TextChanged,
-                    Sub()
-                        CargarDatosPaciente()
-                    End Sub
         AddHandler frmIdentificacion.btnEntrevistar.Click,
                     Sub()
                         InstanciarFormulario("Entrevista")
@@ -334,63 +327,23 @@ Public Class frmMedico
             End Sub
     End Sub
 
-    Private Sub CargarDatosPaciente()
-
-        If frmIdentificacion.txtCIPaciente.Text.Length = 8 Then
-
-            If check_Cedula(frmIdentificacion.txtCIPaciente.Text) Then
-                _paciente.Cedula = frmIdentificacion.txtCIPaciente.Text
-
-                ''Dim datosP = _paciente.buscarPorCI()
-
-                ''Select Case datosP
-                ''    Case 0
-                ''        MessageBox.Show("No se encontraron datos para este paciente", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ''        llenoIdentificacion = False
-                ''        frmIdentificacion.txtCIPaciente.Text = String.Empty
-                ''        Exit Sub
-
-                ''    Case 1
-                ''        frmIdentificacion.lblNombresTXT.Text = _paciente.Nombre1 & ", " & _paciente.Nombre2
-                ''        frmIdentificacion.lblApellidosTXT.Text = _paciente.Apellido1 & ", " & _paciente.Apellido2
-
-                ''        frmIdentificacion.lblDireccionTXT.Text = String.Empty
-                ''        frmIdentificacion.lblTelefonoTXT.Text = String.Empty
-
-                ''        For i = 0 To _paciente.direccion.Count - 1
-                ''            frmIdentificacion.lblDireccionTXT.Text &= (_paciente.direccion(i) & ", ")
-                ''        Next
-
-                ''        For i = 0 To _paciente.telefonosLista.Count - 1
-                ''            frmIdentificacion.lblTelefonoTXT.Text &= (_paciente.telefonosLista(i) & ", ")
-                ''        Next
-
-                ''        frmIdentificacion.lblSexoTXT.Text = _paciente.Sexo
-                ''        frmIdentificacion.lblOcupacionTXT.Text = _paciente.Ocupacion
-                ''        frmIdentificacion.lblEstadoCivilTXT.Text = _paciente.Estado_civil
-                ''        frmIdentificacion.lblEdadTXT.Text = _paciente.FechaNacimiento
-
-                ''        For Each l As Control In frmIdentificacion.Controls
-                ''            If TypeOf l Is Label Then
-                ''                If l.Text.EndsWith(", ") Then
-                ''                    l.Text = l.Text.Substring(0, l.Text.LastIndexOf(","))
-                ''                End If
-                ''            End If
-
-                ''        Next
-
-                ''        frmIdentificacion.pBoxFotoPaciente.Image = Bytes2Image(_paciente.imagen)
-
-                ''        llenoIdentificacion = True
-
-                'End Select
+    Sub CargarDatosPaciente()
+        If check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
+            Dim np As New N_Paciente
+            frmIdentificacion.PacienteBuscar = np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text))
+            If frmIdentificacion.PacienteBuscar.Cedula <> 0 Then
+                _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
+                frmIdentificacion.PoblarDatos()
             Else
-                MsgBox("Cédula inválida.", MessageBoxIcon.Error)
-                llenoIdentificacion = False
+                MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-        End If
 
+        Else
+            MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            _paciente.Cedula = 0
+        End If
     End Sub
+
 
     Private Sub IngresarNuevoTratamientoMenuItem_Click(sender As Object, e As EventArgs) Handles IngresarNuevoTratamientoMenuItem.Click
         InstanciarFormulario("IngresarTratamiento")
