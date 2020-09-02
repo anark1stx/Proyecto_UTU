@@ -19,7 +19,7 @@ Public Class N_Medico
         Return objDatos.AltaMedico(u)
     End Function
 
-    Public Sub ModificacionMedico(u As E_Medico)
-        objDatos.ModificarUsuarioMedico(u)
-    End Sub
+    Public Function ModificacionMedico(u As E_Medico) As Integer
+        Return objDatos.ModificarUsuarioMedico(u)
+    End Function
 End Class

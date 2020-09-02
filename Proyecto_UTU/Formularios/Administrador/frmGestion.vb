@@ -15,8 +15,6 @@ Public Class frmGestion
     Dim a As New E_Usuario
     Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
-    Dim bsTelefonos As New BindingSource
-    Dim bsM_Esps As New BindingSource
     Public Enum Accion
         Alta
         Baja
@@ -278,6 +276,10 @@ Public Class frmGestion
         If cbTelefonos.Text Is String.Empty Then
             MessageBox.Show("Seleccione el teléfono que desea remover.", "Falta seleccionar elemento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
+        End If
+
+        If cbTelefonos.DataSource IsNot Nothing Then
+            cbTelefonos.DataSource = Nothing
         End If
 
         cbTelefonos.Items.Remove(cbTelefonos.Text)
@@ -620,7 +622,29 @@ Public Class frmGestion
     End Sub
 
     Sub ModificarU()
-        '()->Modificar[USUARIO]
+        Dim u = Base_props_user()
+        Dim code As Integer = 0
+        Select Case Usuario
+            Case TipoUsuario.Auxiliar
+                Dim nu As New N_Usuario
+                code = nu.ModificacionUsuario(u)
+            Case TipoUsuario.Paciente
+                Dim np As New N_Paciente
+                u = Base_props_paciente(u)
+                code = np.ModificacionPaciente(u)
+            Case TipoUsuario.Medico
+                Dim nm As New N_Medico
+                u = Base_Props_Medico(u)
+                code = nm.ModificacionMedico(u)
+        End Select
+
+        Select Case code
+            Case 0
+                MessageBox.Show("El usuario no pudo ser modificado", "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("El usuario fue modificado con éxito", "Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
+
     End Sub
 
     Private Sub SinEspacios(sender As Object, e As KeyPressEventArgs) Handles lblCedulaTXT.KeyPress, lblCorreoTXT.KeyPress, cbTelefonos.KeyPress
@@ -772,8 +796,8 @@ Public Class frmGestion
             lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.Never)
             lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.Never)
             pBoxFotoUsuario.DataBindings.Add("ImageLocation", obj, "Foto", False, DataSourceUpdateMode.Never)
-            bsTelefonos.DataSource = obj.TelefonosLista
-            cbTelefonos.DataSource = bsTelefonos
+            cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
+            cbTelefonos.SelectedIndex = 0
         Catch ex As Exception
             Console.WriteLine("already binded")
         End Try
@@ -781,8 +805,8 @@ Public Class frmGestion
 
     Private Sub MedicoBindings(obj As E_Medico)
         Try
-            bsM_Esps.DataSource = obj.Especialidad
-            cbEspecialidades.DataSource = bsM_Esps
+            cbEspecialidades.Items.AddRange(obj.Especialidad.ToArray)
+            cbEspecialidades.SelectedIndex = 0
         Catch ex As Exception
             Console.WriteLine("Already binded")
         End Try

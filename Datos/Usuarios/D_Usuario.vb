@@ -221,31 +221,85 @@ Public Class D_Usuario
         Return 1
     End Function
 
-    Public Sub ModificarUsuario(u As E_Usuario)
+    Public Function ModificarUsuario(u As E_Usuario) As Integer
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "ModificarUsuario",
-            .ActiveConnection = conexion
+                .CommandType = adCmdStoredProc,
+                .CommandText = "ModificarUsuario",
+                .ActiveConnection = conexion
         }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula))
+        cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
         cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE1", adVarChar, adParamInput, 30, u.Nombre1))
         cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE2", adVarChar, adParamInput, 30, u.Nombre2))
         cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO1", adVarChar, adParamInput, 30, u.Apellido1))
         cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO2", adVarChar, adParamInput, 30, u.Apellido2))
         cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion_Calle))
         cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, u.Direccion_Numero))
-        cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adInteger, adParamInput, u.Activo))
+        cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adBoolean, adParamInput, 1, u.Activo))
         cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
-        cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adBinary, adParamInput, u.Foto.Length, u.Foto))
+        cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adVarChar, adParamInput, u.Foto.Length, u.Foto))
 
-        cmd.Execute()
+        Try
+            cmd.Execute()
+            conexion.Close()
+        Catch ex As Exception
+            conexion.Close()
+            Return 0 'No se pudo mod usuario
+        End Try
+
+        If ModificarUsuarioTelefono(u) Then
+            Return 1 'todo ok
+        Else
+            Return 3 'Falla mod telefono
+        End If
+
+    End Function
+
+    Public Function ModificarUsuarioTelefono(u As E_Usuario) As Integer
+
+        If borrarTelefonos(u) = 1 Then
+
+            If AltaUsuarioTelefono(u) = 1 Then
+                Return 1
+            Else
+                Console.WriteLine("error alta telefono")
+                Return 0
+            End If
+
+        Else
+            Return 0
+        End If
+
+    End Function
+
+    Public Function borrarTelefonos(u As E_Usuario) As Integer
+        Console.WriteLine("borrando telefonos")
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = adUseClient
+        conexion.Open()
+
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "BorrarTelefonos", 'los borra todos
+            .ActiveConnection = conexion
+            }
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
+        Try
+            cmd.Execute()
+        Catch ex As Exception
+            conexion.Close()
+            u.ErrMsg = "Error borrando los teléfonos"
+            Console.WriteLine("Error borrando los teléfonos")
+            Return 0 ' no se pudo borrar telefono
+        End Try
+
         conexion.Close()
-    End Sub
+        Return 1
+
+    End Function
 
     Public Function BajaLogicaUsuario(u As E_Usuario) As Integer
         conexion.ConnectionString = retornarCString()

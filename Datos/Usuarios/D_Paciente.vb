@@ -132,32 +132,39 @@ Public Class D_Paciente
 
     End Function
 
-    Public Sub ModificarPaciente(u As E_Paciente)
-        conexion.ConnectionString = retornarCString()
-        conexion.CursorLocation = adUseClient
-        conexion.Open()
+    Public Function ModificarPaciente(u As E_Paciente) As Integer
+        Dim res As Integer = MyBase.ModificarUsuario(u)
 
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "AltaUsuarioSIBIM",
-            .ActiveConnection = conexion
-        }
+        Select Case res
+            Case 1
+                conexion.ConnectionString = retornarCString()
+                conexion.CursorLocation = adUseClient
+                conexion.Open()
 
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula))
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE1", adVarChar, adParamInput, 30, u.Nombre1))
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE2", adVarChar, adParamInput, 30, u.Nombre2))
-        cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO1", adVarChar, adParamInput, 30, u.Apellido1))
-        cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO2", adVarChar, adParamInput, 30, u.Apellido2))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion_Calle))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, u.Direccion_Numero))
-        cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adInteger, adParamInput, 1, u.Activo))
-        cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
-        Dim ParametroFoto = cmd.CreateParameter("@FOTO", adLongVarBinary, adParamInput, u.Foto.Length)
-        ParametroFoto.AppendChunk(u.Foto)
-        cmd.Parameters.Append(ParametroFoto)
+                Dim cmd As New Command With {
+                .CommandType = adCmdStoredProc,
+                .CommandText = "ModificarPaciente",
+                .ActiveConnection = conexion
+                }
+                cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
+                cmd.Parameters.Append(cmd.CreateParameter("@OCUPACION", adVarChar, adParamInput, 50, u.Ocupacion))
+                cmd.Parameters.Append(cmd.CreateParameter("@E_CIVIL", adVarChar, adParamInput, 7, u.Estado_civil))
+                cmd.Parameters.Append(cmd.CreateParameter("@FECHA_NAC", adDBDate, adParamInput, 50, u.FechaNacimiento))
+                cmd.Parameters.Append(cmd.CreateParameter("@ETAPA", adChar, adParamInput, 1, u.Etapa.ToString()))
+                cmd.Parameters.Append(cmd.CreateParameter("@SEXO", adChar, adParamInput, 1, u.Sexo.ToString()))
 
-        cmd.Execute()
-        conexion.Close()
-    End Sub
+                Try
+                    cmd.Execute()
+                    Return 1
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                    Return 0
+                End Try
+
+            Case Else
+                Return res
+        End Select
+
+    End Function
 
 End Class

@@ -211,29 +211,60 @@ Public Class D_Medico
         conexion.Close()
         Return 1
     End Function
-    Public Sub ModificarUsuarioMedico(u As E_Medico)
+    Public Function ModificarUsuarioMedico(u As E_Medico) As Integer
+
+        If MyBase.ModificarUsuario(u) Then
+            If ModificarMedicoEspecialidad(u) = 1 Then
+                Return 1
+            Else
+                Console.WriteLine("Error modificando especialidades")
+                Return 0
+            End If
+        Else
+            Console.WriteLine("Error modificando usuario")
+            Return 0
+        End If
+
+    End Function
+
+    Public Function ModificarMedicoEspecialidad(u As E_Medico) As Integer
+
+        If BorrarMedicoEspecialidad(u) = 1 Then
+            If AltaMedicoEspecialidad(u) = 1 Then
+                Return 1
+            Else
+                Console.WriteLine("Error alta especialidades")
+                Return 0
+            End If
+        Else
+            Console.WriteLine("Error borrando especialidades")
+            Return 0
+        End If
+    End Function
+
+    Public Function BorrarMedicoEspecialidad(u As E_Medico)
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
-            .CommandText = "ModificarUsuario",
+            .CommandText = "BorrarEspecialidades", 'las borra todas
             .ActiveConnection = conexion
-        }
+            }
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, u.Cedula.ToString().Length, u.Cedula))
 
-        cmd.Parameters.Append(cmd.CreateParameter("@CI", adInteger, adParamInput, u.Cedula))
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE1", adVarChar, adParamInput, 30, u.Nombre1))
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE2", adVarChar, adParamInput, 30, u.Nombre2))
-        cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO1", adVarChar, adParamInput, 30, u.Apellido1))
-        cmd.Parameters.Append(cmd.CreateParameter("@APELLIDO2", adVarChar, adParamInput, 30, u.Apellido2))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_C", adVarChar, adParamInput, 160, u.Direccion_Calle))
-        cmd.Parameters.Append(cmd.CreateParameter("@DIRECCION_N", adInteger, adParamInput, 4, u.Direccion_Numero))
-        cmd.Parameters.Append(cmd.CreateParameter("@ACTIVO", adInteger, adParamInput, 1, u.Activo))
-        cmd.Parameters.Append(cmd.CreateParameter("@CORREO", adVarChar, adParamInput, 50, u.Correo))
-        cmd.Parameters.Append(cmd.CreateParameter("@FOTO", adVarChar, adParamInput, u.Foto.Length, u.Foto))
-        cmd.Execute()
+        Try
+            cmd.Execute()
+        Catch ex As Exception
+            conexion.Close()
+            u.ErrMsg = "Error borrando las especialidades"
+            Console.WriteLine("Error borrando las especialidades")
+            Return 0 ' no se pudo borrar especialidad
+        End Try
+
         conexion.Close()
-    End Sub
+        Return 1
+    End Function
 
 End Class

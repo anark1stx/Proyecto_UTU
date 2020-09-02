@@ -19,9 +19,9 @@ Public Class N_Paciente
         Return objDatos.AltaPaciente(u)
     End Function
 
-    Public Sub ModificacionPaciente(u As E_Paciente)
-        objDatos.ModificarPaciente(u)
-    End Sub
+    Public Function ModificacionPaciente(u As E_Paciente) As Integer
+        Return objDatos.ModificarPaciente(u)
+    End Function
 
     Public Sub BajaLogicaPaciente(u As E_Paciente)
         objDatos.BajaLogicaUsuario(u)

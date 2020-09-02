@@ -24,9 +24,9 @@ Public Class N_Usuario
         Return objDatos.AltaUsuarioSIBIM(u)
     End Function
 
-    Public Overridable Sub ModificacionUsuario(u As E_Usuario)
-        objDatos.ModificarUsuario(u)
-    End Sub
+    Public Overridable Function ModificacionUsuario(u As E_Usuario) As Integer
+        Return objDatos.ModificarUsuario(u)
+    End Function
 
     Public Overridable Function BajaLogicaUsuario(u As E_Usuario) As Integer
         Return objDatos.BajaLogicaUsuario(u)
