@@ -10,4 +10,8 @@
     Private Sub btnConsultarDatos_Click(sender As Object, e As EventArgs) Handles btnConsultarDatos.Click
         '-1 Abrir formulario de datos en modo de lectura (todo con labels)
     End Sub
+
+    Private Sub frmAnalisisSeguimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -24,7 +24,7 @@ Partial Class Identificacion_Paciente
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.btnEntrevistar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnConsultasPrevias = New System.Windows.Forms.Button()
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
@@ -73,22 +73,22 @@ Partial Class Identificacion_Paciente
         Me.btnEntrevistar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnEntrevistar.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnConsultasPrevias
         '
-        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.btnConsultasPrevias.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.LightGreen
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.Location = New System.Drawing.Point(12, 553)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(1106, 163)
-        Me.Button1.TabIndex = 102
-        Me.Button1.Text = "      Ver consultas previas"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnConsultasPrevias.BackColor = System.Drawing.Color.LightGreen
+        Me.btnConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsultasPrevias.Image = CType(resources.GetObject("btnConsultasPrevias.Image"), System.Drawing.Image)
+        Me.btnConsultasPrevias.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnConsultasPrevias.Location = New System.Drawing.Point(12, 553)
+        Me.btnConsultasPrevias.Name = "btnConsultasPrevias"
+        Me.btnConsultasPrevias.Size = New System.Drawing.Size(1106, 163)
+        Me.btnConsultasPrevias.TabIndex = 102
+        Me.btnConsultasPrevias.Text = "      Ver consultas previas"
+        Me.btnConsultasPrevias.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnConsultasPrevias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnConsultasPrevias.UseVisualStyleBackColor = False
         '
         'tblDatosPaciente
         '
@@ -392,7 +392,7 @@ Partial Class Identificacion_Paciente
         Me.txtCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCedulaPaciente.Location = New System.Drawing.Point(3, 3)
         Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
-        Me.txtCedulaPaciente.Size = New System.Drawing.Size(361, 27)
+        Me.txtCedulaPaciente.Size = New System.Drawing.Size(360, 27)
         Me.txtCedulaPaciente.TabIndex = 112
         '
         'btnBuscar
@@ -400,9 +400,9 @@ Partial Class Identificacion_Paciente
         Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
         Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnBuscar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnBuscar.Location = New System.Drawing.Point(370, 3)
+        Me.btnBuscar.Location = New System.Drawing.Point(369, 3)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(41, 24)
+        Me.btnBuscar.Size = New System.Drawing.Size(42, 24)
         Me.btnBuscar.TabIndex = 113
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
@@ -413,7 +413,7 @@ Partial Class Identificacion_Paciente
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1130, 720)
         Me.Controls.Add(Me.tblDatosPaciente)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnConsultasPrevias)
         Me.Controls.Add(Me.btnEntrevistar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Identificacion_Paciente"
@@ -429,7 +429,7 @@ Partial Class Identificacion_Paciente
 
     End Sub
     Friend WithEvents btnEntrevistar As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnConsultasPrevias As Button
     Friend WithEvents tblDatosPaciente As TableLayoutPanel
     Friend WithEvents pBoxFotoPaciente As PictureBox
     Friend WithEvents tabDatos As TableLayoutPanel

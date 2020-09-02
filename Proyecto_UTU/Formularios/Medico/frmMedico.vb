@@ -174,7 +174,7 @@ Public Class frmMedico
                 'frmAnalisisDatos._paciente = pac
 
                 Dim pac As New E_Paciente With {
-                    .Cedula = frmAnalisisS.txtCedulaPaciente.Text
+                    .Cedula = frmAnalisisS.txtBuscar.Text
                 }
 
                 'pac.buscarPorCI()

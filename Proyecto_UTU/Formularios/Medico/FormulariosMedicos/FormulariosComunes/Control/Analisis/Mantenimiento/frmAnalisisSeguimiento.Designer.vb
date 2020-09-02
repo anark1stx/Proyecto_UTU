@@ -23,7 +23,13 @@ Partial Class frmAnalisisSeguimiento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAnalisisSeguimiento))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtBuscar = New System.Windows.Forms.TextBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.lblCedulaPaciente = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnConsultarDatos = New System.Windows.Forms.Button()
         Me.btnIngresarDatos = New System.Windows.Forms.Button()
@@ -31,24 +37,71 @@ Partial Class frmAnalisisSeguimiento
         Me.ID_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nom_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
-        Me.lblPacienteCI = New System.Windows.Forms.Label()
         Me.pnlContenedor.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
         '
+        Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel2)
         Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel1)
         Me.pnlContenedor.Controls.Add(Me.dgwAnalisisPaciente)
-        Me.pnlContenedor.Controls.Add(Me.txtCedulaPaciente)
-        Me.pnlContenedor.Controls.Add(Me.lblPacienteCI)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1130, 720)
         Me.pnlContenedor.TabIndex = 0
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 3
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.73874!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.58559!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.585586!))
+        Me.TableLayoutPanel2.Controls.Add(Me.txtBuscar, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnBuscar, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblCedulaPaciente, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(8, 12)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1110, 37)
+        Me.TableLayoutPanel2.TabIndex = 7
+        '
+        'txtBuscar
+        '
+        Me.txtBuscar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBuscar.Location = New System.Drawing.Point(211, 3)
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.Size = New System.Drawing.Size(833, 30)
+        Me.txtBuscar.TabIndex = 0
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBuscar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnBuscar.Location = New System.Drawing.Point(1050, 3)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(57, 31)
+        Me.btnBuscar.TabIndex = 1
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'lblCedulaPaciente
+        '
+        Me.lblCedulaPaciente.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblCedulaPaciente.AutoSize = True
+        Me.lblCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCedulaPaciente.Location = New System.Drawing.Point(14, 6)
+        Me.lblCedulaPaciente.Name = "lblCedulaPaciente"
+        Me.lblCedulaPaciente.Size = New System.Drawing.Size(191, 25)
+        Me.lblCedulaPaciente.TabIndex = 2
+        Me.lblCedulaPaciente.Text = "Cédula del paciente:"
         '
         'TableLayoutPanel1
         '
@@ -57,11 +110,12 @@ Partial Class frmAnalisisSeguimiento
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.btnConsultarDatos, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnIngresarDatos, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(8, 511)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 511)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1110, 197)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1130, 209)
         Me.TableLayoutPanel1.TabIndex = 6
         '
         'btnConsultarDatos
@@ -73,7 +127,7 @@ Partial Class frmAnalisisSeguimiento
         Me.btnConsultarDatos.Image = CType(resources.GetObject("btnConsultarDatos.Image"), System.Drawing.Image)
         Me.btnConsultarDatos.Location = New System.Drawing.Point(3, 3)
         Me.btnConsultarDatos.Name = "btnConsultarDatos"
-        Me.btnConsultarDatos.Size = New System.Drawing.Size(549, 191)
+        Me.btnConsultarDatos.Size = New System.Drawing.Size(559, 203)
         Me.btnConsultarDatos.TabIndex = 5
         Me.btnConsultarDatos.Text = "Consultar datos"
         Me.btnConsultarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -86,9 +140,9 @@ Partial Class frmAnalisisSeguimiento
         Me.btnIngresarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIngresarDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIngresarDatos.Image = CType(resources.GetObject("btnIngresarDatos.Image"), System.Drawing.Image)
-        Me.btnIngresarDatos.Location = New System.Drawing.Point(558, 3)
+        Me.btnIngresarDatos.Location = New System.Drawing.Point(568, 3)
         Me.btnIngresarDatos.Name = "btnIngresarDatos"
-        Me.btnIngresarDatos.Size = New System.Drawing.Size(549, 191)
+        Me.btnIngresarDatos.Size = New System.Drawing.Size(559, 203)
         Me.btnIngresarDatos.TabIndex = 4
         Me.btnIngresarDatos.Text = "Ingresar datos"
         Me.btnIngresarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -97,17 +151,27 @@ Partial Class frmAnalisisSeguimiento
         'dgwAnalisisPaciente
         '
         Me.dgwAnalisisPaciente.AllowUserToAddRows = False
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgwAnalisisPaciente.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgwAnalisisPaciente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgwAnalisisPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwAnalisisPaciente.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgwAnalisisPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgwAnalisisPaciente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_analisis, Me.nom_analisis, Me.fecha_analisis})
-        Me.dgwAnalisisPaciente.Location = New System.Drawing.Point(8, 65)
+        Me.dgwAnalisisPaciente.Location = New System.Drawing.Point(3, 65)
         Me.dgwAnalisisPaciente.Name = "dgwAnalisisPaciente"
         Me.dgwAnalisisPaciente.RowHeadersWidth = 51
         Me.dgwAnalisisPaciente.RowTemplate.Height = 24
-        Me.dgwAnalisisPaciente.Size = New System.Drawing.Size(1110, 440)
+        Me.dgwAnalisisPaciente.Size = New System.Drawing.Size(1124, 440)
         Me.dgwAnalisisPaciente.TabIndex = 2
         '
         'ID_analisis
@@ -128,27 +192,6 @@ Partial Class frmAnalisisSeguimiento
         Me.fecha_analisis.MinimumWidth = 6
         Me.fecha_analisis.Name = "fecha_analisis"
         '
-        'txtCedulaPaciente
-        '
-        Me.txtCedulaPaciente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCedulaPaciente.Location = New System.Drawing.Point(875, 12)
-        Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
-        Me.txtCedulaPaciente.Size = New System.Drawing.Size(243, 34)
-        Me.txtCedulaPaciente.TabIndex = 1
-        '
-        'lblPacienteCI
-        '
-        Me.lblPacienteCI.AutoSize = True
-        Me.lblPacienteCI.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPacienteCI.Location = New System.Drawing.Point(3, 17)
-        Me.lblPacienteCI.Name = "lblPacienteCI"
-        Me.lblPacienteCI.Size = New System.Drawing.Size(866, 29)
-        Me.lblPacienteCI.TabIndex = 0
-        Me.lblPacienteCI.Text = "Ingrese la cédula de identidad del paciente del cuál desea consultar un análisis:" &
-    ""
-        '
         'frmAnalisisSeguimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -160,7 +203,8 @@ Partial Class frmAnalisisSeguimiento
         Me.Name = "frmAnalisisSeguimiento"
         Me.Text = "frmAnalisisSeguimiento"
         Me.pnlContenedor.ResumeLayout(False)
-        Me.pnlContenedor.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -168,8 +212,6 @@ Partial Class frmAnalisisSeguimiento
     End Sub
 
     Friend WithEvents pnlContenedor As Panel
-    Friend WithEvents txtCedulaPaciente As TextBox
-    Friend WithEvents lblPacienteCI As Label
     Friend WithEvents dgwAnalisisPaciente As DataGridView
     Friend WithEvents ID_analisis As DataGridViewTextBoxColumn
     Friend WithEvents nom_analisis As DataGridViewTextBoxColumn
@@ -177,4 +219,8 @@ Partial Class frmAnalisisSeguimiento
     Friend WithEvents btnIngresarDatos As Button
     Friend WithEvents btnConsultarDatos As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents txtBuscar As TextBox
+    Friend WithEvents btnBuscar As Button
+    Friend WithEvents lblCedulaPaciente As Label
 End Class
