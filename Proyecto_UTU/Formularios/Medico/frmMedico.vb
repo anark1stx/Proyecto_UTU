@@ -28,25 +28,26 @@ Public Class frmMedico
     Dim llenoIdentificacion As Boolean = False 'Para controlar que antes de que prosiga a las demas instancias haya identificado al paciente.
 
     Dim _paciente As New E_Paciente
+    Protected _medico As New E_Medico
+
+    Property MedicoActual As E_Medico
+        Get
+            Return _medico
+        End Get
+        Set(value As E_Medico)
+            _medico = value
+        End Set
+    End Property
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
     End Sub
 
-    Public Sub addFrm(frm As Form, isMedicalForm As Boolean)
+    Public Sub addFrm(frm As Form)
         If Not pnlContenedorFormularios.Controls.Contains(frm) Then
             pnlContenedorFormularios.Controls.Clear()
-
-            If Not isMedicalForm Then 'Configuracion optima para los formularios de entrevista
-                frm.Anchor += AnchorStyles.Bottom
-                frm.Anchor += AnchorStyles.Right
-                frm.Dock = DockStyle.Fill
-            Else
-                frm.Dock = DockStyle.Fill
-                frm.Height = pnlContenedorFormularios.Height
-            End If
-
+            frm.Dock = DockStyle.Fill
             frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
             frm.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
             Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
@@ -70,19 +71,20 @@ Public Class frmMedico
             Case "Inicio"
                 Me.MaximizeBox = True
 
-                addFrm(frmIni, 0)
+                addFrm(frmIni)
 
             Case "Gestion"
-                addFrm(frmGestion, 0)
+                frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
+                addFrm(frmGestion)
 
             Case "Atender"
                 Me.MaximizeBox = False
 
-                addFrm(frmOpsConsulta, 0)
+                addFrm(frmOpsConsulta)
 
             Case "Identificacion"
                 LimpiarControles(frmIdentificacion)
-                addFrm(frmIdentificacion, 0)
+                addFrm(frmIdentificacion)
 
             Case "Entrevista"
                 CargarDatosPaciente()
@@ -91,7 +93,7 @@ Public Class frmMedico
                     Me.MaximizeBox = False
                     fixSize()
 
-                    addFrm(frmEntrevista, 0)
+                    addFrm(frmEntrevista)
                 Else
                     MsgBox("Debe identificar primero al paciente antes de proceder con su entrevista.")
                     Exit Sub
@@ -99,19 +101,19 @@ Public Class frmMedico
 
             Case "Generico"
                 LimpiarControles(generico)
-                addFrm(generico, 1)
+                addFrm(generico)
 
             Case "Dolor"
                 LimpiarControles(frmDlr)
-                addFrm(frmDlr, 1)
+                addFrm(frmDlr)
 
             Case "Fiebre"
                 LimpiarControles(frmFbr)
-                addFrm(frmFbr, 1)
+                addFrm(frmFbr)
 
             Case "Malestar"
                 LimpiarControles(frmMal)
-                addFrm(frmMal, 1)
+                addFrm(frmMal)
 
             Case "Otro"
 
@@ -142,16 +144,16 @@ Public Class frmMedico
 
             Case "IngresarTratamiento"
                 LimpiarControles(frmTratamientoC)
-                addFrm(frmTratamientoC, 1)
+                addFrm(frmTratamientoC)
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
-                addFrm(frmTratamientoS, 1)
+                addFrm(frmTratamientoS)
             Case "IngresarAnalisis"
                 LimpiarControles(frmAnalisisC)
-                addFrm(frmAnalisisC, 1)
+                addFrm(frmAnalisisC)
             Case "SeguirAnalisis"
                 LimpiarControles(frmAnalisisS)
-                addFrm(frmAnalisisS, 1)
+                addFrm(frmAnalisisS)
             Case "DatosAnalisis"
                 LimpiarControles(frmAnalisisS)
                 'DATOS DE PRUEBA, BORRAR LUEGO
@@ -181,8 +183,8 @@ Public Class frmMedico
 
                 'Dim a = pac.buscarAnalisis()
 
-                frmAnalisisDatos._paciente = pac
-                addFrm(frmAnalisisDatos, 1)
+                'frmAnalisisDatos._paciente = pac
+                addFrm(frmAnalisisDatos)
         End Select
 
     End Sub

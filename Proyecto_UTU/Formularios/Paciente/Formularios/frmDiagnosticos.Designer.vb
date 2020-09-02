@@ -32,9 +32,9 @@ Partial Class frmDiagnosticos
         Me.cbDiagnostico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbDiagnostico.FormattingEnabled = True
         Me.cbDiagnostico.Items.AddRange(New Object() {"Seleccione un diagnóstico"})
-        Me.cbDiagnostico.Location = New System.Drawing.Point(693, 12)
+        Me.cbDiagnostico.Location = New System.Drawing.Point(12, 12)
         Me.cbDiagnostico.Name = "cbDiagnostico"
-        Me.cbDiagnostico.Size = New System.Drawing.Size(191, 24)
+        Me.cbDiagnostico.Size = New System.Drawing.Size(872, 24)
         Me.cbDiagnostico.TabIndex = 1
         '
         'pnlContenedorFormularios

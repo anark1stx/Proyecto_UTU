@@ -28,7 +28,7 @@ Public Class frmIngreso_Usuario
                 Case "medico" 'MEDICO
                     Me.Hide()
                     frmMed.Show()
-                    'frmMed.MedicoActual.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))
+                    frmMed.MedicoActual = New E_Medico With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
                 Case "auxiliar" 'AUXILIAR
                     Me.Hide()
                     frmAux.Show()

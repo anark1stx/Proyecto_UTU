@@ -32,9 +32,9 @@ Partial Class frmAnalisis
         Me.cbAnalisis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbAnalisis.FormattingEnabled = True
         Me.cbAnalisis.Items.AddRange(New Object() {"Seleccione un análisis"})
-        Me.cbAnalisis.Location = New System.Drawing.Point(693, 12)
+        Me.cbAnalisis.Location = New System.Drawing.Point(12, 12)
         Me.cbAnalisis.Name = "cbAnalisis"
-        Me.cbAnalisis.Size = New System.Drawing.Size(191, 24)
+        Me.cbAnalisis.Size = New System.Drawing.Size(872, 24)
         Me.cbAnalisis.TabIndex = 3
         '
         'pnlContenedorAnalisis

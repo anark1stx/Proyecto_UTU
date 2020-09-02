@@ -3,7 +3,17 @@ Imports Entidades
 Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     Public modo As Integer = 0 '0 = consulta, 1 = ingreso
     Public AnalisisACargar As New Analisis
-    Public _paciente As New E_Paciente
+    Protected _ci_paciente As Integer
+    Protected _paciente As E_Paciente
+    Property CI_Paciente As Integer
+        Get
+            Return _ci_paciente
+        End Get
+        Set(value As Integer)
+            _ci_paciente = value
+        End Set
+    End Property
+
     Private Sub frmDatosAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim rowIndex As Integer = 0
 

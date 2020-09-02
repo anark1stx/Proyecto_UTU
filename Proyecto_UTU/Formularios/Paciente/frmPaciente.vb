@@ -6,7 +6,6 @@ Public Class frmPaciente
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
     Dim frmIni As New frmInicioPaciente
     Protected _paciente As E_Paciente
-    Protected negocio As N_paciente
 
     Property PacienteActual As E_Paciente
         Get
