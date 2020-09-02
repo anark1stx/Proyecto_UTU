@@ -71,6 +71,7 @@
             e.Cancel = True
             Me.pnlContenedorFormularios.Controls.Clear()
             Me.Hide()
+            InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
             frmIngreso_Usuario.Show()
         End If
     End Sub

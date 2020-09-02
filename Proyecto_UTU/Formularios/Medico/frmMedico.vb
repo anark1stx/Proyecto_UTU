@@ -216,6 +216,7 @@ Public Class frmMedico
             e.Cancel = True
             Me.pnlContenedorFormularios.Controls.Clear()
             Me.Hide()
+            InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
             frmIngreso_Usuario.Show()
         End If
     End Sub
@@ -329,8 +330,6 @@ Public Class frmMedico
                 InstanciarFormulario("DatosAnalisis")
 
             End Sub
-
-
     End Sub
 
     Private Sub CargarDatosPaciente()

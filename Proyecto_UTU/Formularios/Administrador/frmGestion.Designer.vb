@@ -516,7 +516,7 @@ Partial Class frmGestion
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(275, 146)
+        Me.lblDireccion.Location = New System.Drawing.Point(275, 149)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(95, 24)
         Me.lblDireccion.TabIndex = 389
