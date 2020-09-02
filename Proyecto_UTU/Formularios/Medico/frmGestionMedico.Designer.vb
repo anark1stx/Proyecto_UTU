@@ -196,11 +196,11 @@ Partial Class frmGestionMedico
         Me.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(33, 399)
+        Me.lblTelefono.Location = New System.Drawing.Point(23, 399)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(78, 20)
+        Me.lblTelefono.Size = New System.Drawing.Size(99, 20)
         Me.lblTelefono.TabIndex = 84
-        Me.lblTelefono.Text = "Teléfono:"
+        Me.lblTelefono.Text = "Teléfono(s):"
         '
         'lblTelefonoTXT
         '
