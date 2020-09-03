@@ -25,8 +25,9 @@ Public Class D_Analisis
 
         Try
             leer = cmd.Execute()
-            conexion.Close()
         Catch ex As Exception
+            conexion.Close()
+            Console.WriteLine(ex.Message)
             Return 0 'no se pudo ingresar analisis
         End Try
 
@@ -64,7 +65,6 @@ Public Class D_Analisis
 
             Try
                 cmd.Execute()
-                conexion.Close()
             Catch ex As Exception
                 conexion.Close()
                 Return 0 'no se pudo ingresar parametro
@@ -91,7 +91,6 @@ Public Class D_Analisis
 
             Try
                 cmd.Execute()
-                conexion.Close()
             Catch ex As Exception
                 Return 0 'no se pudo ingresar parametro
             End Try
