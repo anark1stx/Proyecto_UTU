@@ -164,28 +164,4 @@
 
     End Class
 
-    Public Class Tiene '|Analisis|---<tiene>---|parametro|
-        Protected _id_a As Integer
-        Protected _id_p As Integer
-
-        Property ID_A As Integer
-            Get
-                Return _id_a
-            End Get
-            Set(value As Integer)
-                _id_a = value
-            End Set
-        End Property
-
-        Property ID_P As Integer
-            Get
-                Return _id_p
-            End Get
-            Set(value As Integer)
-                _id_p = value
-            End Set
-        End Property
-
-    End Class
-
 End Class

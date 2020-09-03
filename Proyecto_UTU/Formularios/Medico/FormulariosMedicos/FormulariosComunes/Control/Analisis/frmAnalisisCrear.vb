@@ -143,4 +143,14 @@ Public Class frmAnalisisCrear
         End Select
 
     End Sub
+
+    Private Sub txtNombreAnalisis_Leave(sender As Object, e As EventArgs) Handles txtNombreAnalisis.Leave
+        '()-> BUSCAR NOMBRE DEL ANALISIS
+    End Sub
+
+    Private Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
+        '()-> BUSCAR NOMBRE DEL PARAMETRO
+        '-> Si el parametro ya existe, llenar las propiedades y no permitir modificarlas.
+        '-> Si cambia el nombre, borrar las propiedades y permitir escribir de nuevo.
+    End Sub
 End Class

@@ -6,14 +6,14 @@ Public Class frmIngreso_Usuario
     Dim frmAux As New frmAuxiliar
     Dim frmPac As New frmPaciente
     Dim _frmOlvideMiContrasena As New frmOlvideMiContrasena
-    Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
+    Private Async Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
         If Not check_Largo(txtIngresarCi.Text, 3, 30, True) Or Not check_Largo(txtIngresarContrasena.Text, 8, 30, True) Then '8 las cedulas, 30 el maximo de largo que admitimos en la BD, para la contrasena el minimo de caracteres es 8.
             MessageBox.Show("Sus credenciales de ingreso no son válidas.", "Verifique su usuario y contraseña.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             lblMensajeErrorCI.Visible = True
         Else
             Dim umysql As New N_UsuarioMYSQL()
-            Dim usu = umysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text)
+            Dim usu = Await Task.Run(Function() umysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text))
 
             If Not usu.Valido Then
                 MessageBox.Show("Sus credenciales de ingreso no son válidas.", "Verifique su usuario y contraseña.", MessageBoxButtons.OK, MessageBoxIcon.Error)

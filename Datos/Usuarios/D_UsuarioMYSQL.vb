@@ -7,6 +7,7 @@ Public Class D_UsuarioMYSQL
     Dim conexion As New Connection
 
     Public Function SeleccionarUsuario(usuario As String, contrasena As String) As E_UsuarioMYSQL
+
         Dim u As New E_UsuarioMYSQL
         Dim leer As New Recordset With {
             .CursorType = CursorTypeEnum.adOpenDynamic,

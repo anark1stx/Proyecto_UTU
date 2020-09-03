@@ -51,34 +51,48 @@ Public Class D_Analisis
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
-        Dim cmd As New Command With {
+
+        For Each p As E_Analisis.Parametro In a.Parametros
+            Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
             .CommandText = "AltaAnalisisParametro",
             .ActiveConnection = conexion
-        }
+            }
+            If p.ID = 0 Then
+                cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, 90, p.Nombre))
+                cmd.Parameters.Append(cmd.CreateParameter("@UNIDAD", adVarChar, adParamInput, 20, p.Unidad))
+                cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MIN", adDouble, adParamInput, 8, p.ValorMinimo))
+                cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MAX", adDouble, adParamInput, 8, p.ValorMaximo))
 
-        For Each p As E_Analisis.Parametro In a.Parametros
-            cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, 90, p.Nombre))
-            cmd.Parameters.Append(cmd.CreateParameter("@UNIDAD", adVarChar, adParamInput, 20, p.Unidad))
-            cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MIN", adDouble, adParamInput, 8, p.ValorMinimo))
-            cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MAX", adDouble, adParamInput, 8, p.ValorMaximo))
-            'PENDIENTE
-            'PENDIENTE
-            'PENDIENTE
-            'Agregar como parametro out a AltaAnalisisParametro la ID que tiene el parametro
+                cmd.Parameters.Append(cmd.CreateParameter("@ID_PARAMETRO", adInteger, adParamOutput, , p.ID))
+                Try
+                    cmd.Execute()
+                Catch ex As Exception
+                    conexion.Close()
+                    Return 0 'no se pudo ingresar parametro
+                End Try
+            Else
+                Console.WriteLine("El parametro ya esta registrado en la BD")
+            End If
 
-            'https://stackoverflow.com/questions/20479971/mysql-insert-record-if-not-exists-else-return-the-id-of-record
-            'zzz
+            Dim cmd2 As New Command With {
+                .CommandType = adCmdStoredProc,
+                .CommandText = "AltaAnalisisTieneParametro",
+                .ActiveConnection = conexion
+            }
 
-            cmd.Parameters.Append(cmd.CreateParameter("@ID_PARAMETRO", adInteger, adParamOutput, , p.ID))
+            cmd2.Parameters.Append(cmd.CreateParameter("@ID_analisis", adInteger, adParamInput, , a.ID))
+            cmd2.Parameters.Append(cmd.CreateParameter("@ID_parametro", adInteger, adParamInput, , p.ID))
+
             Try
-                cmd.Execute()
+                cmd2.Execute()
             Catch ex As Exception
                 conexion.Close()
-                Return 0 'no se pudo ingresar parametro
+                Return 0
             End Try
-        Next
 
+        Next
+        conexion.Close()
         Return 1
     End Function
 
@@ -100,15 +114,81 @@ Public Class D_Analisis
             Try
                 cmd.Execute()
             Catch ex As Exception
+                conexion.Close()
                 Return 0 'no se pudo ingresar parametro
             End Try
 
         Next
 
+        conexion.Close()
         Return 1
     End Function
 
-    Public Function AnalisisTieneParametro() As Integer 'Pendiente
+    Public Function RetornarParametrosConNombre(nombre As String) As List(Of E_Analisis.Parametro)
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = adUseClient
+        conexion.Open()
+
+        Dim pList As New List(Of E_Analisis.Parametro)
+
+        Dim leer As New Recordset
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "BuscarParametro",
+            .ActiveConnection = conexion
+        }
+
+        cmd.Parameters.Append(cmd.CreateParameter("@buscar", adVarChar, nombre.Length, nombre))
+
+        Try
+            leer = cmd.Execute()
+        Catch ex As Exception
+            conexion.Close()
+            pList.Add(New E_Analisis.Parametro With {.ID = 0})
+            Return pList
+        End Try
+
+        While Not leer.EOF
+
+            pList.Add(New E_Analisis.Parametro With {
+            .ID = leer("ID").Value,
+            .Nombre = leer("nombre").Value,
+            .Unidad = leer("unidad").Value,
+            .ValorMinimo = leer("referencia_min").Value,
+            .ValorMaximo = leer("referencia_max").Value
+            })
+
+            leer.MoveNext()
+        End While
+
+        leer.Close()
+        conexion.Close()
+        Return pList
+    End Function
+
+    Public Function AnalisisExiste(nombreanalisis As String) As Boolean 'si el analisis ya existe avisar y pedir que cambie el nombre
+        conexion.ConnectionString = retornarCString()
+        conexion.CursorLocation = adUseClient
+        conexion.Open()
+
+        Dim cmd As New Command With {
+            .CommandType = adCmdStoredProc,
+            .CommandText = "AnalisisExisteNombre",
+            .ActiveConnection = conexion
+        }
+
+        Dim existe As Integer = 0
+
+        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, nombreanalisis.Length, nombreanalisis))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput,, existe))
+
+        Try
+            cmd.Execute()
+            Return existe
+        Catch ex As Exception
+            Return 0
+            Console.WriteLine("excepcion")
+        End Try
 
     End Function
 
