@@ -660,7 +660,7 @@ Public Class frmGestion
         End If
     End Sub
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+    Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
@@ -672,7 +672,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
 
-                        p = np.ListarPacienteCI(txtBusqueda.Text)
+                        p = Await Task.Run(Function() np.ListarPacienteCI(txtBusqueda.Text))
                         If p.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
@@ -684,7 +684,7 @@ Public Class frmGestion
                         PacienteBindings(p)
                         pList.Add(p)
                     Case Filtro.Apellido
-                        pList = np.BuscarPacienteApellido(txtBusqueda.Text)
+                        pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
 
                         If pList(0).Cedula = 0 Then
                             MessageBox.Show("No se encontraron PACIENTES con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -708,7 +708,7 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
-                        m = nm.ListarMedicoCI(txtBusqueda.Text)
+                        m = Await Task.Run(Function() nm.ListarMedicoCI(txtBusqueda.Text))
                         If m.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un médico con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
@@ -720,7 +720,7 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         mList.Add(m)
                     Case Filtro.Apellido
-                        mList = nm.BuscarMedicoApellido(txtBusqueda.Text)
+                        mList = Await Task.Run(Function() nm.BuscarMedicoApellido(txtBusqueda.Text))
 
                         If mList(0).Cedula = 0 Then
                             MessageBox.Show("No se encontraron MÉDICOS con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -735,7 +735,7 @@ Public Class frmGestion
                         MedicoBindings(m)
                         mList.Add(m)
                     Case Filtro.Especialidad
-                        mList = nm.BuscarMedicoEspecialidad(txtBusqueda.Text)
+                        mList = Await Task.Run(Function() nm.BuscarMedicoEspecialidad(txtBusqueda.Text))
                         If mList(0).Cedula = 0 Then
                             MessageBox.Show("No se encontraron MÉDICOS con esa especialidad", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
@@ -758,7 +758,7 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
-                        a = naux.ListarUsuariosCI(txtBusqueda.Text, True)
+                        a = Await Task.Run(Function() naux.ListarUsuariosCI(txtBusqueda.Text, True))
                         If a.Cedula = 0 Then
                             MessageBox.Show("No fue encontrado un auxiliar con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
@@ -769,7 +769,7 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         aList.Add(a)
                     Case Filtro.Apellido
-                        aList = naux.BuscarUsuariosApellido(txtBusqueda.Text, True)
+                        aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text, True))
                         If aList(0).Cedula = 0 Then
                             MessageBox.Show("No se encontraron AUXILIARES con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
