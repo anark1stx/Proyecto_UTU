@@ -13,6 +13,7 @@ Public Class frmIngreso_Usuario
             lblMensajeErrorCI.Visible = True
         Else
             Dim umysql As New N_UsuarioMYSQL()
+
             Dim usu = Await Task.Run(Function() umysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text))
 
             If Not usu.Valido Then
