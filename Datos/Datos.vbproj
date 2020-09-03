@@ -68,7 +68,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Usuarios\Credenciales.vb" />
+    <Compile Include="Credenciales.vb" />
     <Compile Include="Usuarios\D_Medico.vb" />
     <Compile Include="Usuarios\D_Paciente.vb" />
     <Compile Include="Usuarios\D_Usuario.vb" />
@@ -88,7 +88,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Usuarios\D_UsuarioMYSQL.vb" />
-    <Compile Include="Usuarios\mdlErrores.vb" />
+    <Compile Include="Usuarios\MedicoUtils\D_Analisis.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

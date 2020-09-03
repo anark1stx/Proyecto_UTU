@@ -42,10 +42,10 @@
 
     End Sub
 
-    Sub New(id As Integer, nombre As String, parametros As List(Of Parametro))
-        _id = id
+    Sub New(nombre As String, parametros As List(Of Parametro), indicaciones As List(Of Indicacion))
         _nombre = nombre
         _parametros = parametros
+        _indicaciones = indicaciones
     End Sub
 
     Public Class Parametro

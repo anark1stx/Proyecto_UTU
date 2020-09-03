@@ -125,4 +125,22 @@ Public Class frmAnalisisCrear
         txtVMin.Text = listaParametros(e.RowIndex).ValorMinimo
         txtVMax.Text = listaParametros(e.RowIndex).ValorMaximo
     End Sub
+
+    Private Sub btnAgregarAnalisis_Click(sender As Object, e As EventArgs) Handles btnAgregarAnalisis.Click
+        Dim analisisCreado As New E_Analisis(txtNombreAnalisis.Text, listaParametros, listaIndicaciones)
+        Dim na As New N_Analisis
+        Dim code = na.AltaAnalisis(analisisCreado)
+
+        Select Case code
+            Case 0
+                MessageBox.Show("No se pudo ingresar el análisis", "Alta análisis falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Análisis ingresado con éxito", "Alta análisis exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Case 2
+                MessageBox.Show("No se pudieron ingresar los parametros", "Alta parametros falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 3
+                MessageBox.Show("No se pudieron ingresar las indicaciones", "Alta indicaciones falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Select
+
+    End Sub
 End Class

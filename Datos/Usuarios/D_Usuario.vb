@@ -129,7 +129,7 @@ Public Class D_Usuario
         Return uList
     End Function
 
-    Public Function UsuarioExiste(ci As String) As Integer
+    Public Function UsuarioExiste(ci As Integer) As Integer
         Dim leer As New Recordset
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
@@ -140,13 +140,17 @@ Public Class D_Usuario
             .CommandText = "USUARIOEXISTE",
             .ActiveConnection = conexion
         }
+        Dim existe As Integer = 0
 
-        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, Val(ci)))
-        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, 1, adParamOutput))
+        cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, ci))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput, existe))
 
-        leer = cmd.Execute()
-
-        Dim existe As Integer = leer("EXISTE").Value
+        Try
+            leer = cmd.Execute()
+        Catch ex As Exception
+            conexion.Close()
+            Return 0
+        End Try
 
         leer.Close()
         conexion.Close()
