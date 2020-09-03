@@ -329,10 +329,10 @@ Public Class frmMedico
             End Sub
     End Sub
 
-    Sub CargarDatosPaciente()
+    Async Sub CargarDatosPaciente()
         If check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
             Dim np As New N_Paciente
-            frmIdentificacion.PacienteBuscar = np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text))
+            frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
             If frmIdentificacion.PacienteBuscar.Cedula <> 0 Then
                 _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
                 frmIdentificacion.PoblarDatos()

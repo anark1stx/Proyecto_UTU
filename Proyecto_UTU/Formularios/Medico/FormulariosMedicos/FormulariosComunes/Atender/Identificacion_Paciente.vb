@@ -1,5 +1,4 @@
 ﻿Imports Entidades
-Imports Negocio
 Public Class Identificacion_Paciente
     Protected _paciente As New E_Paciente
 
