@@ -62,7 +62,15 @@ Public Class D_Analisis
             cmd.Parameters.Append(cmd.CreateParameter("@UNIDAD", adVarChar, adParamInput, 20, p.Unidad))
             cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MIN", adDouble, adParamInput, 8, p.ValorMinimo))
             cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MAX", adDouble, adParamInput, 8, p.ValorMaximo))
+            'PENDIENTE
+            'PENDIENTE
+            'PENDIENTE
+            'Agregar como parametro out a AltaAnalisisParametro la ID que tiene el parametro
 
+            'https://stackoverflow.com/questions/20479971/mysql-insert-record-if-not-exists-else-return-the-id-of-record
+            'zzz
+
+            cmd.Parameters.Append(cmd.CreateParameter("@ID_PARAMETRO", adInteger, adParamOutput, , p.ID))
             Try
                 cmd.Execute()
             Catch ex As Exception
@@ -98,6 +106,10 @@ Public Class D_Analisis
         Next
 
         Return 1
+    End Function
+
+    Public Function AnalisisTieneParametro() As Integer 'Pendiente
+
     End Function
 
 End Class
