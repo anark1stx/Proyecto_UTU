@@ -9,7 +9,14 @@ Public Class frmAnalisisCrear
     Dim _indicaciones As New List(Of Control)
     Dim listaParametrosBD As New List(Of E_Analisis.Parametro)
     Dim ACStringCol As New AutoCompleteStringCollection
+    Dim parametroSeleccionado As E_Analisis.Parametro
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
+
+        If Not parametroSeleccionado.ID = 0 Then
+            listaParametros.Add(parametroSeleccionado)
+            Exit Sub
+        End If
+
 
         If txtNombrePrm.Text = String.Empty Then
             MessageBox.Show("Ingrese el nombre del parametro que desea ingresar", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -176,4 +183,26 @@ Public Class frmAnalisisCrear
         End If
     End Sub
 
+    Private Sub habilitarTXT(_case As Boolean)
+        txtUnidad.Enabled = _case
+        txtVMax.Enabled = _case
+        txtVMin.Enabled = _case
+    End Sub
+
+    Private Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
+        If listaParametrosBD.Exists(Function(p) p.Nombre = txtNombrePrm.Text) Then
+            Dim param As E_Analisis.Parametro = listaParametrosBD.Find(Function(p) p.Nombre = txtNombrePrm.Text)
+            txtUnidad.Text = param.Unidad
+            txtVMax.Text = param.ValorMaximo
+            txtVMin.Text = param.ValorMinimo
+            habilitarTXT(False)
+            parametroSeleccionado = param
+        Else
+            habilitarTXT(True)
+            parametroSeleccionado = New E_Analisis.Parametro With {.ID = 0}
+            txtUnidad.Text = String.Empty
+            txtVMax.Text = String.Empty
+            txtVMin.Text = String.Empty
+        End If
+    End Sub
 End Class

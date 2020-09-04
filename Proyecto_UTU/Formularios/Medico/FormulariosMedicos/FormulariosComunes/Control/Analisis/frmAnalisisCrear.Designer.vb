@@ -24,21 +24,32 @@ Partial Class frmAnalisisCrear
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAnalisisCrear))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblNombreTratamiento = New System.Windows.Forms.Label()
         Me.txtNombreAnalisis = New System.Windows.Forms.TextBox()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.btnCheckNombreA = New System.Windows.Forms.Button()
         Me.pnlDatos = New System.Windows.Forms.Panel()
+        Me.txtNombrePrm = New System.Windows.Forms.TextBox()
         Me.txtNomIndicacion = New System.Windows.Forms.TextBox()
         Me.btnAgregarIndicacion = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblNomIndicacion = New System.Windows.Forms.Label()
         Me.dgwIndicaciones = New System.Windows.Forms.DataGridView()
+        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IndicacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrarIndic = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.IndicacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgwParametros = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrarPrm = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.ParametroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtIndicacionDescripcion = New System.Windows.Forms.TextBox()
         Me.txtVMax = New System.Windows.Forms.TextBox()
@@ -61,23 +72,12 @@ Partial Class frmAnalisisCrear
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IndicacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IndicacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrarIndic = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrarPrm = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.txtNombrePrm = New System.Windows.Forms.TextBox()
         Me.pnlContenedor.SuspendLayout()
         Me.pnlDatos.SuspendLayout()
         CType(Me.dgwIndicaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IndicacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgwParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IndicacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblNombreTratamiento
@@ -152,6 +152,17 @@ Partial Class frmAnalisisCrear
         Me.pnlDatos.Size = New System.Drawing.Size(1154, 1125)
         Me.pnlDatos.TabIndex = 130
         '
+        'txtNombrePrm
+        '
+        Me.txtNombrePrm.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.txtNombrePrm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtNombrePrm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtNombrePrm.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombrePrm.Location = New System.Drawing.Point(421, 19)
+        Me.txtNombrePrm.Name = "txtNombrePrm"
+        Me.txtNombrePrm.Size = New System.Drawing.Size(194, 34)
+        Me.txtNombrePrm.TabIndex = 171
+        '
         'txtNomIndicacion
         '
         Me.txtNomIndicacion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -198,20 +209,20 @@ Partial Class frmAnalisisCrear
         '
         Me.dgwIndicaciones.AllowUserToAddRows = False
         Me.dgwIndicaciones.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgwIndicaciones.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgwIndicaciones.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgwIndicaciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgwIndicaciones.AutoGenerateColumns = False
         Me.dgwIndicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgwIndicaciones.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwIndicaciones.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgwIndicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgwIndicaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.IndicacionDataGridViewTextBoxColumn, Me.BorrarIndic})
         Me.dgwIndicaciones.DataSource = Me.IndicacionBindingSource
@@ -223,24 +234,59 @@ Partial Class frmAnalisisCrear
         Me.dgwIndicaciones.Size = New System.Drawing.Size(1148, 152)
         Me.dgwIndicaciones.TabIndex = 170
         '
+        'NombreDataGridViewTextBoxColumn
+        '
+        Me.NombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
+        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
+        Me.NombreDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'IndicacionDataGridViewTextBoxColumn
+        '
+        Me.IndicacionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.IndicacionDataGridViewTextBoxColumn.DataPropertyName = "Indicacion"
+        Me.IndicacionDataGridViewTextBoxColumn.HeaderText = "Indicacion"
+        Me.IndicacionDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.IndicacionDataGridViewTextBoxColumn.Name = "IndicacionDataGridViewTextBoxColumn"
+        Me.IndicacionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BorrarIndic
+        '
+        Me.BorrarIndic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.BorrarIndic.HeaderText = "Borrar"
+        Me.BorrarIndic.MinimumWidth = 6
+        Me.BorrarIndic.Name = "BorrarIndic"
+        Me.BorrarIndic.ReadOnly = True
+        Me.BorrarIndic.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.BorrarIndic.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.BorrarIndic.Text = "Borrar"
+        Me.BorrarIndic.UseColumnTextForButtonValue = True
+        Me.BorrarIndic.Width = 94
+        '
+        'IndicacionBindingSource
+        '
+        Me.IndicacionBindingSource.DataSource = GetType(Entidades.E_Analisis.Indicacion)
+        '
         'dgwParametros
         '
         Me.dgwParametros.AllowUserToAddRows = False
         Me.dgwParametros.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgwParametros.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgwParametros.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgwParametros.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgwParametros.AutoGenerateColumns = False
         Me.dgwParametros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgwParametros.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwParametros.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgwParametros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgwParametros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.ValorDataGridViewTextBoxColumn, Me.BorrarPrm})
         Me.dgwParametros.DataSource = Me.ParametroBindingSource
@@ -251,6 +297,59 @@ Partial Class frmAnalisisCrear
         Me.dgwParametros.RowTemplate.Height = 24
         Me.dgwParametros.Size = New System.Drawing.Size(1151, 522)
         Me.dgwParametros.TabIndex = 166
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "Nombre"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn13.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Unidad"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Unidad"
+        Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "ValorMinimo"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "ValorMinimo"
+        Me.DataGridViewTextBoxColumn15.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "ValorMaximo"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "ValorMaximo"
+        Me.DataGridViewTextBoxColumn16.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        '
+        'ValorDataGridViewTextBoxColumn
+        '
+        Me.ValorDataGridViewTextBoxColumn.DataPropertyName = "Valor"
+        Me.ValorDataGridViewTextBoxColumn.HeaderText = "Valor"
+        Me.ValorDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.ValorDataGridViewTextBoxColumn.Name = "ValorDataGridViewTextBoxColumn"
+        Me.ValorDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BorrarPrm
+        '
+        Me.BorrarPrm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.BorrarPrm.HeaderText = "Borrar"
+        Me.BorrarPrm.MinimumWidth = 6
+        Me.BorrarPrm.Name = "BorrarPrm"
+        Me.BorrarPrm.ReadOnly = True
+        Me.BorrarPrm.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.BorrarPrm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.BorrarPrm.Text = "Borrar"
+        Me.BorrarPrm.UseColumnTextForButtonValue = True
+        Me.BorrarPrm.Width = 94
         '
         'ParametroBindingSource
         '
@@ -471,105 +570,6 @@ Partial Class frmAnalisisCrear
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.Width = 125
         '
-        'IndicacionBindingSource
-        '
-        Me.IndicacionBindingSource.DataSource = GetType(Entidades.E_Analisis.Indicacion)
-        '
-        'NombreDataGridViewTextBoxColumn
-        '
-        Me.NombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
-        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IndicacionDataGridViewTextBoxColumn
-        '
-        Me.IndicacionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.IndicacionDataGridViewTextBoxColumn.DataPropertyName = "Indicacion"
-        Me.IndicacionDataGridViewTextBoxColumn.HeaderText = "Indicacion"
-        Me.IndicacionDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.IndicacionDataGridViewTextBoxColumn.Name = "IndicacionDataGridViewTextBoxColumn"
-        Me.IndicacionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BorrarIndic
-        '
-        Me.BorrarIndic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.BorrarIndic.HeaderText = "Borrar"
-        Me.BorrarIndic.MinimumWidth = 6
-        Me.BorrarIndic.Name = "BorrarIndic"
-        Me.BorrarIndic.ReadOnly = True
-        Me.BorrarIndic.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.BorrarIndic.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.BorrarIndic.Text = "Borrar"
-        Me.BorrarIndic.UseColumnTextForButtonValue = True
-        Me.BorrarIndic.Width = 94
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "Nombre"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn13.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Unidad"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Unidad"
-        Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "ValorMinimo"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "ValorMinimo"
-        Me.DataGridViewTextBoxColumn15.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "ValorMaximo"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "ValorMaximo"
-        Me.DataGridViewTextBoxColumn16.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        '
-        'ValorDataGridViewTextBoxColumn
-        '
-        Me.ValorDataGridViewTextBoxColumn.DataPropertyName = "Valor"
-        Me.ValorDataGridViewTextBoxColumn.HeaderText = "Valor"
-        Me.ValorDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.ValorDataGridViewTextBoxColumn.Name = "ValorDataGridViewTextBoxColumn"
-        Me.ValorDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BorrarPrm
-        '
-        Me.BorrarPrm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.BorrarPrm.HeaderText = "Borrar"
-        Me.BorrarPrm.MinimumWidth = 6
-        Me.BorrarPrm.Name = "BorrarPrm"
-        Me.BorrarPrm.ReadOnly = True
-        Me.BorrarPrm.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.BorrarPrm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.BorrarPrm.Text = "Borrar"
-        Me.BorrarPrm.UseColumnTextForButtonValue = True
-        Me.BorrarPrm.Width = 94
-        '
-        'txtNombrePrm
-        '
-        Me.txtNombrePrm.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.txtNombrePrm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.txtNombrePrm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtNombrePrm.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombrePrm.Location = New System.Drawing.Point(421, 19)
-        Me.txtNombrePrm.Name = "txtNombrePrm"
-        Me.txtNombrePrm.Size = New System.Drawing.Size(194, 34)
-        Me.txtNombrePrm.TabIndex = 171
-        '
         'frmAnalisisCrear
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -585,9 +585,9 @@ Partial Class frmAnalisisCrear
         Me.pnlDatos.ResumeLayout(False)
         Me.pnlDatos.PerformLayout()
         CType(Me.dgwIndicaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IndicacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgwParametros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParametroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IndicacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
