@@ -6,7 +6,7 @@ Public Class N_Analisis
         Return objDatos.AltaAnalisis(a)
     End Function
 
-    Public Function AnalisisExiste(nom As String) As Boolean
+    Public Function AnalisisExiste(nom As String) As Integer
         Return objDatos.AnalisisExiste(nom)
     End Function
 

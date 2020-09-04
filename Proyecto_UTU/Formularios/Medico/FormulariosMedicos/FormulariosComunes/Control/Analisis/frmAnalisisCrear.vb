@@ -1,10 +1,15 @@
 ﻿Imports Entidades
 Imports Negocio
 Public Class frmAnalisisCrear
+    Dim runningQuery As Boolean = False
+    Dim negocio As New N_Analisis
     Dim listaParametros As New List(Of E_Analisis.Parametro)
     Dim listaIndicaciones As New List(Of E_Analisis.Indicacion)
     Dim _parametros As New List(Of Control)
     Dim _indicaciones As New List(Of Control)
+
+    Dim listaParametrosCoincidencia As New List(Of E_Analisis.Parametro)
+
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
 
         If txtNombrePrm.Text = String.Empty Then
@@ -144,13 +149,50 @@ Public Class frmAnalisisCrear
 
     End Sub
 
-    Private Sub txtNombreAnalisis_Leave(sender As Object, e As EventArgs) Handles txtNombreAnalisis.Leave
+    Private Async Sub txtNombreAnalisis_Leave(sender As Object, e As EventArgs) Handles txtNombreAnalisis.Leave
         '()-> BUSCAR NOMBRE DEL ANALISIS
+
+        If Not txtNombreAnalisis.Text Is String.Empty Then
+            Dim existe As Integer = Await Task.Run(Function() negocio.AnalisisExiste(txtNombreAnalisis.Text))
+            Console.WriteLine("existe analisis: " & existe)
+            If existe = 1 Then
+                MessageBox.Show("Ya existe registrado un análisis con ese nombre", "Análisis existente", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
     End Sub
 
-    Private Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
+    Private Async Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
         '()-> BUSCAR NOMBRE DEL PARAMETRO
+
+        If Not runningQuery Then
+            If txtNombrePrm.Text.Length > 3 Then
+                runningQuery = True
+                Dim cadena As String = txtNombrePrm.Text
+                listaParametrosCoincidencia = Await Task.Run(Function() negocio.BuscarParametroxNombre(cadena))
+
+                Console.WriteLine("listaparametroscoincidencia: " & listaParametrosCoincidencia.Count)
+
+                If listaParametrosCoincidencia(0).ID <> 0 Then
+                    txtNombrePrm.DataSource = listaParametrosCoincidencia
+                End If
+                runningQuery = False
+            End If
+        End If
+
+
         '-> Si el parametro ya existe, llenar las propiedades y no permitir modificarlas.
         '-> Si cambia el nombre, borrar las propiedades y permitir escribir de nuevo.
+    End Sub
+
+    Private Sub txtNombrePrm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.SelectedIndexChanged
+        Dim pSeleccionado As E_Analisis.Parametro = listaParametrosCoincidencia(txtNombrePrm.SelectedIndex)
+        txtUnidad.Text = pSeleccionado.Unidad
+        txtVMax.Text = pSeleccionado.ValorMaximo
+        txtVMin.Text = pSeleccionado.ValorMinimo
+
+        txtUnidad.Enabled = False
+        txtVMax.Enabled = False
+        txtVMin.Enabled = False
+
     End Sub
 End Class

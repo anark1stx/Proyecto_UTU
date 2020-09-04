@@ -64,7 +64,7 @@ Public Class D_Analisis
                 cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MIN", adDouble, adParamInput, 8, p.ValorMinimo))
                 cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MAX", adDouble, adParamInput, 8, p.ValorMaximo))
 
-                cmd.Parameters.Append(cmd.CreateParameter("@ID_PARAMETRO", adInteger, adParamOutput, , p.ID))
+                cmd.Parameters.Append(cmd.CreateParameter("ID_PARAMETRO", adInteger, adParamOutput, , p.ID))
                 Try
                     cmd.Execute()
                 Catch ex As Exception
@@ -138,7 +138,7 @@ Public Class D_Analisis
             .ActiveConnection = conexion
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@buscar", adVarChar, nombre.Length, nombre))
+        cmd.Parameters.Append(cmd.CreateParameter("@buscar", adVarChar, adParamInput, 90, nombre))
 
         Try
             leer = cmd.Execute()
@@ -148,8 +148,14 @@ Public Class D_Analisis
             Return pList
         End Try
 
-        While Not leer.EOF
+        If leer.RecordCount < 1 Then
+            conexion.Close()
+            pList.Add(New E_Analisis.Parametro With {.ID = 0})
+            Return pList
+        End If
 
+        While Not leer.EOF
+            Console.WriteLine("reading parametros")
             pList.Add(New E_Analisis.Parametro With {
             .ID = leer("ID").Value,
             .Nombre = leer("nombre").Value,
@@ -166,29 +172,34 @@ Public Class D_Analisis
         Return pList
     End Function
 
-    Public Function AnalisisExiste(nombreanalisis As String) As Boolean 'si el analisis ya existe avisar y pedir que cambie el nombre
+    Public Function AnalisisExiste(nombreanalisis As String) As Integer 'si el analisis ya existe avisar y pedir que cambie el nombre
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
         Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
-            .CommandText = "AnalisisExisteNombre",
+            .CommandText = "AnalisisExiste",
             .ActiveConnection = conexion
         }
+        Dim leer As New Recordset
 
-        Dim existe As Integer = 0
-
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, nombreanalisis.Length, nombreanalisis))
-        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput,, existe))
+        cmd.Parameters.Append(cmd.CreateParameter("@NOM", adVarChar, adParamInput, 90, nombreanalisis))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput,,))
 
         Try
-            cmd.Execute()
-            Return existe
+            leer = cmd.Execute()
         Catch ex As Exception
-            Return 0
             Console.WriteLine("excepcion")
+            conexion.Close()
+            Return 0
         End Try
+
+        Dim existe = leer("EXISTE").Value
+        leer.Close()
+        conexion.Close()
+        Console.WriteLine("existeeE: " & existe)
+        Return existe
 
     End Function
 

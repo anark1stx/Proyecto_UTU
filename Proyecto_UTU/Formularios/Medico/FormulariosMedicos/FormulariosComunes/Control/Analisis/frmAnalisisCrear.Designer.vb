@@ -53,7 +53,6 @@ Partial Class frmAnalisisCrear
         Me.lblVMin = New System.Windows.Forms.Label()
         Me.txtUnidad = New System.Windows.Forms.TextBox()
         Me.lblUnidadM = New System.Windows.Forms.Label()
-        Me.txtNombrePrm = New System.Windows.Forms.TextBox()
         Me.lblNombreParametro = New System.Windows.Forms.Label()
         Me.btnAgregarPrm = New System.Windows.Forms.Button()
         Me.btnAgregarAnalisis = New System.Windows.Forms.Button()
@@ -62,6 +61,7 @@ Partial Class frmAnalisisCrear
         Me.lblNombreTratamiento = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.txtNombrePrm = New System.Windows.Forms.ComboBox()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.dgwIndicaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IndicacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +72,7 @@ Partial Class frmAnalisisCrear
         'pnlContenedor
         '
         Me.pnlContenedor.AutoScroll = True
+        Me.pnlContenedor.Controls.Add(Me.txtNombrePrm)
         Me.pnlContenedor.Controls.Add(Me.dgwIndicaciones)
         Me.pnlContenedor.Controls.Add(Me.Label2)
         Me.pnlContenedor.Controls.Add(Me.txtNomIndicacion)
@@ -86,7 +87,6 @@ Partial Class frmAnalisisCrear
         Me.pnlContenedor.Controls.Add(Me.lblVMin)
         Me.pnlContenedor.Controls.Add(Me.txtUnidad)
         Me.pnlContenedor.Controls.Add(Me.lblUnidadM)
-        Me.pnlContenedor.Controls.Add(Me.txtNombrePrm)
         Me.pnlContenedor.Controls.Add(Me.lblNombreParametro)
         Me.pnlContenedor.Controls.Add(Me.btnAgregarPrm)
         Me.pnlContenedor.Controls.Add(Me.btnAgregarAnalisis)
@@ -359,15 +359,6 @@ Partial Class frmAnalisisCrear
         Me.lblUnidadM.TabIndex = 135
         Me.lblUnidadM.Text = "Unidad:"
         '
-        'txtNombrePrm
-        '
-        Me.txtNombrePrm.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.txtNombrePrm.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombrePrm.Location = New System.Drawing.Point(435, 56)
-        Me.txtNombrePrm.Name = "txtNombrePrm"
-        Me.txtNombrePrm.Size = New System.Drawing.Size(194, 34)
-        Me.txtNombrePrm.TabIndex = 137
-        '
         'lblNombreParametro
         '
         Me.lblNombreParametro.Anchor = System.Windows.Forms.AnchorStyles.Top
@@ -450,6 +441,15 @@ Partial Class frmAnalisisCrear
         Me.DataGridViewButtonColumn1.UseColumnTextForButtonValue = True
         Me.DataGridViewButtonColumn1.Width = 316
         '
+        'txtNombrePrm
+        '
+        Me.txtNombrePrm.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombrePrm.FormattingEnabled = True
+        Me.txtNombrePrm.Location = New System.Drawing.Point(435, 53)
+        Me.txtNombrePrm.Name = "txtNombrePrm"
+        Me.txtNombrePrm.Size = New System.Drawing.Size(194, 37)
+        Me.txtNombrePrm.TabIndex = 152
+        '
         'frmAnalisisCrear
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -477,7 +477,6 @@ Partial Class frmAnalisisCrear
     Friend WithEvents lblVMin As Label
     Friend WithEvents txtUnidad As TextBox
     Friend WithEvents lblUnidadM As Label
-    Friend WithEvents txtNombrePrm As TextBox
     Friend WithEvents lblNombreParametro As Label
     Friend WithEvents btnAgregarPrm As Button
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -514,4 +513,5 @@ Partial Class frmAnalisisCrear
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents Borrar As DataGridViewButtonColumn
+    Friend WithEvents txtNombrePrm As ComboBox
 End Class

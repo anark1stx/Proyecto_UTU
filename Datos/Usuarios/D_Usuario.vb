@@ -154,7 +154,7 @@ Public Class D_Usuario
 
         leer.Close()
         conexion.Close()
-
+        Console.WriteLine("u existe " & existe)
         Return existe
     End Function
 
