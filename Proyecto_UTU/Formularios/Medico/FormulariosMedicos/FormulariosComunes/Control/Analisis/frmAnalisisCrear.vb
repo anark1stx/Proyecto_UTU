@@ -77,7 +77,7 @@ Public Class frmAnalisisCrear
     End Sub
 
     Private Sub dgwParametros_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
-        If dgwParametros.Columns(e.ColumnIndex).Name = "Borrar" Then
+        If dgwParametros.Columns(e.ColumnIndex).Name = "BorrarPrm" Then
 
             If MessageBox.Show("¿Seguro que desea eliminar este parametro?", "Eliminar parametro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 ParametroBindingSource.RemoveAt(e.RowIndex)
@@ -115,9 +115,9 @@ Public Class frmAnalisisCrear
         dgwIndicaciones.DataSource = IndicacionBindingSource
     End Sub
 
-    Private Sub dgwIndicaciones_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
+    Private Sub dgwIndicaciones_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwIndicaciones.CellContentClick
         Console.WriteLine(dgwIndicaciones.Columns(e.ColumnIndex).Name)
-        If dgwIndicaciones.Columns(e.ColumnIndex).Name = "borrarInd" Then
+        If dgwIndicaciones.Columns(e.ColumnIndex).Name = "BorrarIndic" Then
 
             If MessageBox.Show("¿Seguro que desea eliminar esta indicación?", "Eliminar indicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 IndicacionBindingSource.RemoveAt(e.RowIndex)
@@ -169,7 +169,6 @@ Public Class frmAnalisisCrear
                 runningQuery = False
             End If
         End If
-
 
         '-> Si el parametro ya existe, llenar las propiedades y no permitir modificarlas.
         '-> Si cambia el nombre, borrar las propiedades y permitir escribir de nuevo.
