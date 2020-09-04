@@ -7,9 +7,8 @@ Public Class frmAnalisisCrear
     Dim listaIndicaciones As New List(Of E_Analisis.Indicacion)
     Dim _parametros As New List(Of Control)
     Dim _indicaciones As New List(Of Control)
-
-    Dim listaParametrosCoincidencia As New List(Of E_Analisis.Parametro)
-
+    Dim listaParametrosBD As New List(Of E_Analisis.Parametro)
+    Dim ACStringCol As New AutoCompleteStringCollection
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
 
         If txtNombrePrm.Text = String.Empty Then
@@ -73,8 +72,19 @@ Public Class frmAnalisisCrear
         _indicaciones.Add(txtIndicacionDescripcion)
 
         pnlDatos.Enabled = False
-
+        cargarParametros()
     End Sub
+
+    Private Async Sub cargarParametros()
+        listaParametrosBD = Await Task.Run(Function() negocio.RetornarParametros())
+
+        For Each p As E_Analisis.Parametro In listaParametrosBD
+            ACStringCol.Add(p.Nombre)
+        Next
+
+        txtNombrePrm.AutoCompleteCustomSource = ACStringCol
+    End Sub
+
 
     Private Sub dgwParametros_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
         If dgwParametros.Columns(e.ColumnIndex).Name = "BorrarPrm" Then
@@ -148,41 +158,6 @@ Public Class frmAnalisisCrear
             Case 3
                 MessageBox.Show("No se pudieron ingresar las indicaciones", "Alta indicaciones falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
-
-    End Sub
-
-
-    Private Async Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
-        '()-> BUSCAR NOMBRE DEL PARAMETRO
-
-        If Not runningQuery Then
-            If txtNombrePrm.Text.Length > 3 Then
-                runningQuery = True
-                Dim cadena As String = txtNombrePrm.Text
-                listaParametrosCoincidencia = Await Task.Run(Function() negocio.BuscarParametroxNombre(cadena))
-
-                Console.WriteLine("listaparametroscoincidencia: " & listaParametrosCoincidencia.Count)
-
-                If listaParametrosCoincidencia(0).ID <> 0 Then
-                    txtNombrePrm.DataSource = listaParametrosCoincidencia
-                End If
-                runningQuery = False
-            End If
-        End If
-
-        '-> Si el parametro ya existe, llenar las propiedades y no permitir modificarlas.
-        '-> Si cambia el nombre, borrar las propiedades y permitir escribir de nuevo.
-    End Sub
-
-    Private Sub txtNombrePrm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.SelectedIndexChanged
-        Dim pSeleccionado As E_Analisis.Parametro = listaParametrosCoincidencia(txtNombrePrm.SelectedIndex)
-        txtUnidad.Text = pSeleccionado.Unidad
-        txtVMax.Text = pSeleccionado.ValorMaximo
-        txtVMin.Text = pSeleccionado.ValorMinimo
-
-        txtUnidad.Enabled = False
-        txtVMax.Enabled = False
-        txtVMin.Enabled = False
 
     End Sub
 

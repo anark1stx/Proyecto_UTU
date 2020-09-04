@@ -25,6 +25,7 @@ Public Class D_Analisis
 
         Try
             leer = cmd.Execute()
+            a.ID = leer("ID_analisis").Value
         Catch ex As Exception
             conexion.Close()
             Console.WriteLine(ex.Message)
@@ -51,7 +52,7 @@ Public Class D_Analisis
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
-
+        Dim leer As New Recordset
         For Each p As E_Analisis.Parametro In a.Parametros
             Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
@@ -64,9 +65,11 @@ Public Class D_Analisis
                 cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MIN", adDouble, adParamInput, 8, p.ValorMinimo))
                 cmd.Parameters.Append(cmd.CreateParameter("@REFERENCIA_MAX", adDouble, adParamInput, 8, p.ValorMaximo))
 
-                cmd.Parameters.Append(cmd.CreateParameter("ID_PARAMETRO", adInteger, adParamOutput, , p.ID))
+                cmd.Parameters.Append(cmd.CreateParameter("ID_PARAMETRO", adInteger, adParamOutput, ,))
                 Try
-                    cmd.Execute()
+                    leer = cmd.Execute()
+                    p.ID = leer("ID_PARAMETRO").Value
+                    leer.Close()
                 Catch ex As Exception
                     conexion.Close()
                     Return 0 'no se pudo ingresar parametro
@@ -107,6 +110,7 @@ Public Class D_Analisis
         }
 
         For Each i As E_Analisis.Indicacion In a.Indicaciones
+            Console.WriteLine("id del analisis: " & a.ID)
             cmd.Parameters.Append(cmd.CreateParameter("@ID_ANALISIS", adInteger, adParamInput, , a.ID))
             cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, 90, i.Nombre))
             cmd.Parameters.Append(cmd.CreateParameter("@INDICACION", adVarChar, adParamInput, 1200, i.Indicacion))
@@ -115,16 +119,15 @@ Public Class D_Analisis
                 cmd.Execute()
             Catch ex As Exception
                 conexion.Close()
-                Return 0 'no se pudo ingresar parametro
+                Return 0 'no se pudo ingresar indicacion
             End Try
-
         Next
 
         conexion.Close()
         Return 1
     End Function
 
-    Public Function RetornarParametrosConNombre(nombre As String) As List(Of E_Analisis.Parametro)
+    Public Function RetornarParametros() As List(Of E_Analisis.Parametro)
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
@@ -134,11 +137,9 @@ Public Class D_Analisis
         Dim leer As New Recordset
         Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
-            .CommandText = "BuscarParametro",
+            .CommandText = "BuscarParametros",
             .ActiveConnection = conexion
         }
-
-        cmd.Parameters.Append(cmd.CreateParameter("@buscar", adVarChar, adParamInput, 90, nombre))
 
         Try
             leer = cmd.Execute()

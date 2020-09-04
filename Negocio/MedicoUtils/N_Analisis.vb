@@ -10,8 +10,12 @@ Public Class N_Analisis
         Return objDatos.AnalisisExiste(nom)
     End Function
 
-    Public Function BuscarParametroxNombre(nom As String) As List(Of E_Analisis.Parametro)
-        Return objDatos.RetornarParametrosConNombre(nom)
+    'Public Function BuscarParametroxNombre(nom As String) As List(Of E_Analisis.Parametro)
+    '    Return objDatos.RetornarParametrosConNombre(nom)
+    'End Function
+
+    Public Function RetornarParametros() As List(Of E_Analisis.Parametro)
+        Return objDatos.RetornarParametros()
     End Function
 
 End Class
