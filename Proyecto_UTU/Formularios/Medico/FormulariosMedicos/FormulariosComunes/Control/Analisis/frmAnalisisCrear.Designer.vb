@@ -96,6 +96,7 @@ Partial Class frmAnalisisCrear
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtNombreAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombreAnalisis.Location = New System.Drawing.Point(243, 4)
+        Me.txtNombreAnalisis.MaxLength = 90
         Me.txtNombreAnalisis.Name = "txtNombreAnalisis"
         Me.txtNombreAnalisis.Size = New System.Drawing.Size(860, 34)
         Me.txtNombreAnalisis.TabIndex = 129
@@ -159,6 +160,7 @@ Partial Class frmAnalisisCrear
         Me.txtNombrePrm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtNombrePrm.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombrePrm.Location = New System.Drawing.Point(421, 19)
+        Me.txtNombrePrm.MaxLength = 90
         Me.txtNombrePrm.Name = "txtNombrePrm"
         Me.txtNombrePrm.Size = New System.Drawing.Size(194, 34)
         Me.txtNombrePrm.TabIndex = 171
@@ -169,6 +171,7 @@ Partial Class frmAnalisisCrear
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtNomIndicacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNomIndicacion.Location = New System.Drawing.Point(161, 709)
+        Me.txtNomIndicacion.MaxLength = 90
         Me.txtNomIndicacion.Name = "txtNomIndicacion"
         Me.txtNomIndicacion.Size = New System.Drawing.Size(990, 34)
         Me.txtNomIndicacion.TabIndex = 168
@@ -361,6 +364,7 @@ Partial Class frmAnalisisCrear
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtIndicacionDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIndicacionDescripcion.Location = New System.Drawing.Point(161, 749)
+        Me.txtIndicacionDescripcion.MaxLength = 1200
         Me.txtIndicacionDescripcion.Multiline = True
         Me.txtIndicacionDescripcion.Name = "txtIndicacionDescripcion"
         Me.txtIndicacionDescripcion.Size = New System.Drawing.Size(881, 85)
@@ -371,6 +375,7 @@ Partial Class frmAnalisisCrear
         Me.txtVMax.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtVMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVMax.Location = New System.Drawing.Point(803, 79)
+        Me.txtVMax.MaxLength = 9
         Me.txtVMax.Name = "txtVMax"
         Me.txtVMax.Size = New System.Drawing.Size(194, 34)
         Me.txtVMax.TabIndex = 162
@@ -413,6 +418,7 @@ Partial Class frmAnalisisCrear
         Me.txtUnidad.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUnidad.Location = New System.Drawing.Point(803, 19)
+        Me.txtUnidad.MaxLength = 20
         Me.txtUnidad.Name = "txtUnidad"
         Me.txtUnidad.Size = New System.Drawing.Size(194, 34)
         Me.txtUnidad.TabIndex = 160
@@ -454,6 +460,7 @@ Partial Class frmAnalisisCrear
         Me.txtVMin.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtVMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVMin.Location = New System.Drawing.Point(421, 79)
+        Me.txtVMin.MaxLength = 9
         Me.txtVMin.Name = "txtVMin"
         Me.txtVMin.Size = New System.Drawing.Size(194, 34)
         Me.txtVMin.TabIndex = 161

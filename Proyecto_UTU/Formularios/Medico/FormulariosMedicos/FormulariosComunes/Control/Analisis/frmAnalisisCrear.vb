@@ -9,11 +9,13 @@ Public Class frmAnalisisCrear
     Dim _indicaciones As New List(Of Control)
     Dim listaParametrosBD As New List(Of E_Analisis.Parametro)
     Dim ACStringCol As New AutoCompleteStringCollection
-    Dim parametroSeleccionado As E_Analisis.Parametro
+    Dim parametroSeleccionado As New E_Analisis.Parametro
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
 
         If Not parametroSeleccionado.ID = 0 Then
             listaParametros.Add(parametroSeleccionado)
+            ParametroBindingSource.Add(parametroSeleccionado)
+            dgwParametros.DataSource = ParametroBindingSource
             Exit Sub
         End If
 
@@ -23,21 +25,12 @@ Public Class frmAnalisisCrear
             Exit Sub
         End If
 
-        For Each p As E_Analisis.Parametro In listaParametros
-            If p.Nombre.ToLower() = txtNombrePrm.Text Then
-                MessageBox.Show("El parametro " & p.Nombre & " ya existe", "Parametro ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            End If
-        Next
-
-        Dim prm = New E_Analisis.Parametro()
-        If txtNombrePrm.Text.ToLower() = "resultado" Then
-            prm.Nombre = "Resultado"
-            listaParametros.Add(prm)
-
-            ParametroBindingSource.Add(prm)
+        If listaParametros.Exists(Function(p) p.Nombre = txtNombrePrm.Text) Then
+            MessageBox.Show("Ya fue ingresado un parametro con ese nombre.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
+
+        Dim prm = New E_Analisis.Parametro
 
         For Each t As TextBox In _parametros
             If t.Text = String.Empty Then
@@ -85,11 +78,16 @@ Public Class frmAnalisisCrear
     Private Async Sub cargarParametros()
         listaParametrosBD = Await Task.Run(Function() negocio.RetornarParametros())
 
-        For Each p As E_Analisis.Parametro In listaParametrosBD
-            ACStringCol.Add(p.Nombre)
-        Next
+        If Not listaParametrosBD(0).ID = 0 Then
+            For Each p As E_Analisis.Parametro In listaParametrosBD
+                ACStringCol.Add(p.Nombre)
+            Next
 
-        txtNombrePrm.AutoCompleteCustomSource = ACStringCol
+            txtNombrePrm.AutoCompleteCustomSource = ACStringCol
+        Else
+            'No existen parametros registrados en la base de datos
+        End If
+
     End Sub
 
 
@@ -106,18 +104,16 @@ Public Class frmAnalisisCrear
 
     Private Sub btnAgregarIndicacion_Click(sender As Object, e As EventArgs) Handles btnAgregarIndicacion.Click
 
-        For Each i As E_Analisis.Indicacion In listaIndicaciones
-            If i.Nombre.ToLower() = txtNomIndicacion.Text Then
-                MessageBox.Show("La indicación: " & i.Nombre & " ya existe", "indicación ya registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            End If
+        If listaIndicaciones.Exists(Function(i) i.Nombre = txtNomIndicacion.Text) Then
+            MessageBox.Show("Ya fue ingresada una indicación con ese nombre.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
 
-            If i.Indicacion.ToLower() = txtIndicacionDescripcion.Text Then
-                MessageBox.Show("Ya existe una indicación con esa descripción.", "indicación ya registrada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            End If
+        If listaIndicaciones.Exists(Function(i) i.Indicacion = txtIndicacionDescripcion.Text) Then
+            MessageBox.Show("Ya fue ingresada una indicación con esa descripción.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
 
-        Next
 
         For Each t As TextBox In _indicaciones
             If t.Text = String.Empty Then
@@ -151,6 +147,17 @@ Public Class frmAnalisisCrear
     End Sub
 
     Private Sub btnAgregarAnalisis_Click(sender As Object, e As EventArgs) Handles btnAgregarAnalisis.Click
+
+        If listaParametros.Count < 5 Then
+            MessageBox.Show("Ingrese al menos 5 parametros", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        If listaIndicaciones.Count < 1 Then
+            MessageBox.Show("Ingrese al menos 1 indicación", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
         Dim analisisCreado As New E_Analisis(txtNombreAnalisis.Text, listaParametros, listaIndicaciones)
         Dim na As New N_Analisis
         Dim code = na.AltaAnalisis(analisisCreado)
@@ -190,6 +197,7 @@ Public Class frmAnalisisCrear
     End Sub
 
     Private Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
+
         If listaParametrosBD.Exists(Function(p) p.Nombre = txtNombrePrm.Text) Then
             Dim param As E_Analisis.Parametro = listaParametrosBD.Find(Function(p) p.Nombre = txtNombrePrm.Text)
             txtUnidad.Text = param.Unidad
@@ -204,5 +212,6 @@ Public Class frmAnalisisCrear
             txtVMax.Text = String.Empty
             txtVMin.Text = String.Empty
         End If
+
     End Sub
 End Class

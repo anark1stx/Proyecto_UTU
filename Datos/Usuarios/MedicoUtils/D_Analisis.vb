@@ -103,14 +103,14 @@ Public Class D_Analisis
         conexion.ConnectionString = retornarCString()
         conexion.CursorLocation = adUseClient
         conexion.Open()
-        Dim cmd As New Command With {
+
+
+        For Each i As E_Analisis.Indicacion In a.Indicaciones
+            Dim cmd As New Command With {
             .CommandType = adCmdStoredProc,
             .CommandText = "AltaAnalisisIndicacion",
             .ActiveConnection = conexion
-        }
-
-        For Each i As E_Analisis.Indicacion In a.Indicaciones
-            Console.WriteLine("id del analisis: " & a.ID)
+            }
             cmd.Parameters.Append(cmd.CreateParameter("@ID_ANALISIS", adInteger, adParamInput, , a.ID))
             cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, 90, i.Nombre))
             cmd.Parameters.Append(cmd.CreateParameter("@INDICACION", adVarChar, adParamInput, 1200, i.Indicacion))
@@ -119,6 +119,7 @@ Public Class D_Analisis
                 cmd.Execute()
             Catch ex As Exception
                 conexion.Close()
+                Console.WriteLine(ex.Message)
                 Return 0 'no se pudo ingresar indicacion
             End Try
         Next
