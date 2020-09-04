@@ -183,9 +183,8 @@ Public Class D_Analisis
             .ActiveConnection = conexion
         }
         Dim leer As New Recordset
-
+        Dim existe As Integer = 0
         cmd.Parameters.Append(cmd.CreateParameter("@NOM", adVarChar, adParamInput, 90, nombreanalisis))
-        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput,,))
 
         Try
             leer = cmd.Execute()
@@ -195,7 +194,7 @@ Public Class D_Analisis
             Return 0
         End Try
 
-        Dim existe = leer("EXISTE").Value
+        existe = leer("EXISTE").Value
         leer.Close()
         conexion.Close()
         Console.WriteLine("existeeE: " & existe)
