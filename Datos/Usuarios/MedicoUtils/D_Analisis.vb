@@ -185,21 +185,22 @@ Public Class D_Analisis
         Dim leer As New Recordset
         Dim existe As Integer = 0
         cmd.Parameters.Append(cmd.CreateParameter("@NOM", adVarChar, adParamInput, 90, nombreanalisis))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamOutput, , existe))
 
         Try
             leer = cmd.Execute()
         Catch ex As Exception
             Console.WriteLine("excepcion")
             conexion.Close()
-            Return 0
+            Return 3
         End Try
 
         existe = leer("EXISTE").Value
+
         leer.Close()
         conexion.Close()
-        Console.WriteLine("existeeE: " & existe)
-        Return existe
 
+        Return existe
     End Function
 
 End Class

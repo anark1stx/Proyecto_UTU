@@ -11,10 +11,6 @@ Public Class N_Paciente
     Public Function BuscarPacienteApellido(ap As String) As List(Of E_Paciente)
         Return objDatos.BuscarPacienteApellido(ap)
     End Function
-
-    Public Overrides Function UsuarioExiste(CI As String) As Integer
-        Return objDatos.UsuarioExiste(CI)
-    End Function
     Public Function AltaPaciente(u As E_Paciente) As Integer
         Return objDatos.AltaPaciente(u)
     End Function

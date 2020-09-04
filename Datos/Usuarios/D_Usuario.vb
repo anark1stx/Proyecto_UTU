@@ -143,18 +143,21 @@ Public Class D_Usuario
         Dim existe As Integer = 0
 
         cmd.Parameters.Append(cmd.CreateParameter("@cedula", adInteger, adParamInput, 8, ci))
+        cmd.Parameters.Append(cmd.CreateParameter("EXISTE", adInteger, adParamInput, , existe))
 
         Try
             leer = cmd.Execute()
         Catch ex As Exception
+            leer.Close()
             conexion.Close()
-            Return 0
+            Return 3
         End Try
 
         existe = leer("EXISTE").Value
+
         leer.Close()
         conexion.Close()
-        Console.WriteLine("u existe " & existe)
+
         Return existe
     End Function
 

@@ -12,7 +12,7 @@ Public Class N_Usuario
         Return objDatos.BuscarUsuariosApellido(ap, auxiliar)
     End Function
 
-    Public Overridable Function UsuarioExiste(CI As String) As Integer
+    Public Overridable Function UsuarioExiste(CI As Integer) As Integer
         Return objDatos.UsuarioExiste(CI)
     End Function
 

@@ -329,10 +329,11 @@ Public Class frmGestion
                     If Mode = Accion.Alta AndAlso ci_valida Then
                         Dim nu As New N_Usuario
 
-                        If nu.UsuarioExiste(lblCedulaTXT.Text) Then
+                        If nu.UsuarioExiste(Val(lblCedulaTXT.Text)) Then
                             MessageBox.Show("Ya existe un usuario registrado con esa cédula en la base de datos.", "Usuario ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             ci_valida = False
                         Else
+                            Console.WriteLine("el usuario no existe")
                             ci_valida = True
                         End If
                     End If

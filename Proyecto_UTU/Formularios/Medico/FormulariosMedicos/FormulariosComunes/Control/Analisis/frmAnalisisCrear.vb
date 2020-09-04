@@ -72,6 +72,8 @@ Public Class frmAnalisisCrear
         _indicaciones.Add(txtNomIndicacion)
         _indicaciones.Add(txtIndicacionDescripcion)
 
+        pnlDatos.Enabled = False
+
     End Sub
 
     Private Sub dgwParametros_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
@@ -113,7 +115,7 @@ Public Class frmAnalisisCrear
         dgwIndicaciones.DataSource = IndicacionBindingSource
     End Sub
 
-    Private Sub dgwIndicaciones_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwIndicaciones.CellContentClick
+    Private Sub dgwIndicaciones_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
         Console.WriteLine(dgwIndicaciones.Columns(e.ColumnIndex).Name)
         If dgwIndicaciones.Columns(e.ColumnIndex).Name = "borrarInd" Then
 
@@ -149,17 +151,6 @@ Public Class frmAnalisisCrear
 
     End Sub
 
-    Private Async Sub txtNombreAnalisis_Leave(sender As Object, e As EventArgs) Handles txtNombreAnalisis.Leave
-        '()-> BUSCAR NOMBRE DEL ANALISIS
-
-        If Not txtNombreAnalisis.Text Is String.Empty Then
-            Dim existe As Integer = Await Task.Run(Function() negocio.AnalisisExiste(txtNombreAnalisis.Text))
-            Console.WriteLine("existe analisis: " & existe)
-            If existe = 1 Then
-                MessageBox.Show("Ya existe registrado un análisis con ese nombre", "Análisis existente", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        End If
-    End Sub
 
     Private Async Sub txtNombrePrm_TextChanged(sender As Object, e As EventArgs) Handles txtNombrePrm.TextChanged
         '()-> BUSCAR NOMBRE DEL PARAMETRO
@@ -195,4 +186,20 @@ Public Class frmAnalisisCrear
         txtVMin.Enabled = False
 
     End Sub
+
+    Private Async Sub btnCheckNombreA_Click(sender As Object, e As EventArgs) Handles btnCheckNombreA.Click, txtNombreAnalisis.Leave
+        '()-> BUSCAR NOMBRE DEL ANALISIS
+
+        If Not txtNombreAnalisis.Text Is String.Empty Then
+            Dim existe As Integer = Await Task.Run(Function() negocio.AnalisisExiste(txtNombreAnalisis.Text))
+            Console.WriteLine("existe analisis: " & existe)
+            If existe = 1 Then
+                MessageBox.Show("Ya existe registrado un análisis con ese nombre", "Análisis existente", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                pnlDatos.Enabled = False
+            Else
+                pnlDatos.Enabled = True
+            End If
+        End If
+    End Sub
+
 End Class
