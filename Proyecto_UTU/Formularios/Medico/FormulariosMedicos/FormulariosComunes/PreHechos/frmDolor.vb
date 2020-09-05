@@ -1,7 +1,29 @@
-﻿Public Class frmDolor
+﻿Imports Entidades
+Imports Negocio
+
+Public Class frmDolor
     Dim Acciones As New AccionesFormulario
     Dim memobmp As Bitmap
+    Protected _paciente As E_Paciente
+    Protected _medico As E_Medico
 
+    Property Paciente As E_Paciente
+        Get
+            Return _paciente
+        End Get
+        Set(value As E_Paciente)
+            _paciente = value
+        End Set
+    End Property
+
+    Property Medico As E_Medico
+        Get
+            Return _medico
+        End Get
+        Set(value As E_Medico)
+            _medico = value
+        End Set
+    End Property
     Private Sub btnCabezaDer_Click(sender As Object, e As EventArgs) Handles btnCabezaDer.Click
         AgregarItemALista("Cabeza Derecha", lbTorso, btnCabezaDer)
 
@@ -104,7 +126,6 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
 
-
     End Sub
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
@@ -125,6 +146,7 @@
     Sub agregarH_accionesFormulario()
         AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
         AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
+        AddHandler Acciones.btnGuardar.Click, AddressOf btnGuardar_Click
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage

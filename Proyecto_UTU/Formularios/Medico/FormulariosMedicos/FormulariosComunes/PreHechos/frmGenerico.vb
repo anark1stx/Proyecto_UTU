@@ -1,7 +1,26 @@
 ﻿Public Class frmGenerico
     Dim Acciones As New AccionesFormulario
     Dim memobmp As Bitmap
+    Protected _paciente As E_Paciente
+    Protected _medico As E_Medico
 
+    Property Paciente As E_Paciente
+        Get
+            Return _paciente
+        End Get
+        Set(value As E_Paciente)
+            _paciente = value
+        End Set
+    End Property
+
+    Property Medico As E_Medico
+        Get
+            Return _medico
+        End Get
+        Set(value As E_Medico)
+            _medico = value
+        End Set
+    End Property
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
 
@@ -56,35 +75,6 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
 
-        Dim ctrlsLlenos = 0
-
-        For Each c As Control In pnlContenedor.Controls
-
-            If TypeOf c Is GroupBox Then
-                For Each c2 As Control In c.Controls
-                    If TypeOf c2 Is TextBox Or TypeOf c2 Is ComboBox AndAlso c2.Enabled Then
-
-                        If c2.Text.Length < 1 Then
-                            Dim ans = MessageBox.Show("El Campo: " & c2.Name & " está vacío, seguro que aún así desea guardar el formulario?", "Falta llenar información.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-
-                            If ans = vbNo Then
-                                Exit Sub
-                            End If
-                        Else
-                            ctrlsLlenos += 1
-                        End If
-
-                    End If
-                Next
-            End If
-        Next
-
-        If ctrlsLlenos < 3 Then
-            MsgBox("Por favor llene al menos 3 campos.")
-        Else
-            '->Guardar en BD
-            MsgBox("Guardado con éxito.")
-        End If
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
@@ -105,6 +95,8 @@
     Sub agregarH_accionesFormulario()
         AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
         AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
+
+        AddHandler Acciones.btnGuardar.Click, AddressOf btnGuardar_Click
     End Sub
 
 End Class

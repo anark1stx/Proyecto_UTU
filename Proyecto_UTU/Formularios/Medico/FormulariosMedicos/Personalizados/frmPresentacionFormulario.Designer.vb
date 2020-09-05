@@ -22,25 +22,26 @@ Partial Class frmPresentacionFormulario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pBoxVistaPrevia = New System.Windows.Forms.PictureBox()
         Me.lblNombreForm = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pBoxVistaPrevia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PictureBox1
+        'pBoxVistaPrevia
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 42)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(333, 278)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.pBoxVistaPrevia.Location = New System.Drawing.Point(12, 42)
+        Me.pBoxVistaPrevia.Name = "pBoxVistaPrevia"
+        Me.pBoxVistaPrevia.Size = New System.Drawing.Size(333, 278)
+        Me.pBoxVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pBoxVistaPrevia.TabIndex = 0
+        Me.pBoxVistaPrevia.TabStop = False
         '
         'lblNombreForm
         '
+        Me.lblNombreForm.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblNombreForm.AutoSize = True
         Me.lblNombreForm.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreForm.Location = New System.Drawing.Point(7, 9)
+        Me.lblNombreForm.Location = New System.Drawing.Point(52, 10)
         Me.lblNombreForm.Name = "lblNombreForm"
         Me.lblNombreForm.Size = New System.Drawing.Size(241, 29)
         Me.lblNombreForm.TabIndex = 1
@@ -53,16 +54,16 @@ Partial Class frmPresentacionFormulario
         Me.BackColor = System.Drawing.Color.LightGreen
         Me.ClientSize = New System.Drawing.Size(357, 332)
         Me.Controls.Add(Me.lblNombreForm)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pBoxVistaPrevia)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPresentacionFormulario"
         Me.Text = "frmPresentacionFormulario"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pBoxVistaPrevia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pBoxVistaPrevia As PictureBox
     Friend WithEvents lblNombreForm As Label
 End Class

@@ -1,12 +1,35 @@
-﻿Public Class frmFiebre
+﻿Imports Entidades
+Imports Negocio
+Public Class frmFiebre
     Dim memobmp As Bitmap
     Dim Acciones As New AccionesFormulario
+    Protected _paciente As E_Paciente
+    Protected _medico As E_Medico
+
+    Property Paciente As E_Paciente
+        Get
+            Return _paciente
+        End Get
+        Set(value As E_Paciente)
+            _paciente = value
+        End Set
+    End Property
+
+    Property Medico As E_Medico
+        Get
+            Return _medico
+        End Get
+        Set(value As E_Medico)
+            _medico = value
+        End Set
+    End Property
+
     Private Sub frmFiebre_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
         Acciones.TopLevel = False
         Acciones.TopMost = True
         pnlContenedor.Controls.Add(Acciones)
-        Acciones.Location = New Point(pnlContenedor.Width / 2, pnlContenedor.Height + Acciones.Height * 2.5)
+        Acciones.Location = New Point(pnlContenedor.Width / 2, pnlContenedor.Height + Acciones.Height * 6)
         Acciones.Visible = True
         agregarH_accionesFormulario()
     End Sub
@@ -14,6 +37,8 @@
     Sub agregarH_accionesFormulario()
         AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
         AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
+        AddHandler Acciones.btnGuardar.Click, AddressOf btnGuardar_Click
+
     End Sub
 
     Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged

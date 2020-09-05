@@ -2,54 +2,38 @@
 Imports Negocio
 Public Class frmCatalogoFormulariosBD
 
-    Dim listaFormularios As List(Of E_Formulario) = New List(Of E_Formulario)(5) 'La cantidad maxima de formularios que voy a estar mostrando por pagina del catalogo
-    Dim cajaFormularios As List(Of frmPresentacionFormulario) = New List(Of frmPresentacionFormulario)(5)
-
+    Dim cajaFormularios As List(Of frmPresentacionFormulario) = New List(Of frmPresentacionFormulario)
+    Dim negocio As N_Formulario
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        cajaFormularios.Clear()
+        tblFormularios.Controls.Clear()
 
         If txtBuscar.Text Is String.Empty Then
             MsgBox("Ingrese el nombre del formulario que desea utilizar")
             Exit Sub
         End If
 
+        'hacer busqueda en bd
+        'listaFormularios = negocio.BuscarFormularios(txtBuscar.Text,6) 'siendo 6 la cantidad maxima de formularios que voy a mostrar
 
-        Dim formulariosEncontrados As Integer = 1 '<- Si bien la cantidad maxima es 5, puede ser que solo se hayan encontrado 2 o ninguno incluso, asi que debo corroborar que el resto no sean empty
+        Dim listaFormularios As List(Of E_Formulario) = negocio.BuscarFormularios(txtBuscar.Text)
 
-
-        '()-> Hacer Busqueda en la BD
-
-
-
-        'For i = 0 To listaFormularios.Count 'Ver cuantos resultados hubieron
-        '    If listaFormularios(i).Nombre = String.Empty Then
-
-        '        If i = 0 Then
-        '            formulariosEncontrados = 0
-        '            Exit For
-        '        End If
-
-        '        If i = 1 Then
-        '            formulariosEncontrados = 1
-        '            Exit For
-        '        End If
-
-        '        formulariosEncontrados = i - 1
-        '        Exit For
-        '    End If
-        'Next
-
-        Dim pFormulario = New frmPresentacionFormulario With {
+        For Each f As E_Formulario In listaFormularios
+            Dim pFormulario = New frmPresentacionFormulario With {
+            .Formulario = f,
             .TopMost = True,
-            .TopLevel = False
-        }
+            .TopLevel = False,
+            .Visible = True
+            }
 
-        cajaFormularios.Add(pFormulario)
+            cajaFormularios.Add(pFormulario)
+        Next
 
-        If formulariosEncontrados < 1 Then
+        If cajaFormularios.Count < 1 Then
             MsgBox("No se encontraron resultados")
         Else
 
-            For i = 0 To formulariosEncontrados - 1
+            For i = 0 To cajaFormularios.Count - 1
 
                 tblFormularios.Controls.Add(cajaFormularios(i))
 
@@ -60,6 +44,6 @@ Public Class frmCatalogoFormulariosBD
     End Sub
 
     Private Sub frmCatalogoFormulariosBD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'Podria ver de ejecutar un metodo que cargara todos los formularios capaz
     End Sub
 End Class

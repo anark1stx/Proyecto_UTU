@@ -1,9 +1,30 @@
 ﻿Public Class frmMalestar
     Dim memobmp As Bitmap
     Dim Acciones As New AccionesFormulario
+    Protected _paciente As E_Paciente
+    Protected _medico As E_Medico
+
+    Property Paciente As E_Paciente
+        Get
+            Return _paciente
+        End Get
+        Set(value As E_Paciente)
+            _paciente = value
+        End Set
+    End Property
+
+    Property Medico As E_Medico
+        Get
+            Return _medico
+        End Get
+        Set(value As E_Medico)
+            _medico = value
+        End Set
+    End Property
     Sub agregarH_accionesFormulario()
         AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
         AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
+        AddHandler Acciones.btnGuardar.Click, AddressOf btnGuardar_Click
     End Sub
     Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged
         If chkAnalisis.Checked Then
@@ -68,15 +89,15 @@
         chkT_Sens_Si.Checked = False
     End Sub
 
-    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
         LimpiarControles(Me)
     End Sub
 
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
 
     End Sub
-    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        hideShowItems(False, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
+        hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
 
         pnlContenedor.AutoScroll = False
         memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
@@ -84,7 +105,7 @@
         pnlContenedor.AutoScroll = True
         PrintPreviewDialog1.ShowDialog()
 
-        hideShowItems(True, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+        hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
 
     End Sub
 
