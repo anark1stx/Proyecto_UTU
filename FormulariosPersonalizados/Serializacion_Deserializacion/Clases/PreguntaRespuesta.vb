@@ -1,9 +1,7 @@
 ﻿Imports System.Windows.Forms
-Imports System.Drawing
 Public Class PreguntaRespuesta
     Protected _pregunta As Control
     Protected _respuesta As Control
-    Protected _tag As String 'identificador interno del formulario, va desde 0 a n.
     Public Property Pregunta As Control
         Get
             Return _pregunta
@@ -22,22 +20,14 @@ Public Class PreguntaRespuesta
         End Set
     End Property
 
-    Public Property Tag As String
-        Get
-            Return _tag
-        End Get
-        Set(value As String)
-            _tag = value
-        End Set
-    End Property
 
     Sub New()
 
     End Sub
 
-    Sub New(pregunta As Control, respuesta As Control, tag As String)
+    Sub New(pregunta As Control, respuesta As Control)
         _pregunta = pregunta
         _respuesta = respuesta
-        _tag = tag
     End Sub
+
 End Class

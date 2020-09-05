@@ -1,4 +1,5 @@
-﻿Public Class frmMalestar
+﻿Imports Entidades
+Public Class frmMalestar
     Dim memobmp As Bitmap
     Dim Acciones As New AccionesFormulario
     Protected _paciente As E_Paciente

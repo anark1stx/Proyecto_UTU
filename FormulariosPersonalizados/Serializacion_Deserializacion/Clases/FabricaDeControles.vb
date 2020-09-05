@@ -209,7 +209,7 @@ Public Class FabricaDeControles
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .Text = control.text,
+            .Text = control.Text,
             .Font = control.StrToFont()
         }
         For Each s As String In control.items
@@ -228,7 +228,7 @@ Public Class FabricaDeControles
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .Text = control.text,
+            .Text = control.Text,
             .Font = control.StrToFont(),
             .Tag = control.Tag
         }
@@ -247,7 +247,7 @@ Public Class FabricaDeControles
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .Text = control.text,
+            .Text = control.Text,
             .Font = control.StrToFont(),
             .Tag = control.Tag
         }
@@ -281,7 +281,7 @@ Public Class FabricaDeControles
             .Anchor = control.Anchor,
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .Text = control.text,
+            .Text = control.Text,
             .Font = control.StrToFont()
         }
 
@@ -302,7 +302,7 @@ Public Class FabricaDeControles
             .BackColor = HTMLTOColor(control.BackColor),
             .ForeColor = HTMLTOColor(control.ForeColor),
             .Tag = control.Tag
-        } 'AGREGAR TEXT, FONT
+        } 'AGREGAR Text, FONT
 
         If Not control.bgImage = String.Empty Then
             Try
@@ -324,7 +324,7 @@ Public Class FabricaDeControles
             .Dock = control.Dock,
             .Anchor = control.Anchor,
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .Text = control.text,
+            .Text = control.Text,
             .Font = control.StrToFont(),
             .Multiline = control.Multiline,
             .Tag = control.Tag
@@ -339,7 +339,7 @@ Public Class FabricaDeControles
             .Dock = control.Dock,
             .Anchor = control.Anchor,
             .ForeColor = HTMLTOColor(control.ForeColor),
-            .Text = control.text,
+            .Text = control.Text,
             .Font = control.StrToFont(),
             .Tag = control.Tag
         }

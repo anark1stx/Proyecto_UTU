@@ -107,20 +107,20 @@ Public Class ControlesGuardados
 
     End Class
     <Xml.Serialization.XmlInclude(GetType(GroupBox)), Xml.Serialization.XmlInclude(GetType(Textbox)), Xml.Serialization.XmlInclude(GetType(Label)), Xml.Serialization.XmlInclude(GetType(ListBox)), Xml.Serialization.XmlInclude(GetType(CheckBox))>
-    Public Class TextControl 'Aquellos controles que tienen texto
+    Public Class TextControl 'Aquellos controles que tienen Texto
         Inherits SControl
         <Xml.Serialization.XmlIgnore>
-        Public _texto As String
+        Public _Texto As String
         <Xml.Serialization.XmlIgnore>
         Public _font As String
         <Xml.Serialization.XmlIgnore>
         Public _multiline As Boolean
-        Property text As String
+        Property Text As String
             Get
-                Return _texto
+                Return _Texto
             End Get
             Set(value As String)
-                _texto = value
+                _Texto = value
             End Set
         End Property
         Property Multiline As Boolean
@@ -139,7 +139,7 @@ Public Class ControlesGuardados
                 _font = value
             End Set
         End Property
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean, tag As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Texto As String, font As Font, multiline As Boolean, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -148,7 +148,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            _texto = texto
+            _Texto = Texto
             _font = FontToStr(font)
             _multiline = multiline
             _tag = tag
@@ -215,7 +215,7 @@ Public Class ControlesGuardados
         End Sub
     End Class
     Public Class GroupBox
-        Inherits TextControl 'Los groupBoxes suelen tener un texto.
+        Inherits TextControl 'Los groupBoxes suelen tener un Texto.
         <Xml.Serialization.XmlIgnore>
         Public _childs As List(Of SControl)
         Property Childs As List(Of SControl)
@@ -229,7 +229,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, Childs As List(Of SControl), font As Font)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Texto As String, Childs As List(Of SControl), font As Font)
 
             _posicion = posicion
             _tamano = tamano
@@ -238,7 +238,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            _texto = texto
+            _Texto = Texto
             _childs = Childs
             _font = FontToStr(font)
         End Sub
@@ -304,7 +304,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, multiline As Boolean, tag As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Texto As String, font As Font, multiline As Boolean, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -313,7 +313,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            _texto = texto
+            _Texto = Texto
             _font = FontToStr(font)
             _multiline = multiline
             _tag = tag
@@ -325,7 +325,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, tag As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Texto As String, font As Font, tag As String)
 
             _posicion = posicion
             _tamano = tamano
@@ -334,7 +334,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            _texto = texto
+            _Texto = Texto
             _font = FontToStr(font)
             _tag = tag
         End Sub
@@ -443,7 +443,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, texto As String, font As Font, tag As String)
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Texto As String, font As Font, tag As String)
             _posicion = posicion
             _tamano = tamano
             _nombre = nombre
@@ -451,7 +451,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            _texto = texto
+            _Texto = Texto
             _font = FontToStr(font)
             _tag = tag
         End Sub

@@ -1,11 +1,41 @@
 ﻿Imports Entidades
+Imports FormulariosPersonalizados
 Imports Negocio
 Public Class frmFiebre
     Dim memobmp As Bitmap
     Dim Acciones As New AccionesFormulario
     Protected _paciente As E_Paciente
     Protected _medico As E_Medico
+    Protected _preguntasYrespuestas As New List(Of PreguntaRespuesta)
+    Protected _preguntas As New List(Of Control)
+    Protected _respuestas As New List(Of Control)
+    Dim calls As Integer = 0
+    Property Preguntas As List(Of Control)
+        Get
+            Return _preguntas
+        End Get
+        Set(value As List(Of Control))
+            _preguntas = value
+        End Set
+    End Property
 
+    Property Respuestas As List(Of Control)
+        Get
+            Return _respuestas
+        End Get
+        Set(value As List(Of Control))
+            _respuestas = value
+        End Set
+    End Property
+
+    Property ListaPreguntasYRespuestas As List(Of PreguntaRespuesta)
+        Get
+            Return _preguntasYrespuestas
+        End Get
+        Set(value As List(Of PreguntaRespuesta))
+            _preguntasYrespuestas = value
+        End Set
+    End Property
     Property Paciente As E_Paciente
         Get
             Return _paciente
@@ -49,85 +79,72 @@ Public Class frmFiebre
         End If
     End Sub
 
-    Private Sub chkSiD_Ap_Click(sender As Object, e As EventArgs) Handles chkSiD_Ap.Click
-        chkNoD_Ap.Checked = False
-    End Sub
-
-    Private Sub chkNoD_Ap_Click(sender As Object, e As EventArgs) Handles chkNoD_Ap.Click
-        chkSiD_Ap.Checked = False
-    End Sub
-
-    Private Sub chkD_Resp_Si_Click(sender As Object, e As EventArgs) Handles chkD_Resp_Si.Click
-        chkD_Resp_No.Checked = False
-    End Sub
-
-    Private Sub chkD_Resp_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkD_Resp_No.Click
-        chkD_Resp_Si.Checked = False
-    End Sub
-
-    Private Sub chkMeds_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkMeds_Si.Click
-        chkMeds_No.Checked = False
-    End Sub
-
-    Private Sub chkMeds_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkMeds_No.Click
-        chkMeds_Si.Checked = False
-    End Sub
-
-    Private Sub chkCalor_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkCalor_Si.Click
-        chkCalor_No.Checked = False
-    End Sub
-
-    Private Sub chkCalor_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkCalor_No.Click
-        chkCalor_Si.Checked = False
-    End Sub
-
-    Private Sub chkErups_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkErups_Si.Click
-        chkErups_No.Checked = False
-    End Sub
-
-    Private Sub chkErups_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkErups_No.Click
-        chkErups_Si.Checked = False
-    End Sub
-
-    Private Sub chkVacs_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkVacs_Si.Click
-        chkVacs_No.Checked = False
-    End Sub
-
-    Private Sub chkVacs_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkVacs_No.Click
-        chkVacs_Si.Checked = False
-    End Sub
-
-    Private Sub chkT_Digs_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Digs_Si.Click
-        chkT_Digs_No.Checked = False
-    End Sub
-
-    Private Sub chkT_Digs_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Digs_No.Click
-        chkT_Digs_Si.Checked = False
-    End Sub
-
-    Private Sub chkT_Hums_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Hums_Si.Click
-        chkT_Hums_No.Checked = False
-    End Sub
-
-    Private Sub chkT_Hums_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Hums_No.Click
-        chkT_Hums_Si.Checked = False
-    End Sub
-
-    Private Sub chkT_Sens_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Sens_Si.Click
-        chkT_Sens_No.Checked = False
-    End Sub
-
-    Private Sub chkT_Sens_No_CheckedChanged(sender As Object, e As EventArgs) Handles chkT_Sens_No.Click
-        chkT_Sens_Si.Checked = False
-    End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
         LimpiarControles(Me)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
+        calls = 0
+        BuscarPreguntasYRespuestas(Me)
+        UnirPreguntasYRespuestas()
+    End Sub
+
+    Sub UnirPreguntasYRespuestas()
+
+        For Each p As Control In Preguntas
+            Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
+            If respuesta Is Nothing Then
+                respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
+            End If
+            'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
+            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
+        Next
+
+        For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
+            Select Case pyr.Pregunta.GetType()
+                Case GetType(CheckBox)
+                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked)
+                Case Else
+                    Try
+                        Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
+                    Catch ex As Exception
+                        Console.WriteLine("err")
+                    End Try
+
+            End Select
+
+        Next
 
     End Sub
+
+    Sub BuscarPreguntasYRespuestas(contenedor As Control)
+
+        For Each c As Control In contenedor.Controls
+            Select Case c.GetType
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                    BuscarPreguntasYRespuestas(c)
+                Case Else
+                    If Not String.IsNullOrEmpty(c.Tag) Then
+
+                        If c.Tag.StartsWith("pr") Then
+                            Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
+                            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c, c))
+                        ElseIf c.Tag.StartsWith("p") Then 'pregunta
+                            Console.WriteLine("Pregunta: " & c.Tag)
+                            Preguntas.Add(c)
+                        ElseIf c.Tag.StartsWith("r") Then ' respuesta
+                            Console.WriteLine("Respuesta: " & c.Tag)
+                            Console.WriteLine("Respuesta: " & c.Text)
+                            Respuestas.Add(c)
+                        End If
+
+                    End If
+            End Select
+        Next
+
+    End Sub
+
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
@@ -137,8 +154,6 @@ Public Class frmFiebre
         pnlContenedor.AutoScroll = True
         'PrintPreviewDialog1.ShowDialog()
 
-        'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
-
         hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
 
     End Sub
@@ -147,4 +162,5 @@ Public Class frmFiebre
 
         e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
+
 End Class
