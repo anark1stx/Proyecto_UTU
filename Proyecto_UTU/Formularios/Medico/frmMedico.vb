@@ -50,7 +50,6 @@ Public Class frmMedico
             frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
             frm.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
             Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
-
             frm.Show()
         End If
 

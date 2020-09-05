@@ -1,8 +1,8 @@
 ﻿Public Class E_Formulario
     Protected _id As Integer
     Protected _nombre As String
-    Protected _xml As String
-    Protected _v_previa As String
+    Protected _xml As String 'ruta .xml
+    Protected _v_previa As String 'ruta .jpg/png
 
     Property Nombre As String
         Get

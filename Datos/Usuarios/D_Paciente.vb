@@ -18,7 +18,7 @@ Public Class D_Paciente
         End If
 
         Dim leer As New Recordset
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -102,7 +102,7 @@ Public Class D_Paciente
 
         Select Case code
             Case 1
-                conexion.ConnectionString = retornarCString()
+                conexion.ConnectionString = retornarCStringBD()
                 conexion.CursorLocation = adUseClient
                 conexion.Open()
 
@@ -137,7 +137,7 @@ Public Class D_Paciente
 
         Select Case res
             Case 1
-                conexion.ConnectionString = retornarCString()
+                conexion.ConnectionString = retornarCStringBD()
                 conexion.CursorLocation = adUseClient
                 conexion.Open()
 

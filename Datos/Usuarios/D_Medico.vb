@@ -9,7 +9,7 @@ Public Class D_Medico
     Dim conexion As New Connection
 
     Public Function ListarMedicosCI(ci As String) As E_Medico
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -96,7 +96,7 @@ Public Class D_Medico
         Dim ultima_ci As Integer = 0
         Dim medList As New List(Of E_Medico)
 
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -156,7 +156,7 @@ Public Class D_Medico
         Dim code = MyBase.AltaUsuarioSIBIM(u)
         Select Case code
             Case 1
-                conexion.ConnectionString = retornarCString()
+                conexion.ConnectionString = retornarCStringBD()
                 conexion.CursorLocation = adUseClient
                 conexion.Open()
 
@@ -187,7 +187,7 @@ Public Class D_Medico
 
 
     Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -243,7 +243,7 @@ Public Class D_Medico
     End Function
 
     Public Function BorrarMedicoEspecialidad(u As E_Medico)
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 

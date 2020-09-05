@@ -14,4 +14,5 @@ Public Class N_Analisis
         Return objDatos.RetornarParametros()
     End Function
 
+
 End Class

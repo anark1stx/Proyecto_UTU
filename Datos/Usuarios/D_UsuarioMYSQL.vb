@@ -16,7 +16,7 @@ Public Class D_UsuarioMYSQL
 
         construirCnString(usuario, contrasena)
 
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = CursorLocationEnum.adUseClient
 
         Try
@@ -61,7 +61,7 @@ Public Class D_UsuarioMYSQL
 
     Public Overridable Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
 
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = CursorLocationEnum.adUseClient
         conexion.Open()
 

@@ -1,4 +1,6 @@
-﻿Module Credenciales
+﻿Imports System.Net
+
+Module Credenciales
     Private _usr As String = ""
     Private _pwd As String = ""
     Private _str As String = ""
@@ -9,7 +11,7 @@
         _str = String.Format("DSN=SIBIM_OVERCLODE;UID={0}; PWD={1};", _usr, _pwd)
     End Sub
 
-    Public Function retornarCString() As String
+    Public Function retornarCStringBD() As String
         Return _str
     End Function
 

@@ -24,7 +24,6 @@ Partial Class frmDolor
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDolor))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.tblTorsoDorso = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlDatosSeleccion = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lbDorso = New System.Windows.Forms.ListBox()
@@ -33,9 +32,6 @@ Partial Class frmDolor
         Me.tblDescripcion = New System.Windows.Forms.TableLayoutPanel()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnImprimir = New System.Windows.Forms.Button()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnColDorsalDer = New System.Windows.Forms.Button()
         Me.btnColLumbarDer = New System.Windows.Forms.Button()
         Me.btnColLumbarIzq = New System.Windows.Forms.Button()
@@ -63,7 +59,6 @@ Partial Class frmDolor
         Me.Imprimir = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.pnlContenedor.SuspendLayout()
-        Me.tblTorsoDorso.SuspendLayout()
         Me.pnlDatosSeleccion.SuspendLayout()
         Me.tblDescripcion.SuspendLayout()
         Me.SuspendLayout()
@@ -71,11 +66,10 @@ Partial Class frmDolor
         'pnlContenedor
         '
         Me.pnlContenedor.AutoScroll = True
-        Me.pnlContenedor.Controls.Add(Me.tblTorsoDorso)
+        Me.pnlContenedor.AutoSize = True
+        Me.pnlContenedor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.pnlContenedor.Controls.Add(Me.pnlDatosSeleccion)
         Me.pnlContenedor.Controls.Add(Me.tblDescripcion)
-        Me.pnlContenedor.Controls.Add(Me.btnImprimir)
-        Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
-        Me.pnlContenedor.Controls.Add(Me.btnGuardar)
         Me.pnlContenedor.Controls.Add(Me.btnColDorsalDer)
         Me.pnlContenedor.Controls.Add(Me.btnColLumbarDer)
         Me.pnlContenedor.Controls.Add(Me.btnColLumbarIzq)
@@ -103,31 +97,19 @@ Partial Class frmDolor
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1523, 865)
+        Me.pnlContenedor.Size = New System.Drawing.Size(1870, 865)
         Me.pnlContenedor.TabIndex = 0
-        '
-        'tblTorsoDorso
-        '
-        Me.tblTorsoDorso.ColumnCount = 1
-        Me.tblTorsoDorso.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblTorsoDorso.Controls.Add(Me.pnlDatosSeleccion, 0, 0)
-        Me.tblTorsoDorso.Location = New System.Drawing.Point(1184, 5)
-        Me.tblTorsoDorso.Name = "tblTorsoDorso"
-        Me.tblTorsoDorso.RowCount = 1
-        Me.tblTorsoDorso.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblTorsoDorso.Size = New System.Drawing.Size(444, 758)
-        Me.tblTorsoDorso.TabIndex = 75
         '
         'pnlDatosSeleccion
         '
+        Me.pnlDatosSeleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlDatosSeleccion.Controls.Add(Me.Label3)
         Me.pnlDatosSeleccion.Controls.Add(Me.lbDorso)
         Me.pnlDatosSeleccion.Controls.Add(Me.Label2)
         Me.pnlDatosSeleccion.Controls.Add(Me.lbTorso)
-        Me.pnlDatosSeleccion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDatosSeleccion.Location = New System.Drawing.Point(3, 3)
+        Me.pnlDatosSeleccion.Location = New System.Drawing.Point(1377, 3)
         Me.pnlDatosSeleccion.Name = "pnlDatosSeleccion"
-        Me.pnlDatosSeleccion.Size = New System.Drawing.Size(438, 752)
+        Me.pnlDatosSeleccion.Size = New System.Drawing.Size(464, 752)
         Me.pnlDatosSeleccion.TabIndex = 73
         '
         'Label3
@@ -135,7 +117,7 @@ Partial Class frmDolor
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(187, 434)
+        Me.Label3.Location = New System.Drawing.Point(194, 434)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 29)
         Me.Label3.TabIndex = 77
@@ -150,7 +132,7 @@ Partial Class frmDolor
         Me.lbDorso.ItemHeight = 23
         Me.lbDorso.Location = New System.Drawing.Point(3, 466)
         Me.lbDorso.Name = "lbDorso"
-        Me.lbDorso.Size = New System.Drawing.Size(432, 280)
+        Me.lbDorso.Size = New System.Drawing.Size(458, 280)
         Me.lbDorso.TabIndex = 76
         '
         'Label2
@@ -158,7 +140,7 @@ Partial Class frmDolor
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(187, 9)
+        Me.Label2.Location = New System.Drawing.Point(194, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(89, 29)
         Me.Label2.TabIndex = 75
@@ -173,21 +155,24 @@ Partial Class frmDolor
         Me.lbTorso.ItemHeight = 23
         Me.lbTorso.Location = New System.Drawing.Point(3, 41)
         Me.lbTorso.Name = "lbTorso"
-        Me.lbTorso.Size = New System.Drawing.Size(432, 372)
+        Me.lbTorso.Size = New System.Drawing.Size(458, 372)
         Me.lbTorso.TabIndex = 73
         '
         'tblDescripcion
         '
+        Me.tblDescripcion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tblDescripcion.AutoSize = True
         Me.tblDescripcion.ColumnCount = 1
         Me.tblDescripcion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblDescripcion.Controls.Add(Me.txtDescripcion, 0, 1)
         Me.tblDescripcion.Controls.Add(Me.Label4, 0, 0)
-        Me.tblDescripcion.Location = New System.Drawing.Point(526, 766)
+        Me.tblDescripcion.Location = New System.Drawing.Point(529, 766)
         Me.tblDescripcion.Name = "tblDescripcion"
         Me.tblDescripcion.RowCount = 2
         Me.tblDescripcion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblDescripcion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196.0!))
-        Me.tblDescripcion.Size = New System.Drawing.Size(1105, 228)
+        Me.tblDescripcion.Size = New System.Drawing.Size(1312, 228)
         Me.tblDescripcion.TabIndex = 74
         '
         'txtDescripcion
@@ -197,7 +182,7 @@ Partial Class frmDolor
         Me.txtDescripcion.Location = New System.Drawing.Point(3, 35)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(1099, 190)
+        Me.txtDescripcion.Size = New System.Drawing.Size(1306, 190)
         Me.txtDescripcion.TabIndex = 69
         '
         'Label4
@@ -205,58 +190,20 @@ Partial Class frmDolor
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(419, 1)
+        Me.Label4.Location = New System.Drawing.Point(522, 1)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(267, 29)
         Me.Label4.TabIndex = 69
         Me.Label4.Text = "Descripción detallada"
         '
-        'btnImprimir
-        '
-        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
-        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnImprimir.Location = New System.Drawing.Point(1010, 1000)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(146, 45)
-        Me.btnImprimir.TabIndex = 72
-        Me.btnImprimir.Text = "Imprimir"
-        Me.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnImprimir.UseVisualStyleBackColor = True
-        '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiar.Location = New System.Drawing.Point(858, 1000)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(146, 45)
-        Me.btnLimpiar.TabIndex = 71
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(1162, 1000)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(146, 45)
-        Me.btnGuardar.TabIndex = 70
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnGuardar.UseVisualStyleBackColor = True
-        '
         'btnColDorsalDer
         '
+        Me.btnColDorsalDer.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnColDorsalDer.BackgroundImage = CType(resources.GetObject("btnColDorsalDer.BackgroundImage"), System.Drawing.Image)
         Me.btnColDorsalDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnColDorsalDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColDorsalDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnColDorsalDer.Location = New System.Drawing.Point(937, 300)
+        Me.btnColDorsalDer.Location = New System.Drawing.Point(957, 301)
         Me.btnColDorsalDer.Name = "btnColDorsalDer"
         Me.btnColDorsalDer.Size = New System.Drawing.Size(114, 190)
         Me.btnColDorsalDer.TabIndex = 62
@@ -264,11 +211,12 @@ Partial Class frmDolor
         '
         'btnColLumbarDer
         '
+        Me.btnColLumbarDer.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnColLumbarDer.BackgroundImage = CType(resources.GetObject("btnColLumbarDer.BackgroundImage"), System.Drawing.Image)
         Me.btnColLumbarDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnColLumbarDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColLumbarDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnColLumbarDer.Location = New System.Drawing.Point(937, 496)
+        Me.btnColLumbarDer.Location = New System.Drawing.Point(957, 497)
         Me.btnColLumbarDer.Name = "btnColLumbarDer"
         Me.btnColLumbarDer.Size = New System.Drawing.Size(114, 238)
         Me.btnColLumbarDer.TabIndex = 61
@@ -277,11 +225,12 @@ Partial Class frmDolor
         '
         'btnColLumbarIzq
         '
+        Me.btnColLumbarIzq.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnColLumbarIzq.BackgroundImage = CType(resources.GetObject("btnColLumbarIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnColLumbarIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnColLumbarIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColLumbarIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnColLumbarIzq.Location = New System.Drawing.Point(803, 496)
+        Me.btnColLumbarIzq.Location = New System.Drawing.Point(823, 497)
         Me.btnColLumbarIzq.Name = "btnColLumbarIzq"
         Me.btnColLumbarIzq.Size = New System.Drawing.Size(128, 238)
         Me.btnColLumbarIzq.TabIndex = 60
@@ -290,11 +239,12 @@ Partial Class frmDolor
         '
         'btnColDorsalIzq
         '
+        Me.btnColDorsalIzq.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnColDorsalIzq.BackgroundImage = CType(resources.GetObject("btnColDorsalIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnColDorsalIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnColDorsalIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnColDorsalIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnColDorsalIzq.Location = New System.Drawing.Point(803, 300)
+        Me.btnColDorsalIzq.Location = New System.Drawing.Point(823, 301)
         Me.btnColDorsalIzq.Name = "btnColDorsalIzq"
         Me.btnColDorsalIzq.Size = New System.Drawing.Size(128, 190)
         Me.btnColDorsalIzq.TabIndex = 59
@@ -303,11 +253,12 @@ Partial Class frmDolor
         '
         'btnOmoplatoIzq
         '
+        Me.btnOmoplatoIzq.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnOmoplatoIzq.BackgroundImage = CType(resources.GetObject("btnOmoplatoIzq.BackgroundImage"), System.Drawing.Image)
         Me.btnOmoplatoIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnOmoplatoIzq.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnOmoplatoIzq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOmoplatoIzq.Location = New System.Drawing.Point(676, 225)
+        Me.btnOmoplatoIzq.Location = New System.Drawing.Point(696, 226)
         Me.btnOmoplatoIzq.Name = "btnOmoplatoIzq"
         Me.btnOmoplatoIzq.Size = New System.Drawing.Size(121, 109)
         Me.btnOmoplatoIzq.TabIndex = 58
@@ -316,11 +267,12 @@ Partial Class frmDolor
         '
         'btnOmoplatoDer
         '
+        Me.btnOmoplatoDer.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnOmoplatoDer.BackgroundImage = CType(resources.GetObject("btnOmoplatoDer.BackgroundImage"), System.Drawing.Image)
         Me.btnOmoplatoDer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnOmoplatoDer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnOmoplatoDer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOmoplatoDer.Location = New System.Drawing.Point(1057, 225)
+        Me.btnOmoplatoDer.Location = New System.Drawing.Point(1077, 226)
         Me.btnOmoplatoDer.Name = "btnOmoplatoDer"
         Me.btnOmoplatoDer.Size = New System.Drawing.Size(121, 109)
         Me.btnOmoplatoDer.TabIndex = 57
@@ -329,11 +281,12 @@ Partial Class frmDolor
         '
         'btnCervicales
         '
+        Me.btnCervicales.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnCervicales.BackgroundImage = CType(resources.GetObject("btnCervicales.BackgroundImage"), System.Drawing.Image)
         Me.btnCervicales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCervicales.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCervicales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCervicales.Location = New System.Drawing.Point(803, 164)
+        Me.btnCervicales.Location = New System.Drawing.Point(823, 165)
         Me.btnCervicales.Name = "btnCervicales"
         Me.btnCervicales.Size = New System.Drawing.Size(248, 130)
         Me.btnCervicales.TabIndex = 56
@@ -342,11 +295,12 @@ Partial Class frmDolor
         '
         'btnCabezaDerBack
         '
+        Me.btnCabezaDerBack.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnCabezaDerBack.BackgroundImage = CType(resources.GetObject("btnCabezaDerBack.BackgroundImage"), System.Drawing.Image)
         Me.btnCabezaDerBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnCabezaDerBack.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCabezaDerBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCabezaDerBack.Location = New System.Drawing.Point(937, 5)
+        Me.btnCabezaDerBack.Location = New System.Drawing.Point(957, 6)
         Me.btnCabezaDerBack.Name = "btnCabezaDerBack"
         Me.btnCabezaDerBack.Size = New System.Drawing.Size(74, 153)
         Me.btnCabezaDerBack.TabIndex = 55
@@ -355,11 +309,12 @@ Partial Class frmDolor
         '
         'btnCabezaIzqBack
         '
+        Me.btnCabezaIzqBack.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnCabezaIzqBack.BackgroundImage = CType(resources.GetObject("btnCabezaIzqBack.BackgroundImage"), System.Drawing.Image)
         Me.btnCabezaIzqBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnCabezaIzqBack.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCabezaIzqBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCabezaIzqBack.Location = New System.Drawing.Point(857, 5)
+        Me.btnCabezaIzqBack.Location = New System.Drawing.Point(877, 6)
         Me.btnCabezaIzqBack.Name = "btnCabezaIzqBack"
         Me.btnCabezaIzqBack.Size = New System.Drawing.Size(74, 153)
         Me.btnCabezaIzqBack.TabIndex = 54
@@ -580,18 +535,19 @@ Partial Class frmDolor
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1523, 865)
+        Me.ClientSize = New System.Drawing.Size(1870, 865)
         Me.Controls.Add(Me.pnlContenedor)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDolor"
         Me.Text = "tmpDolor"
         Me.pnlContenedor.ResumeLayout(False)
-        Me.tblTorsoDorso.ResumeLayout(False)
+        Me.pnlContenedor.PerformLayout()
         Me.pnlDatosSeleccion.ResumeLayout(False)
         Me.pnlDatosSeleccion.PerformLayout()
         Me.tblDescripcion.ResumeLayout(False)
         Me.tblDescripcion.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -622,9 +578,6 @@ Partial Class frmDolor
     Friend WithEvents btnCabezaIzq As Button
     Friend WithEvents btnCabezaDer As Button
     Friend WithEvents Imprimir As Printing.PrintDocument
-    Friend WithEvents btnImprimir As Button
-    Friend WithEvents btnLimpiar As Button
-    Friend WithEvents btnGuardar As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents lbDorso As ListBox
     Friend WithEvents Label2 As Label
@@ -632,6 +585,5 @@ Partial Class frmDolor
     Friend WithEvents pnlDatosSeleccion As Panel
     Friend WithEvents tblDescripcion As TableLayoutPanel
     Friend WithEvents txtDescripcion As TextBox
-    Friend WithEvents tblTorsoDorso As TableLayoutPanel
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

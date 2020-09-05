@@ -1,4 +1,5 @@
-﻿Imports Entidades
+﻿Imports System.Web
+Imports Entidades
 Imports Negocio
 Public Class frmGestion
     Protected ctrlsPaciente As List(Of Control)
@@ -388,6 +389,9 @@ Public Class frmGestion
             Exit Sub
         End If
 
+        Dim fi As New IO.FileInfo(pBoxFotoUsuario.ImageLocation)
+        Dim nombreFoto = fi.Name
+
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim u = Base_props_user()
@@ -400,6 +404,7 @@ Public Class frmGestion
                     MessageBox.Show(p.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
+
                     Dim np As New N_Paciente
                     Dim res = np.AltaPaciente(p)
                     Select Case res
@@ -423,7 +428,7 @@ Public Class frmGestion
                     Exit Sub
                 End If
 
-                Dim m = Base_props_medico(u)
+                Dim m = Base_Props_Medico(u)
                 If Not m.ValidarMisDatos() Then
                     MessageBox.Show(m.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub

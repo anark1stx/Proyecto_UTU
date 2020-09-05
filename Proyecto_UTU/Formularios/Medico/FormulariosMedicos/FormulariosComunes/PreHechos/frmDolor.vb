@@ -1,4 +1,5 @@
 ﻿Public Class frmDolor
+    Dim Acciones As New AccionesFormulario
     Dim memobmp As Bitmap
 
     Private Sub btnCabezaDer_Click(sender As Object, e As EventArgs) Handles btnCabezaDer.Click
@@ -97,18 +98,18 @@
         AgregarItemALista("Omoplato Derecho", lbDorso, btnOmoplatoDer)
     End Sub
 
-    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
         LimpiarControles(pnlDatosSeleccion)
     End Sub
 
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
 
 
     End Sub
 
-    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
 
-        hideShowItems(False, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+        hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
 
         pnlContenedor.AutoScroll = False
         memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
@@ -118,7 +119,12 @@
 
         'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
 
-        hideShowItems(True, New List(Of Control)(New Control() {btnLimpiar, btnImprimir, btnGuardar}))
+        hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
+    End Sub
+
+    Sub agregarH_accionesFormulario()
+        AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
+        AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
     End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
@@ -127,7 +133,13 @@
     End Sub
 
     Sub mLoad() Handles Me.Load
-        tblDescripcion.Anchor += AnchorStyles.Right
-        tblTorsoDorso.Anchor += AnchorStyles.Right
+        Me.Dock = DockStyle.Fill
+
+        Acciones.TopLevel = False
+        Acciones.TopMost = True
+        pnlContenedor.Controls.Add(Acciones)
+        Acciones.Location = New Point(pnlContenedor.Width / 2, pnlContenedor.Height + Acciones.Height * 2.5)
+        Acciones.Visible = True
+        agregarH_accionesFormulario()
     End Sub
 End Class

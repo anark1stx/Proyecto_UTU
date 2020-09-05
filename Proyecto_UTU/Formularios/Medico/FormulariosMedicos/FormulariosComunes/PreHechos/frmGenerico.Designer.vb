@@ -22,7 +22,6 @@ Partial Class frmGenerico
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGenerico))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.gbSintomas = New System.Windows.Forms.GroupBox()
         Me.txtSintoma1 = New System.Windows.Forms.TextBox()
@@ -44,8 +43,6 @@ Partial Class frmGenerico
         Me.chkPacienteEnfermo = New System.Windows.Forms.CheckBox()
         Me.txtEnfermedad = New System.Windows.Forms.TextBox()
         Me.lblPacientePres = New System.Windows.Forms.Label()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnImprimir = New System.Windows.Forms.Button()
         Me.gbInspeccionGeneral = New System.Windows.Forms.GroupBox()
         Me.cbGradoHidr = New System.Windows.Forms.ComboBox()
         Me.lblGradoHidratacion = New System.Windows.Forms.Label()
@@ -71,7 +68,6 @@ Partial Class frmGenerico
         Me.lblFrecuenciaCard = New System.Windows.Forms.Label()
         Me.lblPulso = New System.Windows.Forms.Label()
         Me.lblTemperatura = New System.Windows.Forms.Label()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Imprimir = New System.Drawing.Printing.PrintDocument()
         Me.pnlContenedor.SuspendLayout()
         Me.gbSintomas.SuspendLayout()
@@ -90,16 +86,13 @@ Partial Class frmGenerico
         Me.pnlContenedor.Controls.Add(Me.gbSintomas)
         Me.pnlContenedor.Controls.Add(Me.gbMotivoConsulta)
         Me.pnlContenedor.Controls.Add(Me.gbResolucion)
-        Me.pnlContenedor.Controls.Add(Me.btnGuardar)
-        Me.pnlContenedor.Controls.Add(Me.btnImprimir)
         Me.pnlContenedor.Controls.Add(Me.gbInspeccionGeneral)
         Me.pnlContenedor.Controls.Add(Me.gbConstantesVitales)
-        Me.pnlContenedor.Controls.Add(Me.btnLimpiar)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
         Me.pnlContenedor.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1300, 1040)
+        Me.pnlContenedor.Size = New System.Drawing.Size(1300, 1000)
         Me.pnlContenedor.TabIndex = 0
         '
         'gbSintomas
@@ -337,34 +330,6 @@ Partial Class frmGenerico
         Me.lblPacientePres.Size = New System.Drawing.Size(253, 29)
         Me.lblPacientePres.TabIndex = 19
         Me.lblPacientePres.Text = "El paciente presenta:"
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(645, 1015)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(146, 45)
-        Me.btnGuardar.TabIndex = 47
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnGuardar.UseVisualStyleBackColor = True
-        '
-        'btnImprimir
-        '
-        Me.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
-        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnImprimir.Location = New System.Drawing.Point(493, 1015)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(146, 45)
-        Me.btnImprimir.TabIndex = 49
-        Me.btnImprimir.Text = "Imprimir"
-        Me.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnImprimir.UseVisualStyleBackColor = True
         '
         'gbInspeccionGeneral
         '
@@ -658,20 +623,6 @@ Partial Class frmGenerico
         Me.lblTemperatura.TabIndex = 0
         Me.lblTemperatura.Text = "Temperatura:"
         '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiar.Location = New System.Drawing.Point(341, 1015)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(146, 45)
-        Me.btnLimpiar.TabIndex = 48
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
         'Imprimir
         '
         Me.Imprimir.DocumentName = "formulario"
@@ -681,7 +632,7 @@ Partial Class frmGenerico
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1300, 1040)
+        Me.ClientSize = New System.Drawing.Size(1300, 1000)
         Me.Controls.Add(Me.pnlContenedor)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmGenerico"
@@ -724,8 +675,6 @@ Partial Class frmGenerico
     Friend WithEvents chkPacienteEnfermo As CheckBox
     Friend WithEvents txtEnfermedad As TextBox
     Friend WithEvents lblPacientePres As Label
-    Friend WithEvents btnGuardar As Button
-    Friend WithEvents btnImprimir As Button
     Friend WithEvents gbInspeccionGeneral As GroupBox
     Friend WithEvents cbGradoHidr As ComboBox
     Friend WithEvents lblGradoHidratacion As Label
@@ -751,7 +700,6 @@ Partial Class frmGenerico
     Friend WithEvents lblFrecuenciaCard As Label
     Friend WithEvents lblPulso As Label
     Friend WithEvents lblTemperatura As Label
-    Friend WithEvents btnLimpiar As Button
     Friend WithEvents Imprimir As Printing.PrintDocument
     Friend WithEvents txtTratamiento As TextBox
 End Class

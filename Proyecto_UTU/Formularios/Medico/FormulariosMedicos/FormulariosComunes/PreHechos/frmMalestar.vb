@@ -1,5 +1,10 @@
 ﻿Public Class frmMalestar
     Dim memobmp As Bitmap
+    Dim Acciones As New AccionesFormulario
+    Sub agregarH_accionesFormulario()
+        AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
+        AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
+    End Sub
     Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged
         If chkAnalisis.Checked Then
             txtNomAnalisis.Enabled = True
@@ -86,4 +91,14 @@
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
         e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
+
+    Private Sub mLoad() Handles MyBase.Load
+        Acciones.TopLevel = False
+        Acciones.TopMost = True
+        pnlContenedor.Controls.Add(Acciones)
+        Acciones.Location = New Point(pnlContenedor.Width / 2, pnlContenedor.Height + Acciones.Height * 2.5)
+        Acciones.Visible = True
+        agregarH_accionesFormulario()
+    End Sub
+
 End Class

@@ -7,7 +7,8 @@ Module mdlUtilidades
         Dim OFD As FileDialog = New OpenFileDialog With {
                 .Filter = "Imagen (*.jpg;*.png)|*.jpg;*.png",
                 .Title = "Elegir imagen",
-                .RestoreDirectory = True
+                .RestoreDirectory = True,
+                .Multiselect = False
         }
 
         If OFD.ShowDialog() = DialogResult.OK Then

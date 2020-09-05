@@ -9,7 +9,7 @@ Public Class D_Analisis
 
     Public Function AltaAnalisis(a As E_Analisis) As Integer
 
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -49,7 +49,7 @@ Public Class D_Analisis
     End Function
 
     Public Function AltaParametros(a As E_Analisis) As Integer 'hacer algo para verificar existencia del parametro antes
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
         Dim leer As New Recordset
@@ -100,7 +100,7 @@ Public Class D_Analisis
     End Function
 
     Public Function AltaIndicacion(a As E_Analisis) As Integer
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -129,7 +129,7 @@ Public Class D_Analisis
     End Function
 
     Public Function RetornarParametros() As List(Of E_Analisis.Parametro)
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -175,7 +175,7 @@ Public Class D_Analisis
     End Function
 
     Public Function AnalisisExiste(nombreanalisis As String) As Integer 'si el analisis ya existe avisar y pedir que cambie el nombre
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 

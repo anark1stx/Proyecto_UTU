@@ -9,7 +9,7 @@ Public Class D_Usuario
     Dim conexion As New Connection
     Public Function BuscarUsuariosCI(ci As String, Optional auxiliar As Boolean = False) As E_Usuario
         Dim leer As New Recordset
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
         Dim cmd As New Command
@@ -60,7 +60,7 @@ Public Class D_Usuario
 
     Public Overridable Function BuscarUsuariosApellido(ap As String, Optional auxiliar As Boolean = False) As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
         Dim leer As New Recordset
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
         Dim cmd As New Command
@@ -131,7 +131,7 @@ Public Class D_Usuario
 
     Public Function UsuarioExiste(ci As Integer) As Integer
         Dim leer As New Recordset
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -165,7 +165,7 @@ Public Class D_Usuario
 
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
         If MyBase.AltaUsuario(mysqlUser) = 1 Then
-            conexion.ConnectionString = retornarCString()
+            conexion.ConnectionString = retornarCStringBD()
             conexion.CursorLocation = adUseClient
             conexion.Open()
 
@@ -207,7 +207,7 @@ Public Class D_Usuario
 
     Public Function AltaUsuarioTelefono(u As E_Usuario) As Integer
 
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -234,7 +234,7 @@ Public Class D_Usuario
     End Function
 
     Public Function ModificarUsuario(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -289,7 +289,7 @@ Public Class D_Usuario
 
     Public Function borrarTelefonos(u As E_Usuario) As Integer
         Console.WriteLine("borrando telefonos")
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -314,7 +314,7 @@ Public Class D_Usuario
     End Function
 
     Public Function BajaLogicaUsuario(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
@@ -335,7 +335,7 @@ Public Class D_Usuario
     End Function
 
     Public Function AltaLogicaUsuario(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCString()
+        conexion.ConnectionString = retornarCStringBD()
         conexion.CursorLocation = adUseClient
         conexion.Open()
 
