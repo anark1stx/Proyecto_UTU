@@ -61,7 +61,7 @@ Public Class frmFiebre
         Acciones.TopLevel = False
         Acciones.TopMost = True
         tabEntrevista.Controls.Add(Acciones)
-        Acciones.Location = New Point(tabEntrevista.Width / 2, tabEntrevista.Height + Acciones.Height * 6)
+        Acciones.Location = New Point(tabEntrevista.Width / 2, tabEntrevista.Height + Acciones.Height * 4)
         Acciones.Visible = True
         agregarH_accionesFormulario()
     End Sub
@@ -86,6 +86,8 @@ Public Class frmFiebre
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
+        hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
+
         Dim lista As New List(Of Control)
 
         For Each c As Control In Me.Controls
@@ -97,7 +99,7 @@ Public Class frmFiebre
         GuardarFormulario(fbr.Serializar(lista))
         'BuscarPreguntasYRespuestas(Me, ListaPreguntasYRespuestas, Preguntas, Respuestas)
         'UnirPreguntasYRespuestas(Preguntas, Respuestas, ListaPreguntasYRespuestas)
-
+        hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
     End Sub
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)

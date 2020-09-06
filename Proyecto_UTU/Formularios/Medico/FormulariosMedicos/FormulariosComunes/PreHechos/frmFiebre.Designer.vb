@@ -59,7 +59,7 @@ Partial Class frmFiebre
         Me.txtTratamiento = New System.Windows.Forms.TextBox()
         Me.tblTemperatura = New System.Windows.Forms.TableLayoutPanel()
         Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
-        Me.gbTratamiento = New System.Windows.Forms.GroupBox()
+        Me.gbDescripcionDiagnostico = New System.Windows.Forms.GroupBox()
         Me.gbResolucion = New System.Windows.Forms.GroupBox()
         Me.gbPreguntas = New System.Windows.Forms.GroupBox()
         Me.lbSignosClinicos = New System.Windows.Forms.ListBox()
@@ -79,7 +79,7 @@ Partial Class frmFiebre
         Me.tblPulso.SuspendLayout()
         Me.tblGradoHidratacion.SuspendLayout()
         Me.tblTemperatura.SuspendLayout()
-        Me.gbTratamiento.SuspendLayout()
+        Me.gbDescripcionDiagnostico.SuspendLayout()
         Me.gbResolucion.SuspendLayout()
         Me.gbPreguntas.SuspendLayout()
         Me.SuspendLayout()
@@ -112,8 +112,8 @@ Partial Class frmFiebre
         Me.tabEntrevista.Controls.Add(Me.gbResolucion)
         Me.tabEntrevista.Controls.Add(Me.gbPreguntas)
         Me.tabEntrevista.Location = New System.Drawing.Point(4, 25)
+        Me.tabEntrevista.Margin = New System.Windows.Forms.Padding(0)
         Me.tabEntrevista.Name = "tabEntrevista"
-        Me.tabEntrevista.Padding = New System.Windows.Forms.Padding(3)
         Me.tabEntrevista.Size = New System.Drawing.Size(1326, 786)
         Me.tabEntrevista.TabIndex = 0
         Me.tabEntrevista.Text = "Entrevista"
@@ -429,7 +429,7 @@ Partial Class frmFiebre
         Me.chkAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(162, 33)
+        Me.chkAnalisis.Location = New System.Drawing.Point(162, 22)
         Me.chkAnalisis.Name = "chkAnalisis"
         Me.chkAnalisis.Size = New System.Drawing.Size(497, 33)
         Me.chkAnalisis.TabIndex = 24
@@ -442,7 +442,7 @@ Partial Class frmFiebre
         Me.lblNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNomAnalisis.AutoSize = True
         Me.lblNomAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomAnalisis.Location = New System.Drawing.Point(167, 72)
+        Me.lblNomAnalisis.Location = New System.Drawing.Point(167, 61)
         Me.lblNomAnalisis.Name = "lblNomAnalisis"
         Me.lblNomAnalisis.Size = New System.Drawing.Size(247, 29)
         Me.lblNomAnalisis.TabIndex = 22
@@ -482,7 +482,7 @@ Partial Class frmFiebre
         Me.txtTratamiento.Location = New System.Drawing.Point(9, 33)
         Me.txtTratamiento.Multiline = True
         Me.txtTratamiento.Name = "txtTratamiento"
-        Me.txtTratamiento.Size = New System.Drawing.Size(1136, 242)
+        Me.txtTratamiento.Size = New System.Drawing.Size(1136, 227)
         Me.txtTratamiento.TabIndex = 2
         Me.txtTratamiento.Tag = "r17"
         '
@@ -509,36 +509,36 @@ Partial Class frmFiebre
         Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomAnalisis.Enabled = False
         Me.txtNomAnalisis.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomAnalisis.Location = New System.Drawing.Point(440, 69)
+        Me.txtNomAnalisis.Location = New System.Drawing.Point(440, 58)
         Me.txtNomAnalisis.Name = "txtNomAnalisis"
         Me.txtNomAnalisis.Size = New System.Drawing.Size(652, 30)
         Me.txtNomAnalisis.TabIndex = 27
         Me.txtNomAnalisis.Tag = "r15"
         '
-        'gbTratamiento
+        'gbDescripcionDiagnostico
         '
-        Me.gbTratamiento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.gbDescripcionDiagnostico.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbTratamiento.Controls.Add(Me.lblDiagnostico)
-        Me.gbTratamiento.Controls.Add(Me.txtTratamiento)
-        Me.gbTratamiento.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTratamiento.Location = New System.Drawing.Point(6, 119)
-        Me.gbTratamiento.Name = "gbTratamiento"
-        Me.gbTratamiento.Size = New System.Drawing.Size(1154, 281)
-        Me.gbTratamiento.TabIndex = 26
-        Me.gbTratamiento.TabStop = False
+        Me.gbDescripcionDiagnostico.Controls.Add(Me.lblDiagnostico)
+        Me.gbDescripcionDiagnostico.Controls.Add(Me.txtTratamiento)
+        Me.gbDescripcionDiagnostico.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDescripcionDiagnostico.Location = New System.Drawing.Point(9, 108)
+        Me.gbDescripcionDiagnostico.Name = "gbDescripcionDiagnostico"
+        Me.gbDescripcionDiagnostico.Size = New System.Drawing.Size(1154, 266)
+        Me.gbDescripcionDiagnostico.TabIndex = 26
+        Me.gbDescripcionDiagnostico.TabStop = False
         '
         'gbResolucion
         '
         Me.gbResolucion.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.gbResolucion.Controls.Add(Me.txtNomAnalisis)
-        Me.gbResolucion.Controls.Add(Me.gbTratamiento)
+        Me.gbResolucion.Controls.Add(Me.gbDescripcionDiagnostico)
         Me.gbResolucion.Controls.Add(Me.chkAnalisis)
         Me.gbResolucion.Controls.Add(Me.lblNomAnalisis)
         Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbResolucion.Location = New System.Drawing.Point(69, 584)
+        Me.gbResolucion.Location = New System.Drawing.Point(69, 581)
         Me.gbResolucion.Name = "gbResolucion"
-        Me.gbResolucion.Size = New System.Drawing.Size(1160, 403)
+        Me.gbResolucion.Size = New System.Drawing.Size(1160, 381)
         Me.gbResolucion.TabIndex = 53
         Me.gbResolucion.TabStop = False
         Me.gbResolucion.Text = "Resolución"
@@ -560,7 +560,7 @@ Partial Class frmFiebre
         Me.gbPreguntas.Controls.Add(Me.tblPulso)
         Me.gbPreguntas.Controls.Add(Me.tblGradoHidratacion)
         Me.gbPreguntas.Controls.Add(Me.tblTemperatura)
-        Me.gbPreguntas.Location = New System.Drawing.Point(69, 6)
+        Me.gbPreguntas.Location = New System.Drawing.Point(69, 3)
         Me.gbPreguntas.Name = "gbPreguntas"
         Me.gbPreguntas.Size = New System.Drawing.Size(1160, 572)
         Me.gbPreguntas.TabIndex = 54
@@ -663,8 +663,8 @@ Partial Class frmFiebre
         Me.tblGradoHidratacion.ResumeLayout(False)
         Me.tblTemperatura.ResumeLayout(False)
         Me.tblTemperatura.PerformLayout()
-        Me.gbTratamiento.ResumeLayout(False)
-        Me.gbTratamiento.PerformLayout()
+        Me.gbDescripcionDiagnostico.ResumeLayout(False)
+        Me.gbDescripcionDiagnostico.PerformLayout()
         Me.gbResolucion.ResumeLayout(False)
         Me.gbResolucion.PerformLayout()
         Me.gbPreguntas.ResumeLayout(False)
@@ -678,7 +678,7 @@ Partial Class frmFiebre
     Friend WithEvents tabSintomasYSignos As TabPage
     Friend WithEvents gbResolucion As GroupBox
     Friend WithEvents txtNomAnalisis As TextBox
-    Friend WithEvents gbTratamiento As GroupBox
+    Friend WithEvents gbDescripcionDiagnostico As GroupBox
     Friend WithEvents lblDiagnostico As Label
     Friend WithEvents txtTratamiento As TextBox
     Friend WithEvents chkAnalisis As CheckBox
