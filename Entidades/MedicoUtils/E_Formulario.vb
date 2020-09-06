@@ -5,7 +5,7 @@
     Protected _v_previa As String 'ruta .jpg/png
     Protected _paciente As E_Paciente 'paciente del cual se estan recabando los datos en la consulta
     Protected _medico As E_Medico 'medico que esta recabando datos del paciente en la consulta
-
+    Protected _preguntasYrespuestas As List(Of PreguntaRespuesta)
     Property Nombre As String
         Get
             Return _nombre

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,6 +71,7 @@
     <Compile Include="MedicoUtils\E_Enfermedad.vb" />
     <Compile Include="MedicoUtils\E_Formulario.vb" />
     <Compile Include="MedicoUtils\E_Tratamiento.vb" />
+    <Compile Include="MedicoUtils\PreguntaRespuesta.vb" />
     <Compile Include="Usuarios\E_Medico.vb" />
     <Compile Include="Usuarios\E_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

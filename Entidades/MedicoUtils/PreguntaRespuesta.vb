@@ -20,7 +20,6 @@ Public Class PreguntaRespuesta
         End Set
     End Property
 
-
     Sub New()
 
     End Sub
