@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing
-Module mdlUtils
+Imports System.Windows.Forms
+Public Module mdlUtils
 
     Public Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
 
@@ -10,5 +11,61 @@ Module mdlUtils
     Public Function HTMLTOColor(col As String) As Color
         Return ColorTranslator.FromHtml(col)
     End Function
+
+
+    Public Sub UnirPreguntasYRespuestas(Preguntas As List(Of Control), Respuestas As List(Of Control), ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
+
+        For Each p As Control In Preguntas
+            Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
+            If respuesta Is Nothing Then
+                respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
+            End If
+            'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
+            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
+        Next
+
+        For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
+            Select Case pyr.Pregunta.GetType()
+                Case GetType(CheckBox)
+                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked)
+                Case Else
+                    Try
+                        Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
+                    Catch ex As Exception
+                        Console.WriteLine("err")
+                    End Try
+
+            End Select
+
+        Next
+
+    End Sub
+
+    Public Sub BuscarPreguntasYRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta), Preguntas As List(Of Control), Respuestas As List(Of Control))
+
+        For Each c As Control In contenedor.Controls
+            Select Case c.GetType
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                    BuscarPreguntasYRespuestas(c, ListaPreguntasYRespuestas, Preguntas, Respuestas)
+                Case Else
+                    If Not String.IsNullOrEmpty(c.Tag) Then
+
+                        If c.Tag.StartsWith("pr") Then
+                            Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
+                            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c, c))
+                        ElseIf c.Tag.StartsWith("p") Then 'pregunta
+                            Console.WriteLine("Pregunta: " & c.Tag)
+                            Preguntas.Add(c)
+                        ElseIf c.Tag.StartsWith("r") Then ' respuesta
+                            Console.WriteLine("Respuesta: " & c.Tag)
+                            Console.WriteLine("Respuesta: " & c.Text)
+                            Respuestas.Add(c)
+                        End If
+
+                    End If
+            End Select
+        Next
+
+    End Sub
 
 End Module

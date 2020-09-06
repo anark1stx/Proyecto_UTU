@@ -85,65 +85,64 @@ Public Class frmFiebre
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
-        calls = 0
-        BuscarPreguntasYRespuestas(Me)
-        UnirPreguntasYRespuestas()
+        BuscarPreguntasYRespuestas(Me, ListaPreguntasYRespuestas, Preguntas, Respuestas)
+        UnirPreguntasYRespuestas(Preguntas, Respuestas, ListaPreguntasYRespuestas)
     End Sub
 
-    Sub UnirPreguntasYRespuestas()
+    'Sub UnirPreguntasYRespuestas()
 
-        For Each p As Control In Preguntas
-            Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
-            If respuesta Is Nothing Then
-                respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
-            End If
-            'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
-            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
-        Next
+    '    For Each p As Control In Preguntas
+    '        Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
+    '        If respuesta Is Nothing Then
+    '            respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
+    '        End If
+    '        'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
+    '        ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
+    '    Next
 
-        For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
-            Select Case pyr.Pregunta.GetType()
-                Case GetType(CheckBox)
-                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked)
-                Case Else
-                    Try
-                        Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
-                    Catch ex As Exception
-                        Console.WriteLine("err")
-                    End Try
+    '    For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
+    '        Select Case pyr.Pregunta.GetType()
+    '            Case GetType(CheckBox)
+    '                Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked)
+    '            Case Else
+    '                Try
+    '                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
+    '                Catch ex As Exception
+    '                    Console.WriteLine("err")
+    '                End Try
 
-            End Select
+    '        End Select
 
-        Next
+    '    Next
 
-    End Sub
+    'End Sub
 
-    Sub BuscarPreguntasYRespuestas(contenedor As Control)
+    'Sub BuscarPreguntasYRespuestas(contenedor As Control)
 
-        For Each c As Control In contenedor.Controls
-            Select Case c.GetType
-                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
-                    BuscarPreguntasYRespuestas(c)
-                Case Else
-                    If Not String.IsNullOrEmpty(c.Tag) Then
+    '    For Each c As Control In contenedor.Controls
+    '        Select Case c.GetType
+    '            Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+    '                BuscarPreguntasYRespuestas(c)
+    '            Case Else
+    '                If Not String.IsNullOrEmpty(c.Tag) Then
 
-                        If c.Tag.StartsWith("pr") Then
-                            Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
-                            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c, c))
-                        ElseIf c.Tag.StartsWith("p") Then 'pregunta
-                            Console.WriteLine("Pregunta: " & c.Tag)
-                            Preguntas.Add(c)
-                        ElseIf c.Tag.StartsWith("r") Then ' respuesta
-                            Console.WriteLine("Respuesta: " & c.Tag)
-                            Console.WriteLine("Respuesta: " & c.Text)
-                            Respuestas.Add(c)
-                        End If
+    '                    If c.Tag.StartsWith("pr") Then
+    '                        Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
+    '                        ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c, c))
+    '                    ElseIf c.Tag.StartsWith("p") Then 'pregunta
+    '                        Console.WriteLine("Pregunta: " & c.Tag)
+    '                        Preguntas.Add(c)
+    '                    ElseIf c.Tag.StartsWith("r") Then ' respuesta
+    '                        Console.WriteLine("Respuesta: " & c.Tag)
+    '                        Console.WriteLine("Respuesta: " & c.Text)
+    '                        Respuestas.Add(c)
+    '                    End If
 
-                    End If
-            End Select
-        Next
+    '                End If
+    '        End Select
+    '    Next
 
-    End Sub
+    'End Sub
 
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
