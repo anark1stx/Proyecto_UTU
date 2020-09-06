@@ -1,4 +1,5 @@
 ﻿Imports FormulariosPersonalizados
+Imports Entidades
 Public Class formularioPlano
     Public ubicacion_mouse As Point
     Public ctrl_seleccionado As Control
