@@ -12,35 +12,6 @@ Public Module mdlUtils
         Return ColorTranslator.FromHtml(col)
     End Function
 
-
-    Public Sub UnirPreguntasYRespuestas(Preguntas As List(Of Control), Respuestas As List(Of Control), ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
-
-        For Each p As Control In Preguntas
-            Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
-            If respuesta Is Nothing Then
-                respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
-            End If
-            'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
-            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
-        Next
-
-        For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
-            Select Case pyr.Pregunta.GetType()
-                Case GetType(CheckBox)
-                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked)
-                Case Else
-                    Try
-                        Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
-                    Catch ex As Exception
-                        Console.WriteLine("err")
-                    End Try
-
-            End Select
-
-        Next
-
-    End Sub
-
     Public Sub BuscarPreguntasYRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta), Preguntas As List(Of Control), Respuestas As List(Of Control))
 
         For Each c As Control In contenedor.Controls
@@ -64,6 +35,34 @@ Public Module mdlUtils
 
                     End If
             End Select
+        Next
+
+    End Sub
+
+    Public Sub UnirPreguntasYRespuestas(Preguntas As List(Of Control), Respuestas As List(Of Control), ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
+
+        For Each p As Control In Preguntas
+            Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
+            If respuesta Is Nothing Then
+                respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
+            End If
+            'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
+            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
+        Next
+
+        For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
+            Select Case pyr.Pregunta.GetType()
+                Case GetType(CheckBox)
+                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked) 'Si es un CheckBox, sabemos que la pregunta es la propiedad Text, y que la respuesta es su propiedad Checked (verdadero o falso)
+                Case Else
+                    Try
+                        Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
+                    Catch ex As Exception
+                        Console.WriteLine("err")
+                    End Try
+
+            End Select
+
         Next
 
     End Sub
