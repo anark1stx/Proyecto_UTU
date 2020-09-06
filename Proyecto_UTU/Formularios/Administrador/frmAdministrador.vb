@@ -1,4 +1,5 @@
 ﻿Imports Entidades
+Imports Utilidades
 Public Class frmAdministrador
     Dim _frmInicio As New frmInicioAdm 'Este es el formulario que muestra los botones grandes para hacer ABMLB
 

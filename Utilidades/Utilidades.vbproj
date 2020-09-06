@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B5ABBD55-BC6C-48DB-9D57-784B1BCE89EB}</ProjectGuid>
+    <ProjectGuid>{B557AEAC-041F-45AD-9992-54EC059D461A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FormulariosPersonalizados</RootNamespace>
-    <AssemblyName>FormulariosPersonalizados</AssemblyName>
+    <RootNamespace>Utilidades</RootNamespace>
+    <AssemblyName>Utilidades</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -19,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>FormulariosPersonalizados.xml</DocumentationFile>
+    <DocumentationFile>Utilidades.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -28,7 +28,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>FormulariosPersonalizados.xml</DocumentationFile>
+    <DocumentationFile>Utilidades.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -66,7 +66,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mdlEventos.vb" />
+    <Compile Include="mdlChecker.vb" />
+    <Compile Include="mdlMensajes.vb" />
+    <Compile Include="mdlUtilidades.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -82,11 +84,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Serializacion_Deserializacion\Clases\ControlesGuardados.vb" />
-    <Compile Include="Serializacion_Deserializacion\Clases\FabricaDeControles.vb" />
-    <Compile Include="Serializacion_Deserializacion\Clases\PreguntaRespuesta.vb" />
-    <Compile Include="Serializacion_Deserializacion\mdlUtils.vb" />
-    <Compile Include="Serializacion_Deserializacion\XML\GestorXMLv2.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -106,12 +103,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
-      <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>
-      <Name>Utilidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing
+Imports System.IO
 Imports System.Windows.Forms
 Public Module mdlUtils
 
@@ -66,5 +67,48 @@ Public Module mdlUtils
         Next
 
     End Sub
+    Public Function ImportarFormulario() As List(Of Control)
+
+        Dim abrirFormulario As New OpenFileDialog With { 'Sustituir esto por un catalogo con los formularios que hay en la BD.
+            .Filter = "XML|*.xml",
+            .Title = "Abrir Formulario",
+            .RestoreDirectory = True
+        }
+
+        If abrirFormulario.ShowDialog() = DialogResult.OK Then
+            Dim path As String = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
+            Dim contenido As String = File.ReadAllText(path)
+            Dim gestor As New GestorXMLv2
+            Dim fbr As New FabricaDeControles()
+            Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(contenido)
+
+            Return fbr.Crear(lista)
+        Else
+            Return Nothing
+        End If
+
+    End Function
+
+    Public Sub GuardarFormulario(lista_controles As ControlesGuardados.ListaControles)
+
+        Dim archivo As New Xml.XmlDocument
+        Dim gestor As New GestorXMLv2
+
+        Dim xmlstring As String = gestor.Serializar(lista_controles)
+        archivo.LoadXml(xmlstring)
+
+        Dim guardarFormulario As New SaveFileDialog With {
+            .Filter = "XML|*.xml",
+            .Title = "Guardar Formulario",
+            .RestoreDirectory = True
+        }
+
+        If guardarFormulario.ShowDialog() = DialogResult.OK Then
+            Dim path As String = IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
+            archivo.Save(path)
+        End If
+
+    End Sub
+
 
 End Module

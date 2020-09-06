@@ -1,6 +1,6 @@
-﻿Imports System.Web
-Imports Entidades
+﻿Imports Entidades
 Imports Negocio
+Imports Utilidades
 Public Class frmGestion
     Protected ctrlsPaciente As List(Of Control)
     Protected ctrlsUsuario As List(Of Control)

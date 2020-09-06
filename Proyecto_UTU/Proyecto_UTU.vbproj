@@ -277,9 +277,6 @@
     <Compile Include="Formularios\Usuario\frmOlvideMiContrasena.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulos\mdlChecker.vb" />
-    <Compile Include="Modulos\mdlMensajes.vb" />
-    <Compile Include="Modulos\mdlUtilidades.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -437,6 +434,10 @@
     <ProjectReference Include="..\Negocio\Negocio.vbproj">
       <Project>{c424e458-2687-4aee-bae4-b2a2fc18d00f}</Project>
       <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
+      <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>
+      <Name>Utilidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

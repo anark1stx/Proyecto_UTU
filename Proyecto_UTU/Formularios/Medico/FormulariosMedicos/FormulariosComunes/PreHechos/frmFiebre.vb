@@ -1,5 +1,6 @@
 ﻿Imports Entidades
 Imports FormulariosPersonalizados
+Imports Utilidades
 Imports Negocio
 Public Class frmFiebre
     Dim memobmp As Bitmap

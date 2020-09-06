@@ -1,6 +1,6 @@
 ﻿Imports Entidades
 Imports Negocio
-
+Imports Utilidades
 Public Class frmDolor
     Dim Acciones As New AccionesFormulario
     Dim memobmp As Bitmap

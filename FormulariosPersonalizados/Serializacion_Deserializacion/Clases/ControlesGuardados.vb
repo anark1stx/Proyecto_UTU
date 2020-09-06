@@ -346,6 +346,8 @@ Public Class ControlesGuardados
         Public _bgImage As String 'String en base64
         <Xml.Serialization.XmlIgnore>
         Public _bgLayout As ImageLayout
+        <Xml.Serialization.XmlIgnore>
+        Public _eventos As List(Of Evento)
         Property bgImage As String
             Get
                 Return _bgImage
@@ -604,6 +606,93 @@ Public Class ControlesGuardados
             _rowIndex = rowIndex
         End Sub
 
+    End Class
+
+    Public Class Evento
+        <Xml.Serialization.XmlIgnore>
+        Protected _disparador
+        <Xml.Serialization.XmlIgnore>
+        Protected _fuente
+        <Xml.Serialization.XmlIgnore>
+        Protected _destino
+        <Xml.Serialization.XmlIgnore>
+        Protected _accion As EventoAccion
+        <Xml.Serialization.XmlIgnore>
+        Protected _selected As Boolean 'sencillamente para arreglarnos con el evento de los colores
+        Public Enum EventoAccion
+            AgregarItemALista
+            EliminarItemDeLista
+            PintarFondo
+            CambiarFoto
+        End Enum
+        Property Disparador As Control
+            Get
+                Return _disparador
+            End Get
+            Set(value As Control)
+                _disparador = value
+            End Set
+        End Property
+
+        Property Fuente As Control
+            Get
+                Return _fuente
+            End Get
+            Set(value As Control)
+                _fuente = value
+            End Set
+        End Property
+
+        Property Destino As Control
+            Get
+                Return _destino
+            End Get
+            Set(value As Control)
+                _destino = value
+            End Set
+        End Property
+
+        Property Accion As EventoAccion
+            Get
+                Return _accion
+            End Get
+            Set(value As EventoAccion)
+                _accion = value
+            End Set
+        End Property
+
+        Property Selected As Boolean
+            Get
+                Return _selected
+            End Get
+            Set(value As Boolean)
+                _selected = value
+            End Set
+        End Property
+
+        Sub New()
+
+        End Sub
+
+        'cuando cargo los eventos desde el codigo, agregar la lista de Eventos del botón como handlers
+        'Dim ev As New ControlesGuardados.Evento()
+        'ev.Disparador = btnAgregarItem.Click
+        'ev.Fuente = txtIngresarSintoma
+        'ev.Destino = lbSintomas
+        'ev.Accion = EventoAccion.AgregarItemALista
+        'AddHandler btn.Click, AddressOf Evento.Evento
+        Public Sub Evento(sender As Object, e As EventArgs)
+            Select Case Accion.ToString()
+                Case EventoAccion.AgregarItemALista
+                    AgregarItemALista(Fuente, Destino)
+                Case EventoAccion.EliminarItemDeLista
+                    EliminarItemDeLista(Fuente)
+                Case EventoAccion.PintarFondo
+                    PintarFondo(Fuente, Selected)
+                Case EventoAccion.CambiarFoto
+                    CambiarFoto(Fuente)
+            End Select
+        End Sub
     End Class
 
 End Class

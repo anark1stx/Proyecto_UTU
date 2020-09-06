@@ -1,5 +1,6 @@
 ﻿Imports Negocio
 Imports Entidades
+Imports Utilidades
 Public Class frmIngreso_Usuario
     Dim frmAdm As New frmAdministrador
     Dim frmMed As New frmMedico

@@ -1,4 +1,5 @@
 ﻿Imports Entidades
+Imports Utilidades
 Public Class frmGenerico
     Dim Acciones As New AccionesFormulario
     Dim memobmp As Bitmap

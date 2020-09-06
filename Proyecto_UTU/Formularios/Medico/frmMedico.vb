@@ -1,6 +1,7 @@
 ﻿Imports System.Globalization
 Imports Entidades
 Imports Negocio
+Imports Utilidades
 Public Class frmMedico
 
     Dim frmIni As New frmInicio

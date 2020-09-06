@@ -1,5 +1,6 @@
 ﻿Imports Entidades
 Imports FormulariosPersonalizados
+Imports Utilidades
 Public Class frmMalestar
     Dim memobmp As Bitmap
     Dim Acciones As New AccionesFormulario

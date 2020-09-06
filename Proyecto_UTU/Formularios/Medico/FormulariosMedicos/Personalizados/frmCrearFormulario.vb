@@ -1,4 +1,5 @@
 ﻿Imports FormulariosPersonalizados
+Imports Utilidades
 Public Class frmCrearFormulario
 
     Dim _cursor As Cursor = Cursors.Hand

@@ -1,4 +1,4 @@
-﻿Module mdlMensajes
+﻿Public Module mdlMensajes
     Function MensajeDeErrorLongitud(min As Integer, max As Integer) As String
         Return "Verifique que haya ingresado más de " & min & " caracteres" & " y menos de " & max
     End Function

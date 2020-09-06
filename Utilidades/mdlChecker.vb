@@ -1,4 +1,4 @@
-﻿Module mdlChecker
+﻿Public Module mdlChecker
     Public optMsg As String = ""
     Public Function check_contieneNumeros(propiedad As String) As Boolean
 
