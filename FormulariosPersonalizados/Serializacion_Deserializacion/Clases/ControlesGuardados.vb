@@ -2,7 +2,7 @@
 Imports System.Drawing
 <Serializable()>
 Public Class ControlesGuardados
-    <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button)), Xml.Serialization.XmlInclude(GetType(TableLayoutPanel))> 'Todos los controles que heredan directamente de SControl
+    <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button)), Xml.Serialization.XmlInclude(GetType(TableLayoutPanel)), Xml.Serialization.XmlInclude(GetType(TabControl)), Xml.Serialization.XmlInclude(GetType(TabPage))> 'Todos los controles que heredan directamente de SControl
     Public Class SControl 'Posicion, Nombre y tamaño son las unicas dos propiedades que vamos a tomar de todos los controles de forma obligatoria.
         <Xml.Serialization.XmlIgnore>
         Public _posicion As Point
@@ -201,7 +201,7 @@ Public Class ControlesGuardados
         Sub New()
 
         End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, autoSctroll As Boolean, childs As List(Of SControl))
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, autoScroll As Boolean, childs As List(Of SControl))
 
             _posicion = posicion
             _tamano = tamano
@@ -210,7 +210,7 @@ Public Class ControlesGuardados
             _anchor = anchor
             _fgColor = fg
             _bgColor = bg
-            _autoScroll = autoSctroll
+            _autoScroll = autoScroll
             _childs = childs
         End Sub
     End Class
@@ -474,6 +474,69 @@ Public Class ControlesGuardados
             _items = items
             _font = FontToStr(font)
             _tag = tag
+        End Sub
+    End Class
+
+    Public Class TabControl
+        Inherits SControl
+        <Xml.Serialization.XmlIgnore>
+        Public _Pages As List(Of TabPage)
+
+        Property Pages As List(Of TabPage)
+            Get
+                Return _Pages
+            End Get
+            Set(value As List(Of TabPage))
+                _Pages = value
+            End Set
+        End Property
+
+        Sub New()
+
+        End Sub
+
+        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, bg As String, pages As List(Of TabPage))
+
+            _posicion = posicion
+            _tamano = tamano
+            _nombre = nombre
+            _dock = dock
+            _anchor = Anchor
+            _bgColor = bg
+            _Pages = pages
+        End Sub
+
+    End Class
+
+    Public Class TabPage
+        Inherits Panel
+        <Xml.Serialization.XmlIgnore>
+        Public _texto As String
+
+        Property Texto As String
+            Get
+                Return _texto
+            End Get
+            Set(value As String)
+                _texto = value
+            End Set
+        End Property
+
+        Sub New()
+
+        End Sub
+
+        Sub New(posicion As Point, tamano As Size, nombre As String, bg As String, childs As List(Of SControl), autoScroll As Boolean, texto As String)
+            _posicion = posicion
+            _tamano = tamano
+            _nombre = nombre
+            _dock = Dock
+            _anchor = Anchor
+            _bgColor = bg
+            _childs = childs
+            _autoScroll = autoScroll
+            _texto = texto
+
         End Sub
     End Class
 

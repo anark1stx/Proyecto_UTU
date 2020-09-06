@@ -1,4 +1,5 @@
 ﻿Imports Entidades
+Imports FormulariosPersonalizados
 Public Class frmMalestar
     Dim memobmp As Bitmap
     Dim Acciones As New AccionesFormulario
@@ -35,20 +36,6 @@ Public Class frmMalestar
         End If
     End Sub
 
-    Private Sub chkSemanas_CheckedChanged(sender As Object, e As EventArgs) Handles chkSemanas.Click
-        chkMeses.Checked = False
-    End Sub
-
-    Private Sub chkMeses_CheckedChanged(sender As Object, e As EventArgs) Handles chkMeses.Click
-        chkSemanas.Checked = False
-    End Sub
-
-    Private Sub chkConstante_CheckedChanged(sender As Object, e As EventArgs) Handles chkConstante.Click
-        chkEpisodico.Checked = False
-    End Sub
-    Private Sub chkEpisodico_CheckedChanged(sender As Object, e As EventArgs) Handles chkEpisodico.Click
-        chkConstante.Checked = False
-    End Sub
 
     Private Sub chkADiarias_Si_CheckedChanged(sender As Object, e As EventArgs) Handles chkADiarias_Si.Click
         chkADiarias_No.Checked = False
@@ -95,7 +82,15 @@ Public Class frmMalestar
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
+        Dim lista As New List(Of Control)
 
+        For Each c As Control In Me.Controls
+            lista.Add(c)
+        Next
+
+
+        Dim fbr As New FabricaDeControles()
+        GuardarFormulario(fbr.Serializar(lista))
     End Sub
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))

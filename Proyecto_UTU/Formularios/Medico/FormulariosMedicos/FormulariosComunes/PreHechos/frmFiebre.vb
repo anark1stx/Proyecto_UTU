@@ -10,6 +10,8 @@ Public Class frmFiebre
     Protected _preguntas As New List(Of Control)
     Protected _respuestas As New List(Of Control)
     Dim calls As Integer = 0
+
+
     Property Preguntas As List(Of Control)
         Get
             Return _preguntas
@@ -58,8 +60,8 @@ Public Class frmFiebre
         Me.Dock = DockStyle.Fill
         Acciones.TopLevel = False
         Acciones.TopMost = True
-        pnlContenedor.Controls.Add(Acciones)
-        Acciones.Location = New Point(pnlContenedor.Width / 2, pnlContenedor.Height + Acciones.Height * 6)
+        tabEntrevista.Controls.Add(Acciones)
+        Acciones.Location = New Point(tabEntrevista.Width / 2, tabEntrevista.Height + Acciones.Height * 6)
         Acciones.Visible = True
         agregarH_accionesFormulario()
     End Sub
@@ -71,7 +73,7 @@ Public Class frmFiebre
 
     End Sub
 
-    Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged
+    Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs)
         If chkAnalisis.Checked Then
             txtNomAnalisis.Enabled = True
         Else
@@ -79,71 +81,24 @@ Public Class frmFiebre
         End If
     End Sub
 
-
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
         LimpiarControles(Me)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
-        BuscarPreguntasYRespuestas(Me, ListaPreguntasYRespuestas, Preguntas, Respuestas)
-        UnirPreguntasYRespuestas(Preguntas, Respuestas, ListaPreguntasYRespuestas)
+        Dim lista As New List(Of Control)
+
+        For Each c As Control In Me.Controls
+            lista.Add(c)
+        Next
+
+
+        Dim fbr As New FabricaDeControles()
+        GuardarFormulario(fbr.Serializar(lista))
+        'BuscarPreguntasYRespuestas(Me, ListaPreguntasYRespuestas, Preguntas, Respuestas)
+        'UnirPreguntasYRespuestas(Preguntas, Respuestas, ListaPreguntasYRespuestas)
+
     End Sub
-
-    'Sub UnirPreguntasYRespuestas()
-
-    '    For Each p As Control In Preguntas
-    '        Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
-    '        If respuesta Is Nothing Then
-    '            respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
-    '        End If
-    '        'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
-    '        ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
-    '    Next
-
-    '    For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
-    '        Select Case pyr.Pregunta.GetType()
-    '            Case GetType(CheckBox)
-    '                Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked)
-    '            Case Else
-    '                Try
-    '                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
-    '                Catch ex As Exception
-    '                    Console.WriteLine("err")
-    '                End Try
-
-    '        End Select
-
-    '    Next
-
-    'End Sub
-
-    'Sub BuscarPreguntasYRespuestas(contenedor As Control)
-
-    '    For Each c As Control In contenedor.Controls
-    '        Select Case c.GetType
-    '            Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
-    '                BuscarPreguntasYRespuestas(c)
-    '            Case Else
-    '                If Not String.IsNullOrEmpty(c.Tag) Then
-
-    '                    If c.Tag.StartsWith("pr") Then
-    '                        Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
-    '                        ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c, c))
-    '                    ElseIf c.Tag.StartsWith("p") Then 'pregunta
-    '                        Console.WriteLine("Pregunta: " & c.Tag)
-    '                        Preguntas.Add(c)
-    '                    ElseIf c.Tag.StartsWith("r") Then ' respuesta
-    '                        Console.WriteLine("Respuesta: " & c.Tag)
-    '                        Console.WriteLine("Respuesta: " & c.Text)
-    '                        Respuestas.Add(c)
-    '                    End If
-
-    '                End If
-    '        End Select
-    '    Next
-
-    'End Sub
-
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
@@ -157,7 +112,7 @@ Public Class frmFiebre
 
     End Sub
 
-    Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
+    Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
 
         e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
     End Sub
