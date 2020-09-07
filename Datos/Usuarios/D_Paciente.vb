@@ -3,7 +3,7 @@ Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Public Class D_Paciente
     Inherits D_Usuario
-    Dim conexion As New MySqlConnection
+    Dim conexion As New MySqlConnection(retornarCStringBD())
     Public Function ListarPacientesCI(ci As Integer) As E_Paciente
 
         Dim result = MyBase.BuscarUsuariosCI(ci)
@@ -16,7 +16,6 @@ Public Class D_Paciente
 
         Dim leer As MySqlDataReader
 
-        conexion.ConnectionString = retornarCStringBD()
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "BuscarPACIENTExCI",

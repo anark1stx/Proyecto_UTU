@@ -1,7 +1,5 @@
 ﻿Imports Entidades
-Imports MySql.Data
 Imports MySql.Data.MySqlClient
-Imports System.Configuration
 Public Class D_UsuarioMYSQL
     Dim conexion As New MySqlConnection()
 
@@ -16,6 +14,7 @@ Public Class D_UsuarioMYSQL
         Console.WriteLine(conexion.ConnectionString)
         Try
             conexion.Open()
+            conexion.Close()
         Catch ex As Exception
             conexion.Close()
             Console.WriteLine(ex.Message)
@@ -31,6 +30,7 @@ Public Class D_UsuarioMYSQL
 
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = usuario
         Try
+            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
             If leer.HasRows Then
                 While leer.Read()
@@ -46,7 +46,7 @@ Public Class D_UsuarioMYSQL
                     }
             End If
             cmd.Connection.Close()
-        Catch ex As Exception '<-REEMPLAZAR ESTO POR ALGO MAS COMUNICATIVO
+        Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
 
@@ -66,7 +66,7 @@ Public Class D_UsuarioMYSQL
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = u.Nombre
         cmd.Parameters.Add("CONTRASENA", MySqlDbType.VarChar, 30).Value = u.Contrasena
         cmd.Parameters.Add("ROL", MySqlDbType.VarChar, 30).Value = u.Rol
-
+        Console.WriteLine("El rol es: " & u.Rol)
         Try
             cmd.Connection.Open()
             cmd.ExecuteNonQuery()

@@ -1,6 +1,4 @@
-﻿Imports System.Net
-
-Module Credenciales
+﻿Module Credenciales
     Private _usr As String = ""
     Private _pwd As String = ""
     Private _str As String = ""

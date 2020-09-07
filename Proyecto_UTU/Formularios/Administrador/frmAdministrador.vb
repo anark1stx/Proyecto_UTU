@@ -30,6 +30,8 @@ Public Class frmAdministrador
                 _frmGestion.Mode = aType
                 addFrm(_frmGestion, pnlContenedor)
                 LimpiarControles(_frmGestion)
+                _frmGestion.Usuario = uType
+                _frmGestion.Mode = aType
                 _frmGestion.RRefresh()
                 _frmGestion.setup()
         End Select

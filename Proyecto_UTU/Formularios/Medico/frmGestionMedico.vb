@@ -37,7 +37,7 @@ Public Class frmGestionMedico
 
         lblDireccionTXT.Text = String.Format("{0}, {1}", MedicoLogeado.Direccion_Calle, MedicoLogeado.Direccion_Numero)
 
-        pBoxFotoPaciente.Image = Bytes2Image(MedicoLogeado.Foto)
+        pBoxFotoMedico.Image = Bytes2Image(MedicoLogeado.Foto)
 
         lblTelefonoTXT.Text = ""
         For Each t As String In MedicoLogeado.TelefonosLista

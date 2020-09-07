@@ -24,7 +24,7 @@ Partial Class frmGestionMedico
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGestionMedico))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
+        Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblCedulaTXT = New System.Windows.Forms.Label()
@@ -39,7 +39,7 @@ Partial Class frmGestionMedico
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -49,7 +49,7 @@ Partial Class frmGestionMedico
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.pBoxFotoPaciente, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.pBoxFotoMedico, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.tabDatos, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
@@ -59,17 +59,17 @@ Partial Class frmGestionMedico
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(896, 555)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'pBoxFotoPaciente
+        'pBoxFotoMedico
         '
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
-        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(442, 549)
-        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoPaciente.TabIndex = 101
-        Me.pBoxFotoPaciente.TabStop = False
+        Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoMedico.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pBoxFotoMedico.Image = CType(resources.GetObject("pBoxFotoMedico.Image"), System.Drawing.Image)
+        Me.pBoxFotoMedico.Location = New System.Drawing.Point(3, 3)
+        Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
+        Me.pBoxFotoMedico.Size = New System.Drawing.Size(442, 549)
+        Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pBoxFotoMedico.TabIndex = 101
+        Me.pBoxFotoMedico.TabStop = False
         '
         'tabDatos
         '
@@ -247,7 +247,7 @@ Partial Class frmGestionMedico
         Me.Name = "frmGestionMedico"
         Me.Text = "frmGestion"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
         Me.tabDatos.PerformLayout()
         Me.ResumeLayout(False)
@@ -256,7 +256,7 @@ Partial Class frmGestionMedico
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents pBoxFotoPaciente As PictureBox
+    Friend WithEvents pBoxFotoMedico As PictureBox
     Friend WithEvents tabDatos As TableLayoutPanel
     Friend WithEvents lblCedula As Label
     Friend WithEvents lblCedulaTXT As Label

@@ -483,8 +483,9 @@ Public Class frmGestion
         Dim u_default As New E_Usuario
         If cbEspecialidades.Items.Count < 1 Then
             MessageBox.Show("Ingrese al menos una especialidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            u_default.Cedula = 0
-            Return u_default
+            Return New E_Medico With {
+                .Cedula = 0
+            }
         End If
 
         Dim especialidades As New List(Of String)
@@ -801,13 +802,9 @@ Public Class frmGestion
             lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.Never)
             lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.Never)
             lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.Never)
-            Try
-                cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
-                cbTelefonos.SelectedIndex = 0
-            Catch ex As Exception
-                Console.WriteLine("cantidad de telefonos: " & obj.TelefonosLista.Count)
-                Console.WriteLine(ex.Message)
-            End Try
+
+            cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
+            cbTelefonos.SelectedIndex = 0
             pBoxFotoUsuario.Image = Bytes2Image(obj.Foto)
         Catch ex As Exception
             Console.WriteLine("already binded")
@@ -847,10 +844,6 @@ Public Class frmGestion
         dgw.Columns("ErrMsg").Visible = False
     End Sub
 
-    Private Sub rBtn_CheckedChanged(sender As Object, e As EventArgs) Handles rBtnCedula.CheckedChanged, rBtnApellido.CheckedChanged, rBtnEspecialidad.CheckedChanged
-
-    End Sub
-
     Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick
         LimpiarControles(pnlDatosUsuario)
         Select Case Usuario
@@ -870,7 +863,7 @@ Public Class frmGestion
 
     End Sub
 
-    Private Sub rBtnCedula_Click(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click
+    Private Sub FiltroCambia(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click
         Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
     End Sub
 End Class

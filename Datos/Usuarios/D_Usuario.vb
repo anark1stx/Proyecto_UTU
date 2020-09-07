@@ -1,11 +1,9 @@
 ﻿Imports Entidades
-Imports MySql.Data
 Imports MySql.Data.MySqlClient
-Imports System.Drawing
 
 Public Class D_Usuario
     Inherits D_UsuarioMYSQL
-    Dim conexion As New MySqlConnection
+    Dim conexion As New MySqlConnection(retornarCStringBD())
     Public Function BuscarUsuariosCI(ci As String, Optional auxiliar As Boolean = False) As E_Usuario
         Dim leer As MySqlDataReader
 
@@ -26,18 +24,22 @@ Public Class D_Usuario
             }
         End If
 
-        Dim ultima_ci As Integer = 0
         Dim u As New E_Usuario
-        Dim lista As New List(Of String)
+        Dim listaTel As New List(Of String)
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
         Try
             cmd.Connection.Open()
             leer = cmd.ExecuteReader()
-            If leer.HasRows Then
-                While leer.Read()
-                    If ultima_ci <> leer.GetInt32("CI") Then
-                        u = New E_Usuario With {
+        Catch ex As Exception
+            cmd.Connection.Close()
+            Console.WriteLine(ex.Message)
+            Return New E_Usuario With {.Cedula = 0}
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                u = New E_Usuario With {
                      .Cedula = leer.GetInt32("CI"),
                      .Nombre1 = leer.GetString("nombre1"),
                      .Nombre2 = leer.GetString("nombre2"),
@@ -49,33 +51,23 @@ Public Class D_Usuario
                      .Activo = leer.GetBoolean("activo"),
                      .TelefonosLista = New List(Of String)(New String() {})
                     }
-                        Try
-                            Dim foto = CType(leer("foto"), Byte())
-                            Dim stream As New IO.MemoryStream(foto)
-                            u.Foto = stream.ToArray()
-                            stream.Close()
-                        Catch ex As Exception
-                            Console.WriteLine(ex.Message)
-                        End Try
-
-                        u.TelefonosLista.Add(leer.GetString("telefono"))
-                        ultima_ci = u.Cedula
-                    Else
-                        u.TelefonosLista.Add(leer.GetString("telefono"))
-                    End If
-                End While
-            Else
-                Console.WriteLine("no encontre resultados")
-                cmd.Connection.Close()
-                Return New E_Usuario With {.Cedula = 0}
-            End If
+                Try
+                    Dim foto = CType(leer("foto"), Byte())
+                    Dim stream As New IO.MemoryStream(foto)
+                    u.Foto = stream.ToArray()
+                    stream.Close()
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                End Try
+                listaTel.Add(leer.GetString("telefono"))
+            End While
+            u.TelefonosLista = listaTel
+        Else
+            Console.WriteLine("no encontre resultados")
             cmd.Connection.Close()
-
-        Catch ex As Exception
-            cmd.Connection.Close()
-            Console.WriteLine(ex.Message)
             Return New E_Usuario With {.Cedula = 0}
-        End Try
+        End If
+        cmd.Connection.Close()
 
         Return u
     End Function
@@ -110,7 +102,6 @@ Public Class D_Usuario
 
         Dim leer As MySqlDataReader
         Try
-
             cmd.Connection.Open()
             leer = cmd.ExecuteReader()
             If leer.HasRows Then
@@ -196,8 +187,6 @@ Public Class D_Usuario
 
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
         If MyBase.AltaUsuario(mysqlUser) = 1 Then
-            conexion.ConnectionString = retornarCStringBD()
-
             Dim cmd As New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
                 .CommandText = "AltaUsuario",
@@ -333,7 +322,7 @@ Public Class D_Usuario
             cmd.ExecuteNonQuery()
             cmd.Connection.Close()
         Catch ex As Exception
-            conexion.Close()
+            cmd.Connection.Close()
             u.ErrMsg = "Error borrando los teléfonos"
             Console.WriteLine("Error borrando los teléfonos")
             Return 0 ' no se pudo borrar telefono

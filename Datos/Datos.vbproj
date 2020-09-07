@@ -93,8 +93,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Usuarios\D_UsuarioMYSQL.vb" />
-    <Compile Include="Usuarios\MedicoUtils\D_Analisis.vb" />
-    <Compile Include="Usuarios\MedicoUtils\D_Formulario.vb" />
+    <Compile Include="MedicoUtils\D_Analisis.vb" />
+    <Compile Include="MedicoUtils\D_Formulario.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
