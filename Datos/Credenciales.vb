@@ -8,7 +8,9 @@ Module Credenciales
     Public Sub construirCnString(usr As String, pwd As String)
         _usr = usr
         _pwd = pwd
-        _str = String.Format("DSN=SIBIM_OVERCLODE;UID={0}; PWD={1};", _usr, _pwd)
+        '_str = String.Format("DSN=SIBIM_OVERCLODE;UID={0}; PWD={1};", _usr, _pwd)
+        _str = "SERVER=127.0.0.1;DATABASE=sibim;UID=admin;PWD=overcl0de-4DM;"
+        'Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;
     End Sub
 
     Public Function retornarCStringBD() As String

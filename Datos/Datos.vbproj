@@ -47,9 +47,14 @@
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -109,12 +114,39 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Data.InstallState" />
+    <None Include="MySQL Connector Net 8.0.21\CHANGES" />
+    <None Include="MySQL Connector Net 8.0.21\INFO_BIN" />
+    <None Include="MySQL Connector Net 8.0.21\INFO_SRC" />
+    <None Include="MySQL Connector Net 8.0.21\LICENSE" />
+    <None Include="MySQL Connector Net 8.0.21\README" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.vbproj">
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\BouncyCastle.Crypto.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\Google.Protobuf.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\K4os.Compression.LZ4.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\K4os.Compression.LZ4.Streams.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\K4os.Hash.xxHash.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\libzstd.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Data.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Data.EntityFramework.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Data.EntityFramework.xml" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Data.xml" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Web.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\MySql.Web.xml" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\Renci.SshNet.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\SshNet.Security.Cryptography.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\System.Buffers.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\Ubiety.Dns.Core.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\Zstandard.Net.dll" />
+    <Content Include="MySQL Connector Net 8.0.21\Release Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

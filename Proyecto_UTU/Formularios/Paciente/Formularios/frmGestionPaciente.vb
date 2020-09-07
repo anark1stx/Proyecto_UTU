@@ -1,5 +1,6 @@
 ﻿Imports Entidades
 Imports Negocio
+Imports Utilidades
 Public Class frmGestionPaciente
     Protected _paciente As E_Paciente
     Private np As New N_Paciente
@@ -38,7 +39,7 @@ Public Class frmGestionPaciente
         lblOcupacionTXT.Text = PacienteLogeado.Ocupacion
         lblE_CivilTXT.Text = PacienteLogeado.Estado_civil
         lblEtapaTXT.Text = PacienteLogeado.Etapa
-        pBoxFotoPaciente.ImageLocation = PacienteLogeado.Foto
+        pBoxFotoPaciente.Image = Bytes2image(PacienteLogeado.Foto)
 
         lblTelefonoTXT.Text = ""
         For Each t As String In PacienteLogeado.TelefonosLista

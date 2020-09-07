@@ -1,4 +1,5 @@
 ﻿Imports Entidades
+Imports Utilidades
 Public Class Identificacion_Paciente
     Protected _paciente As New E_Paciente
 
@@ -31,7 +32,7 @@ Public Class Identificacion_Paciente
         lblOcupacionTXT.Text = PacienteBuscar.Ocupacion
         lblE_CivilTXT.Text = PacienteBuscar.Estado_civil
         lblEtapaTXT.Text = PacienteBuscar.Etapa
-        pBoxFotoPaciente.ImageLocation = PacienteBuscar.Foto
+        pBoxFotoPaciente.Image = Bytes2Image(PacienteBuscar.Foto)
 
         lblTelefonoTXT.Text = ""
         For Each t As String In PacienteBuscar.TelefonosLista

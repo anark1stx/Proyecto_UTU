@@ -10,7 +10,7 @@
     Protected _telefonosLista As List(Of String) '-> {099523212, 23363539}
     Protected _direccion_calle As String
     Protected _direccion_numero As Integer
-    Protected _foto As String 'path
+    Protected _foto As Byte()
     Protected _activo As Boolean
     Sub New()
 
@@ -23,7 +23,7 @@
     End Sub
 
     'CONSTRUCTOR COMPLETO
-    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As String, rol As String, activo As Boolean)
+    Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte(), rol As String, activo As Boolean)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -120,11 +120,11 @@
         End Set
     End Property
 
-    Property Foto As String
+    Property Foto As Byte()
         Get
             Return _foto
         End Get
-        Set(value As String)
+        Set(value As Byte())
             _foto = value
         End Set
     End Property

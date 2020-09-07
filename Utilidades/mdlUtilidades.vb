@@ -185,6 +185,7 @@ Public Module mdlUtilidades
     Public Function Bytes2Image(ByVal bytes() As Byte) As Image
 
         Dim ms As New MemoryStream(bytes)
+        Console.WriteLine(ms.Length)
         Return Image.FromStream(ms)
 
     End Function
@@ -196,6 +197,7 @@ Public Module mdlUtilidades
         Dim ms = New MemoryStream()
         img.Save(ms, Imaging.ImageFormat.Jpeg)
         Dim bytes = ms.ToArray()
+        ms.Close()
         Return bytes
 
     End Function

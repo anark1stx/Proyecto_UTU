@@ -1,5 +1,6 @@
 ﻿Imports Entidades
 Imports Negocio
+Imports Utilidades
 Public Class frmGestionMedico
 
     Protected _medico As E_Medico
@@ -36,7 +37,7 @@ Public Class frmGestionMedico
 
         lblDireccionTXT.Text = String.Format("{0}, {1}", MedicoLogeado.Direccion_Calle, MedicoLogeado.Direccion_Numero)
 
-        pBoxFotoPaciente.ImageLocation = MedicoLogeado.Foto
+        pBoxFotoPaciente.Image = Bytes2Image(MedicoLogeado.Foto)
 
         lblTelefonoTXT.Text = ""
         For Each t As String In MedicoLogeado.TelefonosLista

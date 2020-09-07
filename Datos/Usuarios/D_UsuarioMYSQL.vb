@@ -1,60 +1,54 @@
 ﻿Imports Entidades
-Imports ADODB
-Imports ADODB.DataTypeEnum
-Imports ADODB.CommandTypeEnum
-Imports ADODB.ParameterDirectionEnum
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Imports System.Configuration
 Public Class D_UsuarioMYSQL
-    Dim conexion As New Connection
+    Dim conexion As New MySqlConnection()
 
     Public Function SeleccionarUsuario(usuario As String, contrasena As String) As E_UsuarioMYSQL
 
         Dim u As New E_UsuarioMYSQL
-        Dim leer As New Recordset With {
-            .CursorType = CursorTypeEnum.adOpenDynamic,
-            .LockType = LockTypeEnum.adLockOptimistic
-        }
+        Dim leer As MySqlDataReader
 
         construirCnString(usuario, contrasena)
 
         conexion.ConnectionString = retornarCStringBD()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-
+        Console.WriteLine(conexion.ConnectionString)
         Try
             conexion.Open()
         Catch ex As Exception
+            conexion.Close()
+            Console.WriteLine(ex.Message)
             u.Valido = False
             Return u
         End Try
 
-        Dim cmd As New Command With {
-            .ActiveConnection = conexion,
-            .CommandType = adCmdStoredProc,
+        Dim cmd As New MySqlCommand With {
+            .Connection = conexion,
+            .CommandType = CommandType.StoredProcedure,
             .CommandText = "BuscarRolUsuarioMYSQL"
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, usuario))
-
+        cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = usuario
         Try
-            leer = cmd.Execute()
-        Catch ex As Exception
-            Console.WriteLine("no se pudo ejecutar query") '<-REEMPLAZAR ESTO POR ALGO MAS COMUNICATIVO
+            leer = cmd.ExecuteReader()
+            If leer.HasRows Then
+                While leer.Read()
+                    u = New E_UsuarioMYSQL With {
+                     .Rol = leer.GetString("ROL"),
+                     .Valido = True
+                    }
+                End While
+            Else
+                u = New E_UsuarioMYSQL With {
+                     .Rol = "Desconocido",
+                     .Valido = False
+                    }
+            End If
+            cmd.Connection.Close()
+        Catch ex As Exception '<-REEMPLAZAR ESTO POR ALGO MAS COMUNICATIVO
+            Console.WriteLine(ex.Message)
         End Try
-
-        If leer.RecordCount <> -1 Then
-            u = New E_UsuarioMYSQL With {
-             .Rol = leer("ROL").Value,
-             .Valido = True
-            }
-        Else
-            u = New E_UsuarioMYSQL With {
-             .Rol = "Desconocido",
-             .Valido = False
-            }
-
-        End If
-
-        leer.Close()
-        conexion.Close()
 
         Return u
     End Function
@@ -62,27 +56,24 @@ Public Class D_UsuarioMYSQL
     Public Overridable Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
 
         conexion.ConnectionString = retornarCStringBD()
-        conexion.CursorLocation = CursorLocationEnum.adUseClient
-        conexion.Open()
 
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaUsuarioMYSQL",
-            .ActiveConnection = conexion
+            .Connection = conexion
         }
 
-
-        cmd.Parameters.Append(cmd.CreateParameter("@USUARIO", adVarChar, adParamInput, 50, u.Nombre))
-        cmd.Parameters.Append(cmd.CreateParameter("@CONTRASENA", adVarChar, adParamInput, 30, u.Contrasena))
-        cmd.Parameters.Append(cmd.CreateParameter("@ROL", adVarChar, adParamInput, 30, u.Rol))
+        cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = u.Nombre
+        cmd.Parameters.Add("CONTRASENA", MySqlDbType.VarChar, 30).Value = u.Contrasena
+        cmd.Parameters.Add("ROL", MySqlDbType.VarChar, 30).Value = u.Rol
 
         Try
-            cmd.Execute()
-            conexion.Close()
+            cmd.Connection.Open()
+            cmd.ExecuteNonQuery()
+            cmd.Connection.Close()
             Return 1
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            conexion.Close()
             Return 0
         End Try
 

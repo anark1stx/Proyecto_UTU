@@ -574,7 +574,7 @@ Public Class frmGestion
                     .Apellido2 = lblApellido2TXT.Text,
                     .Direccion_Calle = direccion(0),
                     .Direccion_Numero = direccion(1),
-                    .Foto = pBoxFotoUsuario.ImageLocation,
+                    .Foto = Image2Bytes(pBoxFotoUsuario.Image),
                     .Activo = 1,
                     .Correo = lblCorreoTXT.Text,
                     .TelefonosLista = telefonos
@@ -801,9 +801,14 @@ Public Class frmGestion
             lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.Never)
             lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.Never)
             lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.Never)
-            pBoxFotoUsuario.DataBindings.Add("ImageLocation", obj, "Foto", False, DataSourceUpdateMode.Never)
-            cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
-            cbTelefonos.SelectedIndex = 0
+            Try
+                cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
+                cbTelefonos.SelectedIndex = 0
+            Catch ex As Exception
+                Console.WriteLine("cantidad de telefonos: " & obj.TelefonosLista.Count)
+                Console.WriteLine(ex.Message)
+            End Try
+            pBoxFotoUsuario.Image = Bytes2Image(obj.Foto)
         Catch ex As Exception
             Console.WriteLine("already binded")
         End Try

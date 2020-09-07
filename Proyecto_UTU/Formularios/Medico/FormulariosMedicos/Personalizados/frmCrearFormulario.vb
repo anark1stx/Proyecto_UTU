@@ -1,4 +1,5 @@
 ﻿Imports FormulariosPersonalizados
+Imports Entidades
 Imports Utilidades
 Public Class frmCrearFormulario
 
