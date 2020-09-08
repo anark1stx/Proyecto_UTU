@@ -329,6 +329,7 @@ Public Class frmGestion
                     If Mode = Accion.Alta AndAlso ci_valida Then
                         Dim nu As New N_Usuario
                         Dim code = Await Task.Run(Function() nu.UsuarioExiste(Val(lblCedulaTXT.Text)))
+                        Console.WriteLine("code is " & code)
                         Select Case code
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)

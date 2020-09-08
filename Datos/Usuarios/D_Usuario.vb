@@ -129,32 +129,25 @@ Public Class D_Usuario
             Return -1
         End If
 
-        Dim leer As MySqlDataReader
-
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
                 .CommandText = "USUARIOEXISTE",
                 .Connection = conexion
         }
-        Dim existe As Integer = 1
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
         cmd.Parameters.Add("EXISTE", MySqlDbType.Bit, 1).Direction = ParameterDirection.Output
 
         Try
-            leer = cmd.ExecuteReader()
+            cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Cerrar(conexion)
             Return 2 'error al ejecutar cmd
         End Try
 
-        While leer.Read()
-            existe = leer.GetBoolean("EXISTE")
-        End While
-
         Cerrar(conexion)
-        Console.WriteLine("EXISTO? " & existe)
+        Dim existe As Integer = cmd.Parameters("EXISTE").Value
         Return existe
     End Function
 
