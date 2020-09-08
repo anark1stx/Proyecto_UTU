@@ -48,5 +48,14 @@ Public Class frmGestionMedico
             End If
 
         Next
+
+        For Each es As String In MedicoLogeado.Especialidad
+            If Not es Is MedicoLogeado.Especialidad.Last() Then
+                lblEspecialidadTXT.Text &= es & ", "
+            Else
+                lblEspecialidadTXT.Text &= es
+            End If
+        Next
+
     End Sub
 End Class

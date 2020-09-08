@@ -108,6 +108,10 @@ Public Class frmPaciente
                     Sub()
                         AnalisisToolStripMenuItem_Click(sender, e)
                     End Sub
+        AddHandler frmIni.btnSalir.Click,
+                    Sub()
+                        SalirToolStripMenuItem_Click(sender, e)
+                    End Sub
     End Sub
 
 End Class
