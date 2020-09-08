@@ -106,7 +106,7 @@ Public Class frmGestion
         End Set
     End Property
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RRefresh()
         setup()
     End Sub
@@ -138,7 +138,6 @@ Public Class frmGestion
                 btnAccion2.ImageIndex = 0 '1 = Modificar
                 pnlContenedorBusqueda.Visible = True
                 pnlBotonesTel.Visible = False
-
         End Select
     End Sub
 
@@ -329,14 +328,20 @@ Public Class frmGestion
                     End If
                     If Mode = Accion.Alta AndAlso ci_valida Then
                         Dim nu As New N_Usuario
+                        Select Case nu.UsuarioExiste(Val(lblCedulaTXT.Text))
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                ci_valida = False
+                            Case 0
+                                ci_valida = True
+                            Case 1
+                                MessageBox.Show("Ya existe un usuario registrado con esa cédula en la base de datos.", "Usuario ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                ci_valida = False
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                ci_valida = False
+                        End Select
 
-                        If nu.UsuarioExiste(Val(lblCedulaTXT.Text)) Then
-                            MessageBox.Show("Ya existe un usuario registrado con esa cédula en la base de datos.", "Usuario ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            ci_valida = False
-                        Else
-                            Console.WriteLine("el usuario no existe")
-                            ci_valida = True
-                        End If
                     End If
                 Else
                     ci_valida = False
@@ -408,16 +413,19 @@ Public Class frmGestion
                     Dim np As New N_Paciente
                     Dim res = np.AltaPaciente(p)
                     Select Case res
-                        Case 0
-                            MessageBox.Show("El paciente no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case -1
+                            MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 1
                             MessageBox.Show("Paciente ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             LimpiarControles(Me)
                         Case 2
-                            MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 3
-                            MessageBox.Show("No se pudo ingresar el telefono " & p.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                            MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 4
+                            MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 5
+                            MessageBox.Show("Error ingresando al paciente", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Select
                 End If
 
@@ -436,15 +444,19 @@ Public Class frmGestion
                     Dim nm As New N_Medico
                     Dim res = nm.AltaMedico(m)
                     Select Case res
-                        Case 0
-                            MessageBox.Show("El médico no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case -1
+                            MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 1
                             MessageBox.Show("Médico ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             LimpiarControles(Me)
                         Case 2
-                            MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 3
-                            MessageBox.Show("No se pudo ingresar el telefono " & m.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 4
+                            MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case 5
+                            MessageBox.Show("Error ingresando al médico", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                     End Select
                 End If
@@ -463,15 +475,19 @@ Public Class frmGestion
                 Dim nu As New N_Usuario
                 Dim res = nu.AltaUsuarioSIBIM(u)
                 Select Case res
-                    Case 0
-                        MessageBox.Show("El auxiliar no pudo ser ingresado.", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case -1
+                        MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 1
                         MessageBox.Show("Auxiliar ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         LimpiarControles(Me)
                     Case 2
-                        MessageBox.Show("No se pudo crear el usuario de mysql", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 3
-                        MessageBox.Show("No se pudo ingresar el telefono " & u.ErrMsg, "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 4
+                        MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 5
+                        MessageBox.Show("Error ingresando al auxiliar", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 End Select
         End Select
@@ -567,7 +583,7 @@ Public Class frmGestion
         Return New E_Usuario With {
                     .Nombre = "u" & lblCedulaTXT.Text,
                     .Contrasena = lblContrasenaTXT.Text,
-                    .Rol = "auxiliar", 'rol default
+                    .Rol = "auxiliar",
                     .Cedula = Val(lblCedulaTXT.Text),
                     .Nombre1 = lblNombre1TXT.Text,
                     .Nombre2 = lblNombre2TXT.Text,
@@ -600,10 +616,14 @@ Public Class frmGestion
         Dim res = nu.BajaLogicaUsuario(u)
 
         Select Case res
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 0
                 MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
 
@@ -617,15 +637,15 @@ Public Class frmGestion
         Dim res = nu.AltaLogicaUsuario(u)
 
         Select Case res
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 0
                 MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
-    End Sub
-
-    Sub BuscarU()
-        '()->Buscar[Usuario]x[PARAMETRO]
     End Sub
 
     Sub ModificarU()
@@ -646,12 +666,15 @@ Public Class frmGestion
         End Select
 
         Select Case code
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 0
                 MessageBox.Show("El usuario no pudo ser modificado", "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue modificado con éxito", "Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
-
     End Sub
 
     Private Sub SinEspacios(sender As Object, e As KeyPressEventArgs) Handles lblCedulaTXT.KeyPress, lblCorreoTXT.KeyPress, cbTelefonos.KeyPress
@@ -668,6 +691,10 @@ Public Class frmGestion
     End Sub
 
     Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        If Not check_Largo(txtBusqueda.Text, 3, 50, True) Then
+            MessageBox.Show(MensajeDeErrorLongitud(3, 50), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
@@ -680,10 +707,18 @@ Public Class frmGestion
                         End If
 
                         p = Await Task.Run(Function() np.ListarPacienteCI(txtBusqueda.Text))
-                        If p.Cedula = 0 Then
-                            MessageBox.Show("No fue encontrado un paciente con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+
+                        Select Case p.Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fue encontrado un paciente con esa cédula", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         bs.DataSource = p
                         basicBindings(p)
@@ -693,10 +728,17 @@ Public Class frmGestion
                     Case Filtro.Apellido
                         pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
 
-                        If pList(0).Cedula = 0 Then
-                            MessageBox.Show("No se encontraron PACIENTES con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+                        Select Case pList(0).Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fueron encontrados pacientes con ese apellido", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         p = pList(0)
 
@@ -716,10 +758,17 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         m = Await Task.Run(Function() nm.ListarMedicoCI(txtBusqueda.Text))
-                        If m.Cedula = 0 Then
-                            MessageBox.Show("No fue encontrado un médico con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+                        Select Case m.Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fue encontrado un medico con esa cédula", "Medico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         bs.DataSource = m
                         basicBindings(m)
@@ -729,10 +778,17 @@ Public Class frmGestion
                     Case Filtro.Apellido
                         mList = Await Task.Run(Function() nm.BuscarMedicoApellido(txtBusqueda.Text))
 
-                        If mList(0).Cedula = 0 Then
-                            MessageBox.Show("No se encontraron MÉDICOS con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+                        Select Case mList(0).Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fueron encontrados médicos con ese apellido", "Médicos no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         m = mList(0)
 
@@ -743,10 +799,18 @@ Public Class frmGestion
                         mList.Add(m)
                     Case Filtro.Especialidad
                         mList = Await Task.Run(Function() nm.BuscarMedicoEspecialidad(txtBusqueda.Text))
-                        If mList(0).Cedula = 0 Then
-                            MessageBox.Show("No se encontraron MÉDICOS con esa especialidad", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+
+                        Select Case mList(0).Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fueron encontrados médicos con esa especialidad", "Médicos no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         m = mList(0)
 
@@ -766,10 +830,17 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         a = Await Task.Run(Function() naux.ListarUsuariosCI(txtBusqueda.Text, True))
-                        If a.Cedula = 0 Then
-                            MessageBox.Show("No fue encontrado un auxiliar con esa cédula.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+                        Select Case a.Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fue encontrado un auxiliar con esa cédula", "Medico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         bs.DataSource = a
                         basicBindings(a)
@@ -777,10 +848,17 @@ Public Class frmGestion
                         aList.Add(a)
                     Case Filtro.Apellido
                         aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text, True))
-                        If aList(0).Cedula = 0 Then
-                            MessageBox.Show("No se encontraron AUXILIARES con ese apellido", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
+                        Select Case aList(0).Cedula
+                            Case -1
+                                MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 2
+                                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            Case 8
+                                MessageBox.Show("No fueron encontrados auxiliares con ese apellido", "Auxiliares no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                        End Select
 
                         a = aList(0)
                         bs.DataSource = aList
@@ -840,7 +918,6 @@ Public Class frmGestion
         dgw.Columns("Rol").Visible = False
         dgw.Columns("Contrasena").Visible = False
         dgw.Columns("Foto").Visible = False
-        dgw.Columns("Valido").Visible = False
         dgw.Columns("ErrMsg").Visible = False
     End Sub
 

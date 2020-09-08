@@ -1,4 +1,5 @@
-﻿Module Credenciales
+﻿Imports MySql.Data.MySqlClient
+Module Credenciales
     Private _usr As String = ""
     Private _pwd As String = ""
     Private _str As String = ""
@@ -13,5 +14,27 @@
     Public Function retornarCStringBD() As String
         Return _str
     End Function
+
+    Public Function Conectar(ByVal conn As MySqlConnection) As Integer 'devuelve codigo de exito dependiendo de si pudo abrir la conexion o no.
+        conn.ConnectionString = retornarCStringBD()
+        Try
+            conn.Open()
+            Return 1
+        Catch ex As Exception
+            Console.WriteLine("ERROR CODIGO: " & Err.Number)
+            Select Case Err.Number
+                Case 5
+                    Return -1 'hubo un error al abrir la conexion.
+                Case Else
+                    Return 5 'credenciales incorrectas
+            End Select
+        End Try
+    End Function
+
+    Public Sub Cerrar(conn As MySqlConnection)
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
+        End If
+    End Sub
 
 End Module

@@ -1,4 +1,5 @@
-﻿Public Class E_Medico
+﻿Imports Utilidades
+Public Class E_Medico
     Inherits E_Usuario
 
     Protected _especialidad As List(Of String)

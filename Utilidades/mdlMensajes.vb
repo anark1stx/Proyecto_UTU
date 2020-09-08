@@ -35,4 +35,32 @@
         Return "Ingrese solo números."
     End Function
 
+    Function MensajeDeErrorConexion() As String
+        Return "Hay problemas con la conexión, vuelva a intentar o contáctese con administración."
+    End Function
+
+    Function MensajeDeErrorRolDesconocido() As String
+        Return "Usted no tiene asignado un rol para SIBIM, ingrese con un usuario registrado en el sistema."
+    End Function
+
+    Function MensajeDeErrorPermisoProcedimiento() As String
+        Return "Su rol no cuenta con permisos de ejecucción para ese procedimiento."
+    End Function
+
+    Function MensajeDeErrorUsuarioMYSQL() As String
+        Return "No se pudo crear el usuario de mysql."
+    End Function
+
+    Function MensajeDeErrorIngresoTelefonos() As String
+        Return "No se pudieron ingresar los telefonos."
+    End Function
+
+    Function MensajeDeErrorUsuarioBase() As String
+        Return "No se pudo crear el usuario base."
+    End Function
+
+    Function MensajeDeErrorCredsInvalidas() As String
+        Return "Su usuario o contraseña son incorrectos. Si olvidó su contraseña presione el botón ""Olvidé mi contraseña."" "
+    End Function
+
 End Module

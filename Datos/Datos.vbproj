@@ -126,6 +126,10 @@
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
+      <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MySQL Connector Net 8.0.21\Assemblies\v4.5.2\BouncyCastle.Crypto.dll" />

@@ -3,18 +3,22 @@ Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Public Class D_Paciente
     Inherits D_Usuario
-    Dim conexion As New MySqlConnection(retornarCStringBD())
+    Dim conexion As New MySqlConnection
     Public Function ListarPacientesCI(ci As Integer) As E_Paciente
 
         Dim result = MyBase.BuscarUsuariosCI(ci)
 
-        If result.Cedula = 0 Then
-            Return New E_Paciente With {
-            .Cedula = 0
-            }
+        Select Case result.Cedula
+            Case 0, 2, 8 '0=conexion cerrada,2=fallo ejecucion cmd,8=no encontre usuario
+                Return New E_Paciente With {.Cedula = result.Cedula}
+        End Select
+
+        If Conectar(conexion) = -1 Then
+            Return New E_Paciente With {.Cedula = 0} '0 exit code para conexion fallida
         End If
 
         Dim leer As MySqlDataReader
+        Dim lista As New List(Of String)
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -28,13 +32,14 @@ Public Class D_Paciente
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
-            Dim lista As New List(Of String)
+        Catch ex As Exception
+            Return New E_Paciente With {.Cedula = 8} 'no encontre paciente
+        End Try
 
-            If leer.HasRows Then
-                While leer.Read
-                    u = New E_Paciente With {
+        If leer.HasRows Then
+            While leer.Read
+                u = New E_Paciente With {
                          .Cedula = ci,
                          .Nombre1 = result.Nombre1,
                          .Nombre2 = result.Nombre2,
@@ -49,18 +54,12 @@ Public Class D_Paciente
                          .Ocupacion = leer.GetString("ocupacion"),
                          .Sexo = leer.GetChar("sexo"),
                          .Etapa = leer.GetChar("etapa")
-                    }
+                }
+                lista.Add(leer.GetString("telefono"))
+            End While
+        End If
 
-                    lista.Add(leer.GetString("telefono"))
-                End While
-            End If
-            cmd.Connection.Close()
-            u.TelefonosLista = lista.Distinct().ToList()
-        Catch ex As Exception
-            cmd.Connection.Close()
-            Console.WriteLine(ex.Message)
-            Return u
-        End Try
+        u.TelefonosLista = lista.Distinct().ToList()
 
         Return u
     End Function
@@ -68,6 +67,11 @@ Public Class D_Paciente
     Public Function BuscarPacienteApellido(ap As String) As List(Of E_Paciente)
 
         Dim results = MyBase.BuscarUsuariosApellido(ap)
+
+        Select Case results(0).Cedula
+            Case 0, 2, 8 '0=conexion cerrada,2=fallo ejecucion cmd,8=no encontre usuario
+                Return New List(Of E_Paciente)(New E_Paciente With {.Cedula = results(0).Cedula})
+        End Select
 
         If results.Count > 0 Then
 
@@ -79,7 +83,7 @@ Public Class D_Paciente
 
             Return uList
         Else
-            Return New List(Of E_Paciente)(New E_Paciente() {New E_Paciente With {.Cedula = 0}})
+            Return New List(Of E_Paciente)(New E_Paciente() {New E_Paciente With {.Cedula = 8}}) 'no encontre paciente
         End If
 
     End Function
@@ -89,7 +93,10 @@ Public Class D_Paciente
 
         Select Case code
             Case 1
-                conexion.ConnectionString = retornarCStringBD()
+
+                If Conectar(conexion) = -1 Then
+                    Return -1
+                End If
 
                 Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,
@@ -104,12 +111,11 @@ Public Class D_Paciente
                 cmd.Parameters.Add("SEXO", MySqlDbType.String).Value = u.Sexo
 
                 Try
-                    cmd.Connection.Open()
                     cmd.ExecuteNonQuery() 'EJECUTO ALTA PACIENTESIBIM
                     cmd.Connection.Close()
                     Return 1
                 Catch ex As Exception
-                    Return 0 'No se pudo crear paciente
+                    Return 5 'No se pudo crear paciente
                 End Try
             Case Else
                 Return code
@@ -122,7 +128,9 @@ Public Class D_Paciente
 
         Select Case res
             Case 1
-                conexion.ConnectionString = retornarCStringBD()
+                If Conectar(conexion) = -1 Then
+                    Return -1
+                End If
 
                 Dim cmd As New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
@@ -137,14 +145,12 @@ Public Class D_Paciente
                 cmd.Parameters.Add("SEXO", MySqlDbType.String).Value = u.Sexo
 
                 Try
-                    cmd.Connection.Open()
+                    Cerrar(conexion)
                     cmd.ExecuteNonQuery()
-                    cmd.Connection.Close()
                     Return 1
                 Catch ex As Exception
-                    cmd.Connection.Close()
-                    Console.WriteLine(ex.Message)
-                    Return 0
+                    Cerrar(conexion)
+                    Return 2
                 End Try
 
             Case Else

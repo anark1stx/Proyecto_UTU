@@ -3,15 +3,15 @@ Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Public Class D_Medico
     Inherits D_Usuario
-    Dim conexion As New MySqlConnection(retornarCStringBD())
+    Dim conexion As New MySqlConnection()
 
     Public Function ListarMedicosCI(ci As Integer) As E_Medico
         Dim result = MyBase.BuscarUsuariosCI(ci)
-        If result.Cedula = 0 Then
-            Return New E_Medico With {
-            .Cedula = 0
-            }
-        End If
+
+        Select Case result.Cedula
+            Case 0, 2, 8
+                Return New E_Medico With {.Cedula = result.Cedula}
+        End Select
 
         Dim leer As MySqlDataReader
 
@@ -34,12 +34,15 @@ Public Class D_Medico
         .TelefonosLista = result.TelefonosLista,
         .Activo = result.Activo
         }
+        If Conectar(conexion) = -1 Then
+            Return New E_Medico With {.Cedula = 0}
+        End If
+
         Dim listaEsp As New List(Of String)
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
 
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
@@ -55,7 +58,6 @@ Public Class D_Medico
             u.Cedula = ci
 
         End If
-        cmd.Connection.Close()
         u.Especialidad = listaEsp.Distinct().ToList()
         Return u
     End Function
@@ -63,6 +65,11 @@ Public Class D_Medico
     Public Function BuscarMedicoApellido(ap As String) As List(Of E_Medico)
 
         Dim results = MyBase.BuscarUsuariosApellido(ap)
+
+        Select Case results(0).Cedula
+            Case 0, 2, 8
+                Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = results(0).Cedula}})
+        End Select
 
         If results.Count > 0 Then
 
@@ -74,12 +81,16 @@ Public Class D_Medico
 
             Return uList
         Else
-            Return New List(Of E_Medico)(New E_Medico() With {.Cedula = 0})
+            Return New List(Of E_Medico)(New E_Medico() With {.Cedula = 8})
         End If
 
     End Function
 
     Public Function BuscarMedicoEspecialidad(es As String) As List(Of E_Medico)
+
+        If Conectar(conexion) = -1 Then
+            Return New List(Of E_Medico)(New E_Medico With {.Cedula = 0})
+        End If
 
         Dim ultima_ci As Integer = 0
         Dim medList As New List(Of E_Medico)
@@ -94,14 +105,10 @@ Public Class D_Medico
         cmd.Parameters.Add("especialidad", MySqlDbType.VarChar, 50).Value = es
 
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 0}})
+            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 2}})
         End Try
-
-
         Dim lastU As New E_Medico
 
         While leer.Read()
@@ -118,10 +125,8 @@ Public Class D_Medico
             End If
         End While
 
-        cmd.Connection.Close()
-
         If medList.Count < 1 Then
-            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 0}})
+            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 8}})
         End If
 
         Dim finalList As New List(Of E_Medico)
@@ -144,13 +149,16 @@ Public Class D_Medico
                 }
                 cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
 
+                If Conectar(conexion) = -1 Then
+                    Return -1
+                End If
+
                 Try
-                    cmd.Connection.Open()
                     cmd.ExecuteNonQuery() 'EJECUTO ALTA MEDICOSIBIM
-                    cmd.Connection.Close()
+                    Cerrar(conexion)
                 Catch ex As Exception
-                    Console.WriteLine(ex.Message)
-                    Return 0 'No se pudo crear medico
+                    Cerrar(conexion)
+                    Return 5 'No se pudo crear medico
                 End Try
 
                 If AltaMedicoEspecialidad(u) Then
@@ -164,7 +172,6 @@ Public Class D_Medico
 
     End Function
 
-
     Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
 
         For Each es As String In u.Especialidad
@@ -176,14 +183,15 @@ Public Class D_Medico
             cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
             cmd.Parameters.Add("ESPECIALIDAD", MySqlDbType.VarChar, 50).Value = es
 
+            If Conectar(conexion) = -1 Then
+                Return -1
+            End If
+
             Try
-                cmd.Connection.Open()
                 cmd.ExecuteNonQuery()
-                cmd.Connection.Close()
             Catch ex As Exception
-                cmd.Connection.Close()
-                u.ErrMsg = "Error ingresando la especialidad: " & es
-                Return 0 ' no se pudo ingresar la especialidad
+                Cerrar(conexion)
+                Return 2 ' no se pudo ingresar la especialidad
             End Try
         Next
 
@@ -195,28 +203,19 @@ Public Class D_Medico
             If ModificarMedicoEspecialidad(u) = 1 Then
                 Return 1
             Else
-                Console.WriteLine("Error modificando especialidades")
-                Return 0
+                Return 5
             End If
         Else
-            Console.WriteLine("Error modificando usuario")
-            Return 0
+            Return 2
         End If
 
     End Function
 
     Public Function ModificarMedicoEspecialidad(u As E_Medico) As Integer
-
         If BorrarMedicoEspecialidad(u) = 1 Then
-            If AltaMedicoEspecialidad(u) = 1 Then
-                Return 1
-            Else
-                Console.WriteLine("Error alta especialidades")
-                Return 0
-            End If
+            Return AltaMedicoEspecialidad(u)
         Else
-            Console.WriteLine("Error borrando especialidades")
-            Return 0
+            Return 2
         End If
     End Function
 
@@ -229,15 +228,16 @@ Public Class D_Medico
             }
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
 
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
         Try
-            cmd.Connection.Open()
             cmd.ExecuteNonQuery()
-            cmd.Connection.Close()
+            Cerrar(conexion)
         Catch ex As Exception
-            cmd.Connection.Close()
-            u.ErrMsg = "Error borrando las especialidades"
-            Console.WriteLine("Error borrando las especialidades")
-            Return 0 ' no se pudo borrar especialidad
+            Cerrar(conexion)
+            Return 2 ' no se pudo borrar especialidad
         End Try
 
         Return 1

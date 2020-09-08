@@ -51,6 +51,16 @@
         End Set
     End Property
 
+    Property PreguntasYRespuestas As List(Of PreguntaRespuesta)
+        Get
+            Return _preguntasYrespuestas
+        End Get
+        Set(value As List(Of PreguntaRespuesta))
+            _preguntasYrespuestas = value
+        End Set
+    End Property
+
+
     Sub New()
 
     End Sub

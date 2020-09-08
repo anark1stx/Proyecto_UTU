@@ -1,6 +1,6 @@
-﻿Public Class E_Usuario
+﻿Imports Utilidades
+Public Class E_Usuario
     Inherits E_UsuarioMYSQL
-    Protected _errMsg As String
     Protected _cedula As Integer
     Protected _nombre1 As String
     Protected _nombre2 As String

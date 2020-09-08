@@ -1,13 +1,16 @@
-﻿Imports Entidades
+﻿Imports Utilidades
+Imports Entidades
 Imports MySql.Data.MySqlClient
 
 Public Class D_Usuario
     Inherits D_UsuarioMYSQL
-    Dim conexion As New MySqlConnection(retornarCStringBD())
+    Dim conexion As New MySqlConnection
     Public Function BuscarUsuariosCI(ci As String, Optional auxiliar As Boolean = False) As E_Usuario
         Dim leer As MySqlDataReader
+        If Conectar(conexion) = -1 Then
+            Return New E_Usuario With {.Cedula = -1} '-1 exit code para conexion fallida
+        End If
 
-        conexion.ConnectionString = retornarCStringBD()
         Dim cmd As MySqlCommand
 
         If Not auxiliar Then
@@ -26,15 +29,13 @@ Public Class D_Usuario
 
         Dim u As New E_Usuario
         Dim listaTel As New List(Of String)
-
+        Dim yalei_foto As Boolean = False
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            cmd.Connection.Close()
-            Console.WriteLine(ex.Message)
-            Return New E_Usuario With {.Cedula = 0}
+            Cerrar(conexion)
+            Return New E_Usuario With {.Cedula = 2}
         End Try
 
         If leer.HasRows Then
@@ -50,40 +51,39 @@ Public Class D_Usuario
                      .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
                      .Activo = leer.GetBoolean("activo"),
                      .TelefonosLista = New List(Of String)(New String() {})
-                    }
-                Try
+                }
+
+                listaTel.Add(leer.GetString("telefono"))
+                If Not yalei_foto Then
                     Dim foto = CType(leer("foto"), Byte())
                     Dim stream As New IO.MemoryStream(foto)
                     u.Foto = stream.ToArray()
                     stream.Close()
-                Catch ex As Exception
-                    Console.WriteLine(ex.Message)
-                End Try
-                listaTel.Add(leer.GetString("telefono"))
+                    yalei_foto = True
+                End If
+
             End While
             u.TelefonosLista = listaTel
         Else
-            Console.WriteLine("no encontre resultados")
-            cmd.Connection.Close()
-            Return New E_Usuario With {.Cedula = 0}
+            u.Cedula = 8 'no encontre usuario
         End If
-        cmd.Connection.Close()
+
+        Cerrar(conexion)
 
         Return u
     End Function
 
-    Public Overridable Function BuscarUsuariosApellido(ap As String, Optional auxiliar As Boolean = False) As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
-
+    Public Function BuscarUsuariosApellido(ap As String, Optional auxiliar As Boolean = False) As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
         Dim uList As New List(Of E_Usuario)
-
         Dim listaTel As New List(Of String)
-
         Dim ultima_ci As Integer = 0
-
         Dim lastU As New E_Usuario
-
-        conexion.ConnectionString = retornarCStringBD()
         Dim cmd As MySqlCommand
+        Dim leer As MySqlDataReader
+
+        If Conectar(conexion) = -1 Then
+            Return New List(Of E_Usuario)(New E_Usuario With {.Cedula = 0})
+        End If
 
         If Not auxiliar Then
             cmd = New MySqlCommand With {
@@ -100,58 +100,50 @@ Public Class D_Usuario
         End If
         cmd.Parameters.Add("apellido1", MySqlDbType.VarChar, 30).Value = ap
 
-        Dim leer As MySqlDataReader
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
-            If leer.HasRows Then
-                While leer.Read()
-                    If ultima_ci <> leer.GetInt32("CI") Then
-                        lastU = New E_Usuario With {
-                     .Cedula = leer.GetInt32("CI"),
-                     .Nombre1 = leer.GetString("nombre1"),
-                     .Nombre2 = leer.GetString("nombre2"),
-                     .Apellido1 = leer.GetString("apellido1"),
-                     .Apellido2 = leer.GetString("apellido2"),
-                     .Correo = leer.GetString("correo"),
-                     .Direccion_Calle = leer.GetString("direccion_calle"),
-                     .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
-                     .Activo = leer.GetBoolean("activo"),
-                     .TelefonosLista = New List(Of String)(New String() {})
-                    }
-                        Try
-                            Dim foto = CType(leer("foto"), Byte())
-                            Dim stream As New IO.MemoryStream(foto)
-                            lastU.Foto = stream.ToArray()
-                            stream.Close()
-                        Catch ex As Exception
-                            Console.WriteLine(ex.Message)
-                        End Try
-
-                        lastU.TelefonosLista.Add(leer.GetString("telefono"))
-                        ultima_ci = lastU.Cedula
-                    Else
-                        lastU.TelefonosLista.Add(leer.GetString("telefono"))
-                    End If
-                End While
-            Else
-                cmd.Connection.Close()
-                Return New List(Of E_Usuario)(New E_Usuario With {.Cedula = 0})
-            End If
-            cmd.Connection.Close()
-
         Catch ex As Exception
-            cmd.Connection.Close()
-            Console.WriteLine(ex.Message)
-            Return New List(Of E_Usuario)(New E_Usuario With {.Cedula = 0})
+            Cerrar(conexion)
+            Return New List(Of E_Usuario)(New E_Usuario With {.Cedula = 2})
         End Try
 
+        If leer.HasRows Then
+            While leer.Read()
+                If ultima_ci <> leer.GetInt32("CI") Then
+                    lastU = New E_Usuario With {
+                 .Cedula = leer.GetInt32("CI"),
+                 .Nombre1 = leer.GetString("nombre1"),
+                 .Nombre2 = leer.GetString("nombre2"),
+                 .Apellido1 = leer.GetString("apellido1"),
+                 .Apellido2 = leer.GetString("apellido2"),
+                 .Correo = leer.GetString("correo"),
+                 .Direccion_Calle = leer.GetString("direccion_calle"),
+                 .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
+                 .Activo = leer.GetBoolean("activo"),
+                 .TelefonosLista = New List(Of String)(New String() {})
+                 }
+                    Dim foto = CType(leer("foto"), Byte())
+                    Dim stream As New IO.MemoryStream(foto)
+                    lastU.Foto = stream.ToArray()
+                    stream.Close()
+                    lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    ultima_ci = lastU.Cedula
+                Else
+                    lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                End If
+            End While
+        Else
+            uList = New List(Of E_Usuario)(New E_Usuario With {.Cedula = 8}) 'no encontre usuarios
+        End If
+
+        Cerrar(conexion)
         Return uList
     End Function
 
     Public Function UsuarioExiste(ci As Integer) As Integer
-
-        conexion.ConnectionString = retornarCStringBD()
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         Dim leer As MySqlDataReader
 
@@ -163,30 +155,31 @@ Public Class D_Usuario
         Dim existe As Integer = 0
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
-
         cmd.Parameters.Add("EXISTE", MySqlDbType.Int32)
         cmd.Parameters("EXISTE").Direction = ParameterDirection.Output
 
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
-            While leer.Read()
-                existe = leer("EXISTE")
-            End While
-            cmd.Connection.Close()
         Catch ex As Exception
-            cmd.Connection.Close()
-            Console.WriteLine(ex.Message)
-            Return 3
+            Cerrar(conexion)
+            Return 2 'error al ejecutar cmd
         End Try
+
+        While leer.Read()
+            existe = leer("EXISTE")
+        End While
 
         Return existe
     End Function
 
-    Public Overridable Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
-
+    Public Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
         If MyBase.AltaUsuario(mysqlUser) = 1 Then
+
+            If Conectar(conexion) = -1 Then
+                Return -1
+            End If
+
             Dim cmd As New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
                 .CommandText = "AltaUsuario",
@@ -205,12 +198,9 @@ Public Class D_Usuario
             cmd.Parameters.Add("FOTO", MySqlDbType.MediumBlob, u.Foto.Length).Value = u.Foto
 
             Try
-                cmd.Connection.Open()
-                cmd.ExecuteNonQuery() 'EJECUTO ALTA USUARIOMYSQL-USUARIOSIBIM
-                cmd.Connection.Close()
+                cmd.ExecuteNonQuery()
             Catch ex As Exception
-                cmd.Connection.Close()
-                Return 0 'No se pudo crear usuario
+                Return 4 'No se pudo crear usuario sibim
             End Try
 
             If AltaUsuarioTelefono(u) Then
@@ -220,14 +210,15 @@ Public Class D_Usuario
             End If
 
         Else
-            Return 2 'no se pudo crear usuario mysql
+            Return 2 'no se pudo crear usuario mysql, error al ejecutar el comando
         End If
 
     End Function
 
     Public Function AltaUsuarioTelefono(u As E_Usuario) As Integer
-
-        conexion.ConnectionString = retornarCStringBD()
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         For Each t As String In u.TelefonosLista
             Dim cmd As New MySqlCommand With {
@@ -240,13 +231,10 @@ Public Class D_Usuario
             cmd.Parameters.Add("TELEFONO", MySqlDbType.VarChar).Value = t
 
             Try
-                cmd.Connection.Open()
                 cmd.ExecuteNonQuery()
-                cmd.Connection.Close()
             Catch ex As Exception
                 u.ErrMsg = "Error ingresando el teléfono: " & t
-                cmd.Connection.Close()
-                Return 0 ' no se pudo ingresar telefono
+                Return 3 ' no se pudo ingresar telefono
             End Try
         Next
 
@@ -254,7 +242,9 @@ Public Class D_Usuario
     End Function
 
     Public Function ModificarUsuario(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCStringBD()
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         Dim cmd As New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
@@ -269,22 +259,22 @@ Public Class D_Usuario
         cmd.Parameters.Add("APELLIDO2", MySqlDbType.VarChar, 30).Value = u.Apellido2
         cmd.Parameters.Add("DIRECCION_C", MySqlDbType.VarChar, 160).Value = u.Direccion_Calle
         cmd.Parameters.Add("DIRECCION_N", MySqlDbType.Int32).Value = u.Direccion_Numero
-        cmd.Parameters.Add("CI", MySqlDbType.Bit).Value = u.Activo
+        cmd.Parameters.Add("ACTIVO", MySqlDbType.Bit).Value = u.Activo
         cmd.Parameters.Add("CORREO", MySqlDbType.VarChar, 50).Value = u.Correo
         cmd.Parameters.Add("FOTO", MySqlDbType.MediumBlob, u.Foto.Length).Value = u.Foto
 
         Try
-            cmd.Connection.Open()
             cmd.ExecuteNonQuery()
-            cmd.Connection.Close()
         Catch ex As Exception
-            cmd.Connection.Close()
-            Return 0 'No se pudo mod usuario
+            Cerrar(conexion)
+            Return 2 'Falla mod usuario sibim
         End Try
 
         If ModificarUsuarioTelefono(u) Then
+            Cerrar(conexion)
             Return 1 'todo ok
         Else
+            Cerrar(conexion)
             Return 3 'Falla mod telefono
         End If
 
@@ -295,21 +285,20 @@ Public Class D_Usuario
         If borrarTelefonos(u) = 1 Then
 
             If AltaUsuarioTelefono(u) = 1 Then
-                Return 1
+                Return 1 'todo ok
             Else
-                Console.WriteLine("error alta telefono")
-                Return 0
+                Return 2 'error dando de alta telefonos
             End If
-
         Else
-            Return 0
+            Return 5 'error borrando telefonos
         End If
 
     End Function
 
     Public Function borrarTelefonos(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCStringBD()
-
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "BorrarTelefonos", 'los borra todos
@@ -318,22 +307,20 @@ Public Class D_Usuario
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
         Try
-            cmd.Connection.Open()
             cmd.ExecuteNonQuery()
-            cmd.Connection.Close()
         Catch ex As Exception
-            cmd.Connection.Close()
-            u.ErrMsg = "Error borrando los teléfonos"
-            Console.WriteLine("Error borrando los teléfonos")
-            Return 0 ' no se pudo borrar telefono
+            Cerrar(conexion)
+            Return 2 ' no se pudo borrar telefono
         End Try
 
+        Cerrar(conexion)
         Return 1
     End Function
 
     Public Function BajaLogicaUsuario(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCStringBD()
-
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
         Dim cmd As New MySqlCommand With {
             .Connection = conexion,
             .CommandType = CommandType.StoredProcedure,
@@ -342,18 +329,19 @@ Public Class D_Usuario
 
         cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
         Try
-            cmd.Connection.Open()
             cmd.ExecuteNonQuery()
-            cmd.Connection.Close()
-            Return 1
         Catch ex As Exception
-            cmd.Connection.Close()
-            Return 0
+            Cerrar(conexion)
+            Return 2 'fallo comando exec
         End Try
+        Cerrar(conexion)
+        Return 1
     End Function
 
     Public Function AltaLogicaUsuario(u As E_Usuario) As Integer
-        conexion.ConnectionString = retornarCStringBD()
+        If Conectar(conexion) Then
+            Return -1
+        End If
 
         Dim cmd As New MySqlCommand With {
             .Connection = conexion,
@@ -362,14 +350,14 @@ Public Class D_Usuario
         }
         cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
         Try
-            cmd.Connection.Open()
             cmd.ExecuteNonQuery()
-            cmd.Connection.Close()
-            Return 1
+
         Catch ex As Exception
-            cmd.Connection.Close()
-            Return 0
+            Cerrar(conexion)
+            Return 2
         End Try
+        Cerrar(conexion)
+        Return 1
     End Function
 
 End Class

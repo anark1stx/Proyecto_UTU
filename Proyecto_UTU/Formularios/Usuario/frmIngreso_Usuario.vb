@@ -17,11 +17,14 @@ Public Class frmIngreso_Usuario
 
             Dim usu = Await Task.Run(Function() umysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text))
 
-            If Not usu.Valido Then
-                MessageBox.Show("Sus credenciales de ingreso no son válidas.", "Verifique su usuario y contraseña.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                lblMensajeErrorCI.Visible = True
-                Exit Sub
-            End If
+            Select Case usu.errMsg
+                Case -1
+                    MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                Case 5
+                    MessageBox.Show(MensajeDeErrorCredsInvalidas(), "Credenciales incorrectas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+            End Select
 
             Select Case usu.Rol
                 Case "administrador" 'ADMIN
@@ -38,8 +41,6 @@ Public Class frmIngreso_Usuario
                     Me.Hide()
                     frmPac.Show()
                     frmPac.PacienteActual = New E_Paciente With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
-                Case Else
-                    MessageBox.Show("Rol desconocido en el sistema.", "No se encontro su rol.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Select
             lblMensajeErrorCI.Visible = False
         End If

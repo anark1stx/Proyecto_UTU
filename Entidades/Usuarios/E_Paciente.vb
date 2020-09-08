@@ -1,4 +1,5 @@
-﻿Public Class E_Paciente
+﻿Imports Utilidades
+Public Class E_Paciente
     Inherits E_Usuario
     Protected _fechaNacimiento As Date
     Protected _sexo As Char

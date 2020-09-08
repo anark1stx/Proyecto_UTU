@@ -1,54 +1,56 @@
 ﻿Imports Entidades
-Imports ADODB
-Imports ADODB.DataTypeEnum
-Imports ADODB.CommandTypeEnum
-Imports ADODB.ParameterDirectionEnum
-Imports ADODB.CursorLocationEnum
+Imports MySql.Data.MySqlClient
+
 Public Class D_Formulario
-    Dim conexion As New Connection
+    Dim conexion As New MySqlConnection(retornarCStringBD())
 
     Public Function AltaFormulario(form As E_Formulario) As Integer
 
-        conexion.ConnectionString = retornarCStringBD()
-        conexion.CursorLocation = adUseClient
-        conexion.Open()
-
-        Dim cmd As New Command With {
-            .CommandType = adCmdStoredProc,
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaFormulario",
-            .ActiveConnection = conexion
+            .Connection = conexion
         }
 
-        cmd.Parameters.Append(cmd.CreateParameter("@NOMBRE", adVarChar, adParamInput, 30, form.Nombre))
-        cmd.Parameters.Append(cmd.CreateParameter("@XML", adVarChar, adParamInput, 500, form.XML))
-        cmd.Parameters.Append(cmd.CreateParameter("@VPREVIA", adVarChar, adParamInput, 500, form.VistaPrevia))
+        cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = form.Nombre
+        cmd.Parameters.Add("XML", MySqlDbType.MediumText).Value = form.XML
+        cmd.Parameters.Add("VPREVIA", MySqlDbType.MediumBlob).Value = form.VistaPrevia
 
         Try
-            cmd.Execute() 'alta tabla formulario
-            conexion.Close()
+            cmd.ExecuteNonQuery() 'alta tabla formulario
+            cmd.Connection.Close()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            conexion.Close()
+            cmd.Connection.Close()
             Return 0
         End Try
 
         Return 1
-        conexion.Close()
     End Function
 
-    Public Function AltaPreguntas(textoPregunta) As Integer
-        'hacer alta a la tabla preguntas 
-        Dim cmd = New Command With {
-            .CommandType = adCmdStoredProc,
-            .CommandText = "AltaPregunta",
-            .ActiveConnection = conexion
-        } 'si ya existe retornar la id, como hice con los parametros de los analisis que ya existian.
+    Public Function AltaPreguntas(form As E_Formulario) As Integer
 
-        Try
-            cmd.Execute()
-        Catch ex As Exception
+        For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
+            'hacer alta a la tabla preguntas 
+            Dim cmd As New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "AltaPregunta",
+                .Connection = conexion
+            } 'si ya existe retornar la id, como hice con los parametros de los analisis que ya existian.
 
-        End Try
+            cmd.Parameters.Add("PREGUNTA", MySqlDbType.VarChar).Value = p.PreguntaTexto
+
+            Try
+                cmd.Connection.Open()
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                cmd.Connection.Close()
+                Console.WriteLine(ex.Message)
+                Return 0
+            End Try
+        Next
+
+        Return 1
     End Function
 
     Public Function ListarFormularios() As List(Of E_Formulario)

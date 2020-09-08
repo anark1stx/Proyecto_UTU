@@ -2,7 +2,7 @@
     Protected _nombre As String
     Protected _contrasena As String
     Protected _rol As String
-    Protected _valido As Boolean
+    Protected _errMsg As String
     Property Nombre As String
         Get
             Return _nombre
@@ -30,14 +30,15 @@
         End Set
     End Property
 
-    Property Valido As Boolean
+    Property errMsg As String
         Get
-            Return _valido
+            Return _errMsg
         End Get
-        Set(value As Boolean)
-            _valido = value
+        Set(value As String)
+            _errMsg = value
         End Set
     End Property
+
 
     Public Sub New(nombre As String, contrasena As String)
         _nombre = nombre

@@ -65,8 +65,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mdlChecker.vb" />
-    <Compile Include="mdlMensajes.vb" />
     <Compile Include="MedicoUtils\E_Analisis.vb" />
     <Compile Include="MedicoUtils\E_Enfermedad.vb" />
     <Compile Include="MedicoUtils\E_Formulario.vb" />
@@ -110,6 +108,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
+      <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

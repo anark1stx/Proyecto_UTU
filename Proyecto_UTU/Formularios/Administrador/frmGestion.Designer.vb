@@ -249,6 +249,7 @@ Partial Class frmGestion
         Me.lblCorreoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblCorreoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCorreoTXT.Location = New System.Drawing.Point(393, 223)
+        Me.lblCorreoTXT.MaxLength = 50
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.ReadOnly = True
         Me.lblCorreoTXT.Size = New System.Drawing.Size(258, 23)
@@ -261,6 +262,7 @@ Partial Class frmGestion
         Me.lblDireccionTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDireccionTXT.Location = New System.Drawing.Point(394, 145)
+        Me.lblDireccionTXT.MaxLength = 160
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.ReadOnly = True
         Me.lblDireccionTXT.Size = New System.Drawing.Size(184, 23)
@@ -273,6 +275,7 @@ Partial Class frmGestion
         Me.lblApellido2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblApellido2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblApellido2TXT.Location = New System.Drawing.Point(394, 111)
+        Me.lblApellido2TXT.MaxLength = 30
         Me.lblApellido2TXT.Name = "lblApellido2TXT"
         Me.lblApellido2TXT.ReadOnly = True
         Me.lblApellido2TXT.Size = New System.Drawing.Size(257, 23)
@@ -285,6 +288,7 @@ Partial Class frmGestion
         Me.lblApellido1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblApellido1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblApellido1TXT.Location = New System.Drawing.Point(394, 76)
+        Me.lblApellido1TXT.MaxLength = 30
         Me.lblApellido1TXT.Name = "lblApellido1TXT"
         Me.lblApellido1TXT.ReadOnly = True
         Me.lblApellido1TXT.Size = New System.Drawing.Size(257, 23)
@@ -297,6 +301,7 @@ Partial Class frmGestion
         Me.lblNombre2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblNombre2TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombre2TXT.Location = New System.Drawing.Point(394, 42)
+        Me.lblNombre2TXT.MaxLength = 30
         Me.lblNombre2TXT.Name = "lblNombre2TXT"
         Me.lblNombre2TXT.ReadOnly = True
         Me.lblNombre2TXT.Size = New System.Drawing.Size(257, 23)
@@ -309,6 +314,7 @@ Partial Class frmGestion
         Me.lblNombre1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblNombre1TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombre1TXT.Location = New System.Drawing.Point(394, 8)
+        Me.lblNombre1TXT.MaxLength = 30
         Me.lblNombre1TXT.Name = "lblNombre1TXT"
         Me.lblNombre1TXT.ReadOnly = True
         Me.lblNombre1TXT.Size = New System.Drawing.Size(257, 23)
@@ -465,6 +471,7 @@ Partial Class frmGestion
         Me.cbTelefonos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTelefonos.FormattingEnabled = True
         Me.cbTelefonos.Location = New System.Drawing.Point(394, 182)
+        Me.cbTelefonos.MaxLength = 9
         Me.cbTelefonos.Name = "cbTelefonos"
         Me.cbTelefonos.Size = New System.Drawing.Size(184, 28)
         Me.cbTelefonos.TabIndex = 393
@@ -669,6 +676,7 @@ Partial Class frmGestion
         '
         Me.txtBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtBusqueda.Location = New System.Drawing.Point(777, 10)
+        Me.txtBusqueda.MaxLength = 50
         Me.txtBusqueda.Name = "txtBusqueda"
         Me.txtBusqueda.Size = New System.Drawing.Size(207, 34)
         Me.txtBusqueda.TabIndex = 0

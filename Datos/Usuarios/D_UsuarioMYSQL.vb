@@ -1,26 +1,21 @@
-﻿Imports Entidades
+﻿Imports Utilidades
+Imports Entidades
 Imports MySql.Data.MySqlClient
 Public Class D_UsuarioMYSQL
-    Dim conexion As New MySqlConnection()
-
+    Dim conexion As New MySqlConnection
     Public Function SeleccionarUsuario(usuario As String, contrasena As String) As E_UsuarioMYSQL
 
         Dim u As New E_UsuarioMYSQL
         Dim leer As MySqlDataReader
 
         construirCnString(usuario, contrasena)
+        Dim exitCode As Integer = Conectar(conexion)
 
-        conexion.ConnectionString = retornarCStringBD()
-        Console.WriteLine(conexion.ConnectionString)
-        Try
-            conexion.Open()
-            conexion.Close()
-        Catch ex As Exception
-            conexion.Close()
-            Console.WriteLine(ex.Message)
-            u.Valido = False
-            Return u
-        End Try
+        Select Case exitCode
+            Case -1, 5
+                Return New E_UsuarioMYSQL With {.errMsg = exitCode}
+        End Select
+
 
         Dim cmd As New MySqlCommand With {
             .Connection = conexion,
@@ -30,32 +25,28 @@ Public Class D_UsuarioMYSQL
 
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = usuario
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
             If leer.HasRows Then
                 While leer.Read()
-                    u = New E_UsuarioMYSQL With {
-                     .Rol = leer.GetString("ROL"),
-                     .Valido = True
-                    }
+                    u.Rol = leer.GetString("ROL")
                 End While
-            Else
-                u = New E_UsuarioMYSQL With {
-                     .Rol = "Desconocido",
-                     .Valido = False
-                    }
+            Else 'no tiene rol asignado en la tabla mysql.default_roles
+                u.errMsg = MensajeDeErrorRolDesconocido()
             End If
-            cmd.Connection.Close()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
+        Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
+            u.errMsg = MensajeDeErrorPermisoProcedimiento()
         End Try
 
+        Cerrar(conexion)
         Return u
     End Function
 
     Public Overridable Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
+        Dim retorno As Integer = 0
 
-        conexion.ConnectionString = retornarCStringBD()
+        If Conectar(conexion) = 0 Then 'errores con la conexion
+            Return retorno
+        End If
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -66,17 +57,17 @@ Public Class D_UsuarioMYSQL
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = u.Nombre
         cmd.Parameters.Add("CONTRASENA", MySqlDbType.VarChar, 30).Value = u.Contrasena
         cmd.Parameters.Add("ROL", MySqlDbType.VarChar, 30).Value = u.Rol
-        Console.WriteLine("El rol es: " & u.Rol)
+
         Try
-            cmd.Connection.Open()
             cmd.ExecuteNonQuery()
-            cmd.Connection.Close()
-            Return 1
+            retorno = 1 'todo ok
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Return 0
+            retorno = 2 'Error dando alta usuario mysql
         End Try
 
+        Cerrar(conexion)
+
+        Return retorno
     End Function
 
 End Class
