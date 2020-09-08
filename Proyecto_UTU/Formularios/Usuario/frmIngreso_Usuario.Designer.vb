@@ -41,9 +41,10 @@ Partial Class frmIngreso_Usuario
         '
         Me.txtIngresarCi.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtIngresarCi.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIngresarCi.Location = New System.Drawing.Point(388, 208)
+        Me.txtIngresarCi.Location = New System.Drawing.Point(291, 169)
+        Me.txtIngresarCi.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtIngresarCi.Name = "txtIngresarCi"
-        Me.txtIngresarCi.Size = New System.Drawing.Size(358, 45)
+        Me.txtIngresarCi.Size = New System.Drawing.Size(270, 37)
         Me.txtIngresarCi.TabIndex = 1
         '
         'lblIngreseCI
@@ -51,9 +52,10 @@ Partial Class frmIngreso_Usuario
         Me.lblIngreseCI.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblIngreseCI.AutoSize = True
         Me.lblIngreseCI.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIngreseCI.Location = New System.Drawing.Point(415, 166)
+        Me.lblIngreseCI.Location = New System.Drawing.Point(311, 135)
+        Me.lblIngreseCI.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblIngreseCI.Name = "lblIngreseCI"
-        Me.lblIngreseCI.Size = New System.Drawing.Size(285, 38)
+        Me.lblIngreseCI.Size = New System.Drawing.Size(237, 31)
         Me.lblIngreseCI.TabIndex = 2
         Me.lblIngreseCI.Text = "Ingrese su usuario"
         '
@@ -62,9 +64,10 @@ Partial Class frmIngreso_Usuario
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(407, 289)
+        Me.Label1.Location = New System.Drawing.Point(305, 235)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(309, 36)
+        Me.Label1.Size = New System.Drawing.Size(249, 29)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Ingrese su contraseña"
         '
@@ -72,19 +75,21 @@ Partial Class frmIngreso_Usuario
         '
         Me.txtIngresarContrasena.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtIngresarContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIngresarContrasena.Location = New System.Drawing.Point(388, 328)
+        Me.txtIngresarContrasena.Location = New System.Drawing.Point(291, 266)
+        Me.txtIngresarContrasena.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtIngresarContrasena.Name = "txtIngresarContrasena"
         Me.txtIngresarContrasena.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtIngresarContrasena.Size = New System.Drawing.Size(358, 45)
+        Me.txtIngresarContrasena.Size = New System.Drawing.Size(270, 37)
         Me.txtIngresarContrasena.TabIndex = 3
         '
         'btnIngresar
         '
         Me.btnIngresar.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnIngresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIngresar.Location = New System.Drawing.Point(388, 419)
+        Me.btnIngresar.Location = New System.Drawing.Point(291, 340)
+        Me.btnIngresar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnIngresar.Name = "btnIngresar"
-        Me.btnIngresar.Size = New System.Drawing.Size(358, 98)
+        Me.btnIngresar.Size = New System.Drawing.Size(268, 80)
         Me.btnIngresar.TabIndex = 5
         Me.btnIngresar.Text = "Ingresar"
         Me.btnIngresar.UseVisualStyleBackColor = True
@@ -94,9 +99,10 @@ Partial Class frmIngreso_Usuario
         Me.L_lblContrasenaOlvidada.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.L_lblContrasenaOlvidada.AutoSize = True
         Me.L_lblContrasenaOlvidada.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.L_lblContrasenaOlvidada.Location = New System.Drawing.Point(587, 376)
+        Me.L_lblContrasenaOlvidada.Location = New System.Drawing.Point(440, 306)
+        Me.L_lblContrasenaOlvidada.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.L_lblContrasenaOlvidada.Name = "L_lblContrasenaOlvidada"
-        Me.L_lblContrasenaOlvidada.Size = New System.Drawing.Size(151, 18)
+        Me.L_lblContrasenaOlvidada.Size = New System.Drawing.Size(125, 15)
         Me.L_lblContrasenaOlvidada.TabIndex = 6
         Me.L_lblContrasenaOlvidada.TabStop = True
         Me.L_lblContrasenaOlvidada.Text = "Olvidé mi contraseña."
@@ -107,11 +113,12 @@ Partial Class frmIngreso_Usuario
         Me.lblMensajeErrorCI.AutoSize = True
         Me.lblMensajeErrorCI.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMensajeErrorCI.ForeColor = System.Drawing.Color.Red
-        Me.lblMensajeErrorCI.Location = New System.Drawing.Point(384, 256)
+        Me.lblMensajeErrorCI.Location = New System.Drawing.Point(288, 208)
+        Me.lblMensajeErrorCI.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblMensajeErrorCI.Name = "lblMensajeErrorCI"
-        Me.lblMensajeErrorCI.Size = New System.Drawing.Size(283, 24)
+        Me.lblMensajeErrorCI.Size = New System.Drawing.Size(230, 18)
         Me.lblMensajeErrorCI.TabIndex = 7
-        Me.lblMensajeErrorCI.Text = "Verifique su usario y contraseña."
+        Me.lblMensajeErrorCI.Text = "Verifique su usuario y contraseña."
         Me.lblMensajeErrorCI.Visible = False
         '
         'pnlLogo
@@ -121,8 +128,9 @@ Partial Class frmIngreso_Usuario
         Me.pnlLogo.Controls.Add(Me.lblNomHospital)
         Me.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlLogo.Location = New System.Drawing.Point(0, 0)
+        Me.pnlLogo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnlLogo.Name = "pnlLogo"
-        Me.pnlLogo.Size = New System.Drawing.Size(1130, 96)
+        Me.pnlLogo.Size = New System.Drawing.Size(848, 78)
         Me.pnlLogo.TabIndex = 8
         '
         'pbLogo
@@ -131,8 +139,9 @@ Partial Class frmIngreso_Usuario
         Me.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbLogo.Dock = System.Windows.Forms.DockStyle.Left
         Me.pbLogo.Location = New System.Drawing.Point(0, 0)
+        Me.pbLogo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(105, 94)
+        Me.pbLogo.Size = New System.Drawing.Size(79, 76)
         Me.pbLogo.TabIndex = 9
         Me.pbLogo.TabStop = False
         '
@@ -141,19 +150,20 @@ Partial Class frmIngreso_Usuario
         Me.lblNomHospital.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNomHospital.AutoSize = True
         Me.lblNomHospital.Font = New System.Drawing.Font("MS PGothic", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomHospital.Location = New System.Drawing.Point(293, 21)
+        Me.lblNomHospital.Location = New System.Drawing.Point(220, 17)
+        Me.lblNomHospital.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNomHospital.Name = "lblNomHospital"
-        Me.lblNomHospital.Size = New System.Drawing.Size(531, 60)
+        Me.lblNomHospital.Size = New System.Drawing.Size(428, 48)
         Me.lblNomHospital.TabIndex = 1
         Me.lblNomHospital.Text = "Ingreso de usuarios"
         Me.lblNomHospital.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmIngreso_Usuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1130, 748)
+        Me.ClientSize = New System.Drawing.Size(848, 608)
         Me.Controls.Add(Me.pnlLogo)
         Me.Controls.Add(Me.lblMensajeErrorCI)
         Me.Controls.Add(Me.L_lblContrasenaOlvidada)
@@ -164,9 +174,10 @@ Partial Class frmIngreso_Usuario
         Me.Controls.Add(Me.txtIngresarCi)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(1366, 800)
-        Me.MinimumSize = New System.Drawing.Size(660, 380)
+        Me.MaximumSize = New System.Drawing.Size(1028, 657)
+        Me.MinimumSize = New System.Drawing.Size(499, 316)
         Me.Name = "frmIngreso_Usuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ingreso de usuarios"

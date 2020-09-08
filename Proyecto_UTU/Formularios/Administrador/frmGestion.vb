@@ -897,7 +897,7 @@ Public Class frmGestion
             lblCorreoTXT.DataBindings.Add("Text", obj, "Correo", False, DataSourceUpdateMode.Never)
             lblDireccionTXT.DataBindings.Add("Text", obj, "Direccion_Calle", False, DataSourceUpdateMode.Never)
             lblDireccionNumeroTXT.DataBindings.Add("Text", obj, "Direccion_Numero", False, DataSourceUpdateMode.Never)
-
+            cbTelefonos.Items.Clear()
             cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
             cbTelefonos.SelectedIndex = 0
 
@@ -908,6 +908,7 @@ Public Class frmGestion
     End Sub
 
     Private Sub MedicoBindings(obj As E_Medico)
+        cbEspecialidades.Items.Clear()
         cbEspecialidades.Items.AddRange(obj.Especialidad.ToArray)
         cbEspecialidades.SelectedIndex = 0
     End Sub

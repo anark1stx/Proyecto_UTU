@@ -213,11 +213,13 @@ Public Class D_Usuario
             Try
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
+                Cerrar(conexion)
                 u.ErrMsg = "Error ingresando el teléfono: " & t
                 Return 3 ' no se pudo ingresar telefono
             End Try
         Next
 
+        Cerrar(conexion)
         Return 1
     End Function
 

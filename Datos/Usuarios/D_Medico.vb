@@ -256,13 +256,14 @@ Public Class D_Medico
 
             Try
                 cmd.ExecuteNonQuery()
-                Cerrar(conexion)
+                Console.WriteLine("DANDO ALTA A: " & es)
             Catch ex As Exception
                 Cerrar(conexion)
+                Console.WriteLine("RIPEE FOERTE DANDO ALTA A: " & es)
                 Return 2 ' no se pudo ingresar la especialidad
             End Try
         Next
-
+        Cerrar(conexion)
         Return 1
     End Function
     Public Function ModificarUsuarioMedico(u As E_Medico) As Integer

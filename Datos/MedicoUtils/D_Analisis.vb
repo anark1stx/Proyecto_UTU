@@ -13,8 +13,7 @@ Public Class D_Analisis
         Dim leer As MySqlDataReader
 
         cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = a.Nombre
-        cmd.Parameters.Add("ID_analisis", MySqlDbType.Int32)
-        cmd.Parameters("ID_analisis").Direction = ParameterDirection.Output
+        cmd.Parameters.Add("ID_analisis", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
         If Conectar(conexion) = -1 Then
             Return -1
@@ -27,11 +26,9 @@ Public Class D_Analisis
             Return 2 'no se pudo ingresar analisis
         End Try
 
-        While leer.Read()
-            a.ID = leer.GetInt32("ID_analisis")
-        End While
-
         Cerrar(conexion)
+
+        a.ID = cmd.Parameters("ID_analisis").Value
 
         If AltaParametros(a) = 0 Then
             Return 5 'no se pudo ingresar parametros
@@ -49,6 +46,11 @@ Public Class D_Analisis
     Public Function AltaParametros(a As E_Analisis) As Integer 'hacer algo para verificar existencia del parametro antes
 
         Dim leer As MySqlDataReader
+
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
         For Each p As E_Analisis.Parametro In a.Parametros
             Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -60,17 +62,13 @@ Public Class D_Analisis
                 cmd.Parameters.Add("UNIDAD", MySqlDbType.VarChar, 20).Value = p.Unidad
                 cmd.Parameters.Add("REFERENCIA_MIN", MySqlDbType.Double, 8).Value = p.ValorMinimo
                 cmd.Parameters.Add("REFERENCIA_MAX", MySqlDbType.Double, 8).Value = p.ValorMaximo
+                cmd.Parameters.Add("ID_PARAMETRO", MySqlDbType.Int32).Direction = ParameterDirection.Output
                 Try
-                    cmd.Connection.Open()
                     leer = cmd.ExecuteReader()
-                    While leer.Read()
-                        p.ID = leer.GetInt32("ID_PARAMETRO")
-                    End While
-                    leer.Close()
-                    cmd.Connection.Close()
+                    p.ID = cmd.Parameters("ID_PARAMETRO").Value
                 Catch ex As Exception
-                    cmd.Connection.Close()
-                    Return 0 'no se pudo ingresar parametro
+                    Cerrar(conexion)
+                    Return 2 'no se pudo ingresar parametro
                 End Try
             Else
                 Console.WriteLine("El parametro ya esta registrado en la BD")
@@ -85,18 +83,19 @@ Public Class D_Analisis
             cmd2.Parameters.Add("ID_analisis", MySqlDbType.Int32).Value = a.ID
             cmd2.Parameters.Add("ID_parametro", MySqlDbType.Int32).Value = p.ID
             Try
-                cmd2.Connection.Open()
                 cmd2.ExecuteNonQuery()
-                cmd2.Connection.Close()
             Catch ex As Exception
-                cmd2.Connection.Close()
-                Return 0
+                Cerrar(conexion)
+                Return 3
             End Try
         Next
         Return 1
     End Function
 
     Public Function AltaIndicacion(a As E_Analisis) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         For Each i As E_Analisis.Indicacion In a.Indicaciones
             Dim cmd As New MySqlCommand With {
@@ -109,13 +108,10 @@ Public Class D_Analisis
             cmd.Parameters.Add("INDICACION", MySqlDbType.VarChar).Value = i.Indicacion
 
             Try
-                cmd.Connection.Open()
                 cmd.ExecuteNonQuery()
-                cmd.Connection.Close()
             Catch ex As Exception
-                cmd.Connection.Close()
-                Console.WriteLine(ex.Message)
-                Return 0 'no se pudo ingresar indicacion
+                Cerrar(conexion)
+                Return 2 'no se pudo ingresar indicacion
             End Try
         Next
 
@@ -132,20 +128,19 @@ Public Class D_Analisis
             .CommandText = "BuscarParametros",
             .Connection = conexion
         }
-        Try
-            cmd.Connection.Open()
-            leer = cmd.ExecuteReader()
-        Catch ex As Exception
-            cmd.Connection.Close()
-            pList.Add(New E_Analisis.Parametro With {.ID = 0})
-            Return pList
-        End Try
 
-        If Not leer.HasRows Then
-            cmd.Connection.Close()
-            pList.Add(New E_Analisis.Parametro With {.ID = 0})
+        If Conectar(conexion) = -1 Then
+            pList.Add(New E_Analisis.Parametro With {.ID = -1})
             Return pList
         End If
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            pList.Add(New E_Analisis.Parametro With {.ID = -2})
+            Return pList
+        End Try
 
         While leer.Read()
             Console.WriteLine("reading parametros")
@@ -159,8 +154,7 @@ Public Class D_Analisis
 
         End While
 
-        leer.Close()
-        cmd.Connection.Close()
+        Cerrar(conexion)
         Return pList
     End Function
 
@@ -175,18 +169,17 @@ Public Class D_Analisis
 
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = nombreanalisis
         cmd.Parameters.Add("EXISTE", MySqlDbType.Int32).Direction = ParameterDirection.Output
+
         Try
-            Dim existe As Integer = 0
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader()
-            existe = leer.GetInt32("EXISTE")
-            cmd.Connection.Close()
-            Return existe
         Catch ex As Exception
-            Console.WriteLine("excepcion")
-            cmd.Connection.Close()
-            Return 3
+            Cerrar(conexion)
+            Return 2
         End Try
+
+        Dim existe As Integer = cmd.Parameters("EXISTE").Value
+        Cerrar(conexion)
+        Return existe
 
     End Function
 

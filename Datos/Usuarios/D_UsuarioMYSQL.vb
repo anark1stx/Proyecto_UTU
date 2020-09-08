@@ -11,6 +11,7 @@ Public Class D_UsuarioMYSQL
         construirCnString(usuario, contrasena)
         Dim exitCode As Integer = Conectar(conexion)
 
+
         Select Case exitCode
             Case -1, 5
                 Return New E_UsuarioMYSQL With {.errMsg = exitCode}

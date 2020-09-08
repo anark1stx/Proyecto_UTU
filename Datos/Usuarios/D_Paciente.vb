@@ -64,8 +64,8 @@ Public Class D_Paciente
             Return New E_Paciente With {.ErrMsg = 8} 'no encontre
         End If
 
-        Cerrar(conexion)
         u.TelefonosLista = listaTel
+        Cerrar(conexion)
         Return u
     End Function
 

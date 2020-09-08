@@ -29,6 +29,7 @@ Public Class frmIngreso_Usuario
                     Exit Sub
                 Case 5
                     MessageBox.Show(MensajeDeErrorCredsInvalidas(), "Credenciales incorrectas.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    lblMensajeErrorCI.Visible = True
                     Exit Sub
             End Select
 

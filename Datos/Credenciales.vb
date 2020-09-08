@@ -20,12 +20,8 @@ Module Credenciales
             conn.Open()
             Return 1
         Catch ex As Exception
-            Select Case Err.Number
-                Case 5
-                    Return -1 'hubo un error al abrir la conexion.
-                Case Else
-                    Return 5 'credenciales incorrectas
-            End Select
+            Console.WriteLine("ERROR: " & Err.Number & " " & Err.Description)
+            Return Err.Number
         End Try
     End Function
 
