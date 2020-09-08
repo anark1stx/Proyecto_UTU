@@ -138,15 +138,6 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property ErrMsg As String
-        Get
-            Return _errMsg
-        End Get
-        Set(value As String)
-            _errMsg = value
-        End Set
-    End Property
-
     Public Overridable Function ValidarMisDatos() As Boolean
         If Not check_Cedula(Me.Cedula) Then
             _errMsg = MensajeDeErrorCedula()

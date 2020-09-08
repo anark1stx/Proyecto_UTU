@@ -30,7 +30,7 @@
         End Set
     End Property
 
-    Property errMsg As String
+    Property ErrMsg As String
         Get
             Return _errMsg
         End Get

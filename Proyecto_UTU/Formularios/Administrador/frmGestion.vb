@@ -122,6 +122,7 @@ Public Class frmGestion
     End Sub
 
     Sub resetMode()
+        rBtnCedula.Checked = True
         Select Case Mode
             Case Accion.Alta
                 btnAccion1.ImageIndex = 1 '1 = Alta
@@ -459,7 +460,8 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 5
                             MessageBox.Show("Error ingresando al médico", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                        Case 6
+                            MessageBox.Show("Error ingresando especialidades", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Select
                 End If
             Case TipoUsuario.Auxiliar
@@ -730,6 +732,10 @@ Public Class frmGestion
                         PacienteBindings(p)
                         pList.Add(p)
                     Case Filtro.Apellido
+                        If check_contieneNumeros(txtBusqueda.Text) Then
+                            MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
                         pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
 
                         Select Case pList(0).ErrMsg
@@ -780,6 +786,10 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         mList.Add(m)
                     Case Filtro.Apellido
+                        If check_contieneNumeros(txtBusqueda.Text) Then
+                            MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
                         mList = Await Task.Run(Function() nm.BuscarMedicoApellido(txtBusqueda.Text))
                         Select Case mList(0).ErrMsg
                             Case -1
@@ -801,6 +811,10 @@ Public Class frmGestion
                         MedicoBindings(m)
                         mList.Add(m)
                     Case Filtro.Especialidad
+                        If check_contieneNumeros(txtBusqueda.Text) Then
+                            MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
                         mList = Await Task.Run(Function() nm.BuscarMedicoEspecialidad(txtBusqueda.Text))
 
                         Select Case mList(0).ErrMsg
@@ -886,6 +900,7 @@ Public Class frmGestion
 
             cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
             cbTelefonos.SelectedIndex = 0
+
             pBoxFotoUsuario.Image = Bytes2Image(obj.Foto)
         Catch ex As Exception
             Console.WriteLine("already binded")

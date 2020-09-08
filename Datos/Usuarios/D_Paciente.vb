@@ -7,7 +7,7 @@ Public Class D_Paciente
     Public Function ListarPacientesCI(ci As Integer) As E_Paciente
 
         If Conectar(conexion) = -1 Then
-            Return New E_Paciente With {.Cedula = -1} '-1 exit code para conexion fallida
+            Return New E_Paciente With {.ErrMsg = -1} '-1 exit code para conexion fallida
         End If
 
         Dim leer As MySqlDataReader
@@ -36,25 +36,23 @@ Public Class D_Paciente
 
         If leer.HasRows Then
             While leer.Read
-                u = New E_Paciente With {
-                         .Cedula = leer.GetInt32("CI"),
-                         .Nombre1 = leer.GetString("nombre1"),
-                         .Nombre2 = leer.GetString("nombre2"),
-                         .Apellido1 = leer.GetString("apellido1"),
-                         .Apellido2 = leer.GetString("apellido2"),
-                         .Correo = leer.GetString("correo"),
-                         .Direccion_Calle = leer.GetString("direccion_calle"),
-                         .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
-                         .Activo = leer.GetBoolean("activo"),
-                         .TelefonosLista = New List(Of String)(New String() {}),
-                         .Estado_civil = leer.GetString("e_civil"),
-                         .FechaNacimiento = leer.GetDateTime("fecha_nac").ToShortDateString(), 'esto es para que no salga con el formato: 6/9/2020 00:00:00
-                         .Ocupacion = leer.GetString("ocupacion"),
-                         .Sexo = leer.GetChar("sexo"),
-                         .Etapa = leer.GetChar("etapa")
-                }
+                u.Cedula = leer.GetInt32("CI")
+                u.Nombre1 = leer.GetString("nombre1")
+                u.Nombre2 = leer.GetString("nombre2")
+                u.Apellido1 = leer.GetString("apellido1")
+                u.Apellido2 = leer.GetString("apellido2")
+                u.Correo = leer.GetString("correo")
+                u.Direccion_Calle = leer.GetString("direccion_calle")
+                u.Direccion_Numero = leer.GetInt32("direccion_nroPuerta")
+                u.Activo = leer.GetBoolean("activo")
+                u.TelefonosLista = New List(Of String)(New String() {})
+                u.Estado_civil = leer.GetString("e_civil")
+                u.FechaNacimiento = leer.GetDateTime("fecha_nac").ToShortDateString() 'esto es para que no salga con el formato: 6/9/2020 00:00:00
+                u.Ocupacion = leer.GetString("ocupacion")
+                u.Sexo = leer.GetChar("sexo")
+                u.Etapa = leer.GetChar("etapa")
                 listaTel.Add(leer.GetString("telefono"))
-                If Not yalei_foto Then
+                If Not yalei_foto Then 'para evitar volver a leer un blob, consume memoria etc.
                     Dim foto = CType(leer("foto"), Byte())
                     Dim stream As New IO.MemoryStream(foto)
                     u.Foto = stream.ToArray()
@@ -67,8 +65,7 @@ Public Class D_Paciente
         End If
 
         Cerrar(conexion)
-        u.TelefonosLista = lista.Distinct().ToList()
-
+        u.TelefonosLista = listaTel
         Return u
     End Function
 
@@ -124,12 +121,13 @@ Public Class D_Paciente
                     stream.Close()
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     ultima_ci = lastU.Cedula
+                    uList.Add(lastU)
                 Else
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                 End If
             End While
         Else
-            uList = New List(Of E_Paciente)(New E_Paciente With {.ErrMsg = 8}) 'no encontre usuarios
+            uList.Add(New E_Paciente() With {.ErrMsg = 8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -175,11 +173,16 @@ Public Class D_Paciente
         Try
             cmd.ExecuteNonQuery() 'EJECUTO ALTA PACIENTESIBIM
             Cerrar(conexion)
-            Return 1
         Catch ex As Exception
             Cerrar(conexion)
             Return 5 'No se pudo crear paciente
         End Try
+
+        If MyBase.AltaUsuarioTelefono(u) Then
+            Return 1
+        Else
+            Return 3
+        End If
 
     End Function
 
@@ -194,7 +197,7 @@ Public Class D_Paciente
         .CommandText = "ModificarPaciente",
         .Connection = conexion
         }
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
         cmd.Parameters.Add("NOMBRE1", MySqlDbType.VarChar, 30).Value = u.Nombre1
         cmd.Parameters.Add("NOMBRE2", MySqlDbType.VarChar, 30).Value = u.Nombre2
         cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = u.Apellido1
@@ -212,8 +215,10 @@ Public Class D_Paciente
 
         Try
             cmd.ExecuteNonQuery()
+            Console.WriteLine("modifique bien")
             Cerrar(conexion)
         Catch ex As Exception
+            Console.WriteLine(ex.Message)
             Cerrar(conexion)
             Return 2
         End Try

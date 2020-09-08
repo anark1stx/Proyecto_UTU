@@ -232,7 +232,7 @@ Public Class D_Usuario
                 .Connection = conexion
         }
 
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
         cmd.Parameters.Add("NOMBRE1", MySqlDbType.VarChar, 30).Value = u.Nombre1
         cmd.Parameters.Add("NOMBRE2", MySqlDbType.VarChar, 30).Value = u.Nombre2
         cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = u.Apellido1

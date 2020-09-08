@@ -34,20 +34,19 @@ Public Class D_Medico
 
         If leer.HasRows Then
             While leer.Read()
-                u = New E_Medico With {
-                     .Cedula = leer.GetInt32("CI"),
-                     .Nombre1 = leer.GetString("nombre1"),
-                     .Nombre2 = leer.GetString("nombre2"),
-                     .Apellido1 = leer.GetString("apellido1"),
-                     .Apellido2 = leer.GetString("apellido2"),
-                     .Correo = leer.GetString("correo"),
-                     .Direccion_Calle = leer.GetString("direccion_calle"),
-                     .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
-                     .Activo = leer.GetBoolean("activo"),
-                     .TelefonosLista = New List(Of String)(New String() {}),
-                     .Especialidad = New List(Of String)(New String() {})
-                }
+                u.Cedula = leer.GetInt32("CI")
+                u.Nombre1 = leer.GetString("nombre1")
+                u.Nombre2 = leer.GetString("nombre2")
+                u.Apellido1 = leer.GetString("apellido1")
+                u.Apellido2 = leer.GetString("apellido2")
+                u.Correo = leer.GetString("correo")
+                u.Direccion_Calle = leer.GetString("direccion_calle")
+                u.Direccion_Numero = leer.GetInt32("direccion_nroPuerta")
+                u.Activo = leer.GetBoolean("activo")
+                u.TelefonosLista = New List(Of String)(New String() {})
+                u.Especialidad = New List(Of String)(New String() {})
                 listaTel.Add(leer.GetString("telefono"))
+                listaEsp.Add(leer.GetString("especialidad"))
                 If Not yalei_foto Then
                     Dim foto = CType(leer("foto"), Byte())
                     Dim stream As New IO.MemoryStream(foto)
@@ -58,10 +57,11 @@ Public Class D_Medico
 
             End While
             u.TelefonosLista = listaTel
+            u.Especialidad = listaEsp
         Else
             u.ErrMsg = 8 'no encontre usuario
         End If
-
+        Cerrar(conexion)
         Return u
     End Function
 
@@ -103,7 +103,8 @@ Public Class D_Medico
                  .Direccion_Calle = leer.GetString("direccion_calle"),
                  .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
                  .Activo = leer.GetBoolean("activo"),
-                 .TelefonosLista = New List(Of String)(New String() {})
+                 .TelefonosLista = New List(Of String)(New String() {}),
+                 .Especialidad = New List(Of String)(New String() {})
                  }
                     Dim foto = CType(leer("foto"), Byte())
                     Dim stream As New IO.MemoryStream(foto)
@@ -119,7 +120,7 @@ Public Class D_Medico
                 End If
             End While
         Else
-            uList = New List(Of E_Medico)(New E_Medico With {.ErrMsg = 8}) 'no encontre usuarios
+            uList.Add(New E_Medico With {.ErrMsg = 8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -140,7 +141,7 @@ Public Class D_Medico
 
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
-                .CommandText = "BuscarMEDICOxESPECIALIDAD", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
+                .CommandText = "BuscarMEDICOxEspecialidad", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
                 .Connection = conexion
         }
         cmd.Parameters.Add("especialidad", MySqlDbType.VarChar, 30).Value = es
@@ -165,7 +166,8 @@ Public Class D_Medico
                  .Direccion_Calle = leer.GetString("direccion_calle"),
                  .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
                  .Activo = leer.GetBoolean("activo"),
-                 .TelefonosLista = New List(Of String)(New String() {})
+                 .TelefonosLista = New List(Of String)(New String() {}),
+                 .Especialidad = New List(Of String)(New String() {})
                  }
                     Dim foto = CType(leer("foto"), Byte())
                     Dim stream As New IO.MemoryStream(foto)
@@ -197,11 +199,9 @@ Public Class D_Medico
             Case -1, 2
                 Return code
         End Select
-
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-
         Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,
                     .CommandText = "AltaMedico",
@@ -227,15 +227,23 @@ Public Class D_Medico
             Return 5 'No se pudo crear medico
         End Try
 
-        If AltaMedicoEspecialidad(u) Then
-            Return 1 'todo OK
+        If AltaUsuarioTelefono(u) = 1 Then
+            If AltaMedicoEspecialidad(u) = 1 Then
+                Return 1 'todo OK
+            Else
+                Return 6 'fallo ingreso especialidad
+            End If
         Else
-            Return 3 'fallo ingreso especialidad
+            Return 3
         End If
+
 
     End Function
 
     Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         For Each es As String In u.Especialidad
             Dim cmd As New MySqlCommand With {
@@ -246,12 +254,9 @@ Public Class D_Medico
             cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
             cmd.Parameters.Add("ESPECIALIDAD", MySqlDbType.VarChar, 50).Value = es
 
-            If Conectar(conexion) = -1 Then
-                Return -1
-            End If
-
             Try
                 cmd.ExecuteNonQuery()
+                Cerrar(conexion)
             Catch ex As Exception
                 Cerrar(conexion)
                 Return 2 ' no se pudo ingresar la especialidad
