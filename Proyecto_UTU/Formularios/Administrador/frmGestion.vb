@@ -389,7 +389,7 @@ Public Class frmGestion
         End Select
     End Sub
 
-    Sub AltaU()
+    Async Sub AltaU()
         If cbTelefonos.Items.Count < 1 Then
             MessageBox.Show("Ingrese al menos un telefono de contacto.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
@@ -412,7 +412,7 @@ Public Class frmGestion
                 Else
 
                     Dim np As New N_Paciente
-                    Dim res = np.AltaPaciente(p)
+                    Dim res = Await Task.Run(Function() np.AltaPaciente(p))
                     Select Case res
                         Case -1
                             MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -443,7 +443,7 @@ Public Class frmGestion
                     Exit Sub
                 Else
                     Dim nm As New N_Medico
-                    Dim res = nm.AltaMedico(m)
+                    Dim res = Await Task.Run(Function() nm.AltaMedico(m))
                     Select Case res
                         Case -1
                             MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -474,7 +474,7 @@ Public Class frmGestion
                 End If
 
                 Dim nu As New N_Usuario
-                Dim res = nu.AltaUsuarioSIBIM(u)
+                Dim res = Await Task.Run(Function() nu.AltaUsuarioSIBIM(u))
                 Select Case res
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -599,7 +599,7 @@ Public Class frmGestion
         }
     End Function
 
-    Sub BajaU()
+    Async Sub BajaU()
         Dim u As New E_Usuario
         Try
             u.Cedula = lblCedulaTXT.Text
@@ -614,7 +614,7 @@ Public Class frmGestion
 
         Dim nu As New N_Usuario
 
-        Dim res = nu.BajaLogicaUsuario(u)
+        Dim res = Await Task.Run(Function() nu.BajaLogicaUsuario(u))
 
         Select Case res
             Case -1
@@ -628,14 +628,14 @@ Public Class frmGestion
         End Select
     End Sub
 
-    Sub AltaULogica()
+    Async Sub AltaULogica()
         Dim u As New E_Usuario With {
             .Cedula = lblCedulaTXT.Text
         }
 
         Dim nu As New N_Usuario
 
-        Dim res = nu.AltaLogicaUsuario(u)
+        Dim res = Await Task.Run(Function() nu.AltaLogicaUsuario(u))
 
         Select Case res
             Case -1
@@ -649,21 +649,21 @@ Public Class frmGestion
         End Select
     End Sub
 
-    Sub ModificarU()
+    Async Sub ModificarU()
         Dim u = Base_props_user()
         Dim code As Integer = 0
         Select Case Usuario
             Case TipoUsuario.Auxiliar
                 Dim nu As New N_Usuario
-                code = nu.ModificacionUsuario(u)
+                code = Await Task.Run(Function() nu.ModificacionUsuario(u))
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 u = Base_props_paciente(u)
-                code = np.ModificacionPaciente(u)
+                code = Await Task.Run(Function() np.ModificacionPaciente(u))
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
                 u = Base_Props_Medico(u)
-                code = nm.ModificacionMedico(u)
+                code = Await Task.Run(Function() nm.ModificacionMedico(u))
         End Select
 
         Select Case code
