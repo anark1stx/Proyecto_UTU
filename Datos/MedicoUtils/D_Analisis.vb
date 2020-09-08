@@ -1,7 +1,7 @@
 ﻿Imports Entidades
 Imports MySql.Data.MySqlClient
 Public Class D_Analisis
-    Dim conexion As New MySqlConnection(retornarCStringBD())
+    Dim conexion As New MySqlConnection
 
     Public Function AltaAnalisis(a As E_Analisis) As Integer
 
@@ -16,31 +16,30 @@ Public Class D_Analisis
         cmd.Parameters.Add("ID_analisis", MySqlDbType.Int32)
         cmd.Parameters("ID_analisis").Direction = ParameterDirection.Output
 
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
         Try
-            cmd.Connection.Open()
             leer = cmd.ExecuteReader() 'porque preciso el ID del analisis, sino seria NonQuery.
-
-            While leer.Read()
-                a.ID = leer.GetInt32("ID_analisis")
-            End While
-
-            cmd.Connection.Close()
         Catch ex As Exception
-            cmd.Connection.Close()
-            Console.WriteLine(ex.Message)
-            Return 0 'no se pudo ingresar analisis
+            Cerrar(conexion)
+            Return 2 'no se pudo ingresar analisis
         End Try
 
-        leer.Close()
-        cmd.Connection.Close()
+        While leer.Read()
+            a.ID = leer.GetInt32("ID_analisis")
+        End While
+
+        Cerrar(conexion)
 
         If AltaParametros(a) = 0 Then
-            Return 2 'no se pudo ingresar parametros
+            Return 5 'no se pudo ingresar parametros
         End If
 
         For Each indicacion As E_Analisis.Indicacion In a.Indicaciones
             If AltaIndicacion(a) = 0 Then
-                Return 3 'no se pudo ingresar indicaciones
+                Return 6 'no se pudo ingresar indicaciones
             End If
         Next
 

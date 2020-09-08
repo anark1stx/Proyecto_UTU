@@ -669,12 +669,14 @@ Public Class frmGestion
         Select Case code
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 0
-                MessageBox.Show("El usuario no pudo ser modificado", "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue modificado con éxito", "Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Case 2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error modificando usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 3
+                MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 5
+                MessageBox.Show("Error modificando especialidades del médico", "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
 
@@ -709,7 +711,7 @@ Public Class frmGestion
 
                         p = Await Task.Run(Function() np.ListarPacienteCI(txtBusqueda.Text))
 
-                        Select Case p.Cedula
+                        Select Case p.ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -729,7 +731,7 @@ Public Class frmGestion
                     Case Filtro.Apellido
                         pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
 
-                        Select Case pList(0).Cedula
+                        Select Case pList(0).ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -759,7 +761,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         m = Await Task.Run(Function() nm.ListarMedicoCI(txtBusqueda.Text))
-                        Select Case m.Cedula
+                        Select Case m.ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -778,8 +780,7 @@ Public Class frmGestion
                         mList.Add(m)
                     Case Filtro.Apellido
                         mList = Await Task.Run(Function() nm.BuscarMedicoApellido(txtBusqueda.Text))
-
-                        Select Case mList(0).Cedula
+                        Select Case mList(0).ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -801,7 +802,7 @@ Public Class frmGestion
                     Case Filtro.Especialidad
                         mList = Await Task.Run(Function() nm.BuscarMedicoEspecialidad(txtBusqueda.Text))
 
-                        Select Case mList(0).Cedula
+                        Select Case mList(0).ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -830,8 +831,8 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
-                        a = Await Task.Run(Function() naux.ListarUsuariosCI(txtBusqueda.Text, True))
-                        Select Case a.Cedula
+                        a = Await Task.Run(Function() naux.ListarUsuariosCI(txtBusqueda.Text))
+                        Select Case a.ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -848,8 +849,8 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         aList.Add(a)
                     Case Filtro.Apellido
-                        aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text, True))
-                        Select Case aList(0).Cedula
+                        aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text))
+                        Select Case aList(0).ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub

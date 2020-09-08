@@ -1,6 +1,7 @@
 ﻿Public Class E_Enfermedad
     Protected _nombre As String
     Protected _descripcion As String
+    Protected _ErrMsg As Integer
     Property Nombre As String
         Get
             Return _nombre
@@ -16,6 +17,14 @@
         End Get
         Set(value As String)
             _nombre = value
+        End Set
+    End Property
+    Property ErrMsg As Integer
+        Get
+            Return _ErrMsg
+        End Get
+        Set(value As Integer)
+            _ErrMsg = value
         End Set
     End Property
 

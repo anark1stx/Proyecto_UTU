@@ -3,7 +3,7 @@
     Protected _nombre As String
     Protected _indicaciones As List(Of Indicacion)
     Protected _parametros As List(Of Parametro)
-
+    Protected _ErrMsg As Integer
     Property ID As Integer
         Get
             Return _id
@@ -35,6 +35,15 @@
         End Get
         Set(value As List(Of Indicacion))
             _indicaciones = value
+        End Set
+    End Property
+
+    Property ErrMsg As Integer
+        Get
+            Return _ErrMsg
+        End Get
+        Set(value As Integer)
+            _ErrMsg = value
         End Set
     End Property
 

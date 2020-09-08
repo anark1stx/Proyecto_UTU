@@ -2,7 +2,7 @@
     Protected _nombre As String
     Protected _contrasena As String
     Protected _rol As String
-    Protected _errMsg As String
+    Protected _errMsg As Integer
     Property Nombre As String
         Get
             Return _nombre

@@ -20,11 +20,11 @@ Public Class N_Paciente
     End Function
 
     Public Sub BajaLogicaPaciente(u As E_Paciente)
-        objDatos.BajaLogicaUsuario(u)
+        objDatos.BajaLogicaUsuario(u.Cedula)
     End Sub
 
     Public Sub AltaLogicaPaciente(u As E_Paciente)
-        objDatos.AltaLogicaUsuario(u)
+        objDatos.AltaLogicaUsuario(u.Cedula)
     End Sub
 
 End Class

@@ -1,41 +1,33 @@
 ﻿Imports Utilidades
 Imports Entidades
 Imports MySql.Data.MySqlClient
-
 Public Class D_Usuario
     Inherits D_UsuarioMYSQL
     Dim conexion As New MySqlConnection
-    Public Function BuscarUsuariosCI(ci As String, Optional auxiliar As Boolean = False) As E_Usuario
+
+    'este metodo vendria llamado desde otro, ejemplo BuscarPacientesCI
+    Public Function BuscarUsuariosCI(ci As Integer) As E_Usuario 'verifico si usuario.CI = [TIPOUSUARIO].CI
         Dim leer As MySqlDataReader
         If Conectar(conexion) = -1 Then
-            Return New E_Usuario With {.Cedula = -1} '-1 exit code para conexion fallida
+            Return New E_Usuario With {.ErrMsg = -1} '-1 exit code para conexion fallida
         End If
 
-        Dim cmd As MySqlCommand
-
-        If Not auxiliar Then
-            cmd = New MySqlCommand With {
-                .CommandType = CommandType.StoredProcedure,
-                .CommandText = "BuscarUSUARIOxCI",
-                .Connection = conexion
-            }
-        Else
-            cmd = New MySqlCommand With {
+        Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
                 .CommandText = "BuscarAUXILIARxCI", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
                 .Connection = conexion
-            }
-        End If
+        }
 
         Dim u As New E_Usuario
         Dim listaTel As New List(Of String)
         Dim yalei_foto As Boolean = False
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
+
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New E_Usuario With {.Cedula = 2}
+            Return New E_Usuario With {.ErrMsg = 2}
         End Try
 
         If leer.HasRows Then
@@ -65,7 +57,7 @@ Public Class D_Usuario
             End While
             u.TelefonosLista = listaTel
         Else
-            u.Cedula = 8 'no encontre usuario
+            u.ErrMsg = 8 'no encontre usuario
         End If
 
         Cerrar(conexion)
@@ -73,38 +65,29 @@ Public Class D_Usuario
         Return u
     End Function
 
-    Public Function BuscarUsuariosApellido(ap As String, Optional auxiliar As Boolean = False) As List(Of E_Usuario) '(ap As String, tabla as String) <- tabla en la que debe buscar a los usuarios
+    Public Function BuscarUsuariosApellido(ap As String) As List(Of E_Usuario)
         Dim uList As New List(Of E_Usuario)
-        Dim listaTel As New List(Of String)
         Dim ultima_ci As Integer = 0
         Dim lastU As New E_Usuario
-        Dim cmd As MySqlCommand
+
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            Return New List(Of E_Usuario)(New E_Usuario With {.Cedula = 0})
+            Return New List(Of E_Usuario)(New E_Usuario With {.ErrMsg = -1})
         End If
 
-        If Not auxiliar Then
-            cmd = New MySqlCommand With {
+        Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
-                .CommandText = "BuscarUSUARIOxApellido",
+                .CommandText = "BuscarAUXILIARxAPELLIDO", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
                 .Connection = conexion
-            }
-        Else
-            cmd = New MySqlCommand With {
-                .CommandType = CommandType.StoredProcedure,
-                .CommandText = "BuscarUSUARIOxApellido",
-                .Connection = conexion
-            }
-        End If
+        }
         cmd.Parameters.Add("apellido1", MySqlDbType.VarChar, 30).Value = ap
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New List(Of E_Usuario)(New E_Usuario With {.Cedula = 2})
+            Return New List(Of E_Usuario)(New E_Usuario With {.ErrMsg = 2})
         End Try
 
         If leer.HasRows Then
@@ -128,12 +111,13 @@ Public Class D_Usuario
                     stream.Close()
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     ultima_ci = lastU.Cedula
+                    uList.Add(lastU)
                 Else
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                 End If
             End While
         Else
-            uList = New List(Of E_Usuario)(New E_Usuario With {.Cedula = 8}) 'no encontre usuarios
+            uList = New List(Of E_Usuario)(New E_Usuario With {.ErrMsg = 8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -152,65 +136,68 @@ Public Class D_Usuario
                 .CommandText = "USUARIOEXISTE",
                 .Connection = conexion
         }
-        Dim existe As Integer = 0
+        Dim existe As Integer = 1
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
-        cmd.Parameters.Add("EXISTE", MySqlDbType.Int32)
-        cmd.Parameters("EXISTE").Direction = ParameterDirection.Output
+        cmd.Parameters.Add("EXISTE", MySqlDbType.Bit, 1).Direction = ParameterDirection.Output
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
+            Console.WriteLine(ex.Message)
             Cerrar(conexion)
             Return 2 'error al ejecutar cmd
         End Try
 
         While leer.Read()
-            existe = leer("EXISTE")
+            existe = leer.GetBoolean("EXISTE")
         End While
 
+        Cerrar(conexion)
+        Console.WriteLine("EXISTO? " & existe)
         Return existe
     End Function
 
     Public Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
-        If MyBase.AltaUsuario(mysqlUser) = 1 Then
+        Dim code = MyBase.AltaUsuario(mysqlUser)
 
-            If Conectar(conexion) = -1 Then
-                Return -1
-            End If
+        Select Case code
+            Case -1, 2
+                Return code
+        End Select
 
-            Dim cmd As New MySqlCommand With {
-                .CommandType = CommandType.StoredProcedure,
-                .CommandText = "AltaUsuario",
-                .Connection = conexion
-            }
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
-            cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
-            cmd.Parameters.Add("NOMBRE1", MySqlDbType.VarChar, 30).Value = u.Nombre1
-            cmd.Parameters.Add("NOMBRE2", MySqlDbType.VarChar, 30).Value = u.Nombre2
-            cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = u.Apellido1
-            cmd.Parameters.Add("APELLIDO2", MySqlDbType.VarChar, 30).Value = u.Apellido2
-            cmd.Parameters.Add("DIRECCION_C", MySqlDbType.VarChar, 160).Value = u.Direccion_Calle
-            cmd.Parameters.Add("DIRECCION_N", MySqlDbType.Int32).Value = u.Direccion_Numero
-            cmd.Parameters.Add("ACTIVO", MySqlDbType.Bit).Value = u.Activo
-            cmd.Parameters.Add("CORREO", MySqlDbType.VarChar, 50).Value = u.Correo
-            cmd.Parameters.Add("FOTO", MySqlDbType.MediumBlob, u.Foto.Length).Value = u.Foto
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaUsuario",
+            .Connection = conexion
+        }
 
-            Try
-                cmd.ExecuteNonQuery()
-            Catch ex As Exception
-                Return 4 'No se pudo crear usuario sibim
-            End Try
+        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("NOMBRE1", MySqlDbType.VarChar, 30).Value = u.Nombre1
+        cmd.Parameters.Add("NOMBRE2", MySqlDbType.VarChar, 30).Value = u.Nombre2
+        cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = u.Apellido1
+        cmd.Parameters.Add("APELLIDO2", MySqlDbType.VarChar, 30).Value = u.Apellido2
+        cmd.Parameters.Add("DIRECCION_C", MySqlDbType.VarChar, 160).Value = u.Direccion_Calle
+        cmd.Parameters.Add("DIRECCION_N", MySqlDbType.Int32).Value = u.Direccion_Numero
+        cmd.Parameters.Add("ACTIVO", MySqlDbType.Bit).Value = u.Activo
+        cmd.Parameters.Add("CORREO", MySqlDbType.VarChar, 50).Value = u.Correo
+        cmd.Parameters.Add("FOTO", MySqlDbType.MediumBlob, u.Foto.Length).Value = u.Foto
 
-            If AltaUsuarioTelefono(u) Then
-                Return 1 'todo ok
-            Else
-                Return 3 'Falla alta telefono
-            End If
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Return 4 'No se pudo crear usuario sibim
+        End Try
 
+        If AltaUsuarioTelefono(u) Then
+            Return 1 'todo ok
         Else
-            Return 2 'no se pudo crear usuario mysql, error al ejecutar el comando
+            Return 3 'Falla alta telefono
         End If
 
     End Function
@@ -282,7 +269,7 @@ Public Class D_Usuario
 
     Public Function ModificarUsuarioTelefono(u As E_Usuario) As Integer
 
-        If borrarTelefonos(u) = 1 Then
+        If borrarTelefonos(u.Cedula) = 1 Then
 
             If AltaUsuarioTelefono(u) = 1 Then
                 Return 1 'todo ok
@@ -295,7 +282,7 @@ Public Class D_Usuario
 
     End Function
 
-    Public Function borrarTelefonos(u As E_Usuario) As Integer
+    Public Function borrarTelefonos(CI As Integer) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -305,7 +292,7 @@ Public Class D_Usuario
             .Connection = conexion
         }
 
-        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = CI
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
@@ -317,7 +304,7 @@ Public Class D_Usuario
         Return 1
     End Function
 
-    Public Function BajaLogicaUsuario(u As E_Usuario) As Integer
+    Public Function BajaLogicaUsuario(CI As Integer) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -327,7 +314,7 @@ Public Class D_Usuario
             .CommandText = "BajaLogicaUsuario"
         }
 
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = CI
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
@@ -338,7 +325,7 @@ Public Class D_Usuario
         Return 1
     End Function
 
-    Public Function AltaLogicaUsuario(u As E_Usuario) As Integer
+    Public Function AltaLogicaUsuario(CI As Integer) As Integer
         If Conectar(conexion) Then
             Return -1
         End If
@@ -348,7 +335,7 @@ Public Class D_Usuario
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaLogicaUsuario"
         }
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = CI
         Try
             cmd.ExecuteNonQuery()
 

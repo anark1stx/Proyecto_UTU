@@ -6,12 +6,6 @@ Public Class D_Medico
     Dim conexion As New MySqlConnection()
 
     Public Function ListarMedicosCI(ci As Integer) As E_Medico
-        Dim result = MyBase.BuscarUsuariosCI(ci)
-
-        Select Case result.Cedula
-            Case 0, 2, 8
-                Return New E_Medico With {.Cedula = result.Cedula}
-        End Select
 
         Dim leer As MySqlDataReader
 
@@ -21,154 +15,223 @@ Public Class D_Medico
             .Connection = conexion
         }
 
-        Dim u As New E_Medico With {
-        .Cedula = result.Cedula,
-        .Nombre1 = result.Cedula,
-        .Nombre2 = result.Cedula,
-        .Apellido1 = result.Apellido1,
-        .Apellido2 = result.Apellido2,
-        .Correo = result.Correo,
-        .Direccion_Calle = result.Direccion_Calle,
-        .Direccion_Numero = result.Direccion_Numero,
-        .Foto = result.Foto,
-        .TelefonosLista = result.TelefonosLista,
-        .Activo = result.Activo
-        }
         If Conectar(conexion) = -1 Then
-            Return New E_Medico With {.Cedula = 0}
+            Return New E_Medico With {.ErrMsg = -1}
         End If
-
+        Dim u As New E_Medico
         Dim listaEsp As New List(Of String)
+        Dim listaTel As New List(Of String)
+        Dim yalei_foto As Boolean = False
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            u.Cedula = 0
+            u.ErrMsg = 2
             Return u
         End Try
 
         If leer.HasRows Then
-
             While leer.Read()
-                listaEsp.Add(leer.GetString("especialidad"))
-            End While
-            u.Cedula = ci
+                u = New E_Medico With {
+                     .Cedula = leer.GetInt32("CI"),
+                     .Nombre1 = leer.GetString("nombre1"),
+                     .Nombre2 = leer.GetString("nombre2"),
+                     .Apellido1 = leer.GetString("apellido1"),
+                     .Apellido2 = leer.GetString("apellido2"),
+                     .Correo = leer.GetString("correo"),
+                     .Direccion_Calle = leer.GetString("direccion_calle"),
+                     .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
+                     .Activo = leer.GetBoolean("activo"),
+                     .TelefonosLista = New List(Of String)(New String() {}),
+                     .Especialidad = New List(Of String)(New String() {})
+                }
+                listaTel.Add(leer.GetString("telefono"))
+                If Not yalei_foto Then
+                    Dim foto = CType(leer("foto"), Byte())
+                    Dim stream As New IO.MemoryStream(foto)
+                    u.Foto = stream.ToArray()
+                    stream.Close()
+                    yalei_foto = True
+                End If
 
+            End While
+            u.TelefonosLista = listaTel
+        Else
+            u.ErrMsg = 8 'no encontre usuario
         End If
-        u.Especialidad = listaEsp.Distinct().ToList()
+
         Return u
     End Function
 
     Public Function BuscarMedicoApellido(ap As String) As List(Of E_Medico)
-
-        Dim results = MyBase.BuscarUsuariosApellido(ap)
-
-        Select Case results(0).Cedula
-            Case 0, 2, 8
-                Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = results(0).Cedula}})
-        End Select
-
-        If results.Count > 0 Then
-
-            Dim uList As New List(Of E_Medico)
-
-            For Each eu As E_Usuario In results
-                uList.Add(ListarMedicosCI(eu.Cedula))
-            Next
-
-            Return uList
-        Else
-            Return New List(Of E_Medico)(New E_Medico() With {.Cedula = 8})
-        End If
-
-    End Function
-
-    Public Function BuscarMedicoEspecialidad(es As String) As List(Of E_Medico)
-
-        If Conectar(conexion) = -1 Then
-            Return New List(Of E_Medico)(New E_Medico With {.Cedula = 0})
-        End If
-
+        Dim uList As New List(Of E_Medico)
         Dim ultima_ci As Integer = 0
-        Dim medList As New List(Of E_Medico)
+        Dim lastU As New E_Medico
 
         Dim leer As MySqlDataReader
 
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "BuscarMEDICOxEspecialidad",
-            .Connection = conexion
+        If Conectar(conexion) = -1 Then
+            Return New List(Of E_Medico)(New E_Medico With {.ErrMsg = -1})
+        End If
+
+        Dim cmd = New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "BuscarMEDICOxAPELLIDO", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
+                .Connection = conexion
         }
-        cmd.Parameters.Add("especialidad", MySqlDbType.VarChar, 50).Value = es
+        cmd.Parameters.Add("apellido1", MySqlDbType.VarChar, 30).Value = ap
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 2}})
+            Cerrar(conexion)
+            Return New List(Of E_Medico)(New E_Medico With {.ErrMsg = 2})
         End Try
-        Dim lastU As New E_Medico
 
-        While leer.Read()
-            If ultima_ci <> leer("CI").Value Then
-                lastU = New E_Medico With {
-                .Cedula = leer("CI").Value,
-                .Especialidad = New List(Of String)(New String() {})
-                }
-                lastU.Especialidad.Add(leer("especialidad").Value)
-                ultima_ci = lastU.Cedula
-                medList.Add(lastU)
-            Else
-                medList.ElementAt(medList.IndexOf(lastU)).Especialidad.Add("especialidad")
-            End If
-        End While
-
-        If medList.Count < 1 Then
-            Return New List(Of E_Medico)(New E_Medico() {New E_Medico With {.Cedula = 8}})
+        If leer.HasRows Then
+            While leer.Read()
+                If ultima_ci <> leer.GetInt32("CI") Then
+                    lastU = New E_Medico With {
+                 .Cedula = leer.GetInt32("CI"),
+                 .Nombre1 = leer.GetString("nombre1"),
+                 .Nombre2 = leer.GetString("nombre2"),
+                 .Apellido1 = leer.GetString("apellido1"),
+                 .Apellido2 = leer.GetString("apellido2"),
+                 .Correo = leer.GetString("correo"),
+                 .Direccion_Calle = leer.GetString("direccion_calle"),
+                 .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
+                 .Activo = leer.GetBoolean("activo"),
+                 .TelefonosLista = New List(Of String)(New String() {})
+                 }
+                    Dim foto = CType(leer("foto"), Byte())
+                    Dim stream As New IO.MemoryStream(foto)
+                    lastU.Foto = stream.ToArray()
+                    stream.Close()
+                    lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    lastU.Especialidad.Add(leer.GetString("especialidad"))
+                    ultima_ci = lastU.Cedula
+                    uList.Add(lastU)
+                Else
+                    lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    lastU.Especialidad.Add(leer.GetString("especialidad"))
+                End If
+            End While
+        Else
+            uList = New List(Of E_Medico)(New E_Medico With {.ErrMsg = 8}) 'no encontre usuarios
         End If
 
-        Dim finalList As New List(Of E_Medico)
+        Cerrar(conexion)
+        Return uList
 
-        For Each medico As E_Medico In medList
-            finalList.Add(ListarMedicosCI(medico.Cedula))
-        Next
+    End Function
 
-        Return finalList
+    Public Function BuscarMedicoEspecialidad(es As String) As List(Of E_Medico)
+        Dim uList As New List(Of E_Medico)
+        Dim ultima_ci As Integer = 0
+        Dim lastU As New E_Medico
+
+        Dim leer As MySqlDataReader
+
+        If Conectar(conexion) = -1 Then
+            Return New List(Of E_Medico)(New E_Medico With {.ErrMsg = -1})
+        End If
+
+        Dim cmd = New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "BuscarMEDICOxESPECIALIDAD", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
+                .Connection = conexion
+        }
+        cmd.Parameters.Add("especialidad", MySqlDbType.VarChar, 30).Value = es
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return New List(Of E_Medico)(New E_Medico With {.ErrMsg = 2})
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                If ultima_ci <> leer.GetInt32("CI") Then
+                    lastU = New E_Medico With {
+                 .Cedula = leer.GetInt32("CI"),
+                 .Nombre1 = leer.GetString("nombre1"),
+                 .Nombre2 = leer.GetString("nombre2"),
+                 .Apellido1 = leer.GetString("apellido1"),
+                 .Apellido2 = leer.GetString("apellido2"),
+                 .Correo = leer.GetString("correo"),
+                 .Direccion_Calle = leer.GetString("direccion_calle"),
+                 .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
+                 .Activo = leer.GetBoolean("activo"),
+                 .TelefonosLista = New List(Of String)(New String() {})
+                 }
+                    Dim foto = CType(leer("foto"), Byte())
+                    Dim stream As New IO.MemoryStream(foto)
+                    lastU.Foto = stream.ToArray()
+                    stream.Close()
+                    lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    lastU.Especialidad.Add(leer.GetString("especialidad"))
+                    ultima_ci = lastU.Cedula
+                    uList.Add(lastU)
+                Else
+                    lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    lastU.Especialidad.Add(leer.GetString("especialidad"))
+                End If
+            End While
+        Else
+            uList = New List(Of E_Medico)(New E_Medico With {.ErrMsg = 8}) 'no encontre usuarios
+        End If
+
+        Cerrar(conexion)
+        Return uList
+
     End Function
 
     Public Function AltaMedico(u As E_Medico)
-        Dim code = MyBase.AltaUsuarioSIBIM(u)
+        Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
+        Dim code = MyBase.AltaUsuario(mysqlUser)
+
         Select Case code
-            Case 1
-                Dim cmd As New MySqlCommand With {
+            Case -1, 2
+                Return code
+        End Select
+
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,
                     .CommandText = "AltaMedico",
                     .Connection = conexion
-                }
-                cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        }
 
-                If Conectar(conexion) = -1 Then
-                    Return -1
-                End If
+        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("NOMBRE1", MySqlDbType.VarChar, 30).Value = u.Nombre1
+        cmd.Parameters.Add("NOMBRE2", MySqlDbType.VarChar, 30).Value = u.Nombre2
+        cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = u.Apellido1
+        cmd.Parameters.Add("APELLIDO2", MySqlDbType.VarChar, 30).Value = u.Apellido2
+        cmd.Parameters.Add("DIRECCION_C", MySqlDbType.VarChar, 160).Value = u.Direccion_Calle
+        cmd.Parameters.Add("DIRECCION_N", MySqlDbType.Int32).Value = u.Direccion_Numero
+        cmd.Parameters.Add("ACTIVO", MySqlDbType.Bit).Value = u.Activo
+        cmd.Parameters.Add("CORREO", MySqlDbType.VarChar, 50).Value = u.Correo
+        cmd.Parameters.Add("FOTO", MySqlDbType.MediumBlob, u.Foto.Length).Value = u.Foto
 
-                Try
-                    cmd.ExecuteNonQuery() 'EJECUTO ALTA MEDICOSIBIM
-                    Cerrar(conexion)
-                Catch ex As Exception
-                    Cerrar(conexion)
-                    Return 5 'No se pudo crear medico
-                End Try
+        Try
+            cmd.ExecuteNonQuery()
+            Cerrar(conexion)
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return 5 'No se pudo crear medico
+        End Try
 
-                If AltaMedicoEspecialidad(u) Then
-                    Return 1 'todo OK
-                Else
-                    Return 3 'fallo ingreso especialidad
-                End If
-            Case Else
-                Return code
-        End Select
+        If AltaMedicoEspecialidad(u) Then
+            Return 1 'todo OK
+        Else
+            Return 3 'fallo ingreso especialidad
+        End If
 
     End Function
 
@@ -199,15 +262,20 @@ Public Class D_Medico
     End Function
     Public Function ModificarUsuarioMedico(u As E_Medico) As Integer
 
-        If MyBase.ModificarUsuario(u) Then
-            If ModificarMedicoEspecialidad(u) = 1 Then
-                Return 1
-            Else
-                Return 5
-            End If
-        Else
-            Return 2
-        End If
+        Dim exitcode = MyBase.ModificarUsuario(u)
+
+        Select Case exitcode
+            Case 1
+                Dim exitCode2 = ModificarMedicoEspecialidad(u)
+                Select Case exitCode2
+                    Case 2
+                        Return 5
+                    Case Else
+                        Return exitCode2
+                End Select
+            Case Else
+                Return exitcode
+        End Select
 
     End Function
 

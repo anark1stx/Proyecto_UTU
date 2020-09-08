@@ -4,12 +4,12 @@ Public Class N_Usuario
 
     Dim objDatos As New D_Usuario
 
-    Public Overridable Function ListarUsuariosCI(CI As String, auxiliar As Boolean) As E_Usuario
-        Return objDatos.BuscarUsuariosCI(CI, auxiliar)
+    Public Overridable Function ListarUsuariosCI(CI As String) As E_Usuario
+        Return objDatos.BuscarUsuariosCI(CI)
     End Function
 
-    Public Overridable Function BuscarUsuariosApellido(ap As String, auxiliar As Boolean) As List(Of E_Usuario)
-        Return objDatos.BuscarUsuariosApellido(ap, auxiliar)
+    Public Overridable Function BuscarUsuariosApellido(ap As String) As List(Of E_Usuario)
+        Return objDatos.BuscarUsuariosApellido(ap)
     End Function
 
     Public Overridable Function UsuarioExiste(CI As Integer) As Integer
@@ -29,11 +29,11 @@ Public Class N_Usuario
     End Function
 
     Public Overridable Function BajaLogicaUsuario(u As E_Usuario) As Integer
-        Return objDatos.BajaLogicaUsuario(u)
+        Return objDatos.BajaLogicaUsuario(u.Cedula)
     End Function
 
     Public Overridable Function AltaLogicaUsuario(u As E_Usuario) As Integer
-        Return objDatos.AltaLogicaUsuario(u)
+        Return objDatos.AltaLogicaUsuario(u.Cedula)
     End Function
 
 End Class
