@@ -313,7 +313,7 @@ Public Class frmGestion
         configurarControles()
     End Sub
 
-    Public Sub configurarControles()
+    Async Sub configurarControles()
 
         Select Case Mode
             Case Accion.Alta
@@ -328,7 +328,8 @@ Public Class frmGestion
                     End If
                     If Mode = Accion.Alta AndAlso ci_valida Then
                         Dim nu As New N_Usuario
-                        Select Case nu.UsuarioExiste(Val(lblCedulaTXT.Text))
+                        Dim code = Await Task.Run(Function() nu.UsuarioExiste(Val(lblCedulaTXT.Text)))
+                        Select Case code
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 ci_valida = False

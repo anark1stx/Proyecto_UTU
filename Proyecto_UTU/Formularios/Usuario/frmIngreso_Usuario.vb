@@ -21,23 +21,29 @@ Public Class frmIngreso_Usuario
                 Case -1
                     MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
+                Case -2
+                    MessageBox.Show(MensajeDeErrorRolDesconocido(), "Rol desconocido para SIBIM.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                Case 2
+                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "No tiene permisos para consultar su rol.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
                 Case 5
-                    MessageBox.Show(MensajeDeErrorCredsInvalidas(), "Credenciales incorrectas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(MensajeDeErrorCredsInvalidas(), "Credenciales incorrectas.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
             End Select
 
             Select Case usu.Rol
-                Case "administrador" 'ADMIN
+                Case "administrador"
                     Me.Hide()
                     frmAdm.Show()
-                Case "medico" 'MEDICO
+                Case "medico"
                     Me.Hide()
                     frmMed.Show()
                     frmMed.MedicoActual = New E_Medico With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
-                Case "auxiliar" 'AUXILIAR
+                Case "auxiliar"
                     Me.Hide()
                     frmAux.Show()
-                Case "paciente" 'PACIENTE
+                Case "paciente"
                     Me.Hide()
                     frmPac.Show()
                     frmPac.PacienteActual = New E_Paciente With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}

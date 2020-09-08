@@ -8,7 +8,6 @@ Module Credenciales
         _usr = usr
         _pwd = pwd
         _str = String.Format("SERVER=overclode.sibim;DATABASE=sibim;UID={0}; PWD={1};", _usr, _pwd)
-
     End Sub
 
     Public Function retornarCStringBD() As String
@@ -21,7 +20,6 @@ Module Credenciales
             conn.Open()
             Return 1
         Catch ex As Exception
-            Console.WriteLine("ERROR CODIGO: " & Err.Number)
             Select Case Err.Number
                 Case 5
                     Return -1 'hubo un error al abrir la conexion.

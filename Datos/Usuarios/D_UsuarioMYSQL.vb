@@ -31,21 +31,20 @@ Public Class D_UsuarioMYSQL
                     u.Rol = leer.GetString("ROL")
                 End While
             Else 'no tiene rol asignado en la tabla mysql.default_roles
-                u.errMsg = MensajeDeErrorRolDesconocido()
+                u.errMsg = -2
             End If
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
-            u.errMsg = MensajeDeErrorPermisoProcedimiento()
+            u.errMsg = 2
         End Try
 
         Cerrar(conexion)
         Return u
     End Function
 
-    Public Overridable Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
-        Dim retorno As Integer = 0
+    Public Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
 
-        If Conectar(conexion) = 0 Then 'errores con la conexion
-            Return retorno
+        If Conectar(conexion) = -1 Then 'errores con la conexion
+            Return -1
         End If
 
         Dim cmd As New MySqlCommand With {
@@ -60,14 +59,13 @@ Public Class D_UsuarioMYSQL
 
         Try
             cmd.ExecuteNonQuery()
-            retorno = 1 'todo ok
+            Cerrar(conexion)
+            Return 1 'todo ok
         Catch ex As Exception
-            retorno = 2 'Error dando alta usuario mysql
+            Cerrar(conexion)
+            Return 2 'Error dando alta usuario mysql
         End Try
 
-        Cerrar(conexion)
-
-        Return retorno
     End Function
 
 End Class
