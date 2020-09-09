@@ -91,6 +91,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\AccionesFormulario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.Designer.vb">
+      <DependentUpon>frmPreguntarNomCons.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFormulario.Designer.vb">
       <DependentUpon>frmPresentacionFormulario.vb</DependentUpon>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\AccionesFormulario.resx">
       <DependentUpon>AccionesFormulario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.resx">
+      <DependentUpon>frmPreguntarNomCons.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFormulario.resx">
       <DependentUpon>frmPresentacionFormulario.vb</DependentUpon>

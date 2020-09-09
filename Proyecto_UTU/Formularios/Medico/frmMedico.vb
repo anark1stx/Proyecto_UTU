@@ -27,6 +27,8 @@ Public Class frmMedico
     Dim frmMal As New frmMalestar
 
     Dim _paciente As New E_Paciente
+    Dim PreguntarNombreConsulta As New frmPreguntarNomCons
+    Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
     Protected _medico As New E_Medico
 
     Property MedicoActual As E_Medico
@@ -35,6 +37,15 @@ Public Class frmMedico
         End Get
         Set(value As E_Medico)
             _medico = value
+        End Set
+    End Property
+
+    Property NombreConsulta
+        Get
+            Return _nombreConsulta
+        End Get
+        Set(value)
+            _nombreConsulta = value
         End Set
     End Property
 
@@ -97,6 +108,8 @@ Public Class frmMedico
                 fixSize()
 
                 addFrm(frmEntrevista)
+                PreguntarNombreConsulta.ShowDialog()
+                NombreConsulta = PreguntarNombreConsulta.Nombre
 
             Case "Generico"
                 LimpiarControles(generico)
