@@ -71,10 +71,11 @@ Public Class frmAnalisisCrear
 
         _indicaciones.Add(txtNomIndicacion)
         _indicaciones.Add(txtIndicacionDescripcion)
-
         pnlDatos.Enabled = False
         cargarParametros()
+
     End Sub
+
 
     Private Async Sub cargarParametros()
         listaParametrosBD = Await Task.Run(Function() negocio.RetornarParametros())
