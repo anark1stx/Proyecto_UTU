@@ -2,7 +2,7 @@
 Imports System.IO
 Imports System.Windows.Forms
 Imports Entidades
-Public Module mdlUtils
+Public Module mdlUtilsFormularios
 
     Public Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
 

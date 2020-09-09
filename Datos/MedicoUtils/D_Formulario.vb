@@ -78,6 +78,51 @@ Public Class D_Formulario
         Return f
     End Function
 
+    Function BuscarFormularios(buscar As String) As List(Of E_Formulario)
+        Dim leer As MySqlDataReader
+        Dim formList As New List(Of E_Formulario)
+        If Conectar(conexion) = -1 Then
+            formList.Add(New E_Formulario With {.ID = -1})
+            Return formList '-1 exit code para conexion fallida
+        End If
+
+        Dim cmd = New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "ImportarFormulario",
+                .Connection = conexion
+        }
+
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = buscar
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            formList.Add(New E_Formulario With {.ID = -2})
+            Return formList
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                Dim f = New E_Formulario With {
+                     .ID = leer.GetInt32("ID"),
+                     .Nombre = leer.GetString("nombre"),
+                     .XML = leer.GetString("xml")
+                }
+                Dim previa = CType(leer("v_previa"), Byte())
+                Dim stream As New IO.MemoryStream(previa)
+                f.VistaPrevia = stream.ToArray()
+                stream.Close()
+                formList.Add(f)
+            End While
+        Else
+            formList.Add(New E_Formulario With {.ID = -8})
+        End If
+
+        Cerrar(conexion)
+
+        Return formList
+    End Function
 
 
     Public Function AltaPreguntas(form As E_Formulario) As Integer

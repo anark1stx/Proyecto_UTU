@@ -1,4 +1,5 @@
 ﻿Imports Entidades
+Imports Utilidades
 Public Class frmPresentacionFormulario
     Protected _formulario
     Property Formulario As E_Formulario
@@ -7,6 +8,8 @@ Public Class frmPresentacionFormulario
         End Get
         Set(value As E_Formulario)
             _formulario = value
+            lblNombreForm.Text = value.Nombre
+            pBoxVistaPrevia.Image = Bytes2Image(value.VistaPrevia)
         End Set
     End Property
 

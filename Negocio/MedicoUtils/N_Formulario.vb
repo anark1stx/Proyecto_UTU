@@ -12,7 +12,7 @@ Public Class N_Formulario
     End Function
 
     Public Function BuscarFormularios(busqueda As String) As List(Of E_Formulario)
-        'return objDatos.BuscarFormularios(busqueda)
+        Return objDatos.BuscarFormularios(busqueda)
     End Function
 
 End Class

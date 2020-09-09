@@ -17,9 +17,11 @@ Public Class frmCrearFormulario
 
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
+    Dim catalogo As New frmCatalogoFormulariosBD
 
     Dim PedirNombre As New frmPedirNombreForm
     Protected _formDisenado As New E_Formulario
+
     Property FormDisenado As E_Formulario
         Get
             Return _formDisenado
@@ -314,10 +316,10 @@ Public Class frmCrearFormulario
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Select Case frmPlano.Controls.Count
-            Case < 1
+            Case < 10
                 MessageBox.Show("Agregue más controles al formulario personalizado.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
-            Case > 5
+            Case > 50
                 MessageBox.Show("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
         End Select
@@ -365,7 +367,10 @@ Public Class frmCrearFormulario
     End Sub
 
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
-        Dim controles = ImportarFormulario()
+
+        catalogo.ShowDialog()
+
+        Dim controles = ConvertirFormulario(catalogo.FormSeleccionado)
         If Not controles Is Nothing Then
             For Each c As Control In controles
                 If c.Controls.Count > 0 Then
@@ -374,7 +379,7 @@ Public Class frmCrearFormulario
                         agregarHandlersBasicos(c2)
                     Next
                 Else
-                    agregarHandlersBasicos(c) 'Esto es para evitar agregarle handlers a un panel contenedor, solo vamos a agregarlo a c en caso de que c no sea un contenedor de otros controles.
+                    agregarHandlersBasicos(c) 'esto es para evitar agregarle handlers a un panel contenedor, solo vamos a agregarlo a c en caso de que c no sea un contenedor de otros controles.
                 End If
                 frmPlano.Controls.Add(c)
             Next
@@ -382,31 +387,7 @@ Public Class frmCrearFormulario
 
     End Sub
 
-    Public Function ImportarFormulario() As List(Of Control)
 
-        Dim form As E_Formulario = negocio.ImportarFormularioPrueba()
-
-        Select Case form.ID
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return Nothing
-            Case -2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return Nothing
-            Case -8
-                MessageBox.Show("no encontre", "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return Nothing
-        End Select
-
-        'IO.File.WriteAllText("C:\Users\Mat\Desktop\testimport.xml", form.XML) -> por si quiero leer algo
-
-        Dim gestor As New GestorXMLv2
-        Dim fbr As New FabricaDeControles()
-        Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(form.XML)
-
-        Return fbr.Crear(lista)
-
-    End Function
     Public Sub agregarHandlersBasicos(_ctrl As Control)
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
         AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove
