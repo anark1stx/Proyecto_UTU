@@ -70,6 +70,7 @@ Partial Class frmPedirNombreForm
         Me.Controls.Add(Me.lblNomForm)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPedirNombreForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frmPedirNombreForm"
         Me.ResumeLayout(False)
         Me.PerformLayout()

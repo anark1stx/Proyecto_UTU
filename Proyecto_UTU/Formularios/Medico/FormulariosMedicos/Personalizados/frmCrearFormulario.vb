@@ -35,7 +35,7 @@ Public Class frmCrearFormulario
         pnlFormularioPersonalizado.Controls.Add(frmPlano)
 
         frmPlano.Show()
-
+        Me.tbTabPage.Visible = False 'sera implementado para la tercera entrega junto con Panel y TBL.
     End Sub
 #Region "Eventos para el TextBox"
 
@@ -312,10 +312,10 @@ Public Class frmCrearFormulario
 
         Select Case frmPlano.Controls.Count
             Case < 10
-                MsgBox("Agregue más controles al formulario personalizado.")
+                MessageBox.Show("Agregue más controles al formulario personalizado.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
             Case > 50
-                MsgBox("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.")
+                MessageBox.Show("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
         End Select
 
