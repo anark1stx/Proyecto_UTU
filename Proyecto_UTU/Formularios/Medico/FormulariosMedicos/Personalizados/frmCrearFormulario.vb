@@ -14,6 +14,18 @@ Public Class frmCrearFormulario
 
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
+
+    Dim PedirNombre As New frmPedirNombreForm
+    Protected _nombreForm As String
+
+    Property NombreForm As String
+        Get
+            Return _nombreForm
+        End Get
+        Set(value As String)
+            _nombreForm = value
+        End Set
+    End Property
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizedBounds = Screen.FromHandle(Me.Handle).WorkingArea
         Me.WindowState = FormWindowState.Maximized
@@ -235,7 +247,7 @@ Public Class frmCrearFormulario
     'PENDIENTE: Serializar los eventos del boton
     Private Sub lbListbox_MouseUp(sender As Object, e As MouseEventArgs) Handles lbListBox.MouseUp
         LimpiarControles(settings)
-        SettingsTXTvisibles(True)
+        SettingsTXTvisibles(False)
         settings.ShowDialog()
 
         setType()
@@ -269,7 +281,7 @@ Public Class frmCrearFormulario
     'PENDIENTE: Serializar los eventos del boton
     Private Sub cbCombobox_MouseUp(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseUp
         LimpiarControles(settings)
-        SettingsTXTvisibles(True)
+        SettingsTXTvisibles(False)
         settings.ShowDialog()
 
         setType()
@@ -306,6 +318,9 @@ Public Class frmCrearFormulario
                 MsgBox("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.")
                 Exit Sub
         End Select
+
+        PedirNombre.ShowDialog()
+        NombreForm = PedirNombre.Nombre
 
         For Each i As Control In frmPlano.Controls
             controlesInstanciados.Add(i)
