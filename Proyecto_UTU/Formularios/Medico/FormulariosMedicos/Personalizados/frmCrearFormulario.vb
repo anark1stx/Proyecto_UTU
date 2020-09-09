@@ -348,7 +348,7 @@ Public Class frmCrearFormulario
         Else
             resultado = negocio.ModificarFormulario(FormDisenado)
         End If
-
+        Console.WriteLine("mi id es: " & FormDisenado.ID)
         Select Case resultado
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -356,6 +356,10 @@ Public Class frmCrearFormulario
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim ev As New EventArgs
+                Dim sender As New Object
+                btnLimpiar_Click(sender, ev)
+                FormDisenado = Nothing
         End Select
 
     End Sub
@@ -370,23 +374,32 @@ Public Class frmCrearFormulario
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("Formulario dado de baja con éxito.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                frmPlano.Controls.Clear()
+                Dim ev As New EventArgs
+                Dim sender As New Object
+                btnLimpiar_Click(sender, ev)
         End Select
     End Sub
 
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Hide()
-        Me.frmPlano.Controls.Clear()
+        btnLimpiar_Click(sender, e)
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        controlesInstanciados.Clear()
         frmPlano.Controls.Clear()
     End Sub
 
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
-
+        btnLimpiar_Click(sender, e)
+        catalogo.tblFormularios.Controls.Clear()
         catalogo.ShowDialog()
+
+        If catalogo.FormSeleccionado Is Nothing Then
+            Exit Sub
+        End If
+
         FormDisenado = catalogo.FormSeleccionado
 
         Dim controles = ConvertirFormulario(catalogo.FormSeleccionado)
@@ -424,8 +437,8 @@ Public Class frmCrearFormulario
     Private Sub frmCrearFormulario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True
-            frmPlano.Controls.Clear()
-            Me.Hide()
+            Dim ev As New EventArgs
+            btnSalir_Click(sender, ev)
         End If
     End Sub
 
