@@ -64,6 +64,7 @@ Public Class frmCatalogoFormulariosBD
     End Sub
 
     Sub ClickEnControlTBL(sender As Object, e As MouseEventArgs)
+        Refresh()
         Dim g As Graphics = tblFormularios.CreateGraphics
         Dim ctrl = sender
         If sender.GetType IsNot GetType(UserControl) Then
@@ -71,9 +72,8 @@ Public Class frmCatalogoFormulariosBD
         End If
         Dim presentacionSelec = DirectCast(tblFormularios.GetChildAtPoint(ctrl.Location), frmPresentacionFrm)
         FormSeleccionado = presentacionSelec.Formulario
-        Dim posicion = New Point(presentacionSelec.Left - 1, presentacionSelec.Top - 1) ' es necesario el offset, este framework es demasiado bueno como para hacerlo bien por su cuenta
-        Dim bounds = New Size(posicion.X + presentacionSelec.Width, posicion.Y + presentacionSelec.Height)
-        Dim rect As New Rectangle(posicion, bounds)
+        Dim r As Rectangle = presentacionSelec.DisplayRectangle
+        Dim rect As New Rectangle(ctrl.Location.X - 2, ctrl.Location.Y - 2, r.Width + 5, r.Height + 5)
 
         ControlPaint.DrawBorder(g, rect,
                                 Color.Red, 10, ButtonBorderStyle.Solid,
