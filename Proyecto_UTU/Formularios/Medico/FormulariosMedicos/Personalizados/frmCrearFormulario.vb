@@ -235,7 +235,41 @@ Public Class frmCrearFormulario
     'PENDIENTE: Serializar los eventos del boton
     Private Sub lbListbox_MouseUp(sender As Object, e As MouseEventArgs) Handles lbListBox.MouseUp
         LimpiarControles(settings)
-        SettingsTXTvisibles(False)
+        SettingsTXTvisibles(True)
+        settings.ShowDialog()
+
+        setType()
+    End Sub
+#End Region
+#Region "eventos para el combobox"
+    Private Sub cbCombobox_MouseDown(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseDown
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            MostrarManito()
+            Dim _cb As New ComboBox
+            agregarHandlersBasicos(_cb)
+            _cb.Size = New Size(100, 25)
+            _cb.AutoSize = True
+            _cb.Name = "cb"
+            _cb.Text = "Combobox"
+            _instancia = _cb
+            Me.Controls.Add(_instancia)
+            _instancia.BringToFront()
+            ubicacion_mouse = e.Location
+        End If
+    End Sub
+
+    Private Sub cbCombobox_MouseMove(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseMove
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            MostrarManito()
+            _instancia.Left = e.X + cbCombobox.Left - ubicacion_mouse.X
+            _instancia.Top = e.Y + cbCombobox.Top - ubicacion_mouse.Y
+        End If
+    End Sub
+
+    'PENDIENTE: Serializar los eventos del boton
+    Private Sub cbCombobox_MouseUp(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseUp
+        LimpiarControles(settings)
+        SettingsTXTvisibles(True)
         settings.ShowDialog()
 
         setType()
