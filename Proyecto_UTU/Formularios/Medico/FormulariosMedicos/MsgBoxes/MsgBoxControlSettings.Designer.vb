@@ -99,6 +99,7 @@ Partial Class MsgBoxControlSettings
         '
         'chkMultilinea
         '
+        Me.chkMultilinea.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.chkMultilinea.AutoSize = True
         Me.chkMultilinea.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkMultilinea.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -144,6 +145,7 @@ Partial Class MsgBoxControlSettings
         '
         'chkSoyPregunta
         '
+        Me.chkSoyPregunta.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.chkSoyPregunta.AutoSize = True
         Me.chkSoyPregunta.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkSoyPregunta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

@@ -11,7 +11,6 @@ Public Class formularioPlano
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ubicacion_mouse = e.Location
-            dragging = False
 
             For Each p As PreguntaRespuesta In PreguntasYRespuestas
 
@@ -52,23 +51,26 @@ Public Class formularioPlano
     Public Sub _MouseMove(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.Move
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ctrl_seleccionado = sender
-
             sender.Left = e.X + sender.Left - ubicacion_mouse.X
             sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
             dragging = True
             evaluarSiEstoyenPanel(ctrl_seleccionado)
-
+            If dragging Then
+                If sender.Left < Me.Left Then
+                    Dim contenedor = DirectCast(sender, Control).Parent
+                    contenedor.Controls.Remove(ctrl_seleccionado)
+                    ctrl_seleccionado = Nothing
+                End If
+            End If
+        Else
+            dragging = False
+            ctrl_seleccionado = Nothing
         End If
     End Sub
 
     Public Sub _MouseUp(ByVal sender As System.Object, ByVal e As MouseEventArgs)
         dragging = False
-        ctrl_seleccionado = DirectCast(sender, Control)
-        If sender.Left < Me.Left Then
-            Dim contenedor = DirectCast(sender, Control).Parent
-            contenedor.Controls.Remove(DirectCast(sender, Control))
-        End If
-
+        ctrl_seleccionado = Nothing
     End Sub
 
     Public Sub evaluarSiEstoyenPanel(ctrl As Control)
