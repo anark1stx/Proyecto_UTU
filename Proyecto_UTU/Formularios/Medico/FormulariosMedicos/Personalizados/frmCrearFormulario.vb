@@ -339,11 +339,15 @@ Public Class frmCrearFormulario
     Public Sub GuardarFormulario(lista_controles As ControlesGuardados.ListaControles)
 
         Dim gestor As New GestorXMLv2
-
+        Dim resultado As Integer = 0
         FormDisenado.XML = gestor.Serializar(lista_controles)
         Dim capturaDePantalla = ImprimirFormulario(pnlFormularioPersonalizado, New Rectangle(0, 0, 720, 480))
         FormDisenado.VistaPrevia = Image2Bytes(capturaDePantalla)
-        Dim resultado = negocio.AltaFormulario(FormDisenado)
+        If FormDisenado.ID = 0 Then 'si es 0 es porque no lo estamos editando, es un form nuevo
+            resultado = negocio.AltaFormulario(FormDisenado)
+        Else
+            resultado = negocio.ModificarFormulario(FormDisenado)
+        End If
 
         Select Case resultado
             Case -1
@@ -351,9 +355,23 @@ Public Class frmCrearFormulario
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
-                MessageBox.Show("Alta formulario exitosa", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Select
 
+    End Sub
+
+    Sub BajaFormulario()
+        Dim resultado = negocio.BajaFormulario(FormDisenado)
+
+        Select Case resultado
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Formulario dado de baja con éxito.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                frmPlano.Controls.Clear()
+        End Select
     End Sub
 
 
@@ -369,6 +387,7 @@ Public Class frmCrearFormulario
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
 
         catalogo.ShowDialog()
+        FormDisenado = catalogo.FormSeleccionado
 
         Dim controles = ConvertirFormulario(catalogo.FormSeleccionado)
         If Not controles Is Nothing Then
@@ -386,7 +405,6 @@ Public Class frmCrearFormulario
         End If
 
     End Sub
-
 
     Public Sub agregarHandlersBasicos(_ctrl As Control)
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
@@ -419,4 +437,16 @@ Public Class frmCrearFormulario
         frmPlano.Controls.Remove(frmPlano.ctrl_seleccionado)
     End Sub
 
+    Private Sub pBoxBorrar_Click(sender As Object, e As EventArgs) Handles pBoxBorrar.Click
+        If FormDisenado.ID = 0 Then
+            Exit Sub
+        Else
+            Dim eleccion = MessageBox.Show("¿Seguro que desea dar de baja este formulario? Se perderán los datos de las consultas médicas que se hayan realizado con este.", "Confirmar baja", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+            If eleccion = vbYes Then
+                BajaFormulario()
+            Else
+                Exit Sub
+            End If
+        End If
+    End Sub
 End Class

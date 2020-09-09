@@ -7,12 +7,16 @@ Public Class N_Formulario
         Return objDatos.AltaFormulario(form)
     End Function
 
-    Public Function ImportarFormularioPrueba() As E_Formulario
-        Return objDatos.ImportarForm()
+    Public Function ModificarFormulario(form As E_Formulario) As Integer
+        Return objDatos.ModificarFormulario(form)
     End Function
 
     Public Function BuscarFormularios(busqueda As String) As List(Of E_Formulario)
         Return objDatos.BuscarFormularios(busqueda)
+    End Function
+
+    Public Function BajaFormulario(form As E_Formulario) As Integer
+        Return objDatos.BajaFormulario(form)
     End Function
 
 End Class

@@ -13,13 +13,4 @@ Public Class frmPresentacionFrm
         End Set
     End Property
 
-    Sub _click(sender As Object, e As MouseEventArgs)
-
-    End Sub
-
-    Sub _move(sender As Object, e As MouseEventArgs)
-
-    End Sub
-
-
 End Class
