@@ -34,7 +34,9 @@ Partial Class MsgBoxControlSettings
         Me.cbColores = New System.Windows.Forms.ComboBox()
         Me.chkSoyPregunta = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlSettingsTXT = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
+        Me.pnlSettingsTXT.SuspendLayout()
         Me.SuspendLayout()
         '
         'cbFuente
@@ -100,7 +102,7 @@ Partial Class MsgBoxControlSettings
         Me.chkMultilinea.AutoSize = True
         Me.chkMultilinea.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkMultilinea.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMultilinea.Location = New System.Drawing.Point(274, 407)
+        Me.chkMultilinea.Location = New System.Drawing.Point(493, 50)
         Me.chkMultilinea.Name = "chkMultilinea"
         Me.chkMultilinea.Size = New System.Drawing.Size(111, 28)
         Me.chkMultilinea.TabIndex = 8
@@ -145,7 +147,7 @@ Partial Class MsgBoxControlSettings
         Me.chkSoyPregunta.AutoSize = True
         Me.chkSoyPregunta.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkSoyPregunta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkSoyPregunta.Location = New System.Drawing.Point(71, 364)
+        Me.chkSoyPregunta.Location = New System.Drawing.Point(34, 15)
         Me.chkSoyPregunta.Name = "chkSoyPregunta"
         Me.chkSoyPregunta.Size = New System.Drawing.Size(570, 29)
         Me.chkSoyPregunta.TabIndex = 12
@@ -165,16 +167,24 @@ Partial Class MsgBoxControlSettings
         Me.Panel1.Size = New System.Drawing.Size(684, 231)
         Me.Panel1.TabIndex = 13
         '
+        'pnlSettingsTXT
+        '
+        Me.pnlSettingsTXT.Controls.Add(Me.chkSoyPregunta)
+        Me.pnlSettingsTXT.Controls.Add(Me.chkMultilinea)
+        Me.pnlSettingsTXT.Location = New System.Drawing.Point(12, 355)
+        Me.pnlSettingsTXT.Name = "pnlSettingsTXT"
+        Me.pnlSettingsTXT.Size = New System.Drawing.Size(697, 83)
+        Me.pnlSettingsTXT.TabIndex = 14
+        '
         'MsgBoxControlSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(721, 502)
+        Me.Controls.Add(Me.pnlSettingsTXT)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.chkSoyPregunta)
         Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.chkMultilinea)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtIngreseTexto)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -185,6 +195,8 @@ Partial Class MsgBoxControlSettings
         Me.Text = "MsgBoxControlSettings"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.pnlSettingsTXT.ResumeLayout(False)
+        Me.pnlSettingsTXT.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -202,4 +214,5 @@ Partial Class MsgBoxControlSettings
     Friend WithEvents cbColores As ComboBox
     Friend WithEvents chkSoyPregunta As CheckBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlSettingsTXT As Panel
 End Class

@@ -33,8 +33,15 @@ Partial Class frmCrearFormulario
         Me.lblLabel = New System.Windows.Forms.Label()
         Me.txtTextBox = New System.Windows.Forms.TextBox()
         Me.pnlFormularioPersonalizado = New System.Windows.Forms.Panel()
+        Me.btnBoton = New System.Windows.Forms.Button()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.tbTabPage = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.lbListBox = New System.Windows.Forms.ListBox()
+        Me.cbCombobox = New System.Windows.Forms.ComboBox()
         Me.pnlControles.SuspendLayout()
         CType(Me.pBoxBorrar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlControles
@@ -42,6 +49,10 @@ Partial Class frmCrearFormulario
         Me.pnlControles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlControles.Controls.Add(Me.cbCombobox)
+        Me.pnlControles.Controls.Add(Me.lbListBox)
+        Me.pnlControles.Controls.Add(Me.TabControl1)
+        Me.pnlControles.Controls.Add(Me.btnBoton)
         Me.pnlControles.Controls.Add(Me.pBoxBorrar)
         Me.pnlControles.Controls.Add(Me.btnLimpiar)
         Me.pnlControles.Controls.Add(Me.btnSalir)
@@ -52,7 +63,7 @@ Partial Class frmCrearFormulario
         Me.pnlControles.Controls.Add(Me.txtTextBox)
         Me.pnlControles.Location = New System.Drawing.Point(12, 12)
         Me.pnlControles.Name = "pnlControles"
-        Me.pnlControles.Size = New System.Drawing.Size(160, 640)
+        Me.pnlControles.Size = New System.Drawing.Size(160, 835)
         Me.pnlControles.TabIndex = 0
         '
         'pBoxBorrar
@@ -60,7 +71,7 @@ Partial Class frmCrearFormulario
         Me.pBoxBorrar.BackgroundImage = CType(resources.GetObject("pBoxBorrar.BackgroundImage"), System.Drawing.Image)
         Me.pBoxBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.pBoxBorrar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pBoxBorrar.Location = New System.Drawing.Point(0, 343)
+        Me.pBoxBorrar.Location = New System.Drawing.Point(0, 538)
         Me.pBoxBorrar.Name = "pBoxBorrar"
         Me.pBoxBorrar.Size = New System.Drawing.Size(158, 109)
         Me.pBoxBorrar.TabIndex = 0
@@ -69,7 +80,7 @@ Partial Class frmCrearFormulario
         'btnLimpiar
         '
         Me.btnLimpiar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnLimpiar.Location = New System.Drawing.Point(0, 452)
+        Me.btnLimpiar.Location = New System.Drawing.Point(0, 647)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(158, 29)
         Me.btnLimpiar.TabIndex = 3
@@ -79,7 +90,7 @@ Partial Class frmCrearFormulario
         'btnSalir
         '
         Me.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnSalir.Location = New System.Drawing.Point(0, 481)
+        Me.btnSalir.Location = New System.Drawing.Point(0, 676)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(158, 29)
         Me.btnSalir.TabIndex = 2
@@ -91,7 +102,7 @@ Partial Class frmCrearFormulario
         Me.btnAbrir.BackgroundImage = CType(resources.GetObject("btnAbrir.BackgroundImage"), System.Drawing.Image)
         Me.btnAbrir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAbrir.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnAbrir.Location = New System.Drawing.Point(0, 510)
+        Me.btnAbrir.Location = New System.Drawing.Point(0, 705)
         Me.btnAbrir.Name = "btnAbrir"
         Me.btnAbrir.Size = New System.Drawing.Size(158, 64)
         Me.btnAbrir.TabIndex = 1
@@ -102,7 +113,7 @@ Partial Class frmCrearFormulario
         Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnGuardar.Location = New System.Drawing.Point(0, 574)
+        Me.btnGuardar.Location = New System.Drawing.Point(0, 769)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(158, 64)
         Me.btnGuardar.TabIndex = 0
@@ -111,9 +122,10 @@ Partial Class frmCrearFormulario
         'chkBox
         '
         Me.chkBox.AutoSize = True
-        Me.chkBox.Location = New System.Drawing.Point(27, 172)
+        Me.chkBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkBox.Location = New System.Drawing.Point(13, 97)
         Me.chkBox.Name = "chkBox"
-        Me.chkBox.Size = New System.Drawing.Size(96, 21)
+        Me.chkBox.Size = New System.Drawing.Size(124, 28)
         Me.chkBox.TabIndex = 0
         Me.chkBox.Text = "Check Box"
         Me.chkBox.UseVisualStyleBackColor = True
@@ -121,19 +133,22 @@ Partial Class frmCrearFormulario
         'lblLabel
         '
         Me.lblLabel.AutoSize = True
-        Me.lblLabel.Location = New System.Drawing.Point(49, 118)
+        Me.lblLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLabel.Location = New System.Drawing.Point(44, 57)
         Me.lblLabel.Name = "lblLabel"
-        Me.lblLabel.Size = New System.Drawing.Size(43, 17)
+        Me.lblLabel.Size = New System.Drawing.Size(56, 24)
         Me.lblLabel.TabIndex = 0
         Me.lblLabel.Text = "Titulo"
         '
         'txtTextBox
         '
-        Me.txtTextBox.Location = New System.Drawing.Point(27, 58)
+        Me.txtTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTextBox.Location = New System.Drawing.Point(13, 14)
         Me.txtTextBox.Name = "txtTextBox"
         Me.txtTextBox.ReadOnly = True
-        Me.txtTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.txtTextBox.Size = New System.Drawing.Size(128, 28)
         Me.txtTextBox.TabIndex = 0
+        Me.txtTextBox.Text = "Caja de texto"
         '
         'pnlFormularioPersonalizado
         '
@@ -143,15 +158,73 @@ Partial Class frmCrearFormulario
         Me.pnlFormularioPersonalizado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlFormularioPersonalizado.Location = New System.Drawing.Point(178, 12)
         Me.pnlFormularioPersonalizado.Name = "pnlFormularioPersonalizado"
-        Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(753, 640)
+        Me.pnlFormularioPersonalizado.Size = New System.Drawing.Size(966, 835)
         Me.pnlFormularioPersonalizado.TabIndex = 1
+        '
+        'btnBoton
+        '
+        Me.btnBoton.Location = New System.Drawing.Point(13, 145)
+        Me.btnBoton.Name = "btnBoton"
+        Me.btnBoton.Size = New System.Drawing.Size(128, 49)
+        Me.btnBoton.TabIndex = 0
+        Me.btnBoton.Text = "Botón"
+        Me.btnBoton.UseVisualStyleBackColor = True
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.tbTabPage)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(13, 217)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(128, 100)
+        Me.TabControl1.TabIndex = 0
+        '
+        'tbTabPage
+        '
+        Me.tbTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.tbTabPage.Name = "tbTabPage"
+        Me.tbTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbTabPage.Size = New System.Drawing.Size(120, 71)
+        Me.tbTabPage.TabIndex = 0
+        Me.tbTabPage.Text = "TabPage"
+        Me.tbTabPage.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(116, 71)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'lbListBox
+        '
+        Me.lbListBox.FormattingEnabled = True
+        Me.lbListBox.ItemHeight = 16
+        Me.lbListBox.Items.AddRange(New Object() {"Lista de items"})
+        Me.lbListBox.Location = New System.Drawing.Point(13, 341)
+        Me.lbListBox.Name = "lbListBox"
+        Me.lbListBox.Size = New System.Drawing.Size(128, 36)
+        Me.lbListBox.TabIndex = 0
+        '
+        'cbCombobox
+        '
+        Me.cbCombobox.FormattingEnabled = True
+        Me.cbCombobox.Location = New System.Drawing.Point(13, 400)
+        Me.cbCombobox.Name = "cbCombobox"
+        Me.cbCombobox.Size = New System.Drawing.Size(128, 24)
+        Me.cbCombobox.TabIndex = 0
+        Me.cbCombobox.Text = "Combobox"
         '
         'frmCrearFormulario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(943, 664)
+        Me.ClientSize = New System.Drawing.Size(1156, 859)
         Me.Controls.Add(Me.pnlFormularioPersonalizado)
         Me.Controls.Add(Me.pnlControles)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -160,6 +233,7 @@ Partial Class frmCrearFormulario
         Me.pnlControles.ResumeLayout(False)
         Me.pnlControles.PerformLayout()
         CType(Me.pBoxBorrar, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -174,4 +248,10 @@ Partial Class frmCrearFormulario
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents pBoxBorrar As PictureBox
+    Friend WithEvents btnBoton As Button
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents tbTabPage As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents lbListBox As ListBox
+    Friend WithEvents cbCombobox As ComboBox
 End Class

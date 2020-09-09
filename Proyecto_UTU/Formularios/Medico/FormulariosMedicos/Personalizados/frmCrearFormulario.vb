@@ -6,7 +6,7 @@ Public Class frmCrearFormulario
     Dim _cursor As Cursor = Cursors.Hand
     Dim frmPlano As New formularioPlano
 
-    Public ubicacion_mouse As Point
+    Dim ubicacion_mouse As Point
 
     Dim _instancia As New Control
     Dim controlesInstanciados As New List(Of Control)
@@ -67,6 +67,7 @@ Public Class frmCrearFormulario
                 Exit Sub
             End If
 
+            SettingsTXTvisibles(True)
             TipoDeTxt.ShowDialog()
 
             If TipoDeTxt.cbTipoDeDato.SelectedIndex <> -1 Then
@@ -118,6 +119,7 @@ Public Class frmCrearFormulario
 
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
         LimpiarControles(settings)
+        SettingsTXTvisibles(True)
         settings.ShowDialog()
         setType()
         If settings.chkSoyPregunta.Checked Then
@@ -127,10 +129,6 @@ Public Class frmCrearFormulario
         End If
 
         settings.Hide()
-        settings.texto = "" 'Limpiar las settings
-        settings.fuente = SystemFonts.DefaultFont
-        settings.color = New Color
-        settings.tamano = 14
     End Sub
 
 #End Region
@@ -162,6 +160,7 @@ Public Class frmCrearFormulario
 
     Private Sub chkBox_MouseUp(sender As Object, e As MouseEventArgs) Handles chkBox.MouseUp
         LimpiarControles(settings)
+        SettingsTXTvisibles(True)
         settings.ShowDialog()
         _instancia.Text = TipoDeTxt.valorSeleccionado
         If settings.chkSoyPregunta.Checked Then
@@ -174,7 +173,44 @@ Public Class frmCrearFormulario
         setType()
     End Sub
 #End Region
+#Region "eventos para el Button"
+    Private Sub btnButton_MouseDown(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseDown
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            MostrarManito()
+            Dim _btn As New Button
+            agregarHandlersBasicos(_btn)
+            _btn.Size = New Size(50, 25)
+            _btn.AutoSize = True
+            _btn.Name = "btn"
+            _btn.Text = "Boton"
+            _instancia = _btn
+            Me.Controls.Add(_instancia)
+            _instancia.BringToFront()
+            ubicacion_mouse = e.Location
+        End If
+    End Sub
 
+    Private Sub btnButton_MouseMove(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseMove
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+            MostrarManito()
+            _instancia.Left = e.X + btnBoton.Left - ubicacion_mouse.X
+            _instancia.Top = e.Y + btnBoton.Top - ubicacion_mouse.Y
+        End If
+    End Sub
+
+    'PENDIENTE: Serializar los eventos del boton
+    Private Sub btnBoton_MouseUp(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseUp
+        LimpiarControles(settings)
+        SettingsTXTvisibles(False)
+        settings.ShowDialog()
+
+        setType()
+    End Sub
+#End Region
+
+    Private Sub SettingsTXTvisibles(_case As Boolean)
+        settings.pnlSettingsTXT.Visible = _case
+    End Sub
     Public Sub setType()
         _instancia.Name = setControlName()
 

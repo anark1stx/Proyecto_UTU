@@ -6,6 +6,8 @@ Public Class MsgBoxControlSettings
     Public texto As String = ""
     Public color As Color = New Color
     Public tamano As Double = 14
+
+
     Private Sub MsgBoxControlSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.CargarColoresCBWeb()
