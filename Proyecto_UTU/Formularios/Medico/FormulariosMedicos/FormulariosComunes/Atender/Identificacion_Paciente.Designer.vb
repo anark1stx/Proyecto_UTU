@@ -23,8 +23,6 @@ Partial Class Identificacion_Paciente
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
-        Me.btnEntrevistar = New System.Windows.Forms.Button()
-        Me.btnConsultasPrevias = New System.Windows.Forms.Button()
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
@@ -50,45 +48,15 @@ Partial Class Identificacion_Paciente
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.btnConsultasPrevias = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnEntrevistar = New System.Windows.Forms.Button()
         Me.tblDatosPaciente.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnEntrevistar
-        '
-        Me.btnEntrevistar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEntrevistar.BackColor = System.Drawing.Color.LemonChiffon
-        Me.btnEntrevistar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEntrevistar.Image = CType(resources.GetObject("btnEntrevistar.Image"), System.Drawing.Image)
-        Me.btnEntrevistar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnEntrevistar.Location = New System.Drawing.Point(12, 384)
-        Me.btnEntrevistar.Name = "btnEntrevistar"
-        Me.btnEntrevistar.Size = New System.Drawing.Size(1106, 163)
-        Me.btnEntrevistar.TabIndex = 101
-        Me.btnEntrevistar.Text = "    Entrevistar"
-        Me.btnEntrevistar.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEntrevistar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnEntrevistar.UseVisualStyleBackColor = False
-        '
-        'btnConsultasPrevias
-        '
-        Me.btnConsultasPrevias.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnConsultasPrevias.BackColor = System.Drawing.Color.LightGreen
-        Me.btnConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConsultasPrevias.Image = CType(resources.GetObject("btnConsultasPrevias.Image"), System.Drawing.Image)
-        Me.btnConsultasPrevias.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnConsultasPrevias.Location = New System.Drawing.Point(12, 553)
-        Me.btnConsultasPrevias.Name = "btnConsultasPrevias"
-        Me.btnConsultasPrevias.Size = New System.Drawing.Size(1106, 163)
-        Me.btnConsultasPrevias.TabIndex = 102
-        Me.btnConsultasPrevias.Text = "      Ver consultas previas"
-        Me.btnConsultasPrevias.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnConsultasPrevias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnConsultasPrevias.UseVisualStyleBackColor = False
         '
         'tblDatosPaciente
         '
@@ -204,6 +172,7 @@ Partial Class Identificacion_Paciente
         Me.lblNombresTXT.Name = "lblNombresTXT"
         Me.lblNombresTXT.Size = New System.Drawing.Size(221, 25)
         Me.lblNombresTXT.TabIndex = 78
+        Me.lblNombresTXT.Tag = "datos"
         Me.lblNombresTXT.Text = "NOMBRE 1 NOMBRE 2"
         '
         'lblApellido
@@ -226,6 +195,7 @@ Partial Class Identificacion_Paciente
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
         Me.lblApellidosTXT.Size = New System.Drawing.Size(243, 25)
         Me.lblApellidosTXT.TabIndex = 79
+        Me.lblApellidosTXT.Tag = "datos"
         Me.lblApellidosTXT.Text = "APELLIDO 1 APELLIDO 2"
         '
         'lblDireccion
@@ -248,6 +218,7 @@ Partial Class Identificacion_Paciente
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(93, 25)
         Me.lblDireccionTXT.TabIndex = 97
+        Me.lblDireccionTXT.Tag = "datos"
         Me.lblDireccionTXT.Text = "Dirección"
         '
         'lblTelefonoTXT
@@ -259,6 +230,7 @@ Partial Class Identificacion_Paciente
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(119, 25)
         Me.lblTelefonoTXT.TabIndex = 84
+        Me.lblTelefonoTXT.Tag = "datos"
         Me.lblTelefonoTXT.Text = "Teléfono(s):"
         '
         'lblFechaNac
@@ -281,6 +253,7 @@ Partial Class Identificacion_Paciente
         Me.lblFechaNacTXT.Name = "lblFechaNacTXT"
         Me.lblFechaNacTXT.Size = New System.Drawing.Size(164, 25)
         Me.lblFechaNacTXT.TabIndex = 102
+        Me.lblFechaNacTXT.Tag = "datos"
         Me.lblFechaNacTXT.Text = "FechaNacimiento"
         '
         'lblSexo
@@ -303,6 +276,7 @@ Partial Class Identificacion_Paciente
         Me.lblSexoTXT.Name = "lblSexoTXT"
         Me.lblSexoTXT.Size = New System.Drawing.Size(58, 25)
         Me.lblSexoTXT.TabIndex = 104
+        Me.lblSexoTXT.Tag = "datos"
         Me.lblSexoTXT.Text = "Sexo"
         '
         'lblOcupacion
@@ -325,6 +299,7 @@ Partial Class Identificacion_Paciente
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
         Me.lblOcupacionTXT.Size = New System.Drawing.Size(107, 25)
         Me.lblOcupacionTXT.TabIndex = 106
+        Me.lblOcupacionTXT.Tag = "datos"
         Me.lblOcupacionTXT.Text = "Ocupacion"
         '
         'lblE_Civil
@@ -347,6 +322,7 @@ Partial Class Identificacion_Paciente
         Me.lblE_CivilTXT.Name = "lblE_CivilTXT"
         Me.lblE_CivilTXT.Size = New System.Drawing.Size(110, 25)
         Me.lblE_CivilTXT.TabIndex = 108
+        Me.lblE_CivilTXT.Tag = "datos"
         Me.lblE_CivilTXT.Text = "EstadoCivil"
         '
         'lblEtapa
@@ -369,6 +345,7 @@ Partial Class Identificacion_Paciente
         Me.lblEtapaTXT.Name = "lblEtapaTXT"
         Me.lblEtapaTXT.Size = New System.Drawing.Size(63, 25)
         Me.lblEtapaTXT.TabIndex = 110
+        Me.lblEtapaTXT.Tag = "datos"
         Me.lblEtapaTXT.Text = "Etapa"
         '
         'TableLayoutPanel1
@@ -391,9 +368,11 @@ Partial Class Identificacion_Paciente
         Me.txtCedulaPaciente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCedulaPaciente.Location = New System.Drawing.Point(3, 3)
+        Me.txtCedulaPaciente.MaxLength = 8
         Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
         Me.txtCedulaPaciente.Size = New System.Drawing.Size(360, 27)
         Me.txtCedulaPaciente.TabIndex = 112
+        Me.txtCedulaPaciente.Tag = "noLimpiar"
         '
         'btnBuscar
         '
@@ -406,15 +385,66 @@ Partial Class Identificacion_Paciente
         Me.btnBuscar.TabIndex = 113
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
+        'btnConsultasPrevias
+        '
+        Me.btnConsultasPrevias.BackColor = System.Drawing.Color.LightGreen
+        Me.btnConsultasPrevias.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsultasPrevias.Image = CType(resources.GetObject("btnConsultasPrevias.Image"), System.Drawing.Image)
+        Me.btnConsultasPrevias.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnConsultasPrevias.Location = New System.Drawing.Point(3, 171)
+        Me.btnConsultasPrevias.Name = "btnConsultasPrevias"
+        Me.btnConsultasPrevias.Size = New System.Drawing.Size(1124, 162)
+        Me.btnConsultasPrevias.TabIndex = 104
+        Me.btnConsultasPrevias.Text = "      Ver consultas previas"
+        Me.btnConsultasPrevias.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnConsultasPrevias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnConsultasPrevias.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.btnEntrevistar, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnConsultasPrevias, 0, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 384)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1130, 336)
+        Me.TableLayoutPanel2.TabIndex = 104
+        '
+        'btnEntrevistar
+        '
+        Me.btnEntrevistar.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEntrevistar.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnEntrevistar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEntrevistar.Image = CType(resources.GetObject("btnEntrevistar.Image"), System.Drawing.Image)
+        Me.btnEntrevistar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEntrevistar.Location = New System.Drawing.Point(3, 3)
+        Me.btnEntrevistar.Name = "btnEntrevistar"
+        Me.btnEntrevistar.Size = New System.Drawing.Size(1124, 162)
+        Me.btnEntrevistar.TabIndex = 105
+        Me.btnEntrevistar.Text = "    Entrevistar"
+        Me.btnEntrevistar.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEntrevistar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnEntrevistar.UseVisualStyleBackColor = False
+        '
         'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1130, 720)
+        Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.tblDatosPaciente)
-        Me.Controls.Add(Me.btnConsultasPrevias)
-        Me.Controls.Add(Me.btnEntrevistar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Identificacion_Paciente"
         Me.Text = "frmConsultaConPaciente"
@@ -424,12 +454,11 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnEntrevistar As Button
-    Friend WithEvents btnConsultasPrevias As Button
     Friend WithEvents tblDatosPaciente As TableLayoutPanel
     Friend WithEvents pBoxFotoPaciente As PictureBox
     Friend WithEvents tabDatos As TableLayoutPanel
@@ -455,4 +484,7 @@ Partial Class Identificacion_Paciente
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents txtCedulaPaciente As TextBox
     Friend WithEvents btnBuscar As Button
+    Friend WithEvents btnConsultasPrevias As Button
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents btnEntrevistar As Button
 End Class

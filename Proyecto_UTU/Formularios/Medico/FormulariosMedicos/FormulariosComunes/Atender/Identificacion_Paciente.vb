@@ -56,4 +56,8 @@ Public Class Identificacion_Paciente
         Me.Dock = DockStyle.Fill
     End Sub
 
+    Private Sub btnConsultasPrevias_Click(sender As Object, e As EventArgs) Handles btnConsultasPrevias.Click
+
+    End Sub
+
 End Class

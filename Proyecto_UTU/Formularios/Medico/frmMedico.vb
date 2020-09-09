@@ -246,6 +246,10 @@ Public Class frmMedico
                     Sub()
                         InstanciarFormulario("Entrevista")
                     End Sub
+        AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged,
+                    Sub()
+                        CargarDatosPaciente()
+                    End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 
         AddHandler frmEntrevista.btnFrmGenerico.Click,
@@ -311,22 +315,36 @@ Public Class frmMedico
     End Sub
 
     Async Sub CargarDatosPaciente()
-        If check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
-            Dim np As New N_Paciente
-            frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
-            If frmIdentificacion.PacienteBuscar.Cedula <> 0 Then
-                _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
-                frmIdentificacion.PoblarDatos()
-            Else
-                MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-
-        Else
+        If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
+            _paciente.Cedula = 0
+            LimpiarControles(frmIdentificacion)
+            Exit Sub
+        End If
+        If Not check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
             MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             _paciente.Cedula = 0
+            LimpiarControles(frmIdentificacion)
+            Exit Sub
         End If
-    End Sub
 
+        Dim np As New N_Paciente
+        frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
+
+        Select Case frmIdentificacion.PacienteBuscar.ErrMsg
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmIdentificacion)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmIdentificacion)
+            Case 8
+                MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                LimpiarControles(frmIdentificacion)
+            Case Else
+                _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
+                frmIdentificacion.PoblarDatos()
+        End Select
+    End Sub
 
     Private Sub IngresarNuevoTratamientoMenuItem_Click(sender As Object, e As EventArgs) Handles IngresarNuevoTratamientoMenuItem.Click
         InstanciarFormulario("IngresarTratamiento")

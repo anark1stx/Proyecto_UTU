@@ -92,8 +92,8 @@ Public Module mdlUtilidades
 
                         If lbl.Tag Is "datos" Then 'Esto es para limpiar solo las labels en las que le cambio su texto original por los datos que llegan de la BD.
                             lbl.ResetText()
+                            lbl.DataBindings.Clear()
                         End If
-
                     Case "Button"
                         Dim btn = DirectCast(control, Button)
 
