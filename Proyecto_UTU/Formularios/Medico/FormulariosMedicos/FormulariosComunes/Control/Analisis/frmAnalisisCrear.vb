@@ -2,15 +2,24 @@
 Imports Negocio
 Imports Utilidades
 Public Class frmAnalisisCrear
-    Dim runningQuery As Boolean = False
     Dim negocio As New N_Analisis
     Dim listaParametros As New List(Of E_Analisis.Parametro)
     Dim listaIndicaciones As New List(Of E_Analisis.Indicacion)
-    Dim _parametros As New List(Of Control)
-    Dim _indicaciones As New List(Of Control)
     Dim listaParametrosBD As New List(Of E_Analisis.Parametro)
     Dim ACStringCol As New AutoCompleteStringCollection
     Dim parametroSeleccionado As New E_Analisis.Parametro
+
+    ReadOnly Property ControlesDeParametro
+        Get
+            Return New List(Of Control)(New Control() {txtUnidad, txtVMax, txtVMin})
+        End Get
+    End Property
+
+    ReadOnly Property ControlesDeIndicaciones
+        Get
+            Return New List(Of Control)(New Control() {txtIndicacionDescripcion, txtNomIndicacion})
+        End Get
+    End Property
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
 
         If Not parametroSeleccionado.ID = 0 Then
@@ -19,7 +28,6 @@ Public Class frmAnalisisCrear
             dgwParametros.DataSource = ParametroBindingSource
             Exit Sub
         End If
-
 
         If txtNombrePrm.Text = String.Empty Then
             MessageBox.Show("Ingrese el nombre del parametro que desea ingresar", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -33,10 +41,19 @@ Public Class frmAnalisisCrear
 
         Dim prm = New E_Analisis.Parametro
 
-        For Each t As TextBox In _parametros
+        For Each t As TextBox In ControlesDeParametro
             If t.Text = String.Empty Then
-                MessageBox.Show("Ingrese " & t.Tag, "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
+                Select Case t.Name
+                    Case "txtUnidad"
+                        MessageBox.Show("Ingrese la unidad de medida del parámetro", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    Case "txtVMax"
+                        MessageBox.Show("Ingrese la unidad de medida del parámetro", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    Case "txtVMin"
+                        MessageBox.Show("Ingrese la unidad de medida del parámetro", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                End Select
             End If
         Next
 
@@ -65,17 +82,10 @@ Public Class frmAnalisisCrear
 
     Private Sub frmE_AnalisisCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _parametros.Add(txtUnidad)
-        _parametros.Add(txtVMax)
-        _parametros.Add(txtVMin)
-
-        _indicaciones.Add(txtNomIndicacion)
-        _indicaciones.Add(txtIndicacionDescripcion)
         pnlDatos.Enabled = False
         cargarParametros()
 
     End Sub
-
 
     Private Async Sub cargarParametros()
         listaParametrosBD = Await Task.Run(Function() negocio.RetornarParametros())
@@ -83,8 +93,10 @@ Public Class frmAnalisisCrear
         Select Case listaParametrosBD(0).ID
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             Case -2
                 MessageBox.Show("No se pudieron cargar los parametros", "Error cargando datos", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
         End Select
 
         If Not listaParametrosBD(0).ID = 0 Then
@@ -110,6 +122,20 @@ Public Class frmAnalisisCrear
 
     Private Sub btnAgregarIndicacion_Click(sender As Object, e As EventArgs) Handles btnAgregarIndicacion.Click
 
+        For Each t As TextBox In ControlesDeIndicaciones
+            If t.Text = String.Empty Then
+                Select Case t.Name
+                    Case "txtNomIndicacion"
+                        MessageBox.Show("Ingrese el nombre de la indicación.", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    Case "txtIndicacionDescripcion"
+                        MessageBox.Show("Ingrese una descripción de la indicación.", "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                End Select
+            End If
+
+        Next
+
         If listaIndicaciones.Exists(Function(i) i.Nombre = txtNomIndicacion.Text) Then
             MessageBox.Show("Ya fue ingresada una indicación con ese nombre.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
@@ -120,13 +146,6 @@ Public Class frmAnalisisCrear
             Exit Sub
         End If
 
-
-        For Each t As TextBox In _indicaciones
-            If t.Text = String.Empty Then
-                MessageBox.Show("Ingrese " & t.Tag, "Falta llenar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            End If
-        Next
 
         Dim ind As New E_Analisis.Indicacion With {.Nombre = txtNomIndicacion.Text, .Indicacion = txtIndicacionDescripcion.Text}
         listaIndicaciones.Add(ind)
@@ -171,6 +190,8 @@ Public Class frmAnalisisCrear
         Select Case code
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("El análisis fue ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 3, 5
