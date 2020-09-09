@@ -26,6 +26,7 @@ Partial Class frmCatalogoFormulariosBD
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.tblFormularios = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnAceptar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtBuscar
@@ -60,11 +61,25 @@ Partial Class frmCatalogoFormulariosBD
         Me.tblFormularios.Size = New System.Drawing.Size(1078, 719)
         Me.tblFormularios.TabIndex = 3
         '
+        'btnAceptar
+        '
+        Me.btnAceptar.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnAceptar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAceptar.Location = New System.Drawing.Point(0, 774)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(1102, 48)
+        Me.btnAceptar.TabIndex = 4
+        Me.btnAceptar.Text = "CONFIRMAR"
+        Me.btnAceptar.UseVisualStyleBackColor = False
+        '
         'frmCatalogoFormulariosBD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1102, 780)
+        Me.ClientSize = New System.Drawing.Size(1102, 822)
+        Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.tblFormularios)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtBuscar)
@@ -77,4 +92,5 @@ Partial Class frmCatalogoFormulariosBD
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents tblFormularios As TableLayoutPanel
+    Friend WithEvents btnAceptar As Button
 End Class

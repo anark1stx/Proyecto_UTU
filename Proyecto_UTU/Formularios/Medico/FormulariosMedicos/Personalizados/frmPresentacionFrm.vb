@@ -1,6 +1,6 @@
 ﻿Imports Entidades
 Imports Utilidades
-Public Class frmPresentacionFormulario
+Public Class frmPresentacionFrm
     Protected _formulario
     Property Formulario As E_Formulario
         Get
@@ -12,5 +12,14 @@ Public Class frmPresentacionFormulario
             pBoxVistaPrevia.BackgroundImage = Bytes2Image(value.VistaPrevia)
         End Set
     End Property
+
+    Sub _click(sender As Object, e As MouseEventArgs)
+
+    End Sub
+
+    Sub _move(sender As Object, e As MouseEventArgs)
+
+    End Sub
+
 
 End Class

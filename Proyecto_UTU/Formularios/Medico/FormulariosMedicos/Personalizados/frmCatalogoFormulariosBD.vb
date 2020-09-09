@@ -38,31 +38,42 @@ Public Class frmCatalogoFormulariosBD
         End Select
 
         For Each f As E_Formulario In listaFormularios
-            Dim pFormulario = New frmPresentacionFormulario With {
+            Dim pFormulario = New frmPresentacionFrm With {
             .Formulario = f,
-            .TopMost = True,
-            .TopLevel = False,
             .Visible = True,
             .Dock = DockStyle.Fill
             }
+
             AddHandler pFormulario.Click, AddressOf ClickEnControlTBL
+            AddHandler pFormulario.MouseMove, AddressOf MostrarManito
+            AddHandler pFormulario.pBoxVistaPrevia.Click, AddressOf ClickEnControlTBL
+            AddHandler pFormulario.pBoxVistaPrevia.MouseMove, AddressOf MostrarManito
+            AddHandler pFormulario.lblNombreForm.Click, AddressOf ClickEnControlTBL
+            AddHandler pFormulario.lblNombreForm.MouseMove, AddressOf MostrarManito
             tblFormularios.Controls.Add(pFormulario)
         Next
 
     End Sub
 
-
     Private Sub frmCatalogoFormulariosBD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Podria ver de ejecutar un metodo que cargara todos los formularios capaz
     End Sub
 
+    Sub MostrarManito(sender As Object, e As EventArgs)
+        Cursor.Current = Cursors.Hand
+    End Sub
+
     Sub ClickEnControlTBL(sender As Object, e As MouseEventArgs)
-        Dim CellPos As TableLayoutPanelCellPosition = tblFormularios.GetCellPosition(DirectCast(sender, Control))
-        Dim col As Integer = CellPos.Column
-        Dim row As Integer = CellPos.Row
-        Dim presentacionSelec = DirectCast(tblFormularios.GetControlFromPosition(col, row), frmPresentacionFormulario)
+        Dim ctrl = sender
+        If sender.GetType IsNot GetType(UserControl) Then
+            ctrl = sender.Parent.Parent 'primero esta el tablelayout panel y luego viene el usercontrol
+        End If
+        Dim presentacionSelec = DirectCast(tblFormularios.GetChildAtPoint(ctrl.Location), frmPresentacionFrm)
         FormSeleccionado = presentacionSelec.Formulario
-        Console.WriteLine(FormSeleccionado.Nombre)
+    End Sub
+
+    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+        Me.Hide()
     End Sub
 
 End Class
