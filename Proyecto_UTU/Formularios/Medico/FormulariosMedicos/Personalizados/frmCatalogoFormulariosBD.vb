@@ -84,9 +84,12 @@ Public Class frmCatalogoFormulariosBD
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         Me.Hide()
+        Console.WriteLine("Mi formulario seleccionado es: " & FormSeleccionado.Nombre)
     End Sub
 
     Private Sub frmCatalogoFormulariosBD_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Me.FormSeleccionado = Nothing
+        If e.CloseReason = CloseReason.UserClosing Then
+            Me.FormSeleccionado = Nothing
+        End If
     End Sub
 End Class

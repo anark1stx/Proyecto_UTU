@@ -397,6 +397,7 @@ Public Class frmCrearFormulario
         catalogo.ShowDialog()
 
         If catalogo.FormSeleccionado Is Nothing Then
+            Console.WriteLine("no fue seleccionado un form")
             Exit Sub
         End If
 
