@@ -83,6 +83,7 @@ Public Class frmMedico
 
             Case "Identificacion"
                 LimpiarControles(frmIdentificacion)
+                _paciente.Cedula = 0
                 addFrm(frmIdentificacion)
 
             Case "Entrevista"

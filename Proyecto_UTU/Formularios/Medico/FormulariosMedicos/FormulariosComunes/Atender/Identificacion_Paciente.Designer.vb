@@ -372,7 +372,7 @@ Partial Class Identificacion_Paciente
         Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
         Me.txtCedulaPaciente.Size = New System.Drawing.Size(360, 27)
         Me.txtCedulaPaciente.TabIndex = 112
-        Me.txtCedulaPaciente.Tag = "noLimpiar"
+        Me.txtCedulaPaciente.Tag = ""
         '
         'btnBuscar
         '
