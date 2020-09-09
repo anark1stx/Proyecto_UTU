@@ -30,17 +30,16 @@ Public Class D_Analisis
 
         a.ID = cmd.Parameters("ID_analisis").Value
 
-        If AltaParametros(a) = 0 Then
-            Return 5 'no se pudo ingresar parametros
-        End If
+        Dim exitCodeParametro = AltaParametros(a)
+        Select Case exitCodeParametro
+            Case -1, 5, 3
+                Return exitCodeParametro
+        End Select
 
-        For Each indicacion As E_Analisis.Indicacion In a.Indicaciones
-            If AltaIndicacion(a) = 0 Then
-                Return 6 'no se pudo ingresar indicaciones
-            End If
-        Next
+        Dim exitCodeIndicacion = AltaIndicacion(a)
 
-        Return 1
+        Return exitCodeIndicacion
+
     End Function
 
     Public Function AltaParametros(a As E_Analisis) As Integer 'hacer algo para verificar existencia del parametro antes
@@ -68,7 +67,7 @@ Public Class D_Analisis
                     p.ID = cmd.Parameters("ID_PARAMETRO").Value
                 Catch ex As Exception
                     Cerrar(conexion)
-                    Return 2 'no se pudo ingresar parametro
+                    Return 5 'no se pudo ingresar parametro
                 End Try
             Else
                 Console.WriteLine("El parametro ya esta registrado en la BD")
@@ -89,6 +88,7 @@ Public Class D_Analisis
                 Return 3
             End Try
         Next
+        Cerrar(conexion)
         Return 1
     End Function
 
@@ -111,10 +111,10 @@ Public Class D_Analisis
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
                 Cerrar(conexion)
-                Return 2 'no se pudo ingresar indicacion
+                Return 6 'no se pudo ingresar indicacion
             End Try
         Next
-
+        Cerrar(conexion)
         Return 1
     End Function
 
@@ -159,7 +159,9 @@ Public Class D_Analisis
     End Function
 
     Public Function AnalisisExiste(nombreanalisis As String) As Integer 'si el analisis ya existe avisar y pedir que cambie el nombre
-
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AnalisisExiste",
@@ -168,12 +170,13 @@ Public Class D_Analisis
         Dim leer As MySqlDataReader
 
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = nombreanalisis
-        cmd.Parameters.Add("EXISTE", MySqlDbType.Int32).Direction = ParameterDirection.Output
+        cmd.Parameters.Add("EXISTE", MySqlDbType.Bit).Direction = ParameterDirection.Output
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
+            Console.WriteLine(ex.Message)
             Return 2
         End Try
 

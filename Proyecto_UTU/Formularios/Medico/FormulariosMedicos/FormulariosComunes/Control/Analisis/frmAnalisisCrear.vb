@@ -1,5 +1,6 @@
 ﻿Imports Entidades
 Imports Negocio
+Imports Utilidades
 Public Class frmAnalisisCrear
     Dim runningQuery As Boolean = False
     Dim negocio As New N_Analisis
@@ -78,18 +79,22 @@ Public Class frmAnalisisCrear
     Private Async Sub cargarParametros()
         listaParametrosBD = Await Task.Run(Function() negocio.RetornarParametros())
 
+        Select Case listaParametrosBD(0).ID
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show("No se pudieron cargar los parametros", "Error cargando datos", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Select
+
         If Not listaParametrosBD(0).ID = 0 Then
             For Each p As E_Analisis.Parametro In listaParametrosBD
                 ACStringCol.Add(p.Nombre)
             Next
 
             txtNombrePrm.AutoCompleteCustomSource = ACStringCol
-        Else
-            'No existen parametros registrados en la base de datos
         End If
 
     End Sub
-
 
     Private Sub dgwParametros_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
         If dgwParametros.Columns(e.ColumnIndex).Name = "BorrarPrm" Then
@@ -163,14 +168,14 @@ Public Class frmAnalisisCrear
         Dim code = na.AltaAnalisis(analisisCreado)
 
         Select Case code
-            Case 0
-                MessageBox.Show("No se pudo ingresar el análisis", "Alta análisis falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 1
-                MessageBox.Show("Análisis ingresado con éxito", "Alta análisis exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 2
-                MessageBox.Show("No se pudieron ingresar los parametros", "Alta parametros falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 3
-                MessageBox.Show("No se pudieron ingresar las indicaciones", "Alta indicaciones falló", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 3, 5
+                MessageBox.Show("Error ingresando parámetros.", "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 6
+                MessageBox.Show("Error ingresando indicaciones.", "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
 
     End Sub
@@ -180,13 +185,24 @@ Public Class frmAnalisisCrear
 
         If Not txtNombreAnalisis.Text Is String.Empty Then
             Dim existe As Integer = Await Task.Run(Function() negocio.AnalisisExiste(txtNombreAnalisis.Text))
-            Console.WriteLine("existe analisis: " & existe)
-            If existe = 1 Then
-                MessageBox.Show("Ya existe registrado un análisis con ese nombre", "Análisis existente", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                pnlDatos.Enabled = False
-            Else
-                pnlDatos.Enabled = True
-            End If
+
+            Select Case existe
+                Case -1
+                    MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    pnlDatos.Enabled = False
+                    Exit Sub
+                Case 1
+                    MessageBox.Show("Ya existe registrado un análisis con ese nombre", "Análisis existente", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    pnlDatos.Enabled = False
+                    Exit Sub
+                Case 2
+                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    pnlDatos.Enabled = False
+                    Exit Sub
+                Case 0
+                    pnlDatos.Enabled = True
+            End Select
+
         End If
     End Sub
 
@@ -213,5 +229,9 @@ Public Class frmAnalisisCrear
             txtVMin.Text = String.Empty
         End If
 
+    End Sub
+
+    Private Sub txtNombreAnalisis_TextChanged(sender As Object, e As EventArgs) Handles txtNombreAnalisis.TextChanged
+        pnlDatos.Enabled = False
     End Sub
 End Class
