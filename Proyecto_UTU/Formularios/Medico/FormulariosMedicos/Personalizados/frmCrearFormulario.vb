@@ -1,7 +1,10 @@
 ﻿Imports FormulariosPersonalizados
 Imports Entidades
+Imports Negocio
 Imports Utilidades
 Public Class frmCrearFormulario
+
+    Dim negocio As New N_Formulario
 
     Dim _cursor As Cursor = Cursors.Hand
     Dim frmPlano As New formularioPlano
@@ -16,16 +19,16 @@ Public Class frmCrearFormulario
     Dim settings As New MsgBoxControlSettings
 
     Dim PedirNombre As New frmPedirNombreForm
-    Protected _nombreForm As String
-
-    Property NombreForm As String
+    Protected _formDisenado As New E_Formulario
+    Property FormDisenado As E_Formulario
         Get
-            Return _nombreForm
+            Return _formDisenado
         End Get
-        Set(value As String)
-            _nombreForm = value
+        Set(value As E_Formulario)
+            _formDisenado = value
         End Set
     End Property
+
     Private Sub frmCrearFormulario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizedBounds = Screen.FromHandle(Me.Handle).WorkingArea
         Me.WindowState = FormWindowState.Maximized
@@ -311,16 +314,16 @@ Public Class frmCrearFormulario
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Select Case frmPlano.Controls.Count
-            Case < 10
+            Case < 1
                 MessageBox.Show("Agregue más controles al formulario personalizado.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
-            Case > 50
+            Case > 5
                 MessageBox.Show("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
         End Select
 
         PedirNombre.ShowDialog()
-        NombreForm = PedirNombre.Nombre
+        FormDisenado.Nombre = PedirNombre.Nombre
 
         For Each i As Control In frmPlano.Controls
             controlesInstanciados.Add(i)
@@ -330,6 +333,27 @@ Public Class frmCrearFormulario
         GuardarFormulario(fbr.Serializar(controlesInstanciados))
 
     End Sub
+
+    Public Sub GuardarFormulario(lista_controles As ControlesGuardados.ListaControles)
+
+        Dim gestor As New GestorXMLv2
+
+        FormDisenado.XML = gestor.Serializar(lista_controles)
+        Dim capturaDePantalla = ImprimirFormulario(pnlFormularioPersonalizado, New Rectangle(0, 0, 720, 480))
+        FormDisenado.VistaPrevia = Image2Bytes(capturaDePantalla)
+        Dim resultado = negocio.AltaFormulario(FormDisenado)
+
+        Select Case resultado
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Alta formulario exitosa", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
+
+    End Sub
+
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Hide()

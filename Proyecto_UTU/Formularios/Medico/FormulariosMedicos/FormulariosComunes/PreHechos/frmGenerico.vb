@@ -27,8 +27,8 @@ Public Class frmGenerico
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
 
         pnlContenedor.AutoScroll = False
-        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
-
+        memobmp = ImprimirFormulario(pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        Imprimir.DefaultPageSettings.Landscape = True
         pnlContenedor.AutoScroll = True
 
         'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada

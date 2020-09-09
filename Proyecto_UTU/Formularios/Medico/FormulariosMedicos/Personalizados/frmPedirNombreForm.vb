@@ -1,11 +1,11 @@
 ﻿Imports Utilidades
 Public Class frmPedirNombreForm
-    Protected _nombre
-    Property Nombre
+    Protected _nombre As String
+    Property Nombre As String
         Get
             Return _nombre
         End Get
-        Set(value)
+        Set(value As String)
             _nombre = value
         End Set
     End Property

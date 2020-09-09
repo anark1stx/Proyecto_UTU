@@ -1,11 +1,21 @@
 ﻿Public Class E_Formulario
     Protected _id As Integer
     Protected _nombre As String
-    Protected _xml As String 'ruta .xml
-    Protected _v_previa As String 'ruta .jpg/png
+    Protected _xml As String
+    Protected _v_previa As Byte()
     Protected _paciente As E_Paciente 'paciente del cual se estan recabando los datos en la consulta
     Protected _medico As E_Medico 'medico que esta recabando datos del paciente en la consulta
     Protected _preguntasYrespuestas As List(Of PreguntaRespuesta)
+
+    Property ID As Integer
+        Get
+            Return _id
+        End Get
+        Set(value As Integer)
+            _id = value
+        End Set
+    End Property
+
     Property Nombre As String
         Get
             Return _nombre
@@ -24,11 +34,11 @@
         End Set
     End Property
 
-    Property VistaPrevia As String
+    Property VistaPrevia As Byte()
         Get
             Return _v_previa
         End Get
-        Set(value As String)
+        Set(value As Byte())
             _v_previa = value
         End Set
     End Property
@@ -65,7 +75,7 @@
 
     End Sub
 
-    Sub New(nombre As String, xml As String, vPrevia As String)
+    Sub New(nombre As String, xml As String, vPrevia As Byte())
         _nombre = nombre
         _xml = xml
         _v_previa = vPrevia

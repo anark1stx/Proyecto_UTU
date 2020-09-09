@@ -95,8 +95,8 @@ Public Class frmFiebre
             lista.Add(c)
         Next
 
-        Dim fbr As New FabricaDeControles()
-        GuardarFormulario(fbr.Serializar(lista))
+        'Dim fbr As New FabricaDeControles()
+        'GuardarFormulario(fbr.Serializar(lista))
         'BuscarPreguntasYRespuestas(Me, ListaPreguntasYRespuestas, Preguntas, Respuestas)
         'UnirPreguntasYRespuestas(Preguntas, Respuestas, ListaPreguntasYRespuestas)
         hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
@@ -105,7 +105,8 @@ Public Class frmFiebre
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
         pnlContenedor.AutoScroll = False
-        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        memobmp = ImprimirFormulario(pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        Imprimir.DefaultPageSettings.Landscape = True
         'PrintPreviewDialog1.Document = Imprimir
         pnlContenedor.AutoScroll = True
         'PrintPreviewDialog1.ShowDialog()

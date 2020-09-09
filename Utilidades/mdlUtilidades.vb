@@ -108,9 +108,7 @@ Public Module mdlUtilidades
         Next
     End Sub
 
-    Public Function ImprimirFormulario(pd As Printing.PrintDocument, landscape As Boolean, contenedor As Control, rect As Rectangle) As Bitmap
-
-        pd.DefaultPageSettings.Landscape = landscape
+    Public Function ImprimirFormulario(contenedor As Control, rect As Rectangle) As Bitmap
 
         Dim memobmp = New Bitmap(contenedor.Width, contenedor.Height)
 

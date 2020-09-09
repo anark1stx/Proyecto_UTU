@@ -2,9 +2,12 @@
 Imports MySql.Data.MySqlClient
 
 Public Class D_Formulario
-    Dim conexion As New MySqlConnection(retornarCStringBD())
+    Dim conexion As New MySqlConnection
 
     Public Function AltaFormulario(form As E_Formulario) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -14,17 +17,19 @@ Public Class D_Formulario
 
         cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = form.Nombre
         cmd.Parameters.Add("XML", MySqlDbType.MediumText).Value = form.XML
-        cmd.Parameters.Add("VPREVIA", MySqlDbType.MediumBlob).Value = form.VistaPrevia
-
+        cmd.Parameters.Add("V_PREVIA", MySqlDbType.MediumBlob).Value = form.VistaPrevia
+        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Direction = ParameterDirection.Output
         Try
-            cmd.ExecuteNonQuery() 'alta tabla formulario
-            cmd.Connection.Close()
+            cmd.ExecuteReader()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            cmd.Connection.Close()
-            Return 0
+            Cerrar(conexion)
+            Return 2
         End Try
+        Cerrar(conexion)
 
+        form.ID = cmd.Parameters("ID_F").Value
+        Console.WriteLine("este form tiene id: " & form.ID)
         Return 1
     End Function
 

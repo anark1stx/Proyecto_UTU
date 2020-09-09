@@ -44,7 +44,6 @@ Public Class D_Analisis
 
     Public Function AltaParametros(a As E_Analisis) As Integer 'hacer algo para verificar existencia del parametro antes
 
-        Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
             Return -1
@@ -63,7 +62,7 @@ Public Class D_Analisis
                 cmd.Parameters.Add("REFERENCIA_MAX", MySqlDbType.Double, 8).Value = p.ValorMaximo
                 cmd.Parameters.Add("ID_PARAMETRO", MySqlDbType.Int32).Direction = ParameterDirection.Output
                 Try
-                    leer = cmd.ExecuteReader()
+                    cmd.ExecuteReader()
                     p.ID = cmd.Parameters("ID_PARAMETRO").Value
                 Catch ex As Exception
                     Cerrar(conexion)

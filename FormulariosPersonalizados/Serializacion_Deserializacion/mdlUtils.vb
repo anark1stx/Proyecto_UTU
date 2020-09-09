@@ -90,26 +90,4 @@ Public Module mdlUtils
 
     End Function
 
-    Public Sub GuardarFormulario(lista_controles As ControlesGuardados.ListaControles)
-
-        Dim archivo As New Xml.XmlDocument
-        Dim gestor As New GestorXMLv2
-
-        Dim xmlstring As String = gestor.Serializar(lista_controles)
-        archivo.LoadXml(xmlstring)
-
-        Dim guardarFormulario As New SaveFileDialog With {
-            .Filter = "XML|*.xml",
-            .Title = "Guardar Formulario",
-            .RestoreDirectory = True
-        }
-
-        If guardarFormulario.ShowDialog() = DialogResult.OK Then
-            Dim path As String = IO.Path.GetFullPath(guardarFormulario.FileName.ToString())
-            archivo.Save(path)
-        End If
-
-    End Sub
-
-
 End Module

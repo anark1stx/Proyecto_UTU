@@ -133,7 +133,8 @@ Public Class frmDolor
         hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
 
         pnlContenedor.AutoScroll = False
-        memobmp = ImprimirFormulario(Imprimir, True, pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        memobmp = ImprimirFormulario(pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
+        Imprimir.DefaultPageSettings.Landscape = True
         PrintPreviewDialog1.Document = Imprimir
         pnlContenedor.AutoScroll = True
         PrintPreviewDialog1.ShowDialog()
