@@ -381,6 +381,32 @@ Public Class frmCrearFormulario
         End If
 
     End Sub
+
+    Public Function ImportarFormulario() As List(Of Control)
+
+        Dim form As E_Formulario = negocio.ImportarFormularioPrueba()
+
+        Select Case form.ID
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return Nothing
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return Nothing
+            Case -8
+                MessageBox.Show("no encontre", "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return Nothing
+        End Select
+
+        'IO.File.WriteAllText("C:\Users\Mat\Desktop\testimport.xml", form.XML) -> por si quiero leer algo
+
+        Dim gestor As New GestorXMLv2
+        Dim fbr As New FabricaDeControles()
+        Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(form.XML)
+
+        Return fbr.Crear(lista)
+
+    End Function
     Public Sub agregarHandlersBasicos(_ctrl As Control)
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
         AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove

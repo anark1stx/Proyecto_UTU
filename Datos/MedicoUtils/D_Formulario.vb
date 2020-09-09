@@ -33,6 +33,53 @@ Public Class D_Formulario
         Return 1
     End Function
 
+    Public Function ImportarForm()
+        Dim leer As MySqlDataReader
+        If Conectar(conexion) = -1 Then
+            Return New E_Formulario With {.ID = -1} '-1 exit code para conexion fallida
+        End If
+
+        Dim cmd = New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "ImportarFormulario",
+                .Connection = conexion
+        }
+
+        'cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = 1
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return New E_Formulario With {.ID = -2}
+        End Try
+
+        Dim f As New E_Formulario
+
+        If leer.HasRows Then
+            While leer.Read()
+                f = New E_Formulario With {
+                     .ID = leer.GetInt32("ID"),
+                     .Nombre = leer.GetString("nombre"),
+                     .XML = leer.GetString("xml")
+                }
+                Dim previa = CType(leer("v_previa"), Byte())
+                Dim stream As New IO.MemoryStream(previa)
+                f.VistaPrevia = stream.ToArray()
+                stream.Close()
+
+            End While
+        Else
+            f.ID = -8 'no encontre f
+        End If
+
+        Cerrar(conexion)
+
+        Return f
+    End Function
+
+
+
     Public Function AltaPreguntas(form As E_Formulario) As Integer
 
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas

@@ -68,26 +68,6 @@ Public Module mdlUtils
         Next
 
     End Sub
-    Public Function ImportarFormulario() As List(Of Control)
 
-        Dim abrirFormulario As New OpenFileDialog With { 'Sustituir esto por un catalogo con los formularios que hay en la BD.
-            .Filter = "XML|*.xml",
-            .Title = "Abrir Formulario",
-            .RestoreDirectory = True
-        }
-
-        If abrirFormulario.ShowDialog() = DialogResult.OK Then
-            Dim path As String = System.IO.Path.GetFullPath(abrirFormulario.FileName.ToString())
-            Dim contenido As String = File.ReadAllText(path)
-            Dim gestor As New GestorXMLv2
-            Dim fbr As New FabricaDeControles()
-            Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(contenido)
-
-            Return fbr.Crear(lista)
-        Else
-            Return Nothing
-        End If
-
-    End Function
 
 End Module
