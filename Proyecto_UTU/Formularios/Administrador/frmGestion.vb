@@ -123,6 +123,7 @@ Public Class frmGestion
 
     Sub resetMode()
         rBtnCedula.Checked = True
+        Filter = Filtro.Cedula
         Select Case Mode
             Case Accion.Alta
                 btnAccion1.ImageIndex = 1 '1 = Alta
