@@ -129,6 +129,7 @@ Public Class D_Analisis
         }
 
         If Conectar(conexion) = -1 Then
+            Cerrar(conexion)
             pList.Add(New E_Analisis.Parametro With {.ID = -1})
             Return pList
         End If
