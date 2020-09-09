@@ -113,9 +113,10 @@ Public Module mdlUtilidades
 
         Dim memobmp = New Bitmap(contenedor.Width, contenedor.Height)
 
-        contenedor.DrawToBitmap(memobmp, rect)
+        contenedor.DrawToBitmap(memobmp, New Rectangle(0, 0, contenedor.Width, contenedor.Height))
+        Dim resized = New Bitmap(memobmp, New Size(rect.Width, rect.Height))
 
-        Return memobmp
+        Return resized
     End Function
 
     Public Sub pintarFondo(ctrl As Control, selected As Boolean)

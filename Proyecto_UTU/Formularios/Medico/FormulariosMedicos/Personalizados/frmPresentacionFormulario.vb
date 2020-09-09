@@ -9,7 +9,7 @@ Public Class frmPresentacionFormulario
         Set(value As E_Formulario)
             _formulario = value
             lblNombreForm.Text = value.Nombre
-            pBoxVistaPrevia.Image = Bytes2Image(value.VistaPrevia)
+            pBoxVistaPrevia.BackgroundImage = Bytes2Image(value.VistaPrevia)
         End Set
     End Property
 

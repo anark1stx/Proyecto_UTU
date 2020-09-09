@@ -29,6 +29,7 @@ Partial Class frmPresentacionFormulario
         '
         'pBoxVistaPrevia
         '
+        Me.pBoxVistaPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pBoxVistaPrevia.Location = New System.Drawing.Point(12, 42)
         Me.pBoxVistaPrevia.Name = "pBoxVistaPrevia"
         Me.pBoxVistaPrevia.Size = New System.Drawing.Size(333, 278)
