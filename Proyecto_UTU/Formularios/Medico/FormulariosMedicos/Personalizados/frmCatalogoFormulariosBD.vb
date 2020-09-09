@@ -64,16 +64,29 @@ Public Class frmCatalogoFormulariosBD
     End Sub
 
     Sub ClickEnControlTBL(sender As Object, e As MouseEventArgs)
+        Dim g As Graphics = tblFormularios.CreateGraphics
         Dim ctrl = sender
         If sender.GetType IsNot GetType(UserControl) Then
             ctrl = sender.Parent.Parent 'primero esta el tablelayout panel y luego viene el usercontrol
         End If
         Dim presentacionSelec = DirectCast(tblFormularios.GetChildAtPoint(ctrl.Location), frmPresentacionFrm)
         FormSeleccionado = presentacionSelec.Formulario
+        Dim posicion = New Point(presentacionSelec.Left - 1, presentacionSelec.Top - 1) ' es necesario el offset, este framework es demasiado bueno como para hacerlo bien por su cuenta
+        Dim bounds = New Size(posicion.X + presentacionSelec.Width, posicion.Y + presentacionSelec.Height)
+        Dim rect As New Rectangle(posicion, bounds)
+
+        ControlPaint.DrawBorder(g, rect,
+                                Color.Red, 10, ButtonBorderStyle.Solid,
+                                Color.Red, 10, ButtonBorderStyle.Solid,
+                                Color.Red, 10, ButtonBorderStyle.Solid,
+                                Color.Red, 10, ButtonBorderStyle.Solid)
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         Me.Hide()
     End Sub
 
+    Private Sub frmCatalogoFormulariosBD_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.FormSeleccionado = Nothing
+    End Sub
 End Class
