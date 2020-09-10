@@ -111,6 +111,7 @@ Public Class frmTratamientoCrear
                         Exit Sub
                 End Select
                 listaTrats = result
+                dgwTratamientos.DataSource = listaTrats
             End If
 
         End If
@@ -124,5 +125,10 @@ Public Class frmTratamientoCrear
         Else
             tratamiento_seleccionado = New E_Tratamiento With {.ID = 0}
         End If
+    End Sub
+
+    Private Sub dgwTratamientos_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwTratamientos.CellMouseClick
+        tratamiento_seleccionado = listaTrats(dgwTratamientos.CurrentCell.RowIndex)
+        txtDescripcionTratamiento.Text = tratamiento_seleccionado.Descripcion
     End Sub
 End Class
