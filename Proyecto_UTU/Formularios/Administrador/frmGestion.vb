@@ -16,6 +16,7 @@ Public Class frmGestion
     Dim a As New E_Usuario
     Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
+    Dim negocio As New N_Usuario
     Public Enum Accion
         Alta
         Baja
@@ -730,7 +731,7 @@ Public Class frmGestion
                         pList.Add(p)
                         ci_valida = True
                     Case Filtro.Apellido
-                        If Not check_regex(txtBusqueda.Text, RegexLiteral) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                             Exit Sub
@@ -787,7 +788,7 @@ Public Class frmGestion
                         mList.Add(m)
                         ci_valida = True
                     Case Filtro.Apellido
-                        If Not check_regex(txtBusqueda.Text, RegexLiteral) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -813,7 +814,7 @@ Public Class frmGestion
                         mList.Add(m)
                         ci_valida = True
                     Case Filtro.Especialidad
-                        If Not check_regex(txtBusqueda.Text, RegexLiteral()) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -868,6 +869,10 @@ Public Class frmGestion
                         aList.Add(a)
                         ci_valida = True
                     Case Filtro.Apellido
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
+                            MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
                         aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text))
                         Select Case aList(0).ErrMsg
                             Case -1
@@ -906,11 +911,14 @@ Public Class frmGestion
             cbTelefonos.Items.Clear()
             cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
             cbTelefonos.SelectedIndex = 0
-
-            CargarUsuarioFotoDesdeBD(p.Cedula, pBoxFotoUsuario)
+            CargarFotoU(obj.Cedula)
         Catch ex As Exception
             Console.WriteLine("already binded")
         End Try
+    End Sub
+
+    Async Sub CargarFotoU(CI As Integer)
+        pBoxFotoUsuario.Image = Await Task.Run(Function() Bytes2Image(negocio.LeerFoto(CI)))
     End Sub
 
     Private Sub MedicoBindings(obj As E_Medico)

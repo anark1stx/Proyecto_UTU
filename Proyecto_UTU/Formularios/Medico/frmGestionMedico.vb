@@ -15,8 +15,9 @@ Public Class frmGestionMedico
         End Set
     End Property
 
-    Private Async Sub frmGestionPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub frmGestionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MedicoLogeado = Await Task.Run(Function() nm.ListarMedicoCI(MedicoLogeado.Cedula))
+        MedicoLogeado.Foto = Await Task.Run(Function() nm.LeerFoto(MedicoLogeado.Cedula))
         bindProps()
     End Sub
 

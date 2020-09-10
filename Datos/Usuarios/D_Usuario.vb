@@ -60,6 +60,7 @@ Public Class D_Usuario
         Dim foto As Byte() = {}
         Dim leer As MySqlDataReader
         If Conectar(conexion) = -1 Then
+            Console.WriteLine("error conexion")
             Return {}
         End If
 
@@ -75,6 +76,7 @@ Public Class D_Usuario
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
+            Console.WriteLine("error ejecutando")
             Return {}
         End Try
 

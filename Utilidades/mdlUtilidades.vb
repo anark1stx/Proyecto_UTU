@@ -183,11 +183,8 @@ Public Module mdlUtilidades
     End Sub
 
     Public Function Bytes2Image(ByVal bytes() As Byte) As Image
-
         Dim ms As New MemoryStream(bytes)
-        Console.WriteLine(ms.Length)
         Return Image.FromStream(ms)
-
     End Function
 
     Public Function Image2Bytes(ByVal img As Image) As Byte()

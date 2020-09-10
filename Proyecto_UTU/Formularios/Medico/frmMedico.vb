@@ -343,7 +343,7 @@ Public Class frmMedico
 
         Dim np As New N_Paciente
         frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
-
+        frmIdentificacion.PacienteBuscar.Foto = Await Task.Run(Function() np.LeerFoto(frmIdentificacion.PacienteBuscar.Cedula))
         Select Case frmIdentificacion.PacienteBuscar.ErrMsg
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
