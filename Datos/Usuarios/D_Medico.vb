@@ -21,7 +21,6 @@ Public Class D_Medico
         Dim u As New E_Medico
         Dim listaEsp As New List(Of String)
         Dim listaTel As New List(Of String)
-        Dim yalei_foto As Boolean = False
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
 
@@ -107,7 +106,7 @@ Public Class D_Medico
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     lastU.Especialidad.Add(leer.GetString("especialidad"))
                     lastU.TelefonosLista = lastU.TelefonosLista.Distinct().ToList()
-                    lastU.Especialidad = lastU.TelefonosLista.Distinct().ToList()
+                    lastU.Especialidad = lastU.Especialidad.Distinct().ToList()
                 End If
             End While
         Else
@@ -168,7 +167,7 @@ Public Class D_Medico
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     lastU.Especialidad.Add(leer.GetString("especialidad"))
                     lastU.TelefonosLista = lastU.TelefonosLista.Distinct().ToList()
-                    lastU.Especialidad = lastU.TelefonosLista.Distinct().ToList()
+                    lastU.Especialidad = lastU.Especialidad.Distinct().ToList()
                 End If
             End While
         Else
@@ -179,7 +178,6 @@ Public Class D_Medico
         Return uList
 
     End Function
-
     Public Function AltaMedico(u As E_Medico)
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
         Dim code = MyBase.AltaUsuario(mysqlUser)
