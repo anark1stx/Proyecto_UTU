@@ -66,6 +66,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccionesFormulario.Designer.vb">
+      <DependentUpon>AccionesFormulario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AccionesFormulario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="mdlEventos.vb" />
     <Compile Include="mdlFormulariosUtils.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -89,6 +95,9 @@
     <Compile Include="Serializacion_Deserializacion\XML\GestorXMLv2.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AccionesFormulario.resx">
+      <DependentUpon>AccionesFormulario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -111,6 +120,10 @@
     <ProjectReference Include="..\Entidades\Entidades.vbproj">
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.vbproj">
+      <Project>{c424e458-2687-4aee-bae4-b2a2fc18d00f}</Project>
+      <Name>Negocio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
       <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>

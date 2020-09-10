@@ -16,7 +16,6 @@ Public Module mdlUtilidades
         Next
 
     End Sub
-
     Function subirImagen() As String
 
         Dim OFD As FileDialog = New OpenFileDialog With {

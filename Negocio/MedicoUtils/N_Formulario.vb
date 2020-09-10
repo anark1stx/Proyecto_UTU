@@ -19,4 +19,8 @@ Public Class N_Formulario
         Return objDatos.BajaFormulario(form)
     End Function
 
+    Public Function AltaFormularioDatos(form As E_Formulario) As Integer
+
+    End Function
+
 End Class

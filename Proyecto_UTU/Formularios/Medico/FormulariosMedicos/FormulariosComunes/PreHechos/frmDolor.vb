@@ -1,8 +1,10 @@
 ﻿Imports Entidades
+Imports FormulariosPersonalizados
 Imports Negocio
 Imports Utilidades
 Public Class frmDolor
-    Dim Acciones As New AccionesFormulario
+    Dim AccionesFrm As New AccionesFormulario
+    Dim Eventos As New EventosDeFormulario
     Dim memobmp As Bitmap
     Protected _paciente As E_Paciente
     Protected _medico As E_Medico
@@ -124,31 +126,6 @@ Public Class frmDolor
         LimpiarControles(pnlDatosSeleccion)
     End Sub
 
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
-
-        hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
-
-        pnlContenedor.AutoScroll = False
-        memobmp = ImprimirFormulario(pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
-        Imprimir.DefaultPageSettings.Landscape = True
-        PrintPreviewDialog1.Document = Imprimir
-        pnlContenedor.AutoScroll = True
-        PrintPreviewDialog1.ShowDialog()
-
-        'Refrescar el autoScroll, a veces se bugea y queda una scrollbar horizontal glitcheada
-
-        hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
-    End Sub
-
-    Sub agregarH_accionesFormulario()
-        AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
-        AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
-        AddHandler Acciones.btnGuardar.Click, AddressOf btnGuardar_Click
-    End Sub
 
     Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Imprimir.PrintPage
 
@@ -158,11 +135,15 @@ Public Class frmDolor
     Sub mLoad() Handles Me.Load
         Me.Dock = DockStyle.Fill
 
-        Acciones.TopLevel = False
-        Acciones.TopMost = True
-        pnlContenedor.Controls.Add(Acciones)
-        Acciones.Location = New Point(pnlContenedor.Width / 2, pnlContenedor.Height + Acciones.Height * 2.5)
-        Acciones.Visible = True
-        agregarH_accionesFormulario()
+        Eventos.Acciones = AccionesFrm
+        Eventos.PanelDestino = pnlContenedor
+        Eventos.PrintDoc = New Printing.PrintDocument
+
+        Eventos.Acciones.TopLevel = False
+        Eventos.Acciones.TopMost = True
+        pnlContenedor.Controls.Add(Eventos.Acciones)
+        Eventos.Acciones.Dock = DockStyle.Bottom
+        Eventos.Acciones.Visible = True
+        Eventos.AgregarHandlers()
     End Sub
 End Class

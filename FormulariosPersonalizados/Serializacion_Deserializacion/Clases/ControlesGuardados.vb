@@ -684,13 +684,13 @@ Public Class ControlesGuardados
         Public Sub Evento(sender As Object, e As EventArgs)
             Select Case Accion.ToString()
                 Case EventoAccion.AgregarItemALista
-                    AgregarItemALista(Fuente, Destino)
+                    EvAgregarItemALista(Fuente, Destino)
                 Case EventoAccion.EliminarItemDeLista
-                    EliminarItemDeLista(Fuente)
+                    EvEliminarItemDeLista(Fuente)
                 Case EventoAccion.PintarFondo
-                    PintarFondo(Fuente, Selected)
+                    EvPintarFondo(Fuente, Selected)
                 Case EventoAccion.CambiarFoto
-                    CambiarFoto(Fuente)
+                    EvCambiarFoto(Fuente)
             End Select
         End Sub
     End Class

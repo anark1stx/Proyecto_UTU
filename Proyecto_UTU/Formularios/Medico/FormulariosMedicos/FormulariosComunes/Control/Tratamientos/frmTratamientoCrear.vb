@@ -1,5 +1,6 @@
 ﻿Imports Utilidades
 Imports Entidades
+Imports FormulariosPersonalizados
 Imports Negocio
 Public Class frmTratamientoCrear
     Dim acciones As New AccionesFormulario
@@ -30,15 +31,8 @@ Public Class frmTratamientoCrear
             cbDias.Items.Add(i).ToString()
         Next
 
-        acciones.TopLevel = False
-        acciones.TopMost = True
-        acciones.Dock = DockStyle.Bottom
-        'acciones.Location = New Point(txtDescripcionTratamiento.Width / 2, txtDescripcionTratamiento.Height + 10)
-        acciones.Show()
-        acciones.Visible = True
+        Me.Dock = DockStyle.Fill
+
     End Sub
 
-    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
-        LimpiarControles(Me)
-    End Sub
 End Class

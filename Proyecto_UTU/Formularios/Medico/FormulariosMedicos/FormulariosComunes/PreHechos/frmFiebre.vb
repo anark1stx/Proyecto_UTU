@@ -3,14 +3,13 @@ Imports FormulariosPersonalizados
 Imports Utilidades
 Imports Negocio
 Public Class frmFiebre
-    Dim memobmp As Bitmap
-    Dim Acciones As New AccionesFormulario
+    Dim AccionesFrm As New AccionesFormulario
+    Dim Eventos As New EventosDeFormulario
     Protected _paciente As E_Paciente
     Protected _medico As E_Medico
     Protected _preguntasYrespuestas As New List(Of PreguntaRespuesta)
     Protected _preguntas As New List(Of Control)
     Protected _respuestas As New List(Of Control)
-    Dim calls As Integer = 0
 
 
     Property Preguntas As List(Of Control)
@@ -59,65 +58,17 @@ Public Class frmFiebre
 
     Private Sub frmFiebre_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
-        Acciones.TopLevel = False
-        Acciones.TopMost = True
-        tabEntrevista.Controls.Add(Acciones)
-        Acciones.Location = New Point(tabEntrevista.Width / 2, tabEntrevista.Height + Acciones.Height * 4)
-        Acciones.Visible = True
-        agregarH_accionesFormulario()
-    End Sub
 
-    Sub agregarH_accionesFormulario()
-        AddHandler Acciones.btnImprimir.Click, AddressOf btnImprimir_Click
-        AddHandler Acciones.btnLimpiar.Click, AddressOf btnLimpiar_Click
-        AddHandler Acciones.btnGuardar.Click, AddressOf btnGuardar_Click
+        Eventos.Acciones = AccionesFrm
+        Eventos.PanelDestino = pnlContenedor
+        Eventos.PrintDoc = New Printing.PrintDocument
 
-    End Sub
-
-    Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs)
-        If chkAnalisis.Checked Then
-            txtNomAnalisis.Enabled = True
-        Else
-            txtNomAnalisis.Enabled = False
-        End If
-    End Sub
-
-    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs)
-        LimpiarControles(Me)
-    End Sub
-
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
-        hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
-
-        Dim lista As New List(Of Control)
-
-        For Each c As Control In Me.Controls
-            lista.Add(c)
-        Next
-
-        'Dim fbr As New FabricaDeControles()
-        'GuardarFormulario(fbr.Serializar(lista))
-        'BuscarPreguntasYRespuestas(Me, ListaPreguntasYRespuestas, Preguntas, Respuestas)
-        'UnirPreguntasYRespuestas(Preguntas, Respuestas, ListaPreguntasYRespuestas)
-        hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
-    End Sub
-
-    Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
-        hideShowItems(False, New List(Of Control)(New Control() {Acciones}))
-        pnlContenedor.AutoScroll = False
-        memobmp = ImprimirFormulario(pnlContenedor, New Rectangle(0, 0, pnlContenedor.DisplayRectangle.Width, pnlContenedor.Height))
-        Imprimir.DefaultPageSettings.Landscape = True
-        'PrintPreviewDialog1.Document = Imprimir
-        pnlContenedor.AutoScroll = True
-        'PrintPreviewDialog1.ShowDialog()
-
-        hideShowItems(True, New List(Of Control)(New Control() {Acciones}))
-
-    End Sub
-
-    Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
-
-        e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
+        Eventos.Acciones.TopLevel = False
+        Eventos.Acciones.TopMost = True
+        tabEntrevista.Controls.Add(Eventos.Acciones)
+        Eventos.Acciones.Dock = DockStyle.Bottom
+        Eventos.Acciones.Visible = True
+        Eventos.AgregarHandlers()
     End Sub
 
     Private Sub btnAgregarSClinico_Click(sender As Object, e As EventArgs) Handles btnAgregarSClinico.Click
