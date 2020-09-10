@@ -153,10 +153,16 @@ Public Class frmMedico
                 Dim sender As Object = New Object()
                 Dim e As EventArgs = New EventArgs()
                 frmCrear.btnAbrir_Click(sender, e)
-
             Case "IngresarTratamiento"
                 LimpiarControles(frmTratamientoC)
-                addFrm(frmTratamientoC)
+                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
+                frmTratamientoC.ResetMode()
+                frmTratamientoC.ShowDialog()
+            Case "AsignarTratamiento"
+                LimpiarControles(frmTratamientoC)
+                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Busqueda
+                frmTratamientoC.ResetMode()
+                frmTratamientoC.ShowDialog()
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
                 addFrm(frmTratamientoS)
@@ -327,7 +333,6 @@ Public Class frmMedico
 
             End Sub
     End Sub
-
     Async Sub CargarDatosPaciente()
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             _paciente.Cedula = 0
@@ -378,9 +383,13 @@ Public Class frmMedico
 
     Private Sub AsignarAnalisisPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarAnalisisPacienteToolStripMenuItem.Click
         'mostrar cuadro emergente en el que le permito buscar analisis por nombre y el selecciona.
+        'frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
+        'frmTratamientoC.ResetMode()
+        'frmTratamientoC.ResetMode()
     End Sub
 
     Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
+        InstanciarFormulario("AsignarTratamiento")
         'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
         'datagridview que los carga.
         'el medico va seleccionando

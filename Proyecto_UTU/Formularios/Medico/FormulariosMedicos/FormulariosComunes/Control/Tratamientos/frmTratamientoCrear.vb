@@ -3,7 +3,25 @@ Imports Entidades
 Imports FormulariosPersonalizados
 Imports Negocio
 Public Class frmTratamientoCrear
+    Protected _modo
     Dim negocio As New N_Tratamiento
+    Dim ultimomodo As Modo
+
+    Public Enum Modo
+        Defaultt 'modo para no tener confilcto con la condicional que esta en el evento resetmode
+        Alta 'habilito los campos para escribir
+        Busqueda 'habilito la lupa y un datagridview
+    End Enum
+
+    Property ModoActual As Modo
+        Get
+            Return _modo
+        End Get
+        Set(value As Modo)
+            _modo = value
+        End Set
+    End Property
+
     Private Async Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
             MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -36,5 +54,26 @@ Public Class frmTratamientoCrear
 
         Me.Dock = DockStyle.Fill
     End Sub
+
+    Sub ResetMode()
+        Console.WriteLine("Mi modoactual: " & ModoActual.ToString() & "ultimo modo:" & ultimomodo.ToString())
+        If ModoActual = ultimomodo Then
+            Exit Sub
+        End If
+
+        Select Case ModoActual
+            Case Modo.Alta
+                txtDescripcionTratamiento.Enabled = True
+                btnBuscar.Visible = False
+                txtNombreTratamiento.Width += btnBuscar.Width
+                ultimomodo = Modo.Alta
+            Case Modo.Busqueda
+                txtNombreTratamiento.Width -= btnBuscar.Width * 2
+                txtDescripcionTratamiento.Enabled = False
+                btnBuscar.Visible = True
+                ultimomodo = Modo.Busqueda
+        End Select
+    End Sub
+
 
 End Class

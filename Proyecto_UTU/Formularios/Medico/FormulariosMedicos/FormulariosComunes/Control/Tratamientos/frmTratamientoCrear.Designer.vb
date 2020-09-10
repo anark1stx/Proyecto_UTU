@@ -22,17 +22,20 @@ Partial Class frmTratamientoCrear
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTratamientoCrear))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.txtNombreTratamiento = New System.Windows.Forms.TextBox()
         Me.lblIndicaciones = New System.Windows.Forms.Label()
         Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
         Me.lblNombreTratamiento = New System.Windows.Forms.Label()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.pnlContenedor.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
         '
+        Me.pnlContenedor.Controls.Add(Me.btnBuscar)
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
         Me.pnlContenedor.Controls.Add(Me.txtNombreTratamiento)
         Me.pnlContenedor.Controls.Add(Me.lblIndicaciones)
@@ -62,7 +65,7 @@ Partial Class frmTratamientoCrear
         Me.txtNombreTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombreTratamiento.Location = New System.Drawing.Point(290, 9)
         Me.txtNombreTratamiento.Name = "txtNombreTratamiento"
-        Me.txtNombreTratamiento.Size = New System.Drawing.Size(838, 30)
+        Me.txtNombreTratamiento.Size = New System.Drawing.Size(837, 30)
         Me.txtNombreTratamiento.TabIndex = 82
         '
         'lblIndicaciones
@@ -98,6 +101,17 @@ Partial Class frmTratamientoCrear
         Me.lblNombreTratamiento.TabIndex = 78
         Me.lblNombreTratamiento.Text = "Nombre del tratamiento:"
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBuscar.Location = New System.Drawing.Point(1083, 9)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(47, 30)
+        Me.btnBuscar.TabIndex = 85
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'frmTratamientoCrear
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -105,7 +119,7 @@ Partial Class frmTratamientoCrear
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1130, 720)
         Me.Controls.Add(Me.pnlContenedor)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmTratamientoCrear"
         Me.Text = "frmTratamiento"
         Me.pnlContenedor.ResumeLayout(False)
@@ -120,4 +134,5 @@ Partial Class frmTratamientoCrear
     Friend WithEvents txtDescripcionTratamiento As TextBox
     Friend WithEvents lblNombreTratamiento As Label
     Friend WithEvents btnGuardar As Button
+    Friend WithEvents btnBuscar As Button
 End Class
