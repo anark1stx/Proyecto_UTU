@@ -16,6 +16,7 @@ Public Class frmGestionPaciente
 
     Private Async Sub frmGestionPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PacienteLogeado = Await Task.Run(Function() np.ListarPacienteCI(PacienteLogeado.Cedula))
+        PacienteLogeado.Foto = Await Task.Run(Function() np.LeerFoto(PacienteLogeado.Cedula))
         bindProps()
     End Sub
 

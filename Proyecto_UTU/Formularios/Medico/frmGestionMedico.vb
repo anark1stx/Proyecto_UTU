@@ -49,7 +49,7 @@ Public Class frmGestionMedico
             End If
 
         Next
-
+        lblEspecialidadTXT.Text = ""
         For Each es As String In MedicoLogeado.Especialidad
             If Not es Is MedicoLogeado.Especialidad.Last() Then
                 lblEspecialidadTXT.Text &= es & ", "

@@ -46,7 +46,7 @@ Public Class D_Usuario
 
                 listaTel.Add(leer.GetString("telefono"))
             End While
-            u.TelefonosLista = listaTel
+            u.TelefonosLista = listaTel.Distinct().ToList()
         Else
             u.ErrMsg = 8 'no encontre usuario
         End If
@@ -134,6 +134,7 @@ Public Class D_Usuario
                     uList.Add(lastU)
                 Else
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    lastU.TelefonosLista = lastU.TelefonosLista.Distinct().ToList()
                 End If
             End While
         Else

@@ -27,9 +27,9 @@ Partial Class frmPaciente
         Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiagnosticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalisisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MisTratamientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
-        Me.MisTratamientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -40,7 +40,7 @@ Partial Class frmPaciente
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(896, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 28)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -68,6 +68,12 @@ Partial Class frmPaciente
         Me.AnalisisToolStripMenuItem.Size = New System.Drawing.Size(98, 24)
         Me.AnalisisToolStripMenuItem.Text = "Mis análisis"
         '
+        'MisTratamientosToolStripMenuItem
+        '
+        Me.MisTratamientosToolStripMenuItem.Name = "MisTratamientosToolStripMenuItem"
+        Me.MisTratamientosToolStripMenuItem.Size = New System.Drawing.Size(134, 24)
+        Me.MisTratamientosToolStripMenuItem.Text = "Mis tratamientos"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
@@ -81,21 +87,15 @@ Partial Class frmPaciente
         Me.pnlContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedorFormularios.Location = New System.Drawing.Point(0, 28)
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
-        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(896, 555)
+        Me.pnlContenedorFormularios.Size = New System.Drawing.Size(1130, 720)
         Me.pnlContenedorFormularios.TabIndex = 1
-        '
-        'MisTratamientosToolStripMenuItem
-        '
-        Me.MisTratamientosToolStripMenuItem.Name = "MisTratamientosToolStripMenuItem"
-        Me.MisTratamientosToolStripMenuItem.Size = New System.Drawing.Size(134, 24)
-        Me.MisTratamientosToolStripMenuItem.Text = "Mis tratamientos"
         '
         'frmPaciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(896, 583)
+        Me.ClientSize = New System.Drawing.Size(1130, 748)
         Me.Controls.Add(Me.pnlContenedorFormularios)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

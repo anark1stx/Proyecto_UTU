@@ -57,7 +57,7 @@ Public Class D_Paciente
             Return New E_Paciente With {.ErrMsg = 8} 'no encontre
         End If
 
-        u.TelefonosLista = listaTel
+        u.TelefonosLista = listaTel.Distinct.ToList()
         Cerrar(conexion)
         Return u
     End Function
@@ -113,6 +113,7 @@ Public Class D_Paciente
                     uList.Add(lastU)
                 Else
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
+                    lastU.TelefonosLista = lastU.TelefonosLista.Distinct().ToList()
                 End If
             End While
         Else

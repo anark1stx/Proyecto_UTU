@@ -49,8 +49,8 @@ Public Class D_Medico
                 listaEsp.Add(leer.GetString("especialidad"))
 
             End While
-            u.TelefonosLista = listaTel
-            u.Especialidad = listaEsp
+            u.TelefonosLista = listaTel.Distinct().ToList()
+            u.Especialidad = listaEsp.Distinct().ToList()
         Else
             u.ErrMsg = 8 'no encontre usuario
         End If
@@ -106,6 +106,8 @@ Public Class D_Medico
                 Else
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     lastU.Especialidad.Add(leer.GetString("especialidad"))
+                    lastU.TelefonosLista = lastU.TelefonosLista.Distinct().ToList()
+                    lastU.Especialidad = lastU.TelefonosLista.Distinct().ToList()
                 End If
             End While
         Else
@@ -165,6 +167,8 @@ Public Class D_Medico
                 Else
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     lastU.Especialidad.Add(leer.GetString("especialidad"))
+                    lastU.TelefonosLista = lastU.TelefonosLista.Distinct().ToList()
+                    lastU.Especialidad = lastU.TelefonosLista.Distinct().ToList()
                 End If
             End While
         Else
