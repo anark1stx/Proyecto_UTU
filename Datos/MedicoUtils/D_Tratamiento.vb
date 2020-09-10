@@ -85,11 +85,11 @@ Public Class D_Tratamiento
 
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
-                .CommandText = "ImportarTratamiento",
+                .CommandText = "BuscarTratamientosXNombre",
                 .Connection = conexion
         }
 
-        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = buscar
+        cmd.Parameters.Add("NOM_T", MySqlDbType.VarChar, 90).Value = buscar
 
         Try
             leer = cmd.ExecuteReader()

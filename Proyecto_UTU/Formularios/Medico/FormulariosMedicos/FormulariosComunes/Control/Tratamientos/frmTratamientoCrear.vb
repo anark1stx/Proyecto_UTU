@@ -6,7 +6,8 @@ Public Class frmTratamientoCrear
     Protected _modo
     Dim negocio As New N_Tratamiento
     Dim ultimomodo As Modo
-
+    Dim listaTrats As New List(Of E_Tratamiento)
+    Dim tratamiento_seleccionado As New E_Tratamiento
     Public Enum Modo
         Defaultt 'modo para no tener confilcto con la condicional que esta en el evento resetmode
         Alta 'habilito los campos para escribir
@@ -51,7 +52,6 @@ Public Class frmTratamientoCrear
     End Sub
 
     Private Sub frmTratamientoCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Me.Dock = DockStyle.Fill
     End Sub
 
@@ -63,17 +63,66 @@ Public Class frmTratamientoCrear
 
         Select Case ModoActual
             Case Modo.Alta
+                dgwTratamientos.Visible = False
                 txtDescripcionTratamiento.Enabled = True
                 btnBuscar.Visible = False
+                tblElementos.SetColumnSpan(txtNombreTratamiento, 2)
                 txtNombreTratamiento.Width += btnBuscar.Width
+                dgwTratamientos.Visible = False
+                tblElementos.SetRow(dgwTratamientos, 2)
+                tblElementos.SetRow(lblIndicaciones, 0)
+                tblElementos.SetRow(txtDescripcionTratamiento, 1)
+                tblElementos.RowStyles(2).Height = 6.38
+                tblElementos.RowStyles(1).Height = 78.7
                 ultimomodo = Modo.Alta
             Case Modo.Busqueda
+                dgwTratamientos.Visible = True
                 txtNombreTratamiento.Width -= btnBuscar.Width * 2
                 txtDescripcionTratamiento.Enabled = False
+                tblElementos.SetColumnSpan(txtNombreTratamiento, 1)
                 btnBuscar.Visible = True
+                tblElementos.SetRow(dgwTratamientos, 0)
+                tblElementos.SetRow(lblIndicaciones, 1)
+                tblElementos.SetRow(txtDescripcionTratamiento, 2)
+                tblElementos.RowStyles(1).Height = 6.38
+                tblElementos.RowStyles(2).Height = 78.7
+                dgwTratamientos.Visible = True
                 ultimomodo = Modo.Busqueda
         End Select
     End Sub
 
+    Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 
+        If ModoActual = Modo.Busqueda Then
+            If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+                MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Else
+                Dim result = Await Task.Run(Function() negocio.BuscarTratamientoXNombre(txtDescripcionTratamiento.Text))
+                Select Case result(0).ID
+                    Case -1
+                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    Case -2
+                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento, "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    Case -8
+                        MessageBox.Show("No fueron encontrados tratamientos con ese nombre.", "No se encontraron resultados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                End Select
+                listaTrats = result
+            End If
+
+        End If
+    End Sub
+
+    Private Sub txtNombreTratamiento_TextChanged(sender As Object, e As EventArgs) Handles txtNombreTratamiento.TextChanged
+        If listaTrats.Exists(Function(p) p.Nombre = txtNombreTratamiento.Text) Then
+            Dim trat As E_Tratamiento = listaTrats.Find(Function(p) p.Nombre = txtNombreTratamiento.Text)
+            txtDescripcionTratamiento.Text = trat.Descripcion
+            tratamiento_seleccionado = trat
+        Else
+            tratamiento_seleccionado = New E_Tratamiento With {.ID = 0}
+        End If
+    End Sub
 End Class

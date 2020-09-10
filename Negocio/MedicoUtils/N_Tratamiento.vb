@@ -10,5 +10,8 @@ Public Class N_Tratamiento
         Return objDatos.AltaTratamiento(tratamiento)
     End Function
 
+    Public Function BuscarTratamientoXNombre(busqueda As String) As List(Of E_Tratamiento)
+        Return objDatos.BuscarTratamientos(busqueda)
+    End Function
 
 End Class
