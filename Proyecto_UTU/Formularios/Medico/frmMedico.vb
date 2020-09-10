@@ -375,4 +375,15 @@ Public Class frmMedico
     Private Sub AnalisisHacerSeguimientoMenuItem1_Click(sender As Object, e As EventArgs) Handles AnalisisHacerSeguimientoMenuItem1.Click
         InstanciarFormulario("SeguirAnalisis")
     End Sub
+
+    Private Sub AsignarAnalisisPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarAnalisisPacienteToolStripMenuItem.Click
+        'mostrar cuadro emergente en el que le permito buscar analisis por nombre y el selecciona.
+    End Sub
+
+    Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
+        'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
+        'datagridview que los carga.
+        'el medico va seleccionando
+        'se cargan los datos a campos de texto con enabled = false
+    End Sub
 End Class

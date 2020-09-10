@@ -5,7 +5,7 @@ Imports Negocio
 Public Class frmTratamientoCrear
     Dim negocio As New N_Tratamiento
     Private Async Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If Not check_regex(txtNombreTratamiento.Text, RegexLiteralAcentos) Then
+        If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
             MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -33,9 +33,6 @@ Public Class frmTratamientoCrear
     End Sub
 
     Private Sub frmTratamientoCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For i = 0 To 100
-            cbDias.Items.Add(i).ToString()
-        Next
 
         Me.Dock = DockStyle.Fill
     End Sub

@@ -13,7 +13,7 @@ Public Class D_Tratamiento
             .Connection = conexion
         }
 
-        cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = tratamiento.Nombre
+        cmd.Parameters.Add("NOM_T", MySqlDbType.VarChar, 160).Value = tratamiento.Nombre
         cmd.Parameters.Add("DESCRIPCION", MySqlDbType.VarChar, 16000).Value = tratamiento.Descripcion
         Try
             cmd.ExecuteReader()

@@ -24,9 +24,7 @@ Partial Class frmTratamientoCrear
     Private Sub InitializeComponent()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.cbDias = New System.Windows.Forms.ComboBox()
         Me.txtNombreTratamiento = New System.Windows.Forms.TextBox()
-        Me.lblDuracion = New System.Windows.Forms.Label()
         Me.lblIndicaciones = New System.Windows.Forms.Label()
         Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
         Me.lblNombreTratamiento = New System.Windows.Forms.Label()
@@ -36,9 +34,7 @@ Partial Class frmTratamientoCrear
         'pnlContenedor
         '
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
-        Me.pnlContenedor.Controls.Add(Me.cbDias)
         Me.pnlContenedor.Controls.Add(Me.txtNombreTratamiento)
-        Me.pnlContenedor.Controls.Add(Me.lblDuracion)
         Me.pnlContenedor.Controls.Add(Me.lblIndicaciones)
         Me.pnlContenedor.Controls.Add(Me.txtDescripcionTratamiento)
         Me.pnlContenedor.Controls.Add(Me.lblNombreTratamiento)
@@ -59,15 +55,6 @@ Partial Class frmTratamientoCrear
         Me.btnGuardar.Text = "Guardar Tratamiento"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
-        'cbDias
-        '
-        Me.cbDias.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbDias.FormattingEnabled = True
-        Me.cbDias.Location = New System.Drawing.Point(290, 54)
-        Me.cbDias.Name = "cbDias"
-        Me.cbDias.Size = New System.Drawing.Size(121, 33)
-        Me.cbDias.TabIndex = 83
-        '
         'txtNombreTratamiento
         '
         Me.txtNombreTratamiento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -78,22 +65,12 @@ Partial Class frmTratamientoCrear
         Me.txtNombreTratamiento.Size = New System.Drawing.Size(838, 30)
         Me.txtNombreTratamiento.TabIndex = 82
         '
-        'lblDuracion
-        '
-        Me.lblDuracion.AutoSize = True
-        Me.lblDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDuracion.Location = New System.Drawing.Point(12, 58)
-        Me.lblDuracion.Name = "lblDuracion"
-        Me.lblDuracion.Size = New System.Drawing.Size(182, 29)
-        Me.lblDuracion.TabIndex = 81
-        Me.lblDuracion.Text = "Duración (días):"
-        '
         'lblIndicaciones
         '
         Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblIndicaciones.AutoSize = True
         Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIndicaciones.Location = New System.Drawing.Point(402, 113)
+        Me.lblIndicaciones.Location = New System.Drawing.Point(403, 69)
         Me.lblIndicaciones.Name = "lblIndicaciones"
         Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
         Me.lblIndicaciones.TabIndex = 80
@@ -105,10 +82,10 @@ Partial Class frmTratamientoCrear
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDescripcionTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 143)
+        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 118)
         Me.txtDescripcionTratamiento.Multiline = True
         Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
-        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1125, 504)
+        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1125, 529)
         Me.txtDescripcionTratamiento.TabIndex = 79
         '
         'lblNombreTratamiento
@@ -138,9 +115,7 @@ Partial Class frmTratamientoCrear
     End Sub
 
     Friend WithEvents pnlContenedor As Panel
-    Friend WithEvents cbDias As ComboBox
     Friend WithEvents txtNombreTratamiento As TextBox
-    Friend WithEvents lblDuracion As Label
     Friend WithEvents lblIndicaciones As Label
     Friend WithEvents txtDescripcionTratamiento As TextBox
     Friend WithEvents lblNombreTratamiento As Label

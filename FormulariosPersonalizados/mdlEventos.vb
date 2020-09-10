@@ -124,16 +124,16 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
                 Case 0
                     Console.WriteLine("Evento guardar Datos Formulario!!!!")
                     Dim resultado = GuardarDatosFormulario(FormDatos)
-                    FormDatos.ErrMsg = resultado 'guardo aca el resultado y lo leo desde el formulario luego
+
                 Case 1
                     Console.WriteLine("Evento guardar Datos Tratamiento!!!!")
                     Dim resultado = GuardarDatosTratamiento(TratamientoDatos)
-                    FormDatos.ErrMsg = resultado 'guardo aca el resultado y lo leo desde el formulario luego
+
 
                 Case 2
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
                     Dim resultado = GuardarDatosAnalisis(AnalisisDatos)
-                    FormDatos.ErrMsg = resultado 'guardo aca el resultado y lo leo desde el formulario luego
+
 
             End Select
 
