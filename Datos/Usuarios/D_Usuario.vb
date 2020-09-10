@@ -20,7 +20,6 @@ Public Class D_Usuario
 
         Dim u As New E_Usuario
         Dim listaTel As New List(Of String)
-        Dim yalei_foto As Boolean = False
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
 
         Try
@@ -46,14 +45,6 @@ Public Class D_Usuario
                 }
 
                 listaTel.Add(leer.GetString("telefono"))
-                If Not yalei_foto Then
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    u.Foto = stream.ToArray()
-                    stream.Close()
-                    yalei_foto = True
-                End If
-
             End While
             u.TelefonosLista = listaTel
         Else
@@ -63,6 +54,38 @@ Public Class D_Usuario
         Cerrar(conexion)
 
         Return u
+    End Function
+
+    Public Function leerFotoUsuario(CI As Integer) As Byte()
+        Dim foto As Byte() = {}
+        Dim leer As MySqlDataReader
+        If Conectar(conexion) = -1 Then
+            Return {}
+        End If
+
+        Dim cmd = New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "BuscarAUXILIARxCI", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
+                .Connection = conexion
+        }
+
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = CI
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return {}
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                foto = CType(leer("foto"), Byte())
+                Dim stream As New IO.MemoryStream(foto)
+            End While
+        End If
+
+        Return foto
     End Function
 
     Public Function BuscarUsuariosApellido(ap As String) As List(Of E_Usuario)

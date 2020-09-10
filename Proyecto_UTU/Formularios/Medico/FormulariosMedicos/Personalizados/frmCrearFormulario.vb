@@ -310,7 +310,7 @@ Public Class frmCrearFormulario
 
     Public Function setControlName() As String
         control_count += 1
-        Return _instancia.GetType().ToString() & control_count.ToString()
+        Return _instancia.GetType().ToString().Replace("System.Windows.Forms.", "") & control_count.ToString()
     End Function
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click

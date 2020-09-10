@@ -124,7 +124,8 @@ Public Class frmGestion
     Sub resetMode()
         rBtnCedula.Checked = True
         Filter = Filtro.Cedula
-        Select Case Mode
+        pnlAcciones.Visible = ci_valida
+            Select Case Mode
             Case Accion.Alta
                 btnAccion1.ImageIndex = 1 '1 = Alta
                 btnAccion2.ImageIndex = 1 '1 = limpiar
@@ -212,11 +213,6 @@ Public Class frmGestion
         Select Case c.GetType()
             Case GetType(ComboBox)
                 c = DirectCast(c, ComboBox)
-                If DirectCast(c, ComboBox).DropDownStyle = ComboBoxStyle.DropDown Then
-                    c.Enabled = True
-                    Return c
-                End If
-
                 c.Enabled = Not _readonly
 
                 Return c
@@ -257,6 +253,7 @@ Public Class frmGestion
         ControlesMedico = BASEcontrolesM
         ControlesPaciente = BASEcontrolesP
         ControlesUsuario = BASEcontrolesU
+        ci_valida = False
     End Sub
 
     Private Sub btnAgregarTelefono_Click(sender As Object, e As EventArgs) Handles btnAgregarTelefono.Click
@@ -351,22 +348,19 @@ Public Class frmGestion
                     ci_valida = False
                 End If
 
-                If Not ci_valida Then
-                    pnlDspCedula.Enabled = False
-                Else
-                    pnlDspCedula.Enabled = True
-                End If
+                pnlAcciones.Visible = ci_valida
+                pnlDspCedula.Enabled = ci_valida
                 cbEtapa.Enabled = False
 
             Case Accion.Modificacion
                 lblCedulaTXT.Enabled = False
                 cbEtapa.Enabled = True
-                If lblCedulaTXT.Text Is String.Empty Then
-                    pnlDspCedula.Enabled = False
-                Else
-                    pnlDspCedula.Enabled = True
-                End If
+                pnlAcciones.Visible = ci_valida
+                pnlDspCedula.Enabled = ci_valida
             Case Accion.Baja
+                pnlAcciones.Visible = ci_valida
+                pnlBotonesTel.Visible = False
+                pnlEspecialidadesBtns.Visible = False
                 lblCedulaTXT.Enabled = False
         End Select
     End Sub
@@ -393,20 +387,17 @@ Public Class frmGestion
     End Sub
 
     Async Sub AltaU()
-        If cbTelefonos.Items.Count < 1 Then
-            MessageBox.Show("Ingrese al menos un telefono de contacto.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
 
-        Dim fi As New IO.FileInfo(pBoxFotoUsuario.ImageLocation)
-        Dim nombreFoto = fi.Name
+        If pBoxFotoUsuario.Image Is Nothing Then
+            Dim eleccion = MessageBox.Show("¿Desea guardar al usuario sin una imagen?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+            If eleccion = vbNo Then
+                Exit Sub
+            End If
+        End If
 
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim u = Base_props_user()
-                If u.Cedula = 0 Then
-                    Exit Sub
-                End If
                 Dim p = Base_props_paciente(u)
 
                 If Not p.ValidarMisDatos() Then
@@ -436,10 +427,6 @@ Public Class frmGestion
             Case TipoUsuario.Medico
                 Dim u = Base_props_user()
 
-                If u.Cedula = 0 Then
-                    Exit Sub
-                End If
-
                 Dim m = Base_Props_Medico(u)
                 If Not m.ValidarMisDatos() Then
                     MessageBox.Show(m.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -468,9 +455,6 @@ Public Class frmGestion
             Case TipoUsuario.Auxiliar
 
                 Dim u = Base_props_user()
-                If u.Cedula = 0 Then
-                    Exit Sub
-                End If
 
                 If Not u.ValidarMisDatos() Then
                     MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -567,23 +551,14 @@ Public Class frmGestion
             direccion(i) = RemoverEspacios(direccion(i))
         Next
 
-        If Not check_direccion(direccion) Then
-            MessageBox.Show(MensajeDeErrorDireccion(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            u_default.Cedula = 0
-            Return u_default
+        If direccion(1) Is String.Empty Then
+            direccion(1) = 0
         End If
 
         Dim telefonos As New List(Of String)
         For Each t As String In cbTelefonos.Items
             telefonos.Add(t)
         Next
-
-        If pBoxFotoUsuario.Image Is Nothing Then
-            If MessageBox.Show("¿Seguro que desea ingresar al usuario sin imagen?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
-                u_default.Cedula = 0
-                Return u_default
-            End If
-        End If
 
         Return New E_Usuario With {
                     .Nombre = "u" & lblCedulaTXT.Text,
@@ -656,6 +631,17 @@ Public Class frmGestion
     Async Sub ModificarU()
         Dim u = Base_props_user()
         Dim code As Integer = 0
+
+        If lblCedulaTXT.Text Is String.Empty Then
+            MessageBox.Show("Seleccione primero el usuario que desea modificar.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        If Not u.ValidarMisDatos() Then
+            MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         Select Case Usuario
             Case TipoUsuario.Auxiliar
                 Dim nu As New N_Usuario
@@ -663,10 +649,18 @@ Public Class frmGestion
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 u = Base_props_paciente(u)
+                If Not DirectCast(u, E_Paciente).ValidarMisDatos() Then
+                    MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
                 code = Await Task.Run(Function() np.ModificacionPaciente(u))
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
                 u = Base_Props_Medico(u)
+                If Not DirectCast(u, E_Medico).ValidarMisDatos() Then
+                    MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
                 code = Await Task.Run(Function() nm.ModificacionMedico(u))
         End Select
 
@@ -684,7 +678,7 @@ Public Class frmGestion
         End Select
     End Sub
 
-    Private Sub SinEspacios(sender As Object, e As KeyPressEventArgs) Handles lblCedulaTXT.KeyPress, lblCorreoTXT.KeyPress, cbTelefonos.KeyPress
+    Private Sub SinEspacios(sender As Object, e As KeyPressEventArgs) Handles lblCedulaTXT.KeyPress, lblCorreoTXT.KeyPress, cbTelefonos.KeyPress, txtBusqueda.KeyPress, lblNombre1TXT.KeyPress, lblNombre2TXT.KeyPress, lblApellido1TXT.KeyPress, lblApellido2TXT.KeyPress
         If e.KeyChar = " " Then
             e.Handled = True
         End If
@@ -702,6 +696,7 @@ Public Class frmGestion
             MessageBox.Show(MensajeDeErrorLongitud(3, 50), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
+
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
@@ -710,6 +705,7 @@ Public Class frmGestion
 
                         If Not check_Cedula(txtBusqueda.Text) Then
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
                             Exit Sub
                         End If
 
@@ -732,9 +728,11 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         PacienteBindings(p)
                         pList.Add(p)
+                        ci_valida = True
                     Case Filtro.Apellido
-                        If check_contieneNumeros(txtBusqueda.Text) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteral) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
                             Exit Sub
                         End If
                         pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
@@ -758,6 +756,7 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         PacienteBindings(p)
                         pList.Add(p)
+                        ci_valida = True
                 End Select
 
             Case TipoUsuario.Medico
@@ -786,8 +785,9 @@ Public Class frmGestion
                         MedicoBindings(m)
                         dgwSetup(dgwUsuarios, bs)
                         mList.Add(m)
+                        ci_valida = True
                     Case Filtro.Apellido
-                        If check_contieneNumeros(txtBusqueda.Text) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteral) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -811,8 +811,9 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         MedicoBindings(m)
                         mList.Add(m)
+                        ci_valida = True
                     Case Filtro.Especialidad
-                        If check_contieneNumeros(txtBusqueda.Text) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteral()) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -837,6 +838,7 @@ Public Class frmGestion
                         dgwSetup(dgwUsuarios, bs)
                         MedicoBindings(m)
                         mList.Add(m)
+                        ci_valida = True
                 End Select
 
             Case TipoUsuario.Auxiliar
@@ -864,6 +866,7 @@ Public Class frmGestion
                         basicBindings(a)
                         dgwSetup(dgwUsuarios, bs)
                         aList.Add(a)
+                        ci_valida = True
                     Case Filtro.Apellido
                         aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text))
                         Select Case aList(0).ErrMsg
@@ -883,8 +886,10 @@ Public Class frmGestion
                         basicBindings(a)
                         dgwSetup(dgwUsuarios, bs)
                         aList.Add(a)
+                        ci_valida = True
                 End Select
         End Select
+        configurarControles()
     End Sub
 
     Private Sub basicBindings(obj As E_Usuario)
@@ -948,14 +953,17 @@ Public Class frmGestion
                 p = pList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(p)
                 PacienteBindings(p)
+                ci_valida = True
             Case TipoUsuario.Medico
                 m = mList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(m)
                 MedicoBindings(m)
+                ci_valida = True
             Case TipoUsuario.Auxiliar
                 a = aList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(a)
                 MedicoBindings(a)
+                ci_valida = True
         End Select
 
     End Sub
@@ -963,4 +971,5 @@ Public Class frmGestion
     Private Sub FiltroCambia(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click
         Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
     End Sub
+
 End Class

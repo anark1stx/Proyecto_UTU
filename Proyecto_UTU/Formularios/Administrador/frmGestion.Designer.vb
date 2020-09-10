@@ -77,6 +77,7 @@ Partial Class frmGestion
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
+        Me.pnlAcciones = New System.Windows.Forms.Panel()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
         Me.pnlEspecialidadesBtns.SuspendLayout()
@@ -85,6 +86,7 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda.SuspendLayout()
         Me.pnlBusqueda.SuspendLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlAcciones.SuspendLayout()
         Me.SuspendLayout()
         '
         'Accion1
@@ -104,11 +106,10 @@ Partial Class frmGestion
         '
         'pnlDatosUsuario
         '
+        Me.pnlDatosUsuario.Controls.Add(Me.pnlAcciones)
         Me.pnlDatosUsuario.Controls.Add(Me.pnlDspCedula)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedulaTXT)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedula)
-        Me.pnlDatosUsuario.Controls.Add(Me.btnAccion2)
-        Me.pnlDatosUsuario.Controls.Add(Me.btnAccion1)
         Me.pnlDatosUsuario.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDatosUsuario.Location = New System.Drawing.Point(0, 0)
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
@@ -586,7 +587,7 @@ Partial Class frmGestion
         '
         Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAccion2.ImageList = Me.Accion2
-        Me.btnAccion2.Location = New System.Drawing.Point(948, 16)
+        Me.btnAccion2.Location = New System.Drawing.Point(3, 6)
         Me.btnAccion2.Name = "btnAccion2"
         Me.btnAccion2.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion2.TabIndex = 384
@@ -596,7 +597,7 @@ Partial Class frmGestion
         '
         Me.btnAccion1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAccion1.ImageList = Me.Accion1
-        Me.btnAccion1.Location = New System.Drawing.Point(1002, 16)
+        Me.btnAccion1.Location = New System.Drawing.Point(55, 6)
         Me.btnAccion1.Name = "btnAccion1"
         Me.btnAccion1.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion1.TabIndex = 383
@@ -696,6 +697,15 @@ Partial Class frmGestion
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
         Me.dgwUsuarios.TabIndex = 6
         '
+        'pnlAcciones
+        '
+        Me.pnlAcciones.Controls.Add(Me.btnAccion2)
+        Me.pnlAcciones.Controls.Add(Me.btnAccion1)
+        Me.pnlAcciones.Location = New System.Drawing.Point(947, 6)
+        Me.pnlAcciones.Name = "pnlAcciones"
+        Me.pnlAcciones.Size = New System.Drawing.Size(112, 53)
+        Me.pnlAcciones.TabIndex = 385
+        '
         'frmGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -718,6 +728,7 @@ Partial Class frmGestion
         Me.pnlBusqueda.ResumeLayout(False)
         Me.pnlBusqueda.PerformLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlAcciones.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -774,4 +785,5 @@ Partial Class frmGestion
     Friend WithEvents lblContrasena As Label
     Friend WithEvents lblDireccionNumeroTXT As MaskedTextBox
     Friend WithEvents lblComma As Label
+    Friend WithEvents pnlAcciones As Panel
 End Class

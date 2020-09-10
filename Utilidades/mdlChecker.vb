@@ -1,16 +1,12 @@
-﻿Public Module mdlChecker
+﻿Imports System.Text.RegularExpressions
+
+Public Module mdlChecker
     Public optMsg As String = ""
-    Public Function check_contieneNumeros(propiedad As String) As Boolean
+    Public RegexLiteralAcentos = New Regex("^[A-zÁ-ú]*$")
+    Public RegexLiteral = New Regex("^[A-Za-z]*$")
+    Public RegexAlfaNumericoEspaciosPuntosComasTildes = New Regex("^[a-z-ZA-Z0-9Á-ú., ]*$")
+    Public RegexAlfaNumerico = New Regex("^[A-Za-z0-9]*$")
 
-        For i = 0 To propiedad.Length - 1
-            If IsNumeric(propiedad(i)) Then
-                Return 1
-            End If
-        Next i
-
-        Return 0
-
-    End Function
     Function check_Largo(propiedad As String, cantidadMinima As Integer, cantidadMaxima As Integer, requerido As Boolean) As Boolean
 
         If requerido AndAlso String.IsNullOrWhiteSpace(propiedad) Then
@@ -33,12 +29,15 @@
 
     End Function
 
-    Public Function check_caracteres(propiedad As String) As Boolean
+    Public Function check_regex(propiedad As String, regex As Regex) As Boolean
 
-        If System.Text.RegularExpressions.Regex.IsMatch(propiedad, "^[a-zA-Z0-9]+$") Then 'Verificar si solo tiene letras y numeros
-            Return 0
-        Else ' Entonces tendrá simbolos o caracteres no alfanumericos.
+        If regex.IsMatch(propiedad) Then
+            Console.WriteLine("matches")
             Return 1
+        Else
+            Console.WriteLine("no match")
+            optMsg = "Caracteres inválidos."
+            Return 0
         End If
 
     End Function
@@ -51,22 +50,6 @@
         End If
     End Function
 
-    Public Function check_edad(edad As String) As Boolean
-
-        If Not IsNumeric(edad) Then
-            optMsg = "Ingrese un valor numerico válido."
-            Return 0
-
-        End If
-
-        If edad < 0 Or edad > 130 Then
-            optMsg = "Ingrese un valor numerico válido."
-            Return 0
-        End If
-
-        Return 1
-    End Function
-
     Public Function check_Estado_Civil(estado As String) As Boolean
         If estado.Equals("Soltero") Or estado.Equals("Casado") Then
             Return 1
@@ -77,7 +60,7 @@
 
     Public Function check_Correo(correo As String) As Boolean
 
-        If Not check_Largo(correo, 15, 45, True) Or Not correo.Contains("@") Then
+        If Not check_Largo(correo, 15, 50, True) Or Not correo.Contains("@") Then
             optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com, recuerde que el mínimo de caracteres que tiene un usuario de correo son 6."
             Return 0
         End If
@@ -86,6 +69,11 @@
 
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
+        If Not check_regex(correo_antes_arroba, RegexAlfaNumerico()) Then
+            optMsg = "Hay Caracteres inválidos en su correo."
+            Return 0
+        End If
+
         Dim index_arroba, index_ultimo_char As Integer
 
         index_arroba = correo.IndexOf("@") + 1
@@ -93,8 +81,13 @@
 
         Dim correo_despues_arroba As String = correo.Substring(index_arroba, index_ultimo_char)
 
+        If Not check_regex(correo_despues_arroba, RegexLiteral()) Then
+            optMsg = "Hay Caracteres inválidos en el dominio de su correo."
+            Return 0
+        End If
+
         If Not lista_dominios.Contains(correo_despues_arroba) Then
-            optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com y que el domino sea válido."
+            optMsg = "Verifique que el domino sea válido."
             Return 0
         End If
 
@@ -195,16 +188,21 @@
     End Function
 
     Public Function check_direccion(direccion As List(Of String)) As Boolean
-        optMsg = "Ingrese de la forma: 'Calle Esq. Calle2, n°puerta'"
 
         If direccion.Count <> 2 Then 'Si no hay de dos items pafuera
             Return 0
         Else
+            If Not check_regex(direccion(1), RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+                optMsg = "Caractéres inválidos"
+                Return 0
+            End If
 
             If Not check_Largo(direccion(1), 2, 4, True) Then 'En Montevideo los numeros de puerta van desde 2 digitos hasta 4.
+                optMsg = MensajeDeErrorLongitud(3, 160)
                 Return 0
             End If
             If Not IsNumeric(direccion(1)) Then
+                optMsg = "Número de puerta no válido."
                 Return 0
             End If
 
@@ -213,32 +211,6 @@
         End If
 
     End Function
-    'Public Function check_UsuarioExiste(cedula As String) As Boolean
-    '    'Si la CI existe, retornamos 1, si no existe, retornamos 0
 
-    '    Dim query = USEREXISTS(cedula)
-
-    '    Try
-
-    '        Conectar()
-    '        rs.Open(query, conn)
-    '    Catch ex As Exception
-    '        MsgBox("Error consultando MYSQL.USER: " & ex.Message)
-    '    End Try
-
-    '    If rs.RecordCount > 0 Then
-    '        Return 1
-    '    Else
-    '        Return 0
-    '    End If
-
-    '    rs.Close()
-
-    '    Return 0
-    'End Function
-    'Public Function check_CorreoExiste(correo As String) As Boolean
-    '    'Si el correo existe, retornamos 1, si no existe, retornamos 0
-    '    Return 0
-    'End Function
 
 End Module

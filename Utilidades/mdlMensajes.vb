@@ -14,6 +14,11 @@
     Function MensajeDeErrorCorreo() As String
         Return "Entrada inválida. " & optMsg
     End Function
+
+    Function MensajeDeErrorCaracteres() As String
+        Return "Entrada inválida. " & optMsg
+    End Function
+
     Function MensajeDeErrorDireccion() As String
         Return "Entrada inválida. " & optMsg
     End Function
