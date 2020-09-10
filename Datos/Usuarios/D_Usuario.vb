@@ -208,6 +208,7 @@ Public Class D_Usuario
             Return 4 'No se pudo crear usuario sibim
         End Try
 
+        Cerrar(conexion)
         If AltaUsuarioTelefono(u) Then
             Return 1 'todo ok
         Else
