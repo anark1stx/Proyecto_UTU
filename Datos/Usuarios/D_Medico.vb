@@ -47,13 +47,6 @@ Public Class D_Medico
                 u.Especialidad = New List(Of String)(New String() {})
                 listaTel.Add(leer.GetString("telefono"))
                 listaEsp.Add(leer.GetString("especialidad"))
-                If Not yalei_foto Then
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    u.Foto = stream.ToArray()
-                    stream.Close()
-                    yalei_foto = True
-                End If
 
             End While
             u.TelefonosLista = listaTel
@@ -105,11 +98,7 @@ Public Class D_Medico
                  .Activo = leer.GetBoolean("activo"),
                  .TelefonosLista = New List(Of String)(New String() {}),
                  .Especialidad = New List(Of String)(New String() {})
-                 }
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    lastU.Foto = stream.ToArray()
-                    stream.Close()
+                    }
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     lastU.Especialidad.Add(leer.GetString("especialidad"))
                     ultima_ci = lastU.Cedula
@@ -168,11 +157,7 @@ Public Class D_Medico
                  .Activo = leer.GetBoolean("activo"),
                  .TelefonosLista = New List(Of String)(New String() {}),
                  .Especialidad = New List(Of String)(New String() {})
-                 }
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    lastU.Foto = stream.ToArray()
-                    stream.Close()
+                    }
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     lastU.Especialidad.Add(leer.GetString("especialidad"))
                     ultima_ci = lastU.Cedula

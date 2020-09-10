@@ -907,7 +907,7 @@ Public Class frmGestion
             cbTelefonos.Items.AddRange(obj.TelefonosLista.ToArray)
             cbTelefonos.SelectedIndex = 0
 
-            pBoxFotoUsuario.Image = Bytes2Image(obj.Foto)
+            CargarUsuarioFotoDesdeBD(p.Cedula, pBoxFotoUsuario)
         Catch ex As Exception
             Console.WriteLine("already binded")
         End Try
@@ -965,7 +965,6 @@ Public Class frmGestion
                 MedicoBindings(a)
                 ci_valida = True
         End Select
-
     End Sub
 
     Private Sub FiltroCambia(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click

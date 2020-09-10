@@ -69,7 +69,7 @@ Public Module mdlChecker
 
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
-        If Not check_regex(correo_antes_arroba, RegexAlfaNumerico()) Then
+        If Not check_regex(correo_antes_arroba, RegexAlfaNumerico) Then
             optMsg = "Hay Caracteres inválidos en su correo."
             Return 0
         End If
@@ -80,11 +80,6 @@ Public Module mdlChecker
         index_ultimo_char = correo.LastIndexOf("m") - index_arroba + 1
 
         Dim correo_despues_arroba As String = correo.Substring(index_arroba, index_ultimo_char)
-
-        If Not check_regex(correo_despues_arroba, RegexLiteral()) Then
-            optMsg = "Hay Caracteres inválidos en el dominio de su correo."
-            Return 0
-        End If
 
         If Not lista_dominios.Contains(correo_despues_arroba) Then
             optMsg = "Verifique que el domino sea válido."

@@ -65,7 +65,7 @@ Public Class D_Usuario
 
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
-                .CommandText = "BuscarAUXILIARxCI", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
+                .CommandText = "LeerFotoUsuario", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
                 .Connection = conexion
         }
 
@@ -81,10 +81,9 @@ Public Class D_Usuario
         If leer.HasRows Then
             While leer.Read()
                 foto = CType(leer("foto"), Byte())
-                Dim stream As New IO.MemoryStream(foto)
             End While
         End If
-
+        Cerrar(conexion)
         Return foto
     End Function
 
@@ -127,11 +126,7 @@ Public Class D_Usuario
                  .Direccion_Numero = leer.GetInt32("direccion_nroPuerta"),
                  .Activo = leer.GetBoolean("activo"),
                  .TelefonosLista = New List(Of String)(New String() {})
-                 }
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    lastU.Foto = stream.ToArray()
-                    stream.Close()
+                    }
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     ultima_ci = lastU.Cedula
                     uList.Add(lastU)

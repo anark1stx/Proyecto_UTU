@@ -158,7 +158,7 @@ Public Class E_Usuario
             _errMsg = "2° Nombre: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
-            If check_regex(Me.Nombre2, RegexLiteralAcentos) Then
+            If Not check_regex(Me.Nombre2, RegexLiteralAcentos) Then
                 _errMsg = "2° Nombre: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If
@@ -168,7 +168,7 @@ Public Class E_Usuario
             _errMsg = "1° Apellido: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
-            If check_regex(Me.Apellido1, RegexLiteralAcentos) Then
+            If Not check_regex(Me.Apellido1, RegexLiteralAcentos) Then
                 _errMsg = "1° Apellido: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If
@@ -178,7 +178,7 @@ Public Class E_Usuario
             _errMsg = "2° Apellido: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
-            If check_regex(Me.Apellido2, RegexLiteralAcentos) Then
+            If Not check_regex(Me.Apellido2, RegexLiteralAcentos) Then
                 _errMsg = "2° Apellido: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If

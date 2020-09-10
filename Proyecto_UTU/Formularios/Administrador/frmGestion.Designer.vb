@@ -27,6 +27,9 @@ Partial Class frmGestion
         Me.Accion1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Accion2 = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlDatosUsuario = New System.Windows.Forms.Panel()
+        Me.pnlAcciones = New System.Windows.Forms.Panel()
+        Me.btnAccion2 = New System.Windows.Forms.Button()
+        Me.btnAccion1 = New System.Windows.Forms.Button()
         Me.pnlDspCedula = New System.Windows.Forms.Panel()
         Me.lblComma = New System.Windows.Forms.Label()
         Me.lblDireccionNumeroTXT = New System.Windows.Forms.MaskedTextBox()
@@ -67,8 +70,6 @@ Partial Class frmGestion
         Me.lblApellido2 = New System.Windows.Forms.Label()
         Me.lblCedulaTXT = New System.Windows.Forms.TextBox()
         Me.lblCedula = New System.Windows.Forms.Label()
-        Me.btnAccion2 = New System.Windows.Forms.Button()
-        Me.btnAccion1 = New System.Windows.Forms.Button()
         Me.pnlContenedorBusqueda = New System.Windows.Forms.Panel()
         Me.pnlBusqueda = New System.Windows.Forms.Panel()
         Me.rBtnEspecialidad = New System.Windows.Forms.RadioButton()
@@ -77,8 +78,8 @@ Partial Class frmGestion
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.pnlAcciones = New System.Windows.Forms.Panel()
         Me.pnlDatosUsuario.SuspendLayout()
+        Me.pnlAcciones.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
         Me.pnlEspecialidadesBtns.SuspendLayout()
         Me.pnlBotonesTel.SuspendLayout()
@@ -86,7 +87,6 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda.SuspendLayout()
         Me.pnlBusqueda.SuspendLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlAcciones.SuspendLayout()
         Me.SuspendLayout()
         '
         'Accion1
@@ -115,6 +115,35 @@ Partial Class frmGestion
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
         Me.pnlDatosUsuario.Size = New System.Drawing.Size(1062, 318)
         Me.pnlDatosUsuario.TabIndex = 3
+        '
+        'pnlAcciones
+        '
+        Me.pnlAcciones.Controls.Add(Me.btnAccion2)
+        Me.pnlAcciones.Controls.Add(Me.btnAccion1)
+        Me.pnlAcciones.Location = New System.Drawing.Point(947, 6)
+        Me.pnlAcciones.Name = "pnlAcciones"
+        Me.pnlAcciones.Size = New System.Drawing.Size(112, 53)
+        Me.pnlAcciones.TabIndex = 385
+        '
+        'btnAccion2
+        '
+        Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnAccion2.ImageList = Me.Accion2
+        Me.btnAccion2.Location = New System.Drawing.Point(3, 6)
+        Me.btnAccion2.Name = "btnAccion2"
+        Me.btnAccion2.Size = New System.Drawing.Size(48, 40)
+        Me.btnAccion2.TabIndex = 384
+        Me.btnAccion2.UseVisualStyleBackColor = True
+        '
+        'btnAccion1
+        '
+        Me.btnAccion1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAccion1.ImageList = Me.Accion1
+        Me.btnAccion1.Location = New System.Drawing.Point(55, 6)
+        Me.btnAccion1.Name = "btnAccion1"
+        Me.btnAccion1.Size = New System.Drawing.Size(48, 40)
+        Me.btnAccion1.TabIndex = 383
+        Me.btnAccion1.UseVisualStyleBackColor = True
         '
         'pnlDspCedula
         '
@@ -583,26 +612,6 @@ Partial Class frmGestion
         Me.lblCedula.TabIndex = 338
         Me.lblCedula.Text = "Cédula:"
         '
-        'btnAccion2
-        '
-        Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAccion2.ImageList = Me.Accion2
-        Me.btnAccion2.Location = New System.Drawing.Point(3, 6)
-        Me.btnAccion2.Name = "btnAccion2"
-        Me.btnAccion2.Size = New System.Drawing.Size(48, 40)
-        Me.btnAccion2.TabIndex = 384
-        Me.btnAccion2.UseVisualStyleBackColor = True
-        '
-        'btnAccion1
-        '
-        Me.btnAccion1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAccion1.ImageList = Me.Accion1
-        Me.btnAccion1.Location = New System.Drawing.Point(55, 6)
-        Me.btnAccion1.Name = "btnAccion1"
-        Me.btnAccion1.Size = New System.Drawing.Size(48, 40)
-        Me.btnAccion1.TabIndex = 383
-        Me.btnAccion1.UseVisualStyleBackColor = True
-        '
         'pnlContenedorBusqueda
         '
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnlBusqueda)
@@ -697,15 +706,6 @@ Partial Class frmGestion
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
         Me.dgwUsuarios.TabIndex = 6
         '
-        'pnlAcciones
-        '
-        Me.pnlAcciones.Controls.Add(Me.btnAccion2)
-        Me.pnlAcciones.Controls.Add(Me.btnAccion1)
-        Me.pnlAcciones.Location = New System.Drawing.Point(947, 6)
-        Me.pnlAcciones.Name = "pnlAcciones"
-        Me.pnlAcciones.Size = New System.Drawing.Size(112, 53)
-        Me.pnlAcciones.TabIndex = 385
-        '
         'frmGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -719,6 +719,7 @@ Partial Class frmGestion
         Me.Text = "Form2"
         Me.pnlDatosUsuario.ResumeLayout(False)
         Me.pnlDatosUsuario.PerformLayout()
+        Me.pnlAcciones.ResumeLayout(False)
         Me.pnlDspCedula.ResumeLayout(False)
         Me.pnlDspCedula.PerformLayout()
         Me.pnlEspecialidadesBtns.ResumeLayout(False)
@@ -728,7 +729,6 @@ Partial Class frmGestion
         Me.pnlBusqueda.ResumeLayout(False)
         Me.pnlBusqueda.PerformLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlAcciones.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

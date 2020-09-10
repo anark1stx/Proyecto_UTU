@@ -32,7 +32,6 @@ Public Class D_Paciente
         End Try
 
         Dim listaTel As New List(Of String)
-        Dim yalei_foto As Boolean = False
 
         If leer.HasRows Then
             While leer.Read
@@ -52,13 +51,7 @@ Public Class D_Paciente
                 u.Sexo = leer.GetChar("sexo")
                 u.Etapa = leer.GetChar("etapa")
                 listaTel.Add(leer.GetString("telefono"))
-                If Not yalei_foto Then 'para evitar volver a leer un blob, consume memoria etc.
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    u.Foto = stream.ToArray()
-                    stream.Close()
-                    yalei_foto = True
-                End If
+
             End While
         Else
             Return New E_Paciente With {.ErrMsg = 8} 'no encontre
@@ -114,11 +107,7 @@ Public Class D_Paciente
                  .FechaNacimiento = leer.GetDateTime("fecha_nac").ToShortDateString(),
                  .Etapa = leer.GetChar("etapa"),
                  .Sexo = leer.GetChar("sexo")
-                 }
-                    Dim foto = CType(leer("foto"), Byte())
-                    Dim stream As New IO.MemoryStream(foto)
-                    lastU.Foto = stream.ToArray()
-                    stream.Close()
+                    }
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
                     ultima_ci = lastU.Cedula
                     uList.Add(lastU)
