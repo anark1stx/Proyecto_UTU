@@ -3,20 +3,37 @@ Imports System.Windows.Forms
 Imports Utilidades
 Imports Entidades
 Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a los controles de los formularios personalizados en tiempo de ejecuccion
-
     Public Class EventosDeFormulario
         Protected _acciones As AccionesFormulario
         Protected _panelDestino As Panel
         Protected _pd As Printing.PrintDocument
         Protected _memobmp As Bitmap
-        Protected _formDatos As E_Formulario
-
+        Protected _formDatos As E_Formulario 'las respuestas que se hayan ingresado en el formulario
+        Protected _analisisDatos As E_Analisis
+        Protected _tratamientoDatos As E_Tratamiento
+        Protected _modo As ModoEvento
         Sub New(acciones As AccionesFormulario)
             _acciones = acciones
         End Sub
         Sub New()
 
         End Sub
+
+        Public Enum ModoEvento 'el boton guardar hace cosas diferentes segun lo q se haya seleccionado
+            DatosFormulario = 0
+            DatosTratamiento = 1
+            DatosAnalisis = 2
+        End Enum
+
+        Property Modo As ModoEvento
+            Get
+                Return _modo
+            End Get
+            Set(value As ModoEvento)
+                _modo = value
+            End Set
+        End Property
+
         Property Acciones As AccionesFormulario
             Get
                 Return _acciones
@@ -52,7 +69,7 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
                 _memobmp = value
             End Set
         End Property
-        Property formDatos As E_Formulario
+        Property FormDatos As E_Formulario
             Get
                 Return _formDatos
             End Get
@@ -60,7 +77,22 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
                 _formDatos = value
             End Set
         End Property
-
+        Property AnalisisDatos As E_Analisis
+            Get
+                Return _analisisDatos
+            End Get
+            Set(value As E_Analisis)
+                _analisisDatos = value
+            End Set
+        End Property
+        Property TratamientoDatos As E_Tratamiento
+            Get
+                Return _tratamientoDatos
+            End Get
+            Set(value As E_Tratamiento)
+                _tratamientoDatos = value
+            End Set
+        End Property
         Sub AgregarHandlers()
             AddHandler Acciones.btnGuardar.Click, AddressOf Guardar
             AddHandler Acciones.btnImprimir.Click, AddressOf Imprimir
@@ -83,12 +115,28 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
         End Sub
 
         Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
-            e.Graphics.DrawImage(memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
+            e.Graphics.DrawImage(Memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
         End Sub
 
         Sub Guardar()
-            Console.WriteLine("Evento guardar!!!!")
-            GuardarDatosFormulario(formDatos)
+
+            Select Case Modo
+                Case 0
+                    Console.WriteLine("Evento guardar Datos Formulario!!!!")
+                    Dim resultado = GuardarDatosFormulario(FormDatos)
+                    FormDatos.ErrMsg = resultado 'guardo aca el resultado y lo leo desde el formulario luego
+                Case 1
+                    Console.WriteLine("Evento guardar Datos Tratamiento!!!!")
+                    Dim resultado = GuardarDatosTratamiento(TratamientoDatos)
+                    FormDatos.ErrMsg = resultado 'guardo aca el resultado y lo leo desde el formulario luego
+
+                Case 2
+                    Console.WriteLine("Evento guardar Datos Analisis!!!!")
+                    Dim resultado = GuardarDatosAnalisis(AnalisisDatos)
+                    FormDatos.ErrMsg = resultado 'guardo aca el resultado y lo leo desde el formulario luego
+
+            End Select
+
         End Sub
     End Class
 

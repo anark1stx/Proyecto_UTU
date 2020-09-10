@@ -33,7 +33,6 @@ Public Module mdlUtilidades
 
     End Function
 
-
     Public Function RemoverEspacios(str As String) As String
         Return str.Trim()
     End Function
@@ -124,7 +123,6 @@ Public Module mdlUtilidades
             ctrl.BackColor = pickRandomColor()
         Else
             ctrl.BackColor = Color.LightBlue
-
         End If
 
     End Sub
@@ -165,22 +163,6 @@ Public Module mdlUtilidades
         Next
         Return list
     End Function
-
-    Sub DibujarBorde(control As Control, gr As Graphics, Optional pairColor As Color = Nothing)
-        Dim r As New Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height)
-
-        r.Inflate(4, 4)
-        gr.DrawRectangle(New Pen(pickRandomColor()), r)
-    End Sub
-
-    Sub hideShowItems(_case As Boolean, ctrls As List(Of Control))
-
-        For Each c As Control In ctrls
-            c.Visible = _case
-        Next
-
-    End Sub
-
     Public Function Bytes2Image(ByVal bytes() As Byte) As Image
         If bytes Is Nothing Then
             Return Nothing

@@ -6,7 +6,6 @@
     Protected _paciente As E_Paciente 'paciente del cual se estan recabando los datos en la consulta
     Protected _medico As E_Medico 'medico que esta recabando datos del paciente en la consulta
     Protected _preguntasYrespuestas As List(Of PreguntaRespuesta)
-    Protected _errMsg As String
     Property ID As Integer
         Get
             Return _id
@@ -70,14 +69,6 @@
         End Set
     End Property
 
-    Property ErrMsg As String
-        Get
-            Return _errMsg
-        End Get
-        Set(value As String)
-            _errMsg = value
-        End Set
-    End Property
 
     Sub New()
 

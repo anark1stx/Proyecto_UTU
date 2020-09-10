@@ -3,10 +3,8 @@ Imports Entidades
 Imports FormulariosPersonalizados
 Imports Negocio
 Public Class frmTratamientoCrear
-    Dim acciones As New AccionesFormulario
-    Dim t As E_Tratamiento
-
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs)
+    Dim negocio As New N_Tratamiento
+    Private Async Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If Not check_regex(txtNombreTratamiento.Text, RegexLiteralAcentos) Then
             MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
@@ -22,8 +20,16 @@ Public Class frmTratamientoCrear
             Exit Sub
         End If
 
-        t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
-        't.Alta()
+        Dim t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
+        Dim result = Await Task.Run(Function() negocio.AltaTratamiento(t))
+        Select Case result
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
     End Sub
 
     Private Sub frmTratamientoCrear_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,7 +38,6 @@ Public Class frmTratamientoCrear
         Next
 
         Me.Dock = DockStyle.Fill
-
     End Sub
 
 End Class

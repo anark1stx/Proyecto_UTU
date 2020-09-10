@@ -5,6 +5,9 @@ Public Class N_Analisis
     Public Function AltaAnalisis(a As E_Analisis) As Integer
         Return objDatos.AltaAnalisis(a)
     End Function
+    Public Function AltaAnalisisDatos(a As E_Analisis) As Integer
+        'Return objDatos.AltaAnalisis(a)
+    End Function
 
     Public Function AnalisisExiste(nom As String) As Integer
         Return objDatos.AnalisisExiste(nom)
