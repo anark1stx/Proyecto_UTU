@@ -23,8 +23,12 @@ Public Class N_Medico
         Return objDatos.ModificarUsuarioMedico(u)
     End Function
 
-    Public Function AltaEntrevistaInicial(auxCI As Integer, medCI As Integer, pacCI As Integer, motivo As String) As Integer
-        Return objDatos.AltaEntrevistaInicial(auxCI, medCI, pacCI, motivo)
+    Public Function AltaEntrevistaInicial(c As E_EntrevistaIni) As Integer
+        Return objDatos.AltaEntrevistaInicial(c)
+    End Function
+
+    Public Function ConsultarMisConsultasDeHoy(CI_m As Integer) As List(Of E_EntrevistaIni)
+        Return objDatos.ConsultarMisConsultasDeHoy(CI_m)
     End Function
 
 End Class

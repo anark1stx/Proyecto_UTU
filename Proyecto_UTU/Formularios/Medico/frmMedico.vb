@@ -195,6 +195,9 @@ Public Class frmMedico
                     BloquearIdentificacion(True)
                     Exit Sub
                 End If
+
+            Case "VerListadoDeHoy"
+
             Case "Entrevista"
 
                 If _paciente.Cedula = 0 Then
@@ -466,8 +469,9 @@ Public Class frmMedico
             Exit Sub
         End If
 
+        Dim c As New E_EntrevistaIni(AuxiliarActual, MedicoActual, _paciente, frmIdentificacion.txtMotivoC.Text)
         Dim nm As New N_Medico
-        Dim result = Await Task.Run(Function() nm.AltaEntrevistaInicial(AuxiliarActual.Cedula, MedicoActual.Cedula, _paciente.Cedula, frmIdentificacion.txtMotivoC.Text))
+        Dim result = Await Task.Run(Function() nm.AltaEntrevistaInicial(c))
         Select Case result
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -484,6 +488,24 @@ Public Class frmMedico
         End Select
     End Sub
 
+    Async Sub VerConsultasDeHoy()
+        Dim nm As New N_Medico
+        Dim result = Await Task.Run(Function() nm.ConsultarMisConsultasDeHoy(MedicoActual.Cedula))
+        Select Case result(0).Auxiliar.Cedula
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmIdentificacion)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmIdentificacion)
+            Case 8
+                MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                LimpiarControles(frmIdentificacion)
+            Case Else
+                _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
+                frmIdentificacion.PoblarDatos()
+        End Select
+    End Sub
     Async Sub CargarDatosPaciente()
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             _paciente.Cedula = 0

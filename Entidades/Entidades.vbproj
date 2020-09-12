@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MedicoUtils\E_Analisis.vb" />
+    <Compile Include="MedicoUtils\E_EntrevistaIni.vb" />
     <Compile Include="MedicoUtils\E_Enfermedad.vb" />
     <Compile Include="MedicoUtils\E_Formulario.vb" />
     <Compile Include="MedicoUtils\E_Tratamiento.vb" />

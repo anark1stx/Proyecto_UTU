@@ -304,7 +304,7 @@ Public Class D_Medico
         Return 1
     End Function
 
-    Public Function AltaEntrevistaInicial(ciaux As Integer, cimed As Integer, cipac As Integer, motivoC As String) As Integer
+    Public Function AltaEntrevistaInicial(c As E_EntrevistaIni) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -314,10 +314,10 @@ Public Class D_Medico
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaEntrevistaInicial"
             }
-        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = cimed
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = cipac
-        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = ciaux
-        cmd.Parameters.Add("MOTIVO", MySqlDbType.VarChar).Value = motivoC
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = c.Medico.Cedula
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = c.Paciente.Cedula
+        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = c.Auxiliar.Cedula
+        cmd.Parameters.Add("MOTIVO", MySqlDbType.VarChar).Value = c.Motivo
 
         Try
             cmd.ExecuteNonQuery()
@@ -329,6 +329,50 @@ Public Class D_Medico
 
         Cerrar(conexion)
         Return 1
+    End Function
+
+    Public Function ConsultarMisConsultasDeHoy(CI_m As Integer) As List(Of E_EntrevistaIni)
+        Dim leer As MySqlDataReader
+        Dim Clist As New List(Of E_EntrevistaIni)
+        If Conectar(conexion) = -1 Then
+            Clist.Add(New E_EntrevistaIni With {.Auxiliar = New E_Usuario With {.Cedula = -1}})
+            Return Clist
+        End If
+
+        Dim cmd As New MySqlCommand With {
+            .Connection = conexion,
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "BuscarEntrevistasIni"
+        }
+
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = CI_m
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            Clist.Add(New E_EntrevistaIni With {.Auxiliar = New E_Usuario With {.Cedula = 2}})
+            Return Clist ' no se pudo ingresar entrevista inicial
+        End Try
+
+        Dim dp As New D_Paciente
+        If leer.HasRows Then
+            While leer.Read()
+                Clist.Add(New E_EntrevistaIni With {
+                .Paciente = dp.ListarPacientesCI(leer.GetInt32("CI_paciente")),
+                .Auxiliar = New E_Usuario With {.Cedula = leer.GetInt32("CI_auxiliar")},
+                .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")}
+                })
+            End While
+        Else
+            Clist.Add(New E_EntrevistaIni With {.Auxiliar = New E_Usuario With {.Cedula = 8}})
+        End If
+
+
+        Cerrar(conexion)
+        Return Clist
+
     End Function
 
 End Class

@@ -85,6 +85,12 @@
     <Compile Include="Formularios\Administrador\frmGestion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.Designer.vb">
+      <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.Designer.vb">
       <DependentUpon>frmPreguntarNomCons.vb</DependentUpon>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarMedico.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.Designer.vb">
+      <DependentUpon>TarjetaPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
@@ -304,11 +316,17 @@
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.resx">
+      <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.resx">
       <DependentUpon>frmPreguntarNomCons.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarMedico.resx">
       <DependentUpon>frmSeleccionarMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
+      <DependentUpon>TarjetaPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
