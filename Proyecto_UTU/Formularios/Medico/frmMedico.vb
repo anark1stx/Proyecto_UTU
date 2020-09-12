@@ -26,18 +26,43 @@ Public Class frmMedico
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar
 
+    Dim frmSelecMed As New frmSeleccionarMedico
     Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado para el predictivo.
     Dim _paciente As New E_Paciente
     Dim PreguntarNombreConsulta As New frmPreguntarNomCons
     Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
     Protected _medico As New E_Medico
+    Protected _auxiliar As New E_Usuario
+    Protected _modo As New Modo
 
+    Public Enum Modo
+        SoyMedico
+        SoyAuxiliar
+    End Enum
+
+    Property MiModo As Modo
+        Get
+            Return _modo
+        End Get
+        Set(value As Modo)
+            _modo = value
+        End Set
+    End Property
     Property MedicoActual As E_Medico
         Get
             Return _medico
         End Get
         Set(value As E_Medico)
             _medico = value
+        End Set
+    End Property
+
+    Property AuxiliarActual As E_Usuario
+        Get
+            Return _auxiliar
+        End Get
+        Set(value As E_Usuario)
+            _auxiliar = value
         End Set
     End Property
 
@@ -64,6 +89,23 @@ Public Class frmMedico
         InstanciarFormulario("Inicio")
         _paciente.Cedula = 0
         ID_Consulta = 0
+        resetMode()
+    End Sub
+    Sub resetMode()
+        Select Case MiModo
+            Case Modo.SoyAuxiliar
+                AsginarTratamientoPacienteToolStripMenuItem.Visible = False
+                AsignarAnalisisPacienteToolStripMenuItem.Visible = False
+                EntrevistarPacienteToolStripMenuItem.Visible = False
+                IdentificarPacienteToolStripMenuItem.Visible = False
+                AtenderMenuItem.Visible = False
+            Case Modo.SoyMedico
+                AsginarTratamientoPacienteToolStripMenuItem.Visible = True
+                AsignarAnalisisPacienteToolStripMenuItem.Visible = True
+                EntrevistarPacienteToolStripMenuItem.Visible = True
+                IdentificarPacienteToolStripMenuItem.Visible = True
+                AtenderMenuItem.Visible = True
+        End Select
     End Sub
 
     Public Sub addFrm(frm As Form)
@@ -105,7 +147,26 @@ Public Class frmMedico
 
             Case "Identificacion"
                 LimpiarControles(frmIdentificacion)
-                _paciente.Cedula = 0
+                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.MedicoAtiende
+                frmIdentificacion.configurarControles()
+                '_paciente.Cedula = 0
+                addFrm(frmIdentificacion)
+
+            Case "SeleccionarMedico"
+                LimpiarControles(frmSelecMed)
+                frmSelecMed.ShowDialog()
+                If frmSelecMed.MedicoSelect.Cedula <> 0 Then
+                    MedicoActual.Cedula = frmSelecMed.MedicoSelect.Cedula
+                    InstanciarFormulario("EntrevistaInicial") 'se lo dejamos cargado
+                Else
+                    MessageBox.Show("No se seleccionó ningún médico.", "No fue seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
+                End If
+            Case "EntrevistaInicial"
+                LimpiarControles(frmIdentificacion)
+                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.AgregarAListaHoy
+                frmIdentificacion.configurarControles()
+                '_paciente.Cedula = 0
                 addFrm(frmIdentificacion)
 
             Case "Entrevista"
@@ -121,7 +182,6 @@ Public Class frmMedico
                 addFrm(frmEntrevista)
                 PreguntarNombreConsulta.ShowDialog()
                 NombreConsulta = PreguntarNombreConsulta.Nombre
-
             Case "Generico"
                 LimpiarControles(generico)
                 addFrm(generico)
@@ -267,6 +327,11 @@ Public Class frmMedico
 
                         InstanciarFormulario("Entrevista")
                     End Sub
+        'HANDLERS PARA FORMULARIO SELECCIONAR MEDICO
+        AddHandler frmSelecMed.btnBuscarMedico.Click,
+                    Sub()
+                        CargarDatosMedico()
+                    End Sub
 
         'HANDLERS PARA FORMULARIO IDENTIFICACION PACIENTE
 
@@ -276,7 +341,12 @@ Public Class frmMedico
                     End Sub
         AddHandler frmIdentificacion.btnEntrevistar.Click,
                     Sub()
-                        InstanciarFormulario("Entrevista")
+                        Select Case frmIdentificacion.ModoActual
+                            Case Identificacion_Paciente.Modo.MedicoAtiende
+                                InstanciarFormulario("Entrevista")
+                            Case Identificacion_Paciente.Modo.AgregarAListaHoy
+                                AgregarPacienteAListado()
+                        End Select
                     End Sub
         AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged,
                     Sub()
@@ -344,10 +414,35 @@ Public Class frmMedico
                 InstanciarFormulario("DatosAnalisis")
             End Sub
     End Sub
+
+    Async Sub AgregarPacienteAListado()
+        If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
+            MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            _paciente.Cedula = 0
+            LimpiarControles(frmIdentificacion)
+            Exit Sub
+        End If
+        If Not frmIdentificacion.txtMotivoC.TextLength > 10 Then
+            MessageBox.Show("La cédula ingresada no es valida. ", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If Not check_regex(frmIdentificacion.txtMotivoC.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+            MessageBox.Show(MensajeDeErrorCaracteres(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        If MedicoActual.Cedula = 0 Then
+            MessageBox.Show("Ingrese la cédula del médico que atenderá esta consulta", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            Exit Sub
+        End If
+
+        Dim naux As New N_Usuario
+    End Sub
+
     Async Sub CargarDatosPaciente()
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             _paciente.Cedula = 0
-            LimpiarControles(frmIdentificacion)
             Exit Sub
         End If
         If Not check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
@@ -375,7 +470,36 @@ Public Class frmMedico
                 frmIdentificacion.PoblarDatos()
         End Select
     End Sub
+    Async Sub CargarDatosMedico()
+        If Not frmSelecMed.txtCIMedico.TextLength = 8 Then
+            MedicoActual.Cedula = 0
+            Exit Sub
+        End If
+        If Not check_Cedula(frmSelecMed.txtCIMedico.Text) Then
+            MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MedicoActual.Cedula = 0
+            LimpiarControles(frmSelecMed)
+            Exit Sub
+        End If
 
+        Dim nm As New N_Medico
+        frmSelecMed.MedicoSelect = Await Task.Run(Function() nm.ListarMedicoCI(CInt(frmSelecMed.txtCIMedico.Text)))
+        frmSelecMed.MedicoSelect.Foto = Await Task.Run(Function() nm.LeerFoto(frmSelecMed.txtCIMedico.Text))
+        Select Case frmSelecMed.MedicoSelect.ErrMsg
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmSelecMed)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmSelecMed)
+            Case 8
+                MessageBox.Show("No se encontró un médico con esa cédula.", "Médico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                LimpiarControles(frmSelecMed)
+            Case Else
+                MedicoActual.Cedula = frmSelecMed.MedicoSelect.Cedula
+                frmSelecMed.PoblarDatos()
+        End Select
+    End Sub
     Private Sub IngresarNuevoTratamientoMenuItem_Click(sender As Object, e As EventArgs) Handles IngresarNuevoTratamientoMenuItem.Click
         InstanciarFormulario("IngresarTratamiento")
     End Sub
@@ -405,5 +529,29 @@ Public Class frmMedico
         'datagridview que los carga.
         'el medico va seleccionando
         'se cargan los datos a campos de texto con enabled = false
+    End Sub
+
+    Private Sub EntrevistaInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistaInicialToolStripMenuItem.Click
+        InstanciarFormulario("EntrevistaInicial")
+    End Sub
+
+    Private Sub IdentificarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem.Click
+        InstanciarFormulario("Identificacion")
+    End Sub
+
+    Private Sub EntrevistarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistarPacienteToolStripMenuItem.Click
+        InstanciarFormulario("Entrevista")
+    End Sub
+
+    Private Sub VerListadoDeHoyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerListadoDeHoyToolStripMenuItem.Click
+        InstanciarFormulario("VerListadoDeHoy")
+    End Sub
+
+    Private Sub SeleccionarMedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionarMédicoToolStripMenuItem.Click
+        InstanciarFormulario("SeleccionarMedico")
+    End Sub
+
+    Private Sub VerListadoDeHoyToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles VerListadoDeHoyToolStripMenuItem1.Click
+        InstanciarFormulario("VerListadoDeHoy")
     End Sub
 End Class

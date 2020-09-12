@@ -22,6 +22,7 @@ Partial Class Identificacion_Paciente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
@@ -48,14 +49,16 @@ Partial Class Identificacion_Paciente
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.btnConsultasPrevias = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnEntrevistar = New System.Windows.Forms.Button()
+        Me.imgsBtnEntrevistar = New System.Windows.Forms.ImageList(Me.components)
+        Me.btnConsultasPrevias = New System.Windows.Forms.Button()
+        Me.txtMotivoC = New System.Windows.Forms.TextBox()
         Me.tblDatosPaciente.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
+        Me.tblAcciones.SuspendLayout()
         Me.SuspendLayout()
         '
         'tblDatosPaciente
@@ -385,39 +388,25 @@ Partial Class Identificacion_Paciente
         Me.btnBuscar.TabIndex = 113
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
-        'btnConsultasPrevias
+        'tblAcciones
         '
-        Me.btnConsultasPrevias.BackColor = System.Drawing.Color.LightGreen
-        Me.btnConsultasPrevias.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConsultasPrevias.Image = CType(resources.GetObject("btnConsultasPrevias.Image"), System.Drawing.Image)
-        Me.btnConsultasPrevias.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnConsultasPrevias.Location = New System.Drawing.Point(3, 171)
-        Me.btnConsultasPrevias.Name = "btnConsultasPrevias"
-        Me.btnConsultasPrevias.Size = New System.Drawing.Size(1124, 162)
-        Me.btnConsultasPrevias.TabIndex = 104
-        Me.btnConsultasPrevias.Text = "      Ver consultas previas"
-        Me.btnConsultasPrevias.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnConsultasPrevias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnConsultasPrevias.UseVisualStyleBackColor = False
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.tblAcciones.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.btnEntrevistar, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnConsultasPrevias, 0, 1)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 384)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1130, 336)
-        Me.TableLayoutPanel2.TabIndex = 104
+        Me.tblAcciones.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.tblAcciones.ColumnCount = 1
+        Me.tblAcciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblAcciones.Controls.Add(Me.btnEntrevistar, 0, 0)
+        Me.tblAcciones.Controls.Add(Me.btnConsultasPrevias, 0, 1)
+        Me.tblAcciones.Controls.Add(Me.txtMotivoC, 0, 2)
+        Me.tblAcciones.Location = New System.Drawing.Point(0, 384)
+        Me.tblAcciones.Name = "tblAcciones"
+        Me.tblAcciones.RowCount = 3
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.505!))
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.505!))
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.990002!))
+        Me.tblAcciones.Size = New System.Drawing.Size(1130, 352)
+        Me.tblAcciones.TabIndex = 104
         '
         'btnEntrevistar
         '
@@ -426,24 +415,56 @@ Partial Class Identificacion_Paciente
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEntrevistar.BackColor = System.Drawing.Color.LemonChiffon
         Me.btnEntrevistar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEntrevistar.Image = CType(resources.GetObject("btnEntrevistar.Image"), System.Drawing.Image)
-        Me.btnEntrevistar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnEntrevistar.Location = New System.Drawing.Point(3, 3)
+        Me.btnEntrevistar.ImageIndex = 0
+        Me.btnEntrevistar.ImageList = Me.imgsBtnEntrevistar
+        Me.btnEntrevistar.Location = New System.Drawing.Point(4, 4)
         Me.btnEntrevistar.Name = "btnEntrevistar"
-        Me.btnEntrevistar.Size = New System.Drawing.Size(1124, 162)
+        Me.btnEntrevistar.Size = New System.Drawing.Size(1122, 166)
         Me.btnEntrevistar.TabIndex = 105
         Me.btnEntrevistar.Text = "    Entrevistar"
         Me.btnEntrevistar.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnEntrevistar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnEntrevistar.UseVisualStyleBackColor = False
         '
+        'imgsBtnEntrevistar
+        '
+        Me.imgsBtnEntrevistar.ImageStream = CType(resources.GetObject("imgsBtnEntrevistar.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imgsBtnEntrevistar.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgsBtnEntrevistar.Images.SetKeyName(0, "icons8-health-checkup-80.png")
+        Me.imgsBtnEntrevistar.Images.SetKeyName(1, "subir.png")
+        '
+        'btnConsultasPrevias
+        '
+        Me.btnConsultasPrevias.BackColor = System.Drawing.Color.LightGreen
+        Me.btnConsultasPrevias.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsultasPrevias.Image = CType(resources.GetObject("btnConsultasPrevias.Image"), System.Drawing.Image)
+        Me.btnConsultasPrevias.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnConsultasPrevias.Location = New System.Drawing.Point(4, 177)
+        Me.btnConsultasPrevias.Name = "btnConsultasPrevias"
+        Me.btnConsultasPrevias.Size = New System.Drawing.Size(1122, 166)
+        Me.btnConsultasPrevias.TabIndex = 104
+        Me.btnConsultasPrevias.Text = "      Ver consultas previas"
+        Me.btnConsultasPrevias.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnConsultasPrevias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnConsultasPrevias.UseVisualStyleBackColor = False
+        '
+        'txtMotivoC
+        '
+        Me.txtMotivoC.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtMotivoC.Location = New System.Drawing.Point(4, 350)
+        Me.txtMotivoC.Name = "txtMotivoC"
+        Me.txtMotivoC.Size = New System.Drawing.Size(1122, 22)
+        Me.txtMotivoC.TabIndex = 106
+        Me.txtMotivoC.Visible = False
+        '
         'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1130, 720)
-        Me.Controls.Add(Me.TableLayoutPanel2)
+        Me.ClientSize = New System.Drawing.Size(1130, 736)
+        Me.Controls.Add(Me.tblAcciones)
         Me.Controls.Add(Me.tblDatosPaciente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Identificacion_Paciente"
@@ -454,7 +475,8 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.tblAcciones.ResumeLayout(False)
+        Me.tblAcciones.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -485,6 +507,8 @@ Partial Class Identificacion_Paciente
     Friend WithEvents txtCedulaPaciente As TextBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnConsultasPrevias As Button
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents tblAcciones As TableLayoutPanel
     Friend WithEvents btnEntrevistar As Button
+    Friend WithEvents imgsBtnEntrevistar As ImageList
+    Friend WithEvents txtMotivoC As TextBox
 End Class

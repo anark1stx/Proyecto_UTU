@@ -304,4 +304,31 @@ Public Class D_Medico
         Return 1
     End Function
 
+    Public Function AltaEntrevistaInicial(m As E_Medico, p As E_Paciente, a As E_Usuario, motivoC As String) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+            .Connection = conexion,
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaMedicoEspecialidad"
+            }
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = m.Cedula
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = p.Cedula
+        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = a.Cedula
+        cmd.Parameters.Add("MOTIVO", MySqlDbType.VarChar).Value = motivoC
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            Return 2 ' no se pudo ingresar entrevista inicial
+        End Try
+
+        Cerrar(conexion)
+        Return 1
+    End Function
+
 End Class
