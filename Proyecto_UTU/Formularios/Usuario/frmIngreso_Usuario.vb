@@ -4,7 +4,6 @@ Imports Utilidades
 Public Class frmIngreso_Usuario
     Dim frmAdm As New frmAdministrador
     Dim frmMed As New frmMedico
-    Dim frmAux As New frmAuxiliar
     Dim frmPac As New frmPaciente
     Dim _frmOlvideMiContrasena As New frmOlvideMiContrasena
     Private Async Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
@@ -57,7 +56,6 @@ Public Class frmIngreso_Usuario
             End Select
             lblMensajeErrorCI.Visible = False
         End If
-
     End Sub
 
     Private Sub L_lblContrasenaOlvidada_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles L_lblContrasenaOlvidada.LinkClicked

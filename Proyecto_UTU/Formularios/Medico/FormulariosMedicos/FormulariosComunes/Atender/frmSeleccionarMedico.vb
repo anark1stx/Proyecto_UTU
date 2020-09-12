@@ -67,7 +67,6 @@ Public Class frmSeleccionarMedico
     End Sub
 
     Private Sub txtCIMedico_TextChanged(sender As Object, e As EventArgs) Handles txtCIMedico.TextChanged
-
         If txtCIMedico.TextLength < 8 Then
             LimpiarControles(Me)
             MedicoSelect.Cedula = 0

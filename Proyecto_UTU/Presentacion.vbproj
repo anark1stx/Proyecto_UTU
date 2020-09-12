@@ -115,12 +115,6 @@
     <Compile Include="Formularios\Administrador\frmAdministrador.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Auxiliar\frmAuxiliar.Designer.vb">
-      <DependentUpon>frmAuxiliar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Auxiliar\frmAuxiliar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\formularioPlano.Designer.vb">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </Compile>
