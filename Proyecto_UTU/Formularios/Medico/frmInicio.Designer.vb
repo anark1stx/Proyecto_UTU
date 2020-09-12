@@ -26,6 +26,7 @@ Partial Class frmInicio
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInicio))
         Me.lblAtender = New System.Windows.Forms.Label()
         Me.btnAtenderPaciente = New System.Windows.Forms.Button()
+        Me.fotoAtender = New System.Windows.Forms.ImageList(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCrearFormulario = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -36,8 +37,8 @@ Partial Class frmInicio
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblGestion = New System.Windows.Forms.Label()
         Me.btnGestion = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.fotoAuxOmed = New System.Windows.Forms.ImageList(Me.components)
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -58,15 +59,24 @@ Partial Class frmInicio
         '
         'btnAtenderPaciente
         '
-        Me.btnAtenderPaciente.BackgroundImage = CType(resources.GetObject("btnAtenderPaciente.BackgroundImage"), System.Drawing.Image)
         Me.btnAtenderPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAtenderPaciente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAtenderPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAtenderPaciente.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAtenderPaciente.ImageIndex = 0
+        Me.btnAtenderPaciente.ImageList = Me.fotoAtender
         Me.btnAtenderPaciente.Location = New System.Drawing.Point(0, 0)
         Me.btnAtenderPaciente.Name = "btnAtenderPaciente"
         Me.btnAtenderPaciente.Size = New System.Drawing.Size(442, 271)
         Me.btnAtenderPaciente.TabIndex = 3
         Me.btnAtenderPaciente.UseVisualStyleBackColor = True
+        '
+        'fotoAtender
+        '
+        Me.fotoAtender.ImageStream = CType(resources.GetObject("fotoAtender.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.fotoAtender.TransparentColor = System.Drawing.Color.Transparent
+        Me.fotoAtender.Images.SetKeyName(0, "MedicoAtiendePaciente.png")
+        Me.fotoAtender.Images.SetKeyName(1, "AuxAtiendePaciente.png")
         '
         'Label1
         '
@@ -176,15 +186,24 @@ Partial Class frmInicio
         '
         'btnGestion
         '
-        Me.btnGestion.BackgroundImage = CType(resources.GetObject("btnGestion.BackgroundImage"), System.Drawing.Image)
         Me.btnGestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnGestion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGestion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGestion.ImageIndex = 0
+        Me.btnGestion.ImageList = Me.fotoAuxOmed
         Me.btnGestion.Location = New System.Drawing.Point(0, 0)
         Me.btnGestion.Name = "btnGestion"
         Me.btnGestion.Size = New System.Drawing.Size(442, 271)
         Me.btnGestion.TabIndex = 3
         Me.btnGestion.UseVisualStyleBackColor = True
+        '
+        'fotoAuxOmed
+        '
+        Me.fotoAuxOmed.ImageStream = CType(resources.GetObject("fotoAuxOmed.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.fotoAuxOmed.TransparentColor = System.Drawing.Color.Transparent
+        Me.fotoAuxOmed.Images.SetKeyName(0, "solo_medico.png")
+        Me.fotoAuxOmed.Images.SetKeyName(1, "solo_auxiliar.png")
         '
         'Panel2
         '
@@ -195,13 +214,6 @@ Partial Class frmInicio
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(442, 271)
         Me.Panel2.TabIndex = 1
-        '
-        'fotoAuxOmed
-        '
-        Me.fotoAuxOmed.ImageStream = CType(resources.GetObject("fotoAuxOmed.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.fotoAuxOmed.TransparentColor = System.Drawing.Color.Transparent
-        Me.fotoAuxOmed.Images.SetKeyName(0, "solo_medico.png")
-        Me.fotoAuxOmed.Images.SetKeyName(1, "solo_auxiliar.png")
         '
         'frmInicio
         '
@@ -242,4 +254,5 @@ Partial Class frmInicio
     Friend WithEvents lblGestion As Label
     Friend WithEvents btnGestion As Button
     Friend WithEvents fotoAuxOmed As ImageList
+    Friend WithEvents fotoAtender As ImageList
 End Class

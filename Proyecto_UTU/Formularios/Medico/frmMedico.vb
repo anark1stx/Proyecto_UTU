@@ -86,10 +86,10 @@ Public Class frmMedico
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
-        InstanciarFormulario("Inicio")
         _paciente.Cedula = 0
         ID_Consulta = 0
         resetMode()
+        InstanciarFormulario("Inicio")
     End Sub
     Sub resetMode()
         Select Case MiModo
@@ -99,12 +99,16 @@ Public Class frmMedico
                 EntrevistarPacienteToolStripMenuItem.Visible = False
                 IdentificarPacienteToolStripMenuItem.Visible = False
                 AtenderMenuItem.Visible = False
+                frmIni.btnAtenderPaciente.ImageIndex = 1
+                frmIni.btnGestion.ImageIndex = 1
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
                 EntrevistarPacienteToolStripMenuItem.Visible = True
                 IdentificarPacienteToolStripMenuItem.Visible = True
                 AtenderMenuItem.Visible = True
+                frmIni.btnAtenderPaciente.ImageIndex = 0
+                frmIni.btnGestion.ImageIndex = 0
         End Select
     End Sub
 
@@ -151,7 +155,6 @@ Public Class frmMedico
 
             Case "Atender"
                 Me.MaximizeBox = False
-
                 addFrm(frmOpsConsulta)
 
             Case "Identificacion"
@@ -285,7 +288,12 @@ Public Class frmMedico
     End Sub
 
     Private Sub AtenderMenuItem_Click(sender As Object, e As EventArgs) Handles AtenderMenuItem.Click
-        InstanciarFormulario("Atender")
+        Select Case MiModo
+            Case Modo.SoyMedico
+                InstanciarFormulario("Atender")
+            Case Modo.SoyAuxiliar
+                InstanciarFormulario("EntrevistaInicial")
+        End Select
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Dim _event = New FormClosingEventArgs(CloseReason.UserClosing, False)
@@ -333,7 +341,6 @@ Public Class frmMedico
                     End Sub
         AddHandler frmOpsConsulta.btnEntrevistaPaciente.Click,
                     Sub()
-
                         InstanciarFormulario("Entrevista")
                     End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR MEDICO
