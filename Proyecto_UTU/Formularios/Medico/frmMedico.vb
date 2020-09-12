@@ -463,11 +463,25 @@ Public Class frmMedico
 
         If _medico.Cedula = 0 Then
             MessageBox.Show("Ingrese la cédula del médico que atenderá esta consulta", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
             Exit Sub
         End If
 
-        Dim naux As New N_Usuario
+        Dim nm As New N_Medico
+        Dim result = Await Task.Run(Function() nm.AltaEntrevistaInicial(AuxiliarActual.Cedula, MedicoActual.Cedula, _paciente.Cedula, frmIdentificacion.txtMotivoC.Text))
+        Select Case frmSelecMed.MedicoSelect.ErrMsg
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmIdentificacion)
+                Exit Sub
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                LimpiarControles(frmIdentificacion)
+                Exit Sub
+            Case 1
+                MessageBox.Show("El paciente fue agregado al listado con éxito.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LimpiarControles(frmIdentificacion)
+            Case Else
+        End Select
     End Sub
 
     Async Sub CargarDatosPaciente()

@@ -304,7 +304,7 @@ Public Class D_Medico
         Return 1
     End Function
 
-    Public Function AltaEntrevistaInicial(m As E_Medico, p As E_Paciente, a As E_Usuario, motivoC As String) As Integer
+    Public Function AltaEntrevistaInicial(ciaux As Integer, cimed As Integer, cipac As Integer, motivoC As String) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -312,11 +312,11 @@ Public Class D_Medico
         Dim cmd As New MySqlCommand With {
             .Connection = conexion,
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaMedicoEspecialidad"
+            .CommandText = "AltaEntrevistaInicial"
             }
-        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = m.Cedula
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = p.Cedula
-        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = a.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = cimed
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = cipac
+        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = ciaux
         cmd.Parameters.Add("MOTIVO", MySqlDbType.VarChar).Value = motivoC
 
         Try

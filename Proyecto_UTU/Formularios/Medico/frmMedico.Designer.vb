@@ -27,6 +27,7 @@ Partial Class frmMedico
         Me.GestionMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntrevistaInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeleccionarMédicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerListadoDeHoyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtenderMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IdentificarPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntrevistarPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,7 +44,6 @@ Partial Class frmMedico
         Me.AsignarAnalisisPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
-        Me.VerListadoDeHoyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -79,8 +79,14 @@ Partial Class frmMedico
         'SeleccionarMédicoToolStripMenuItem
         '
         Me.SeleccionarMédicoToolStripMenuItem.Name = "SeleccionarMédicoToolStripMenuItem"
-        Me.SeleccionarMédicoToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.SeleccionarMédicoToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
         Me.SeleccionarMédicoToolStripMenuItem.Text = "Seleccionar médico"
+        '
+        'VerListadoDeHoyToolStripMenuItem1
+        '
+        Me.VerListadoDeHoyToolStripMenuItem1.Name = "VerListadoDeHoyToolStripMenuItem1"
+        Me.VerListadoDeHoyToolStripMenuItem1.Size = New System.Drawing.Size(222, 26)
+        Me.VerListadoDeHoyToolStripMenuItem1.Text = "Ver listado de hoy"
         '
         'AtenderMenuItem
         '
@@ -185,12 +191,6 @@ Partial Class frmMedico
         Me.pnlContenedorFormularios.Name = "pnlContenedorFormularios"
         Me.pnlContenedorFormularios.Size = New System.Drawing.Size(1130, 720)
         Me.pnlContenedorFormularios.TabIndex = 1
-        '
-        'VerListadoDeHoyToolStripMenuItem1
-        '
-        Me.VerListadoDeHoyToolStripMenuItem1.Name = "VerListadoDeHoyToolStripMenuItem1"
-        Me.VerListadoDeHoyToolStripMenuItem1.Size = New System.Drawing.Size(224, 26)
-        Me.VerListadoDeHoyToolStripMenuItem1.Text = "Ver listado de hoy"
         '
         'frmMedico
         '
