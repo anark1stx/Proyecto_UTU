@@ -97,21 +97,25 @@ Public Class D_Usuario
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            Return New List(Of E_Usuario)(New E_Usuario With {.ErrMsg = -1})
+            lastU.ErrMsg = -1
+            uList.Add(lastU)
+            Return uList
         End If
 
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
-                .CommandText = "BuscarAUXILIARxAPELLIDO", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
+                .CommandText = "BuscarAUXILIARxApellido", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
                 .Connection = conexion
         }
-        cmd.Parameters.Add("apellido1", MySqlDbType.VarChar, 30).Value = ap
+        cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = ap
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New List(Of E_Usuario)(New E_Usuario With {.ErrMsg = 2})
+            lastU.ErrMsg = 2
+            uList.Add(lastU)
+            Return uList
         End Try
 
         If leer.HasRows Then

@@ -71,7 +71,9 @@ Public Class D_Paciente
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            Return New List(Of E_Paciente)(New E_Paciente With {.ErrMsg = -1})
+            lastU.ErrMsg = -1
+            uList.Add(lastU)
+            Return uList
         End If
 
         Dim cmd = New MySqlCommand With {
@@ -85,7 +87,9 @@ Public Class D_Paciente
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New List(Of E_Paciente)(New E_Paciente With {.ErrMsg = 2})
+            lastU.ErrMsg = 2
+            uList.Add(lastU)
+            Return uList
         End Try
 
         If leer.HasRows Then
