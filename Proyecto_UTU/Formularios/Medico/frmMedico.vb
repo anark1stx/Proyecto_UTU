@@ -28,11 +28,11 @@ Public Class frmMedico
 
     Dim frmSelecMed As New frmSeleccionarMedico
     Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado para el predictivo.
-    Dim _paciente As New E_Paciente
-    Dim PreguntarNombreConsulta As New frmPreguntarNomCons
+    Dim _paciente As New E_Paciente With {.Cedula = 0}
+    'Dim PreguntarNombreConsulta As New frmPreguntarNomCons
     Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
-    Protected _medico As New E_Medico
-    Protected _auxiliar As New E_Usuario
+    Protected _medico As E_Medico
+    Protected _auxiliar As E_Usuario
     Protected _modo As New Modo
 
     Public Enum Modo
@@ -131,6 +131,10 @@ Public Class frmMedico
         End If
     End Sub
 
+    Sub BloquearIdentificacion(_case As Boolean)
+        frmIdentificacion.Enabled = Not _case
+    End Sub
+
     Public Sub InstanciarFormulario(formulario As String)
 
         Select Case formulario
@@ -167,20 +171,30 @@ Public Class frmMedico
             Case "SeleccionarMedico"
                 LimpiarControles(frmSelecMed)
                 frmSelecMed.ShowDialog()
-                If frmSelecMed.MedicoSelect.Cedula <> 0 Then
+                If frmSelecMed.MedicoSelect.Cedula = 0 Then
+                    MessageBox.Show("No se seleccionó ningún médico.", "No fue seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    BloquearIdentificacion(True)
+                    Exit Sub
+                Else
+                    If Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexLiteralAcentos) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
+                        MessageBox.Show("No se registró un nombre de consulta válido. Verifique.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        BloquearIdentificacion(True)
+                        Exit Sub
+                    End If
                     MedicoActual.Cedula = frmSelecMed.MedicoSelect.Cedula
                     InstanciarFormulario("EntrevistaInicial") 'se lo dejamos cargado
-                Else
-                    MessageBox.Show("No se seleccionó ningún médico.", "No fue seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Exit Sub
+                    BloquearIdentificacion(False)
                 End If
             Case "EntrevistaInicial"
                 LimpiarControles(frmIdentificacion)
                 frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.AgregarAListaHoy
                 frmIdentificacion.configurarControles()
-                '_paciente.Cedula = 0
                 addFrm(frmIdentificacion)
-
+                If MedicoActual.Cedula = 0 Then 'hasta que no seleccione un medico, no le dejamos agregar pacienes al listado
+                    MessageBox.Show("Debe identificar al médico que va a atender la consulta primero.", "Falta identificar al medico", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    BloquearIdentificacion(True)
+                    Exit Sub
+                End If
             Case "Entrevista"
 
                 If _paciente.Cedula = 0 Then
@@ -192,8 +206,8 @@ Public Class frmMedico
                 fixSize()
 
                 addFrm(frmEntrevista)
-                PreguntarNombreConsulta.ShowDialog()
-                NombreConsulta = PreguntarNombreConsulta.Nombre
+                'PreguntarNombreConsulta.ShowDialog()
+                'NombreConsulta = PreguntarNombreConsulta.Nombre
             Case "Generico"
                 LimpiarControles(generico)
                 addFrm(generico)
@@ -447,7 +461,7 @@ Public Class frmMedico
             Exit Sub
         End If
 
-        If MedicoActual.Cedula = 0 Then
+        If _medico.Cedula = 0 Then
             MessageBox.Show("Ingrese la cédula del médico que atenderá esta consulta", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Exit Sub
@@ -505,14 +519,18 @@ Public Class frmMedico
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmSelecMed)
+                Exit Sub
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmSelecMed)
+                Exit Sub
             Case 8
                 MessageBox.Show("No se encontró un médico con esa cédula.", "Médico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 LimpiarControles(frmSelecMed)
+                Exit Sub
             Case Else
-                MedicoActual.Cedula = frmSelecMed.MedicoSelect.Cedula
+                Console.WriteLine(frmSelecMed.MedicoSelect.Cedula)
+                _medico = New E_Medico With {.Cedula = frmSelecMed.MedicoSelect.Cedula}
                 frmSelecMed.PoblarDatos()
         End Select
     End Sub

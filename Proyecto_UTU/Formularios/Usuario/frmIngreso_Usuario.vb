@@ -46,7 +46,7 @@ Public Class frmIngreso_Usuario
                 Case "auxiliar"
                     Me.Hide()
                     frmMed.Show()
-                    frmMed.MedicoActual = Nothing
+                    frmMed.MedicoActual = New E_Medico With {.Cedula = 0}
                     frmMed.AuxiliarActual = New E_Usuario With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
                     frmMed.MiModo = frmMedico.Modo.SoyAuxiliar
                     frmMed.resetMode()
