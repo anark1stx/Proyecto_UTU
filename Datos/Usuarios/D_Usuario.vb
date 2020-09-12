@@ -6,7 +6,7 @@ Public Class D_Usuario
     Dim conexion As New MySqlConnection
 
     'este metodo vendria llamado desde otro, ejemplo BuscarPacientesCI
-    Public Function BuscarUsuariosCI(ci As Integer) As E_Usuario 'verifico si usuario.CI = [TIPOUSUARIO].CI
+    Public Function BuscarAuxiliarCI(ci As Integer) As E_Usuario 'verifico si usuario.CI = [TIPOUSUARIO].CI
         Dim leer As MySqlDataReader
         If Conectar(conexion) = -1 Then
             Return New E_Usuario With {.ErrMsg = -1} '-1 exit code para conexion fallida
@@ -56,7 +56,7 @@ Public Class D_Usuario
         Return u
     End Function
 
-    Public Function leerFotoUsuario(CI As Integer) As Byte()
+    Public Function LeerFotoUsuario(CI As Integer) As Byte()
         Dim foto As Byte() = {}
         Dim leer As MySqlDataReader
         If Conectar(conexion) = -1 Then
@@ -89,7 +89,7 @@ Public Class D_Usuario
         Return foto
     End Function
 
-    Public Function BuscarUsuariosApellido(ap As String) As List(Of E_Usuario)
+    Public Function BuscarAuxiliarApellido(ap As String) As List(Of E_Usuario)
         Dim uList As New List(Of E_Usuario)
         Dim ultima_ci As Integer = 0
         Dim lastU As New E_Usuario
@@ -172,7 +172,7 @@ Public Class D_Usuario
         Return existe
     End Function
 
-    Public Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
+    Public Function AltaAuxiliar(u As E_Usuario) As Integer
         Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
         Dim code = MyBase.AltaUsuario(mysqlUser)
 
@@ -187,7 +187,7 @@ Public Class D_Usuario
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaUsuario",
+            .CommandText = "AltaAuxiliar",
             .Connection = conexion
         }
 
@@ -299,7 +299,7 @@ Public Class D_Usuario
 
     End Function
 
-    Public Function borrarTelefonos(CI As Integer) As Integer
+    Public Function BorrarTelefonos(CI As Integer) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -343,7 +343,7 @@ Public Class D_Usuario
     End Function
 
     Public Function AltaLogicaUsuario(CI As Integer) As Integer
-        If Conectar(conexion) Then
+        If Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -358,6 +358,7 @@ Public Class D_Usuario
 
         Catch ex As Exception
             Cerrar(conexion)
+            Console.WriteLine(ex.Message)
             Return 2
         End Try
         Cerrar(conexion)

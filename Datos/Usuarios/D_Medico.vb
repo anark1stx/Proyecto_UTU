@@ -134,7 +134,7 @@ Public Class D_Medico
                 .CommandText = "BuscarMEDICOxEspecialidad", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario
                 .Connection = conexion
         }
-        cmd.Parameters.Add("especialidad", MySqlDbType.VarChar, 30).Value = es
+        cmd.Parameters.Add("ESP", MySqlDbType.VarChar, 30).Value = es
 
         Try
             leer = cmd.ExecuteReader()

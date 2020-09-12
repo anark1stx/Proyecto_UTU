@@ -5,11 +5,11 @@ Public Class N_Usuario
     Dim objDatos As New D_Usuario
 
     Public Function ListarUsuariosCI(CI As String) As E_Usuario
-        Return objDatos.BuscarUsuariosCI(CI)
+        Return objDatos.BuscarAuxiliarCI(CI)
     End Function
 
     Public Function BuscarUsuariosApellido(ap As String) As List(Of E_Usuario)
-        Return objDatos.BuscarUsuariosApellido(ap)
+        Return objDatos.BuscarAuxiliarApellido(ap)
     End Function
 
     Public Function UsuarioExiste(CI As Integer) As Integer
@@ -21,7 +21,7 @@ Public Class N_Usuario
     End Function
 
     Public Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
-        Return objDatos.AltaUsuarioSIBIM(u)
+        Return objDatos.AltaAuxiliar(u)
     End Function
 
     Public Function ModificacionUsuario(u As E_Usuario) As Integer

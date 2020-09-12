@@ -94,11 +94,11 @@ Public Class D_Formulario
 
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
-                .CommandText = "ImportarFormulario",
+                .CommandText = "BuscarFormulariosXNombre",
                 .Connection = conexion
         }
 
-        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = buscar
+        cmd.Parameters.Add("NOM_F", MySqlDbType.VarChar, 90).Value = buscar
 
         Try
             leer = cmd.ExecuteReader()
@@ -130,7 +130,6 @@ Public Class D_Formulario
         Return formList
     End Function
 
-
     Public Function AltaPreguntas(form As E_Formulario) As Integer
 
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
@@ -156,12 +155,11 @@ Public Class D_Formulario
         Return 1
     End Function
 
-    Public Function ListarFormularios() As List(Of E_Formulario)
-
+    Public Function ConsultaDatosDeFormulario(ID_consulta As Integer) As E_Formulario 'retornar el objeto formulario con todas las respuestas
+        Dim formularioConDatos As New E_Formulario
     End Function
 
-
-    Public Function ConsultaDatosDeFormulario() As E_Formulario
+    Public Function GuardarDatosFormulario(form As E_Formulario) As Integer 'guardar todas las respuestas a las preguntas hechas.
 
     End Function
 

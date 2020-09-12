@@ -18,6 +18,7 @@ Module Credenciales
         conn.ConnectionString = retornarCStringBD()
         Try
             conn.Open()
+            Console.WriteLine("Me conecte bien")
             Return 1
         Catch ex As Exception
             Console.WriteLine("ERROR: " & Err.Number & " " & Err.Description)

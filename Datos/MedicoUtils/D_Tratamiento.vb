@@ -26,55 +26,6 @@ Public Class D_Tratamiento
 
         Return 1
     End Function
-
-    Public Function ModificarTratamiento(tratamiento As E_Tratamiento) As Integer
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "ModificarTratamiento",
-            .Connection = conexion
-        }
-
-        cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = tratamiento.Nombre
-        cmd.Parameters.Add("DESCRIPCION", MySqlDbType.VarChar, 16000).Value = tratamiento.Descripcion
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Cerrar(conexion)
-            Return 2
-        End Try
-        Cerrar(conexion)
-        Return 1
-    End Function
-
-    Public Function BajaTratamiento(tratamiento As E_Tratamiento) As Integer
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "BajaTratamiento",
-            .Connection = conexion
-        }
-
-        Console.WriteLine("este tratamiento tiene id: " & tratamiento.ID)
-        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = tratamiento.ID
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Cerrar(conexion)
-            Return 2
-        End Try
-        Cerrar(conexion)
-        Return 1
-    End Function
-
     Function BuscarTratamientos(buscar As String) As List(Of E_Tratamiento)
         Dim leer As MySqlDataReader
         Dim tratamientoList As New List(Of E_Tratamiento)

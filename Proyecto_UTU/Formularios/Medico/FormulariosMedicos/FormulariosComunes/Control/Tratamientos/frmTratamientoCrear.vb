@@ -8,6 +8,16 @@ Public Class frmTratamientoCrear
     Dim ultimomodo As Modo
     Dim listaTrats As New List(Of E_Tratamiento)
     Dim tratamiento_seleccionado As New E_Tratamiento
+    Dim _CI_Paciente As Integer
+
+    Property CI_Paciente As Integer
+        Get
+            Return _CI_Paciente
+        End Get
+        Set(value As Integer)
+            _CI_Paciente = value
+        End Set
+    End Property
     Public Enum Modo
         Defaultt 'modo para no tener confilcto con la condicional que esta en el evento resetmode
         Alta 'habilito los campos para escribir
@@ -24,30 +34,59 @@ Public Class frmTratamientoCrear
     End Property
 
     Private Async Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
-            MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
+        Select Case ModoActual
+            Case Modo.Alta
+                If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+                    MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
 
-        If Not check_Largo(txtNombreTratamiento.Text, 10, 160, True) Then
-            MessageBox.Show("Nombre: " & MensajeDeErrorLongitud(10, 160), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
+                If Not check_Largo(txtNombreTratamiento.Text, 10, 160, True) Then
+                    MessageBox.Show("Nombre: " & MensajeDeErrorLongitud(10, 160), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
 
-        If Not check_Largo(txtDescripcionTratamiento.Text, 10, 16000, True) Then
-            MessageBox.Show("Descripción: " & MensajeDeErrorLongitud(10, 16000), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
+                If Not check_Largo(txtDescripcionTratamiento.Text, 10, 16000, True) Then
+                    MessageBox.Show("Descripción: " & MensajeDeErrorLongitud(10, 16000), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
 
-        Dim t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
-        Dim result = Await Task.Run(Function() negocio.AltaTratamiento(t))
-        Select Case result
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 1
-                MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
+                Dim result = Await Task.Run(Function() negocio.AltaTratamiento(t))
+                Select Case result
+                    Case -1
+                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 2
+                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 1
+                        MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Select
+            Case Modo.Busqueda 'asignar tratamiento a paciente
+                If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+                    MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                If Not check_Largo(txtNombreTratamiento.Text, 10, 160, True) Then
+                    MessageBox.Show("Nombre: " & MensajeDeErrorLongitud(10, 160), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                If Not check_Largo(txtDescripcionTratamiento.Text, 10, 16000, True) Then
+                    MessageBox.Show("Descripción: " & MensajeDeErrorLongitud(10, 16000), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                Dim t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
+                Dim result = Await Task.Run(Function() negocio.AltaTratamiento(t))
+                Select Case result
+                    Case -1
+                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 2
+                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case 1
+                        MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Select
         End Select
     End Sub
 
@@ -74,6 +113,7 @@ Public Class frmTratamientoCrear
                 tblElementos.SetRow(txtDescripcionTratamiento, 1)
                 tblElementos.RowStyles(2).Height = 6.38
                 tblElementos.RowStyles(1).Height = 78.7
+                btnGuardar.Text = "Guardar Tratamiento"
                 ultimomodo = Modo.Alta
             Case Modo.Busqueda
                 dgwTratamientos.Visible = True
@@ -87,6 +127,7 @@ Public Class frmTratamientoCrear
                 tblElementos.RowStyles(1).Height = 6.38
                 tblElementos.RowStyles(2).Height = 78.7
                 dgwTratamientos.Visible = True
+                btnGuardar.Text = "Asingar Tratamiento"
                 ultimomodo = Modo.Busqueda
         End Select
     End Sub

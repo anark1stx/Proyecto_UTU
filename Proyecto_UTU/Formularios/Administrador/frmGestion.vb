@@ -413,6 +413,8 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 1
                             MessageBox.Show("Paciente ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ci_valida = False
+                            configurarControles()
                             LimpiarControles(Me)
                         Case 2
                             MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -440,6 +442,8 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 1
                             MessageBox.Show("Médico ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ci_valida = False
+                            configurarControles()
                             LimpiarControles(Me)
                         Case 2
                             MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -469,6 +473,8 @@ Public Class frmGestion
                         MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 1
                         MessageBox.Show("Auxiliar ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        ci_valida = False
+                        configurarControles()
                         LimpiarControles(Me)
                     Case 2
                         MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -603,6 +609,9 @@ Public Class frmGestion
                 MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ci_valida = False
+                configurarControles()
+                LimpiarControles(Me)
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
@@ -621,9 +630,12 @@ Public Class frmGestion
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 0
-                MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("No se pudo dar de alta al usuario", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
-                MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("El usuario fue dado de alta.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ci_valida = False
+                configurarControles()
+                LimpiarControles(Me)
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
@@ -670,6 +682,9 @@ Public Class frmGestion
                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue modificado con éxito", "Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ci_valida = False
+                configurarControles()
+                LimpiarControles(Me)
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error modificando usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 3
@@ -915,6 +930,11 @@ Public Class frmGestion
         Catch ex As Exception
             Console.WriteLine("already binded")
         End Try
+        If Not obj.Activo Then
+            btnAltaLogica.Visible = True
+        Else
+            btnAltaLogica.Visible = False
+        End If
     End Sub
 
     Async Sub CargarFotoU(CI As Integer)
@@ -979,4 +999,7 @@ Public Class frmGestion
         Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
     End Sub
 
+    Private Sub btnAltaLogica_Click(sender As Object, e As EventArgs) Handles btnAltaLogica.Click
+        AltaULogica()
+    End Sub
 End Class

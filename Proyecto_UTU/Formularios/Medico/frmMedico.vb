@@ -26,6 +26,7 @@ Public Class frmMedico
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar
 
+    Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado para el predictivo.
     Dim _paciente As New E_Paciente
     Dim PreguntarNombreConsulta As New frmPreguntarNomCons
     Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
@@ -49,10 +50,20 @@ Public Class frmMedico
         End Set
     End Property
 
+    Property ID_Consulta As Integer
+        Get
+            Return _id_consulta
+        End Get
+        Set(value As Integer)
+            _id_consulta = value
+        End Set
+    End Property
+
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
         _paciente.Cedula = 0
+        ID_Consulta = 0
     End Sub
 
     Public Sub addFrm(frm As Form)
@@ -158,7 +169,7 @@ Public Class frmMedico
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
                 frmTratamientoC.ResetMode()
                 frmTratamientoC.ShowDialog()
-            Case "AsignarTratamiento"
+            Case "AsignarTratamiento" 'agarrar la ID de consulta
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Busqueda
                 frmTratamientoC.ResetMode()
@@ -189,7 +200,6 @@ Public Class frmMedico
     End Sub
 
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
-        'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
     End Sub
 
@@ -217,6 +227,8 @@ Public Class frmMedico
             e.Cancel = True
             Me.pnlContenedorFormularios.Controls.Clear()
             Me.Hide()
+            _paciente.Cedula = 0
+            ID_Consulta = 0
             InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
             frmIngreso_Usuario.Show()
         End If
@@ -330,7 +342,6 @@ Public Class frmMedico
         AddHandler frmAnalisisS.btnConsultarDatos.Click,
             Sub()
                 InstanciarFormulario("DatosAnalisis")
-
             End Sub
     End Sub
     Async Sub CargarDatosPaciente()

@@ -78,6 +78,7 @@ Partial Class frmGestion
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
+        Me.btnAltaLogica = New System.Windows.Forms.Button()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlAcciones.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
@@ -118,18 +119,19 @@ Partial Class frmGestion
         '
         'pnlAcciones
         '
+        Me.pnlAcciones.Controls.Add(Me.btnAltaLogica)
         Me.pnlAcciones.Controls.Add(Me.btnAccion2)
         Me.pnlAcciones.Controls.Add(Me.btnAccion1)
-        Me.pnlAcciones.Location = New System.Drawing.Point(947, 6)
+        Me.pnlAcciones.Location = New System.Drawing.Point(889, 6)
         Me.pnlAcciones.Name = "pnlAcciones"
-        Me.pnlAcciones.Size = New System.Drawing.Size(112, 53)
+        Me.pnlAcciones.Size = New System.Drawing.Size(170, 53)
         Me.pnlAcciones.TabIndex = 385
         '
         'btnAccion2
         '
         Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAccion2.ImageList = Me.Accion2
-        Me.btnAccion2.Location = New System.Drawing.Point(3, 6)
+        Me.btnAccion2.Location = New System.Drawing.Point(59, 7)
         Me.btnAccion2.Name = "btnAccion2"
         Me.btnAccion2.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion2.TabIndex = 384
@@ -139,7 +141,7 @@ Partial Class frmGestion
         '
         Me.btnAccion1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAccion1.ImageList = Me.Accion1
-        Me.btnAccion1.Location = New System.Drawing.Point(55, 6)
+        Me.btnAccion1.Location = New System.Drawing.Point(113, 7)
         Me.btnAccion1.Name = "btnAccion1"
         Me.btnAccion1.Size = New System.Drawing.Size(48, 40)
         Me.btnAccion1.TabIndex = 383
@@ -706,6 +708,17 @@ Partial Class frmGestion
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
         Me.dgwUsuarios.TabIndex = 6
         '
+        'btnAltaLogica
+        '
+        Me.btnAltaLogica.BackgroundImage = CType(resources.GetObject("btnAltaLogica.BackgroundImage"), System.Drawing.Image)
+        Me.btnAltaLogica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAltaLogica.Location = New System.Drawing.Point(5, 7)
+        Me.btnAltaLogica.Name = "btnAltaLogica"
+        Me.btnAltaLogica.Size = New System.Drawing.Size(48, 40)
+        Me.btnAltaLogica.TabIndex = 386
+        Me.btnAltaLogica.UseVisualStyleBackColor = True
+        Me.btnAltaLogica.Visible = False
+        '
         'frmGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -786,4 +799,5 @@ Partial Class frmGestion
     Friend WithEvents lblDireccionNumeroTXT As MaskedTextBox
     Friend WithEvents lblComma As Label
     Friend WithEvents pnlAcciones As Panel
+    Friend WithEvents btnAltaLogica As Button
 End Class
