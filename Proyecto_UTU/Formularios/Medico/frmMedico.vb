@@ -468,7 +468,7 @@ Public Class frmMedico
 
         Dim nm As New N_Medico
         Dim result = Await Task.Run(Function() nm.AltaEntrevistaInicial(AuxiliarActual.Cedula, MedicoActual.Cedula, _paciente.Cedula, frmIdentificacion.txtMotivoC.Text))
-        Select Case frmSelecMed.MedicoSelect.ErrMsg
+        Select Case result
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
