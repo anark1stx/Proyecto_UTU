@@ -22,6 +22,7 @@ Partial Class frmInicio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInicio))
         Me.lblAtender = New System.Windows.Forms.Label()
         Me.btnAtenderPaciente = New System.Windows.Forms.Button()
@@ -36,6 +37,7 @@ Partial Class frmInicio
         Me.lblGestion = New System.Windows.Forms.Label()
         Me.btnGestion = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.fotoAuxOmed = New System.Windows.Forms.ImageList(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -194,6 +196,13 @@ Partial Class frmInicio
         Me.Panel2.Size = New System.Drawing.Size(442, 271)
         Me.Panel2.TabIndex = 1
         '
+        'fotoAuxOmed
+        '
+        Me.fotoAuxOmed.ImageStream = CType(resources.GetObject("fotoAuxOmed.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.fotoAuxOmed.TransparentColor = System.Drawing.Color.Transparent
+        Me.fotoAuxOmed.Images.SetKeyName(0, "solo_medico.png")
+        Me.fotoAuxOmed.Images.SetKeyName(1, "solo_auxiliar.png")
+        '
         'frmInicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -232,4 +241,5 @@ Partial Class frmInicio
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblGestion As Label
     Friend WithEvents btnGestion As Button
+    Friend WithEvents fotoAuxOmed As ImageList
 End Class

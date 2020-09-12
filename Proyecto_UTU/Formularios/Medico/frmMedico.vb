@@ -133,7 +133,16 @@ Public Class frmMedico
 
             Case "Inicio"
                 Me.MaximizeBox = True
-
+                Select Case MiModo
+                    Case Modo.SoyMedico
+                        frmIni.btnGestion.ImageIndex = 0
+                        frmIni.lblAtender.Text = "Atender Paciente"
+                        frmIni.btnAtenderPaciente.ImageIndex = 0
+                    Case Modo.SoyAuxiliar
+                        frmIni.btnGestion.ImageIndex = 1
+                        frmIni.lblAtender.Text = "Ingresar pacientes para consulta"
+                        frmIni.btnAtenderPaciente.ImageIndex = 1
+                End Select
                 addFrm(frmIni)
 
             Case "Gestion"
