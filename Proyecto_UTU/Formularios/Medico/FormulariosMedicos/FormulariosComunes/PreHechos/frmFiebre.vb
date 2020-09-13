@@ -65,11 +65,9 @@ Public Class frmFiebre
 
         Eventos.Acciones.TopLevel = False
         Eventos.Acciones.TopMost = True
-        tabEntrevista.Controls.Add(Eventos.Acciones)
+        pnlContenedor.Controls.Add(Eventos.Acciones)
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True
         Eventos.AgregarHandlers()
     End Sub
-
-
 End Class

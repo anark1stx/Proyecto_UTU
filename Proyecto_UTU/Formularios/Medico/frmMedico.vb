@@ -21,6 +21,7 @@ Public Class frmMedico
     Dim frmPlano As New formularioPlano
     Dim frmCatalogo As New frmCatalogoFormulariosBD
 
+    Dim tb As New SintomasYSClinicos
     Dim generico As New frmGenerico
     Dim frmDlr As New frmDolor
     Dim frmFbr As New frmFiebre
@@ -150,6 +151,23 @@ Public Class frmMedico
         End If
     End Sub
 
+    Public Sub addFrmEntrevistaPreHecho(frm As Form) 'este metodo es solo para los pre-hechos
+        pnlContenedorFormularios.Controls.Clear()
+        frm.TopMost = True
+        frm.TopLevel = False
+        frm.Visible = True
+        tb.Dock = DockStyle.Fill
+        pnlContenedorFormularios.Controls.Add(tb)
+        tb.tbpEntrevista.Controls.Add(frm)
+    End Sub
+
+    Public Sub addFrmEntrevistaXML(frmConEntrevistaCargado As formularioPlano) 'este metodo es para los diseñados que se cargan desded su XML
+        pnlContenedorFormularios.Controls.Clear()
+        tb.Dock = DockStyle.Fill
+        pnlContenedorFormularios.Controls.Add(tb)
+        tb.tbpEntrevista.Controls.Add(frmConEntrevistaCargado)
+    End Sub
+
     Public Sub fixSize()
 
         If Me.WindowState = FormWindowState.Normal Then
@@ -242,19 +260,19 @@ Public Class frmMedico
                 'NombreConsulta = PreguntarNombreConsulta.Nombre
             Case "Generico"
                 LimpiarControles(generico)
-                addFrm(generico)
+                addFrmEntrevistaPreHecho(generico)
 
             Case "Dolor"
                 LimpiarControles(frmDlr)
-                addFrm(frmDlr)
+                addFrmEntrevistaPreHecho(frmDlr)
 
             Case "Fiebre"
                 LimpiarControles(frmFbr)
-                addFrm(frmFbr)
+                addFrmEntrevistaPreHecho(frmFbr)
 
             Case "Malestar"
                 LimpiarControles(frmMal)
-                addFrm(frmMal)
+                addFrmEntrevistaPreHecho(frmMal)
 
             Case "Otro"
 
