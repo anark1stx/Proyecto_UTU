@@ -21,7 +21,7 @@ Public Class frmMedico
     Dim frmPlano As New formularioPlano
     Dim frmCatalogo As New frmCatalogoFormulariosBD
 
-    Dim tb As New SintomasYSClinicos
+    Dim tb As New ContenedorEntrevistas
     Dim generico As New frmGenerico
     Dim frmDlr As New frmDolor
     Dim frmFbr As New frmFiebre

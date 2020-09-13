@@ -1,4 +1,4 @@
-﻿Public Class SintomasYSClinicos
+﻿Public Class ContenedorEntrevistas
     Private Sub btnAgregarSClinico_Click(sender As Object, e As EventArgs) Handles btnAgregarSClinico.Click
         If Not lbSignosClinicos.Items.Contains(txtSgClinico.Text) Then
             lbSignosClinicos.Items.Add(txtSgClinico.Text)

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class SintomasYSClinicos
+Partial Class ContenedorEntrevistas
     Inherits System.Windows.Forms.UserControl
 
     'UserControl reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class SintomasYSClinicos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SintomasYSClinicos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContenedorEntrevistas))
         Me.TabControlFormulario = New System.Windows.Forms.TabControl()
         Me.tbpEntrevista = New System.Windows.Forms.TabPage()
         Me.tbpSintomasYsg = New System.Windows.Forms.TabPage()
