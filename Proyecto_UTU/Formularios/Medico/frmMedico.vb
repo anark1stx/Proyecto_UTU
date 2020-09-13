@@ -403,7 +403,11 @@ Public Class frmMedico
                 Dim ev As New EventArgs
                 frmAnalisisS.btnBuscar_Click(s, ev)
             End Sub
-
+        AddHandler _entrevistas.btnAtender.Click,
+            Sub()
+                _paciente.Cedula = _entrevistas.EntrevistaSeleccionada.Paciente.Cedula
+                InstanciarFormulario("Entrevista")
+            End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 
         AddHandler frmEntrevista.btnFrmGenerico.Click,
