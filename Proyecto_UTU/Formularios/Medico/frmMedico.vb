@@ -226,6 +226,7 @@ Public Class frmMedico
                             Exit Sub
                         End If
                         BloquearIdentificacion(False)
+                        NombreConsulta = frmSelecMed.NombreConsulta
                     Case Modo.SoyAuxiliar
                         If frmSelecMed.MedicoSelect.Cedula = 0 Then
                             MessageBox.Show("No se seleccionó ningún médico.", "No fue seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
