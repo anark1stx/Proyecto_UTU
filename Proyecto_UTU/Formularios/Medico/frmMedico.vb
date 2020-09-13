@@ -69,11 +69,11 @@ Public Class frmMedico
         End Set
     End Property
 
-    Property NombreConsulta
+    Property NombreConsulta As String
         Get
             Return _nombreConsulta
         End Get
-        Set(value)
+        Set(value As String)
             _nombreConsulta = value
         End Set
     End Property
@@ -192,9 +192,16 @@ Public Class frmMedico
 
             Case "Atender"
                 Me.MaximizeBox = False
+                If String.IsNullOrEmpty(NombreConsulta) Then
+                    InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
+                End If
+
                 addFrm(frmOpsConsulta)
 
             Case "Identificacion"
+                If String.IsNullOrEmpty(NombreConsulta) Then
+                    InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
+                End If
                 LimpiarControles(frmIdentificacion)
                 frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.MedicoAtiende
                 frmIdentificacion.configurarControles()
@@ -202,11 +209,11 @@ Public Class frmMedico
                 addFrm(frmIdentificacion)
 
             Case "SeleccionarMedico"
-                LimpiarControles(frmSelecMed)
                 Select Case MiModo
                     Case Modo.SoyMedico
                         frmSelecMed.ComoMedico = True
                         CargarDatosMedico()
+                        frmSelecMed.ActiveControl = frmSelecMed.txtNomConsulta
                     Case Modo.SoyAuxiliar
                         frmSelecMed.ComoMedico = False
                 End Select
@@ -218,7 +225,6 @@ Public Class frmMedico
                             BloquearIdentificacion(True)
                             Exit Sub
                         End If
-                        InstanciarFormulario("EntrevistaInicial") 'se lo dejamos cargado
                         BloquearIdentificacion(False)
                     Case Modo.SoyAuxiliar
                         If frmSelecMed.MedicoSelect.Cedula = 0 Then
@@ -251,13 +257,13 @@ Public Class frmMedico
                     MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
                 End If
-
+                If String.IsNullOrEmpty(NombreConsulta) Then
+                    InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
+                End If
                 Me.MaximizeBox = False
                 fixSize()
 
                 addFrm(frmEntrevista)
-                'PreguntarNombreConsulta.ShowDialog()
-                'NombreConsulta = PreguntarNombreConsulta.Nombre
             Case "Generico"
                 LimpiarControles(generico)
                 addFrmEntrevistaPreHecho(generico)
@@ -696,12 +702,6 @@ Public Class frmMedico
     End Sub
 
     Private Sub DefinirConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DefinirConsultaToolStripMenuItem.Click
-        'pedir nombre de referencia para la consulta, hasta que no lo llene no habilitamos el resto.
-        'cuando vaya a cambiar el nombre pedimos confirmacion.
-        'abro frmSeleccionarMedico
-        'bloqueo la edicion de cedula
-        'escondo boton buscar
-        'habilito txtNombreReferencia
         InstanciarFormulario("SeleccionarMedico")
     End Sub
 

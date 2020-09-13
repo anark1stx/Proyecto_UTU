@@ -269,6 +269,7 @@ Partial Class frmSeleccionarMedico
         Me.Controls.Add(Me.btnConfirmar)
         Me.Controls.Add(Me.tblDatosMedico)
         Me.Name = "frmSeleccionarMedico"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmSeleccionarMedico"
         Me.tblDatosMedico.ResumeLayout(False)
         CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
