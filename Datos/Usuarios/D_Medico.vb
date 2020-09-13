@@ -321,15 +321,46 @@ Public Class D_Medico
 
         Try
             cmd.ExecuteNonQuery()
-        Catch ex As Exception
+        Catch ex As Exception 'lo mas seguro es que la excepcion que se produzca aca sea que ya existe una tupla con la misma clave primaria {CI_M,CI_P,CI_A} (duplicate entry)
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            Return 2 ' no se pudo ingresar entrevista inicial
+            Return 2
         End Try
 
         Cerrar(conexion)
         Return 1
     End Function
+
+    Public Function EntrevistaInicialExiste(ei As E_EntrevistaIni) As Integer
+        Dim existe As Integer = 0
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+            .Connection = conexion,
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "EntrevistaExiste"
+        }
+
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = ei.Paciente.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = ei.Medico.Cedula
+        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = ei.Auxiliar.Cedula
+        cmd.Parameters.Add("EXISTE", MySqlDbType.Bit, 1).Direction = ParameterDirection.Output
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            Return -2
+        End Try
+        Cerrar(conexion)
+        existe = cmd.Parameters("EXISTE").Value
+
+        Return existe
+    End Function
+
 
     Public Function ConsultarMisConsultasDeHoy(CI_m As Integer) As List(Of E_EntrevistaIni)
         Dim leer As MySqlDataReader
@@ -360,12 +391,12 @@ Public Class D_Medico
         If leer.HasRows Then
             While leer.Read()
                 Dim ei = New E_EntrevistaIni With {
-                .ID = leer.GetInt32("ID"),
                 .Paciente = dp.ListarPacientesCI(leer.GetInt32("CI_paciente")),
                 .Auxiliar = New E_Usuario With {.Cedula = leer.GetInt32("CI_auxiliar")},
                 .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")},
                 .Motivo = leer.GetString("motivo")
                 }
+                Console.WriteLine(ei.Paciente.Nombre1)
                 ei.Paciente.Foto = dp.LeerFotoUsuario(ei.Paciente.Cedula)
                 Clist.Add(ei)
             End While

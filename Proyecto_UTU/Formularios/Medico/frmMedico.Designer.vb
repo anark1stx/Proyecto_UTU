@@ -29,6 +29,7 @@ Partial Class frmMedico
         Me.SeleccionarMedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerListadoDeHoyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtenderMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefinirConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IdentificarPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntrevistarPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerListadoDeHoyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,6 +45,7 @@ Partial Class frmMedico
         Me.AsignarAnalisisPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
+        Me.IdentificarPacienteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -71,7 +73,7 @@ Partial Class frmMedico
         '
         'EntrevistaInicialToolStripMenuItem
         '
-        Me.EntrevistaInicialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionarMedicoToolStripMenuItem, Me.VerListadoDeHoyToolStripMenuItem1})
+        Me.EntrevistaInicialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionarMedicoToolStripMenuItem, Me.IdentificarPacienteToolStripMenuItem1, Me.VerListadoDeHoyToolStripMenuItem1})
         Me.EntrevistaInicialToolStripMenuItem.Name = "EntrevistaInicialToolStripMenuItem"
         Me.EntrevistaInicialToolStripMenuItem.Size = New System.Drawing.Size(130, 24)
         Me.EntrevistaInicialToolStripMenuItem.Text = "Entrevista inicial"
@@ -90,10 +92,16 @@ Partial Class frmMedico
         '
         'AtenderMenuItem
         '
-        Me.AtenderMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IdentificarPacienteToolStripMenuItem, Me.EntrevistarPacienteToolStripMenuItem, Me.VerListadoDeHoyToolStripMenuItem})
+        Me.AtenderMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirConsultaToolStripMenuItem, Me.IdentificarPacienteToolStripMenuItem, Me.EntrevistarPacienteToolStripMenuItem, Me.VerListadoDeHoyToolStripMenuItem})
         Me.AtenderMenuItem.Name = "AtenderMenuItem"
         Me.AtenderMenuItem.Size = New System.Drawing.Size(141, 24)
         Me.AtenderMenuItem.Text = "Atender Pacientes"
+        '
+        'DefinirConsultaToolStripMenuItem
+        '
+        Me.DefinirConsultaToolStripMenuItem.Name = "DefinirConsultaToolStripMenuItem"
+        Me.DefinirConsultaToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.DefinirConsultaToolStripMenuItem.Text = "Definir Consulta"
         '
         'IdentificarPacienteToolStripMenuItem
         '
@@ -192,6 +200,12 @@ Partial Class frmMedico
         Me.pnlContenedorFormularios.Size = New System.Drawing.Size(1130, 720)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
+        'IdentificarPacienteToolStripMenuItem1
+        '
+        Me.IdentificarPacienteToolStripMenuItem1.Name = "IdentificarPacienteToolStripMenuItem1"
+        Me.IdentificarPacienteToolStripMenuItem1.Size = New System.Drawing.Size(224, 26)
+        Me.IdentificarPacienteToolStripMenuItem1.Text = "Identificar Paciente"
+        '
         'frmMedico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -234,4 +248,6 @@ Partial Class frmMedico
     Friend WithEvents VerListadoDeHoyToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SeleccionarMedicoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerListadoDeHoyToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DefinirConsultaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IdentificarPacienteToolStripMenuItem1 As ToolStripMenuItem
 End Class

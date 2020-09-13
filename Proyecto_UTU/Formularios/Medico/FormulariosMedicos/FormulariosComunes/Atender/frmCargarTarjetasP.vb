@@ -28,7 +28,7 @@ Public Class frmCargarTarjetasP
         tblTarjetas.Controls.Clear()
         tblTarjetas.RowStyles.Clear()
         tblTarjetas.RowCount = 1
-        If ListaEntrevistas.Count > 1 Then
+        If ListaEntrevistas.Count > 0 Then
             For Each ei As E_EntrevistaIni In ListaEntrevistas
                 If Not ei Is ListaEntrevistas.Last() Then
                     tblTarjetas.RowCount += 1

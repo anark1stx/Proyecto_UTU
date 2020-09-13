@@ -3,6 +3,7 @@ Imports Utilidades
 Public Class frmSeleccionarMedico
     Protected _medicoSelect As New E_Medico
     Protected _nombreConsulta As String 'no se va a guardar en entrevistainicial, queda guardado en Atiende, nosotros aca lo persistimos nomas
+    Protected _comomedico As Boolean = False
     Property MedicoSelect As E_Medico
         Get
             Return _medicoSelect
@@ -22,6 +23,7 @@ Public Class frmSeleccionarMedico
     End Property
 
     Sub PoblarDatos()
+        Console.WriteLine(MedicoSelect.Cedula)
         txtCIMedico.Text = MedicoSelect.Cedula
 
         If MedicoSelect.Nombre2 IsNot String.Empty Then
@@ -52,16 +54,17 @@ Public Class frmSeleccionarMedico
             MessageBox.Show("No fue seleccionado ningún médico. Luego de ingresar su cédula presione el botón de buscar.", "No se seleccionó un médico.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         Else
-            If Not check_Largo(txtNomConsulta.Text, 5, 120, True) Then
-                MessageBox.Show(MensajeDeErrorLongitud(5, 120), "Información inválida.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            End If
+            If _comomedico Then
+                If Not check_Largo(txtNomConsulta.Text, 5, 120, True) Then
+                    MessageBox.Show(MensajeDeErrorLongitud(5, 120), "Información inválida.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
+                End If
 
-            If Not check_regex(txtNomConsulta.Text, RegexLiteralAcentos) Then
-                MessageBox.Show(MensajeDeErrorCaracteres(), "Se detectaron caracteres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
+                If Not check_regex(txtNomConsulta.Text, RegexLiteralAcentos) Then
+                    MessageBox.Show(MensajeDeErrorCaracteres(), "Se detectaron caracteres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
             End If
-
             Me.Hide() 'si esta todo bien
         End If
     End Sub

@@ -31,4 +31,8 @@ Public Class N_Medico
         Return objDatos.ConsultarMisConsultasDeHoy(CI_m)
     End Function
 
+    Public Function EntrevistaInicialExiste(ei As E_EntrevistaIni) As Integer
+        Return objDatos.EntrevistaInicialExiste(ei)
+    End Function
+
 End Class
