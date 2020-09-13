@@ -24,9 +24,10 @@ Public Class frmCargarTarjetasP
         RefrescarTarjetas()
     End Sub
 
-
     Sub RefrescarTarjetas()
+        tblTarjetas.Controls.Clear()
         tblTarjetas.RowStyles.Clear()
+        tblTarjetas.RowCount = 1
         If ListaEntrevistas.Count > 1 Then
             For Each ei As E_EntrevistaIni In ListaEntrevistas
                 If Not ei Is ListaEntrevistas.Last() Then

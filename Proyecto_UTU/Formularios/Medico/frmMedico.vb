@@ -389,7 +389,7 @@ Public Class frmMedico
                         CargarDatosPaciente()
                     End Sub
 
-        AddHandler frmCargarTarjetasP.btnRefrescar.Click,
+        AddHandler _entrevistas.btnRefrescar.Click,
                     Sub()
                         Console.WriteLine("REFRESCANDO")
                         VerConsultasDeHoy()
@@ -514,7 +514,7 @@ Public Class frmMedico
                 LimpiarControles(frmIdentificacion)
             Case Else
                 Console.WriteLine("encontre entrevistas")
-                _entrevistas.tblTarjetas.Controls.Clear()
+                '_entrevistas.tblTarjetas.Controls.Clear()
                 _entrevistas.ListaEntrevistas = result
                 addFrm(_entrevistas)
         End Select
