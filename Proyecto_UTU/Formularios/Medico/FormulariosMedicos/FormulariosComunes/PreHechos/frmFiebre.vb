@@ -71,20 +71,5 @@ Public Class frmFiebre
         Eventos.AgregarHandlers()
     End Sub
 
-    Private Sub btnAgregarSClinico_Click(sender As Object, e As EventArgs) Handles btnAgregarSClinico.Click
-        If Not lbSignosClinicos.Items.Contains(txtSgClinico.Text) Then
-            lbSignosClinicos.Items.Add(txtSgClinico.Text)
-        Else
-            MessageBox.Show("Ese signo clínico ya fue ingresado")
-        End If
 
-    End Sub
-
-    Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
-        If Not lbSignosClinicos.Items.Contains(txtSintoma.Text) Then
-            lbSignosClinicos.Items.Add(txtSintoma.Text)
-        Else
-            MessageBox.Show("Ese síntoma ya fue ingresado")
-        End If
-    End Sub
 End Class

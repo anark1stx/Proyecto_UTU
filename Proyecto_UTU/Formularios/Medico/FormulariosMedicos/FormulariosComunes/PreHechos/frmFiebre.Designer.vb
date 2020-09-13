@@ -24,8 +24,8 @@ Partial Class frmFiebre
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFiebre))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.tabs = New System.Windows.Forms.TabControl()
-        Me.tabEntrevista = New System.Windows.Forms.TabPage()
+        Me.Imprimir = New System.Drawing.Printing.PrintDocument()
+        Me.pp = New System.Windows.Forms.PrintPreviewDialog()
         Me.gbResolucion = New System.Windows.Forms.GroupBox()
         Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
         Me.gbDescripcionDiagnostico = New System.Windows.Forms.GroupBox()
@@ -59,20 +59,7 @@ Partial Class frmFiebre
         Me.lblGrados = New System.Windows.Forms.Label()
         Me.lblTemperatura = New System.Windows.Forms.Label()
         Me.txtTemperatura = New System.Windows.Forms.TextBox()
-        Me.tabSintomasYSignos = New System.Windows.Forms.TabPage()
-        Me.btnAgregarSintoma = New System.Windows.Forms.Button()
-        Me.lblIngreseSintoma = New System.Windows.Forms.Label()
-        Me.txtSintoma = New System.Windows.Forms.TextBox()
-        Me.lbSintomas = New System.Windows.Forms.ListBox()
-        Me.btnAgregarSClinico = New System.Windows.Forms.Button()
-        Me.lblIngreseSignoClinico = New System.Windows.Forms.Label()
-        Me.txtSgClinico = New System.Windows.Forms.TextBox()
-        Me.lbSignosClinicos = New System.Windows.Forms.ListBox()
-        Me.Imprimir = New System.Drawing.Printing.PrintDocument()
-        Me.pp = New System.Windows.Forms.PrintPreviewDialog()
         Me.pnlContenedor.SuspendLayout()
-        Me.tabs.SuspendLayout()
-        Me.tabEntrevista.SuspendLayout()
         Me.gbResolucion.SuspendLayout()
         Me.gbDescripcionDiagnostico.SuspendLayout()
         Me.gbPreguntas.SuspendLayout()
@@ -81,42 +68,28 @@ Partial Class frmFiebre
         Me.tblPulso.SuspendLayout()
         Me.tblGradoHidratacion.SuspendLayout()
         Me.tblTemperatura.SuspendLayout()
-        Me.tabSintomasYSignos.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
         '
         Me.pnlContenedor.AutoScroll = True
-        Me.pnlContenedor.Controls.Add(Me.tabs)
+        Me.pnlContenedor.Controls.Add(Me.gbResolucion)
+        Me.pnlContenedor.Controls.Add(Me.gbPreguntas)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1334, 815)
         Me.pnlContenedor.TabIndex = 0
         '
-        'tabs
+        'pp
         '
-        Me.tabs.Controls.Add(Me.tabEntrevista)
-        Me.tabs.Controls.Add(Me.tabSintomasYSignos)
-        Me.tabs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tabs.Location = New System.Drawing.Point(0, 0)
-        Me.tabs.Name = "tabs"
-        Me.tabs.SelectedIndex = 0
-        Me.tabs.Size = New System.Drawing.Size(1334, 815)
-        Me.tabs.TabIndex = 0
-        '
-        'tabEntrevista
-        '
-        Me.tabEntrevista.AutoScroll = True
-        Me.tabEntrevista.BackColor = System.Drawing.Color.LightBlue
-        Me.tabEntrevista.Controls.Add(Me.gbResolucion)
-        Me.tabEntrevista.Controls.Add(Me.gbPreguntas)
-        Me.tabEntrevista.Location = New System.Drawing.Point(4, 25)
-        Me.tabEntrevista.Margin = New System.Windows.Forms.Padding(0)
-        Me.tabEntrevista.Name = "tabEntrevista"
-        Me.tabEntrevista.Size = New System.Drawing.Size(1326, 786)
-        Me.tabEntrevista.TabIndex = 0
-        Me.tabEntrevista.Text = "Entrevista"
+        Me.pp.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.pp.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.pp.ClientSize = New System.Drawing.Size(400, 300)
+        Me.pp.Enabled = True
+        Me.pp.Icon = CType(resources.GetObject("pp.Icon"), System.Drawing.Icon)
+        Me.pp.Name = "pp"
+        Me.pp.Visible = False
         '
         'gbResolucion
         '
@@ -126,10 +99,10 @@ Partial Class frmFiebre
         Me.gbResolucion.Controls.Add(Me.chkAnalisis)
         Me.gbResolucion.Controls.Add(Me.lblNomAnalisis)
         Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbResolucion.Location = New System.Drawing.Point(58, 581)
+        Me.gbResolucion.Location = New System.Drawing.Point(82, 584)
         Me.gbResolucion.Name = "gbResolucion"
         Me.gbResolucion.Size = New System.Drawing.Size(1160, 381)
-        Me.gbResolucion.TabIndex = 53
+        Me.gbResolucion.TabIndex = 55
         Me.gbResolucion.TabStop = False
         Me.gbResolucion.Text = "Resolución"
         '
@@ -221,10 +194,10 @@ Partial Class frmFiebre
         Me.gbPreguntas.Controls.Add(Me.tblPulso)
         Me.gbPreguntas.Controls.Add(Me.tblGradoHidratacion)
         Me.gbPreguntas.Controls.Add(Me.tblTemperatura)
-        Me.gbPreguntas.Location = New System.Drawing.Point(58, 3)
+        Me.gbPreguntas.Location = New System.Drawing.Point(82, 7)
         Me.gbPreguntas.Name = "gbPreguntas"
         Me.gbPreguntas.Size = New System.Drawing.Size(1160, 572)
-        Me.gbPreguntas.TabIndex = 54
+        Me.gbPreguntas.TabIndex = 56
         Me.gbPreguntas.TabStop = False
         '
         'chkSensoriales
@@ -493,7 +466,7 @@ Partial Class frmFiebre
         Me.tblTemperatura.ColumnCount = 3
         Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.27646!))
         Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.72354!))
-        Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62.0!))
         Me.tblTemperatura.Controls.Add(Me.lblGrados, 2, 0)
         Me.tblTemperatura.Controls.Add(Me.lblTemperatura, 0, 0)
         Me.tblTemperatura.Controls.Add(Me.txtTemperatura, 1, 0)
@@ -510,7 +483,7 @@ Partial Class frmFiebre
         Me.lblGrados.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblGrados.AutoSize = True
         Me.lblGrados.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGrados.Location = New System.Drawing.Point(519, 4)
+        Me.lblGrados.Location = New System.Drawing.Point(518, 4)
         Me.lblGrados.Name = "lblGrados"
         Me.lblGrados.Size = New System.Drawing.Size(23, 29)
         Me.lblGrados.TabIndex = 4
@@ -532,115 +505,11 @@ Partial Class frmFiebre
         '
         Me.txtTemperatura.Dock = System.Windows.Forms.DockStyle.Right
         Me.txtTemperatura.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTemperatura.Location = New System.Drawing.Point(452, 3)
+        Me.txtTemperatura.Location = New System.Drawing.Point(450, 3)
         Me.txtTemperatura.Name = "txtTemperatura"
         Me.txtTemperatura.Size = New System.Drawing.Size(45, 30)
         Me.txtTemperatura.TabIndex = 3
         Me.txtTemperatura.Tag = "r1"
-        '
-        'tabSintomasYSignos
-        '
-        Me.tabSintomasYSignos.BackColor = System.Drawing.Color.LightBlue
-        Me.tabSintomasYSignos.Controls.Add(Me.btnAgregarSintoma)
-        Me.tabSintomasYSignos.Controls.Add(Me.lblIngreseSintoma)
-        Me.tabSintomasYSignos.Controls.Add(Me.txtSintoma)
-        Me.tabSintomasYSignos.Controls.Add(Me.lbSintomas)
-        Me.tabSintomasYSignos.Controls.Add(Me.btnAgregarSClinico)
-        Me.tabSintomasYSignos.Controls.Add(Me.lblIngreseSignoClinico)
-        Me.tabSintomasYSignos.Controls.Add(Me.txtSgClinico)
-        Me.tabSintomasYSignos.Controls.Add(Me.lbSignosClinicos)
-        Me.tabSintomasYSignos.Location = New System.Drawing.Point(4, 25)
-        Me.tabSintomasYSignos.Name = "tabSintomasYSignos"
-        Me.tabSintomasYSignos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabSintomasYSignos.Size = New System.Drawing.Size(1326, 786)
-        Me.tabSintomasYSignos.TabIndex = 1
-        Me.tabSintomasYSignos.Text = "Síntomas y Signos Clínicos"
-        '
-        'btnAgregarSintoma
-        '
-        Me.btnAgregarSintoma.BackgroundImage = CType(resources.GetObject("btnAgregarSintoma.BackgroundImage"), System.Drawing.Image)
-        Me.btnAgregarSintoma.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAgregarSintoma.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarSintoma.Location = New System.Drawing.Point(1271, 66)
-        Me.btnAgregarSintoma.Name = "btnAgregarSintoma"
-        Me.btnAgregarSintoma.Size = New System.Drawing.Size(40, 30)
-        Me.btnAgregarSintoma.TabIndex = 7
-        Me.btnAgregarSintoma.UseVisualStyleBackColor = True
-        '
-        'lblIngreseSintoma
-        '
-        Me.lblIngreseSintoma.AutoSize = True
-        Me.lblIngreseSintoma.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIngreseSintoma.Location = New System.Drawing.Point(713, 67)
-        Me.lblIngreseSintoma.Name = "lblIngreseSintoma"
-        Me.lblIngreseSintoma.Size = New System.Drawing.Size(190, 29)
-        Me.lblIngreseSintoma.TabIndex = 6
-        Me.lblIngreseSintoma.Text = "Ingrese sintoma:"
-        '
-        'txtSintoma
-        '
-        Me.txtSintoma.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSintoma.Location = New System.Drawing.Point(909, 66)
-        Me.txtSintoma.Name = "txtSintoma"
-        Me.txtSintoma.Size = New System.Drawing.Size(356, 30)
-        Me.txtSintoma.TabIndex = 5
-        '
-        'lbSintomas
-        '
-        Me.lbSintomas.FormattingEnabled = True
-        Me.lbSintomas.ItemHeight = 16
-        Me.lbSintomas.Location = New System.Drawing.Point(718, 118)
-        Me.lbSintomas.Name = "lbSintomas"
-        Me.lbSintomas.Size = New System.Drawing.Size(593, 660)
-        Me.lbSintomas.TabIndex = 4
-        '
-        'btnAgregarSClinico
-        '
-        Me.btnAgregarSClinico.BackgroundImage = CType(resources.GetObject("btnAgregarSClinico.BackgroundImage"), System.Drawing.Image)
-        Me.btnAgregarSClinico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAgregarSClinico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarSClinico.Location = New System.Drawing.Point(564, 66)
-        Me.btnAgregarSClinico.Name = "btnAgregarSClinico"
-        Me.btnAgregarSClinico.Size = New System.Drawing.Size(40, 30)
-        Me.btnAgregarSClinico.TabIndex = 3
-        Me.btnAgregarSClinico.UseVisualStyleBackColor = True
-        '
-        'lblIngreseSignoClinico
-        '
-        Me.lblIngreseSignoClinico.AutoSize = True
-        Me.lblIngreseSignoClinico.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIngreseSignoClinico.Location = New System.Drawing.Point(6, 67)
-        Me.lblIngreseSignoClinico.Name = "lblIngreseSignoClinico"
-        Me.lblIngreseSignoClinico.Size = New System.Drawing.Size(240, 29)
-        Me.lblIngreseSignoClinico.TabIndex = 2
-        Me.lblIngreseSignoClinico.Text = "Ingrese signo clínico:"
-        '
-        'txtSgClinico
-        '
-        Me.txtSgClinico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSgClinico.Location = New System.Drawing.Point(252, 66)
-        Me.txtSgClinico.Name = "txtSgClinico"
-        Me.txtSgClinico.Size = New System.Drawing.Size(306, 30)
-        Me.txtSgClinico.TabIndex = 1
-        '
-        'lbSignosClinicos
-        '
-        Me.lbSignosClinicos.FormattingEnabled = True
-        Me.lbSignosClinicos.ItemHeight = 16
-        Me.lbSignosClinicos.Location = New System.Drawing.Point(11, 118)
-        Me.lbSignosClinicos.Name = "lbSignosClinicos"
-        Me.lbSignosClinicos.Size = New System.Drawing.Size(593, 660)
-        Me.lbSignosClinicos.TabIndex = 0
-        '
-        'pp
-        '
-        Me.pp.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.pp.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.pp.ClientSize = New System.Drawing.Size(400, 300)
-        Me.pp.Enabled = True
-        Me.pp.Icon = CType(resources.GetObject("pp.Icon"), System.Drawing.Icon)
-        Me.pp.Name = "pp"
-        Me.pp.Visible = False
         '
         'frmFiebre
         '
@@ -653,8 +522,6 @@ Partial Class frmFiebre
         Me.Name = "frmFiebre"
         Me.Text = "frm"
         Me.pnlContenedor.ResumeLayout(False)
-        Me.tabs.ResumeLayout(False)
-        Me.tabEntrevista.ResumeLayout(False)
         Me.gbResolucion.ResumeLayout(False)
         Me.gbResolucion.PerformLayout()
         Me.gbDescripcionDiagnostico.ResumeLayout(False)
@@ -666,16 +533,13 @@ Partial Class frmFiebre
         Me.tblGradoHidratacion.ResumeLayout(False)
         Me.tblTemperatura.ResumeLayout(False)
         Me.tblTemperatura.PerformLayout()
-        Me.tabSintomasYSignos.ResumeLayout(False)
-        Me.tabSintomasYSignos.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents pnlContenedor As Panel
-    Friend WithEvents tabs As TabControl
-    Friend WithEvents tabEntrevista As TabPage
-    Friend WithEvents tabSintomasYSignos As TabPage
+    Friend WithEvents Imprimir As Printing.PrintDocument
+    Friend WithEvents pp As PrintPreviewDialog
     Friend WithEvents gbResolucion As GroupBox
     Friend WithEvents txtNomAnalisis As TextBox
     Friend WithEvents gbDescripcionDiagnostico As GroupBox
@@ -709,14 +573,4 @@ Partial Class frmFiebre
     Friend WithEvents lblGrados As Label
     Friend WithEvents lblTemperatura As Label
     Friend WithEvents txtTemperatura As TextBox
-    Friend WithEvents Imprimir As Printing.PrintDocument
-    Friend WithEvents pp As PrintPreviewDialog
-    Friend WithEvents lblIngreseSignoClinico As Label
-    Friend WithEvents txtSgClinico As TextBox
-    Friend WithEvents lbSignosClinicos As ListBox
-    Friend WithEvents btnAgregarSClinico As Button
-    Friend WithEvents btnAgregarSintoma As Button
-    Friend WithEvents lblIngreseSintoma As Label
-    Friend WithEvents txtSintoma As TextBox
-    Friend WithEvents lbSintomas As ListBox
 End Class

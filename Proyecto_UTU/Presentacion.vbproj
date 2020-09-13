@@ -109,6 +109,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\SintomasYSClinicos.Designer.vb">
+      <DependentUpon>SintomasYSClinicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\SintomasYSClinicos.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
       <DependentUpon>TarjetaPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\SintomasYSClinicos.resx">
+      <DependentUpon>SintomasYSClinicos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
