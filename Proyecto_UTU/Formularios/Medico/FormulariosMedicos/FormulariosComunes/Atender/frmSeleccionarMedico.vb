@@ -22,6 +22,14 @@ Public Class frmSeleccionarMedico
         End Set
     End Property
 
+    Property ComoMedico As Boolean
+        Get
+            Return _comomedico
+        End Get
+        Set(value As Boolean)
+            _comomedico = value
+        End Set
+    End Property
     Sub PoblarDatos()
         Console.WriteLine(MedicoSelect.Cedula)
         txtCIMedico.Text = MedicoSelect.Cedula

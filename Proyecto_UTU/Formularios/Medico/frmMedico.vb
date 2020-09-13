@@ -113,6 +113,8 @@ Public Class frmMedico
                 frmIni.btnGestion.ImageIndex = 1
                 frmIni.lblAtender.Text = "Ingresar pacientes para consulta"
                 frmIni.btnAtenderPaciente.ImageIndex = 1
+                frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
+
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -131,7 +133,9 @@ Public Class frmMedico
                 frmIni.btnGestion.ImageIndex = 0
                 frmIni.lblAtender.Text = "Atender Paciente"
                 frmIni.btnAtenderPaciente.ImageIndex = 0
+                frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
         End Select
+        frmGestion.MiModo = MiModo
     End Sub
 
     Public Sub addFrm(frm As Form)
@@ -165,7 +169,6 @@ Public Class frmMedico
                 addFrm(frmIni)
 
             Case "Gestion"
-                frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
                 addFrm(frmGestion)
 
             Case "Atender"
@@ -183,7 +186,10 @@ Public Class frmMedico
                 LimpiarControles(frmSelecMed)
                 Select Case MiModo
                     Case Modo.SoyMedico
+                        frmSelecMed.ComoMedico = True
                         CargarDatosMedico()
+                    Case Modo.SoyAuxiliar
+                        frmSelecMed.ComoMedico = False
                 End Select
                 frmSelecMed.ShowDialog()
                 Select Case MiModo
