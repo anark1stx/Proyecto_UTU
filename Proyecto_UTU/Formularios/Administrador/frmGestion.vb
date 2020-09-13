@@ -494,7 +494,7 @@ Public Class frmGestion
 
         Dim u_default As New E_Usuario
         If cbEspecialidades.Items.Count < 1 Then
-            MessageBox.Show("Ingrese al menos una especialidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Ingrese al menos una especialidad. En el caso de que el médico no tenga una, ingrese ""Medicina general""", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return New E_Medico With {
                 .Cedula = 0
             }
