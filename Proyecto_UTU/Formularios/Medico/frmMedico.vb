@@ -114,7 +114,7 @@ Public Class frmMedico
                 frmIni.lblAtender.Text = "Ingresar pacientes para consulta"
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
-
+                _entrevistas.tblAcciones.Visible = False
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -134,6 +134,7 @@ Public Class frmMedico
                 frmIni.lblAtender.Text = "Atender Paciente"
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
+                _entrevistas.tblAcciones.Visible = True
         End Select
         frmGestion.MiModo = MiModo
     End Sub
