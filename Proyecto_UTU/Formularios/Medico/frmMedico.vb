@@ -277,9 +277,6 @@ Public Class frmMedico
                 addFrm(frmAnalisisS)
             Case "DatosAnalisis"
                 LimpiarControles(frmAnalisisS)
-                Dim pac As New E_Paciente With {
-                    .Cedula = frmAnalisisS.txtBuscar.Text
-                }
 
                 'pac.buscarPorCI()
 
@@ -395,6 +392,17 @@ Public Class frmMedico
                         VerConsultasDeHoy()
                         _entrevistas.RefrescarTarjetas()
                     End Sub
+        'AddHandler _entrevistas.btnVerConsultasPrevias, <- pendiente
+
+        AddHandler _entrevistas.btnVerAnalisis.Click,
+            Sub()
+                _paciente.Cedula = _entrevistas.EntrevistaSeleccionada.Paciente.Cedula
+                InstanciarFormulario("SeguirAnalisis")
+                frmAnalisisS.txtBuscar.Text = _paciente.Cedula
+                Dim s As New Object
+                Dim ev As New EventArgs
+                frmAnalisisS.btnBuscar_Click(s, ev)
+            End Sub
 
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 

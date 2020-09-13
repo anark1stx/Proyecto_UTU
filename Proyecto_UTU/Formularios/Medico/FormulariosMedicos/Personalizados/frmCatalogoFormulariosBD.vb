@@ -80,6 +80,7 @@ Public Class frmCatalogoFormulariosBD
                                 Color.Red, 10, ButtonBorderStyle.Solid,
                                 Color.Red, 10, ButtonBorderStyle.Solid,
                                 Color.Red, 10, ButtonBorderStyle.Solid)
+
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click

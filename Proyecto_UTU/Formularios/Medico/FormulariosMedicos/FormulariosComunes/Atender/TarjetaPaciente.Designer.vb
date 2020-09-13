@@ -72,6 +72,7 @@ Partial Class TarjetaPaciente
         '
         Me.txtMotivo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtMotivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMotivo.Location = New System.Drawing.Point(252, 93)
         Me.txtMotivo.Multiline = True
         Me.txtMotivo.Name = "txtMotivo"

@@ -11,4 +11,7 @@
         '-1 Abrir formulario de datos en modo de lectura (todo con labels)
     End Sub
 
+    Public Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+
+    End Sub
 End Class

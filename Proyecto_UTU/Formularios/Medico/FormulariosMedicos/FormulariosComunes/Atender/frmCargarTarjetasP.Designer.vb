@@ -26,14 +26,14 @@ Partial Class frmCargarTarjetasP
         Me.tblTodo = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlTodo = New System.Windows.Forms.Panel()
         Me.tblTarjetasYRefrescar = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblTarjetas = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnRefrescar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnVerTratamientos = New System.Windows.Forms.Button()
+        Me.btnVerAnalisis = New System.Windows.Forms.Button()
+        Me.btnVerConsultasPrevias = New System.Windows.Forms.Button()
         Me.btnAtender = New System.Windows.Forms.Button()
-        Me.btnRefrescar = New System.Windows.Forms.Button()
-        Me.tblTarjetas = New System.Windows.Forms.TableLayoutPanel()
         Me.tblTodo.SuspendLayout()
         Me.pnlTodo.SuspendLayout()
         Me.tblTarjetasYRefrescar.SuspendLayout()
@@ -80,6 +80,32 @@ Partial Class frmCargarTarjetasP
         Me.tblTarjetasYRefrescar.Size = New System.Drawing.Size(1124, 513)
         Me.tblTarjetasYRefrescar.TabIndex = 1
         '
+        'tblTarjetas
+        '
+        Me.tblTarjetas.AutoScroll = True
+        Me.tblTarjetas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.tblTarjetas.ColumnCount = 1
+        Me.tblTarjetas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblTarjetas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tblTarjetas.Location = New System.Drawing.Point(3, 45)
+        Me.tblTarjetas.Name = "tblTarjetas"
+        Me.tblTarjetas.RowCount = 1
+        Me.tblTarjetas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblTarjetas.Size = New System.Drawing.Size(1118, 465)
+        Me.tblTarjetas.TabIndex = 3
+        '
+        'btnRefrescar
+        '
+        Me.btnRefrescar.BackgroundImage = CType(resources.GetObject("btnRefrescar.BackgroundImage"), System.Drawing.Image)
+        Me.btnRefrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnRefrescar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefrescar.Location = New System.Drawing.Point(1071, 3)
+        Me.btnRefrescar.Name = "btnRefrescar"
+        Me.btnRefrescar.Size = New System.Drawing.Size(50, 36)
+        Me.btnRefrescar.TabIndex = 2
+        Me.btnRefrescar.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.tblAcciones)
@@ -93,9 +119,9 @@ Partial Class frmCargarTarjetasP
         '
         Me.tblAcciones.ColumnCount = 1
         Me.tblAcciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblAcciones.Controls.Add(Me.Button3, 0, 3)
-        Me.tblAcciones.Controls.Add(Me.Button2, 0, 2)
-        Me.tblAcciones.Controls.Add(Me.Button1, 0, 1)
+        Me.tblAcciones.Controls.Add(Me.btnVerTratamientos, 0, 3)
+        Me.tblAcciones.Controls.Add(Me.btnVerAnalisis, 0, 2)
+        Me.tblAcciones.Controls.Add(Me.btnVerConsultasPrevias, 0, 1)
         Me.tblAcciones.Controls.Add(Me.btnAtender, 0, 0)
         Me.tblAcciones.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.tblAcciones.Location = New System.Drawing.Point(0, 4)
@@ -108,44 +134,44 @@ Partial Class frmCargarTarjetasP
         Me.tblAcciones.Size = New System.Drawing.Size(1124, 197)
         Me.tblAcciones.TabIndex = 3
         '
-        'Button3
+        'btnVerTratamientos
         '
-        Me.Button3.BackColor = System.Drawing.Color.LightCoral
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(3, 150)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(1118, 44)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Ver tratamientos"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnVerTratamientos.BackColor = System.Drawing.Color.LightCoral
+        Me.btnVerTratamientos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnVerTratamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerTratamientos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerTratamientos.Location = New System.Drawing.Point(3, 150)
+        Me.btnVerTratamientos.Name = "btnVerTratamientos"
+        Me.btnVerTratamientos.Size = New System.Drawing.Size(1118, 44)
+        Me.btnVerTratamientos.TabIndex = 5
+        Me.btnVerTratamientos.Text = "Ver tratamientos"
+        Me.btnVerTratamientos.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnVerAnalisis
         '
-        Me.Button2.BackColor = System.Drawing.Color.LightGreen
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(3, 101)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(1118, 43)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Ver análisis"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnVerAnalisis.BackColor = System.Drawing.Color.LightGreen
+        Me.btnVerAnalisis.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnVerAnalisis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerAnalisis.Location = New System.Drawing.Point(3, 101)
+        Me.btnVerAnalisis.Name = "btnVerAnalisis"
+        Me.btnVerAnalisis.Size = New System.Drawing.Size(1118, 43)
+        Me.btnVerAnalisis.TabIndex = 4
+        Me.btnVerAnalisis.Text = "Ver análisis"
+        Me.btnVerAnalisis.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnVerConsultasPrevias
         '
-        Me.Button1.BackColor = System.Drawing.Color.MediumPurple
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(3, 52)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(1118, 43)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Ver consultas previas"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnVerConsultasPrevias.BackColor = System.Drawing.Color.MediumPurple
+        Me.btnVerConsultasPrevias.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnVerConsultasPrevias.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerConsultasPrevias.Location = New System.Drawing.Point(3, 52)
+        Me.btnVerConsultasPrevias.Name = "btnVerConsultasPrevias"
+        Me.btnVerConsultasPrevias.Size = New System.Drawing.Size(1118, 43)
+        Me.btnVerConsultasPrevias.TabIndex = 3
+        Me.btnVerConsultasPrevias.Text = "Ver consultas previas"
+        Me.btnVerConsultasPrevias.UseVisualStyleBackColor = False
         '
         'btnAtender
         '
@@ -159,32 +185,6 @@ Partial Class frmCargarTarjetasP
         Me.btnAtender.TabIndex = 2
         Me.btnAtender.Text = "Atender"
         Me.btnAtender.UseVisualStyleBackColor = False
-        '
-        'btnRefrescar
-        '
-        Me.btnRefrescar.BackgroundImage = CType(resources.GetObject("btnRefrescar.BackgroundImage"), System.Drawing.Image)
-        Me.btnRefrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnRefrescar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefrescar.Location = New System.Drawing.Point(1071, 3)
-        Me.btnRefrescar.Name = "btnRefrescar"
-        Me.btnRefrescar.Size = New System.Drawing.Size(50, 37)
-        Me.btnRefrescar.TabIndex = 2
-        Me.btnRefrescar.UseVisualStyleBackColor = True
-        '
-        'tblTarjetas
-        '
-        Me.tblTarjetas.AutoScroll = True
-        Me.tblTarjetas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.tblTarjetas.ColumnCount = 1
-        Me.tblTarjetas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblTarjetas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tblTarjetas.Location = New System.Drawing.Point(3, 46)
-        Me.tblTarjetas.Name = "tblTarjetas"
-        Me.tblTarjetas.RowCount = 1
-        Me.tblTarjetas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblTarjetas.Size = New System.Drawing.Size(1118, 464)
-        Me.tblTarjetas.TabIndex = 3
         '
         'frmCargarTarjetasP
         '
@@ -209,9 +209,9 @@ Partial Class frmCargarTarjetasP
     Friend WithEvents pnlTodo As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents tblAcciones As TableLayoutPanel
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnVerTratamientos As Button
+    Friend WithEvents btnVerAnalisis As Button
+    Friend WithEvents btnVerConsultasPrevias As Button
     Friend WithEvents btnAtender As Button
     Friend WithEvents tblTarjetasYRefrescar As TableLayoutPanel
     Friend WithEvents btnRefrescar As Button

@@ -69,6 +69,9 @@ Public Class frmCargarTarjetasP
                                     Color.Red, 10, ButtonBorderStyle.Solid,
                                     Color.Red, 10, ButtonBorderStyle.Solid,
                                     Color.Red, 10, ButtonBorderStyle.Solid)
+            tblAcciones.Enabled = True
+        Else
+            tblAcciones.Enabled = False
         End If
     End Sub
 

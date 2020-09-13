@@ -94,14 +94,15 @@ Partial Class frmAnalisisSeguimiento
         '
         'lblCedulaPaciente
         '
-        Me.lblCedulaPaciente.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lblCedulaPaciente.AutoSize = True
+        Me.lblCedulaPaciente.Dock = System.Windows.Forms.DockStyle.Left
         Me.lblCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaPaciente.Location = New System.Drawing.Point(14, 6)
+        Me.lblCedulaPaciente.Location = New System.Drawing.Point(3, 0)
         Me.lblCedulaPaciente.Name = "lblCedulaPaciente"
-        Me.lblCedulaPaciente.Size = New System.Drawing.Size(191, 25)
+        Me.lblCedulaPaciente.Size = New System.Drawing.Size(191, 37)
         Me.lblCedulaPaciente.TabIndex = 2
         Me.lblCedulaPaciente.Text = "Cédula del paciente:"
+        Me.lblCedulaPaciente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel1
         '
