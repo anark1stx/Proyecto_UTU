@@ -1,4 +1,5 @@
 ﻿Public Class E_EntrevistaIni
+    Protected _id As Integer
     Protected _auxiliar As E_Usuario
     Protected _medico As E_Medico
     Protected _paciente As E_Paciente
@@ -40,6 +41,14 @@
         End Set
     End Property
 
+    Property ID As Integer
+        Get
+            Return _id
+        End Get
+        Set(value As Integer)
+            _id = value
+        End Set
+    End Property
     Sub New()
 
     End Sub

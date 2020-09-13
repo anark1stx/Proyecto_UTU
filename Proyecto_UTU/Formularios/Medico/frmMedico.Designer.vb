@@ -26,7 +26,7 @@ Partial Class frmMedico
         Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntrevistaInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SeleccionarMédicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeleccionarMedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerListadoDeHoyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtenderMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IdentificarPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -71,21 +71,21 @@ Partial Class frmMedico
         '
         'EntrevistaInicialToolStripMenuItem
         '
-        Me.EntrevistaInicialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionarMédicoToolStripMenuItem, Me.VerListadoDeHoyToolStripMenuItem1})
+        Me.EntrevistaInicialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionarMedicoToolStripMenuItem, Me.VerListadoDeHoyToolStripMenuItem1})
         Me.EntrevistaInicialToolStripMenuItem.Name = "EntrevistaInicialToolStripMenuItem"
         Me.EntrevistaInicialToolStripMenuItem.Size = New System.Drawing.Size(130, 24)
         Me.EntrevistaInicialToolStripMenuItem.Text = "Entrevista inicial"
         '
-        'SeleccionarMédicoToolStripMenuItem
+        'SeleccionarMedicoToolStripMenuItem
         '
-        Me.SeleccionarMédicoToolStripMenuItem.Name = "SeleccionarMédicoToolStripMenuItem"
-        Me.SeleccionarMédicoToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
-        Me.SeleccionarMédicoToolStripMenuItem.Text = "Seleccionar médico"
+        Me.SeleccionarMedicoToolStripMenuItem.Name = "SeleccionarMedicoToolStripMenuItem"
+        Me.SeleccionarMedicoToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.SeleccionarMedicoToolStripMenuItem.Text = "Seleccionar médico"
         '
         'VerListadoDeHoyToolStripMenuItem1
         '
         Me.VerListadoDeHoyToolStripMenuItem1.Name = "VerListadoDeHoyToolStripMenuItem1"
-        Me.VerListadoDeHoyToolStripMenuItem1.Size = New System.Drawing.Size(222, 26)
+        Me.VerListadoDeHoyToolStripMenuItem1.Size = New System.Drawing.Size(224, 26)
         Me.VerListadoDeHoyToolStripMenuItem1.Text = "Ver listado de hoy"
         '
         'AtenderMenuItem
@@ -232,6 +232,6 @@ Partial Class frmMedico
     Friend WithEvents IdentificarPacienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntrevistarPacienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerListadoDeHoyToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SeleccionarMédicoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SeleccionarMedicoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerListadoDeHoyToolStripMenuItem1 As ToolStripMenuItem
 End Class

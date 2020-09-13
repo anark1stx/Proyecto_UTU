@@ -129,7 +129,7 @@ Public Module mdlUtilidades
 
     Public Function pickRandomColor() As Color
         Dim m_Rnd As New Random
-        Return Color.FromArgb(m_Rnd.Next(0, 256), m_Rnd.Next(0, 256), m_Rnd.Next(0, 256))
+        Return Color.FromArgb(m_Rnd.Next(78, 201), m_Rnd.Next(78, 201), m_Rnd.Next(78, 201))
     End Function
 
     Public Sub AgregarItemALista(item As String, lista As ListBox, Optional btn As Button = Nothing) 'btn es porque en el frmDolor (unico formulario el cual usa esta funcion por ahora), pinta el fondo de los botones cuando estos son seleccionados.

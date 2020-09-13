@@ -27,6 +27,8 @@ Public Class frmMedico
     Dim frmMal As New frmMalestar
 
     Dim frmSelecMed As New frmSeleccionarMedico
+    Dim _entrevistas As New frmCargarTarjetasP
+
     Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado para el predictivo.
     Dim _paciente As New E_Paciente With {.Cedula = 0}
     'Dim PreguntarNombreConsulta As New frmPreguntarNomCons
@@ -101,6 +103,7 @@ Public Class frmMedico
                 AtenderMenuItem.Visible = False
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmIni.btnGestion.ImageIndex = 1
+                SeleccionarMedicoToolStripMenuItem.Visible = True
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -109,6 +112,7 @@ Public Class frmMedico
                 AtenderMenuItem.Visible = True
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmIni.btnGestion.ImageIndex = 0
+                SeleccionarMedicoToolStripMenuItem.Visible = False
         End Select
     End Sub
 
@@ -121,7 +125,6 @@ Public Class frmMedico
             Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
             frm.Show()
         End If
-
     End Sub
 
     Public Sub fixSize()
@@ -197,9 +200,9 @@ Public Class frmMedico
                 End If
 
             Case "VerListadoDeHoy"
-
+                LimpiarControles(_entrevistas)
+                VerConsultasDeHoy()
             Case "Entrevista"
-
                 If _paciente.Cedula = 0 Then
                     MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
@@ -385,6 +388,14 @@ Public Class frmMedico
                     Sub()
                         CargarDatosPaciente()
                     End Sub
+
+        AddHandler frmCargarTarjetasP.btnRefrescar.Click,
+                    Sub()
+                        Console.WriteLine("REFRESCANDO")
+                        VerConsultasDeHoy()
+                        _entrevistas.RefrescarTarjetas()
+                    End Sub
+
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 
         AddHandler frmEntrevista.btnFrmGenerico.Click,
@@ -491,19 +502,21 @@ Public Class frmMedico
     Async Sub VerConsultasDeHoy()
         Dim nm As New N_Medico
         Dim result = Await Task.Run(Function() nm.ConsultarMisConsultasDeHoy(MedicoActual.Cedula))
-        Select Case result(0).Auxiliar.Cedula
+        Select Case result(0).ID
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
-            Case 8
-                MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Case -8
+                MessageBox.Show("No se encontraron pacientes para atender.", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
             Case Else
-                _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
-                frmIdentificacion.PoblarDatos()
+                Console.WriteLine("encontre entrevistas")
+                _entrevistas.tblTarjetas.Controls.Clear()
+                _entrevistas.ListaEntrevistas = result
+                addFrm(_entrevistas)
         End Select
     End Sub
     Async Sub CargarDatosPaciente()
@@ -617,7 +630,7 @@ Public Class frmMedico
         InstanciarFormulario("VerListadoDeHoy")
     End Sub
 
-    Private Sub SeleccionarMedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionarMédicoToolStripMenuItem.Click
+    Private Sub SeleccionarMedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionarMedicoToolStripMenuItem.Click
         InstanciarFormulario("SeleccionarMedico")
     End Sub
 

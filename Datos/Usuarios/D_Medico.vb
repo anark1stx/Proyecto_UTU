@@ -335,7 +335,7 @@ Public Class D_Medico
         Dim leer As MySqlDataReader
         Dim Clist As New List(Of E_EntrevistaIni)
         If Conectar(conexion) = -1 Then
-            Clist.Add(New E_EntrevistaIni With {.Auxiliar = New E_Usuario With {.Cedula = -1}})
+            Clist.Add(New E_EntrevistaIni With {.ID = -1})
             Return Clist
         End If
 
@@ -352,24 +352,26 @@ Public Class D_Medico
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            Clist.Add(New E_EntrevistaIni With {.Auxiliar = New E_Usuario With {.Cedula = 2}})
+            Clist.Add(New E_EntrevistaIni With {.ID = -2})
             Return Clist ' no se pudo ingresar entrevista inicial
         End Try
 
         Dim dp As New D_Paciente
         If leer.HasRows Then
             While leer.Read()
-                Clist.Add(New E_EntrevistaIni With {
+                Dim ei = New E_EntrevistaIni With {
+                .ID = leer.GetInt32("ID"),
                 .Paciente = dp.ListarPacientesCI(leer.GetInt32("CI_paciente")),
                 .Auxiliar = New E_Usuario With {.Cedula = leer.GetInt32("CI_auxiliar")},
-                .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")}
-                })
+                .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")},
+                .Motivo = leer.GetString("motivo")
+                }
+                ei.Paciente.Foto = dp.LeerFotoUsuario(ei.Paciente.Cedula)
+                Clist.Add(ei)
             End While
         Else
-            Clist.Add(New E_EntrevistaIni With {.Auxiliar = New E_Usuario With {.Cedula = 8}})
+            Clist.Add(New E_EntrevistaIni With {.ID = -8})
         End If
-
-
         Cerrar(conexion)
         Return Clist
 
