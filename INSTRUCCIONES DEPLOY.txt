@@ -1,0 +1,12 @@
+La base de datos de este software fue implementada con el SGBD MySQL 8. https://dev.mysql.com/downloads/mysql/
+
+Es indispensable tener esa versión ya que el proyecto usa la creación de roles de la tabla mysql.default_roles y role_edges, una caraterística presente a partir de esta versión. https://dev.mysql.com/doc/refman/8.0/en/roles.html
+
+El driver usado es MySQL Connector /NET. https://dev.mysql.com/downloads/connector/net/
+La librería usada es Mysql.Data (La aplicación no usa ADO debido a problemas con esta librería para leer imágenes).
+
+En el archivo dbexport se encuentra la base de datos SIBIM, con todos sus procedimientos almacenados incluidos (sin datos).
+
+En el archivo dbexport_poblado se encuentra la base de datos SIBIM, con todos sus procedimientos almacenados y poblada con datos, lista para su uso.
+
+En el archivo dbexport_usuariosYroles se encuentra la creación de roles y la creación del usuario "admin", este último usuario es el mínimo necesario para hacer que el programa funcione, ya que el resto de los usuarios se pueden crear desde la aplicación.
