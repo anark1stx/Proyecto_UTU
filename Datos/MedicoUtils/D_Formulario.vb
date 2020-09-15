@@ -172,7 +172,6 @@ Public Class D_Formulario
             If Conectar(conexion) = -1 Then
                 Return -1
             End If
-            Console.WriteLine("La pregunta es: " & p.Pregunta.Name & "La respuesta es: " & p.Respuesta.Name)
             'hacer alta a la tabla preguntas 
             Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,

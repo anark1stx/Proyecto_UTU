@@ -25,7 +25,7 @@ Partial Class MsgBoxControlSettings
         Me.cbFuente = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIngreseTexto = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblEscribaTexto = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbTamanoLetra = New System.Windows.Forms.ComboBox()
         Me.btnAceptar = New System.Windows.Forms.Button()
@@ -66,15 +66,15 @@ Partial Class MsgBoxControlSettings
         Me.txtIngreseTexto.Size = New System.Drawing.Size(697, 61)
         Me.txtIngreseTexto.TabIndex = 4
         '
-        'Label3
+        'lblEscribaTexto
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(235, 251)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(209, 32)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Escriba el texto"
+        Me.lblEscribaTexto.AutoSize = True
+        Me.lblEscribaTexto.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEscribaTexto.Location = New System.Drawing.Point(235, 251)
+        Me.lblEscribaTexto.Name = "lblEscribaTexto"
+        Me.lblEscribaTexto.Size = New System.Drawing.Size(209, 32)
+        Me.lblEscribaTexto.TabIndex = 5
+        Me.lblEscribaTexto.Text = "Escriba el texto"
         '
         'Label2
         '
@@ -172,7 +172,7 @@ Partial Class MsgBoxControlSettings
         Me.Controls.Add(Me.pnlSettingsTXT)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lblEscribaTexto)
         Me.Controls.Add(Me.txtIngreseTexto)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -192,7 +192,7 @@ Partial Class MsgBoxControlSettings
     Friend WithEvents cbFuente As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtIngreseTexto As TextBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblEscribaTexto As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents cbTamanoLetra As ComboBox
     Friend WithEvents btnAceptar As Button

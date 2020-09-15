@@ -10,15 +10,16 @@ Public Class formularioPlano
     Dim txtBox As New MsgBoxTipoDeTextBox
     Dim resizingRight As Boolean = False
     Dim resizingBottom As Boolean = False
+    Dim agregarItems As New frmAgregarItems
     Public Sub _MouseDown(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.MouseDown
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ubicacion_mouse = e.Location
-            If TypeOf (sender) Is TextBox And e.Location.X >= sender.Width - 8 Then
+            If (TypeOf (sender) Is TextBox) And e.Location.X >= sender.Width - 8 Then
                 resizingBottom = False
                 resizingRight = True
                 Console.WriteLine("cerca del borde")
-            ElseIf TypeOf (sender) Is TextBox And e.Location.Y >= sender.Height - 8 Then
+            ElseIf (TypeOf (sender) Is TextBox) And e.Location.Y >= sender.Height - 8 Then
                 resizingRight = False
                 resizingBottom = True
             Else
@@ -34,13 +35,24 @@ Public Class formularioPlano
                 For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
                     listaP.Add(pyr.Pregunta)
                 Next
+
                 txtBox.cbTipoDeDato.DataSource = listaP
                 txtBox.cbTipoDeDato.DisplayMember = "Text"
                 txtBox.cbTipoDeDato.ValueMember = "Tag"
                 txtBox.ShowDialog()
                 c.Tag = txtBox.cbTipoDeDato.SelectedValue
-                PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = txtBox.cbTipoDeDato.SelectedValue).Respuesta = c
-
+                If c.Tag Is String.Empty Then
+                    Exit Sub
+                Else
+                    PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = txtBox.cbTipoDeDato.SelectedValue).Respuesta = c
+                End If
+                Select Case c.GetType()
+                    Case GetType(ComboBox)
+                        agregarItems.cbItems.Items.AddRange(DirectCast(c, ComboBox).Items.Cast(Of String).ToArray())
+                        agregarItems.ShowDialog()
+                        DirectCast(c, ComboBox).Items.Clear()
+                        DirectCast(c, ComboBox).Items.AddRange(agregarItems.cbItems.Items.Cast(Of String).ToArray())
+                End Select
             Else
                 Dim c = DirectCast(sender, Control)
                 If PreguntasYRespuestas.Find(Function(p) p.Pregunta Is c) IsNot Nothing Then
@@ -57,6 +69,7 @@ Public Class formularioPlano
                     End If
                 Else
                     Console.WriteLine("este control no es una pregunta")
+
                     settings.chkSoyPregunta.Checked = False
                     settings.txtIngreseTexto.Text = c.Text
                     settings.ShowDialog()
@@ -79,9 +92,9 @@ Public Class formularioPlano
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ctrl_seleccionado = sender
             If resizingBottom Then
-                sender.Height = (sender.Top + e.Y) / 1.1
+                sender.Height = (sender.Top + e.Y) / 1.5
             ElseIf resizingRight Then
-                sender.Width = (sender.Left + e.X) / 1.1
+                sender.Width = (sender.Left + e.X) / 1.5
             ElseIf Not resizingRight AndAlso Not resizingBottom Then
                 sender.Left = e.X + sender.Left - ubicacion_mouse.X
                 sender.Top = e.Y + sender.Top - ubicacion_mouse.Y

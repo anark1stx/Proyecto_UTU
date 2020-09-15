@@ -115,6 +115,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\ContenedorEntrevistas.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.Designer.vb">
+      <DependentUpon>frmAgregarItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
     </Compile>
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\ContenedorEntrevistas.resx">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">
+      <DependentUpon>frmAgregarItems.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>

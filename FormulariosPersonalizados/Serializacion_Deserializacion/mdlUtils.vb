@@ -1,5 +1,4 @@
 ﻿Imports System.Drawing
-Imports System.IO
 Imports System.Windows.Forms
 Imports Entidades
 Public Module mdlUtilsFormularios
@@ -14,60 +13,52 @@ Public Module mdlUtilsFormularios
         Return ColorTranslator.FromHtml(col)
     End Function
 
-    Public Sub BuscarPreguntasYRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta), Preguntas As List(Of Control), Respuestas As List(Of Control))
+    Public Sub BuscarPreguntas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
 
         For Each c As Control In contenedor.Controls
             Select Case c.GetType
                 Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
-                    BuscarPreguntasYRespuestas(c, ListaPreguntasYRespuestas, Preguntas, Respuestas)
+                    UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
                 Case Else
                     If Not String.IsNullOrEmpty(c.Tag) Then
-
-                        If c.Tag.StartsWith("pr") Then
-                            Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
-                            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c, c))
-                        ElseIf c.Tag.StartsWith("p") Then 'pregunta
-                            Console.WriteLine("Pregunta: " & c.Tag)
-                            Preguntas.Add(c)
-                        ElseIf c.Tag.StartsWith("r") Then ' respuesta
-                            Console.WriteLine("Respuesta: " & c.Tag)
-                            Console.WriteLine("Respuesta: " & c.Text)
-                            Respuestas.Add(c)
-                        End If
-
+                        Select Case c.GetType() 'primero guardo preguntas
+                            Case GetType(Label) 'sabemos q label es el unico control que guarda solo preguntas
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("Pregunta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c))
+                                End If
+                            Case GetType(CheckBox) 'checkbox guarda pregunta y respuesta en el mismo.
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("PreguntaYrespuesta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c, c))
+                                End If
+                        End Select
                     End If
+
             End Select
         Next
 
     End Sub
+    Public Sub UnirPreguntasConRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
 
-    Public Sub UnirPreguntasYRespuestas(Preguntas As List(Of Control), Respuestas As List(Of Control), ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
-
-        For Each p As Control In Preguntas
-            Dim respuesta = Respuestas.Find(Function(r) r.Tag = p.Tag)
-            If respuesta Is Nothing Then
-                respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
-            End If
-            'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
-            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p.Tag, p, respuesta))
-        Next
-
-        For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas
-            Select Case pyr.Pregunta.GetType()
-                Case GetType(CheckBox)
-                    Console.WriteLine("PreguntaYRespuestaFinal!!: " & DirectCast(pyr.Pregunta, CheckBox).Text & " " & DirectCast(pyr.Respuesta, CheckBox).Checked) 'Si es un CheckBox, sabemos que la pregunta es la propiedad Text, y que la respuesta es su propiedad Checked (verdadero o falso)
+        For Each c As Control In contenedor.Controls
+            Select Case c.GetType
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                    UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
                 Case Else
-                    Try
-                        Console.WriteLine("PreguntaYRespuestaFinal!!: " & pyr.Pregunta.Text & " " & pyr.Respuesta.Text)
-                    Catch ex As Exception
-                        Console.WriteLine("err")
-                    End Try
+                    If Not String.IsNullOrEmpty(c.Tag) Then
+                        Select Case c.GetType() 'primero guardo preguntas
+                            Case GetType(TextBox), GetType(ComboBox) 'sabemos q label es el unico control que guarda solo preguntas
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("Respuesta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag).Respuesta = c
+                                End If
+                        End Select
+                    End If
 
             End Select
-
         Next
 
     End Sub
-
 
 End Module

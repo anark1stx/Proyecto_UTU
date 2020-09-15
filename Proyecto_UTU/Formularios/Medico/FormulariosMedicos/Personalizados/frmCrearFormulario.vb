@@ -18,6 +18,7 @@ Public Class frmCrearFormulario
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
     Dim catalogo As New frmCatalogoFormulariosBD
+    Dim agregarItems As New frmAgregarItems
 
     Dim PedirNombre As New frmPedirNombreForm
     Protected _formDisenado As New E_Formulario
@@ -40,7 +41,7 @@ Public Class frmCrearFormulario
         pnlFormularioPersonalizado.Controls.Add(frmPlano)
 
         frmPlano.Show()
-        Me.tbTabPage.Visible = False 'sera implementado para la tercera entrega junto con Panel y TBL.
+
     End Sub
 #Region "Eventos para el TextBox"
 
@@ -84,10 +85,8 @@ Public Class frmCrearFormulario
             If TipoDeTxt.cbTipoDeDato.SelectedIndex <> -1 Then
                 _instancia.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue
                 frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue).Respuesta = _instancia
-                setType()
-            Else
-                Me.Controls.Remove(_instancia)
             End If
+            setType()
         Else
             Me.Controls.Remove(_instancia)
         End If
@@ -242,7 +241,7 @@ Public Class frmCrearFormulario
         setType()
     End Sub
 #End Region
-#Region "eventos para el combobox"
+#Region "eventos para el Combobox"
     Private Sub cbCombobox_MouseDown(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
@@ -267,12 +266,10 @@ Public Class frmCrearFormulario
         End If
     End Sub
 
-    'PENDIENTE: Serializar los eventos del boton
     Private Sub cbCombobox_MouseUp(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseUp
-        LimpiarControles(settings)
-        SettingsTXTvisibles(False)
-        settings.ShowDialog()
-
+        LimpiarControles(agregarItems)
+        agregarItems.ShowDialog()
+        DirectCast(_instancia, ComboBox).Items.AddRange(agregarItems.cbItems.Items.Cast(Of String).ToArray())
         setType()
     End Sub
 #End Region
@@ -285,7 +282,7 @@ Public Class frmCrearFormulario
     End Sub
     Public Sub setType()
         _instancia.Name = setControlName()
-        If TypeOf (_instancia) IsNot TextBox Then
+        If TypeOf (_instancia) IsNot TextBox Or TypeOf (_instancia) IsNot ComboBox Then
             _instancia.Text = settings.texto
             _instancia.Font = settings.fuente
             _instancia.ForeColor = settings.color
@@ -310,6 +307,14 @@ Public Class frmCrearFormulario
                 MessageBox.Show("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
         End Select
+
+        'verificar que todas las preguntas tengan respuesta.
+        Dim sinrespuesta = frmPlano.PreguntasYRespuestas.Find(Function(p) p.Respuesta Is Nothing).Pregunta
+
+        If sinrespuesta IsNot Nothing Then
+            MessageBox.Show(sinrespuesta.Text, "Falta asignar un campo de respuesta para la pregunta.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
 
         PedirNombre.ShowDialog()
         FormDisenado.Nombre = PedirNombre.Nombre
@@ -404,16 +409,14 @@ Public Class frmCrearFormulario
                 frmPlano.Controls.Add(c)
             Next
         End If
-
+        BuscarPreguntas(frmPlano, frmPlano.PreguntasYRespuestas)
+        UnirPreguntasConRespuestas(frmPlano, frmPlano.PreguntasYRespuestas)
     End Sub
 
     Public Sub agregarHandlersBasicos(_ctrl As Control)
         AddHandler _ctrl.MouseDown, AddressOf frmPlano._MouseDown
         AddHandler _ctrl.MouseMove, AddressOf frmPlano._MouseMove
         AddHandler _ctrl.MouseUp, AddressOf frmPlano._MouseUp
-        'If _ctrl.Tag IsNot String.Empty Then
-        '    frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta())
-        'End If
 
         If _ctrl.Controls.Count > 0 Then
             For Each c As Control In _ctrl.Controls
