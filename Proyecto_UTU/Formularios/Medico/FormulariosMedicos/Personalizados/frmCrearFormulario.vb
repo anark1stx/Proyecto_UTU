@@ -82,6 +82,7 @@ Public Class frmCrearFormulario
             TipoDeTxt.ShowDialog()
             _instancia.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue
             frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue).Respuesta = _instancia
+            setType()
         Else
             Me.Controls.Remove(_instancia)
         End If
@@ -282,17 +283,16 @@ Public Class frmCrearFormulario
     End Sub
     Public Sub setType()
         _instancia.Name = setControlName()
-        _instancia.Text = settings.texto
-        _instancia.Font = settings.fuente
-        _instancia.ForeColor = settings.color
+        If TypeOf (_instancia) IsNot TextBox Then
+            _instancia.Text = settings.texto
+            _instancia.Font = settings.fuente
+            _instancia.ForeColor = settings.color
+        End If
         frmPlano.Controls.Add(_instancia)
         Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
         Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
 
         _instancia.Location -= New Point(marginX, marginY)
-        If settings.chkSoyPregunta.Checked Then
-
-        End If
     End Sub
 
     Public Function setControlName() As String
@@ -303,7 +303,7 @@ Public Class frmCrearFormulario
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Select Case frmPlano.Controls.Count
-            Case < 10
+            Case < 2
                 MessageBox.Show("Agregue más controles al formulario personalizado.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
             Case > 50
@@ -330,12 +330,12 @@ Public Class frmCrearFormulario
         FormDisenado.XML = gestor.Serializar(lista_controles)
         Dim capturaDePantalla = ImprimirFormulario(pnlFormularioPersonalizado, New Rectangle(0, 0, 720, 480))
         FormDisenado.VistaPrevia = Image2Bytes(capturaDePantalla)
+        FormDisenado.PreguntasYRespuestas = frmPlano.PreguntasYRespuestas
         If FormDisenado.ID = 0 Then 'si es 0 es porque no lo estamos editando, es un form nuevo
             resultado = negocio.AltaFormulario(FormDisenado)
         Else
-            resultado = negocio.ModificarFormulario(FormDisenado)
+            resultado = negocio.ModificarFormulario(FormDisenado) 'hacer alta y baja con las preguntas aca!
         End If
-        Console.WriteLine("mi id es: " & FormDisenado.ID)
         Select Case resultado
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)

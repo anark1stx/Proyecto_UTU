@@ -133,10 +133,10 @@
     <Compile Include="Formularios\Administrador\frmAdministrador.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\formularioPlano.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.Designer.vb">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\formularioPlano.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.Designer.vb">
@@ -346,7 +346,7 @@
     <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\formularioPlano.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.resx">

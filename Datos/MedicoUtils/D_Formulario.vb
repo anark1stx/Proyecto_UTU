@@ -26,8 +26,8 @@ Public Class D_Formulario
             Cerrar(conexion)
             Return 2
         End Try
-        Cerrar(conexion)
 
+        Cerrar(conexion)
         form.ID = cmd.Parameters("ID_F").Value
         Console.WriteLine("este form tiene id: " & form.ID)
 
@@ -56,8 +56,6 @@ Public Class D_Formulario
             .CommandText = "ModificarFormulario",
             .Connection = conexion
         }
-
-        Console.WriteLine("este form tiene id: " & form.ID)
         cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
         cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = form.Nombre
         cmd.Parameters.Add("XML", MySqlDbType.MediumText).Value = form.XML
@@ -149,30 +147,36 @@ Public Class D_Formulario
 
 
     Public Function AltaPreguntas(form As E_Formulario) As Integer
-
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
+            If Conectar(conexion) = -1 Then
+                Return -1
+            End If
+            Console.WriteLine("La pregunta es: " & p.Pregunta.Name & "La respuesta es: " & p.Respuesta.Name)
             'hacer alta a la tabla preguntas 
             Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,
-                    .CommandText = "AltaPregunta",
+                    .CommandText = "AltaPregunta", 'este proc usa insert ignore, y devuelve la ID de la pregunta
                     .Connection = conexion
-            } 'si ya existe retornar la id, como hice con los parametros de los analisis que ya existian.
+            }
 
-            cmd.Parameters.Add("PREGUNTA", MySqlDbType.VarChar).Value = p.Pregunta.Text
+            Console.WriteLine("preguntatext: " & p.Pregunta.Text)
+            cmd.Parameters.Add("PREG", MySqlDbType.VarChar).Value = p.Pregunta.Text
             cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
             Try
                 cmd.ExecuteNonQuery()
                 p.ID_Pregunta = cmd.Parameters("ID_P").Value
+                Console.WriteLine("La ID pregunta es: " & p.ID_Pregunta)
+                Cerrar(conexion)
             Catch ex As Exception
                 Cerrar(conexion)
                 Console.WriteLine(ex.Message)
                 Return 2
             End Try
+
+            If Conectar(conexion) = -1 Then
+                Return -1
+            End If
 
             Dim cmd2 As New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
@@ -186,6 +190,8 @@ Public Class D_Formulario
             cmd2.Parameters.Add("NOM_CONTROL_R", MySqlDbType.VarChar).Value = p.Respuesta.Name
             Try
                 cmd2.ExecuteNonQuery()
+                Console.WriteLine("INSERTO: pregunta" & p.ID_Pregunta & " formulario: " & form.ID & " nomcontrolp: " & p.Pregunta.Name & " nomcontrolr: " & p.Respuesta.Name)
+                Cerrar(conexion)
             Catch ex As Exception
                 Cerrar(conexion)
                 Console.WriteLine(ex.Message)
