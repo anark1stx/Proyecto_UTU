@@ -384,7 +384,7 @@ Public Class frmMedico
                     Sub()
                         GestionToolStripMenuItem_Click(sender, e)
                     End Sub
-        AddHandler frmIni.btnAtenderPaciente.Click, AddressOf IdentificarPacienteToolStripMenuItem1_Click
+        AddHandler frmIni.btnAtenderPaciente.Click, AddressOf IdentificarPacienteToolStripMenuItem_Click
         AddHandler frmIni.btnCrearFormulario.Click,
                     Sub()
                         CrearFormularioMenuItem_Click(sender, e)
@@ -431,7 +431,6 @@ Public Class frmMedico
 
         AddHandler _entrevistas.btnRefrescar.Click,
                     Sub()
-                        Console.WriteLine("REFRESCANDO")
                         VerConsultasDeHoy()
                         _entrevistas.RefrescarTarjetas()
                     End Sub
