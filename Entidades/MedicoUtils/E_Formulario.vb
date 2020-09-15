@@ -100,6 +100,25 @@
             _enfermedad = value
         End Set
     End Property
+
+    Property Analisis As E_Analisis
+        Get
+            Return _analisis
+        End Get
+        Set(value As E_Analisis)
+            _analisis = value
+        End Set
+    End Property
+
+    Property Tratamiento As E_Tratamiento
+        Get
+            Return _tratamiento
+        End Get
+        Set(value As E_Tratamiento)
+            _tratamiento = value
+        End Set
+    End Property
+
     Sub New()
 
     End Sub

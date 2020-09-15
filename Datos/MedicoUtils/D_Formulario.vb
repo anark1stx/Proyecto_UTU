@@ -266,18 +266,7 @@ Public Class D_Formulario
                 If resultsignoclinico = 1 Then
                     Dim resultsintoma = AltaSintomas(form)
                     If resultsintoma = 1 Then
-                        Dim resultsEnfermedad = AltaDeterminaEnfermedad(form)
-                        If resultsEnfermedad = 1 Then
-                            Dim resultsAnalisis = AltaRequiereAnalisis(form)
-                            If resultsAnalisis = 1 Then
-                                Dim resultsTratamiento = AltaSugiereTratamiento(form)
-                                Return resultsTratamiento
-                            Else
-                                Return resultsAnalisis
-                            End If
-                        Else
-                            Return resultsEnfermedad
-                        End If
+                        Return AltaDeterminaEnfermedad(form)
                     Else
                         Return resultsintoma
                     End If
@@ -447,18 +436,88 @@ Public Class D_Formulario
     End Function
 
     Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'primero alta a enfermedad y luego a determina.
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaEnfermedad", '*Alta a la tabla enfermedad.
+            .Connection = conexion
+        }
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar).Value = form.Enfermedad.Nombre
 
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Return 2
+        End Try
+
+        Dim cmd2 As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaDeterminaEnfermedad", '*Alta a la tabla enfermedad.
+            .Connection = conexion
+        }
+        cmd2.Parameters.Add("ID_C", MySqlDbType.VarChar).Value = form.Id_consulta
+        cmd2.Parameters.Add("NOM_E", MySqlDbType.VarChar).Value = form.Enfermedad.Nombre
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Return 2
+        End Try
+
+        Cerrar(conexion)
+        Return 1
 
     End Function
 
-
     Public Function AltaRequiereAnalisis(form As E_Formulario) As Integer 'esta funcion solo se va a poder ejecutar desde el toolstripbutton "asignar a paciente"
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaAnalisisRequerido", '*Alta a la tabla requiere.
+            .Connection = conexion
+        }
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+        cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Return 2
+        End Try
+        Return 1
     End Function
 
     Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer 'esta funcion solo se va a poder ejecutar desde el toolstripbutton "asignar a paciente"
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaTratamientoSugerido", '*Alta a la tabla requiere.
+            .Connection = conexion
+        }
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+        cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = form.Tratamiento.ID
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Return 2
+        End Try
+        Return 1
     End Function
 
 End Class

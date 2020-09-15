@@ -13,6 +13,8 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
         Protected _analisisDatos As E_Analisis
         Protected _tratamientoDatos As E_Tratamiento
+
+        Protected _exitCode As Integer
         Protected _modo As ModoEvento
         Sub New(acciones As AccionesFormulario)
             _acciones = acciones
@@ -158,7 +160,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     resultado = Await Task.Run(Function() Negocio.AltaAnalisisDatos(AnalisisDatos))
 
             End Select
-
+            Console.WriteLine("resultado: " & resultado)
             Select Case resultado
                 Case -1
                     MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
