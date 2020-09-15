@@ -4,12 +4,13 @@ Imports Utilidades
 Imports Entidades
 Imports Negocio
 Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a los controles de los formularios personalizados en tiempo de ejecuccion
-    Public Class EventosDeFormulario
+    Public Class EventosDeTBP
         Protected _acciones As AccionesFormulario
         Protected _panelDestino As Panel
         Protected _pd As Printing.PrintDocument
         Protected _memobmp As Bitmap
-        Protected _formDatos As E_Formulario 'las respuestas que se hayan ingresado en el formulario
+        Protected _formDatos As E_Formulario 'las respuestas que se hayan ingresado en el formulario, sintomas, signos clinicos, analisis requerido, tratamiento sugerido.
+
         Protected _analisisDatos As E_Analisis
         Protected _tratamientoDatos As E_Tratamiento
         Protected _modo As ModoEvento
@@ -123,6 +124,25 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
             Select Case Modo
                 Case 0
+
+                    If FormDatos.Enfermedad Is Nothing Then
+                        MessageBox.Show("Ingrese una enfermedad.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    If FormDatos.Enfermedad.Sintomas.Count < 1 Then
+                        MessageBox.Show("Ingrese un sintoma.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    For Each p As PreguntaRespuesta In FormDatos.PreguntasYRespuestas
+                        If p.Respuesta.Text Is String.Empty Then
+                            If MessageBox.Show("La pregunta: " & p.Pregunta.Text & " no fue respondida, seguro que desea guardar?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                                Exit Sub
+                            End If
+                        End If
+                    Next
+
                     Console.WriteLine("Evento guardar Datos Formulario!!!!")
                     Dim resultado = GuardarDatosFormulario(FormDatos) '=consulta medica
 
@@ -264,7 +284,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
     Async Sub BuscarIDsP(pregs As List(Of PreguntaRespuesta))
         Dim result = Await Task.Run(Function() BuscarIDS_preguntas(pregs))
-        Console.WriteLine("resultado: " & result)
     End Sub
 
     Function BuscarIDS_preguntas(pregs As List(Of PreguntaRespuesta))

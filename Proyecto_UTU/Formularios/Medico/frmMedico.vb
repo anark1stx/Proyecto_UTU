@@ -165,14 +165,26 @@ Public Class frmMedico
         tb.tbpEntrevista.Controls.Add(frm)
     End Sub
 
+    Public Sub CargarDatosFormulario(f As E_Formulario)
+        Dim fl = New formularioLimpio
+        Dim controles = ConvertirFormulario(f)
+
+        fl.pnlContenedor.Controls.AddRange(controles.ToArray())
+        BuscarPreguntas(fl.pnlContenedor, f.PreguntasYRespuestas)
+        UnirPreguntasConRespuestas(fl.pnlContenedor, f.PreguntasYRespuestas)
+        BuscarIDsP(f.PreguntasYRespuestas)
+        fl.MiFormulario = f
+        fl.MiFormulario.NombreConsulta = NombreConsulta
+        addFrmEntrevistaXML(fl)
+
+    End Sub
+
+
     Public Sub addFrmEntrevistaXML(frmConEntrevistaCargado As formularioLimpio) 'este metodo es para los diseñados que se cargan desded su XML
         pnlContenedorFormularios.Controls.Clear()
+        tb.Frmlimpio = frmConEntrevistaCargado
         tb.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(tb)
-        frmConEntrevistaCargado.TopMost = True
-        frmConEntrevistaCargado.TopLevel = False
-        tb.tbpEntrevista.Controls.Add(frmConEntrevistaCargado)
-        frmConEntrevistaCargado.Visible = True
     End Sub
 
     Public Sub fixSize()
@@ -293,21 +305,18 @@ Public Class frmMedico
                 addFrmEntrevistaPreHecho(frmMal)
 
             Case "Otro"
-
                 frmPlano.Controls.Clear()
-
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
-                    Console.WriteLine("no fue seleccionado un form")
+                    Console.WriteLine("no fue seleccionado un formulario")
                     Exit Sub
                 End If
-                Dim fl = New formularioLimpio
-                Dim controles = ConvertirFormulario(frmCatalogo.FormSeleccionado)
-                fl.pnlContenedor.Controls.AddRange(controles.ToArray())
-                BuscarPreguntas(fl.pnlContenedor, fl.MisPreguntas)
-                UnirPreguntasConRespuestas(fl.pnlContenedor, fl.MisPreguntas)
-                BuscarIDsP(fl.MisPreguntas)
-                addFrmEntrevistaXML(fl)
+                Dim f As New E_Formulario
+                f = frmCatalogo.FormSeleccionado
+                f.Medico = MedicoActual
+                f.Paciente = _paciente
+                CargarDatosFormulario(f)
+
             Case "CrearFormulario"
 
                 frmCrear.Show()

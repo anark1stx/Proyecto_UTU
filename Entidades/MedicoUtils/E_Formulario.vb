@@ -3,9 +3,12 @@
     Protected _nombre As String
     Protected _xml As String
     Protected _v_previa As Byte()
-    Protected _paciente As E_Paciente 'paciente del cual se estan recabando los datos en la consulta
-    Protected _medico As E_Medico 'medico que esta recabando datos del paciente en la consulta
-    Protected _preguntasYrespuestas As List(Of PreguntaRespuesta)
+    Protected _paciente As New E_Paciente 'paciente del cual se estan recabando los datos en la consulta
+    Protected _medico As New E_Medico 'medico que esta recabando datos del paciente en la consulta
+    Protected _preguntasYrespuestas As New List(Of PreguntaRespuesta)
+    Protected _enfermedad As New E_Enfermedad
+    Protected _id_consulta As Integer
+    Protected _nombre_consulta As String
     Property ID As Integer
         Get
             Return _id
@@ -69,7 +72,32 @@
         End Set
     End Property
 
+    Property Id_consulta As Integer
+        Get
+            Return _id_consulta
+        End Get
+        Set(value As Integer)
+            _id_consulta = value
+        End Set
+    End Property
 
+    Property NombreConsulta As String
+        Get
+            Return _nombre_consulta
+        End Get
+        Set(value As String)
+            _nombre_consulta = value
+        End Set
+    End Property
+
+    Property Enfermedad As E_Enfermedad
+        Get
+            Return _enfermedad
+        End Get
+        Set(value As E_Enfermedad)
+            _enfermedad = value
+        End Set
+    End Property
     Sub New()
 
     End Sub

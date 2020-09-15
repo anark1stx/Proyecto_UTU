@@ -4,7 +4,7 @@ Imports Negocio
 Imports Utilidades
 Public Class frmDolor
     Dim AccionesFrm As New AccionesFormulario
-    Dim Eventos As New EventosDeFormulario
+    Dim Eventos As New EventosDeTBP
     Dim memobmp As Bitmap
     Protected _paciente As E_Paciente
     Protected _medico As E_Medico

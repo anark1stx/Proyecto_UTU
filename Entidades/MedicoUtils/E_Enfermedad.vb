@@ -2,6 +2,8 @@
     Protected _nombre As String
     Protected _descripcion As String
     Protected _ErrMsg As Integer
+    Protected _sintomas As New List(Of Sintoma)
+    Protected _signos As New List(Of SignoClinico)
     Property Nombre As String
         Get
             Return _nombre
@@ -25,6 +27,23 @@
         End Get
         Set(value As Integer)
             _ErrMsg = value
+        End Set
+    End Property
+
+    Property Sintomas As List(Of Sintoma)
+        Get
+            Return _sintomas
+        End Get
+        Set(value As List(Of Sintoma))
+            _sintomas = value
+        End Set
+    End Property
+    Property SignosClinicos As List(Of SignoClinico)
+        Get
+            Return _signos
+        End Get
+        Set(value As List(Of SignoClinico))
+            _signos = value
         End Set
     End Property
 
@@ -133,5 +152,86 @@
         End Class
 
     End Class
+    Public Class Sintoma
+        Protected _id As Integer
+        Protected _nombre As String
+        Protected _descripcion As String
 
+        Property ID As Integer
+            Get
+                Return _id
+            End Get
+            Set(value As Integer)
+                _id = value
+            End Set
+        End Property
+
+        Property Nombre As String
+            Get
+                Return _nombre
+            End Get
+            Set(value As String)
+                _nombre = value
+            End Set
+        End Property
+        Property Descripcion As String
+            Get
+                Return _descripcion
+            End Get
+            Set(value As String)
+                _descripcion = value
+            End Set
+        End Property
+
+        Sub New()
+
+        End Sub
+
+        Sub New(nombre As String, descripcion As String)
+
+            _nombre = nombre
+            _descripcion = descripcion
+        End Sub
+
+    End Class
+    Public Class SignoClinico
+        Property _id As Integer
+        Protected _nombre As String
+        Protected _descripcion As String
+        Property ID As Integer
+            Get
+                Return _id
+            End Get
+            Set(value As Integer)
+                _id = value
+            End Set
+        End Property
+        Property Nombre As String
+            Get
+                Return _nombre
+            End Get
+            Set(value As String)
+                _nombre = value
+            End Set
+        End Property
+        Property Descripcion As String
+            Get
+                Return _descripcion
+            End Get
+            Set(value As String)
+                _descripcion = value
+            End Set
+        End Property
+
+        Sub New()
+
+        End Sub
+
+        Sub New(nombre As String, descripcion As String)
+
+            _nombre = nombre
+            _descripcion = descripcion
+        End Sub
+
+    End Class
 End Class

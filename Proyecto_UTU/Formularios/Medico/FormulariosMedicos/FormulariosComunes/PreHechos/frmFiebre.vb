@@ -4,7 +4,7 @@ Imports Utilidades
 Imports Negocio
 Public Class frmFiebre
     Dim AccionesFrm As New AccionesFormulario
-    Dim Eventos As New EventosDeFormulario
+    Dim Eventos As New EventosDeTBP
     Protected _paciente As E_Paciente
     Protected _medico As E_Medico
 

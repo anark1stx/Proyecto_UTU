@@ -3,7 +3,7 @@ Imports Entidades
 Imports Negocio
 Public Class frmTratamientoSeguir
     Dim AccionesFrm As New AccionesFormulario
-    Dim Eventos As New EventosDeFormulario
+    Dim Eventos As New EventosDeTBP
     Dim t As E_Tratamiento
     Private Sub frmTratamientoSeguir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
