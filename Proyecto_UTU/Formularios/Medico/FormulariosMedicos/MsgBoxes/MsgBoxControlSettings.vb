@@ -96,7 +96,7 @@ Public Class MsgBoxControlSettings
         txtIngreseTexto.ForeColor = color
     End Sub
 
-    Private Sub chkMultilinea_CheckedChanged(sender As Object, e As EventArgs) Handles chkMultilinea.CheckedChanged
+    Private Sub chkMultilinea_CheckedChanged(sender As Object, e As EventArgs) 
         multilinea = chkMultilinea.Checked
     End Sub
 

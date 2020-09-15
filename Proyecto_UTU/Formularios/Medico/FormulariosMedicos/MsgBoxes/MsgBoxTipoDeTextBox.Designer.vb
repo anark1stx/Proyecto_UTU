@@ -33,7 +33,7 @@ Partial Class MsgBoxTipoDeTextBox
         Me.lblSeleccioneTipoDeDato.Name = "lblSeleccioneTipoDeDato"
         Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(757, 36)
         Me.lblSeleccioneTipoDeDato.TabIndex = 3
-        Me.lblSeleccioneTipoDeDato.Text = "Seleccione el tipo de dato que guardará este campo"
+        Me.lblSeleccioneTipoDeDato.Text = "Seleccione la pregunta que será respondida en este campo"
         Me.lblSeleccioneTipoDeDato.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'cbTipoDeDato

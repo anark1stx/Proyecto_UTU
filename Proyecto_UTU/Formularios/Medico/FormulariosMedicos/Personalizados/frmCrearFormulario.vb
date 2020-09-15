@@ -52,6 +52,7 @@ Public Class frmCrearFormulario
             agregarHandlersBasicos(_txt)
             _txt.Size = New Size(122, 55)
             _txt.Name = "txt"
+            _txt.Multiline = True
             _instancia = _txt
 
             Me.Controls.Add(_instancia)
@@ -161,13 +162,10 @@ Public Class frmCrearFormulario
         MostrarChk(False)
         settings.chkSoyPregunta.Checked = True
         settings.ShowDialog()
-        _instancia.Text = TipoDeTxt.cbTipoDeDato.SelectedItem
-        Dim pyr As New PreguntaRespuesta With {
-                .Pregunta = _instancia, 'El paciente .....
-                .Respuesta = _instancia 'Si/No checked/unchecked
-                }
-        frmPlano.PreguntasYRespuestas.Add(pyr)
         setType()
+        frmPlano.tagCount += 1
+        _instancia.Tag = String.Format("p{0}", frmPlano.tagCount) 'setteo el tag
+        frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta(_instancia.Tag, _instancia, _instancia))
     End Sub
 #End Region
 #Region "eventos para el Button"
@@ -294,12 +292,10 @@ Public Class frmCrearFormulario
 
         _instancia.Location -= New Point(marginX, marginY)
     End Sub
-
     Public Function setControlName() As String
         control_count += 1
         Return _instancia.GetType().ToString().Replace("System.Windows.Forms.", "") & control_count.ToString()
     End Function
-
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Select Case frmPlano.Controls.Count

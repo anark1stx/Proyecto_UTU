@@ -28,7 +28,6 @@ Partial Class MsgBoxControlSettings
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbTamanoLetra = New System.Windows.Forms.ComboBox()
-        Me.chkMultilinea = New System.Windows.Forms.CheckBox()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbColores = New System.Windows.Forms.ComboBox()
@@ -97,19 +96,6 @@ Partial Class MsgBoxControlSettings
         Me.cbTamanoLetra.TabIndex = 6
         Me.cbTamanoLetra.Tag = "noLimpiar"
         '
-        'chkMultilinea
-        '
-        Me.chkMultilinea.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.chkMultilinea.AutoSize = True
-        Me.chkMultilinea.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkMultilinea.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMultilinea.Location = New System.Drawing.Point(493, 50)
-        Me.chkMultilinea.Name = "chkMultilinea"
-        Me.chkMultilinea.Size = New System.Drawing.Size(111, 28)
-        Me.chkMultilinea.TabIndex = 8
-        Me.chkMultilinea.Text = "Multilinea"
-        Me.chkMultilinea.UseVisualStyleBackColor = True
-        '
         'btnAceptar
         '
         Me.btnAceptar.BackColor = System.Drawing.Color.GreenYellow
@@ -172,7 +158,6 @@ Partial Class MsgBoxControlSettings
         'pnlSettingsTXT
         '
         Me.pnlSettingsTXT.Controls.Add(Me.chkSoyPregunta)
-        Me.pnlSettingsTXT.Controls.Add(Me.chkMultilinea)
         Me.pnlSettingsTXT.Location = New System.Drawing.Point(12, 355)
         Me.pnlSettingsTXT.Name = "pnlSettingsTXT"
         Me.pnlSettingsTXT.Size = New System.Drawing.Size(697, 83)
@@ -210,7 +195,6 @@ Partial Class MsgBoxControlSettings
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents cbTamanoLetra As ComboBox
-    Friend WithEvents chkMultilinea As CheckBox
     Friend WithEvents btnAceptar As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents cbColores As ComboBox
