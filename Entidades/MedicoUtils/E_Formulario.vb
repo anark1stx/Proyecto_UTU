@@ -7,6 +7,8 @@
     Protected _medico As New E_Medico 'medico que esta recabando datos del paciente en la consulta
     Protected _preguntasYrespuestas As New List(Of PreguntaRespuesta)
     Protected _enfermedad As New E_Enfermedad
+    Protected _analisis As New E_Analisis
+    Protected _tratamiento As New E_Tratamiento
     Protected _id_consulta As Integer
     Protected _nombre_consulta As String
     Property ID As Integer

@@ -120,12 +120,12 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             e.Graphics.DrawImage(Memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
         End Sub
 
-        Sub Guardar()
-
+        Async Sub Guardar()
+            Dim resultado = 0
             Select Case Modo
                 Case 0
 
-                    If FormDatos.Enfermedad Is Nothing Then
+                    If FormDatos.Enfermedad.Nombre Is String.Empty Then
                         MessageBox.Show("Ingrese una enfermedad.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
@@ -144,19 +144,29 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Next
 
                     Console.WriteLine("Evento guardar Datos Formulario!!!!")
-                    Dim resultado = GuardarDatosFormulario(FormDatos) '=consulta medica
+                    Dim negocio As New N_Formulario
+                    resultado = Await Task.Run(Function() negocio.AltaFormularioDatos(FormDatos))
 
                 Case 1
-                    Console.WriteLine("Evento guardar Datos Tratamiento!!!!")
-                    Dim resultado = GuardarDatosTratamiento(TratamientoDatos)
-
+                    Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
+                    Dim negocio As New N_Tratamiento
+                    resultado = Await Task.Run(Function() negocio.AltaTratamientoDatos(TratamientoDatos))
 
                 Case 2
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
-                    Dim resultado = GuardarDatosAnalisis(AnalisisDatos)
+                    Dim Negocio As New N_Analisis
+                    resultado = Await Task.Run(Function() Negocio.AltaAnalisisDatos(AnalisisDatos))
 
             End Select
 
+            Select Case resultado
+                Case -1
+                    MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Case 2
+                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando accion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Case 1
+                    MessageBox.Show("Se guardaron todos los datos correctamente.", "Alta de la consulta exitosa.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Select
         End Sub
     End Class
 
@@ -289,21 +299,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     Function BuscarIDS_preguntas(pregs As List(Of PreguntaRespuesta))
         Dim nf As New N_Formulario
         Return nf.BuscarID_preguntas(pregs)
-    End Function
-
-    Function GuardarDatosFormulario(form As E_Formulario) As Integer
-        Dim negocio As New N_Formulario
-        Return negocio.AltaFormularioDatos(form)
-    End Function
-
-    Function GuardarDatosTratamiento(tratamiento As E_Tratamiento) As Integer
-        Dim negocio As New N_Tratamiento
-        Return negocio.AltaTratamientoDatos(tratamiento)
-    End Function
-
-    Function GuardarDatosAnalisis(analisis As E_Analisis) As Integer
-        Dim negocio As New N_Analisis
-        Return negocio.AltaAnalisisDatos(analisis)
     End Function
 
 End Module

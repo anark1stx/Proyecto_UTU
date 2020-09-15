@@ -81,19 +81,19 @@ Partial Class frmMedico
         'SeleccionarMedicoToolStripMenuItem
         '
         Me.SeleccionarMedicoToolStripMenuItem.Name = "SeleccionarMedicoToolStripMenuItem"
-        Me.SeleccionarMedicoToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.SeleccionarMedicoToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
         Me.SeleccionarMedicoToolStripMenuItem.Text = "Seleccionar médico"
         '
         'IdentificarPacienteToolStripMenuItem1
         '
         Me.IdentificarPacienteToolStripMenuItem1.Name = "IdentificarPacienteToolStripMenuItem1"
-        Me.IdentificarPacienteToolStripMenuItem1.Size = New System.Drawing.Size(224, 26)
+        Me.IdentificarPacienteToolStripMenuItem1.Size = New System.Drawing.Size(222, 26)
         Me.IdentificarPacienteToolStripMenuItem1.Text = "Identificar Paciente"
         '
         'VerListadoDeHoyToolStripMenuItem1
         '
         Me.VerListadoDeHoyToolStripMenuItem1.Name = "VerListadoDeHoyToolStripMenuItem1"
-        Me.VerListadoDeHoyToolStripMenuItem1.Size = New System.Drawing.Size(224, 26)
+        Me.VerListadoDeHoyToolStripMenuItem1.Size = New System.Drawing.Size(222, 26)
         Me.VerListadoDeHoyToolStripMenuItem1.Text = "Ver listado de hoy"
         '
         'AtenderMenuItem
@@ -106,25 +106,25 @@ Partial Class frmMedico
         'DefinirConsultaToolStripMenuItem
         '
         Me.DefinirConsultaToolStripMenuItem.Name = "DefinirConsultaToolStripMenuItem"
-        Me.DefinirConsultaToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.DefinirConsultaToolStripMenuItem.Size = New System.Drawing.Size(220, 26)
         Me.DefinirConsultaToolStripMenuItem.Text = "Nueva Consulta"
         '
         'IdentificarPacienteToolStripMenuItem
         '
         Me.IdentificarPacienteToolStripMenuItem.Name = "IdentificarPacienteToolStripMenuItem"
-        Me.IdentificarPacienteToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.IdentificarPacienteToolStripMenuItem.Size = New System.Drawing.Size(220, 26)
         Me.IdentificarPacienteToolStripMenuItem.Text = "Identificar Paciente"
         '
         'EntrevistarPacienteToolStripMenuItem
         '
         Me.EntrevistarPacienteToolStripMenuItem.Name = "EntrevistarPacienteToolStripMenuItem"
-        Me.EntrevistarPacienteToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.EntrevistarPacienteToolStripMenuItem.Size = New System.Drawing.Size(220, 26)
         Me.EntrevistarPacienteToolStripMenuItem.Text = "Entrevistar Paciente"
         '
         'VerListadoDeHoyToolStripMenuItem
         '
         Me.VerListadoDeHoyToolStripMenuItem.Name = "VerListadoDeHoyToolStripMenuItem"
-        Me.VerListadoDeHoyToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.VerListadoDeHoyToolStripMenuItem.Size = New System.Drawing.Size(220, 26)
         Me.VerListadoDeHoyToolStripMenuItem.Text = "Ver listado de hoy"
         '
         'FormulariosMenuItem

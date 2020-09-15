@@ -258,21 +258,37 @@ Public Class D_Formulario
     End Function
 
     Public Function AltaFormularioDatos(form As E_Formulario) As Integer
-        Dim result = AltaAtiende(form)
-        If result = 1 Then
-            Dim result1 = AltaResponde(form)
-            If result1 = 1 Then
-                Dim result2 = AltaSignosClinicos(form)
-                If result2 = 1 Then
-                    Return AltaSintomas(form)
+        Dim resultatiende = AltaAtiende(form)
+        If resultatiende = 1 Then
+            Dim resultresponde = AltaResponde(form)
+            If resultresponde = 1 Then
+                Dim resultsignoclinico = AltaSignosClinicos(form)
+                If resultsignoclinico = 1 Then
+                    Dim resultsintoma = AltaSintomas(form)
+                    If resultsintoma = 1 Then
+                        Dim resultsEnfermedad = AltaDeterminaEnfermedad(form)
+                        If resultsEnfermedad = 1 Then
+                            Dim resultsAnalisis = AltaRequiereAnalisis(form)
+                            If resultsAnalisis = 1 Then
+                                Dim resultsTratamiento = AltaSugiereTratamiento(form)
+                                Return resultsTratamiento
+                            Else
+                                Return resultsAnalisis
+                            End If
+                        Else
+                            Return resultsEnfermedad
+                        End If
+                    Else
+                        Return resultsintoma
+                    End If
                 Else
-                    Return result2
+                    Return resultsignoclinico
                 End If
             Else
-                Return result1
+                Return resultresponde
             End If
         Else
-            Return result
+            Return resultatiende
         End If
     End Function
     Public Function AltaAtiende(form As E_Formulario)
@@ -429,4 +445,20 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
     End Function
+
+    Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'primero alta a enfermedad y luego a determina.
+
+
+
+    End Function
+
+
+    Public Function AltaRequiereAnalisis(form As E_Formulario) As Integer 'esta funcion solo se va a poder ejecutar desde el toolstripbutton "asignar a paciente"
+
+    End Function
+
+    Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer 'esta funcion solo se va a poder ejecutar desde el toolstripbutton "asignar a paciente"
+
+    End Function
+
 End Class

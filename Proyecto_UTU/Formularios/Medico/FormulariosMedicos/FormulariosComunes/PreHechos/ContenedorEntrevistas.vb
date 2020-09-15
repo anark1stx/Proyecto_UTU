@@ -5,6 +5,14 @@ Public Class ContenedorEntrevistas
     Protected _frmLimpio As New formularioLimpio
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
+
+    '
+    '
+    'EN LA TABPAGE DE RESOLUCION CARGAR A LOS CAMPOS DE ANALISIS Y TRATAMIENTOS LOS QUE YA ESTAN GUARDADOS EN LA BASE DE DATOS.
+    '
+    '
+    '
+
     Property Frmlimpio As formularioLimpio
         Get
             Return _frmLimpio
@@ -110,5 +118,13 @@ Public Class ContenedorEntrevistas
         Eventos.Acciones.Visible = True
         Eventos.AgregarHandlers()
         Console.WriteLine(AccionesFrm.Location)
+    End Sub
+
+    Private Sub btnSugerirDiagnostico_Click(sender As Object, e As EventArgs) Handles btnSugerirDiagnostico.Click
+        MsgBox("Aun no implementado.")
+    End Sub
+
+    Private Sub txtNomEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtNomEnfermedad.TextChanged
+        Frmlimpio.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
     End Sub
 End Class

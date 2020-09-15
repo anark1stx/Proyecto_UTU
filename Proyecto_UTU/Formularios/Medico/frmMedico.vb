@@ -27,12 +27,11 @@ Public Class frmMedico
     Dim frmDlr As New frmDolor
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar
-    Dim frmSelect As List(Of Control) 'lista de controles que llegan desde un frm del catalogo
 
     Dim frmSelecMed As New frmSeleccionarMedico
     Dim _entrevistas As New frmCargarTarjetasP
 
-    Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado para el predictivo.
+    Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado.
     Dim _paciente As New E_Paciente With {.Cedula = 0}
     'Dim PreguntarNombreConsulta As New frmPreguntarNomCons
     Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
@@ -692,14 +691,28 @@ Public Class frmMedico
         'frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
         'frmTratamientoC.ResetMode()
         'frmTratamientoC.ResetMode()
+        If ID_Consulta = 0 Then
+            MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            InstanciarFormulario("AsignarAnalisis")
+            'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
+            'datagridview que los carga.
+            'el medico va seleccionando
+            'se cargan los datos a campos de texto con enabled = false
+        End If
     End Sub
 
     Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
-        InstanciarFormulario("AsignarTratamiento")
-        'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
-        'datagridview que los carga.
-        'el medico va seleccionando
-        'se cargan los datos a campos de texto con enabled = false
+        If ID_Consulta = 0 Then
+            MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            InstanciarFormulario("AsignarTratamiento")
+            'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
+            'datagridview que los carga.
+            'el medico va seleccionando
+            'se cargan los datos a campos de texto con enabled = false
+        End If
+
     End Sub
     Private Sub IdentificarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem.Click
         InstanciarFormulario("Identificacion")
@@ -727,5 +740,13 @@ Public Class frmMedico
 
     Private Sub IdentificarPacienteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem1.Click
         InstanciarFormulario("EntrevistaInicial")
+    End Sub
+
+    Private Sub AnalisisMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisMenuItem.Click
+        ID_Consulta = tb.Frmlimpio.MiFormulario.Id_consulta
+    End Sub
+
+    Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
+        ID_Consulta = tb.Frmlimpio.MiFormulario.Id_consulta
     End Sub
 End Class

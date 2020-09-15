@@ -46,11 +46,11 @@ Partial Class ContenedorEntrevistas
         Me.chkEnfermo = New System.Windows.Forms.CheckBox()
         Me.lblPresenta = New System.Windows.Forms.Label()
         Me.txtNomEnfermedad = New System.Windows.Forms.TextBox()
-        Me.chkAnalisis = New System.Windows.Forms.CheckBox()
         Me.chkTratamiento = New System.Windows.Forms.CheckBox()
         Me.lblTratamientoS = New System.Windows.Forms.Label()
         Me.txtNomTratamiento = New System.Windows.Forms.TextBox()
         Me.btnSugerirDiagnostico = New System.Windows.Forms.Button()
+        Me.chkAnalisis = New System.Windows.Forms.CheckBox()
         Me.TabControlFormulario.SuspendLayout()
         Me.tbpSintomasYsg.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -343,19 +343,6 @@ Partial Class ContenedorEntrevistas
         Me.txtNomEnfermedad.TabIndex = 3
         Me.txtNomEnfermedad.Visible = False
         '
-        'chkAnalisis
-        '
-        Me.chkAnalisis.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.chkAnalisis.AutoSize = True
-        Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(22, 214)
-        Me.chkAnalisis.Name = "chkAnalisis"
-        Me.chkAnalisis.Size = New System.Drawing.Size(395, 205)
-        Me.chkAnalisis.TabIndex = 4
-        Me.chkAnalisis.Text = "¿El paciente requiere un análisis?"
-        Me.chkAnalisis.UseVisualStyleBackColor = True
-        '
         'chkTratamiento
         '
         Me.chkTratamiento.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
@@ -368,6 +355,7 @@ Partial Class ContenedorEntrevistas
         Me.chkTratamiento.TabIndex = 7
         Me.chkTratamiento.Text = "¿Se sugiere un tratamiento?"
         Me.chkTratamiento.UseVisualStyleBackColor = True
+        Me.chkTratamiento.Visible = False
         '
         'lblTratamientoS
         '
@@ -403,6 +391,20 @@ Partial Class ContenedorEntrevistas
         Me.btnSugerirDiagnostico.TabIndex = 10
         Me.btnSugerirDiagnostico.Text = "Sugerir diagnóstico"
         Me.btnSugerirDiagnostico.UseVisualStyleBackColor = False
+        '
+        'chkAnalisis
+        '
+        Me.chkAnalisis.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.chkAnalisis.AutoSize = True
+        Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkAnalisis.Location = New System.Drawing.Point(22, 214)
+        Me.chkAnalisis.Name = "chkAnalisis"
+        Me.chkAnalisis.Size = New System.Drawing.Size(395, 205)
+        Me.chkAnalisis.TabIndex = 4
+        Me.chkAnalisis.Text = "¿El paciente requiere un análisis?"
+        Me.chkAnalisis.UseVisualStyleBackColor = True
+        Me.chkAnalisis.Visible = False
         '
         'ContenedorEntrevistas
         '
@@ -449,9 +451,9 @@ Partial Class ContenedorEntrevistas
     Friend WithEvents txtNomEnfermedad As TextBox
     Friend WithEvents txtNomAnalisis As TextBox
     Friend WithEvents lblAnalisisReq As Label
-    Friend WithEvents chkAnalisis As CheckBox
     Friend WithEvents chkTratamiento As CheckBox
     Friend WithEvents lblTratamientoS As Label
     Friend WithEvents txtNomTratamiento As TextBox
     Friend WithEvents btnSugerirDiagnostico As Button
+    Friend WithEvents chkAnalisis As CheckBox
 End Class
