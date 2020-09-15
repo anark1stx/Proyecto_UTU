@@ -3,12 +3,14 @@ Public Class PreguntaRespuesta
     Protected _pregunta As Control
     Protected _id_pregunta As Integer
     Protected _respuesta As Control
+    Protected _tag As String
     Property Pregunta As Control
         Get
             Return _pregunta
         End Get
         Set(value As Control)
             _pregunta = value
+            _pregunta.Tag = Tag
         End Set
     End Property
 
@@ -18,6 +20,7 @@ Public Class PreguntaRespuesta
         End Get
         Set(value As Control)
             _respuesta = value
+            _respuesta.Tag = Tag
         End Set
     End Property
 
@@ -30,13 +33,28 @@ Public Class PreguntaRespuesta
         End Set
     End Property
 
+    Property Tag As String
+        Get
+            Return _tag
+        End Get
+        Set(value As String)
+            _tag = value
+        End Set
+    End Property
+
     Sub New()
 
     End Sub
 
-    Sub New(pregunta As Control, respuesta As Control)
+    Sub New(tag As String, pregunta As Control, respuesta As Control)
+        _tag = tag
         _pregunta = pregunta
         _respuesta = respuesta
+    End Sub
+
+    Sub New(tag As String, pregunta As Control)
+        _tag = tag
+        _pregunta = pregunta
     End Sub
 
 End Class

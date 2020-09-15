@@ -25,7 +25,7 @@ Public Module mdlUtilsFormularios
 
                         If c.Tag.StartsWith("pr") Then
                             Console.WriteLine("PreguntaYRespuesta!: " & c.Tag)
-                            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c, c))
+                            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c, c))
                         ElseIf c.Tag.StartsWith("p") Then 'pregunta
                             Console.WriteLine("Pregunta: " & c.Tag)
                             Preguntas.Add(c)
@@ -49,7 +49,7 @@ Public Module mdlUtilsFormularios
                 respuesta = Respuestas.Find(Function(r) r.Tag.ToString().Substring(1, r.Tag.ToString().Length - 1) = p.Tag.ToString().Substring(1, p.Tag.ToString().Length - 1))
             End If
             'Console.WriteLine("la respuesta en p es: " & respuesta.Text)
-            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p, respuesta))
+            ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(p.Tag, p, respuesta))
         Next
 
         For Each pyr As PreguntaRespuesta In ListaPreguntasYRespuestas

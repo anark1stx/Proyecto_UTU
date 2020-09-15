@@ -66,46 +66,25 @@ Public Class frmCrearFormulario
             MostrarManito()
             _instancia.Left = e.X + txtTextBox.Left - ubicacion_mouse.X
             _instancia.Top = e.Y + txtTextBox.Top - ubicacion_mouse.Y
-
         End If
     End Sub
 
     Public Sub txtTextBox_MouseUp(sender As Object, e As MouseEventArgs) Handles txtTextBox.MouseUp
         If e.Location.X > pnlFormularioPersonalizado.Left Then
             LimpiarControles(TipoDeTxt)
-
-            If frmPlano.PreguntasYRespuestas.Count > 0 Then
-                TipoDeTxt.cbTipoDeDato.Items.Clear()
-                For Each p As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
-                    TipoDeTxt.cbTipoDeDato.Items.Add(p.Pregunta.Text)
-                Next
-            Else
-                setType()
-                Exit Sub
-            End If
-
-            SettingsTXTvisibles(True)
+            Dim listaP As New List(Of Control)
+            For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+                listaP.Add(pyr.Pregunta)
+            Next
+            TipoDeTxt.cbTipoDeDato.DataSource = listaP
+            TipoDeTxt.cbTipoDeDato.DisplayMember = "Text"
+            TipoDeTxt.cbTipoDeDato.ValueMember = "Tag"
             TipoDeTxt.ShowDialog()
-
-            If TipoDeTxt.cbTipoDeDato.SelectedIndex <> -1 Then
-
-                For Each p In frmPlano.PreguntasYRespuestas
-                    Console.WriteLine("pregunta: " & p.Pregunta.Text & " valorS: " & TipoDeTxt.cbTipoDeDato.SelectedItem)
-                    If p.Pregunta.Text = TipoDeTxt.valorSeleccionado Then
-                        Console.WriteLine("iguales!!")
-                        p.Respuesta = _instancia
-                    End If
-                Next
-
-            End If
-            DirectCast(_instancia, TextBox).Multiline = True
-            setType()
-
-            TipoDeTxt.Hide()
+            _instancia.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue
+            frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue).Respuesta = _instancia
         Else
             Me.Controls.Remove(_instancia)
         End If
-
     End Sub
 #End Region
 
@@ -137,14 +116,14 @@ Public Class frmCrearFormulario
     Private Sub lblLabel_MouseUp(sender As Object, e As MouseEventArgs) Handles lblLabel.MouseUp
         LimpiarControles(settings)
         SettingsTXTvisibles(True)
+        MostrarChk(True)
         settings.ShowDialog()
         setType()
         If settings.chkSoyPregunta.Checked Then
-            Dim pyr As New PreguntaRespuesta()
-            pyr.Pregunta = _instancia
-            frmPlano.PreguntasYRespuestas.Add(pyr)
+            frmPlano.tagCount += 1
+            _instancia.Tag = String.Format("p{0}", frmPlano.tagCount) 'setteo el tag
+            frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta(_instancia.Tag, _instancia))
         End If
-
         settings.Hide()
     End Sub
 
@@ -178,15 +157,15 @@ Public Class frmCrearFormulario
     Private Sub chkBox_MouseUp(sender As Object, e As MouseEventArgs) Handles chkBox.MouseUp
         LimpiarControles(settings)
         SettingsTXTvisibles(True)
+        MostrarChk(False)
+        settings.chkSoyPregunta.Checked = True
         settings.ShowDialog()
-        _instancia.Text = TipoDeTxt.valorSeleccionado
-        If settings.chkSoyPregunta.Checked Then
-            Dim pyr As New PreguntaRespuesta With {
+        _instancia.Text = TipoDeTxt.cbTipoDeDato.SelectedItem
+        Dim pyr As New PreguntaRespuesta With {
                 .Pregunta = _instancia, 'El paciente .....
                 .Respuesta = _instancia 'Si/No checked/unchecked
                 }
-            frmPlano.PreguntasYRespuestas.Add(pyr)
-        End If
+        frmPlano.PreguntasYRespuestas.Add(pyr)
         setType()
     End Sub
 #End Region
@@ -218,6 +197,7 @@ Public Class frmCrearFormulario
     'PENDIENTE: Serializar los eventos del boton
     Private Sub btnBoton_MouseUp(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseUp
         LimpiarControles(settings)
+        MostrarChk(False)
         SettingsTXTvisibles(False)
         settings.ShowDialog()
 
@@ -253,6 +233,7 @@ Public Class frmCrearFormulario
     Private Sub lbListbox_MouseUp(sender As Object, e As MouseEventArgs) Handles lbListBox.MouseUp
         LimpiarControles(settings)
         SettingsTXTvisibles(False)
+        MostrarChk(False)
         settings.ShowDialog()
 
         setType()
@@ -294,6 +275,10 @@ Public Class frmCrearFormulario
 #End Region
     Private Sub SettingsTXTvisibles(_case As Boolean)
         settings.pnlSettingsTXT.Visible = _case
+    End Sub
+
+    Private Sub MostrarChk(_case As Boolean)
+        settings.chkSoyPregunta.Visible = _case 'los checkbox siempre van a ser pregunta
     End Sub
     Public Sub setType()
         _instancia.Name = setControlName()
