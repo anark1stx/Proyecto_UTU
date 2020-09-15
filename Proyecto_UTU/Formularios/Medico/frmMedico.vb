@@ -277,7 +277,9 @@ Public Class frmMedico
             Case "Generico"
                 LimpiarControles(generico)
                 addFrmEntrevistaPreHecho(generico)
-
+                'MOVER ESTO DE ABAJO AL EVENTO LOAD DEL FORMULARIO.
+                'BuscarPreguntas(generico.pnlContenedor, generico.MisPreguntas) 
+                'UnirPreguntasConRespuestas(generico.pnlContenedor, generico.MisPreguntas)
             Case "Dolor"
                 LimpiarControles(frmDlr)
                 addFrmEntrevistaPreHecho(frmDlr)
@@ -299,12 +301,13 @@ Public Class frmMedico
                     Console.WriteLine("no fue seleccionado un form")
                     Exit Sub
                 End If
-                Dim controles = ConvertirFormulario(frmCatalogo.FormSeleccionado)
-
                 Dim fl = New formularioLimpio
+                Dim controles = ConvertirFormulario(frmCatalogo.FormSeleccionado)
                 fl.pnlContenedor.Controls.AddRange(controles.ToArray())
+                BuscarPreguntas(fl.pnlContenedor, fl.MisPreguntas)
+                UnirPreguntasConRespuestas(fl.pnlContenedor, fl.MisPreguntas)
+                BuscarIDsP(fl.MisPreguntas)
                 addFrmEntrevistaXML(fl)
-
             Case "CrearFormulario"
 
                 frmCrear.Show()

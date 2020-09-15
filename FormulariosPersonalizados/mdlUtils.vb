@@ -212,7 +212,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         For Each c As Control In contenedor.Controls
             Select Case c.GetType
                 Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
-                    UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
+                    BuscarPreguntas(c, ListaPreguntasYRespuestas)
                 Case Else
                     If Not String.IsNullOrEmpty(c.Tag) Then
                         Select Case c.GetType() 'primero guardo preguntas
@@ -256,10 +256,20 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     End Sub
     Function ConvertirFormulario(form As E_Formulario) As List(Of Control)
         Dim gestor As New GestorXMLv2
-        Dim fbr As New FabricaDeControles()
+        Dim fbr As New FabricaDeControles
         Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(form.XML)
 
         Return fbr.Crear(lista)
+    End Function
+
+    Async Sub BuscarIDsP(pregs As List(Of PreguntaRespuesta))
+        Dim result = Await Task.Run(Function() BuscarIDS_preguntas(pregs))
+        Console.WriteLine("resultado: " & result)
+    End Sub
+
+    Function BuscarIDS_preguntas(pregs As List(Of PreguntaRespuesta))
+        Dim nf As New N_Formulario
+        Return nf.BuscarID_preguntas(pregs)
     End Function
 
     Function GuardarDatosFormulario(form As E_Formulario) As Integer

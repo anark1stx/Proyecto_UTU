@@ -147,6 +147,36 @@ Public Class D_Formulario
         Return formList
     End Function
 
+    Public Function CargarIDpregunta(pList As List(Of PreguntaRespuesta)) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+        Dim leer As MySqlDataReader
+        For Each p As PreguntaRespuesta In pList
+            Dim cmd As New MySqlCommand With {
+                    .CommandType = CommandType.StoredProcedure,
+                    .CommandText = "BuscarPregunta",
+                    .Connection = conexion
+            }
+            cmd.Parameters.Add("PREG", MySqlDbType.VarChar).Value = p.Pregunta.Text
+
+            'busco la pregunta, leo la ID y la guardo
+            Try
+                leer = cmd.ExecuteReader()
+            Catch ex As Exception
+                Console.WriteLine("ERROR BUSCANDO IDPREG: " & ex.Message)
+                Cerrar(conexion)
+                Return 2
+            End Try
+            While leer.Read()
+                p.ID_Pregunta = leer.GetInt32("ID")
+                Console.WriteLine("la ID de la pregunta " & p.Pregunta.Text & " es: " & p.ID_Pregunta)
+            End While
+            leer.Close()
+        Next
+        Return 1
+    End Function
+
     Public Function BorrarPreguntasDeFormulario(form As E_Formulario) 'voy a usar este metodo en modificar, borro todas las preguntas y las vuelvo a agregar.
         If Conectar(conexion) = -1 Then
             Return -1
@@ -224,10 +254,51 @@ Public Class D_Formulario
 
     Public Function ConsultaDatosDeFormulario(ID_consulta As Integer) As E_Formulario 'retornar el objeto formulario con todas las respuestas
         Dim formularioConDatos As New E_Formulario
+        'leer la id de las preguntas
     End Function
 
-    Public Function GuardarDatosFormulario(form As E_Formulario) As Integer 'guardar todas las respuestas a las preguntas hechas.
+    Public Function AltaFormularioDatos(form As E_Formulario) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaFormularioDatos", 'Alta a la tabla responde, sintoma,enfermedad,registra,examenfisico.
+            .Connection = conexion
+        }
+
+
+
+
+        cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = form.Nombre
+        cmd.Parameters.Add("XML", MySqlDbType.MediumText).Value = form.XML
+        cmd.Parameters.Add("V_PREVIA", MySqlDbType.MediumBlob).Value = form.VistaPrevia
+        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Direction = ParameterDirection.Output
+        Try
+            cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            Return 2
+        End Try
+
+        Cerrar(conexion)
+        form.ID = cmd.Parameters("ID_F").Value
+        Console.WriteLine("este form tiene id: " & form.ID)
+
+        Dim result = AltaPreguntas(form)
+        Select Case result
+            Case -1
+                Return -1
+            Case 2
+                Return 2
+            Case 3
+                Return 3
+            Case 4
+                Return 4
+        End Select
+
+        Return 1
     End Function
-
 End Class

@@ -19,8 +19,14 @@ Public Class N_Formulario
         Return objDatos.BajaFormulario(form)
     End Function
 
-    Public Function AltaFormularioDatos(form As E_Formulario) As Integer
-
+    Public Function BuscarID_preguntas(pList As List(Of PreguntaRespuesta)) As Integer
+        Return objDatos.CargarIDpregunta(pList)
     End Function
+
+    Public Function AltaFormularioDatos(form As E_Formulario) As Integer
+        Return objDatos.AltaFormularioDatos(form)
+    End Function
+
+
 
 End Class

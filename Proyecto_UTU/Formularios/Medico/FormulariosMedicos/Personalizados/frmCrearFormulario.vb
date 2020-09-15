@@ -309,10 +309,15 @@ Public Class frmCrearFormulario
         End Select
 
         'verificar que todas las preguntas tengan respuesta.
-        Dim sinrespuesta = frmPlano.PreguntasYRespuestas.Find(Function(p) p.Respuesta Is Nothing).Pregunta
+        Dim sinrespuesta As New PreguntaRespuesta
+        Try
+            sinrespuesta = frmPlano.PreguntasYRespuestas.Find(Function(p) p.Respuesta Is Nothing)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
 
         If sinrespuesta IsNot Nothing Then
-            MessageBox.Show(sinrespuesta.Text, "Falta asignar un campo de respuesta para la pregunta.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(sinrespuesta.Pregunta.Text, "Falta asignar un campo de respuesta para la pregunta.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
