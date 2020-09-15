@@ -8,24 +8,26 @@ Public Class formularioPlano
     Dim dragging As Boolean = False
     Dim settings As New MsgBoxControlSettings
     Dim txtBox As New MsgBoxTipoDeTextBox
+    Dim resizingRight As Boolean = False
+    Dim resizingBottom As Boolean = False
     Public Sub _MouseDown(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.MouseDown
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ubicacion_mouse = e.Location
-
-            For Each p As PreguntaRespuesta In PreguntasYRespuestas
-
-                If Not p.Respuesta Is Nothing Then
-                    Console.WriteLine("pregunta: " & p.Pregunta.Text & " respuesta: " & p.Respuesta.Text)
-                Else
-                    Console.WriteLine("pregunta: " & p.Pregunta.Text & " sin respuesta")
-                End If
-
-            Next
-
+            If TypeOf (sender) Is TextBox And e.Location.X >= sender.Width - 8 Then
+                resizingBottom = False
+                resizingRight = True
+                Console.WriteLine("cerca del borde")
+            ElseIf TypeOf (sender) Is TextBox And e.Location.Y >= sender.Height - 8 Then
+                resizingRight = False
+                resizingBottom = True
+            Else
+                resizingBottom = False
+                resizingRight = False
+            End If
         Else
-            'Abrir settings para configurar el control
-            If TypeOf sender Is TextBox Or TypeOf sender Is ComboBox Then
+                'Abrir settings para configurar el control
+                If TypeOf sender Is TextBox Or TypeOf sender Is ComboBox Then
                 Dim tipo = sender.GetType()
                 Dim c = DirectCast(sender, Control)
                 Dim listaP As New List(Of Control)
@@ -76,15 +78,21 @@ Public Class formularioPlano
     Public Sub _MouseMove(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.Move
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ctrl_seleccionado = sender
-            sender.Left = e.X + sender.Left - ubicacion_mouse.X
-            sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
-            dragging = True
-            evaluarSiEstoyenPanel(ctrl_seleccionado)
-            If dragging Then
-                If sender.Left < Me.Left Then
-                    Dim contenedor = DirectCast(sender, Control).Parent
-                    contenedor.Controls.Remove(ctrl_seleccionado)
-                    ctrl_seleccionado = Nothing
+            If resizingBottom Then
+                sender.Height = (sender.Top + e.Y) / 1.1
+            ElseIf resizingRight Then
+                sender.Width = (sender.Left + e.X) / 1.1
+            ElseIf Not resizingRight AndAlso Not resizingBottom Then
+                sender.Left = e.X + sender.Left - ubicacion_mouse.X
+                sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
+                dragging = True
+                evaluarSiEstoyenPanel(ctrl_seleccionado)
+                If dragging Then
+                    If sender.Left < Me.Left Then
+                        Dim contenedor = DirectCast(sender, Control).Parent
+                        contenedor.Controls.Remove(ctrl_seleccionado)
+                        ctrl_seleccionado = Nothing
+                    End If
                 End If
             End If
         Else

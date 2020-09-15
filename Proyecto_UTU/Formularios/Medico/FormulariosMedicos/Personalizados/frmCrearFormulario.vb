@@ -81,9 +81,13 @@ Public Class frmCrearFormulario
             TipoDeTxt.cbTipoDeDato.DisplayMember = "Text"
             TipoDeTxt.cbTipoDeDato.ValueMember = "Tag"
             TipoDeTxt.ShowDialog()
-            _instancia.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue
-            frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue).Respuesta = _instancia
-            setType()
+            If TipoDeTxt.cbTipoDeDato.SelectedIndex <> -1 Then
+                _instancia.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue
+                frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue).Respuesta = _instancia
+                setType()
+            Else
+                Me.Controls.Remove(_instancia)
+            End If
         Else
             Me.Controls.Remove(_instancia)
         End If
