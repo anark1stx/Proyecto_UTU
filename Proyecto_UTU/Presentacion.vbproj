@@ -85,6 +85,12 @@
     <Compile Include="Formularios\Administrador\frmGestion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\formularioLimpio.Designer.vb">
+      <DependentUpon>formularioLimpio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\formularioLimpio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.Designer.vb">
       <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
     </Compile>
@@ -327,6 +333,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\formularioLimpio.resx">
+      <DependentUpon>formularioLimpio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.resx">
       <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>

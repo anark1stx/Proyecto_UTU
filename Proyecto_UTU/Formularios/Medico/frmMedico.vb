@@ -2,6 +2,7 @@
 Imports Entidades
 Imports Negocio
 Imports Utilidades
+Imports FormulariosPersonalizados
 Public Class frmMedico
 
     Dim frmIni As New frmInicio
@@ -26,6 +27,7 @@ Public Class frmMedico
     Dim frmDlr As New frmDolor
     Dim frmFbr As New frmFiebre
     Dim frmMal As New frmMalestar
+    Dim frmSelect As List(Of Control) 'lista de controles que llegan desde un frm del catalogo
 
     Dim frmSelecMed As New frmSeleccionarMedico
     Dim _entrevistas As New frmCargarTarjetasP
@@ -163,11 +165,14 @@ Public Class frmMedico
         tb.tbpEntrevista.Controls.Add(frm)
     End Sub
 
-    Public Sub addFrmEntrevistaXML(frmConEntrevistaCargado As formularioPlano) 'este metodo es para los diseñados que se cargan desded su XML
+    Public Sub addFrmEntrevistaXML(frmConEntrevistaCargado As formularioLimpio) 'este metodo es para los diseñados que se cargan desded su XML
         pnlContenedorFormularios.Controls.Clear()
         tb.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(tb)
+        frmConEntrevistaCargado.TopMost = True
+        frmConEntrevistaCargado.TopLevel = False
         tb.tbpEntrevista.Controls.Add(frmConEntrevistaCargado)
+        frmConEntrevistaCargado.Visible = True
     End Sub
 
     Public Sub fixSize()
@@ -290,16 +295,15 @@ Public Class frmMedico
                 frmPlano.Controls.Clear()
 
                 frmCatalogo.ShowDialog()
+                If frmCatalogo.FormSeleccionado Is Nothing Then
+                    Console.WriteLine("no fue seleccionado un form")
+                    Exit Sub
+                End If
+                Dim controles = ConvertirFormulario(frmCatalogo.FormSeleccionado)
 
-                'Dim controles = ImportarFormulario()
-
-                'If controles.Count > 1 Then
-                '    For Each control As Control In controles
-                '        frmPlano.Controls.Add(control)
-
-                '    Next
-                '    addFrm(frmPlano, 1)
-                'End If
+                Dim fl = New formularioLimpio
+                fl.pnlContenedor.Controls.AddRange(controles.ToArray())
+                addFrmEntrevistaXML(fl)
 
             Case "CrearFormulario"
 
