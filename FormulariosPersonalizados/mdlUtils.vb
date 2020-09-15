@@ -2,7 +2,8 @@
 Imports System.Windows.Forms
 Imports Utilidades
 Imports Entidades
-Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a los controles de los formularios personalizados en tiempo de ejecuccion
+Imports Negocio
+Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a los controles de los formularios personalizados en tiempo de ejecuccion
     Public Class EventosDeFormulario
         Protected _acciones As AccionesFormulario
         Protected _panelDestino As Panel
@@ -123,7 +124,7 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
             Select Case Modo
                 Case 0
                     Console.WriteLine("Evento guardar Datos Formulario!!!!")
-                    Dim resultado = GuardarDatosFormulario(FormDatos)
+                    Dim resultado = GuardarDatosFormulario(FormDatos) '=consulta medica
 
                 Case 1
                     Console.WriteLine("Evento guardar Datos Tratamiento!!!!")
@@ -133,7 +134,6 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
                 Case 2
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
                     Dim resultado = GuardarDatosAnalisis(AnalisisDatos)
-
 
             End Select
 
@@ -196,5 +196,85 @@ Public Module mdlEventos 'la finalidad de este modulo es poder agregar eventos a
         End If
 
     End Sub
+
+    Public Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
+
+        Return ColorTranslator.ToHtml(col)
+
+    End Function
+
+    Public Function HTMLTOColor(col As String) As Color
+        Return ColorTranslator.FromHtml(col)
+    End Function
+
+    Public Sub BuscarPreguntas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
+
+        For Each c As Control In contenedor.Controls
+            Select Case c.GetType
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                    UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
+                Case Else
+                    If Not String.IsNullOrEmpty(c.Tag) Then
+                        Select Case c.GetType() 'primero guardo preguntas
+                            Case GetType(Label) 'sabemos q label es el unico control que guarda solo preguntas
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("Pregunta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c))
+                                End If
+                            Case GetType(CheckBox) 'checkbox guarda pregunta y respuesta en el mismo.
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("PreguntaYrespuesta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c, c))
+                                End If
+                        End Select
+                    End If
+
+            End Select
+        Next
+
+    End Sub
+    Public Sub UnirPreguntasConRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
+
+        For Each c As Control In contenedor.Controls
+            Select Case c.GetType
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                    UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
+                Case Else
+                    If Not String.IsNullOrEmpty(c.Tag) Then
+                        Select Case c.GetType() 'primero guardo preguntas
+                            Case GetType(TextBox), GetType(ComboBox) 'sabemos q label es el unico control que guarda solo preguntas
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("Respuesta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag).Respuesta = c
+                                End If
+                        End Select
+                    End If
+
+            End Select
+        Next
+
+    End Sub
+    Function ConvertirFormulario(form As E_Formulario) As List(Of Control)
+        Dim gestor As New GestorXMLv2
+        Dim fbr As New FabricaDeControles()
+        Dim lista = gestor.Deserializar(Of ControlesGuardados.ListaControles)(form.XML)
+
+        Return fbr.Crear(lista)
+    End Function
+
+    Function GuardarDatosFormulario(form As E_Formulario) As Integer
+        Dim negocio As New N_Formulario
+        Return negocio.AltaFormularioDatos(form)
+    End Function
+
+    Function GuardarDatosTratamiento(tratamiento As E_Tratamiento) As Integer
+        Dim negocio As New N_Tratamiento
+        Return negocio.AltaTratamientoDatos(tratamiento)
+    End Function
+
+    Function GuardarDatosAnalisis(analisis As E_Analisis) As Integer
+        Dim negocio As New N_Analisis
+        Return negocio.AltaAnalisisDatos(analisis)
+    End Function
 
 End Module

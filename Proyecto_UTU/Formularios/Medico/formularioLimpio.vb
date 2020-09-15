@@ -6,7 +6,7 @@ Public Class formularioLimpio
 
     Private Sub frmLimpio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
-
+        Eventos.Modo = EventosDeFormulario.ModoEvento.DatosFormulario
         Eventos.Acciones = AccionesFrm
         Eventos.PanelDestino = pnlContenedor
         Eventos.PrintDoc = New Printing.PrintDocument
