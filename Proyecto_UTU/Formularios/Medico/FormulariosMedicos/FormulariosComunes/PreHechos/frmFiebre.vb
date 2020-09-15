@@ -7,9 +7,6 @@ Public Class frmFiebre
     Dim Eventos As New EventosDeFormulario
     Protected _paciente As E_Paciente
     Protected _medico As E_Medico
-    Protected _preguntasYrespuestas As New List(Of PreguntaRespuesta)
-    Protected _preguntas As New List(Of Control)
-    Protected _respuestas As New List(Of Control)
 
 
     Property Preguntas As List(Of Control)

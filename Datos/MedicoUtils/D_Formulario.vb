@@ -30,6 +30,19 @@ Public Class D_Formulario
 
         form.ID = cmd.Parameters("ID_F").Value
         Console.WriteLine("este form tiene id: " & form.ID)
+
+        Dim result = AltaPreguntas(form)
+        Select Case result
+            Case -1
+                Return -1
+            Case 2
+                Return 2
+            Case 3
+                Return 3
+            Case 4
+                Return 4
+        End Select
+
         Return 1
     End Function
 
@@ -130,23 +143,51 @@ Public Class D_Formulario
         Return formList
     End Function
 
+    Public Function BorrarPreguntasDeFormulario() 'voy a usar este metodo en modificar, borro todas las preguntas y las vuelvo a agregar.
+
+    End Function
+
+
     Public Function AltaPreguntas(form As E_Formulario) As Integer
+
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
             'hacer alta a la tabla preguntas 
             Dim cmd As New MySqlCommand With {
-                .CommandType = CommandType.StoredProcedure,
-                .CommandText = "AltaPregunta",
-                .Connection = conexion
+                    .CommandType = CommandType.StoredProcedure,
+                    .CommandText = "AltaPregunta",
+                    .Connection = conexion
             } 'si ya existe retornar la id, como hice con los parametros de los analisis que ya existian.
 
-            cmd.Parameters.Add("PREGUNTA", MySqlDbType.VarChar).Value = p.PreguntaTexto
+            cmd.Parameters.Add("PREGUNTA", MySqlDbType.VarChar).Value = p.Pregunta.Text
+            cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
             Try
-                cmd.Connection.Open()
                 cmd.ExecuteNonQuery()
+                p.ID_Pregunta = cmd.Parameters("ID_P").Value
             Catch ex As Exception
-                cmd.Connection.Close()
+                Cerrar(conexion)
+                Console.WriteLine(ex.Message)
+                Return 2
+            End Try
+
+            Dim cmd2 As New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "AltaPreguntaDeFormulario", 'alta a la tabla "de"
+                .Connection = conexion
+            }
+
+            cmd2.Parameters.Add("ID_P", MySqlDbType.Int32).Value = p.ID_Pregunta
+            cmd2.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
+            cmd2.Parameters.Add("NOM_CONTROL_P", MySqlDbType.VarChar).Value = p.Pregunta.Name
+            cmd2.Parameters.Add("NOM_CONTROL_R", MySqlDbType.VarChar).Value = p.Respuesta.Name
+            Try
+                cmd2.ExecuteNonQuery()
+            Catch ex As Exception
+                Cerrar(conexion)
                 Console.WriteLine(ex.Message)
                 Return 0
             End Try

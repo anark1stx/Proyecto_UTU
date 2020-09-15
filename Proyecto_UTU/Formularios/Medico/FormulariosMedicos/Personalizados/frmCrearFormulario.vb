@@ -297,7 +297,6 @@ Public Class frmCrearFormulario
     End Sub
     Public Sub setType()
         _instancia.Name = setControlName()
-
         _instancia.Text = settings.texto
         _instancia.Font = settings.fuente
         _instancia.ForeColor = settings.color
@@ -306,6 +305,9 @@ Public Class frmCrearFormulario
         Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
 
         _instancia.Location -= New Point(marginX, marginY)
+        If settings.chkSoyPregunta.Checked Then
+
+        End If
     End Sub
 
     Public Function setControlName() As String

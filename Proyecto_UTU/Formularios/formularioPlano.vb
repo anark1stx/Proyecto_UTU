@@ -3,6 +3,8 @@ Imports Entidades
 Public Class formularioPlano
     Public ubicacion_mouse As Point
     Public ctrl_seleccionado As Control
+    Public Preguntas As New List(Of Control)
+    Public Respuestas As New List(Of Control)
     Public PreguntasYRespuestas As New List(Of PreguntaRespuesta)
     Dim dragging As Boolean = False
     Dim settings As New MsgBoxControlSettings
