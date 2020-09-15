@@ -74,6 +74,7 @@ Public Class frmSeleccionarMedico
                 End If
             End If
             Me.Hide() 'si esta todo bien
+            NombreConsulta = txtNomConsulta.Text
         End If
     End Sub
 

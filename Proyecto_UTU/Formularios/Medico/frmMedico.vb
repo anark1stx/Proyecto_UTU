@@ -116,6 +116,7 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
                 _entrevistas.tblAcciones.Visible = False
+                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.AgregarAListaHoy
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -136,6 +137,7 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
                 _entrevistas.tblAcciones.Visible = True
+                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.MedicoAtiende
         End Select
         frmGestion.MiModo = MiModo
     End Sub
@@ -209,6 +211,7 @@ Public Class frmMedico
                 addFrm(frmIdentificacion)
 
             Case "SeleccionarMedico"
+                Console.WriteLine("NOM CONSULTA: " & NombreConsulta)
                 Select Case MiModo
                     Case Modo.SoyMedico
                         frmSelecMed.ComoMedico = True
@@ -218,6 +221,7 @@ Public Class frmMedico
                         frmSelecMed.ComoMedico = False
                 End Select
                 frmSelecMed.ShowDialog()
+
                 Select Case MiModo
                     Case Modo.SoyMedico
                         If Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexLiteralAcentos) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
