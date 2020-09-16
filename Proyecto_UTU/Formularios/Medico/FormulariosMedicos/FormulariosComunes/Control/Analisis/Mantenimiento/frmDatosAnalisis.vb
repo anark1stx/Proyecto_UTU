@@ -5,6 +5,8 @@ Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     Public AnalisisACargar As New E_Analisis
     Protected _ci_paciente As Integer
     Protected _paciente As E_Paciente
+    'reminder: agregar AccionesFormulario para poder guardar los datos
+    'reminder2: agregar eventostbp y poner su Modo en AnalisisDatos o lo q sea que puse para guardar los datos
     Property CI_Paciente As Integer
         Get
             Return _ci_paciente

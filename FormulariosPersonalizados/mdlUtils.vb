@@ -27,6 +27,8 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             DatosFormulario = 0
             DatosTratamiento = 1
             DatosAnalisis = 2
+            AsignarAnalisis = 3
+            AsignarTratamiento = 4
         End Enum
 
         Property Modo As ModoEvento
@@ -158,7 +160,14 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
                     Dim Negocio As New N_Analisis
                     resultado = Await Task.Run(Function() Negocio.AltaAnalisisDatos(AnalisisDatos))
-
+                Case 3 'asignar analisis
+                    Console.WriteLine("asignando analisis")
+                    Dim negocio As New N_Formulario
+                    resultado = Await Task.Run(Function() negocio.AltaRequiereAnalisis(FormDatos))
+                Case 4 'asignar tratamiento
+                    Console.WriteLine("asignando tratamiento")
+                    Dim negocio As New N_Formulario
+                    resultado = Await Task.Run(Function() negocio.AltaSugiereTratamiento(FormDatos))
             End Select
             Console.WriteLine("resultado: " & resultado)
             Select Case resultado

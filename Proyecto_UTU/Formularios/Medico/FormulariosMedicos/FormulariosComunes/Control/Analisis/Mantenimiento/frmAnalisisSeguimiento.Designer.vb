@@ -30,7 +30,7 @@ Partial Class frmAnalisisSeguimiento
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.lblCedulaPaciente = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnConsultarDatos = New System.Windows.Forms.Button()
         Me.btnIngresarDatos = New System.Windows.Forms.Button()
         Me.dgwAnalisisPaciente = New System.Windows.Forms.DataGridView()
@@ -39,14 +39,14 @@ Partial Class frmAnalisisSeguimiento
         Me.fecha_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlContenedor.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tblAcciones.SuspendLayout()
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
         '
         Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel2)
-        Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel1)
+        Me.pnlContenedor.Controls.Add(Me.tblAcciones)
         Me.pnlContenedor.Controls.Add(Me.dgwAnalisisPaciente)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
@@ -104,20 +104,20 @@ Partial Class frmAnalisisSeguimiento
         Me.lblCedulaPaciente.Text = "Cédula del paciente:"
         Me.lblCedulaPaciente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TableLayoutPanel1
+        'tblAcciones
         '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.btnConsultarDatos, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btnIngresarDatos, 1, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 511)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1130, 209)
-        Me.TableLayoutPanel1.TabIndex = 6
+        Me.tblAcciones.ColumnCount = 2
+        Me.tblAcciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblAcciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblAcciones.Controls.Add(Me.btnConsultarDatos, 0, 0)
+        Me.tblAcciones.Controls.Add(Me.btnIngresarDatos, 1, 0)
+        Me.tblAcciones.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.tblAcciones.Location = New System.Drawing.Point(0, 511)
+        Me.tblAcciones.Name = "tblAcciones"
+        Me.tblAcciones.RowCount = 1
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblAcciones.Size = New System.Drawing.Size(1130, 209)
+        Me.tblAcciones.TabIndex = 6
         '
         'btnConsultarDatos
         '
@@ -206,7 +206,7 @@ Partial Class frmAnalisisSeguimiento
         Me.pnlContenedor.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.tblAcciones.ResumeLayout(False)
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -219,7 +219,7 @@ Partial Class frmAnalisisSeguimiento
     Friend WithEvents fecha_analisis As DataGridViewTextBoxColumn
     Friend WithEvents btnIngresarDatos As Button
     Friend WithEvents btnConsultarDatos As Button
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents tblAcciones As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents btnBuscar As Button

@@ -4,6 +4,7 @@
     Protected _indicaciones As List(Of Indicacion)
     Protected _parametros As List(Of Parametro)
     Protected _ErrMsg As Integer
+    Protected _id_consulta As Integer
     Property ID As Integer
         Get
             Return _id
@@ -44,6 +45,15 @@
         End Get
         Set(value As Integer)
             _ErrMsg = value
+        End Set
+    End Property
+
+    Property ID_Consulta As Integer
+        Get
+            Return _id_consulta
+        End Get
+        Set(value As Integer)
+            _id_consulta = value
         End Set
     End Property
 

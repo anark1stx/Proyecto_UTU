@@ -694,11 +694,10 @@ Public Class frmMedico
         If ID_Consulta = 0 Then
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
+            frmAnalisisS.AnalisisSelect.ID_Consulta = ID_Consulta
+            frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
+            frmAnalisisS.resetMode()
             InstanciarFormulario("AsignarAnalisis")
-            'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
-            'datagridview que los carga.
-            'el medico va seleccionando
-            'se cargan los datos a campos de texto con enabled = false
         End If
     End Sub
 

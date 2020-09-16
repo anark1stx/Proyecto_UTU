@@ -459,11 +459,13 @@ Public Class D_Formulario
             .CommandText = "AltaDeterminaEnfermedad", '*Alta a la tabla enfermedad.
             .Connection = conexion
         }
-        cmd2.Parameters.Add("ID_C", MySqlDbType.VarChar).Value = form.Id_consulta
-        cmd2.Parameters.Add("NOM_E", MySqlDbType.VarChar).Value = form.Enfermedad.Nombre
+        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+        cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+        cmd2.Parameters.Add("NOM_E", MySqlDbType.VarChar, 160).Value = form.Enfermedad.Nombre
 
         Try
-            cmd.ExecuteNonQuery()
+            cmd2.ExecuteNonQuery()
+            Console.WriteLine("agregando a determina enfermedad")
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Return 2
