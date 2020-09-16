@@ -216,7 +216,7 @@ Partial Class frmTratamientoSeguir
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1153, 720)
         Me.Controls.Add(Me.pnlContenedor)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmTratamientoSeguir"
         Me.Text = "frmTratamientoSeguir"
         Me.pnlContenedor.ResumeLayout(False)

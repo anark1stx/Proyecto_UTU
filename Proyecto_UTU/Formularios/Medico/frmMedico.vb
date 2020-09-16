@@ -336,15 +336,22 @@ Public Class frmMedico
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Busqueda
                 frmTratamientoC.ResetMode()
                 frmTratamientoC.ShowDialog()
+            Case "AsignarAnalisis" 'agarrar la ID de consulta
+                LimpiarControles(frmAnalisisS)
+                frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
+                frmAnalisisS.resetMode()
+                frmAnalisisS.ShowDialog()
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
-                addFrm(frmTratamientoS)
+                frmTratamientoS.ShowDialog()
             Case "IngresarAnalisis"
                 LimpiarControles(frmAnalisisC)
                 addFrm(frmAnalisisC)
             Case "SeguirAnalisis"
                 LimpiarControles(frmAnalisisS)
-                addFrm(frmAnalisisS)
+                frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Buscar
+                frmAnalisisS.resetMode()
+                frmAnalisisS.ShowDialog()
             Case "DatosAnalisis"
                 LimpiarControles(frmAnalisisS)
 
@@ -691,12 +698,11 @@ Public Class frmMedico
         'frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
         'frmTratamientoC.ResetMode()
         'frmTratamientoC.ResetMode()
+
         If ID_Consulta = 0 Then
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             frmAnalisisS.AnalisisSelect.ID_Consulta = ID_Consulta
-            frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
-            frmAnalisisS.resetMode()
             InstanciarFormulario("AsignarAnalisis")
         End If
     End Sub

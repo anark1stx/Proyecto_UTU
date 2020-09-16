@@ -3,7 +3,9 @@ Imports Negocio
 Public Class frmAnalisisSeguimiento
     Dim frmDatos As New frmDatosAnalisis
     Protected _analisisSelect As New E_Analisis
-
+    Protected _ci_p As Integer
+    Dim np As New N_Paciente
+    Dim na As New N_Analisis
     Protected _modo
     Public Enum Modo
         Buscar 'buscamos x ci a los pacientes y mostramos sus datos
@@ -28,6 +30,15 @@ Public Class frmAnalisisSeguimiento
         End Set
     End Property
 
+    Property CI_paciente As Integer
+        Get
+            Return _ci_p
+        End Get
+        Set(value As Integer)
+            _ci_p = value
+        End Set
+    End Property
+
     Private Sub btnIngresarDatos_Click(sender As Object, e As EventArgs) Handles btnIngresarDatos.Click
 
         Select Case MiModo
@@ -46,7 +57,10 @@ Public Class frmAnalisisSeguimiento
     Public Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Select Case MiModo
             Case Modo.Buscar 'busco pacientes x ci
-
+                'primero buscar si existe paciente con esa cedula
+                'primero buscar si existe paciente con esa cedula
+                'primero buscar si existe paciente con esa cedula
+                Dim result = np.BuscarMisAnalisis(CI_paciente)
             Case Modo.Asignar 'busco analisis x nombre
         End Select
     End Sub
@@ -67,4 +81,8 @@ Public Class frmAnalisisSeguimiento
         End Select
     End Sub
 
+    Private Sub frmAnalisisSeguimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MaximizeBox = False
+        Me.WindowState = FormWindowState.Maximized
+    End Sub
 End Class

@@ -97,6 +97,9 @@ Public Class frmAnalisisCrear
             Case -2
                 MessageBox.Show("No se pudieron cargar los parametros", "Error cargando datos", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
+            Case -8
+                MessageBox.Show("No se encontraron parametros precargados en la base de datos.", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
         End Select
 
         If Not listaParametrosBD(0).ID = 0 Then

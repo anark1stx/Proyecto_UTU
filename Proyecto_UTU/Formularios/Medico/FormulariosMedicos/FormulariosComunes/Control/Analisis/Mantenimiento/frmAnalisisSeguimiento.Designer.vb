@@ -22,6 +22,7 @@ Partial Class frmAnalisisSeguimiento
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAnalisisSeguimiento))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -34,13 +35,16 @@ Partial Class frmAnalisisSeguimiento
         Me.btnConsultarDatos = New System.Windows.Forms.Button()
         Me.btnIngresarDatos = New System.Windows.Forms.Button()
         Me.dgwAnalisisPaciente = New System.Windows.Forms.DataGridView()
-        Me.ID_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EAnalisisBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nom_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDConsultaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlContenedor.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EAnalisisBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -157,6 +161,7 @@ Partial Class frmAnalisisSeguimiento
         Me.dgwAnalisisPaciente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgwAnalisisPaciente.AutoGenerateColumns = False
         Me.dgwAnalisisPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
@@ -167,7 +172,8 @@ Partial Class frmAnalisisSeguimiento
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgwAnalisisPaciente.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgwAnalisisPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwAnalisisPaciente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_analisis, Me.nom_analisis, Me.fecha_analisis})
+        Me.dgwAnalisisPaciente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.nom_analisis, Me.fecha_analisis, Me.IDConsultaDataGridViewTextBoxColumn})
+        Me.dgwAnalisisPaciente.DataSource = Me.EAnalisisBindingSource
         Me.dgwAnalisisPaciente.Location = New System.Drawing.Point(3, 65)
         Me.dgwAnalisisPaciente.Name = "dgwAnalisisPaciente"
         Me.dgwAnalisisPaciente.RowHeadersWidth = 51
@@ -175,11 +181,16 @@ Partial Class frmAnalisisSeguimiento
         Me.dgwAnalisisPaciente.Size = New System.Drawing.Size(1124, 440)
         Me.dgwAnalisisPaciente.TabIndex = 2
         '
-        'ID_analisis
+        'EAnalisisBindingSource
         '
-        Me.ID_analisis.HeaderText = "ID del análisis"
-        Me.ID_analisis.MinimumWidth = 6
-        Me.ID_analisis.Name = "ID_analisis"
+        Me.EAnalisisBindingSource.DataSource = GetType(Entidades.E_Analisis)
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
         '
         'nom_analisis
         '
@@ -193,6 +204,13 @@ Partial Class frmAnalisisSeguimiento
         Me.fecha_analisis.MinimumWidth = 6
         Me.fecha_analisis.Name = "fecha_analisis"
         '
+        'IDConsultaDataGridViewTextBoxColumn
+        '
+        Me.IDConsultaDataGridViewTextBoxColumn.DataPropertyName = "ID_Consulta"
+        Me.IDConsultaDataGridViewTextBoxColumn.HeaderText = "ID Consulta"
+        Me.IDConsultaDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.IDConsultaDataGridViewTextBoxColumn.Name = "IDConsultaDataGridViewTextBoxColumn"
+        '
         'frmAnalisisSeguimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -200,23 +218,22 @@ Partial Class frmAnalisisSeguimiento
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1130, 720)
         Me.Controls.Add(Me.pnlContenedor)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAnalisisSeguimiento"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmAnalisisSeguimiento"
         Me.pnlContenedor.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.tblAcciones.ResumeLayout(False)
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EAnalisisBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents pnlContenedor As Panel
     Friend WithEvents dgwAnalisisPaciente As DataGridView
-    Friend WithEvents ID_analisis As DataGridViewTextBoxColumn
-    Friend WithEvents nom_analisis As DataGridViewTextBoxColumn
-    Friend WithEvents fecha_analisis As DataGridViewTextBoxColumn
     Friend WithEvents btnIngresarDatos As Button
     Friend WithEvents btnConsultarDatos As Button
     Friend WithEvents tblAcciones As TableLayoutPanel
@@ -224,4 +241,9 @@ Partial Class frmAnalisisSeguimiento
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents lblCedulaPaciente As Label
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents nom_analisis As DataGridViewTextBoxColumn
+    Friend WithEvents fecha_analisis As DataGridViewTextBoxColumn
+    Friend WithEvents IDConsultaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EAnalisisBindingSource As BindingSource
 End Class

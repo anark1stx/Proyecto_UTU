@@ -466,6 +466,7 @@
     <None Include="My Project\DataSources\AnalisisParametro.datasource" />
     <None Include="My Project\DataSources\Entidades.E_Analisis+Indicacion.datasource" />
     <None Include="My Project\DataSources\Entidades.E_Analisis+Parametro.datasource" />
+    <None Include="My Project\DataSources\Entidades.E_Analisis.datasource" />
     <None Include="My Project\DataSources\Entidades.E_Tratamiento.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

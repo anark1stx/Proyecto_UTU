@@ -177,6 +177,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando accion", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Case 1
                     MessageBox.Show("Se guardaron todos los datos correctamente.", "Alta de la consulta exitosa.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Acciones.btnGuardar.Enabled = False 'deshabilito el button para que no vuelva a guardar lo mismo
             End Select
         End Sub
     End Class

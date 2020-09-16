@@ -141,18 +141,22 @@ Public Class D_Analisis
             pList.Add(New E_Analisis.Parametro With {.ID = -2})
             Return pList
         End Try
+        If leer.HasRows Then
+            While leer.Read()
+                Console.WriteLine("reading parametros")
+                pList.Add(New E_Analisis.Parametro With {
+                .ID = leer.GetInt32("ID"),
+                .Nombre = leer.GetString("nombre"),
+                .Unidad = leer.GetString("unidad"),
+                .ValorMinimo = leer.GetDouble("referencia_min"),
+                .ValorMaximo = leer.GetDouble("referencia_max")
+                })
 
-        While leer.Read()
-            Console.WriteLine("reading parametros")
-            pList.Add(New E_Analisis.Parametro With {
-            .ID = leer.GetInt32("ID"),
-            .Nombre = leer.GetString("nombre"),
-            .Unidad = leer.GetString("unidad"),
-            .ValorMinimo = leer.GetDouble("referencia_min"),
-            .ValorMaximo = leer.GetDouble("referencia_max")
-            })
+            End While
+        Else
+            pList.Add(New E_Analisis.Parametro With {.ID = -8})
+        End If
 
-        End While
 
         Cerrar(conexion)
         Return pList

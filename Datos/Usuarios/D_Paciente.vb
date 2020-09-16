@@ -223,4 +223,9 @@ Public Class D_Paciente
 
     End Function
 
+    Public Function BuscarMisAnalisis(CI As Integer) As List(Of E_Analisis)
+
+    End Function
+
+
 End Class

@@ -19,12 +19,10 @@ Public Class N_Paciente
         Return objDatos.ModificarPaciente(u)
     End Function
 
-    Public Sub BajaLogicaPaciente(u As E_Paciente)
-        objDatos.BajaLogicaUsuario(u.Cedula)
-    End Sub
+    Public Function BuscarMisAnalisis(CI As Integer) As List(Of E_Analisis)
+        Return objDatos.BuscarMisAnalisis(CI)
+    End Function
 
-    Public Sub AltaLogicaPaciente(u As E_Paciente)
-        objDatos.AltaLogicaUsuario(u.Cedula)
-    End Sub
+
 
 End Class

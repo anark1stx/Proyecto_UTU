@@ -118,6 +118,7 @@ Public Class ContenedorEntrevistas
         Eventos.Acciones.Visible = True
         Eventos.AgregarHandlers()
         Console.WriteLine(AccionesFrm.Location)
+
     End Sub
 
     Private Sub btnSugerirDiagnostico_Click(sender As Object, e As EventArgs) Handles btnSugerirDiagnostico.Click

@@ -148,9 +148,18 @@ Public Class D_Formulario
     End Function
 
     Public Function CargarIDpregunta(pList As List(Of PreguntaRespuesta)) As Integer
+
+        'si por alguna razon no existe la pregunta la damos de alta. Esto puede suceder en el caso de estar usando los formularios pre-hechos por primera vez(frmFiebre,frmMalestar,etc), ya que como son diseñados en visual studio no lo estamos guardando en la base de datos.
+        Dim f As New E_Formulario With {.PreguntasYRespuestas = pList}
+        Dim result = AltaPreguntas(f)
+        If result <> 1 Then
+            Return result
+        End If
+
         If Conectar(conexion) = -1 Then
             Return -1
         End If
+
         Dim leer As MySqlDataReader
         For Each p As PreguntaRespuesta In pList
             Dim cmd As New MySqlCommand With {
@@ -168,15 +177,17 @@ Public Class D_Formulario
                 Cerrar(conexion)
                 Return 2
             End Try
-            While leer.Read()
-                p.ID_Pregunta = leer.GetInt32("ID")
-                Console.WriteLine("la ID de la pregunta " & p.Pregunta.Text & " es: " & p.ID_Pregunta)
-            End While
-            leer.Close()
+            If leer.HasRows Then
+                While leer.Read()
+                    p.ID_Pregunta = leer.GetInt32("ID")
+                    Console.WriteLine("la ID de la pregunta " & p.Pregunta.Text & " es: " & p.ID_Pregunta)
+                End While
+                leer.Close()
+            End If
+
         Next
         Return 1
     End Function
-
     Public Function BorrarPreguntasDeFormulario(form As E_Formulario) 'voy a usar este metodo en modificar, borro todas las preguntas y las vuelvo a agregar.
         If Conectar(conexion) = -1 Then
             Return -1
@@ -208,21 +219,22 @@ Public Class D_Formulario
                     .CommandText = "AltaPregunta", 'este proc usa insert ignore, y devuelve la ID de la pregunta
                     .Connection = conexion
             }
+            If p.ID_Pregunta = 0 Then
+                Console.WriteLine("preguntatext: " & p.Pregunta.Text)
+                cmd.Parameters.Add("PREG", MySqlDbType.VarChar).Value = p.Pregunta.Text
+                cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
-            Console.WriteLine("preguntatext: " & p.Pregunta.Text)
-            cmd.Parameters.Add("PREG", MySqlDbType.VarChar).Value = p.Pregunta.Text
-            cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Direction = ParameterDirection.Output
-
-            Try
-                cmd.ExecuteNonQuery()
-                p.ID_Pregunta = cmd.Parameters("ID_P").Value
-                Console.WriteLine("La ID pregunta es: " & p.ID_Pregunta)
-                Cerrar(conexion)
-            Catch ex As Exception
-                Cerrar(conexion)
-                Console.WriteLine(ex.Message)
-                Return 2
-            End Try
+                Try
+                    cmd.ExecuteNonQuery()
+                    p.ID_Pregunta = cmd.Parameters("ID_P").Value
+                    Console.WriteLine("La ID pregunta es: " & p.ID_Pregunta)
+                    Cerrar(conexion)
+                Catch ex As Exception
+                    Cerrar(conexion)
+                    Console.WriteLine(ex.Message)
+                    Return 2
+                End Try
+            End If
 
             If Conectar(conexion) = -1 Then
                 Return -1
