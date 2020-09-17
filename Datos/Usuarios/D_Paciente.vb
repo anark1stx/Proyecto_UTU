@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class D_Paciente
     Inherits D_Usuario
     Dim conexion As New MySqlConnection
-    Public Function ListarPacientesCI(ci As Integer) As E_Paciente
+    Public Function BuscarPacienteCI(ci As Integer) As E_Paciente
 
         If Conectar(conexion) = -1 Then
             Return New E_Paciente With {.ErrMsg = -1} '-1 exit code para conexion fallida

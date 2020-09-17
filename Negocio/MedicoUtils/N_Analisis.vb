@@ -17,5 +17,12 @@ Public Class N_Analisis
         Return objDatos.RetornarParametros()
     End Function
 
+    Public Function ConsultarDatosAnalisis() As Integer
+
+    End Function
+
+    Public Function ListarAnalisisDePaciente() As Integer
+
+    End Function
 
 End Class

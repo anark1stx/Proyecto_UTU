@@ -4,8 +4,8 @@ Public Class N_Medico
     Inherits N_Usuario
     Dim objDatos As New D_Medico
 
-    Public Function ListarMedicoCI(CI As String) As E_Medico
-        Return objDatos.ListarMedicosCI(CI)
+    Public Function BuscarMedicoCI(CI As String) As E_Medico
+        Return objDatos.BuscarMedicoCI(CI)
     End Function
 
     Public Function BuscarMedicoApellido(ap As String) As List(Of E_Medico)

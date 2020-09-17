@@ -66,6 +66,7 @@ Partial Class frmTratamientoSeguir
         '
         'DateTimePicker2
         '
+        Me.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker2.Location = New System.Drawing.Point(617, 65)
@@ -117,6 +118,7 @@ Partial Class frmTratamientoSeguir
         '
         'dtpFechaInicio
         '
+        Me.dtpFechaInicio.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.dtpFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaInicio.Location = New System.Drawing.Point(215, 65)

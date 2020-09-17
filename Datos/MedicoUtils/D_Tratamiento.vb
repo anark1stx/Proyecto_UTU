@@ -68,4 +68,11 @@ Public Class D_Tratamiento
         Return tratamientoList
     End Function
 
+    Function AltaPacienteSigueTratamiento()
+
+    End Function
+
+    Function AltaSeguimientoDiario()
+
+    End Function
 End Class

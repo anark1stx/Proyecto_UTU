@@ -619,7 +619,7 @@ Public Class frmMedico
         End If
 
         Dim np As New N_Paciente
-        frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.ListarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
+        frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.BuscarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
         frmIdentificacion.PacienteBuscar.Foto = Await Task.Run(Function() np.LeerFoto(frmIdentificacion.PacienteBuscar.Cedula))
         Select Case frmIdentificacion.PacienteBuscar.ErrMsg
             Case -1
@@ -656,7 +656,7 @@ Public Class frmMedico
         End Select
 
         Dim nm As New N_Medico
-        frmSelecMed.MedicoSelect = Await Task.Run(Function() nm.ListarMedicoCI(ci))
+        frmSelecMed.MedicoSelect = Await Task.Run(Function() nm.BuscarMedicoCI(ci))
         frmSelecMed.MedicoSelect.Foto = Await Task.Run(Function() nm.LeerFoto(ci))
         Select Case frmSelecMed.MedicoSelect.ErrMsg
             Case -1

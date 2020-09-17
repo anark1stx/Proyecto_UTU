@@ -16,7 +16,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
         Protected _exitCode As Integer
         Protected _modo As ModoEvento
-        Protected _optModo As ModoSecundario
         Sub New(acciones As AccionesFormulario)
             _acciones = acciones
         End Sub
@@ -30,10 +29,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             DatosAnalisis = 2
             AsignarAnalisis = 3
             AsignarTratamiento = 4
-        End Enum
-        Public Enum ModoSecundario 'Puede ser imprimir o solo sacar captura de pantalla en caso que el formulario no este registrado en la base de datos
-            Imprimir
-            SacarCapturaDePantalla
         End Enum
 
         Property Modo As ModoEvento

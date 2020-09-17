@@ -5,7 +5,7 @@ Public Class D_Medico
     Inherits D_Usuario
     Dim conexion As New MySqlConnection()
 
-    Public Function ListarMedicosCI(ci As Integer) As E_Medico
+    Public Function BuscarMedicoCI(ci As Integer) As E_Medico
 
         Dim leer As MySqlDataReader
 
@@ -391,7 +391,7 @@ Public Class D_Medico
         If leer.HasRows Then
             While leer.Read()
                 Dim ei = New E_EntrevistaIni With {
-                .Paciente = dp.ListarPacientesCI(leer.GetInt32("CI_paciente")),
+                .Paciente = dp.BuscarPacienteCI(leer.GetInt32("CI_paciente")),
                 .Auxiliar = New E_Usuario With {.Cedula = leer.GetInt32("CI_auxiliar")},
                 .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")},
                 .Motivo = leer.GetString("motivo")

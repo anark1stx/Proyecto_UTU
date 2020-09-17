@@ -34,11 +34,11 @@ Public Class frmGestionMedico
     Private Async Sub frmGestionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Select Case MiModo
             Case frmMedico.Modo.SoyAuxiliar
-                AuxiliarLogeado = Await Task.Run(Function() nm.ListarUsuariosCI(AuxiliarLogeado.Cedula))
+                AuxiliarLogeado = Await Task.Run(Function() nm.BuscarAuxiliarCI(AuxiliarLogeado.Cedula))
                 AuxiliarLogeado.Foto = Await Task.Run(Function() nm.LeerFoto(AuxiliarLogeado.Cedula))
                 bindPropsAuxiliar()
             Case frmMedico.Modo.SoyMedico
-                MedicoLogeado = Await Task.Run(Function() nm.ListarMedicoCI(MedicoLogeado.Cedula))
+                MedicoLogeado = Await Task.Run(Function() nm.BuscarMedicoCI(MedicoLogeado.Cedula))
                 MedicoLogeado.Foto = Await Task.Run(Function() nm.LeerFoto(MedicoLogeado.Cedula))
                 bindPropsMedico()
         End Select

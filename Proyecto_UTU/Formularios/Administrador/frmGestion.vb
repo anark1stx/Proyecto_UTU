@@ -468,7 +468,7 @@ Public Class frmGestion
                 End If
 
                 Dim nu As New N_Usuario
-                Dim res = Await Task.Run(Function() nu.AltaUsuarioSIBIM(u))
+                Dim res = Await Task.Run(Function() nu.AltaAuxiliar(u))
                 Select Case res
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -659,7 +659,7 @@ Public Class frmGestion
         Select Case Usuario
             Case TipoUsuario.Auxiliar
                 Dim nu As New N_Usuario
-                code = Await Task.Run(Function() nu.ModificacionUsuario(u))
+                code = Await Task.Run(Function() nu.ModificacionAuxiliar(u))
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 u = Base_props_paciente(u)
@@ -726,7 +726,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
 
-                        p = Await Task.Run(Function() np.ListarPacienteCI(txtBusqueda.Text))
+                        p = Await Task.Run(Function() np.BuscarPacienteCI(txtBusqueda.Text))
 
                         Select Case p.ErrMsg
                             Case -1
@@ -784,7 +784,7 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
-                        m = Await Task.Run(Function() nm.ListarMedicoCI(txtBusqueda.Text))
+                        m = Await Task.Run(Function() nm.BuscarMedicoCI(txtBusqueda.Text))
                         Select Case m.ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -866,7 +866,7 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
-                        a = Await Task.Run(Function() naux.ListarUsuariosCI(txtBusqueda.Text))
+                        a = Await Task.Run(Function() naux.BuscarAuxiliarCI(txtBusqueda.Text))
                         Select Case a.ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -889,7 +889,7 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
-                        aList = Await Task.Run(Function() naux.BuscarUsuariosApellido(txtBusqueda.Text))
+                        aList = Await Task.Run(Function() naux.BuscarAuxiliaresApellido(txtBusqueda.Text))
                         Select Case aList(0).ErrMsg
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)

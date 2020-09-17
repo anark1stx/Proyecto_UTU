@@ -19,7 +19,7 @@ Public Class frmTratamientoCrear
         End Set
     End Property
     Public Enum Modo
-        Defaultt 'modo para no tener confilcto con la condicional que esta en el evento resetmode
+        'Defaultt 'modo para no tener confilcto con la condicional que esta en el evento resetmode
         Alta 'habilito los campos para escribir
         Busqueda 'habilito la lupa y un datagridview
     End Enum
@@ -95,10 +95,10 @@ Public Class frmTratamientoCrear
     End Sub
 
     Sub ResetMode()
-        Console.WriteLine("Mi modoactual: " & ModoActual.ToString() & "ultimo modo:" & ultimomodo.ToString())
-        If ModoActual = ultimomodo Then
-            Exit Sub
-        End If
+        'Console.WriteLine("Mi modoactual: " & ModoActual.ToString() & "ultimo modo:" & ultimomodo.ToString())
+        'If ModoActual = ultimomodo Then
+        '    Exit Sub
+        'End If
 
         Select Case ModoActual
             Case Modo.Alta

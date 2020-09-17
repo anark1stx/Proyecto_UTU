@@ -5,17 +5,17 @@ Public Class frmGestionPaciente
     Protected _paciente As E_Paciente
     Private np As New N_Paciente
 
-    Property PacienteLogeado As E_paciente
+    Property PacienteLogeado As E_Paciente
         Get
             Return _paciente
         End Get
-        Set(value As E_paciente)
+        Set(value As E_Paciente)
             _paciente = value
         End Set
     End Property
 
     Private Async Sub frmGestionPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PacienteLogeado = Await Task.Run(Function() np.ListarPacienteCI(PacienteLogeado.Cedula))
+        PacienteLogeado = Await Task.Run(Function() np.BuscarPacienteCI(PacienteLogeado.Cedula))
         PacienteLogeado.Foto = Await Task.Run(Function() np.LeerFoto(PacienteLogeado.Cedula))
         bindProps()
     End Sub
@@ -40,7 +40,7 @@ Public Class frmGestionPaciente
         lblOcupacionTXT.Text = PacienteLogeado.Ocupacion
         lblE_CivilTXT.Text = PacienteLogeado.Estado_civil
         lblEtapaTXT.Text = PacienteLogeado.Etapa
-        pBoxFotoPaciente.Image = Bytes2image(PacienteLogeado.Foto)
+        pBoxFotoPaciente.Image = Bytes2Image(PacienteLogeado.Foto)
 
         lblTelefonoTXT.Text = ""
         For Each t As String In PacienteLogeado.TelefonosLista

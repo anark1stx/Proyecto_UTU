@@ -14,4 +14,12 @@ Public Class N_Tratamiento
         Return objDatos.BuscarTratamientos(busqueda)
     End Function
 
+    Function AltaPacienteSigueTratamiento()
+
+    End Function
+
+    Function AltaSeguimientoDiario()
+
+    End Function
+
 End Class

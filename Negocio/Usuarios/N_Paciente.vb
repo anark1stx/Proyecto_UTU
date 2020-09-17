@@ -4,8 +4,8 @@ Public Class N_Paciente
     Inherits N_Usuario
     Dim objDatos As New D_Paciente
 
-    Public Function ListarPacienteCI(CI As Integer) As E_Paciente
-        Return objDatos.ListarPacientesCI(CI)
+    Public Function BuscarPacienteCI(CI As Integer) As E_Paciente
+        Return objDatos.BuscarPacienteCI(CI)
     End Function
 
     Public Function BuscarPacienteApellido(ap As String) As List(Of E_Paciente)

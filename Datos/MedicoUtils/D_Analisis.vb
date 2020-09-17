@@ -190,4 +190,12 @@ Public Class D_Analisis
 
     End Function
 
+    Public Function ConsultarDatosAnalisis()
+
+    End Function
+
+    Public Function ListarAnalisisDePaciente()
+
+    End Function
+
 End Class

@@ -18,6 +18,9 @@ Public Class frmTratamientoSeguir
         pnlContenedor.Controls.Add(Eventos.Acciones)
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True
+        Eventos.Modo = EventosDeTBP.ModoEvento.DatosTratamiento
         Eventos.AgregarHandlers()
+        Eventos.Acciones.Enabled = False
+        MsgBox("Aun no implementado.")
     End Sub
 End Class
