@@ -152,8 +152,8 @@ Public Class frmMedico
             pnlContenedorFormularios.Controls.Clear()
             frm.Dock = DockStyle.Fill
             frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
-            frm.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-            Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
+            frm.TopMost = True
+            Me.pnlContenedorFormularios.Controls.Add(frm)
             frm.Show()
         End If
     End Sub
@@ -161,14 +161,18 @@ Public Class frmMedico
     Public Sub addFrmEntrevistaPreHecho(frm As Form) 'este metodo es solo para los pre-hechos
         pnlContenedorFormularios.Controls.Clear()
         tb.Dock = DockStyle.Fill
-        tb.Frmlimpio = frm 'SI EL FORMULARIO NO EXISTE EN BD SERIALIZARLO Y GUARDARLO, LUEGO GUARDAR LOS DATOS
+        'tb.Frmlimpio = frm SI EL FORMULARIO NO EXISTE EN BD SERIALIZARLO Y GUARDARLO, LUEGO GUARDAR LOS DATOS
         frm.TopMost = True
         frm.TopLevel = False
         frm.Visible = True
         pnlContenedorFormularios.Controls.Add(tb)
+        tb.tbpEntrevista.Controls.Add(frm)
+        frm.BringToFront()
+        frm.Activate()
+        frm.Show()
     End Sub
 
-    Public Sub CargarDatosFormulario(f As E_Formulario)
+    Public Sub CargarDatosFormulario(f As E_Formulario) 'este metodo as para los que crean los médicos/auxiliares, por ahora es el que está funcional
         Dim fl = New formularioLimpio
         Dim controles = ConvertirFormulario(f)
 
@@ -229,7 +233,6 @@ Public Class frmMedico
                 addFrm(frmIdentificacion)
 
             Case "SeleccionarMedico"
-                Console.WriteLine("NOM CONSULTA: " & NombreConsulta)
                 Select Case MiModo
                     Case Modo.SoyMedico
                         frmSelecMed.ComoMedico = True
@@ -287,23 +290,19 @@ Public Class frmMedico
                 fixSize()
 
                 addFrm(frmEntrevista)
+
             Case "Generico"
-                LimpiarControles(generico)
                 addFrmEntrevistaPreHecho(generico)
             Case "Dolor"
-                LimpiarControles(frmDlr)
                 addFrmEntrevistaPreHecho(frmDlr)
 
             Case "Fiebre"
-                LimpiarControles(frmFbr)
                 addFrmEntrevistaPreHecho(frmFbr)
 
             Case "Malestar"
-                LimpiarControles(frmMal)
                 addFrmEntrevistaPreHecho(frmMal)
 
             Case "Otro"
-                frmPlano.Controls.Clear()
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
                     Console.WriteLine("no fue seleccionado un formulario")

@@ -118,6 +118,8 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             Memobmp = ImprimirFormulario(PanelDestino, New Rectangle(0, 0, PanelDestino.Width, PanelDestino.Height))
             AddHandler PrintDoc.PrintPage, AddressOf Imprimir_PrintPage
             PrintDoc.Print()
+            Acciones.Visible = True
+            PanelDestino.AutoScroll = True
         End Sub
 
         Private Sub Imprimir_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
@@ -128,6 +130,11 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             Dim resultado = 0
             Select Case Modo
                 Case 0
+                    If FormDatos.XML = "" Then
+                        MsgBox("Este formulario aun no puede guardarse, su implementacion esta pendiente :(.")
+                        Exit Sub
+                    End If
+
                     If FormDatos.Enfermedad.Nombre Is String.Empty Then
                         MessageBox.Show("Ingrese una enfermedad.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
@@ -141,7 +148,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Console.WriteLine("Evento guardar Datos Formulario!!!!")
                     Dim negocio As New N_Formulario
 
-                    If FormDatos.ID = 0 Then
+                    If FormDatos.ID = 0 Then 'la idea seria resolver los formularios prehechos de esta manera, pero su ID siempre va a ser = 0
 
                         MessageBox.Show("El formulario no está guardado en la base de datos, ingresando...", "Formulario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         FormDatos.VistaPrevia = Await Task.Run(Function() Image2Bytes(ImprimirFormulario(PanelDestino, PanelDestino.DisplayRectangle))) 'saco captura de pantalla

@@ -24,13 +24,6 @@ Partial Class frmFiebre
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFiebre))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.gbResolucion = New System.Windows.Forms.GroupBox()
-        Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
-        Me.gbDescripcionDiagnostico = New System.Windows.Forms.GroupBox()
-        Me.lblDiagnostico = New System.Windows.Forms.Label()
-        Me.txtTratamiento = New System.Windows.Forms.TextBox()
-        Me.chkAnalisis = New System.Windows.Forms.CheckBox()
-        Me.lblNomAnalisis = New System.Windows.Forms.Label()
         Me.gbPreguntas = New System.Windows.Forms.GroupBox()
         Me.chkSensoriales = New System.Windows.Forms.CheckBox()
         Me.chkHumorales = New System.Windows.Forms.CheckBox()
@@ -59,9 +52,10 @@ Partial Class frmFiebre
         Me.txtTemperatura = New System.Windows.Forms.TextBox()
         Me.Imprimir = New System.Drawing.Printing.PrintDocument()
         Me.pp = New System.Windows.Forms.PrintPreviewDialog()
+        Me.txtFrecuenciaCard = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.lblFrecuenciaCard = New System.Windows.Forms.Label()
         Me.pnlContenedor.SuspendLayout()
-        Me.gbResolucion.SuspendLayout()
-        Me.gbDescripcionDiagnostico.SuspendLayout()
         Me.gbPreguntas.SuspendLayout()
         Me.tblActitud.SuspendLayout()
         Me.tblNutricion.SuspendLayout()
@@ -73,7 +67,6 @@ Partial Class frmFiebre
         'pnlContenedor
         '
         Me.pnlContenedor.AutoScroll = True
-        Me.pnlContenedor.Controls.Add(Me.gbResolucion)
         Me.pnlContenedor.Controls.Add(Me.gbPreguntas)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
@@ -81,95 +74,12 @@ Partial Class frmFiebre
         Me.pnlContenedor.Size = New System.Drawing.Size(1334, 815)
         Me.pnlContenedor.TabIndex = 0
         '
-        'gbResolucion
-        '
-        Me.gbResolucion.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.gbResolucion.Controls.Add(Me.txtNomAnalisis)
-        Me.gbResolucion.Controls.Add(Me.gbDescripcionDiagnostico)
-        Me.gbResolucion.Controls.Add(Me.chkAnalisis)
-        Me.gbResolucion.Controls.Add(Me.lblNomAnalisis)
-        Me.gbResolucion.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbResolucion.Location = New System.Drawing.Point(82, 584)
-        Me.gbResolucion.Name = "gbResolucion"
-        Me.gbResolucion.Size = New System.Drawing.Size(1160, 381)
-        Me.gbResolucion.TabIndex = 55
-        Me.gbResolucion.TabStop = False
-        Me.gbResolucion.Text = "Resolución"
-        '
-        'txtNomAnalisis
-        '
-        Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtNomAnalisis.Enabled = False
-        Me.txtNomAnalisis.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomAnalisis.Location = New System.Drawing.Point(440, 58)
-        Me.txtNomAnalisis.Name = "txtNomAnalisis"
-        Me.txtNomAnalisis.Size = New System.Drawing.Size(714, 30)
-        Me.txtNomAnalisis.TabIndex = 27
-        Me.txtNomAnalisis.Tag = "r15"
-        '
-        'gbDescripcionDiagnostico
-        '
-        Me.gbDescripcionDiagnostico.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbDescripcionDiagnostico.Controls.Add(Me.lblDiagnostico)
-        Me.gbDescripcionDiagnostico.Controls.Add(Me.txtTratamiento)
-        Me.gbDescripcionDiagnostico.Font = New System.Drawing.Font("Cambria", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbDescripcionDiagnostico.Location = New System.Drawing.Point(9, 108)
-        Me.gbDescripcionDiagnostico.Name = "gbDescripcionDiagnostico"
-        Me.gbDescripcionDiagnostico.Size = New System.Drawing.Size(1154, 266)
-        Me.gbDescripcionDiagnostico.TabIndex = 26
-        Me.gbDescripcionDiagnostico.TabStop = False
-        '
-        'lblDiagnostico
-        '
-        Me.lblDiagnostico.AutoSize = True
-        Me.lblDiagnostico.Location = New System.Drawing.Point(13, 0)
-        Me.lblDiagnostico.Name = "lblDiagnostico"
-        Me.lblDiagnostico.Size = New System.Drawing.Size(295, 28)
-        Me.lblDiagnostico.TabIndex = 28
-        Me.lblDiagnostico.Tag = "p17"
-        Me.lblDiagnostico.Text = "Descripción y diagnóstico"
-        '
-        'txtTratamiento
-        '
-        Me.txtTratamiento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTratamiento.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTratamiento.Location = New System.Drawing.Point(9, 33)
-        Me.txtTratamiento.Multiline = True
-        Me.txtTratamiento.Name = "txtTratamiento"
-        Me.txtTratamiento.Size = New System.Drawing.Size(1136, 227)
-        Me.txtTratamiento.TabIndex = 2
-        Me.txtTratamiento.Tag = "r17"
-        '
-        'chkAnalisis
-        '
-        Me.chkAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(162, 22)
-        Me.chkAnalisis.Name = "chkAnalisis"
-        Me.chkAnalisis.Size = New System.Drawing.Size(497, 33)
-        Me.chkAnalisis.TabIndex = 24
-        Me.chkAnalisis.Tag = ""
-        Me.chkAnalisis.Text = "¿El paciente debe solicitar un análisis?"
-        Me.chkAnalisis.UseVisualStyleBackColor = True
-        '
-        'lblNomAnalisis
-        '
-        Me.lblNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNomAnalisis.AutoSize = True
-        Me.lblNomAnalisis.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomAnalisis.Location = New System.Drawing.Point(167, 61)
-        Me.lblNomAnalisis.Name = "lblNomAnalisis"
-        Me.lblNomAnalisis.Size = New System.Drawing.Size(247, 29)
-        Me.lblNomAnalisis.TabIndex = 22
-        Me.lblNomAnalisis.Tag = "p15"
-        Me.lblNomAnalisis.Text = "Nombre del análisis:"
-        '
         'gbPreguntas
         '
         Me.gbPreguntas.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.gbPreguntas.Controls.Add(Me.txtFrecuenciaCard)
+        Me.gbPreguntas.Controls.Add(Me.Label23)
+        Me.gbPreguntas.Controls.Add(Me.lblFrecuenciaCard)
         Me.gbPreguntas.Controls.Add(Me.chkSensoriales)
         Me.gbPreguntas.Controls.Add(Me.chkHumorales)
         Me.gbPreguntas.Controls.Add(Me.chkDigestivos)
@@ -184,9 +94,9 @@ Partial Class frmFiebre
         Me.gbPreguntas.Controls.Add(Me.tblPulso)
         Me.gbPreguntas.Controls.Add(Me.tblGradoHidratacion)
         Me.gbPreguntas.Controls.Add(Me.tblTemperatura)
-        Me.gbPreguntas.Location = New System.Drawing.Point(82, 7)
+        Me.gbPreguntas.Location = New System.Drawing.Point(93, 7)
         Me.gbPreguntas.Name = "gbPreguntas"
-        Me.gbPreguntas.Size = New System.Drawing.Size(1160, 572)
+        Me.gbPreguntas.Size = New System.Drawing.Size(1160, 796)
         Me.gbPreguntas.TabIndex = 56
         Me.gbPreguntas.TabStop = False
         '
@@ -194,11 +104,11 @@ Partial Class frmFiebre
         '
         Me.chkSensoriales.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkSensoriales.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkSensoriales.Location = New System.Drawing.Point(6, 531)
+        Me.chkSensoriales.Location = New System.Drawing.Point(17, 573)
         Me.chkSensoriales.Name = "chkSensoriales"
-        Me.chkSensoriales.Size = New System.Drawing.Size(653, 40)
+        Me.chkSensoriales.Size = New System.Drawing.Size(1134, 40)
         Me.chkSensoriales.TabIndex = 64
-        Me.chkSensoriales.Tag = "pr9"
+        Me.chkSensoriales.Tag = "p9"
         Me.chkSensoriales.Text = "¿El paciente presenta trastornos sensoriales?"
         Me.chkSensoriales.UseVisualStyleBackColor = True
         '
@@ -206,11 +116,11 @@ Partial Class frmFiebre
         '
         Me.chkHumorales.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkHumorales.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkHumorales.Location = New System.Drawing.Point(6, 485)
+        Me.chkHumorales.Location = New System.Drawing.Point(17, 527)
         Me.chkHumorales.Name = "chkHumorales"
-        Me.chkHumorales.Size = New System.Drawing.Size(653, 40)
+        Me.chkHumorales.Size = New System.Drawing.Size(1134, 40)
         Me.chkHumorales.TabIndex = 63
-        Me.chkHumorales.Tag = "pr8"
+        Me.chkHumorales.Tag = "p8"
         Me.chkHumorales.Text = "¿El paciente presenta trastornos humorales?"
         Me.chkHumorales.UseVisualStyleBackColor = True
         '
@@ -218,11 +128,11 @@ Partial Class frmFiebre
         '
         Me.chkDigestivos.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkDigestivos.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkDigestivos.Location = New System.Drawing.Point(6, 439)
+        Me.chkDigestivos.Location = New System.Drawing.Point(17, 481)
         Me.chkDigestivos.Name = "chkDigestivos"
-        Me.chkDigestivos.Size = New System.Drawing.Size(653, 40)
+        Me.chkDigestivos.Size = New System.Drawing.Size(1134, 40)
         Me.chkDigestivos.TabIndex = 62
-        Me.chkDigestivos.Tag = "pr7"
+        Me.chkDigestivos.Tag = "p7"
         Me.chkDigestivos.Text = "¿El paciente presenta trastornos digestivos?"
         Me.chkDigestivos.UseVisualStyleBackColor = True
         '
@@ -230,11 +140,11 @@ Partial Class frmFiebre
         '
         Me.chkVacunas.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkVacunas.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkVacunas.Location = New System.Drawing.Point(6, 393)
+        Me.chkVacunas.Location = New System.Drawing.Point(17, 435)
         Me.chkVacunas.Name = "chkVacunas"
-        Me.chkVacunas.Size = New System.Drawing.Size(653, 40)
+        Me.chkVacunas.Size = New System.Drawing.Size(1134, 40)
         Me.chkVacunas.TabIndex = 61
-        Me.chkVacunas.Tag = "pr6"
+        Me.chkVacunas.Tag = "p6"
         Me.chkVacunas.Text = "¿El paciente fue vacunado recientemente?"
         Me.chkVacunas.UseVisualStyleBackColor = True
         '
@@ -242,11 +152,11 @@ Partial Class frmFiebre
         '
         Me.chkErupciones.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkErupciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkErupciones.Location = New System.Drawing.Point(6, 347)
+        Me.chkErupciones.Location = New System.Drawing.Point(17, 389)
         Me.chkErupciones.Name = "chkErupciones"
-        Me.chkErupciones.Size = New System.Drawing.Size(653, 40)
+        Me.chkErupciones.Size = New System.Drawing.Size(1134, 40)
         Me.chkErupciones.TabIndex = 60
-        Me.chkErupciones.Tag = "pr5"
+        Me.chkErupciones.Tag = "p5"
         Me.chkErupciones.Text = "¿El paciente manifiesta erupciones cutáneas?"
         Me.chkErupciones.UseVisualStyleBackColor = True
         '
@@ -254,11 +164,11 @@ Partial Class frmFiebre
         '
         Me.chkCalor.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkCalor.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkCalor.Location = New System.Drawing.Point(6, 301)
+        Me.chkCalor.Location = New System.Drawing.Point(17, 343)
         Me.chkCalor.Name = "chkCalor"
-        Me.chkCalor.Size = New System.Drawing.Size(653, 40)
+        Me.chkCalor.Size = New System.Drawing.Size(1134, 40)
         Me.chkCalor.TabIndex = 59
-        Me.chkCalor.Tag = "pr4"
+        Me.chkCalor.Tag = "p4"
         Me.chkCalor.Text = "¿El paciente se expone al calor? / ¿Estuvo expuesto?"
         Me.chkCalor.UseVisualStyleBackColor = True
         '
@@ -266,11 +176,11 @@ Partial Class frmFiebre
         '
         Me.chkMeds.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkMeds.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkMeds.Location = New System.Drawing.Point(6, 255)
+        Me.chkMeds.Location = New System.Drawing.Point(17, 297)
         Me.chkMeds.Name = "chkMeds"
-        Me.chkMeds.Size = New System.Drawing.Size(653, 40)
+        Me.chkMeds.Size = New System.Drawing.Size(1134, 40)
         Me.chkMeds.TabIndex = 58
-        Me.chkMeds.Tag = "pr3"
+        Me.chkMeds.Tag = "p3"
         Me.chkMeds.Text = "¿El paciente toma medicamentos?"
         Me.chkMeds.UseVisualStyleBackColor = True
         '
@@ -278,11 +188,11 @@ Partial Class frmFiebre
         '
         Me.chkDificultadesRespirar.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkDificultadesRespirar.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkDificultadesRespirar.Location = New System.Drawing.Point(6, 209)
+        Me.chkDificultadesRespirar.Location = New System.Drawing.Point(17, 251)
         Me.chkDificultadesRespirar.Name = "chkDificultadesRespirar"
-        Me.chkDificultadesRespirar.Size = New System.Drawing.Size(653, 40)
+        Me.chkDificultadesRespirar.Size = New System.Drawing.Size(1134, 40)
         Me.chkDificultadesRespirar.TabIndex = 57
-        Me.chkDificultadesRespirar.Tag = "pr2"
+        Me.chkDificultadesRespirar.Tag = "p2"
         Me.chkDificultadesRespirar.Text = "¿El paciente presenta dificultades para respirar?"
         Me.chkDificultadesRespirar.UseVisualStyleBackColor = True
         '
@@ -290,11 +200,11 @@ Partial Class frmFiebre
         '
         Me.chkApendiceDolor.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkApendiceDolor.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold)
-        Me.chkApendiceDolor.Location = New System.Drawing.Point(6, 163)
+        Me.chkApendiceDolor.Location = New System.Drawing.Point(17, 205)
         Me.chkApendiceDolor.Name = "chkApendiceDolor"
-        Me.chkApendiceDolor.Size = New System.Drawing.Size(653, 40)
+        Me.chkApendiceDolor.Size = New System.Drawing.Size(1134, 40)
         Me.chkApendiceDolor.TabIndex = 28
-        Me.chkApendiceDolor.Tag = "pr1"
+        Me.chkApendiceDolor.Tag = "p1"
         Me.chkApendiceDolor.Text = "¿El paciente presenta dolor en el apéndice al tocarlo?"
         Me.chkApendiceDolor.UseVisualStyleBackColor = True
         '
@@ -306,7 +216,7 @@ Partial Class frmFiebre
         Me.tblActitud.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.tblActitud.Controls.Add(Me.lblActitud, 0, 0)
         Me.tblActitud.Controls.Add(Me.cbActitud, 1, 0)
-        Me.tblActitud.Location = New System.Drawing.Point(649, 51)
+        Me.tblActitud.Location = New System.Drawing.Point(655, 21)
         Me.tblActitud.Name = "tblActitud"
         Me.tblActitud.RowCount = 1
         Me.tblActitud.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -321,7 +231,7 @@ Partial Class frmFiebre
         Me.lblActitud.Name = "lblActitud"
         Me.lblActitud.Size = New System.Drawing.Size(296, 37)
         Me.lblActitud.TabIndex = 41
-        Me.lblActitud.Tag = "p4"
+        Me.lblActitud.Tag = "p11"
         Me.lblActitud.Text = "Actitud:"
         '
         'cbActitud
@@ -334,7 +244,7 @@ Partial Class frmFiebre
         Me.cbActitud.Name = "cbActitud"
         Me.cbActitud.Size = New System.Drawing.Size(191, 31)
         Me.cbActitud.TabIndex = 41
-        Me.cbActitud.Tag = "r4"
+        Me.cbActitud.Tag = "p12"
         '
         'tblNutricion
         '
@@ -344,7 +254,7 @@ Partial Class frmFiebre
         Me.tblNutricion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.tblNutricion.Controls.Add(Me.lblENutricion, 0, 0)
         Me.tblNutricion.Controls.Add(Me.cbENutricion, 1, 0)
-        Me.tblNutricion.Location = New System.Drawing.Point(649, 94)
+        Me.tblNutricion.Location = New System.Drawing.Point(655, 72)
         Me.tblNutricion.Name = "tblNutricion"
         Me.tblNutricion.RowCount = 1
         Me.tblNutricion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -359,7 +269,7 @@ Partial Class frmFiebre
         Me.lblENutricion.Name = "lblENutricion"
         Me.lblENutricion.Size = New System.Drawing.Size(296, 29)
         Me.lblENutricion.TabIndex = 2
-        Me.lblENutricion.Tag = "p5"
+        Me.lblENutricion.Tag = "p14"
         Me.lblENutricion.Text = "Estado de nutrición:"
         '
         'cbENutricion
@@ -372,7 +282,7 @@ Partial Class frmFiebre
         Me.cbENutricion.Name = "cbENutricion"
         Me.cbENutricion.Size = New System.Drawing.Size(191, 31)
         Me.cbENutricion.TabIndex = 38
-        Me.cbENutricion.Tag = "r5"
+        Me.cbENutricion.Tag = "p14"
         '
         'tblPulso
         '
@@ -382,11 +292,11 @@ Partial Class frmFiebre
         Me.tblPulso.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198.0!))
         Me.tblPulso.Controls.Add(Me.lblPulso, 0, 0)
         Me.tblPulso.Controls.Add(Me.cbPulso, 1, 0)
-        Me.tblPulso.Location = New System.Drawing.Point(9, 48)
+        Me.tblPulso.Location = New System.Drawing.Point(17, 72)
         Me.tblPulso.Name = "tblPulso"
         Me.tblPulso.RowCount = 1
         Me.tblPulso.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblPulso.Size = New System.Drawing.Size(499, 37)
+        Me.tblPulso.Size = New System.Drawing.Size(546, 37)
         Me.tblPulso.TabIndex = 51
         '
         'lblPulso
@@ -395,9 +305,9 @@ Partial Class frmFiebre
         Me.lblPulso.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPulso.Location = New System.Drawing.Point(3, 8)
         Me.lblPulso.Name = "lblPulso"
-        Me.lblPulso.Size = New System.Drawing.Size(295, 29)
+        Me.lblPulso.Size = New System.Drawing.Size(342, 29)
         Me.lblPulso.TabIndex = 24
-        Me.lblPulso.Tag = "p2"
+        Me.lblPulso.Tag = "p13"
         Me.lblPulso.Text = "Pulso:"
         '
         'cbPulso
@@ -406,11 +316,11 @@ Partial Class frmFiebre
         Me.cbPulso.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbPulso.FormattingEnabled = True
         Me.cbPulso.Items.AddRange(New Object() {"Fuerte", "Débil", "Filiforme"})
-        Me.cbPulso.Location = New System.Drawing.Point(304, 3)
+        Me.cbPulso.Location = New System.Drawing.Point(351, 3)
         Me.cbPulso.Name = "cbPulso"
         Me.cbPulso.Size = New System.Drawing.Size(192, 31)
         Me.cbPulso.TabIndex = 23
-        Me.cbPulso.Tag = "r2"
+        Me.cbPulso.Tag = "p13"
         '
         'tblGradoHidratacion
         '
@@ -420,7 +330,7 @@ Partial Class frmFiebre
         Me.tblGradoHidratacion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
         Me.tblGradoHidratacion.Controls.Add(Me.lblGradoHidratacion, 0, 0)
         Me.tblGradoHidratacion.Controls.Add(Me.cbGradoHidr, 1, 0)
-        Me.tblGradoHidratacion.Location = New System.Drawing.Point(9, 91)
+        Me.tblGradoHidratacion.Location = New System.Drawing.Point(655, 126)
         Me.tblGradoHidratacion.Name = "tblGradoHidratacion"
         Me.tblGradoHidratacion.RowCount = 1
         Me.tblGradoHidratacion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -435,7 +345,7 @@ Partial Class frmFiebre
         Me.lblGradoHidratacion.Name = "lblGradoHidratacion"
         Me.lblGradoHidratacion.Size = New System.Drawing.Size(296, 29)
         Me.lblGradoHidratacion.TabIndex = 2
-        Me.lblGradoHidratacion.Tag = "p3"
+        Me.lblGradoHidratacion.Tag = "p16"
         Me.lblGradoHidratacion.Text = "Grado de hidratación:"
         '
         'cbGradoHidr
@@ -448,7 +358,7 @@ Partial Class frmFiebre
         Me.cbGradoHidr.Name = "cbGradoHidr"
         Me.cbGradoHidr.Size = New System.Drawing.Size(191, 31)
         Me.cbGradoHidr.TabIndex = 13
-        Me.cbGradoHidr.Tag = "r3"
+        Me.cbGradoHidr.Tag = "p16"
         '
         'tblTemperatura
         '
@@ -456,16 +366,16 @@ Partial Class frmFiebre
         Me.tblTemperatura.ColumnCount = 3
         Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.27646!))
         Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.72354!))
-        Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
+        Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
         Me.tblTemperatura.Controls.Add(Me.lblGrados, 2, 0)
         Me.tblTemperatura.Controls.Add(Me.lblTemperatura, 0, 0)
         Me.tblTemperatura.Controls.Add(Me.txtTemperatura, 1, 0)
-        Me.tblTemperatura.Location = New System.Drawing.Point(9, 5)
+        Me.tblTemperatura.Location = New System.Drawing.Point(17, 21)
         Me.tblTemperatura.Name = "tblTemperatura"
         Me.tblTemperatura.RowCount = 1
         Me.tblTemperatura.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblTemperatura.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
-        Me.tblTemperatura.Size = New System.Drawing.Size(561, 37)
+        Me.tblTemperatura.Size = New System.Drawing.Size(610, 37)
         Me.tblTemperatura.TabIndex = 43
         '
         'lblGrados
@@ -473,7 +383,7 @@ Partial Class frmFiebre
         Me.lblGrados.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblGrados.AutoSize = True
         Me.lblGrados.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGrados.Location = New System.Drawing.Point(517, 4)
+        Me.lblGrados.Location = New System.Drawing.Point(566, 4)
         Me.lblGrados.Name = "lblGrados"
         Me.lblGrados.Size = New System.Drawing.Size(23, 29)
         Me.lblGrados.TabIndex = 4
@@ -488,18 +398,18 @@ Partial Class frmFiebre
         Me.lblTemperatura.Name = "lblTemperatura"
         Me.lblTemperatura.Size = New System.Drawing.Size(162, 37)
         Me.lblTemperatura.TabIndex = 2
-        Me.lblTemperatura.Tag = "p1"
+        Me.lblTemperatura.Tag = "p10"
         Me.lblTemperatura.Text = "Temperatura:"
         '
         'txtTemperatura
         '
         Me.txtTemperatura.Dock = System.Windows.Forms.DockStyle.Right
         Me.txtTemperatura.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTemperatura.Location = New System.Drawing.Point(449, 3)
+        Me.txtTemperatura.Location = New System.Drawing.Point(497, 3)
         Me.txtTemperatura.Name = "txtTemperatura"
         Me.txtTemperatura.Size = New System.Drawing.Size(45, 30)
         Me.txtTemperatura.TabIndex = 3
-        Me.txtTemperatura.Tag = "r1"
+        Me.txtTemperatura.Tag = "p10"
         '
         'pp
         '
@@ -510,6 +420,39 @@ Partial Class frmFiebre
         Me.pp.Icon = CType(resources.GetObject("pp.Icon"), System.Drawing.Icon)
         Me.pp.Name = "pp"
         Me.pp.Visible = False
+        '
+        'txtFrecuenciaCard
+        '
+        Me.txtFrecuenciaCard.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtFrecuenciaCard.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFrecuenciaCard.Location = New System.Drawing.Point(368, 133)
+        Me.txtFrecuenciaCard.Name = "txtFrecuenciaCard"
+        Me.txtFrecuenciaCard.Size = New System.Drawing.Size(191, 30)
+        Me.txtFrecuenciaCard.TabIndex = 67
+        Me.txtFrecuenciaCard.Tag = "p15"
+        '
+        'Label23
+        '
+        Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(568, 134)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(38, 18)
+        Me.Label23.TabIndex = 66
+        Me.Label23.Text = "ppm"
+        '
+        'lblFrecuenciaCard
+        '
+        Me.lblFrecuenciaCard.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblFrecuenciaCard.AutoSize = True
+        Me.lblFrecuenciaCard.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFrecuenciaCard.Location = New System.Drawing.Point(20, 134)
+        Me.lblFrecuenciaCard.Name = "lblFrecuenciaCard"
+        Me.lblFrecuenciaCard.Size = New System.Drawing.Size(253, 29)
+        Me.lblFrecuenciaCard.TabIndex = 65
+        Me.lblFrecuenciaCard.Tag = "p15"
+        Me.lblFrecuenciaCard.Text = "Frecuencia Cardíaca:"
         '
         'frmFiebre
         '
@@ -522,11 +465,8 @@ Partial Class frmFiebre
         Me.Name = "frmFiebre"
         Me.Text = "frm"
         Me.pnlContenedor.ResumeLayout(False)
-        Me.gbResolucion.ResumeLayout(False)
-        Me.gbResolucion.PerformLayout()
-        Me.gbDescripcionDiagnostico.ResumeLayout(False)
-        Me.gbDescripcionDiagnostico.PerformLayout()
         Me.gbPreguntas.ResumeLayout(False)
+        Me.gbPreguntas.PerformLayout()
         Me.tblActitud.ResumeLayout(False)
         Me.tblNutricion.ResumeLayout(False)
         Me.tblPulso.ResumeLayout(False)
@@ -540,13 +480,6 @@ Partial Class frmFiebre
     Friend WithEvents pnlContenedor As Panel
     Friend WithEvents Imprimir As Printing.PrintDocument
     Friend WithEvents pp As PrintPreviewDialog
-    Friend WithEvents gbResolucion As GroupBox
-    Friend WithEvents txtNomAnalisis As TextBox
-    Friend WithEvents gbDescripcionDiagnostico As GroupBox
-    Friend WithEvents lblDiagnostico As Label
-    Friend WithEvents txtTratamiento As TextBox
-    Friend WithEvents chkAnalisis As CheckBox
-    Friend WithEvents lblNomAnalisis As Label
     Friend WithEvents gbPreguntas As GroupBox
     Friend WithEvents chkSensoriales As CheckBox
     Friend WithEvents chkHumorales As CheckBox
@@ -573,4 +506,7 @@ Partial Class frmFiebre
     Friend WithEvents lblGrados As Label
     Friend WithEvents lblTemperatura As Label
     Friend WithEvents txtTemperatura As TextBox
+    Friend WithEvents txtFrecuenciaCard As TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents lblFrecuenciaCard As Label
 End Class

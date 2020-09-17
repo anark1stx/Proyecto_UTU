@@ -14,4 +14,8 @@ Public Class frmFiebre
             _miFormulario = value
         End Set
     End Property
+
+    Private Sub gbPreguntas_Enter(sender As Object, e As EventArgs) Handles gbPreguntas.Enter
+
+    End Sub
 End Class

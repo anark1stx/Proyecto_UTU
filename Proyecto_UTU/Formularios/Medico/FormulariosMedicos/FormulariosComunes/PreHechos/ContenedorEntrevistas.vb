@@ -92,25 +92,31 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub ContenedorEntrevistas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Frmlimpio.TopMost = True
-        Frmlimpio.TopLevel = False
-        tbpEntrevista.Controls.Add(Frmlimpio)
-        Frmlimpio.Visible = True
-        Frmlimpio.Dock = DockStyle.Fill
-
         Eventos.Modo = EventosDeTBP.ModoEvento.DatosFormulario
-        Eventos.FormDatos = Frmlimpio.MiFormulario
 
         Eventos.Acciones = AccionesFrm
-        Eventos.PanelDestino = Frmlimpio.pnlContenedor
+
         Eventos.PrintDoc = New Printing.PrintDocument
         Eventos.Acciones.TopLevel = False
         Eventos.Acciones.TopMost = True
-        Frmlimpio.pnlContenedor.Controls.Add(Eventos.Acciones)
+
+        If Me.Frmlimpio Is Nothing Then 'esto quiere decir que esta cargando un formulario pre-hecho, que no es del tipo E_Formulario si no que es un windows form.
+            Eventos.PanelDestino = tbpEntrevista.Controls(0)
+            Eventos.PanelDestino.Controls.Add(Eventos.Acciones)
+        Else
+            Eventos.PanelDestino = Frmlimpio.pnlContenedor
+            Eventos.FormDatos = Frmlimpio.MiFormulario
+            Frmlimpio.TopMost = True
+            Frmlimpio.TopLevel = False
+            tbpEntrevista.Controls.Add(Frmlimpio)
+            Frmlimpio.Visible = True
+            Frmlimpio.Dock = DockStyle.Fill
+            Frmlimpio.pnlContenedor.Controls.Add(Eventos.Acciones)
+        End If
+
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True
         Eventos.AgregarHandlers()
-
     End Sub
 
     Private Sub btnSugerirDiagnostico_Click(sender As Object, e As EventArgs) Handles btnSugerirDiagnostico.Click
