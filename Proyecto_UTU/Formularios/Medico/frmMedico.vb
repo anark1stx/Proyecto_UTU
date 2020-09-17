@@ -94,6 +94,10 @@ Public Class frmMedico
         ID_Consulta = 0
         resetMode()
         InstanciarFormulario("Inicio")
+        'PENDIENTE:
+        'verificar la cantidad de formularios en la base de datos
+        'si es = 0, agregar los pre-diseñados
+        'Eliminar los archivos designer de ellos y dejar solamente su fichero xml.
     End Sub
     Sub resetMode()
         Select Case MiModo
@@ -156,12 +160,12 @@ Public Class frmMedico
 
     Public Sub addFrmEntrevistaPreHecho(frm As Form) 'este metodo es solo para los pre-hechos
         pnlContenedorFormularios.Controls.Clear()
+        tb.Dock = DockStyle.Fill
+        tb.Frmlimpio = frm 'SI EL FORMULARIO NO EXISTE EN BD SERIALIZARLO Y GUARDARLO, LUEGO GUARDAR LOS DATOS
         frm.TopMost = True
         frm.TopLevel = False
         frm.Visible = True
-        tb.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(tb)
-        tb.tbpEntrevista.Controls.Add(frm)
     End Sub
 
     Public Sub CargarDatosFormulario(f As E_Formulario)
@@ -177,8 +181,6 @@ Public Class frmMedico
         addFrmEntrevistaXML(fl)
 
     End Sub
-
-
     Public Sub addFrmEntrevistaXML(frmConEntrevistaCargado As formularioLimpio) 'este metodo es para los diseñados que se cargan desded su XML
         pnlContenedorFormularios.Controls.Clear()
         tb.Frmlimpio = frmConEntrevistaCargado
@@ -288,9 +290,6 @@ Public Class frmMedico
             Case "Generico"
                 LimpiarControles(generico)
                 addFrmEntrevistaPreHecho(generico)
-                'MOVER ESTO DE ABAJO AL EVENTO LOAD DEL FORMULARIO.
-                'BuscarPreguntas(generico.pnlContenedor, generico.MisPreguntas) 
-                'UnirPreguntasConRespuestas(generico.pnlContenedor, generico.MisPreguntas)
             Case "Dolor"
                 LimpiarControles(frmDlr)
                 addFrmEntrevistaPreHecho(frmDlr)
@@ -478,39 +477,39 @@ Public Class frmMedico
                     Sub()
                         InstanciarFormulario("Generico")
                     End Sub
-        AddHandler generico.txtMotivoConsulta.TextChanged,
-                    Sub()
-                        Dim culture As New CultureInfo("es-ES")
-                        If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "fiebre", CompareOptions.IgnoreCase) = 0 Then
-                            'Sugerir frmFiebre
-                            Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la fiebre?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+        'AddHandler generico.txtMotivoConsulta.TextChanged,
+        '            Sub()
+        '                Dim culture As New CultureInfo("es-ES")
+        '                If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "fiebre", CompareOptions.IgnoreCase) = 0 Then
+        '                    'Sugerir frmFiebre
+        '                    Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la fiebre?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
 
-                            If eleccion = vbOK Then
-                                InstanciarFormulario("Fiebre")
-                            End If
+        '                    If eleccion = vbOK Then
+        '                        InstanciarFormulario("Fiebre")
+        '                    End If
 
-                        End If
+        '                End If
 
-                        If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "dolor", CompareOptions.IgnoreCase) = 0 Then
-                            'Sugerir frmDolor
-                            Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la dolor?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+        '                If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "dolor", CompareOptions.IgnoreCase) = 0 Then
+        '                    'Sugerir frmDolor
+        '                    Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la dolor?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
 
-                            If eleccion = vbOK Then
-                                InstanciarFormulario("Dolor")
-                            End If
+        '                    If eleccion = vbOK Then
+        '                        InstanciarFormulario("Dolor")
+        '                    End If
 
-                        End If
+        '                End If
 
-                        If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "malestar", CompareOptions.IgnoreCase) = 0 Then
-                            'Sugerir frmDolor
-                            Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la malestar?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+        '                If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "malestar", CompareOptions.IgnoreCase) = 0 Then
+        '                    'Sugerir frmDolor
+        '                    Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la malestar?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
 
-                            If eleccion = vbOK Then
-                                InstanciarFormulario("Malestar")
-                            End If
+        '                    If eleccion = vbOK Then
+        '                        InstanciarFormulario("Malestar")
+        '                    End If
 
-                        End If
-                    End Sub
+        '                End If
+        '            End Sub
 
         AddHandler frmEntrevista.btnFrmDolor.Click,
                     Sub()
