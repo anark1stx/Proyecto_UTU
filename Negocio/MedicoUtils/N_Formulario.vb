@@ -27,6 +27,10 @@ Public Class N_Formulario
         Return objDatos.AltaFormularioDatos(form)
     End Function
 
+    Public Function AltaPreguntas(form As E_Formulario) As Integer
+        Return objDatos.AltaPreguntas(form)
+    End Function
+
     Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer
         Return objDatos.AltaSugiereTratamiento(form)
     End Function

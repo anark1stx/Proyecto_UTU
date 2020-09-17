@@ -32,18 +32,8 @@ Public Class D_Formulario
         Console.WriteLine("este form tiene id: " & form.ID)
 
         Dim result = AltaPreguntas(form)
-        Select Case result
-            Case -1
-                Return -1
-            Case 2
-                Return 2
-            Case 3
-                Return 3
-            Case 4
-                Return 4
-        End Select
 
-        Return 1
+        Return result
     End Function
 
     Public Function ModificarFormulario(form As E_Formulario) As Integer

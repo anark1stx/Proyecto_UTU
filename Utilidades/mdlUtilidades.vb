@@ -10,6 +10,7 @@ Public Module mdlUtilidades
     Public RegexLiteral = New Regex("^[A-Za-z]*$")
     Public RegexAlfaNumericoEspaciosPuntosComasTildes = New Regex("^[a-z-ZA-Z0-9Á-ú., ]*$")
     Public RegexAlfaNumerico = New Regex("^[A-Za-z0-9]*$")
+    Public RegexAlfaNumericoPuntos = New Regex("^[A-Za-z0-9+.]*$")
     Sub setLabelText(lbl As Label, msg As String)
         lbl.Text = msg
         lbl.Visible = True
@@ -326,7 +327,7 @@ Public Module mdlUtilidades
 
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
-        If Not check_regex(correo_antes_arroba, RegexAlfaNumerico) Then
+        If Not check_regex(correo_antes_arroba, RegexAlfaNumericoPuntos) Then
             optMsg = "Hay Caracteres inválidos en su correo."
             Return 0
         End If

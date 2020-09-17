@@ -24,8 +24,6 @@ Partial Class frmFiebre
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFiebre))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.Imprimir = New System.Drawing.Printing.PrintDocument()
-        Me.pp = New System.Windows.Forms.PrintPreviewDialog()
         Me.gbResolucion = New System.Windows.Forms.GroupBox()
         Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
         Me.gbDescripcionDiagnostico = New System.Windows.Forms.GroupBox()
@@ -59,6 +57,8 @@ Partial Class frmFiebre
         Me.lblGrados = New System.Windows.Forms.Label()
         Me.lblTemperatura = New System.Windows.Forms.Label()
         Me.txtTemperatura = New System.Windows.Forms.TextBox()
+        Me.Imprimir = New System.Drawing.Printing.PrintDocument()
+        Me.pp = New System.Windows.Forms.PrintPreviewDialog()
         Me.pnlContenedor.SuspendLayout()
         Me.gbResolucion.SuspendLayout()
         Me.gbDescripcionDiagnostico.SuspendLayout()
@@ -80,16 +80,6 @@ Partial Class frmFiebre
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1334, 815)
         Me.pnlContenedor.TabIndex = 0
-        '
-        'pp
-        '
-        Me.pp.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.pp.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.pp.ClientSize = New System.Drawing.Size(400, 300)
-        Me.pp.Enabled = True
-        Me.pp.Icon = CType(resources.GetObject("pp.Icon"), System.Drawing.Icon)
-        Me.pp.Name = "pp"
-        Me.pp.Visible = False
         '
         'gbResolucion
         '
@@ -466,7 +456,7 @@ Partial Class frmFiebre
         Me.tblTemperatura.ColumnCount = 3
         Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.27646!))
         Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.72354!))
-        Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62.0!))
+        Me.tblTemperatura.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
         Me.tblTemperatura.Controls.Add(Me.lblGrados, 2, 0)
         Me.tblTemperatura.Controls.Add(Me.lblTemperatura, 0, 0)
         Me.tblTemperatura.Controls.Add(Me.txtTemperatura, 1, 0)
@@ -483,7 +473,7 @@ Partial Class frmFiebre
         Me.lblGrados.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblGrados.AutoSize = True
         Me.lblGrados.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGrados.Location = New System.Drawing.Point(518, 4)
+        Me.lblGrados.Location = New System.Drawing.Point(517, 4)
         Me.lblGrados.Name = "lblGrados"
         Me.lblGrados.Size = New System.Drawing.Size(23, 29)
         Me.lblGrados.TabIndex = 4
@@ -505,11 +495,21 @@ Partial Class frmFiebre
         '
         Me.txtTemperatura.Dock = System.Windows.Forms.DockStyle.Right
         Me.txtTemperatura.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTemperatura.Location = New System.Drawing.Point(450, 3)
+        Me.txtTemperatura.Location = New System.Drawing.Point(449, 3)
         Me.txtTemperatura.Name = "txtTemperatura"
         Me.txtTemperatura.Size = New System.Drawing.Size(45, 30)
         Me.txtTemperatura.TabIndex = 3
         Me.txtTemperatura.Tag = "r1"
+        '
+        'pp
+        '
+        Me.pp.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.pp.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.pp.ClientSize = New System.Drawing.Size(400, 300)
+        Me.pp.Enabled = True
+        Me.pp.Icon = CType(resources.GetObject("pp.Icon"), System.Drawing.Icon)
+        Me.pp.Name = "pp"
+        Me.pp.Visible = False
         '
         'frmFiebre
         '

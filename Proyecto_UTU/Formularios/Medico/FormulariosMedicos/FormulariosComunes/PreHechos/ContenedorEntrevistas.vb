@@ -6,13 +6,6 @@ Public Class ContenedorEntrevistas
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
 
-    '
-    '
-    'EN LA TABPAGE DE RESOLUCION CARGAR A LOS CAMPOS DE ANALISIS Y TRATAMIENTOS LOS QUE YA ESTAN GUARDADOS EN LA BASE DE DATOS.
-    '
-    '
-    '
-
     Property Frmlimpio As formularioLimpio
         Get
             Return _frmLimpio
@@ -117,7 +110,6 @@ Public Class ContenedorEntrevistas
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True
         Eventos.AgregarHandlers()
-        Console.WriteLine(AccionesFrm.Location)
 
     End Sub
 

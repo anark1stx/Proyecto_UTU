@@ -7,7 +7,7 @@ Module Credenciales
     Public Sub construirCnString(usr As String, pwd As String)
         _usr = usr
         _pwd = pwd
-        _str = String.Format("SERVER=overclode.sibim;DATABASE=sibim;UID={0}; PWD={1};", _usr, _pwd)
+        _str = String.Format("SERVER=archivos.overclode.sibim;DATABASE=sibim;UID={0}; PWD={1};", _usr, _pwd)
     End Sub
 
     Public Function retornarCStringBD() As String
@@ -18,10 +18,8 @@ Module Credenciales
         conn.ConnectionString = retornarCStringBD()
         Try
             conn.Open()
-            Console.WriteLine("Me conecte bien")
             Return 1
         Catch ex As Exception
-            Console.WriteLine("ERROR: " & Err.Number & " " & Err.Description)
             Return Err.Number
         End Try
     End Function

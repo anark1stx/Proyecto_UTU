@@ -16,6 +16,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
         Protected _exitCode As Integer
         Protected _modo As ModoEvento
+        Protected _optModo As ModoSecundario
         Sub New(acciones As AccionesFormulario)
             _acciones = acciones
         End Sub
@@ -29,6 +30,10 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             DatosAnalisis = 2
             AsignarAnalisis = 3
             AsignarTratamiento = 4
+        End Enum
+        Public Enum ModoSecundario 'Puede ser imprimir o solo sacar captura de pantalla en caso que el formulario no este registrado en la base de datos
+            Imprimir
+            SacarCapturaDePantalla
         End Enum
 
         Property Modo As ModoEvento
@@ -128,7 +133,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             Dim resultado = 0
             Select Case Modo
                 Case 0
-
                     If FormDatos.Enfermedad.Nombre Is String.Empty Then
                         MessageBox.Show("Ingrese una enfermedad.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
@@ -139,6 +143,21 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         Exit Sub
                     End If
 
+                    Console.WriteLine("Evento guardar Datos Formulario!!!!")
+                    Dim negocio As New N_Formulario
+
+                    If FormDatos.ID = 0 Then
+
+                        MessageBox.Show("El formulario no está guardado en la base de datos, ingresando...", "Formulario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        FormDatos.VistaPrevia = Await Task.Run(Function() Image2Bytes(ImprimirFormulario(PanelDestino, PanelDestino.DisplayRectangle))) 'saco captura de pantalla
+                        resultado = Await Task.Run(Function() negocio.AltaFormulario(FormDatos))
+                        Select Case resultado
+                            Case -1
+                                MsgBox("Conexión Perdida.")
+                                Exit Sub
+                        End Select
+                    End If
+
                     For Each p As PreguntaRespuesta In FormDatos.PreguntasYRespuestas
                         If p.Respuesta.Text Is String.Empty Then
                             If MessageBox.Show("La pregunta: " & p.Pregunta.Text & " no fue respondida, seguro que desea guardar?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
@@ -147,8 +166,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         End If
                     Next
 
-                    Console.WriteLine("Evento guardar Datos Formulario!!!!")
-                    Dim negocio As New N_Formulario
                     resultado = Await Task.Run(Function() negocio.AltaFormularioDatos(FormDatos))
 
                 Case 1

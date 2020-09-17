@@ -329,7 +329,7 @@ Public Class frmGestion
                     If Mode = Accion.Alta AndAlso ci_valida Then
                         Dim nu As New N_Usuario
                         Dim code = Await Task.Run(Function() nu.UsuarioExiste(Val(lblCedulaTXT.Text)))
-                        Console.WriteLine("code is " & code)
+
                         Select Case code
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -363,6 +363,7 @@ Public Class frmGestion
                 pnlBotonesTel.Visible = False
                 pnlEspecialidadesBtns.Visible = False
                 lblCedulaTXT.Enabled = False
+                pnlDspCedula.Enabled = ci_valida
         End Select
     End Sub
 
@@ -414,8 +415,8 @@ Public Class frmGestion
                         Case 1
                             MessageBox.Show("Paciente ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             ci_valida = False
-                            configurarControles()
                             LimpiarControles(Me)
+                            configurarControles()
                         Case 2
                             MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 3
@@ -443,8 +444,8 @@ Public Class frmGestion
                         Case 1
                             MessageBox.Show("Médico ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             ci_valida = False
-                            configurarControles()
                             LimpiarControles(Me)
+                            configurarControles()
                         Case 2
                             MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case 3
@@ -474,8 +475,8 @@ Public Class frmGestion
                     Case 1
                         MessageBox.Show("Auxiliar ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         ci_valida = False
-                        configurarControles()
                         LimpiarControles(Me)
+                        configurarControles()
                     Case 2
                         MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 3
@@ -610,8 +611,8 @@ Public Class frmGestion
             Case 1
                 MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ci_valida = False
-                configurarControles()
                 LimpiarControles(Me)
+                configurarControles()
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
@@ -634,14 +635,14 @@ Public Class frmGestion
             Case 1
                 MessageBox.Show("El usuario fue dado de alta.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ci_valida = False
-                configurarControles()
                 LimpiarControles(Me)
+                configurarControles()
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
 
-    Async Sub ModificarU()
+    Async Sub ModificarU() 'pendiente: hacer procedimiento para modificar contrasena, por ahora sale la validacion pero realmente no se cambia.
         Dim u = Base_props_user()
         Dim code As Integer = 0
 
@@ -683,8 +684,8 @@ Public Class frmGestion
             Case 1
                 MessageBox.Show("El usuario fue modificado con éxito", "Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ci_valida = False
-                configurarControles()
                 LimpiarControles(Me)
+                configurarControles()
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error modificando usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 3
