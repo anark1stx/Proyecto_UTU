@@ -346,8 +346,6 @@ Public Class ControlesGuardados
         Public _bgImage As String 'String en base64
         <Xml.Serialization.XmlIgnore>
         Public _bgLayout As ImageLayout
-        <Xml.Serialization.XmlIgnore>
-        Public _eventos As List(Of Evento)
         Property bgImage As String
             Get
                 Return _bgImage
@@ -479,69 +477,6 @@ Public Class ControlesGuardados
         End Sub
     End Class
 
-    Public Class TabControl
-        Inherits SControl
-        <Xml.Serialization.XmlIgnore>
-        Public _Pages As List(Of TabPage)
-
-        Property Pages As List(Of TabPage)
-            Get
-                Return _Pages
-            End Get
-            Set(value As List(Of TabPage))
-                _Pages = value
-            End Set
-        End Property
-
-        Sub New()
-
-        End Sub
-
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, bg As String, pages As List(Of TabPage))
-
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = dock
-            _anchor = Anchor
-            _bgColor = bg
-            _Pages = pages
-        End Sub
-
-    End Class
-
-    Public Class TabPage
-        Inherits Panel
-        <Xml.Serialization.XmlIgnore>
-        Public _texto As String
-
-        Property Texto As String
-            Get
-                Return _texto
-            End Get
-            Set(value As String)
-                _texto = value
-            End Set
-        End Property
-
-        Sub New()
-
-        End Sub
-
-        Sub New(posicion As Point, tamano As Size, nombre As String, bg As String, childs As List(Of SControl), autoScroll As Boolean, texto As String)
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = Dock
-            _anchor = Anchor
-            _bgColor = bg
-            _childs = childs
-            _autoScroll = autoScroll
-            _texto = texto
-
-        End Sub
-    End Class
-
     Public Class ListaControles
         <Xml.Serialization.XmlIgnore>
         Public _Controles As List(Of SControl)
@@ -607,92 +542,4 @@ Public Class ControlesGuardados
         End Sub
 
     End Class
-
-    Public Class Evento
-        <Xml.Serialization.XmlIgnore>
-        Protected _disparador
-        <Xml.Serialization.XmlIgnore>
-        Protected _fuente
-        <Xml.Serialization.XmlIgnore>
-        Protected _destino
-        <Xml.Serialization.XmlIgnore>
-        Protected _accion As EventoAccion
-        <Xml.Serialization.XmlIgnore>
-        Protected _selected As Boolean 'sencillamente para arreglarnos con el evento de los colores
-        Public Enum EventoAccion
-            AgregarItemALista
-            EliminarItemDeLista
-            PintarFondo
-            CambiarFoto
-        End Enum
-        Property Disparador As Control
-            Get
-                Return _disparador
-            End Get
-            Set(value As Control)
-                _disparador = value
-            End Set
-        End Property
-
-        Property Fuente As Control
-            Get
-                Return _fuente
-            End Get
-            Set(value As Control)
-                _fuente = value
-            End Set
-        End Property
-
-        Property Destino As Control
-            Get
-                Return _destino
-            End Get
-            Set(value As Control)
-                _destino = value
-            End Set
-        End Property
-
-        Property Accion As EventoAccion
-            Get
-                Return _accion
-            End Get
-            Set(value As EventoAccion)
-                _accion = value
-            End Set
-        End Property
-
-        Property Selected As Boolean
-            Get
-                Return _selected
-            End Get
-            Set(value As Boolean)
-                _selected = value
-            End Set
-        End Property
-
-        Sub New()
-
-        End Sub
-
-        'cuando cargo los eventos desde el codigo, agregar la lista de Eventos del botón como handlers
-        'Dim ev As New ControlesGuardados.Evento()
-        'ev.Disparador = btnAgregarItem.Click
-        'ev.Fuente = txtIngresarSintoma
-        'ev.Destino = lbSintomas
-        'ev.Accion = EventoAccion.AgregarItemALista
-        'AddHandler btn.Click, AddressOf Evento.Evento
-        Public Sub Evento(sender As Object, e As EventArgs)
-            Select Case Accion.ToString()
-                Case EventoAccion.AgregarItemALista
-                    EvAgregarItemALista(Fuente, Destino)
-                Case EventoAccion.EliminarItemDeLista
-                    EvEliminarItemDeLista(Fuente)
-                Case EventoAccion.PintarFondo
-                    EvPintarFondo(Fuente, Selected)
-                Case EventoAccion.CambiarFoto
-                    EvCambiarFoto(Fuente)
-            End Select
-        End Sub
-    End Class
-
 End Class

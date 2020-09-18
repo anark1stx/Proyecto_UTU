@@ -57,13 +57,14 @@ Public Class D_Formulario
             Cerrar(conexion)
             Return 2
         End Try
+        Cerrar(conexion)
+
         Dim result = BorrarPreguntasDeFormulario(form)
         Select Case result
             Case -1, 2
                 Return result
         End Select
         Dim result2 = AltaPreguntas(form)
-        Cerrar(conexion)
         Return result2
     End Function
 
@@ -250,7 +251,7 @@ Public Class D_Formulario
                 Return 0
             End Try
         Next
-
+        Cerrar(conexion)
         Return 1
     End Function
 
@@ -328,7 +329,19 @@ Public Class D_Formulario
             cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Medico.Cedula
             cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
             cmd.Parameters.Add("ID_PREG", MySqlDbType.Int32).Value = pyr.ID_Pregunta
-            cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = pyr.Respuesta.Text
+            If TypeOf (pyr.Respuesta) Is Windows.Forms.ListBox Then
+                Dim lb = DirectCast(pyr.Respuesta, Windows.Forms.ListBox)
+                Dim strings = ""
+                For i = 0 To lb.Items.Count - 1
+                    strings &= lb.Items(i)
+                    If i <> lb.Items.Count - 1 Then
+                        strings &= ","
+                    End If
+                Next
+                cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = strings
+            Else
+                cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = pyr.Respuesta.Text
+            End If
 
             Try
                 cmd.ExecuteNonQuery()

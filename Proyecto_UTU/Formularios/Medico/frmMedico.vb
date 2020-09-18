@@ -19,14 +19,9 @@ Public Class frmMedico
     Dim frmAnalisisDatos As New frmDatosAnalisis
 
     Dim frmCrear As New frmCrearFormulario
-    Dim frmPlano As New formularioPlano
     Dim frmCatalogo As New frmCatalogoFormulariosBD
 
     Dim tb As New ContenedorEntrevistas
-    Dim generico As New frmGenerico
-    Dim frmDlr As New frmDolor
-    Dim frmFbr As New frmFiebre
-    Dim frmMal As New frmMalestar
 
     Dim frmSelecMed As New frmSeleccionarMedico
     Dim _entrevistas As New frmCargarTarjetasP
@@ -229,7 +224,8 @@ Public Class frmMedico
                 LimpiarControles(frmIdentificacion)
                 frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.MedicoAtiende
                 frmIdentificacion.configurarControles()
-                '_paciente.Cedula = 0
+                _paciente.Cedula = 0 'reseteo los datos
+                ID_Consulta = 0
                 addFrm(frmIdentificacion)
 
             Case "SeleccionarMedico"
@@ -292,16 +288,13 @@ Public Class frmMedico
                 addFrm(frmEntrevista)
 
             Case "Generico"
-                addFrmEntrevistaPreHecho(generico)
+                'abrir el catalogo de formularios y buscar generico
             Case "Dolor"
-                addFrmEntrevistaPreHecho(frmDlr)
-
+                'abrir el catalogo de formularios y buscar dolor
             Case "Fiebre"
-                addFrmEntrevistaPreHecho(frmFbr)
-
+                'abrir el catalogo de formularios y buscar fiebre
             Case "Malestar"
-                addFrmEntrevistaPreHecho(frmMal)
-
+                'abrir el catalogo de formularios y buscar malestars
             Case "Otro"
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
@@ -476,39 +469,6 @@ Public Class frmMedico
                     Sub()
                         InstanciarFormulario("Generico")
                     End Sub
-        'AddHandler generico.txtMotivoConsulta.TextChanged,
-        '            Sub()
-        '                Dim culture As New CultureInfo("es-ES")
-        '                If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "fiebre", CompareOptions.IgnoreCase) = 0 Then
-        '                    'Sugerir frmFiebre
-        '                    Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la fiebre?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
-
-        '                    If eleccion = vbOK Then
-        '                        InstanciarFormulario("Fiebre")
-        '                    End If
-
-        '                End If
-
-        '                If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "dolor", CompareOptions.IgnoreCase) = 0 Then
-        '                    'Sugerir frmDolor
-        '                    Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la dolor?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
-
-        '                    If eleccion = vbOK Then
-        '                        InstanciarFormulario("Dolor")
-        '                    End If
-
-        '                End If
-
-        '                If culture.CompareInfo.IndexOf(generico.txtMotivoConsulta.Text, "malestar", CompareOptions.IgnoreCase) = 0 Then
-        '                    'Sugerir frmDolor
-        '                    Dim eleccion = MessageBox.Show("¿Desea usar el formulario orientado a la malestar?", "Usted ingresó fiebre como motivo de consulta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
-
-        '                    If eleccion = vbOK Then
-        '                        InstanciarFormulario("Malestar")
-        '                    End If
-
-        '                End If
-        '            End Sub
 
         AddHandler frmEntrevista.btnFrmDolor.Click,
                     Sub()
@@ -751,5 +711,9 @@ Public Class frmMedico
 
     Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
         ID_Consulta = tb.Frmlimpio.MiFormulario.Id_consulta
+    End Sub
+
+    Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
+        'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
     End Sub
 End Class

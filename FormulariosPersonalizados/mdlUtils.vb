@@ -106,12 +106,10 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         End Sub
 
         Sub Limpiar()
-            Console.WriteLine("EVENTO LIMPIAR!!")
             LimpiarControles(PanelDestino)
         End Sub
 
         Sub Imprimir(sender As Object, e As EventArgs)
-            Console.WriteLine("EVENTO IMPRIMIR!!")
             Acciones.Visible = False
             PanelDestino.AutoScroll = False
             PrintDoc.DefaultPageSettings.Landscape = True
@@ -130,34 +128,24 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             Dim resultado = 0
             Select Case Modo
                 Case 0
-                    If FormDatos.XML = "" Then
-                        MsgBox("Este formulario aun no puede guardarse, su implementacion esta pendiente :(.")
-                        Exit Sub
+
+                    If FormDatos.Enfermedad.SignosClinicos.Count < 1 Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar un signo clínico?", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Warning) = vbNo Then
+                            Exit Sub
+                        End If
+                    End If
+
+
+                    If FormDatos.Enfermedad.Sintomas.Count < 1 Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar un síntoma?", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Warning) = vbNo Then
+                            Exit Sub
+                        End If
                     End If
 
                     If FormDatos.Enfermedad.Nombre Is String.Empty Then
-                        MessageBox.Show("Ingrese una enfermedad.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Exit Sub
-                    End If
-
-                    If FormDatos.Enfermedad.Sintomas.Count < 1 Then
-                        MessageBox.Show("Ingrese un sintoma.", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Exit Sub
-                    End If
-
-                    Console.WriteLine("Evento guardar Datos Formulario!!!!")
-                    Dim negocio As New N_Formulario
-
-                    If FormDatos.ID = 0 Then 'la idea seria resolver los formularios prehechos de esta manera, pero su ID siempre va a ser = 0
-
-                        MessageBox.Show("El formulario no está guardado en la base de datos, ingresando...", "Formulario no registrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        FormDatos.VistaPrevia = Await Task.Run(Function() Image2Bytes(ImprimirFormulario(PanelDestino, PanelDestino.DisplayRectangle))) 'saco captura de pantalla
-                        resultado = Await Task.Run(Function() negocio.AltaFormulario(FormDatos))
-                        Select Case resultado
-                            Case -1
-                                MsgBox("Conexión Perdida.")
-                                Exit Sub
-                        End Select
+                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad?", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Warning) = vbNo Then
+                            Exit Sub
+                        End If
                     End If
 
                     For Each p As PreguntaRespuesta In FormDatos.PreguntasYRespuestas
@@ -168,8 +156,8 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         End If
                     Next
 
+                    Dim negocio As New N_Formulario
                     resultado = Await Task.Run(Function() negocio.AltaFormularioDatos(FormDatos))
-
                 Case 1
                     Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
                     Dim negocio As New N_Tratamiento
@@ -200,63 +188,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             End Select
         End Sub
     End Class
-
-    'ctrlFuente seria un textbox, ctrlDestino seria un listbox/combobox
-    Public Sub EvAgregarItemALista(ctrlFuente As Control, ctrlDestino As Control)
-        Dim item As String = ctrlFuente.Text
-
-        Select Case ctrlDestino.GetType()
-            Case GetType(ListBox)
-                Dim destino = DirectCast(ctrlDestino, ListBox)
-                If Not destino.Items.Contains(item) Then
-                    destino.Items.Add(item)
-                End If
-            Case GetType(ComboBox)
-                Dim destino = DirectCast(ctrlDestino, ComboBox)
-                If Not destino.Items.Contains(item) Then
-                    destino.Items.Add(item)
-                End If
-        End Select
-
-    End Sub
-
-    Public Sub EvEliminarItemDeLista(ctrlFuente As Control)
-        Dim item As String = ctrlFuente.Text
-
-        Select Case ctrlFuente.GetType()
-            Case GetType(ListBox)
-                Dim destino = DirectCast(ctrlFuente, ListBox)
-                If destino.Items.Contains(item) Then
-                    destino.Items.Remove(destino.SelectedItem)
-                End If
-            Case GetType(ComboBox)
-                Dim destino = DirectCast(ctrlFuente, ComboBox)
-                If destino.Items.Contains(item) Then
-                    destino.Items.Remove(destino.SelectedItem)
-                End If
-        End Select
-
-    End Sub
-
-    Public Sub EvCambiarFoto(ctrlFuente As Control)
-
-        Select Case ctrlFuente.GetType()
-            Case GetType(Button)
-                Dim btn = DirectCast(ctrlFuente, Button)
-                btn.Image = Image.FromFile(subirImagen())
-        End Select
-    End Sub
-
-    Public Sub EvPintarFondo(ctrl As Control, selected As Boolean)
-
-        If selected Then
-            ctrl.BackColor = pickRandomColor()
-        Else
-            ctrl.BackColor = Color.LightBlue
-
-        End If
-
-    End Sub
 
     Public Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
 
@@ -302,12 +233,18 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
                 Case Else
                     If Not String.IsNullOrEmpty(c.Tag) Then
-                        Select Case c.GetType() 'primero guardo preguntas
-                            Case GetType(TextBox), GetType(ComboBox) 'sabemos q label es el unico control que guarda solo preguntas
+                        Select Case c.GetType()
+                            Case GetType(TextBox), GetType(ComboBox)
                                 If c.Tag.StartsWith("p") Then
                                     Console.WriteLine("Respuesta: " & c.Tag)
                                     ListaPreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag).Respuesta = c
                                 End If
+                            Case GetType(ListBox)
+                                If c.Tag.StartsWith("p") Then
+                                    Console.WriteLine("Respuesta: " & c.Tag)
+                                    ListaPreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag).Respuesta = c
+                                End If
+
                         End Select
                     End If
 
@@ -331,5 +268,31 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         Dim nf As New N_Formulario
         Return nf.BuscarID_preguntas(pregs)
     End Function
+
+    Public Sub GuardarFormulario(FormDisenado As E_Formulario, lista_controles As ControlesGuardados.ListaControles, pnlDestino As Panel)
+        Dim Negocio As New N_Formulario
+        Dim gestor As New GestorXMLv2
+        Dim resultado As Integer = 0
+        FormDisenado.XML = gestor.Serializar(lista_controles)
+        Dim capturaDePantalla = ImprimirFormulario(pnlDestino, New Rectangle(0, 0, 720, 480))
+        FormDisenado.VistaPrevia = Image2Bytes(capturaDePantalla)
+        BuscarPreguntas(pnlDestino, FormDisenado.PreguntasYRespuestas)
+        UnirPreguntasConRespuestas(pnlDestino, FormDisenado.PreguntasYRespuestas)
+
+        If FormDisenado.ID = 0 Then 'si es 0 es porque no lo estamos editando, es un form nuevo
+            resultado = Negocio.AltaFormulario(FormDisenado)
+        Else
+            resultado = Negocio.ModificarFormulario(FormDisenado) 'hacer alta y baja con las preguntas aca!
+        End If
+        Select Case resultado
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
+
+    End Sub
 
 End Module

@@ -40,12 +40,6 @@ Public Class FabricaDeControles
                         Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount)
                         _lista.Add(tb)
                     End If
-                Case GetType(TabControl)
-                    If c.Controls.Count > 0 Then
-                        Dim tbC = DirectCast(c, TabControl)
-                        Dim tb As New ControlesGuardados.TabControl(tbC.Location, tbC.Size, tbC.Name, tbC.Dock, ColorTOHTML(tbC.BackColor), returnPages(tbC))
-                        _lista.Add(tb)
-                    End If
                 Case GetType(ComboBox)
                     _lista.Add(New ControlesGuardados.ComboBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font, c.Tag))
                 Case GetType(Label)
@@ -86,86 +80,6 @@ Public Class FabricaDeControles
         Next
 
         Return tblControlList
-    End Function
-
-    Function returnPages(tbc As TabControl) As List(Of ControlesGuardados.TabPage)
-        Dim pages As New List(Of TabPage)
-        Dim misTabs = New List(Of ControlesGuardados.TabPage)
-
-        For Each page As TabPage In tbc.TabPages
-            pages.Add(page)
-        Next
-
-        For Each page As TabPage In pages
-            Dim SmisSCtrl = New List(Of ControlesGuardados.SControl)(getChildsTABPAGE(page))
-
-            misTabs.Add(New ControlesGuardados.TabPage(page.Location, page.Size, page.Name, ColorTOHTML(page.BackColor), SmisSCtrl, page.AutoScroll, page.Text))
-        Next
-
-        Return misTabs
-    End Function
-
-    Function getChildsTABPAGE(tab As TabPage) As List(Of ControlesGuardados.SControl)
-        Dim lista As New List(Of ControlesGuardados.SControl)
-        For Each c As Control In tab.Controls
-
-            Select Case c.GetType()
-                Case GetType(Panel)
-
-                    Dim tmp_list As New List(Of Control)
-                    If c.Controls.Count > 0 Then
-
-                        For Each c2 As Control In c.Controls
-                            tmp_list.Add(c2)
-                        Next
-
-                    End If
-                    lista.Add(New ControlesGuardados.Panel(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), DirectCast(c, Panel).AutoScroll, getChilds(tmp_list))) 'Necesario castearlo como panel para sacar esa propiedad
-
-                Case GetType(GroupBox)
-                    Dim tmp_list As New List(Of Control)
-                    If c.Controls.Count > 0 Then
-
-                        For Each c2 As Control In c.Controls
-                            tmp_list.Add(c2)
-                        Next
-                    End If
-                    lista.Add(New ControlesGuardados.GroupBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, getChilds(tmp_list), c.Font)) 'Necesario castearlo como panel para sacar esa propiedad
-
-                Case GetType(Label)
-                    lista.Add(New ControlesGuardados.Label(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
-                Case GetType(ComboBox)
-                    lista.Add(New ControlesGuardados.ComboBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font, c.Tag))
-                Case GetType(TextBox)
-                    lista.Add(New ControlesGuardados.Textbox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, DirectCast(c, TextBox).Multiline, c.Tag))
-                Case GetType(Button)
-                    lista.Add(New ControlesGuardados.Button(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.BackgroundImage, c.BackgroundImageLayout, c.Tag))
-                Case GetType(ListBox)
-                    lista.Add(New ControlesGuardados.ListBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), convertirItemsString(c), c.Font))
-                Case GetType(CheckBox)
-                    lista.Add(New ControlesGuardados.CheckBox(c.Location, c.Size, c.Name, c.Dock, c.Anchor, ColorTOHTML(c.ForeColor), ColorTOHTML(c.BackColor), c.Text, c.Font, c.Tag))
-                Case GetType(TableLayoutPanel)
-
-                    Dim cTBL = DirectCast(c, TableLayoutPanel)
-
-                    Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount) 'Necesario castearlo como panel para sacar esa propiedad
-                    lista.Add(tb)
-                Case GetType(TabPage)
-                    Dim cTB = DirectCast(c, TabPage)
-                    Dim tmp_list As New List(Of Control)
-                    If c.Controls.Count > 0 Then
-
-                        For Each c2 As Control In c.Controls
-                            tmp_list.Add(c2)
-                        Next
-                    End If
-                    Dim tb As New ControlesGuardados.TabPage(cTB.Location, cTB.Size, cTB.Name, ColorTOHTML(cTB.BackColor), getChilds(tmp_list), cTB.AutoScroll, cTB.Text)
-            End Select
-
-        Next
-
-        Return lista
-
     End Function
 
     Function getChilds(controles As List(Of Control)) As List(Of ControlesGuardados.SControl)
@@ -213,25 +127,6 @@ Public Class FabricaDeControles
 
                     Dim tb As New ControlesGuardados.TableLayoutPanel(cTBL.Location, cTBL.Size, cTBL.Name, cTBL.Dock, cTBL.Anchor, ColorTOHTML(cTBL.ForeColor), ColorTOHTML(cTBL.BackColor), returnChildsTBL(cTBL), cTBL.ColumnCount, cTBL.RowCount) 'Necesario castearlo como panel para sacar esa propiedad
                     lista.Add(tb)
-                Case GetType(TabControl)
-                    If c.Controls.Count > 0 Then
-                        Dim tbC = DirectCast(c, TabControl)
-
-                        Dim tb As New ControlesGuardados.TabControl(tbC.Location, tbC.Size, tbC.Name, tbC.Dock, ColorTOHTML(tbC.BackColor), returnPages(tbC))
-                        lista.Add(tb)
-                    End If
-                Case GetType(TabPage)
-                    Console.WriteLine("creando tabpage")
-                    Dim cTB = DirectCast(c, TabPage)
-                    Dim tmp_list As New List(Of Control)
-                    If c.Controls.Count > 0 Then
-
-                        For Each c2 As Control In c.Controls
-                            tmp_list.Add(c2)
-                        Next
-                    End If
-                    Dim tb As New ControlesGuardados.TabPage(cTB.Location, cTB.Size, cTB.Name, ColorTOHTML(cTB.BackColor), getChilds(tmp_list), cTB.AutoScroll, cTB.Text)
-
             End Select
 
         Next
@@ -271,50 +166,10 @@ Public Class FabricaDeControles
                 Return buildListBox(Control)
             Case GetType(ControlesGuardados.TableLayoutPanel)
                 Return buildTableLayoutPanel(Control)
-            Case GetType(ControlesGuardados.TabControl)
-                Return buildTabControl(Control)
-            Case GetType(ControlesGuardados.TabPage)
-                Return buildTabPage(Control)
             Case Else
-                Console.WriteLine(Control.GetType().ToString())
                 Return Nothing
         End Select
 
-    End Function
-
-    Function buildTabControl(control As ControlesGuardados.TabControl) As TabControl
-        Dim tabC As New TabControl With {
-            .Name = control.Nombre,
-            .Location = control.Posicion,
-            .Size = control.Tamano,
-            .Dock = DockStyle.Fill,
-            .BackColor = HTMLTOColor(control.BackColor)
-        }
-
-        For Each c As ControlesGuardados.TabPage In control.Pages
-            tabC.Controls.Add(ConstruirControl(c))
-        Next
-
-        Return tabC
-    End Function
-
-    Function buildTabPage(control As ControlesGuardados.TabPage) As TabPage
-        Dim tabp As New TabPage With {
-            .Name = control.Nombre,
-            .Location = control.Posicion,
-            .Size = control.Tamano,
-            .Dock = control.Dock,
-            .Anchor = control.Anchor,
-            .BackColor = HTMLTOColor(control.BackColor),
-            .Text = control.Texto,
-            .AutoScroll = control.AutoScroll
-        }
-        Console.WriteLine("tengo autoscroll? " & tabp.AutoScroll)
-        For Each c As ControlesGuardados.SControl In control.Childs
-            tabp.Controls.Add(ConstruirControl(c))
-        Next
-
-        Return tabp
     End Function
 
     Private Function buildTableLayoutPanel(control As ControlesGuardados.TableLayoutPanel) As TableLayoutPanel

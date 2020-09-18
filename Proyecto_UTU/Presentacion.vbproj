@@ -187,30 +187,6 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmFiebre.Designer.vb">
-      <DependentUpon>frmFiebre.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmFiebre.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.Designer.vb">
-      <DependentUpon>frmGenerico.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmMalestar.Designer.vb">
-      <DependentUpon>frmMalestar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmMalestar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmDolor.Designer.vb">
-      <DependentUpon>frmDolor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmDolor.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.Designer.vb">
       <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
     </Compile>
@@ -384,18 +360,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.resx">
       <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmFiebre.resx">
-      <DependentUpon>frmFiebre.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmGenerico.resx">
-      <DependentUpon>frmGenerico.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmMalestar.resx">
-      <DependentUpon>frmMalestar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\frmDolor.resx">
-      <DependentUpon>frmDolor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.resx">
       <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>

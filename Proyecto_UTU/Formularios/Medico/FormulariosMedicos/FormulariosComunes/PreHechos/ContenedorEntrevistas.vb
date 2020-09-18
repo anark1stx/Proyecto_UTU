@@ -100,19 +100,14 @@ Public Class ContenedorEntrevistas
         Eventos.Acciones.TopLevel = False
         Eventos.Acciones.TopMost = True
 
-        If Me.Frmlimpio Is Nothing Then 'esto quiere decir que esta cargando un formulario pre-hecho, que no es del tipo E_Formulario si no que es un windows form.
-            Eventos.PanelDestino = tbpEntrevista.Controls(0)
-            Eventos.PanelDestino.Controls.Add(Eventos.Acciones)
-        Else
-            Eventos.PanelDestino = Frmlimpio.pnlContenedor
-            Eventos.FormDatos = Frmlimpio.MiFormulario
-            Frmlimpio.TopMost = True
-            Frmlimpio.TopLevel = False
-            tbpEntrevista.Controls.Add(Frmlimpio)
-            Frmlimpio.Visible = True
-            Frmlimpio.Dock = DockStyle.Fill
-            Frmlimpio.pnlContenedor.Controls.Add(Eventos.Acciones)
-        End If
+        Eventos.PanelDestino = Frmlimpio.pnlContenedor
+        Eventos.FormDatos = Frmlimpio.MiFormulario
+        Frmlimpio.TopMost = True
+        Frmlimpio.TopLevel = False
+        tbpEntrevista.Controls.Add(Frmlimpio)
+        Frmlimpio.Visible = True
+        Frmlimpio.Dock = DockStyle.Fill
+        Frmlimpio.pnlContenedor.Controls.Add(Eventos.Acciones)
 
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True
