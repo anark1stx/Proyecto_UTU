@@ -162,7 +162,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
                     Dim negocio As New N_Tratamiento
                     resultado = Await Task.Run(Function() negocio.AltaTratamientoDatos(TratamientoDatos))
-
                 Case 2
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
                     Dim Negocio As New N_Analisis
@@ -176,7 +175,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Dim negocio As New N_Formulario
                     resultado = Await Task.Run(Function() negocio.AltaSugiereTratamiento(FormDatos))
             End Select
-            Console.WriteLine("resultado: " & resultado)
             Select Case resultado
                 Case -1
                     MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)

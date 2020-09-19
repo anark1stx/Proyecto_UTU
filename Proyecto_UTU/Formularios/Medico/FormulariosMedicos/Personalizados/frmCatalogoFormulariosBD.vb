@@ -3,7 +3,6 @@ Imports Negocio
 Imports Utilidades
 Public Class frmCatalogoFormulariosBD
     Protected _formSeleccionado As E_Formulario
-    'Dim cajaFormularios As List(Of frmPresentacionFormulario) = New List(Of frmPresentacionFormulario)
     Dim negocio As New N_Formulario
 
     Property FormSeleccionado As E_Formulario
@@ -15,7 +14,7 @@ Public Class frmCatalogoFormulariosBD
         End Set
     End Property
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+    Public Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         tblFormularios.Controls.Clear()
 
         If Not check_Largo(txtBuscar.Text, 3, 90, True) Then
@@ -85,12 +84,13 @@ Public Class frmCatalogoFormulariosBD
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         Me.Hide()
-        Console.WriteLine("Mi formulario seleccionado es: " & FormSeleccionado.Nombre)
     End Sub
 
     Private Sub frmCatalogoFormulariosBD_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If e.CloseReason = CloseReason.UserClosing Then
-            Me.FormSeleccionado = Nothing
-        End If
+        If e.CloseReason = CloseReason.UserClosing Then Me.FormSeleccionado = Nothing
+    End Sub
+
+    Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+        If txtBuscar.TextLength > 3 Then btnBuscar_Click(sender, e)
     End Sub
 End Class

@@ -140,13 +140,6 @@ Public Class D_Formulario
 
     Public Function CargarIDpregunta(pList As List(Of PreguntaRespuesta)) As Integer
 
-        'si por alguna razon no existe la pregunta la damos de alta. Esto puede suceder en el caso de estar usando los formularios pre-hechos por primera vez(frmFiebre,frmMalestar,etc), ya que como son diseñados en visual studio no lo estamos guardando en la base de datos.
-        Dim f As New E_Formulario With {.PreguntasYRespuestas = pList}
-        Dim result = AltaPreguntas(f)
-        If result <> 1 Then
-            Return result
-        End If
-
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -329,19 +322,23 @@ Public Class D_Formulario
             cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Medico.Cedula
             cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
             cmd.Parameters.Add("ID_PREG", MySqlDbType.Int32).Value = pyr.ID_Pregunta
-            If TypeOf (pyr.Respuesta) Is Windows.Forms.ListBox Then
-                Dim lb = DirectCast(pyr.Respuesta, Windows.Forms.ListBox)
-                Dim strings = ""
-                For i = 0 To lb.Items.Count - 1
-                    strings &= lb.Items(i)
-                    If i <> lb.Items.Count - 1 Then
-                        strings &= ","
-                    End If
-                Next
-                cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = strings
-            Else
-                cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = pyr.Respuesta.Text
-            End If
+
+            Select Case pyr.Respuesta.GetType
+                Case GetType(Windows.Forms.ListBox)
+                    Dim lb = DirectCast(pyr.Respuesta, Windows.Forms.ListBox)
+                    Dim strings = ""
+                    For i = 0 To lb.Items.Count - 1
+                        strings &= lb.Items(i)
+                        If i <> lb.Items.Count - 1 Then
+                            strings &= ","
+                        End If
+                    Next
+                    cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = strings
+                Case GetType(Windows.Forms.CheckBox)
+                    cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = DirectCast(pyr.Respuesta, Windows.Forms.CheckBox).Checked.ToString()
+                Case Else
+                    cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = pyr.Respuesta.Text
+            End Select
 
             Try
                 cmd.ExecuteNonQuery()

@@ -1,8 +1,8 @@
-﻿Imports System.Globalization
-Imports Entidades
+﻿Imports Entidades
+Imports FormulariosPersonalizados
 Imports Negocio
 Imports Utilidades
-Imports FormulariosPersonalizados
+
 Public Class frmMedico
 
     Dim frmIni As New frmInicio
@@ -28,11 +28,12 @@ Public Class frmMedico
 
     Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado.
     Dim _paciente As New E_Paciente With {.Cedula = 0}
-    'Dim PreguntarNombreConsulta As New frmPreguntarNomCons
     Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
     Protected _medico As E_Medico
     Protected _auxiliar As E_Usuario
     Protected _modo As New Modo
+
+    Dim filtroB As String = ""
 
     Public Enum Modo
         SoyMedico
@@ -47,6 +48,7 @@ Public Class frmMedico
             _modo = value
         End Set
     End Property
+
     Property MedicoActual As E_Medico
         Get
             Return _medico
@@ -94,6 +96,7 @@ Public Class frmMedico
         'si es = 0, agregar los pre-diseñados
         'Eliminar los archivos designer de ellos y dejar solamente su fichero xml.
     End Sub
+
     Sub resetMode()
         Select Case MiModo
             Case Modo.SoyAuxiliar
@@ -153,40 +156,20 @@ Public Class frmMedico
         End If
     End Sub
 
-    Public Sub addFrmEntrevistaPreHecho(frm As Form) 'este metodo es solo para los pre-hechos
-        pnlContenedorFormularios.Controls.Clear()
-        tb.Dock = DockStyle.Fill
-        'tb.Frmlimpio = frm SI EL FORMULARIO NO EXISTE EN BD SERIALIZARLO Y GUARDARLO, LUEGO GUARDAR LOS DATOS
-        frm.TopMost = True
-        frm.TopLevel = False
-        frm.Visible = True
-        pnlContenedorFormularios.Controls.Add(tb)
-        tb.tbpEntrevista.Controls.Add(frm)
-        frm.BringToFront()
-        frm.Activate()
-        frm.Show()
-    End Sub
-
     Public Sub CargarDatosFormulario(f As E_Formulario) 'este metodo as para los que crean los médicos/auxiliares, por ahora es el que está funcional
         Dim fl = New formularioLimpio
         Dim controles = ConvertirFormulario(f)
-
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
         BuscarPreguntas(fl.pnlContenedor, f.PreguntasYRespuestas)
         UnirPreguntasConRespuestas(fl.pnlContenedor, f.PreguntasYRespuestas)
         BuscarIDsP(f.PreguntasYRespuestas)
         fl.MiFormulario = f
         fl.MiFormulario.NombreConsulta = NombreConsulta
-        addFrmEntrevistaXML(fl)
-
-    End Sub
-    Public Sub addFrmEntrevistaXML(frmConEntrevistaCargado As formularioLimpio) 'este metodo es para los diseñados que se cargan desded su XML
         pnlContenedorFormularios.Controls.Clear()
-        tb.Frmlimpio = frmConEntrevistaCargado
+        tb.Frmlimpio = fl
         tb.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(tb)
     End Sub
-
     Public Sub fixSize()
 
         If Me.WindowState = FormWindowState.Normal Then
@@ -286,19 +269,12 @@ Public Class frmMedico
                 fixSize()
 
                 addFrm(frmEntrevista)
-
-            Case "Generico"
-                'abrir el catalogo de formularios y buscar generico
-            Case "Dolor"
-                'abrir el catalogo de formularios y buscar dolor
-            Case "Fiebre"
-                'abrir el catalogo de formularios y buscar fiebre
-            Case "Malestar"
-                'abrir el catalogo de formularios y buscar malestars
             Case "Otro"
+                If Not String.IsNullOrWhiteSpace(filtroB) Then
+                    frmCatalogo.txtBuscar.Text = filtroB
+                End If
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
-                    Console.WriteLine("no fue seleccionado un formulario")
                     Exit Sub
                 End If
                 Dim f As New E_Formulario
@@ -306,13 +282,10 @@ Public Class frmMedico
                 f.Medico = MedicoActual
                 f.Paciente = _paciente
                 CargarDatosFormulario(f)
-
+                filtroB = ""
             Case "CrearFormulario"
-
                 frmCrear.Show()
-
             Case "EditarFormulario"
-
                 frmCrear.Show()
                 Dim sender As Object = New Object()
                 Dim e As EventArgs = New EventArgs()
@@ -371,10 +344,12 @@ Public Class frmMedico
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
         InstanciarFormulario("Inicio")
     End Sub
+
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Dim _event = New FormClosingEventArgs(CloseReason.UserClosing, False)
         frmMedico_FormClosing(sender, _event)
     End Sub
+
     Private Sub frmMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True
@@ -417,17 +392,11 @@ Public Class frmMedico
                         InstanciarFormulario("Entrevista")
                     End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR MEDICO
-        AddHandler frmSelecMed.btnBuscarMedico.Click,
-                    Sub()
-                        CargarDatosMedico()
-                    End Sub
+        AddHandler frmSelecMed.btnBuscarMedico.Click, AddressOf CargarDatosMedico
 
         'HANDLERS PARA FORMULARIO IDENTIFICACION PACIENTE
 
-        AddHandler frmIdentificacion.btnBuscar.Click,
-                    Sub()
-                        CargarDatosPaciente()
-                    End Sub
+        AddHandler frmIdentificacion.btnBuscar.Click, AddressOf CargarDatosPaciente
         AddHandler frmIdentificacion.btnEntrevistar.Click,
                     Sub()
                         Select Case frmIdentificacion.ModoActual
@@ -437,16 +406,9 @@ Public Class frmMedico
                                 AgregarPacienteAListado()
                         End Select
                     End Sub
-        AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged,
-                    Sub()
-                        CargarDatosPaciente()
-                    End Sub
+        AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged, AddressOf CargarDatosPaciente
 
-        AddHandler _entrevistas.btnRefrescar.Click,
-                    Sub()
-                        VerConsultasDeHoy()
-                        _entrevistas.RefrescarTarjetas()
-                    End Sub
+        AddHandler _entrevistas.btnRefrescar.Click, AddressOf VerConsultasDeHoy
         'AddHandler _entrevistas.btnVerConsultasPrevias, <- pendiente
 
         AddHandler _entrevistas.btnVerAnalisis.Click,
@@ -467,23 +429,28 @@ Public Class frmMedico
 
         AddHandler frmEntrevista.btnFrmGenerico.Click,
                     Sub()
-                        InstanciarFormulario("Generico")
+                        filtroB = "generico"
+                        InstanciarFormulario("Otro")
                     End Sub
 
         AddHandler frmEntrevista.btnFrmDolor.Click,
                     Sub()
-                        InstanciarFormulario("Dolor")
+                        filtroB = "dolor"
+                        InstanciarFormulario("Otro")
                     End Sub
         AddHandler frmEntrevista.btnFrmFiebre.Click,
                     Sub()
-                        InstanciarFormulario("Fiebre")
+                        filtroB = "fiebre"
+                        InstanciarFormulario("Otro")
                     End Sub
         AddHandler frmEntrevista.btnFrmMalestar.Click,
                     Sub()
-                        InstanciarFormulario("Malestar")
+                        filtroB = "malestar"
+                        InstanciarFormulario("Otro")
                     End Sub
         AddHandler frmEntrevista.btnFrmOtro.Click,
                     Sub()
+                        filtroB = ""
                         InstanciarFormulario("Otro")
                     End Sub
         'HANDLERS PARA SEGUIMIENTO ANALISIS
@@ -562,8 +529,10 @@ Public Class frmMedico
                 '_entrevistas.tblTarjetas.Controls.Clear()
                 _entrevistas.ListaEntrevistas = result
                 addFrm(_entrevistas)
+                _entrevistas.RefrescarTarjetas()
         End Select
     End Sub
+
     Async Sub CargarDatosPaciente()
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             _paciente.Cedula = 0
@@ -594,6 +563,7 @@ Public Class frmMedico
                 frmIdentificacion.PoblarDatos()
         End Select
     End Sub
+
     Async Sub CargarDatosMedico()
         Dim ci As Integer = 0
         Select Case MiModo
@@ -635,6 +605,7 @@ Public Class frmMedico
                 frmSelecMed.PoblarDatos()
         End Select
     End Sub
+
     Private Sub IngresarNuevoTratamientoMenuItem_Click(sender As Object, e As EventArgs) Handles IngresarNuevoTratamientoMenuItem.Click
         InstanciarFormulario("IngresarTratamiento")
     End Sub
@@ -677,6 +648,7 @@ Public Class frmMedico
         End If
 
     End Sub
+
     Private Sub IdentificarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem.Click
         InstanciarFormulario("Identificacion")
     End Sub
@@ -716,4 +688,5 @@ Public Class frmMedico
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
     End Sub
+
 End Class
