@@ -1,12 +1,13 @@
 ﻿Imports Entidades
 Imports Negocio
 Imports Utilidades
+Imports FormulariosPersonalizados
 Public Class frmDiagnosticos
     Protected _formularioDesdeBD As New E_Formulario
     Protected _ci_Paciente As Integer
     Private np As New N_Paciente
-    Private nf As New N_Formulario
     Private id_seleccionada As Integer
+    Private entrevista As New ContenedorEntrevistas
     Property CI_Paciente As Integer
         Get
             Return _ci_Paciente
@@ -28,11 +29,38 @@ Public Class frmDiagnosticos
     Private Async Sub cbDiagnostico_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDiagnostico.SelectedIndexChanged
         id_seleccionada = CInt(cbDiagnostico.SelectedItem)
         'cargar el formulario
-        Dim r = Await Task.Run(Function() np.BuscarMisDiagnosticos)
+        Dim r = Await Task.Run(Function() np.BuscarDiagnostico(id_seleccionada))
+        Select Case r.ID
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion, "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento, "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case -5
+                MessageBox.Show("Hubieron errores cargando datos sobre la enfermedad, síntomas y signos clinicos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                pnlContenedorFormularios.Controls.Clear()
+                Formulario = r
+                Dim fl = New formularioLimpio
+                Dim controles = ConvertirFormulario(r)
+                fl.pnlContenedor.Controls.AddRange(controles.ToArray())
+                fl.MiFormulario = r
+                entrevista.Frmlimpio = fl
+                entrevista.Visible = True
+
+                entrevista.lbSignosClinicos.Items.AddRange(r.Enfermedad.SignosClinicos.ToArray())
+                entrevista.lbSignosClinicos.Items.AddRange(r.Enfermedad.Sintomas.ToArray())
+                entrevista.txtNomEnfermedad.Text = r.Enfermedad.Nombre
+        End Select
     End Sub
+
+
+
 
     Private Async Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
+        entrevista.Visible = False
+        pnlContenedorFormularios.Controls.Add(entrevista)
         Dim r = Await Task.Run(Function() np.BuscarAtiende(CI_Paciente))
 
         Select Case r(0).ID

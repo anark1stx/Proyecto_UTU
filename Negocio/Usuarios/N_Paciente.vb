@@ -28,7 +28,7 @@ Public Class N_Paciente
     End Function
 
     Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
-
+        Return objDatos.BuscarDiagnostico(ID_C)
     End Function
 
 End Class

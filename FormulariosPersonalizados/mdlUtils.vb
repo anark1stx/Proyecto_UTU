@@ -250,6 +250,25 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         Next
 
     End Sub
+
+    Public Sub PoblarRespuestas(pyr As List(Of PreguntaRespuesta), control_list As List(Of Control))
+        For Each c As Control In control_list
+            If Not String.IsNullOrWhiteSpace(c.Tag) AndAlso c.GetType() <> GetType(Label) Then 'es una respuesta
+                Dim textR As String = pyr.Find(Function(p) p.Respuesta.Name = c.Name).Respuesta.Text
+                If c.GetType() = GetType(CheckBox) Then
+                    Select Case textR
+                        Case "True"
+                            DirectCast(c, CheckBox).Checked = True
+                        Case Else
+                            DirectCast(c, CheckBox).Checked = False
+                    End Select
+                Else
+                    c.Text = textR
+                End If
+            End If
+        Next
+    End Sub
+
     Function ConvertirFormulario(form As E_Formulario) As List(Of Control)
         Dim gestor As New GestorXMLv2
         Dim fbr As New FabricaDeControles
