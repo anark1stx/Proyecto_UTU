@@ -288,7 +288,7 @@ Public Class D_Formulario
         }
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Medico.Cedula
-        cmd.Parameters.Add("NOM_CONSULTA", MySqlDbType.VarChar).Value = form.NombreConsulta
+        cmd.Parameters.Add("NOM_CONSULTA", MySqlDbType.VarChar).Value = form.Atiende.NombreConsulta
 
         Try
             leer = cmd.ExecuteReader()
@@ -299,7 +299,7 @@ Public Class D_Formulario
         End Try
 
         While leer.Read()
-            form.Id_consulta = leer.GetInt32("ID_consulta")
+            form.Atiende.ID = leer.GetInt32("ID_consulta")
         End While
 
         Cerrar(conexion)
@@ -317,7 +317,7 @@ Public Class D_Formulario
             .CommandText = "AltaResponde", '*Alta a la tabla responde*, sintoma,enfermedad,registra,examenfisico.
             .Connection = conexion
             }
-            cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+            cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
             cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
             cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Medico.Cedula
             cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
@@ -383,7 +383,7 @@ Public Class D_Formulario
             .Connection = conexion
             }
 
-            cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+            cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
             cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
             cmd2.Parameters.Add("ID_S", MySqlDbType.Int32).Value = signo.ID
 
@@ -430,7 +430,7 @@ Public Class D_Formulario
             .Connection = conexion
             }
 
-            cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+            cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
             cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
             cmd2.Parameters.Add("ID_S", MySqlDbType.Int32).Value = sintoma.ID
 
@@ -471,7 +471,7 @@ Public Class D_Formulario
             .CommandText = "AltaDeterminaEnfermedad", '*Alta a la tabla enfermedad.
             .Connection = conexion
         }
-        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
         cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
         cmd2.Parameters.Add("NOM_E", MySqlDbType.VarChar, 160).Value = form.Enfermedad.Nombre
 
@@ -498,7 +498,7 @@ Public Class D_Formulario
             .CommandText = "AltaAnalisisRequerido", '*Alta a la tabla requiere.
             .Connection = conexion
         }
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
         cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
 
@@ -521,7 +521,7 @@ Public Class D_Formulario
             .CommandText = "AltaTratamientoSugerido", '*Alta a la tabla requiere.
             .Connection = conexion
         }
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Id_consulta
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
         cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = form.Tratamiento.ID
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
 

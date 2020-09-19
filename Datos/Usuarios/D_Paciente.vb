@@ -226,6 +226,199 @@ Public Class D_Paciente
     Public Function BuscarMisAnalisis(CI As Integer) As List(Of E_Analisis)
 
     End Function
+    Public Function BuscarMisTratamientos(CI As Integer) As List(Of E_Tratamiento)
+
+    End Function
+
+    Public Function BuscarMisConsultas(CI As Integer) As List(Of E_Atiende)
+        Dim list As New List(Of E_Atiende)
+
+        If Conectar(conexion) = -1 Then
+            list.Add(New E_Atiende With {.ID = -1})
+            Return list
+        End If
+
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarAtiende",
+        .Connection = conexion
+        }
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            list.Add(New E_Atiende With {.ID = -2})
+            Return list
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                list.Add(New E_Atiende With {
+                .ID = leer.GetInt32("ID_consulta"),
+                .NombreConsulta = leer.GetString("nombre_ref"),
+                .Fecha = leer.GetDateTime("fecha").ToShortDateString()
+                })
+            End While
+        Else
+            list.Add(New E_Atiende With {.ID = -8})
+        End If
+
+        Cerrar(conexion)
+
+        Return list
+    End Function
+
+    Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
+        Dim form As New E_Formulario
+        Dim pyr As New List(Of PreguntaRespuesta)
+        If Conectar(conexion) = -1 Then
+            form.ID = -1
+            Return form
+        End If
+
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "CargarFormularioUsado",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            form.ID = -2
+            Return form
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                form = New E_Formulario With {
+                .ID = leer.GetInt32("ID_F"),
+                .XML = leer.GetInt32("XML")
+                }
+                pyr.Add(New PreguntaRespuesta With {.Respuesta = New Windows.Forms.Control With {
+                    .Name = leer.GetString("nombre_control_respuesta"),
+                    .Text = leer.GetString("respuesta")
+                }})
+            End While
+        Else
+            form.ID = -8
+        End If
+
+        Cerrar(conexion)
+
+        Dim r = BuscarEnfermedadConsulta(ID_C)
+
+        Select Case r.Nombre
+            Case -1, -2
+                form.ID = -5
+                Return form
+        End Select
+
+        form.Enfermedad = r
+        Return form
+
+    End Function
+
+    Public Function BuscarEnfermedadConsulta(ID_C As Integer) As E_Enfermedad
+        Dim enf As New E_Enfermedad
+        If Conectar(conexion) = -1 Then
+            enf.Nombre = -1
+            Return enf
+        End If
+
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarEnfermedadDeterminada",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            enf.Nombre = -2
+            Return enf
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                enf = New E_Enfermedad With {
+                .Nombre = leer.GetString("nombre_enfermedad")
+                }
+            End While
+        Else
+            enf.Nombre = -8
+        End If
+
+        Cerrar(conexion)
+
+        Dim cmd2 As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarSintomasR",
+        .Connection = conexion
+        }
+
+        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
+
+        Try
+            leer = cmd2.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            enf.Nombre = -2
+            Return enf
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                enf.Sintomas.Add(New E_Enfermedad.Sintoma With {
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+        End If
+
+        Cerrar(conexion)
+
+        Dim cmd3 As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarExamenFisico",
+        .Connection = conexion
+        }
+
+        cmd3.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
+
+        Try
+            leer = cmd3.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            enf.Nombre = -2
+            Return enf
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                enf.SignosClinicos.Add(New E_Enfermedad.SignoClinico With {
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+        End If
+
+        Return enf
+    End Function
 
 
 End Class

@@ -164,7 +164,7 @@ Public Class frmMedico
         UnirPreguntasConRespuestas(fl.pnlContenedor, f.PreguntasYRespuestas)
         BuscarIDsP(f.PreguntasYRespuestas)
         fl.MiFormulario = f
-        fl.MiFormulario.NombreConsulta = NombreConsulta
+        fl.MiFormulario.Atiende.NombreConsulta = NombreConsulta
         pnlContenedorFormularios.Controls.Clear()
         tb.Frmlimpio = fl
         tb.Dock = DockStyle.Fill
@@ -678,11 +678,11 @@ Public Class frmMedico
     End Sub
 
     Private Sub AnalisisMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisMenuItem.Click
-        ID_Consulta = tb.Frmlimpio.MiFormulario.Id_consulta
+        ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
 
     Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
-        ID_Consulta = tb.Frmlimpio.MiFormulario.Id_consulta
+        ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
 
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click

@@ -1,10 +1,12 @@
 ﻿Imports Entidades
 Imports Negocio
+Imports Utilidades
 Public Class frmDiagnosticos
-    Dim formulario_completo As New formularioPlano 'En esta variable va a ir guardado el formulario completo que diseño y lleno el medico
     Protected _formularioDesdeBD As New E_Formulario
     Protected _ci_Paciente As Integer
-
+    Private np As New N_Paciente
+    Private nf As New N_Formulario
+    Private id_seleccionada As Integer
     Property CI_Paciente As Integer
         Get
             Return _ci_Paciente
@@ -23,21 +25,25 @@ Public Class frmDiagnosticos
         End Set
     End Property
 
-    Private Sub cbDiagnostico_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDiagnostico.SelectedIndexChanged
-        'Cargar el formulario que corresponde al item seleccionado: 
-
-        '()-> Cargar formulario a la prop Formulario
-        '()-> agregar frmPlano y deserializar los controles de la ruta Formulario.XML
-        '()-> Cargar todas las respuestas de Responde a los campos segun su nombre, ex: Sintoma1 -> txtSintoma1.Text
+    Private Async Sub cbDiagnostico_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDiagnostico.SelectedIndexChanged
+        id_seleccionada = CInt(cbDiagnostico.SelectedItem)
+        'cargar el formulario
+        Dim r = Await Task.Run(Function() np.BuscarMisDiagnosticos)
     End Sub
 
-    Private Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        '()-> cargar todos los registros de Atiende que su CI = CI_Paciente
-        '()-> Dim na as new N_Atiende
-        '()-> cbDiagnostico.Datasource = na.BuscarDiagnosticos(CI_Paciente)
-
+    Private Async Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
+        Dim r = Await Task.Run(Function() np.BuscarAtiende(CI_Paciente))
+
+        Select Case r(0).ID
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -8
+                MessageBox.Show("No se encontraron consultas médicas realizadas.", "Sin datos.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
+
     End Sub
 
 End Class
