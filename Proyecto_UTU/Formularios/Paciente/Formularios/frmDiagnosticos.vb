@@ -44,13 +44,15 @@ Public Class frmDiagnosticos
                 Dim fl = New formularioLimpio
                 Dim controles = ConvertirFormulario(r)
                 fl.pnlContenedor.Controls.AddRange(controles.ToArray())
+                PoblarRespuestas(r.PreguntasYRespuestas, controles)
                 fl.MiFormulario = r
-                entrevista.Frmlimpio = fl
-                entrevista.Visible = True
-
                 entrevista.lbSignosClinicos.Items.AddRange(r.Enfermedad.SignosClinicos.ToArray())
                 entrevista.lbSignosClinicos.Items.AddRange(r.Enfermedad.Sintomas.ToArray())
                 entrevista.txtNomEnfermedad.Text = r.Enfermedad.Nombre
+                entrevista.Frmlimpio = fl
+                entrevista.Visible = True
+
+
         End Select
     End Sub
 
