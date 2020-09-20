@@ -224,7 +224,7 @@ Public Class frmMedico
 
                 Select Case MiModo
                     Case Modo.SoyMedico
-                        If Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexLiteralAcentos) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
+                        If Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
                             MessageBox.Show("No se registró un nombre de consulta válido. Verifique.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             BloquearIdentificacion(True)
                             Exit Sub

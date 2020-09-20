@@ -66,6 +66,7 @@ Public Class ContenedorEntrevistas
         If chkEnfermo.Checked Then
             lblPresenta.Visible = True
             txtNomEnfermedad.Visible = True
+            txtNomEnfermedad.Text = ""
         Else
             lblPresenta.Visible = False
             txtNomEnfermedad.Visible = False

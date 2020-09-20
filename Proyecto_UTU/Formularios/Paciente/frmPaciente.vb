@@ -13,6 +13,7 @@ Public Class frmPaciente
         End Get
         Set(value As E_Paciente)
             _paciente = value
+            frmDiagnostico.CI_Paciente = value.Cedula
         End Set
     End Property
 

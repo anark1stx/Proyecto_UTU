@@ -124,7 +124,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             e.Graphics.DrawImage(Memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
         End Sub
 
-        Async Sub Guardar()
+         Sub Guardar()
             Dim resultado = 0
             Select Case Modo
                 Case 0
@@ -137,13 +137,13 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
 
                     If FormDatos.Enfermedad.Sintomas.Count < 1 Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar un síntoma?", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Warning) = vbNo Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar un síntoma?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
 
                     If FormDatos.Enfermedad.Nombre Is String.Empty Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad?", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Warning) = vbNo Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
@@ -157,23 +157,23 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Next
 
                     Dim negocio As New N_Formulario
-                    resultado = Await Task.Run(Function() negocio.AltaFormularioDatos(FormDatos))
+                    resultado = negocio.AltaFormularioDatos(FormDatos)
                 Case 1
                     Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
                     Dim negocio As New N_Tratamiento
-                    resultado = Await Task.Run(Function() negocio.AltaTratamientoDatos(TratamientoDatos))
+                    resultado = negocio.AltaTratamientoDatos(TratamientoDatos)
                 Case 2
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
                     Dim Negocio As New N_Analisis
-                    resultado = Await Task.Run(Function() Negocio.AltaAnalisisDatos(AnalisisDatos))
+                    resultado = Negocio.AltaAnalisisDatos(AnalisisDatos)
                 Case 3 'asignar analisis
                     Console.WriteLine("asignando analisis")
                     Dim negocio As New N_Formulario
-                    resultado = Await Task.Run(Function() negocio.AltaRequiereAnalisis(FormDatos))
+                    resultado = negocio.AltaRequiereAnalisis(FormDatos)
                 Case 4 'asignar tratamiento
                     Console.WriteLine("asignando tratamiento")
                     Dim negocio As New N_Formulario
-                    resultado = Await Task.Run(Function() negocio.AltaSugiereTratamiento(FormDatos))
+                    resultado = negocio.AltaSugiereTratamiento(FormDatos)
             End Select
             Select Case resultado
                 Case -1
@@ -255,16 +255,20 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         For Each c As Control In control_list
             If Not String.IsNullOrWhiteSpace(c.Tag) AndAlso c.GetType() <> GetType(Label) Then 'es una respuesta
                 Dim textR As String = pyr.Find(Function(p) p.Respuesta.Name = c.Name).Respuesta.Text
-                If c.GetType() = GetType(CheckBox) Then
-                    Select Case textR
-                        Case "True"
-                            DirectCast(c, CheckBox).Checked = True
-                        Case Else
-                            DirectCast(c, CheckBox).Checked = False
-                    End Select
-                Else
-                    c.Text = textR
-                End If
+                Console.WriteLine("respuesta desde poblar = " & textR)
+                Select Case c.GetType()
+                    Case GetType(CheckBox)
+                        Select Case textR
+                            Case "True"
+                                DirectCast(c, CheckBox).Checked = True
+                            Case Else
+                                DirectCast(c, CheckBox).Checked = False
+                        End Select
+                    Case GetType(ListBox)
+                        DirectCast(c, ListBox).Items.AddRange(textR.Split(","))
+                    Case Else
+                        c.Text = textR
+                End Select
             End If
         Next
     End Sub

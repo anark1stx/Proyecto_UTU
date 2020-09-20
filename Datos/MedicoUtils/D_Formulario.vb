@@ -314,7 +314,7 @@ Public Class D_Formulario
         For Each pyr As PreguntaRespuesta In form.PreguntasYRespuestas
             Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaResponde", '*Alta a la tabla responde*, sintoma,enfermedad,registra,examenfisico.
+            .CommandText = "AltaResponde", '*Alta a la tabla responde*
             .Connection = conexion
             }
             cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
@@ -323,22 +323,23 @@ Public Class D_Formulario
             cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
             cmd.Parameters.Add("ID_PREG", MySqlDbType.Int32).Value = pyr.ID_Pregunta
 
+            Dim r As String = ""
             Select Case pyr.Respuesta.GetType
                 Case GetType(Windows.Forms.ListBox)
                     Dim lb = DirectCast(pyr.Respuesta, Windows.Forms.ListBox)
-                    Dim strings = ""
                     For i = 0 To lb.Items.Count - 1
-                        strings &= lb.Items(i)
+                        r &= lb.Items(i)
                         If i <> lb.Items.Count - 1 Then
-                            strings &= ","
+                            r &= ","
                         End If
                     Next
-                    cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = strings
                 Case GetType(Windows.Forms.CheckBox)
-                    cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = DirectCast(pyr.Respuesta, Windows.Forms.CheckBox).Checked.ToString()
+                    r = DirectCast(pyr.Respuesta, Windows.Forms.CheckBox).Checked.ToString()
                 Case Else
-                    cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = pyr.Respuesta.Text
+                    r = pyr.Respuesta.Text
             End Select
+
+            cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar).Value = r
 
             Try
                 cmd.ExecuteNonQuery()

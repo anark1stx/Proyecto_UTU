@@ -68,7 +68,7 @@ Public Class frmSeleccionarMedico
                     Exit Sub
                 End If
 
-                If Not check_regex(txtNomConsulta.Text, RegexLiteralAcentos) Then
+                If Not check_regex(txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
                     MessageBox.Show(MensajeDeErrorCaracteres(), "Se detectaron caracteres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
