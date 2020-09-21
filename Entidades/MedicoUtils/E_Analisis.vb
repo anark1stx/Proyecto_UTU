@@ -4,6 +4,8 @@
     Protected _indicaciones As List(Of Indicacion)
     Protected _parametros As List(Of Parametro)
     Protected _ErrMsg As Integer
+    Protected _fechaReq As Date
+    Protected _fechaRes As Date
     Property ID As Integer
         Get
             Return _id
@@ -18,7 +20,7 @@
             Return _nombre
         End Get
         Set(value As String)
-
+            _nombre = value
         End Set
     End Property
     Property Parametros As List(Of Parametro)
@@ -44,6 +46,24 @@
         End Get
         Set(value As Integer)
             _ErrMsg = value
+        End Set
+    End Property
+
+    Property FechaReq As Date
+        Get
+            Return _fechaReq
+        End Get
+        Set(value As Date)
+            _fechaReq = value
+        End Set
+    End Property
+
+    Property FechaRes As Date
+        Get
+            Return _fechaRes
+        End Get
+        Set(value As Date)
+            _fechaRes = value
         End Set
     End Property
 

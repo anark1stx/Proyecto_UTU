@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAnalisisSeguimiento
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,13 @@ Partial Class frmAnalisisSeguimiento
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAnalisisSeguimiento))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
@@ -35,16 +36,10 @@ Partial Class frmAnalisisSeguimiento
         Me.btnConsultarDatos = New System.Windows.Forms.Button()
         Me.btnIngresarDatos = New System.Windows.Forms.Button()
         Me.dgwAnalisisPaciente = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nom_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDConsultaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EAnalisisBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.pnlContenedor.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EAnalisisBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -99,11 +94,11 @@ Partial Class frmAnalisisSeguimiento
         'lblCedulaPaciente
         '
         Me.lblCedulaPaciente.AutoSize = True
-        Me.lblCedulaPaciente.Dock = System.Windows.Forms.DockStyle.Left
+        Me.lblCedulaPaciente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCedulaPaciente.Location = New System.Drawing.Point(3, 0)
         Me.lblCedulaPaciente.Name = "lblCedulaPaciente"
-        Me.lblCedulaPaciente.Size = New System.Drawing.Size(191, 37)
+        Me.lblCedulaPaciente.Size = New System.Drawing.Size(202, 37)
         Me.lblCedulaPaciente.TabIndex = 2
         Me.lblCedulaPaciente.Text = "Cédula del paciente:"
         Me.lblCedulaPaciente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -156,62 +151,47 @@ Partial Class frmAnalisisSeguimiento
         'dgwAnalisisPaciente
         '
         Me.dgwAnalisisPaciente.AllowUserToAddRows = False
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgwAnalisisPaciente.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgwAnalisisPaciente.AllowUserToDeleteRows = False
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgwAnalisisPaciente.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgwAnalisisPaciente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgwAnalisisPaciente.AutoGenerateColumns = False
         Me.dgwAnalisisPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgwAnalisisPaciente.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwAnalisisPaciente.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dgwAnalisisPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwAnalisisPaciente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.nom_analisis, Me.fecha_analisis, Me.IDConsultaDataGridViewTextBoxColumn})
-        Me.dgwAnalisisPaciente.DataSource = Me.EAnalisisBindingSource
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgwAnalisisPaciente.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgwAnalisisPaciente.Location = New System.Drawing.Point(3, 65)
         Me.dgwAnalisisPaciente.MultiSelect = False
         Me.dgwAnalisisPaciente.Name = "dgwAnalisisPaciente"
+        Me.dgwAnalisisPaciente.ReadOnly = True
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwAnalisisPaciente.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgwAnalisisPaciente.RowHeadersWidth = 51
         Me.dgwAnalisisPaciente.RowTemplate.Height = 24
         Me.dgwAnalisisPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgwAnalisisPaciente.Size = New System.Drawing.Size(1124, 440)
         Me.dgwAnalisisPaciente.TabIndex = 2
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        '
-        'nom_analisis
-        '
-        Me.nom_analisis.HeaderText = "Nombre"
-        Me.nom_analisis.MinimumWidth = 6
-        Me.nom_analisis.Name = "nom_analisis"
-        '
-        'fecha_analisis
-        '
-        Me.fecha_analisis.HeaderText = "Fecha"
-        Me.fecha_analisis.MinimumWidth = 6
-        Me.fecha_analisis.Name = "fecha_analisis"
-        '
-        'IDConsultaDataGridViewTextBoxColumn
-        '
-        Me.IDConsultaDataGridViewTextBoxColumn.DataPropertyName = "ID_Consulta"
-        Me.IDConsultaDataGridViewTextBoxColumn.HeaderText = "ID Consulta"
-        Me.IDConsultaDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.IDConsultaDataGridViewTextBoxColumn.Name = "IDConsultaDataGridViewTextBoxColumn"
-        '
-        'EAnalisisBindingSource
-        '
-        Me.EAnalisisBindingSource.DataSource = GetType(Entidades.E_Analisis)
         '
         'frmAnalisisSeguimiento
         '
@@ -229,7 +209,6 @@ Partial Class frmAnalisisSeguimiento
         Me.TableLayoutPanel2.PerformLayout()
         Me.tblAcciones.ResumeLayout(False)
         CType(Me.dgwAnalisisPaciente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EAnalisisBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -243,9 +222,4 @@ Partial Class frmAnalisisSeguimiento
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents lblCedulaPaciente As Label
-    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents nom_analisis As DataGridViewTextBoxColumn
-    Friend WithEvents fecha_analisis As DataGridViewTextBoxColumn
-    Friend WithEvents IDConsultaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EAnalisisBindingSource As BindingSource
 End Class

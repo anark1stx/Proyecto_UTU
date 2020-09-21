@@ -194,7 +194,7 @@ Public Class frmAnalisisCrear
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
-                MessageBox.Show("El análisis fue ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("El análisis fue ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Case 2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 3, 5

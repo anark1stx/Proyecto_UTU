@@ -129,15 +129,15 @@ Public Class ContenedorEntrevistas
 
     Private Sub btnBorrarSintoma_Click(sender As Object, e As EventArgs) Handles btnBorrarSintoma.Click
         If lbSintomas.SelectedItem IsNot String.Empty Then
-            lbSintomas.Items.Remove(lbSintomas.SelectedItem)
             Frmlimpio.MiFormulario.Enfermedad.Sintomas.Remove(Frmlimpio.MiFormulario.Enfermedad.Sintomas.Find(Function(p) p.Nombre = lbSintomas.SelectedItem.ToString()))
+            lbSintomas.Items.Remove(lbSintomas.SelectedItem)
         End If
     End Sub
 
     Private Sub btnBorrarSigno_Click(sender As Object, e As EventArgs) Handles btnBorrarSigno.Click
         If lbSignosClinicos.SelectedItem IsNot String.Empty Then
-            lbSignosClinicos.Items.Remove(lbSignosClinicos.SelectedItem)
             Frmlimpio.MiFormulario.Enfermedad.SignosClinicos.Remove(Frmlimpio.MiFormulario.Enfermedad.SignosClinicos.Find(Function(p) p.Nombre = lbSignosClinicos.SelectedItem.ToString()))
+            lbSignosClinicos.Items.Remove(lbSignosClinicos.SelectedItem)
         End If
     End Sub
 

@@ -299,6 +299,7 @@ Public Class frmMedico
             Case "AsignarAnalisis" 'agarrar la ID de consulta
                 LimpiarControles(frmAnalisisS)
                 frmAnalisisS.ID_C = ID_Consulta
+                frmAnalisisS.CI_paciente = _paciente.Cedula
                 frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
                 frmAnalisisS.resetMode()
                 frmAnalisisS.ShowDialog()

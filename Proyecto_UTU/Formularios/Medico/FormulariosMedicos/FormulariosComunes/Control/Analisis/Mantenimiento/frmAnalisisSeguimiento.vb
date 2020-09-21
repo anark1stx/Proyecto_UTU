@@ -59,6 +59,10 @@ Public Class frmAnalisisSeguimiento
                 '2- Abrir formulario de datos en modo de ingreso (campos con textbox)
             Case Modo.Asignar
                 'asignar el analisis seleccionado
+                If AnalisisSelect.ID = 0 Then
+                    MessageBox.Show("Seleccione un análisis primero", "Debe seleccionar un análisis", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
                 Dim result = na.AsignarAnalisisAPaciente(CI_paciente, AnalisisSelect.ID, ID_C)
                 Select Case result
                     Case -1
@@ -67,8 +71,8 @@ Public Class frmAnalisisSeguimiento
                     Case -2
                         MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
-                    Case -8
-                        MessageBox.Show("No se encontraron análisis para este paciente.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Case 1
+                        MessageBox.Show("El analisis " & AnalisisSelect.Nombre & "fue asignado correctamente al paciente.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Sub
                 End Select
         End Select
@@ -84,6 +88,7 @@ Public Class frmAnalisisSeguimiento
                 'primero buscar si existe paciente con esa cedula
                 'primero buscar si existe paciente con esa cedula
                 'primero buscar si existe paciente con esa cedula
+                CI_paciente = txtBuscar.Text
                 Dim result = np.BuscarMisAnalisis(CI_paciente)
                 Select Case result(0).ID
                     Case -1
@@ -98,8 +103,11 @@ Public Class frmAnalisisSeguimiento
                 End Select
 
                 dgwAnalisisPaciente.DataSource = result
+                analisis_encontrados = result
+                Console.WriteLine("cantidad de analisis: " & analisis_encontrados.Count)
+                Exit Sub
             Case Modo.Asignar 'busco analisis x nombre
-                Dim result = na.BuscarAnalisisXNombre(CI_paciente)
+                Dim result = na.BuscarAnalisisXNombre(txtBuscar.Text)
                 Select Case result(0).ID
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -108,15 +116,16 @@ Public Class frmAnalisisSeguimiento
                         MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     Case -8
-                        MessageBox.Show("No se encontraron análisis para este paciente.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("No se encontraron análisis con ese nombre.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Sub
                 End Select
 
                 analisis_encontrados = result
+                Console.WriteLine("cantidad de analisis: " & analisis_encontrados.Count)
                 dgwAnalisisPaciente.DataSource = analisis_encontrados
+
         End Select
     End Sub
-
     Sub resetMode()
         Select Case MiModo
             Case Modo.Buscar 'dejar todo normal
@@ -125,24 +134,18 @@ Public Class frmAnalisisSeguimiento
                 btnIngresarDatos.Text = "Ingresar datos"
                 btnConsultarDatos.Visible = True
                 tblAcciones.SetColumnSpan(btnIngresarDatos, 1)
-                fecha_analisis.Visible = True
-                IDConsultaDataGridViewTextBoxColumn.Visible = True
             Case Modo.Asignar
                 lblCedulaPaciente.Text = "Nombre del análisis:"
                 btnIngresarDatos.Text = "Asignar"
                 btnConsultarDatos.Visible = False
                 tblAcciones.SetColumnSpan(btnIngresarDatos, 2)
-                fecha_analisis.Visible = False
-                IDConsultaDataGridViewTextBoxColumn.Visible = False
         End Select
     End Sub
-
     Private Sub frmAnalisisSeguimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
         Me.WindowState = FormWindowState.Maximized
     End Sub
-
-    Private Sub dgwAnalisisPaciente_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwAnalisisPaciente.CellContentClick
+    Private Sub dgwAnalisisPaciente_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwAnalisisPaciente.CellClick
         AnalisisSelect = analisis_encontrados(e.RowIndex)
     End Sub
 End Class

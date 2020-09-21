@@ -224,7 +224,47 @@ Public Class D_Paciente
     End Function
 
     Public Function BuscarMisAnalisis(CI As Integer) As List(Of E_Analisis)
+        Dim list As New List(Of E_Analisis)
+        Console.WriteLine("cedula a buscar = " & CI)
 
+        If Conectar(conexion) = -1 Then
+            list.Add(New E_Analisis With {.ID = -1})
+            Return list
+        End If
+
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ListadoAnalisisPaciente",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            list.Add(New E_Analisis With {.ID = -2})
+            Return list
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                list.Add(New E_Analisis With {
+                .ID = leer.GetInt32("ID"),
+                .Nombre = leer.GetString("nombre"),
+                .FechaReq = leer.GetDateTime("fecha").ToShortDateString()
+                })
+            End While
+        Else
+            list.Add(New E_Analisis With {.ID = -8})
+        End If
+
+        Cerrar(conexion)
+
+        Return list
     End Function
     Public Function BuscarMisTratamientos(CI As Integer) As List(Of E_Tratamiento)
 
