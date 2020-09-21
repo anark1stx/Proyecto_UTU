@@ -15,8 +15,8 @@ Module Credenciales
     End Function
 
     Public Function Conectar(ByVal conn As MySqlConnection) As Integer 'devuelve codigo de exito dependiendo de si pudo abrir la conexion o no.
-        conn.ConnectionString = retornarCStringBD()
         Try
+            conn.ConnectionString = retornarCStringBD()
             conn.Open()
             Return 1
         Catch ex As Exception

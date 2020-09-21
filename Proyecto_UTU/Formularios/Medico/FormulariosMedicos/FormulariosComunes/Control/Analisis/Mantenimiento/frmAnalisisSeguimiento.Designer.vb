@@ -35,11 +35,11 @@ Partial Class frmAnalisisSeguimiento
         Me.btnConsultarDatos = New System.Windows.Forms.Button()
         Me.btnIngresarDatos = New System.Windows.Forms.Button()
         Me.dgwAnalisisPaciente = New System.Windows.Forms.DataGridView()
-        Me.EAnalisisBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nom_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_analisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDConsultaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EAnalisisBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.pnlContenedor.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
@@ -175,15 +175,13 @@ Partial Class frmAnalisisSeguimiento
         Me.dgwAnalisisPaciente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.nom_analisis, Me.fecha_analisis, Me.IDConsultaDataGridViewTextBoxColumn})
         Me.dgwAnalisisPaciente.DataSource = Me.EAnalisisBindingSource
         Me.dgwAnalisisPaciente.Location = New System.Drawing.Point(3, 65)
+        Me.dgwAnalisisPaciente.MultiSelect = False
         Me.dgwAnalisisPaciente.Name = "dgwAnalisisPaciente"
         Me.dgwAnalisisPaciente.RowHeadersWidth = 51
         Me.dgwAnalisisPaciente.RowTemplate.Height = 24
+        Me.dgwAnalisisPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgwAnalisisPaciente.Size = New System.Drawing.Size(1124, 440)
         Me.dgwAnalisisPaciente.TabIndex = 2
-        '
-        'EAnalisisBindingSource
-        '
-        Me.EAnalisisBindingSource.DataSource = GetType(Entidades.E_Analisis)
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -210,6 +208,10 @@ Partial Class frmAnalisisSeguimiento
         Me.IDConsultaDataGridViewTextBoxColumn.HeaderText = "ID Consulta"
         Me.IDConsultaDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.IDConsultaDataGridViewTextBoxColumn.Name = "IDConsultaDataGridViewTextBoxColumn"
+        '
+        'EAnalisisBindingSource
+        '
+        Me.EAnalisisBindingSource.DataSource = GetType(Entidades.E_Analisis)
         '
         'frmAnalisisSeguimiento
         '

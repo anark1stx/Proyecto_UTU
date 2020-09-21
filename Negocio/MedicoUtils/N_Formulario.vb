@@ -35,8 +35,4 @@ Public Class N_Formulario
         Return objDatos.AltaSugiereTratamiento(form)
     End Function
 
-    Public Function AltaRequiereAnalisis(form As E_Formulario) As Integer
-        Return objDatos.AltaRequiereAnalisis(form)
-    End Function
-
 End Class

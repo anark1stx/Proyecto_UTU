@@ -164,6 +164,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
                     Dim negocio As New N_Formulario
                     resultado = negocio.AltaFormularioDatos(FormDatos)
+                    Console.WriteLine("ID DE LA CONSULTA: " & FormDatos.Atiende.ID)
                 Case 1
                     Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
                     Dim negocio As New N_Tratamiento
@@ -173,9 +174,9 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Dim Negocio As New N_Analisis
                     resultado = Negocio.AltaAnalisisDatos(AnalisisDatos)
                 Case 3 'asignar analisis
-                    Console.WriteLine("asignando analisis")
-                    Dim negocio As New N_Formulario
-                    resultado = negocio.AltaRequiereAnalisis(FormDatos)
+                    'Console.WriteLine("asignando analisis")
+                    'Dim negocio As New N_Formulario
+                    'resultado = negocio.AltaRequiereAnalisis(FormDatos)
                 Case 4 'asignar tratamiento
                     Console.WriteLine("asignando tratamiento")
                     Dim negocio As New N_Formulario

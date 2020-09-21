@@ -97,6 +97,9 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub btnAgregarSClinico_Click(sender As Object, e As EventArgs) Handles btnAgregarSClinico.Click
+        If String.IsNullOrWhiteSpace(txtSgClinico.Text) Then
+            Exit Sub
+        End If
         If Not lbSignosClinicos.Items.Contains(txtSgClinico.Text) Then
             lbSignosClinicos.Items.Add(txtSgClinico.Text)
             Dim sg As New E_Enfermedad.SignoClinico
@@ -110,6 +113,9 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
+        If String.IsNullOrWhiteSpace(txtSintoma.Text) Then
+            Exit Sub
+        End If
         If Not lbSintomas.Items.Contains(txtSintoma.Text) Then
             lbSintomas.Items.Add(txtSintoma.Text)
             Dim sintoma As New E_Enfermedad.Sintoma

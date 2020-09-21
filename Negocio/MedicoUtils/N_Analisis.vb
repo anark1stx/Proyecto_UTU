@@ -21,8 +21,13 @@ Public Class N_Analisis
 
     End Function
 
-    Public Function ListarAnalisisDePaciente() As Integer
-
+    Public Function AsignarAnalisisAPaciente(CI_P As Integer, ID_A As Integer, ID_C As Integer) As Integer
+        Return objDatos.AsignarAnalisis(CI_P, ID_A, ID_C)
     End Function
+
+    Public Function BuscarAnalisisXNombre(nom As String) As List(Of E_Analisis)
+        Return objDatos.BuscarAnalisisXNombre(nom)
+    End Function
+
 
 End Class

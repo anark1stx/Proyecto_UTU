@@ -91,10 +91,6 @@ Public Class frmMedico
         ID_Consulta = 0
         resetMode()
         InstanciarFormulario("Inicio")
-        'PENDIENTE:
-        'verificar la cantidad de formularios en la base de datos
-        'si es = 0, agregar los pre-diseñados
-        'Eliminar los archivos designer de ellos y dejar solamente su fichero xml.
     End Sub
 
     Sub resetMode()
@@ -224,7 +220,7 @@ Public Class frmMedico
 
                 Select Case MiModo
                     Case Modo.SoyMedico
-                        If Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
+                        If String.IsNullOrWhiteSpace(frmSelecMed.txtNomConsulta.Text) Or Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
                             MessageBox.Show("No se registró un nombre de consulta válido. Verifique.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             BloquearIdentificacion(True)
                             Exit Sub
@@ -302,6 +298,7 @@ Public Class frmMedico
                 frmTratamientoC.ShowDialog()
             Case "AsignarAnalisis" 'agarrar la ID de consulta
                 LimpiarControles(frmAnalisisS)
+                frmAnalisisS.ID_C = ID_Consulta
                 frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
                 frmAnalisisS.resetMode()
                 frmAnalisisS.ShowDialog()
@@ -631,7 +628,6 @@ Public Class frmMedico
         If ID_Consulta = 0 Then
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            frmAnalisisS.AnalisisSelect.ID_Consulta = ID_Consulta
             InstanciarFormulario("AsignarAnalisis")
         End If
     End Sub
@@ -678,6 +674,7 @@ Public Class frmMedico
     End Sub
 
     Private Sub AnalisisMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisMenuItem.Click
+        Console.WriteLine("Agarre ID= " & tb.Frmlimpio.MiFormulario.Atiende.ID)
         ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
 

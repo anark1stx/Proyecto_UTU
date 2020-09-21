@@ -449,6 +449,10 @@ Public Class D_Formulario
     End Function
 
     Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'primero alta a enfermedad y luego a determina.
+        If String.IsNullOrWhiteSpace(form.Enfermedad.Nombre) Then
+            Return 1
+        End If
+
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -487,29 +491,6 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
 
-    End Function
-
-    Public Function AltaRequiereAnalisis(form As E_Formulario) As Integer 'esta funcion solo se va a poder ejecutar desde el toolstripbutton "asignar a paciente"
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaAnalisisRequerido", '*Alta a la tabla requiere.
-            .Connection = conexion
-        }
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
-        cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
-
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Return 2
-        End Try
-        Return 1
     End Function
 
     Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer 'esta funcion solo se va a poder ejecutar desde el toolstripbutton "asignar a paciente"
