@@ -5,6 +5,20 @@ Public Class ContenedorEntrevistas
     Protected _frmLimpio As New formularioLimpio
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
+    Protected _modo As Modo
+
+    Public Enum Modo
+        Ingreso
+        Consulta
+    End Enum
+    Property ModoActual As Modo
+        Get
+            Return _modo
+        End Get
+        Set(value As Modo)
+            _modo = value
+        End Set
+    End Property
 
     Property Frmlimpio As formularioLimpio
         Get
@@ -23,6 +37,65 @@ Public Class ContenedorEntrevistas
             _enfermedad = value
         End Set
     End Property
+
+    Sub ResetMode()
+        Select Case ModoActual
+            Case Modo.Ingreso
+                txtSgClinico.Visible = True
+                lblIngreseSignoClinico.Text = "Ingrese signo clínico:"
+                txtSintoma.Visible = True
+                lblIngreseSignoClinico.Text = "Ingrese síntoma:"
+                btnAgregarSClinico.Visible = True
+                btnAgregarSintoma.Visible = True
+                btnBorrarSigno.Visible = True
+                btnBorrarSintoma.Visible = True
+                btnSugerirDiagnostico.Visible = True
+                chkEnfermo.AutoCheck = True
+                chkAnalisis.Visible = False
+                chkTratamiento.Visible = False
+                Eventos.Modo = EventosDeTBP.ModoEvento.DatosFormulario
+            Case Modo.Consulta
+                'hacer todo readonly
+                txtSgClinico.Visible = False
+                lblIngreseSignoClinico.Text = "Signos clínicos registrados:"
+                txtSintoma.Visible = False
+                lblIngreseSintoma.Text = "Síntomas registrados:"
+                btnAgregarSClinico.Visible = False
+                btnAgregarSintoma.Visible = False
+                btnBorrarSigno.Visible = False
+                btnBorrarSintoma.Visible = False
+                btnSugerirDiagnostico.Visible = False
+                chkAnalisis.Visible = True
+                chkTratamiento.Visible = True
+                makeFormReadOnly(Me)
+                Eventos.Modo = EventosDeTBP.ModoEvento.ConsultaDatos
+        End Select
+    End Sub
+
+    Sub makeFormReadOnly(contenedor As Control)
+        For Each c As Control In contenedor.Controls
+            Select Case c.GetType()
+                Case GetType(TextBox)
+                    DirectCast(c, TextBox).ReadOnly = True
+                Case GetType(CheckBox)
+                    DirectCast(c, CheckBox).AutoCheck = False
+                Case GetType(ComboBox)
+                    Dim cb = DirectCast(c, ComboBox)
+                    Try
+                        Dim item = cb.SelectedItem
+                        cb.Items.Clear()
+                        cb.Items.Add(item)
+                        cb.SelectedIndex = 0
+                    Catch ex As Exception
+                        Console.WriteLine("combo vacio")
+                    End Try
+                    cb.DropDownStyle = ComboBoxStyle.DropDownList
+                Case GetType(TabControl), GetType(TabPage), GetType(Panel), GetType(formularioLimpio), GetType(TableLayoutPanel)
+                    makeFormReadOnly(c)
+            End Select
+        Next
+    End Sub
+
     Private Sub btnAgregarSClinico_Click(sender As Object, e As EventArgs) Handles btnAgregarSClinico.Click
         If Not lbSignosClinicos.Items.Contains(txtSgClinico.Text) Then
             lbSignosClinicos.Items.Add(txtSgClinico.Text)
@@ -66,10 +139,10 @@ Public Class ContenedorEntrevistas
         If chkEnfermo.Checked Then
             lblPresenta.Visible = True
             txtNomEnfermedad.Visible = True
-            txtNomEnfermedad.Text = ""
         Else
             lblPresenta.Visible = False
             txtNomEnfermedad.Visible = False
+            txtNomEnfermedad.Text = ""
         End If
     End Sub
 
@@ -93,7 +166,6 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub ContenedorEntrevistas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Eventos.Modo = EventosDeTBP.ModoEvento.DatosFormulario
 
         Eventos.Acciones = AccionesFrm
 

@@ -24,11 +24,12 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         End Sub
 
         Public Enum ModoEvento 'el boton guardar hace cosas diferentes segun lo q se haya seleccionado
-            DatosFormulario = 0
-            DatosTratamiento = 1
-            DatosAnalisis = 2
+            DatosFormulario = 0 'ingreso datos
+            DatosTratamiento = 1 'ingreso datos
+            DatosAnalisis = 2 'ingreso datos
             AsignarAnalisis = 3
             AsignarTratamiento = 4
+            ConsultaDatos 'solo habilito btnImprimir, limpiar y guardar quedan deshabilitados.
         End Enum
 
         Property Modo As ModoEvento
@@ -37,6 +38,11 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             End Get
             Set(value As ModoEvento)
                 _modo = value
+                Select Case value
+                    Case ModoEvento.ConsultaDatos
+                        Acciones.btnGuardar.Visible = False
+                        Acciones.btnLimpiar.Visible = False
+                End Select
             End Set
         End Property
 

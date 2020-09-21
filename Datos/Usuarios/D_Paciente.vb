@@ -285,7 +285,6 @@ Public Class D_Paciente
         .CommandText = "CargarFormularioUsado",
         .Connection = conexion
         }
-        Console.WriteLine("IDC= " & ID_C)
 
         cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
 
@@ -310,22 +309,22 @@ Public Class D_Paciente
         Dim r = BuscarRespuestas(ID_C)
         Select Case r(0).Tag
             Case -1, -2, -8
-                form.ID = -4
+                form.ID = r(0).Tag
+                Return form
             Case Else
                 form.PreguntasYRespuestas = r
         End Select
 
         Dim r2 = BuscarEnfermedadConsulta(ID_C)
-        'buscar analisis requerido.
-        'buscar tratamiento sugerido.
 
         Select Case r2.Nombre
             Case -1, -2
-                form.ID = -5
+                form.ID = r2.Nombre
                 Return form
         End Select
 
         form.Enfermedad = r2
+
         Return form
 
     End Function
@@ -347,7 +346,6 @@ Public Class D_Paciente
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
             Cerrar(conexion)
             pyr.Add(New PreguntaRespuesta With {.Tag = -2})
             Return pyr
@@ -386,7 +384,6 @@ Public Class D_Paciente
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message & "cmd consultarenfdeterminada")
             Cerrar(conexion)
             enf.Nombre = -2
             Return enf
@@ -419,7 +416,6 @@ Public Class D_Paciente
         Try
             leer = cmd2.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message & "cmd sintomas")
             Cerrar(conexion)
             enf.Nombre = -2
             Return enf
@@ -451,7 +447,6 @@ Public Class D_Paciente
         Try
             leer = cmd3.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message & "cmd signos")
             Cerrar(conexion)
             enf.Nombre = -2
             Return enf
@@ -468,6 +463,5 @@ Public Class D_Paciente
         Cerrar(conexion)
         Return enf
     End Function
-
 
 End Class

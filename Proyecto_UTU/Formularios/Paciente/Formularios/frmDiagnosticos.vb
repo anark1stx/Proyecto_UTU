@@ -42,13 +42,6 @@ Public Class frmDiagnosticos
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento, "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
-            Case -4
-                Exit Sub
-            Case -5
-                MessageBox.Show("Hubieron errores cargando datos sobre la enfermedad, síntomas y signos clinicos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            Case -8
-                Exit Sub
         End Select
         Formulario = r
         Dim fl = New formularioLimpio
@@ -67,6 +60,8 @@ Public Class frmDiagnosticos
         End If
         entrevista.Frmlimpio = fl
         entrevista.Visible = True
+        entrevista.ModoActual = ContenedorEntrevistas.Modo.Consulta
+        entrevista.ResetMode()
     End Sub
 
     Private Async Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
