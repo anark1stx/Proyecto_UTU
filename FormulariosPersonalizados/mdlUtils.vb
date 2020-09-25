@@ -148,8 +148,8 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         End If
                     End If
 
-                    If FormDatos.Enfermedad.Nombre Is String.Empty Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                    If String.IsNullOrWhiteSpace(FormDatos.Enfermedad.Nombre) Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad? Si no registra una enfermedad, no podrá ser sugerido un tratamiento en base a esta consulta.", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If

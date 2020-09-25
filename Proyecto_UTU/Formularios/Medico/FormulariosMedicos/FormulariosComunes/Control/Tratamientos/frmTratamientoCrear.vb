@@ -5,11 +5,11 @@ Imports Negocio
 Public Class frmTratamientoCrear
     Protected _modo
     Dim negocio As New N_Tratamiento
-    Dim ultimomodo As Modo
     Dim listaTrats As New List(Of E_Tratamiento)
     Dim tratamiento_seleccionado As New E_Tratamiento
-    Dim _CI_Paciente As Integer
-
+    Protected _CI_Paciente As Integer
+    Protected _ID_C As Integer
+    Protected _enfermedad As String 'solamente se puede sugerir un tratamiento si se ingreso una enfermedad
     Property CI_Paciente As Integer
         Get
             Return _CI_Paciente
@@ -18,10 +18,27 @@ Public Class frmTratamientoCrear
             _CI_Paciente = value
         End Set
     End Property
+    Property ID_C As Integer
+        Get
+            Return _id_c
+        End Get
+        Set(value As Integer)
+            _id_c = value
+        End Set
+    End Property
+
+    Property Enfermedad As String
+        Get
+            Return _enfermedad
+        End Get
+        Set(value As String)
+            _enfermedad = value
+        End Set
+    End Property
+
     Public Enum Modo
-        'Defaultt 'modo para no tener confilcto con la condicional que esta en el evento resetmode
         Alta 'habilito los campos para escribir
-        Busqueda 'habilito la lupa y un datagridview
+        Asignar 'habilito la lupa y un datagridview
     End Enum
 
     Property ModoActual As Modo
@@ -29,7 +46,10 @@ Public Class frmTratamientoCrear
             Return _modo
         End Get
         Set(value As Modo)
-            _modo = value
+            If _modo <> value Then
+                _modo = value
+                ResetMode()
+            End If
         End Set
     End Property
 
@@ -61,7 +81,7 @@ Public Class frmTratamientoCrear
                     Case 1
                         MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Select
-            Case Modo.Busqueda 'asignar tratamiento a paciente
+            Case Modo.Asignar 'asignar tratamiento a paciente
                 If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
                     MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -95,10 +115,6 @@ Public Class frmTratamientoCrear
     End Sub
 
     Sub ResetMode()
-        'Console.WriteLine("Mi modoactual: " & ModoActual.ToString() & "ultimo modo:" & ultimomodo.ToString())
-        'If ModoActual = ultimomodo Then
-        '    Exit Sub
-        'End If
 
         Select Case ModoActual
             Case Modo.Alta
@@ -114,8 +130,7 @@ Public Class frmTratamientoCrear
                 tblElementos.RowStyles(2).Height = 6.38
                 tblElementos.RowStyles(1).Height = 78.7
                 btnGuardar.Text = "Guardar Tratamiento"
-                ultimomodo = Modo.Alta
-            Case Modo.Busqueda
+            Case Modo.Asignar 'asignar
                 dgwTratamientos.Visible = True
                 txtNombreTratamiento.Width -= btnBuscar.Width * 2
                 txtDescripcionTratamiento.Enabled = False
@@ -128,13 +143,12 @@ Public Class frmTratamientoCrear
                 tblElementos.RowStyles(2).Height = 78.7
                 dgwTratamientos.Visible = True
                 btnGuardar.Text = "Asingar Tratamiento"
-                ultimomodo = Modo.Busqueda
         End Select
     End Sub
 
     Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 
-        If ModoActual = Modo.Busqueda Then
+        If ModoActual = Modo.Asignar Then
             If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
                 MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub

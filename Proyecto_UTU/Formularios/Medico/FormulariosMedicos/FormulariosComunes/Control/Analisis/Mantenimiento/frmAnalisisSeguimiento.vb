@@ -20,7 +20,10 @@ Public Class frmAnalisisSeguimiento
             Return _modo
         End Get
         Set(value As Modo)
-            _modo = value
+            If _modo <> value Then
+                _modo = value
+                resetMode()
+            End If
         End Set
     End Property
 

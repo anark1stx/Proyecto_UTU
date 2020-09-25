@@ -11,12 +11,10 @@ Public Class D_UsuarioMYSQL
         construirCnString(usuario, contrasena)
         Dim exitCode As Integer = Conectar(conexion)
 
-
         Select Case exitCode
             Case -1, 5
                 Return New E_UsuarioMYSQL With {.errMsg = exitCode}
         End Select
-
 
         Dim cmd As New MySqlCommand With {
             .Connection = conexion,
@@ -32,11 +30,46 @@ Public Class D_UsuarioMYSQL
                     u.Rol = leer.GetString("ROL")
                 End While
             Else 'no tiene rol asignado en la tabla mysql.default_roles
-                u.errMsg = -2
+                u.ErrMsg = -2
+                Return u
             End If
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
-            u.errMsg = 2
+            u.ErrMsg = 2
+            Return u
         End Try
+
+        leer.Close()
+
+        If u.Rol = "administrador" Then
+            Cerrar(conexion)
+            Return u
+        Else
+            Console.WriteLine(u.Rol)
+        End If
+
+        Dim cmd2 As New MySqlCommand With {
+            .Connection = conexion,
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "ConsultarEstado"
+        }
+
+        cmd2.Parameters.Add("cedula", MySqlDbType.Int32).Value = CInt(usuario.Replace("u", ""))
+        Dim activo As Boolean = True 'por defecto todos los usuarios estan de alta = 1
+
+        Try
+            leer = cmd2.ExecuteReader()
+            While leer.Read()
+                activo = leer.GetBoolean("activo")
+            End While
+
+        Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
+            Console.WriteLine(ex.Message)
+            u.ErrMsg = 2
+        End Try
+
+        If activo = False Then
+            u.ErrMsg = -3 'de baja
+        End If
 
         Cerrar(conexion)
         Return u

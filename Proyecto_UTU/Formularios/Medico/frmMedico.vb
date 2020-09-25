@@ -293,15 +293,22 @@ Public Class frmMedico
                 frmTratamientoC.ShowDialog()
             Case "AsignarTratamiento" 'agarrar la ID de consulta
                 LimpiarControles(frmTratamientoC)
-                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Busqueda
-                frmTratamientoC.ResetMode()
+                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Asignar
+                frmTratamientoC.CI_Paciente = _paciente.Cedula
+                frmTratamientoC.ID_C = ID_Consulta
+                If String.IsNullOrWhiteSpace(tb.Frmlimpio.MiFormulario.Enfermedad.Nombre) Then 'si no fue ingresada una enfermedad, en vez de hacer alta a la tabla Sugiere, hago alta a la tabla Siguefc
+
+
+                Else
+                    frmTratamientoC.Enfermedad = tb.Frmlimpio.MiFormulario.Enfermedad.Nombre
+                End If
+
                 frmTratamientoC.ShowDialog()
             Case "AsignarAnalisis" 'agarrar la ID de consulta
                 LimpiarControles(frmAnalisisS)
                 frmAnalisisS.ID_C = ID_Consulta
                 frmAnalisisS.CI_paciente = _paciente.Cedula
                 frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
-                frmAnalisisS.resetMode()
                 frmAnalisisS.ShowDialog()
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
@@ -638,10 +645,6 @@ Public Class frmMedico
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             InstanciarFormulario("AsignarTratamiento")
-            'mostrar cuadro emergente en el que le permito buscar tratamientos por nombre y el selecciona.
-            'datagridview que los carga.
-            'el medico va seleccionando
-            'se cargan los datos a campos de texto con enabled = false
         End If
 
     End Sub
@@ -680,6 +683,7 @@ Public Class frmMedico
     End Sub
 
     Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
+        Console.WriteLine("Agarre ID= " & tb.Frmlimpio.MiFormulario.Atiende.ID)
         ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
 
