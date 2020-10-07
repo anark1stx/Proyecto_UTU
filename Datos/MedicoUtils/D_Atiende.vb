@@ -108,7 +108,6 @@ Public Class D_Atiende
         End Try
 
         If leer.HasRows Then
-            Console.WriteLine("buscando consultas")
             While leer.Read()
                 list.Add(New E_Atiende With {
                 .ID = leer.GetInt32("ID_consulta"),

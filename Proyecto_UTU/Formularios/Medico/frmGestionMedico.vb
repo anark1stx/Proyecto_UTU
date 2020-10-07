@@ -35,6 +35,8 @@ Public Class frmGestionMedico
     Private Async Sub frmGestionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Select Case MiModo
             Case frmMedico.Modo.SoyAuxiliar
+                lblEspecialidad.Visible = False
+                lblEspecialidadTXT.Visible = False
                 AuxiliarLogeado = Await Task.Run(Function() na.BuscarAuxiliarCI(AuxiliarLogeado.Cedula))
                 AuxiliarLogeado.Foto = Await Task.Run(Function() nm.LeerFoto(AuxiliarLogeado.Cedula))
                 bindPropsAuxiliar()
@@ -43,7 +45,6 @@ Public Class frmGestionMedico
                 MedicoLogeado.Foto = Await Task.Run(Function() nm.LeerFoto(MedicoLogeado.Cedula))
                 bindPropsMedico()
         End Select
-
     End Sub
 
     Sub bindPropsMedico()
@@ -113,6 +114,5 @@ Public Class frmGestionMedico
             End If
 
         Next
-        lblEspecialidadTXT.Visible = False
     End Sub
 End Class

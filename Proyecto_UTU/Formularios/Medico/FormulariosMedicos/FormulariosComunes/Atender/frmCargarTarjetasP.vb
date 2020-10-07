@@ -1,22 +1,22 @@
 ﻿Imports Entidades
 Public Class frmCargarTarjetasP
-    Protected _listaE As New List(Of E_Atiende)
-    Protected _e_seleccionada As E_Atiende
-    Property ListaEntrevistas As List(Of E_Atiende)
+    Protected _listaC As New List(Of E_Atiende)
+    Protected _c_seleccionada As E_Atiende
+    Property ListaConsultas As List(Of E_Atiende)
         Get
-            Return _listaE
+            Return _listaC
         End Get
         Set(value As List(Of E_Atiende))
-            _listaE = value
+            _listaC = value
         End Set
     End Property
 
-    Property EntrevistaSeleccionada As E_Atiende
+    Property ConsultaSeleccionada As E_Atiende
         Get
-            Return _e_seleccionada
+            Return _c_seleccionada
         End Get
         Set(value As E_Atiende)
-            _e_seleccionada = value
+            _c_seleccionada = value
         End Set
     End Property
     Private Sub frmCargarTarjetasP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,12 +28,12 @@ Public Class frmCargarTarjetasP
         tblTarjetas.Controls.Clear()
         tblTarjetas.RowStyles.Clear()
         tblTarjetas.RowCount = 1
-        If ListaEntrevistas.Count > 0 Then
-            For Each ei As E_Atiende In ListaEntrevistas
-                If Not ei Is ListaEntrevistas.Last() Then
+        If ListaConsultas.Count > 0 Then
+            For Each consulta As E_Atiende In ListaConsultas
+                If Not consulta Is ListaConsultas.Last() Then
                     tblTarjetas.RowCount += 1
                 End If
-                Dim tarjeta = New TarjetaPaciente With {.MiEntrevista = ei}
+                Dim tarjeta = New TarjetaPaciente With {.MiConsulta = consulta}
                 tblTarjetas.Controls.Add(tarjeta)
                 tarjeta.Anchor += AnchorStyles.Bottom
                 tarjeta.Anchor += AnchorStyles.Right
@@ -59,7 +59,7 @@ Public Class frmCargarTarjetasP
         Console.WriteLine(sender.Name)
         If sender.GetType() = GetType(TarjetaPaciente) Then
             Dim tj = DirectCast(sender, TarjetaPaciente)
-            EntrevistaSeleccionada = tj.MiEntrevista
+            ConsultaSeleccionada = tj.MiConsulta
             Dim g As Graphics = tblTarjetas.CreateGraphics
             Dim r As Rectangle = tj.DisplayRectangle
             Dim rect As New Rectangle(tj.Location.X - 2, tj.Location.Y - 2, r.Width + 5, r.Height + 5)

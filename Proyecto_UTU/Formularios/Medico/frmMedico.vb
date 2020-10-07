@@ -8,31 +8,29 @@ Public Class frmMedico
     Dim frmIni As New frmInicio
     Dim frmGestion As New frmGestionMedico
     Dim frmIdentificacion As New Identificacion_Paciente
-    Dim frmEntrevista As New frmSeleccionarFormularioEntrevista
+    Dim frmSeleccionarFrmEntrevista As New frmSeleccionarFormularioEntrevista
 
     Dim frmTratamientoC As New frmTratamientoCrear
     Dim frmTratamientoS As New frmTratamientoSeguir
 
     Dim frmAnalisisC As New frmAnalisisCrear
     Dim frmAnalisisS As New frmAnalisisSeguimiento
-    Dim frmAnalisisDatos As New frmDatosAnalisis
+    Dim frmAnalisisResultados As New frmDatosAnalisis
 
     Dim frmCrear As New frmCrearFormulario
+
+    Dim filtroB As String = ""
     Dim frmCatalogo As New frmCatalogoFormulariosBD
 
-    Dim tb As New ContenedorEntrevistas
+    Dim ContenedorE As New ContenedorEntrevistas
 
     Dim frmSelecMed As New frmSeleccionarMedico
-    Dim _entrevistas As New frmCargarTarjetasP
+    Dim frmConsultasPendientes As New frmCargarTarjetasP
 
-    Protected _id_consulta As Integer 'para tener persistencia cuando el medico pase del formulario a asignar tratamientos o analisis al paciente, nos interesa guardar en esa mimsma consulta que fue asignado.
-    Dim _paciente As New E_Paciente With {.Cedula = 0}
-    Protected _nombreConsulta 'emergencias,oftalmologia,dermatologia,etc.
     Protected _medico As E_Medico
     Protected _auxiliar As E_Usuario
     Protected _modo As New Modo
-
-    Dim filtroB As String = ""
+    Protected _consulta As New E_Atiende
 
     Public Enum Modo
         SoyMedico
@@ -65,29 +63,19 @@ Public Class frmMedico
             _auxiliar = value
         End Set
     End Property
-
-    Property NombreConsulta As String
+    Property Consulta As E_Atiende
         Get
-            Return _nombreConsulta
+            Return _consulta
         End Get
-        Set(value As String)
-            _nombreConsulta = value
-        End Set
-    End Property
-
-    Property ID_Consulta As Integer
-        Get
-            Return _id_consulta
-        End Get
-        Set(value As Integer)
-            _id_consulta = value
+        Set(value As E_Atiende)
+            _consulta = value
         End Set
     End Property
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
-        _paciente.Cedula = 0
-        ID_Consulta = 0
+        Consulta.Paciente.Cedula = 0
+        Consulta.ID = 0
         resetMode()
         InstanciarFormulario("Inicio")
     End Sub
@@ -113,7 +101,7 @@ Public Class frmMedico
                 frmIni.lblAtender.Text = "Ingresar pacientes para consulta"
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
-                _entrevistas.tblAcciones.Visible = False
+                frmConsultasPendientes.tblAcciones.Visible = False
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -133,7 +121,7 @@ Public Class frmMedico
                 frmIni.lblAtender.Text = "Atender Paciente"
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
-                _entrevistas.tblAcciones.Visible = True
+                frmConsultasPendientes.tblAcciones.Visible = True
         End Select
         frmGestion.MiModo = MiModo
     End Sub
@@ -156,11 +144,11 @@ Public Class frmMedico
         UnirPreguntasConRespuestas(fl.pnlContenedor, f.PreguntasYRespuestas)
         BuscarIDsP(f.PreguntasYRespuestas)
         fl.MiFormulario = f
-        fl.MiFormulario.Atiende.NombreConsulta = NombreConsulta
+        fl.MiFormulario.Atiende = Consulta
         pnlContenedorFormularios.Controls.Clear()
-        tb.Frmlimpio = fl
-        tb.Dock = DockStyle.Fill
-        pnlContenedorFormularios.Controls.Add(tb)
+        ContenedorE.Frmlimpio = fl
+        ContenedorE.Dock = DockStyle.Fill
+        pnlContenedorFormularios.Controls.Add(ContenedorE)
     End Sub
     Sub BloquearIdentificacion(_case As Boolean)
         frmIdentificacion.Enabled = Not _case
@@ -174,12 +162,12 @@ Public Class frmMedico
             Case "Gestion"
                 addFrm(frmGestion)
             Case "Identificacion"
-                If String.IsNullOrEmpty(NombreConsulta) Then
+                If String.IsNullOrEmpty(Consulta.NombreConsulta) Then
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
                 End If
                 LimpiarControles(frmIdentificacion)
-                _paciente.Cedula = 0 'reseteo los datos
-                ID_Consulta = 0
+                Consulta.Paciente.Cedula = 0 'reseteo los datos
+                Consulta.ID = 0
                 addFrm(frmIdentificacion)
             Case "SeleccionarMedico"
                 Select Case MiModo
@@ -200,7 +188,7 @@ Public Class frmMedico
                             Exit Sub
                         End If
                         BloquearIdentificacion(False)
-                        NombreConsulta = frmSelecMed.NombreConsulta
+                        Consulta.NombreConsulta = frmSelecMed.NombreConsulta
                     Case Modo.SoyAuxiliar
                         If frmSelecMed.MedicoSelect.Cedula = 0 Then
                             MessageBox.Show("No se seleccionó ningún médico.", "No fue seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -223,18 +211,18 @@ Public Class frmMedico
                 End If
 
             Case "VerListadoDeHoy"
-                LimpiarControles(_entrevistas)
+                LimpiarControles(frmConsultasPendientes)
                 VerConsultasDeHoy()
             Case "Entrevista"
-                If _paciente.Cedula = 0 Then
+                If Consulta.Paciente.Cedula = 0 Then
                     MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
                 End If
-                If String.IsNullOrEmpty(NombreConsulta) Then
+                If String.IsNullOrEmpty(Consulta.NombreConsulta) Then
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
                 End If
 
-                addFrm(frmEntrevista)
+                addFrm(frmSeleccionarFrmEntrevista)
             Case "Otro"
                 If Not String.IsNullOrWhiteSpace(filtroB) Then
                     frmCatalogo.txtBuscar.Text = filtroB
@@ -245,7 +233,7 @@ Public Class frmMedico
                 End If
                 Dim f = frmCatalogo.FormSeleccionado
                 f.Atiende.Medico = MedicoActual
-                f.Atiende.Paciente = _paciente
+                f.Atiende.Paciente = Consulta.Paciente
                 CargarFormulario(f)
                 filtroB = ""
             Case "CrearFormulario"
@@ -262,20 +250,20 @@ Public Class frmMedico
             Case "AsignarTratamiento" 'agarrar la ID de consulta
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Asignar
-                frmTratamientoC.CI_Paciente = _paciente.Cedula
-                frmTratamientoC.ID_C = ID_Consulta
-                If String.IsNullOrWhiteSpace(tb.Frmlimpio.MiFormulario.Enfermedad.Nombre) Then 'si no fue ingresada una enfermedad, en vez de hacer alta a la tabla Sugiere, hago alta a la tabla Siguefc
+                frmTratamientoC.CI_Paciente = Consulta.Paciente.Cedula
+                frmTratamientoC.ID_C = Consulta.ID
+                If String.IsNullOrWhiteSpace(ContenedorE.Frmlimpio.MiFormulario.Enfermedad.Nombre) Then 'si no fue ingresada una enfermedad, en vez de hacer alta a la tabla Sugiere, hago alta a la tabla Siguefc
 
 
                 Else
-                    frmTratamientoC.Enfermedad = tb.Frmlimpio.MiFormulario.Enfermedad.Nombre
+                    frmTratamientoC.Enfermedad = ContenedorE.Frmlimpio.MiFormulario.Enfermedad.Nombre
                 End If
 
                 frmTratamientoC.ShowDialog()
             Case "AsignarAnalisis" 'agarrar la ID de consulta
                 LimpiarControles(frmAnalisisS)
-                frmAnalisisS.ID_C = ID_Consulta
-                frmAnalisisS.CI_paciente = _paciente.Cedula
+                frmAnalisisS.ID_C = Consulta.ID
+                frmAnalisisS.CI_paciente = Consulta.Paciente.Cedula
                 frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
                 frmAnalisisS.ShowDialog()
             Case "SeguirTratamiento"
@@ -296,8 +284,8 @@ Public Class frmMedico
 
                 'Dim a = pac.buscarAnalisis()
 
-                'frmAnalisisDatos._paciente = pac
-                addFrm(frmAnalisisDatos)
+                'frmAnalisisResultados.Consulta.Paciente = pac
+                addFrm(frmAnalisisResultados)
         End Select
 
     End Sub
@@ -328,8 +316,8 @@ Public Class frmMedico
             e.Cancel = True
             Me.pnlContenedorFormularios.Controls.Clear()
             Me.Hide()
-            _paciente.Cedula = 0
-            ID_Consulta = 0
+            Consulta.Paciente.Cedula = 0
+            Consulta.ID = 0
             InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
             frmIngreso_Usuario.Show()
         End If
@@ -363,47 +351,47 @@ Public Class frmMedico
         AddHandler frmIdentificacion.btnAgregarLista.Click, AddressOf AgregarPacienteAListado
         AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged, AddressOf CargarDatosPaciente
 
-        AddHandler _entrevistas.btnRefrescar.Click, AddressOf VerConsultasDeHoy
-        'AddHandler _entrevistas.btnVerConsultasPrevias, <- pendiente
+        AddHandler frmConsultasPendientes.btnRefrescar.Click, AddressOf VerConsultasDeHoy
+        'AddHandler frmConsultasPendientes.btnVerConsultasPrevias, <- pendiente
 
-        AddHandler _entrevistas.btnVerAnalisis.Click,
+        AddHandler frmConsultasPendientes.btnVerAnalisis.Click,
             Sub()
-                _paciente.Cedula = _entrevistas.EntrevistaSeleccionada.Paciente.Cedula
+                Consulta.Paciente.Cedula = frmConsultasPendientes.ConsultaSeleccionada.Paciente.Cedula
                 InstanciarFormulario("SeguirAnalisis")
-                frmAnalisisS.txtBuscar.Text = _paciente.Cedula
+                frmAnalisisS.txtBuscar.Text = Consulta.Paciente.Cedula
                 Dim s As New Object
                 Dim ev As New EventArgs
                 frmAnalisisS.btnBuscar_Click(s, ev)
             End Sub
-        AddHandler _entrevistas.btnAtender.Click,
+        AddHandler frmConsultasPendientes.btnAtender.Click,
             Sub()
-                _paciente.Cedula = _entrevistas.EntrevistaSeleccionada.Paciente.Cedula
+                Consulta.Paciente.Cedula = frmConsultasPendientes.ConsultaSeleccionada.Paciente.Cedula
                 InstanciarFormulario("Entrevista")
             End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 
-        AddHandler frmEntrevista.btnFrmGenerico.Click,
+        AddHandler frmSeleccionarFrmEntrevista.btnFrmGenerico.Click,
                     Sub()
                         filtroB = "generico"
                         InstanciarFormulario("Otro")
                     End Sub
 
-        AddHandler frmEntrevista.btnFrmDolor.Click,
+        AddHandler frmSeleccionarFrmEntrevista.btnFrmDolor.Click,
                     Sub()
                         filtroB = "dolor"
                         InstanciarFormulario("Otro")
                     End Sub
-        AddHandler frmEntrevista.btnFrmFiebre.Click,
+        AddHandler frmSeleccionarFrmEntrevista.btnFrmFiebre.Click,
                     Sub()
                         filtroB = "fiebre"
                         InstanciarFormulario("Otro")
                     End Sub
-        AddHandler frmEntrevista.btnFrmMalestar.Click,
+        AddHandler frmSeleccionarFrmEntrevista.btnFrmMalestar.Click,
                     Sub()
                         filtroB = "malestar"
                         InstanciarFormulario("Otro")
                     End Sub
-        AddHandler frmEntrevista.btnFrmOtro.Click,
+        AddHandler frmSeleccionarFrmEntrevista.btnFrmOtro.Click,
                     Sub()
                         filtroB = ""
                         InstanciarFormulario("Otro")
@@ -418,7 +406,7 @@ Public Class frmMedico
     Async Sub AgregarPacienteAListado()
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            _paciente.Cedula = 0
+            Consulta.Paciente.Cedula = 0
             LimpiarControles(frmIdentificacion)
             Exit Sub
         End If
@@ -436,7 +424,7 @@ Public Class frmMedico
             Exit Sub
         End If
 
-        Dim c As New E_Atiende(NombreConsulta, frmIdentificacion.txtMotivoC.Text, _paciente, MedicoActual)
+        Dim c As New E_Atiende(Consulta.NombreConsulta, frmIdentificacion.txtMotivoC.Text, Consulta.Paciente, MedicoActual)
         Dim na As New N_Atiende
         Dim existeE = Await Task.Run(Function() na.AtiendeExiste(c))
         Select Case existeE
@@ -479,21 +467,21 @@ Public Class frmMedico
                 MessageBox.Show("No se encontraron pacientes para atender.", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
             Case Else
-                '_entrevistas.tblTarjetas.Controls.Clear()
-                _entrevistas.ListaEntrevistas = result
-                addFrm(_entrevistas)
-                _entrevistas.RefrescarTarjetas()
+                'frmConsultasPendientes.tblTarjetas.Controls.Clear()
+                frmConsultasPendientes.ListaConsultas = result
+                addFrm(frmConsultasPendientes)
+                frmConsultasPendientes.RefrescarTarjetas()
         End Select
     End Sub
 
     Async Sub CargarDatosPaciente() 'cargo tambien las consultas previas ademas de sus datos
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
-            _paciente.Cedula = 0
+            Consulta.Paciente.Cedula = 0
             Exit Sub
         End If
         If Not check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
             MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            _paciente.Cedula = 0
+            Consulta.Paciente.Cedula = 0
             LimpiarControles(frmIdentificacion)
             Exit Sub
         End If
@@ -512,12 +500,12 @@ Public Class frmMedico
                 MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 LimpiarControles(frmIdentificacion)
             Case Else
-                _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
+                Consulta.Paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
                 frmIdentificacion.PoblarDatos()
         End Select
 
         Dim na As New N_Atiende
-        Dim r = Await Task.Run(Function() na.BuscarAtiende(_paciente.Cedula))
+        Dim r = Await Task.Run(Function() na.BuscarAtiende(Consulta.Paciente.Cedula))
         Select Case r(0).ID
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -593,14 +581,14 @@ Public Class frmMedico
         'frmTratamientoC.ResetMode()
         'frmTratamientoC.ResetMode()
 
-        If ID_Consulta = 0 Then
+        If Consulta.ID = 0 Then
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             InstanciarFormulario("AsignarAnalisis")
         End If
     End Sub
     Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
-        If ID_Consulta = 0 Then
+        If Consulta.ID = 0 Then
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             InstanciarFormulario("AsignarTratamiento")
@@ -637,13 +625,13 @@ Public Class frmMedico
     End Sub
 
     Private Sub AnalisisMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisMenuItem.Click
-        Console.WriteLine("Agarre ID= " & tb.Frmlimpio.MiFormulario.Atiende.ID)
-        ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
+        Console.WriteLine("Agarre ID= " & ContenedorE.Frmlimpio.MiFormulario.Atiende.ID)
+        Consulta.ID = ContenedorE.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
 
     Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
-        Console.WriteLine("Agarre ID= " & tb.Frmlimpio.MiFormulario.Atiende.ID)
-        ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
+        Console.WriteLine("Agarre ID= " & ContenedorE.Frmlimpio.MiFormulario.Atiende.ID)
+        Consulta.ID = ContenedorE.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.

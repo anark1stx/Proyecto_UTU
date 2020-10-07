@@ -36,7 +36,7 @@ Partial Class frmGestionMedico
         Me.lblDireccionTXT = New System.Windows.Forms.Label()
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.lblTelefonoTXT = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblEspecialidad = New System.Windows.Forms.Label()
         Me.lblEspecialidadTXT = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,7 +86,7 @@ Partial Class frmGestionMedico
         Me.tabDatos.Controls.Add(Me.lblDireccionTXT, 1, 3)
         Me.tabDatos.Controls.Add(Me.lblTelefono, 0, 4)
         Me.tabDatos.Controls.Add(Me.lblTelefonoTXT, 1, 4)
-        Me.tabDatos.Controls.Add(Me.Label1, 0, 5)
+        Me.tabDatos.Controls.Add(Me.lblEspecialidad, 0, 5)
         Me.tabDatos.Controls.Add(Me.lblEspecialidadTXT, 1, 5)
         Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabDatos.Location = New System.Drawing.Point(451, 3)
@@ -213,16 +213,16 @@ Partial Class frmGestionMedico
         Me.lblTelefonoTXT.TabIndex = 83
         Me.lblTelefonoTXT.Text = "TELEFONO1"
         '
-        'Label1
+        'lblEspecialidad
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(18, 492)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 20)
-        Me.Label1.TabIndex = 102
-        Me.Label1.Text = "Especialidad:"
+        Me.lblEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblEspecialidad.AutoSize = True
+        Me.lblEspecialidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEspecialidad.Location = New System.Drawing.Point(18, 492)
+        Me.lblEspecialidad.Name = "lblEspecialidad"
+        Me.lblEspecialidad.Size = New System.Drawing.Size(109, 20)
+        Me.lblEspecialidad.TabIndex = 102
+        Me.lblEspecialidad.Text = "Especialidad:"
         '
         'lblEspecialidadTXT
         '
@@ -268,6 +268,6 @@ Partial Class frmGestionMedico
     Friend WithEvents lblDireccionTXT As Label
     Friend WithEvents lblTelefono As Label
     Friend WithEvents lblTelefonoTXT As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblEspecialidad As Label
     Friend WithEvents lblEspecialidadTXT As Label
 End Class
