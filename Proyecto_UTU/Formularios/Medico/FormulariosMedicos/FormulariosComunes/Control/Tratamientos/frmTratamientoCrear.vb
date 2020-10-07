@@ -3,7 +3,7 @@ Imports Entidades
 Imports FormulariosPersonalizados
 Imports Negocio
 Public Class frmTratamientoCrear
-    Protected _modo
+    Protected _modo As New Modo
     Dim negocio As New N_Tratamiento
     Dim listaTrats As New List(Of E_Tratamiento)
     Dim tratamiento_seleccionado As New E_Tratamiento
@@ -46,7 +46,7 @@ Public Class frmTratamientoCrear
             Return _modo
         End Get
         Set(value As Modo)
-            If _modo <> value Then
+            If _modo <> value Then 'si modo es diferente del valor que tenia antes, reset.
                 _modo = value
                 ResetMode()
             End If

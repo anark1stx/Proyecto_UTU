@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Credenciales.vb" />
     <Compile Include="MedicoUtils\D_Tratamiento.vb" />
+    <Compile Include="Usuarios\D_auxiliar.vb" />
     <Compile Include="Usuarios\D_Medico.vb" />
     <Compile Include="Usuarios\D_Paciente.vb" />
     <Compile Include="Usuarios\D_Usuario.vb" />

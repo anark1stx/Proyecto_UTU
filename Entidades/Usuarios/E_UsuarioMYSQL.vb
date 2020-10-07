@@ -2,7 +2,6 @@
     Protected _nombre As String
     Protected _contrasena As String
     Protected _rol As String
-    Protected _errMsg As String
     Property Nombre As String
         Get
             Return _nombre
@@ -29,22 +28,6 @@
             _rol = value
         End Set
     End Property
-
-    Property ErrMsg As String
-        Get
-            Return _errMsg
-        End Get
-        Set(value As String)
-            _errMsg = value
-        End Set
-    End Property
-
-
-    Public Sub New(nombre As String, contrasena As String)
-        _nombre = nombre
-        _contrasena = contrasena
-    End Sub
-
     Public Sub New(nombre As String, contrasena As String, rol As String)
         _nombre = nombre
         _contrasena = contrasena

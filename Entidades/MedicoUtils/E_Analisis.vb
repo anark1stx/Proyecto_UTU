@@ -3,7 +3,6 @@
     Protected _nombre As String
     Protected _indicaciones As List(Of Indicacion)
     Protected _parametros As List(Of Parametro)
-    Protected _ErrMsg As Integer
     Protected _fechaReq As Date
     Protected _fechaRes As Date
     Property ID As Integer
@@ -39,16 +38,6 @@
             _indicaciones = value
         End Set
     End Property
-
-    Property ErrMsg As Integer
-        Get
-            Return _ErrMsg
-        End Get
-        Set(value As Integer)
-            _ErrMsg = value
-        End Set
-    End Property
-
     Property FechaReq As Date
         Get
             Return _fechaReq

@@ -12,8 +12,8 @@ Public Class D_UsuarioMYSQL
         Dim exitCode As Integer = Conectar(conexion)
 
         Select Case exitCode
-            Case -1, 5
-                Return New E_UsuarioMYSQL With {.errMsg = exitCode}
+            Case -1, -5
+                Return New E_UsuarioMYSQL With {.Rol = exitCode}
         End Select
 
         Dim cmd As New MySqlCommand With {
@@ -30,11 +30,11 @@ Public Class D_UsuarioMYSQL
                     u.Rol = leer.GetString("ROL")
                 End While
             Else 'no tiene rol asignado en la tabla mysql.default_roles
-                u.ErrMsg = -2
+                u.Rol = -2
                 Return u
             End If
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
-            u.ErrMsg = 2
+            u.Rol = -2
             Return u
         End Try
 
@@ -47,7 +47,7 @@ Public Class D_UsuarioMYSQL
             Console.WriteLine(u.Rol)
         End If
 
-        Dim cmd2 As New MySqlCommand With {
+        Dim cmd2 As New MySqlCommand With { 'verificar si el usuario de SIBIM fue dado de baja
             .Connection = conexion,
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "ConsultarEstado"
@@ -61,14 +61,13 @@ Public Class D_UsuarioMYSQL
             While leer.Read()
                 activo = leer.GetBoolean("activo")
             End While
-
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
             Console.WriteLine(ex.Message)
-            u.ErrMsg = 2
+            u.Rol = -2
         End Try
 
         If activo = False Then
-            u.ErrMsg = -3 'de baja
+            u.Rol = -3 'de baja
         End If
 
         Cerrar(conexion)
@@ -97,7 +96,7 @@ Public Class D_UsuarioMYSQL
             Return 1 'todo ok
         Catch ex As Exception
             Cerrar(conexion)
-            Return 2 'Error dando alta usuario mysql
+            Return -2 'Error dando alta usuario mysql
         End Try
 
     End Function
