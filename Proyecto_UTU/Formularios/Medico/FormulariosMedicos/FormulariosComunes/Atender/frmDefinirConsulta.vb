@@ -1,6 +1,6 @@
 ﻿Imports Entidades
 Imports Utilidades
-Public Class frmSeleccionarMedico
+Public Class frmDefinirConsulta
     Protected _medicoSelect As New E_Medico
     Protected _nombreConsulta As String 'no se va a guardar en entrevistainicial, queda guardado en Atiende, nosotros aca lo persistimos nomas
     Protected _comomedico As Boolean = False
@@ -83,5 +83,9 @@ Public Class frmSeleccionarMedico
             LimpiarControles(Me)
             MedicoSelect.Cedula = 0
         End If
+    End Sub
+
+    Private Sub frmDefinirConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpHoraConsulta.CustomFormat = "hh:mm tt"
     End Sub
 End Class

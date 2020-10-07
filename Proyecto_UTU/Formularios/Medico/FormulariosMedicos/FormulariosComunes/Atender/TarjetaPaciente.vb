@@ -15,7 +15,7 @@ Public Class TarjetaPaciente
         If Not MiConsulta Is Nothing Then
             pboxFotoPaciente.BackgroundImage = Bytes2Image(MiConsulta.Paciente.Foto)
             lblCIPaciente.Text = MiConsulta.Paciente.Cedula
-            lblNomAp.Text = MiConsulta.Paciente.Nombre1 & " " & MiConsulta.Paciente.Nombre2 & " " & MiEntrevista.Paciente.Apellido1 & " " & MiEntrevista.Paciente.Apellido2
+            lblNomAp.Text = MiConsulta.Paciente.Nombre1 & " " & MiConsulta.Paciente.Nombre2 & " " & MiConsulta.Paciente.Apellido1 & " " & MiConsulta.Paciente.Apellido2
             lblSexo.Text = MiConsulta.Paciente.Sexo
             txtMotivo.Text = MiConsulta.Motivo
             txtMotivo.ReadOnly = True

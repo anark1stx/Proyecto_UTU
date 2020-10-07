@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmSeleccionarMedico
+Partial Class frmDefinirConsulta
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class frmSeleccionarMedico
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSeleccionarMedico))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDefinirConsulta))
         Me.tblDatosMedico = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
@@ -40,15 +40,21 @@ Partial Class frmSeleccionarMedico
         Me.tblNomRef = New System.Windows.Forms.TableLayoutPanel()
         Me.lblNomReferencia = New System.Windows.Forms.Label()
         Me.txtNomConsulta = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblHoraConsulta = New System.Windows.Forms.Label()
+        Me.dtpHoraConsulta = New System.Windows.Forms.DateTimePicker()
         Me.tblDatosMedico.SuspendLayout()
         CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.tblNomRef.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'tblDatosMedico
         '
+        Me.tblDatosMedico.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tblDatosMedico.AutoSize = True
         Me.tblDatosMedico.BackColor = System.Drawing.Color.LightBlue
         Me.tblDatosMedico.ColumnCount = 2
@@ -60,7 +66,7 @@ Partial Class frmSeleccionarMedico
         Me.tblDatosMedico.Name = "tblDatosMedico"
         Me.tblDatosMedico.RowCount = 1
         Me.tblDatosMedico.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblDatosMedico.Size = New System.Drawing.Size(1020, 544)
+        Me.tblDatosMedico.Size = New System.Drawing.Size(1128, 544)
         Me.tblDatosMedico.TabIndex = 1
         '
         'pBoxFotoMedico
@@ -71,7 +77,7 @@ Partial Class frmSeleccionarMedico
         Me.pBoxFotoMedico.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pBoxFotoMedico.Location = New System.Drawing.Point(3, 3)
         Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
-        Me.pBoxFotoMedico.Size = New System.Drawing.Size(504, 538)
+        Me.pBoxFotoMedico.Size = New System.Drawing.Size(558, 538)
         Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pBoxFotoMedico.TabIndex = 101
         Me.pBoxFotoMedico.TabStop = False
@@ -90,7 +96,7 @@ Partial Class frmSeleccionarMedico
         Me.tabDatos.Controls.Add(Me.lblEspecialidadTXT, 1, 3)
         Me.tabDatos.Controls.Add(Me.Panel1, 1, 0)
         Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tabDatos.Location = New System.Drawing.Point(513, 3)
+        Me.tabDatos.Location = New System.Drawing.Point(567, 3)
         Me.tabDatos.Name = "tabDatos"
         Me.tabDatos.RowCount = 4
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
@@ -101,7 +107,7 @@ Partial Class frmSeleccionarMedico
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tabDatos.Size = New System.Drawing.Size(504, 538)
+        Me.tabDatos.Size = New System.Drawing.Size(558, 538)
         Me.tabDatos.TabIndex = 103
         '
         'lblCedula
@@ -109,7 +115,7 @@ Partial Class frmSeleccionarMedico
         Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblCedula.AutoSize = True
         Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(49, 57)
+        Me.lblCedula.Location = New System.Drawing.Point(58, 57)
         Me.lblCedula.Name = "lblCedula"
         Me.lblCedula.Size = New System.Drawing.Size(66, 20)
         Me.lblCedula.TabIndex = 82
@@ -120,7 +126,7 @@ Partial Class frmSeleccionarMedico
         Me.lblNombres.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNombres.AutoSize = True
         Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(46, 191)
+        Me.lblNombres.Location = New System.Drawing.Point(55, 191)
         Me.lblNombres.Name = "lblNombres"
         Me.lblNombres.Size = New System.Drawing.Size(73, 20)
         Me.lblNombres.TabIndex = 80
@@ -131,7 +137,7 @@ Partial Class frmSeleccionarMedico
         Me.lblNombresTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNombresTXT.AutoSize = True
         Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(239, 191)
+        Me.lblNombresTXT.Location = New System.Drawing.Point(275, 191)
         Me.lblNombresTXT.Name = "lblNombresTXT"
         Me.lblNombresTXT.Size = New System.Drawing.Size(190, 20)
         Me.lblNombresTXT.TabIndex = 78
@@ -142,7 +148,7 @@ Partial Class frmSeleccionarMedico
         Me.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblApellido.AutoSize = True
         Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(46, 325)
+        Me.lblApellido.Location = New System.Drawing.Point(55, 325)
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(73, 20)
         Me.lblApellido.TabIndex = 81
@@ -153,7 +159,7 @@ Partial Class frmSeleccionarMedico
         Me.lblApellidosTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblApellidosTXT.AutoSize = True
         Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(230, 325)
+        Me.lblApellidosTXT.Location = New System.Drawing.Point(266, 325)
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
         Me.lblApellidosTXT.Size = New System.Drawing.Size(208, 20)
         Me.lblApellidosTXT.TabIndex = 79
@@ -164,7 +170,7 @@ Partial Class frmSeleccionarMedico
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(28, 460)
+        Me.Label1.Location = New System.Drawing.Point(37, 460)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(109, 20)
         Me.Label1.TabIndex = 102
@@ -175,7 +181,7 @@ Partial Class frmSeleccionarMedico
         Me.lblEspecialidadTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblEspecialidadTXT.AutoSize = True
         Me.lblEspecialidadTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidadTXT.Location = New System.Drawing.Point(282, 460)
+        Me.lblEspecialidadTXT.Location = New System.Drawing.Point(318, 460)
         Me.lblEspecialidadTXT.Name = "lblEspecialidadTXT"
         Me.lblEspecialidadTXT.Size = New System.Drawing.Size(104, 20)
         Me.lblEspecialidadTXT.TabIndex = 101
@@ -186,9 +192,9 @@ Partial Class frmSeleccionarMedico
         Me.Panel1.Controls.Add(Me.btnBuscarMedico)
         Me.Panel1.Controls.Add(Me.txtCIMedico)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(168, 3)
+        Me.Panel1.Location = New System.Drawing.Point(186, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(333, 128)
+        Me.Panel1.Size = New System.Drawing.Size(369, 128)
         Me.Panel1.TabIndex = 103
         '
         'btnBuscarMedico
@@ -205,7 +211,7 @@ Partial Class frmSeleccionarMedico
         '
         Me.txtCIMedico.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtCIMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCIMedico.Location = New System.Drawing.Point(3, 52)
+        Me.txtCIMedico.Location = New System.Drawing.Point(21, 52)
         Me.txtCIMedico.MaxLength = 8
         Me.txtCIMedico.Name = "txtCIMedico"
         Me.txtCIMedico.Size = New System.Drawing.Size(281, 30)
@@ -218,26 +224,27 @@ Partial Class frmSeleccionarMedico
         Me.btnConfirmar.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirmar.Location = New System.Drawing.Point(0, 592)
+        Me.btnConfirmar.Location = New System.Drawing.Point(0, 640)
         Me.btnConfirmar.Name = "btnConfirmar"
-        Me.btnConfirmar.Size = New System.Drawing.Size(1020, 64)
+        Me.btnConfirmar.Size = New System.Drawing.Size(1131, 81)
         Me.btnConfirmar.TabIndex = 4
         Me.btnConfirmar.Text = "CONFIRMAR"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'tblNomRef
         '
-        Me.tblNomRef.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tblNomRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tblNomRef.ColumnCount = 2
         Me.tblNomRef.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.80392!))
         Me.tblNomRef.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.19608!))
         Me.tblNomRef.Controls.Add(Me.lblNomReferencia, 0, 0)
         Me.tblNomRef.Controls.Add(Me.txtNomConsulta, 1, 0)
-        Me.tblNomRef.Location = New System.Drawing.Point(0, 550)
+        Me.tblNomRef.Location = New System.Drawing.Point(3, 550)
         Me.tblNomRef.Name = "tblNomRef"
         Me.tblNomRef.RowCount = 1
         Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblNomRef.Size = New System.Drawing.Size(1020, 39)
+        Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblNomRef.Size = New System.Drawing.Size(1128, 39)
         Me.tblNomRef.TabIndex = 5
         '
         'lblNomReferencia
@@ -245,7 +252,7 @@ Partial Class frmSeleccionarMedico
         Me.lblNomReferencia.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNomReferencia.AutoSize = True
         Me.lblNomReferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomReferencia.Location = New System.Drawing.Point(33, 7)
+        Me.lblNomReferencia.Location = New System.Drawing.Point(60, 7)
         Me.lblNomReferencia.Name = "lblNomReferencia"
         Me.lblNomReferencia.Size = New System.Drawing.Size(441, 25)
         Me.lblNomReferencia.TabIndex = 2
@@ -253,22 +260,62 @@ Partial Class frmSeleccionarMedico
         '
         'txtNomConsulta
         '
+        Me.txtNomConsulta.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtNomConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomConsulta.Location = New System.Drawing.Point(510, 3)
+        Me.txtNomConsulta.Location = New System.Drawing.Point(564, 3)
         Me.txtNomConsulta.Name = "txtNomConsulta"
-        Me.txtNomConsulta.Size = New System.Drawing.Size(507, 30)
+        Me.txtNomConsulta.Size = New System.Drawing.Size(561, 30)
         Me.txtNomConsulta.TabIndex = 3
         '
-        'frmSeleccionarMedico
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.80392!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.19608!))
+        Me.TableLayoutPanel1.Controls.Add(Me.lblHoraConsulta, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.dtpHoraConsulta, 1, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 595)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1128, 39)
+        Me.TableLayoutPanel1.TabIndex = 6
+        '
+        'lblHoraConsulta
+        '
+        Me.lblHoraConsulta.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblHoraConsulta.AutoSize = True
+        Me.lblHoraConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHoraConsulta.Location = New System.Drawing.Point(188, 7)
+        Me.lblHoraConsulta.Name = "lblHoraConsulta"
+        Me.lblHoraConsulta.Size = New System.Drawing.Size(185, 25)
+        Me.lblHoraConsulta.TabIndex = 2
+        Me.lblHoraConsulta.Text = "Hora de la consulta:"
+        Me.lblHoraConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'dtpHoraConsulta
+        '
+        Me.dtpHoraConsulta.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dtpHoraConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpHoraConsulta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpHoraConsulta.Location = New System.Drawing.Point(564, 3)
+        Me.dtpHoraConsulta.Name = "dtpHoraConsulta"
+        Me.dtpHoraConsulta.ShowUpDown = True
+        Me.dtpHoraConsulta.Size = New System.Drawing.Size(561, 34)
+        Me.dtpHoraConsulta.TabIndex = 3
+        '
+        'frmDefinirConsulta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1020, 656)
+        Me.ClientSize = New System.Drawing.Size(1131, 721)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.tblNomRef)
         Me.Controls.Add(Me.btnConfirmar)
         Me.Controls.Add(Me.tblDatosMedico)
-        Me.Name = "frmSeleccionarMedico"
+        Me.Name = "frmDefinirConsulta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmSeleccionarMedico"
         Me.tblDatosMedico.ResumeLayout(False)
@@ -279,6 +326,8 @@ Partial Class frmSeleccionarMedico
         Me.Panel1.PerformLayout()
         Me.tblNomRef.ResumeLayout(False)
         Me.tblNomRef.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -301,4 +350,7 @@ Partial Class frmSeleccionarMedico
     Friend WithEvents tblNomRef As TableLayoutPanel
     Friend WithEvents lblNomReferencia As Label
     Friend WithEvents txtNomConsulta As TextBox
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents lblHoraConsulta As Label
+    Friend WithEvents dtpHoraConsulta As DateTimePicker
 End Class

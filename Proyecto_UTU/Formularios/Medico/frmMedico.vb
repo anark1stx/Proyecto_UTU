@@ -24,7 +24,7 @@ Public Class frmMedico
 
     Dim ContenedorE As New ContenedorEntrevistas
 
-    Dim frmSelecMed As New frmSeleccionarMedico
+    Dim frmSelecMed As New frmDefinirConsulta
     Dim frmConsultasPendientes As New frmCargarTarjetasP
 
     Protected _medico As E_Medico
