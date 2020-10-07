@@ -409,10 +409,10 @@ Partial Class Identificacion_Paciente
         Me.tblAcciones.Location = New System.Drawing.Point(0, 384)
         Me.tblAcciones.Name = "tblAcciones"
         Me.tblAcciones.RowCount = 4
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.5514!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.7751!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.57028!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99.0!))
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.79397!))
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.13065!))
+        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149.0!))
         Me.tblAcciones.Size = New System.Drawing.Size(1130, 352)
         Me.tblAcciones.TabIndex = 104
         '
@@ -420,10 +420,10 @@ Partial Class Identificacion_Paciente
         '
         Me.txtMotivoC.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtMotivoC.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMotivoC.Location = New System.Drawing.Point(4, 38)
+        Me.txtMotivoC.Location = New System.Drawing.Point(4, 34)
         Me.txtMotivoC.Multiline = True
         Me.txtMotivoC.Name = "txtMotivoC"
-        Me.txtMotivoC.Size = New System.Drawing.Size(1122, 102)
+        Me.txtMotivoC.Size = New System.Drawing.Size(1122, 110)
         Me.txtMotivoC.TabIndex = 106
         Me.txtMotivoC.Visible = False
         '
@@ -432,7 +432,7 @@ Partial Class Identificacion_Paciente
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(449, 5)
+        Me.Label1.Location = New System.Drawing.Point(449, 1)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(231, 29)
         Me.Label1.TabIndex = 107
@@ -441,12 +441,13 @@ Partial Class Identificacion_Paciente
         'btnAgregarLista
         '
         Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnAgregarLista.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAgregarLista.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarLista.ImageIndex = 1
         Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAgregarLista.Location = New System.Drawing.Point(4, 253)
+        Me.btnAgregarLista.Location = New System.Drawing.Point(4, 203)
         Me.btnAgregarLista.Name = "btnAgregarLista"
-        Me.btnAgregarLista.Size = New System.Drawing.Size(1122, 85)
+        Me.btnAgregarLista.Size = New System.Drawing.Size(1122, 145)
         Me.btnAgregarLista.TabIndex = 105
         Me.btnAgregarLista.Text = "Agregar a Listado"
         Me.btnAgregarLista.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -467,9 +468,9 @@ Partial Class Identificacion_Paciente
         Me.pnlConsultasPrevias.Controls.Add(Me.cbConsultasPrevias)
         Me.pnlConsultasPrevias.Controls.Add(Me.lblConsultasPrevias)
         Me.pnlConsultasPrevias.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlConsultasPrevias.Location = New System.Drawing.Point(4, 147)
+        Me.pnlConsultasPrevias.Location = New System.Drawing.Point(4, 151)
         Me.pnlConsultasPrevias.Name = "pnlConsultasPrevias"
-        Me.pnlConsultasPrevias.Size = New System.Drawing.Size(1122, 99)
+        Me.pnlConsultasPrevias.Size = New System.Drawing.Size(1122, 45)
         Me.pnlConsultasPrevias.TabIndex = 108
         '
         'btnReferenciaConsulta
@@ -478,7 +479,7 @@ Partial Class Identificacion_Paciente
         Me.btnReferenciaConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnReferenciaConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReferenciaConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReferenciaConsulta.Location = New System.Drawing.Point(864, 32)
+        Me.btnReferenciaConsulta.Location = New System.Drawing.Point(864, 10)
         Me.btnReferenciaConsulta.Name = "btnReferenciaConsulta"
         Me.btnReferenciaConsulta.Size = New System.Drawing.Size(211, 30)
         Me.btnReferenciaConsulta.TabIndex = 3
@@ -493,7 +494,7 @@ Partial Class Identificacion_Paciente
         Me.btnVerConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnVerConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVerConsulta.Location = New System.Drawing.Point(1081, 32)
+        Me.btnVerConsulta.Location = New System.Drawing.Point(1081, 10)
         Me.btnVerConsulta.Name = "btnVerConsulta"
         Me.btnVerConsulta.Size = New System.Drawing.Size(38, 30)
         Me.btnVerConsulta.TabIndex = 2
@@ -503,7 +504,7 @@ Partial Class Identificacion_Paciente
         '
         Me.cbConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbConsultasPrevias.FormattingEnabled = True
-        Me.cbConsultasPrevias.Location = New System.Drawing.Point(243, 32)
+        Me.cbConsultasPrevias.Location = New System.Drawing.Point(243, 9)
         Me.cbConsultasPrevias.Name = "cbConsultasPrevias"
         Me.cbConsultasPrevias.Size = New System.Drawing.Size(615, 30)
         Me.cbConsultasPrevias.TabIndex = 1
@@ -512,7 +513,7 @@ Partial Class Identificacion_Paciente
         '
         Me.lblConsultasPrevias.AutoSize = True
         Me.lblConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblConsultasPrevias.Location = New System.Drawing.Point(8, 33)
+        Me.lblConsultasPrevias.Location = New System.Drawing.Point(8, 10)
         Me.lblConsultasPrevias.Name = "lblConsultasPrevias"
         Me.lblConsultasPrevias.Size = New System.Drawing.Size(229, 29)
         Me.lblConsultasPrevias.TabIndex = 0

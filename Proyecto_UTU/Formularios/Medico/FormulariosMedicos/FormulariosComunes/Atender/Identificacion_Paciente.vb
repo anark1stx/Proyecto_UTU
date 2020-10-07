@@ -2,6 +2,8 @@
 Imports Utilidades
 Public Class Identificacion_Paciente
     Protected _paciente As New E_Paciente
+    Protected _consulta As New E_Atiende
+    Protected _consultas_previas As New List(Of E_Atiende)
     Property PacienteBuscar As E_Paciente
         Get
             Return _paciente
@@ -10,6 +12,36 @@ Public Class Identificacion_Paciente
             _paciente = value
         End Set
     End Property
+    Property Consulta As E_Atiende
+        Get
+            Return _consulta
+        End Get
+        Set(value As E_Atiende)
+            _consulta = value
+        End Set
+    End Property
+
+    Property ConsultasPrevias As List(Of E_Atiende)
+        Get
+            Return _consultas_previas
+        End Get
+        Set(value As List(Of E_Atiende))
+            _consultas_previas = value
+            CargarConsultas()
+        End Set
+    End Property
+
+    Sub CargarConsultas()
+        Dim itemFormateados = ConsultasPrevias.Select(Function(consulta) New With {
+            consulta.ID,
+            consulta.Fecha,
+            Key .FormattedItem = String.Format("{0} - {1}", consulta.Fecha.ToShortDateString(), consulta.NombreConsulta)
+        }).ToArray()
+
+        cbConsultasPrevias.DataSource = itemFormateados
+        cbConsultasPrevias.DisplayMember = "FormattedItem"
+        cbConsultasPrevias.ValueMember = "ID"
+    End Sub
 
     Sub PoblarDatos()
         txtCedulaPaciente.Text = PacienteBuscar.Cedula
@@ -40,7 +72,6 @@ Public Class Identificacion_Paciente
             Else
                 lblTelefonoTXT.Text &= t
             End If
-
         Next
 
         Select Case PacienteBuscar.Sexo
@@ -55,4 +86,7 @@ Public Class Identificacion_Paciente
         Me.Dock = DockStyle.Fill
     End Sub
 
+    Private Sub btnReferenciaConsulta_Click(sender As Object, e As EventArgs) Handles btnReferenciaConsulta.Click
+        Consulta.ConsultaReferencia = ConsultasPrevias(cbConsultasPrevias.SelectedIndex)
+    End Sub
 End Class

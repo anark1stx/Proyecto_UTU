@@ -449,7 +449,6 @@ Public Class frmMedico
                 MessageBox.Show("Ese paciente ya fue agregado al listado.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
                 Exit Sub
-            Case Else
         End Select
 
         Dim result = Await Task.Run(Function() na.AltaAtiende(c))
@@ -528,16 +527,7 @@ Public Class frmMedico
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
         End Select
-
-        Dim itemFormateados = r.Select(Function(consulta) New With {
-            consulta.ID,
-            consulta.Fecha,
-            Key .FormattedItem = String.Format("{0} - {1}", consulta.Fecha.ToShortDateString(), consulta.NombreConsulta)
-        }).ToArray()
-
-        frmIdentificacion.cbConsultasPrevias.DataSource = itemFormateados
-        frmIdentificacion.cbConsultasPrevias.DisplayMember = "FormattedItem"
-        frmIdentificacion.cbConsultasPrevias.ValueMember = "ID"
+        frmIdentificacion.ConsultasPrevias = r
     End Sub
 
     Async Sub CargarDatosMedico()
