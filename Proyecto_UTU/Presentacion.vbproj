@@ -97,12 +97,6 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.Designer.vb">
-      <DependentUpon>frmPreguntarNomCons.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarMedico.Designer.vb">
       <DependentUpon>frmSeleccionarMedico.vb</DependentUpon>
     </Compile>
@@ -127,12 +121,6 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
-      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Administrador\frmInicioAdm.Designer.vb">
       <DependentUpon>frmInicioAdm.vb</DependentUpon>
     </Compile>
@@ -149,12 +137,6 @@
       <DependentUpon>formularioPlano.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.Designer.vb">
-      <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.Designer.vb">
@@ -316,9 +298,6 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.resx">
       <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmPreguntarNomCons.resx">
-      <DependentUpon>frmPreguntarNomCons.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarMedico.resx">
       <DependentUpon>frmSeleccionarMedico.vb</DependentUpon>
     </EmbeddedResource>
@@ -331,9 +310,6 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">
       <DependentUpon>frmAgregarItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
-      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmInicioAdm.resx">
       <DependentUpon>frmInicioAdm.vb</DependentUpon>
     </EmbeddedResource>
@@ -342,9 +318,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmOpcionesConsulta.resx">
-      <DependentUpon>frmOpcionesConsulta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.resx">
       <DependentUpon>frmAnalisisCrear.vb</DependentUpon>

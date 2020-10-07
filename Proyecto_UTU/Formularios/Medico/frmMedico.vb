@@ -7,7 +7,6 @@ Public Class frmMedico
 
     Dim frmIni As New frmInicio
     Dim frmGestion As New frmGestionMedico
-    Dim frmOpsConsulta As New frmOpcionesConsulta
     Dim frmIdentificacion As New Identificacion_Paciente
     Dim frmEntrevista As New frmSeleccionarFormularioEntrevista
 
@@ -152,7 +151,7 @@ Public Class frmMedico
         End If
     End Sub
 
-    Public Sub CargarDatosFormulario(f As E_Formulario) 'este metodo as para los que crean los médicos/auxiliares, por ahora es el que está funcional
+    Public Sub CargarDatosFormulario(f As E_Formulario)
         Dim fl = New FormularioEntrevista
         Dim controles = ConvertirFormulario(f)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
@@ -166,13 +165,6 @@ Public Class frmMedico
         tb.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(tb)
     End Sub
-    Public Sub fixSize()
-
-        If Me.WindowState = FormWindowState.Normal Then
-            Me.WindowState = FormWindowState.Maximized
-        End If
-    End Sub
-
     Sub BloquearIdentificacion(_case As Boolean)
         frmIdentificacion.Enabled = Not _case
     End Sub
@@ -180,22 +172,10 @@ Public Class frmMedico
     Public Sub InstanciarFormulario(formulario As String)
 
         Select Case formulario
-
             Case "Inicio"
-                Me.MaximizeBox = True
                 addFrm(frmIni)
-
             Case "Gestion"
                 addFrm(frmGestion)
-
-            Case "Atender"
-                Me.MaximizeBox = False
-                If String.IsNullOrEmpty(NombreConsulta) Then
-                    InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
-                End If
-
-                addFrm(frmOpsConsulta)
-
             Case "Identificacion"
                 If String.IsNullOrEmpty(NombreConsulta) Then
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
@@ -206,7 +186,6 @@ Public Class frmMedico
                 _paciente.Cedula = 0 'reseteo los datos
                 ID_Consulta = 0
                 addFrm(frmIdentificacion)
-
             Case "SeleccionarMedico"
                 Select Case MiModo
                     Case Modo.SoyMedico
@@ -261,8 +240,6 @@ Public Class frmMedico
                 If String.IsNullOrEmpty(NombreConsulta) Then
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
                 End If
-                Me.MaximizeBox = False
-                fixSize()
 
                 addFrm(frmEntrevista)
             Case "Otro"
@@ -386,16 +363,6 @@ Public Class frmMedico
                     Sub()
                         InstanciarFormulario("EditarFormulario")
                     End Sub
-
-        'HANDLERS PARA FORMULARIO DE OPCIONES DE CONSULTA
-        AddHandler frmOpsConsulta.btnIdentificacion.Click,
-                    Sub()
-                        InstanciarFormulario("Identificacion")
-                    End Sub
-        AddHandler frmOpsConsulta.btnEntrevistaPaciente.Click,
-                    Sub()
-                        InstanciarFormulario("Entrevista")
-                    End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR MEDICO
         AddHandler frmSelecMed.btnBuscarMedico.Click, AddressOf CargarDatosMedico
 
@@ -493,7 +460,7 @@ Public Class frmMedico
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("Ese paciente ya fue agregado al listado.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -507,7 +474,7 @@ Public Class frmMedico
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El paciente fue agregado al listado con éxito.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
