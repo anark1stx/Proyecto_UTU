@@ -140,67 +140,67 @@ Public Class E_Usuario
 
     Public Overridable Function ValidarMisDatos() As Boolean
         If Not check_Cedula(Me.Cedula) Then
-            ' = MensajeDeErrorCedula()
+            Me.Nombre = MensajeDeErrorCedula()
             Return 0
         End If
 
         If Not check_Largo(Me.Nombre1, 3, 30, True) Then
-            ' = "1° Nombre: " & MensajeDeErrorLongitud(3, 30)
+            Me.Nombre = "1° Nombre: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
             If Not check_regex(Me.Nombre1, RegexLiteralAcentos) Then
-                ' = "1° Nombre: " & MensajeDeErrorsoloLetras()
+                Me.Nombre = "1° Nombre: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If
         End If
 
         If Not check_Largo(Me.Nombre2, 3, 30, False) Then
-            ' = "2° Nombre: " & MensajeDeErrorLongitud(3, 30)
+            Me.Nombre = "2° Nombre: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
             If Not check_regex(Me.Nombre2, RegexLiteralAcentos) Then
-                ' = "2° Nombre: " & MensajeDeErrorsoloLetras()
+                Me.Nombre = "2° Nombre: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If
         End If
 
         If Not check_Largo(Me.Apellido1, 3, 30, True) Then
-            ' = "1° Apellido: " & MensajeDeErrorLongitud(3, 30)
+            Me.Nombre = "1° Apellido: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
             If Not check_regex(Me.Apellido1, RegexLiteralAcentos) Then
-                ' = "1° Apellido: " & MensajeDeErrorsoloLetras()
+                Me.Nombre = "1° Apellido: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If
         End If
 
         If Not check_Largo(Me.Apellido2, 3, 30, False) Then
-            ' = "2° Apellido: " & MensajeDeErrorLongitud(3, 30)
+            Me.Nombre = "2° Apellido: " & MensajeDeErrorLongitud(3, 30)
             Return 0
         Else
             If Not check_regex(Me.Apellido2, RegexLiteralAcentos) Then
-                ' = "2° Apellido: " & MensajeDeErrorsoloLetras()
+                Me.Nombre = "2° Apellido: " & MensajeDeErrorsoloLetras()
                 Return 0
             End If
         End If
 
         If Not check_Correo(Me.Correo) Then
-            ' = "Correo: " & MensajeDeErrorCorreo()
+            Me.Nombre = "Correo: " & MensajeDeErrorCorreo()
             Return 0
         End If
 
         If Not check_Telefonos(Me.TelefonosLista()) Then
-            ' = "Teléfonos: " & MensajeDeErrorTelefonos()
+            Me.Nombre = "Teléfonos: " & MensajeDeErrorTelefonos()
             Return 0
         End If
 
         If Not check_direccion(New List(Of String)(New String() {Direccion_Calle, Direccion_Numero.ToString()})) Then
-            ' = "Dirección: " & MensajeDeErrorDireccion()
+            Me.Nombre = "Dirección: " & MensajeDeErrorDireccion()
             Return 0
         End If
 
         If Not check_Largo(Me.Contrasena, 8, 30, True) Then
-            ' = "Contraseña: " & MensajeDeErrorLongitud(8, 30)
+            Me.Nombre = "Contraseña: " & MensajeDeErrorLongitud(8, 30)
             Return 0
         End If
 
