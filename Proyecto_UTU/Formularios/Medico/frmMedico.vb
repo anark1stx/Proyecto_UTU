@@ -148,8 +148,7 @@ Public Class frmMedico
             frm.Show()
         End If
     End Sub
-
-    Public Sub CargarDatosFormulario(f As E_Formulario)
+    Public Sub CargarFormulario(f As E_Formulario)
         Dim fl = New FormularioEntrevista
         Dim controles = ConvertirFormulario(f)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
@@ -244,11 +243,10 @@ Public Class frmMedico
                 If frmCatalogo.FormSeleccionado Is Nothing Then
                     Exit Sub
                 End If
-                Dim f As New E_Formulario
-                f = frmCatalogo.FormSeleccionado
+                Dim f = frmCatalogo.FormSeleccionado
                 f.Medico = MedicoActual
                 f.Paciente = _paciente
-                CargarDatosFormulario(f)
+                CargarFormulario(f)
                 filtroB = ""
             Case "CrearFormulario"
                 frmCrear.Show()
@@ -461,10 +459,10 @@ Public Class frmMedico
                 Exit Sub
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             Case 1
-                MessageBox.Show("El paciente fue agregado al listado con éxito.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("El paciente fue agregado al listado.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
-            Case Else
         End Select
     End Sub
 
@@ -474,10 +472,10 @@ Public Class frmMedico
         Select Case result(0).ID
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                Exit Sub
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                Exit Sub
             Case -8
                 MessageBox.Show("No se encontraron pacientes para atender.", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
@@ -490,7 +488,7 @@ Public Class frmMedico
         End Select
     End Sub
 
-    Async Sub CargarDatosPaciente() 'cargar tambien al combobox sus consultas previas
+    Async Sub CargarDatosPaciente() 'cargo tambien las consultas previas ademas de sus datos
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             _paciente.Cedula = 0
             Exit Sub
@@ -521,7 +519,25 @@ Public Class frmMedico
         End Select
 
         Dim na As New N_Atiende
+        Dim r = Await Task.Run(Function() na.BuscarAtiende(_paciente.Cedula))
+        Select Case r(0).ID
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+        End Select
 
+        Dim itemFormateados = r.Select(Function(consulta) New With {
+            consulta.ID,
+            consulta.Fecha,
+            Key .FormattedItem = String.Format("{0} - {1}", consulta.Fecha.ToShortDateString(), consulta.NombreConsulta)
+        }).ToArray()
+
+        frmIdentificacion.cbConsultasPrevias.DataSource = itemFormateados
+        frmIdentificacion.cbConsultasPrevias.DisplayMember = "FormattedItem"
+        frmIdentificacion.cbConsultasPrevias.ValueMember = "ID"
     End Sub
 
     Async Sub CargarDatosMedico()
