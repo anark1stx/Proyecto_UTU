@@ -5,7 +5,8 @@ Imports FormulariosPersonalizados
 Public Class frmDiagnosticos
     Protected _formularioDesdeBD As New E_Formulario
     Protected _ci_Paciente As Integer
-    Private np As New N_Paciente
+    Private na As New N_Atiende
+    Private nf As New N_Formulario
     Private entrevista As New ContenedorEntrevistas
     Property CI_Paciente As Integer
         Get
@@ -34,7 +35,7 @@ Public Class frmDiagnosticos
             Exit Sub
         End Try
 
-        Dim r = Await Task.Run(Function() np.BuscarDiagnostico(id_seleccionada))
+        Dim r = Await Task.Run(Function() nf.BuscarDiagnostico(id_seleccionada))
         Select Case r.ID
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion, "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -70,7 +71,7 @@ Public Class frmDiagnosticos
 
         entrevista.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(entrevista)
-        Dim r = Await Task.Run(Function() np.BuscarAtiende(CI_Paciente))
+        Dim r = Await Task.Run(Function() na.BuscarAtiende(CI_Paciente))
 
         Select Case r(0).ID
             Case -1
