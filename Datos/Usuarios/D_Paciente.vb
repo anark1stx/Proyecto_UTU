@@ -4,7 +4,7 @@ Public Class D_Paciente
     Inherits D_Usuario
     Dim conexion As New MySqlConnection
     Public Function BuscarPacienteCI(ci As Integer) As E_Paciente
-
+        Console.WriteLine("leyendo paciente por ci")
         If Conectar(conexion) = -1 Then
             Return New E_Paciente With {.Cedula = -1} '-1 exit code para conexion fallida
         End If
@@ -34,6 +34,7 @@ Public Class D_Paciente
 
         If leer.HasRows Then
             While leer.Read
+                Console.WriteLine(leer.GetString("nombre1"))
                 u.Nombre1 = leer.GetString("nombre1")
                 u.Nombre2 = leer.GetString("nombre2")
                 u.Apellido1 = leer.GetString("apellido1")
@@ -206,9 +207,6 @@ Public Class D_Paciente
         Cerrar(conexion)
 
         Return list
-    End Function
-    Public Function BuscarMisTratamientos(CI As Integer) As List(Of E_Tratamiento)
-
     End Function
 
 End Class

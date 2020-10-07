@@ -5,7 +5,7 @@
     Protected _motivo As String
     Protected _paciente As New E_Paciente
     Protected _medico As New E_Medico
-    Protected _c_referencia As New E_Atiende
+    Protected _c_referencia As E_Atiende
     Property Paciente As E_Paciente
         Get
             Return _paciente

@@ -211,7 +211,7 @@ Public Class D_Medico
             Return -5 'No se pudo crear medico
         End Try
 
-        Return 1
+        Return AltaMedicoEspecialidad(u)
     End Function
 
     Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
@@ -233,7 +233,6 @@ Public Class D_Medico
                 Console.WriteLine("DANDO ALTA A: " & es)
             Catch ex As Exception
                 Cerrar(conexion)
-                Console.WriteLine("RIPEE FOERTE DANDO ALTA A: " & es)
                 Return -2 ' no se pudo ingresar la especialidad
             End Try
         Next

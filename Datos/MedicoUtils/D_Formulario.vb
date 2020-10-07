@@ -280,30 +280,26 @@ Public Class D_Formulario
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-        Dim leer As MySqlDataReader
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaAtiende", '*Alta a la tabla atiende*.
             .Connection = conexion
         }
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
-        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Medico.Cedula
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
         cmd.Parameters.Add("NOM_CONSULTA", MySqlDbType.VarChar).Value = form.Atiende.NombreConsulta
-
+        cmd.Parameters.Add("MOT", MySqlDbType.VarChar).Value = form.Atiende.NombreConsulta
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Direction = ParameterDirection.Output
         Try
-            leer = cmd.ExecuteReader()
+            cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Cerrar(conexion)
             Return 2
         End Try
 
-        While leer.Read()
-            form.Atiende.ID = leer.GetInt32("ID_consulta")
-        End While
-
         Cerrar(conexion)
-
+        form.Atiende.ID = cmd.Parameters("ID_C").Value
         Return 1
     End Function
     Public Function AltaResponde(form As E_Formulario)
@@ -318,8 +314,9 @@ Public Class D_Formulario
             .Connection = conexion
             }
             cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-            cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
-            cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Medico.Cedula
+            cmd.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = form.Atiende.Fecha
+            cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
+            cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
             cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
             cmd.Parameters.Add("ID_PREG", MySqlDbType.Int32).Value = pyr.ID_Pregunta
 
@@ -385,7 +382,7 @@ Public Class D_Formulario
             }
 
             cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-            cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+            cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
             cmd2.Parameters.Add("ID_S", MySqlDbType.Int32).Value = signo.ID
 
             Try
@@ -432,7 +429,7 @@ Public Class D_Formulario
             }
 
             cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-            cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+            cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
             cmd2.Parameters.Add("ID_S", MySqlDbType.Int32).Value = sintoma.ID
 
             Try
@@ -477,7 +474,7 @@ Public Class D_Formulario
             .Connection = conexion
         }
         cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-        cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+        cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
         cmd2.Parameters.Add("NOM_E", MySqlDbType.VarChar, 160).Value = form.Enfermedad.Nombre
 
         Try
@@ -505,7 +502,7 @@ Public Class D_Formulario
         }
         cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
         cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = form.Tratamiento.ID
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Paciente.Cedula
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
 
         Try
             cmd.ExecuteNonQuery()
@@ -541,6 +538,7 @@ Public Class D_Formulario
         End Try
 
         While leer.Read()
+            Console.WriteLine("leyendo formulario usado")
             form = New E_Formulario With {
                 .XML = leer.GetString("XML")
             }

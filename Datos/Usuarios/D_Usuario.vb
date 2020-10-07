@@ -74,7 +74,7 @@ Public Class D_Usuario
             Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
             Dim code = MyBase.AltaUsuario(mysqlUser) 'usuario de mysql
             Select Case code
-                Case -1, -2
+                Case <> 1
                     Return code
             End Select
             cmd.CommandText = "AltaUsuario"
@@ -185,7 +185,7 @@ Public Class D_Usuario
             .CommandText = "A_BLogicaUsuario"
         }
 
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = CI
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = CI
         cmd.Parameters.Add("CAMBIO", MySqlDbType.Bit).Value = A_B
         Try
             cmd.ExecuteNonQuery()

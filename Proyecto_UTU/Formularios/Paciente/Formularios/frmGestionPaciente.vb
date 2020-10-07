@@ -2,7 +2,7 @@
 Imports Negocio
 Imports Utilidades
 Public Class frmGestionPaciente
-    Protected _paciente As E_Paciente
+    Protected _paciente As New E_Paciente
     Private np As New N_Paciente
 
     Property PacienteLogeado As E_Paciente

@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class D_UsuarioMYSQL
     Dim conexion As New MySqlConnection
     Public Function SeleccionarUsuario(usuario As String, contrasena As String) As E_UsuarioMYSQL
-
+        Console.WriteLine("leyendo usuario")
         Dim u As New E_UsuarioMYSQL
         Dim leer As MySqlDataReader
 
@@ -12,8 +12,8 @@ Public Class D_UsuarioMYSQL
         Dim exitCode As Integer = Conectar(conexion)
 
         Select Case exitCode
-            Case -1, -5
-                Return New E_UsuarioMYSQL With {.Rol = exitCode}
+            Case <> 1
+                Return New E_UsuarioMYSQL With {.Nombre = exitCode}
         End Select
 
         Dim cmd As New MySqlCommand With {
@@ -25,18 +25,19 @@ Public Class D_UsuarioMYSQL
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = usuario
         Try
             leer = cmd.ExecuteReader()
-            If leer.HasRows Then
-                While leer.Read()
-                    u.Rol = leer.GetString("ROL")
-                End While
-            Else 'no tiene rol asignado en la tabla mysql.default_roles
-                u.Rol = -2
-                Return u
-            End If
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
             u.Rol = -2
             Return u
         End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                u.Rol = leer.GetString("ROL")
+            End While
+        Else 'no tiene rol asignado en la tabla mysql.default_roles
+            u.Rol = -2
+            Return u
+        End If
 
         leer.Close()
 
@@ -50,10 +51,10 @@ Public Class D_UsuarioMYSQL
         Dim cmd2 As New MySqlCommand With { 'verificar si el usuario de SIBIM fue dado de baja
             .Connection = conexion,
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "ConsultarEstado"
+            .CommandText = "ConsultarActivo"
         }
 
-        cmd2.Parameters.Add("cedula", MySqlDbType.Int32).Value = CInt(usuario.Replace("u", ""))
+        cmd2.Parameters.Add("CI_U", MySqlDbType.Int32).Value = CInt(usuario.Replace("u", ""))
         Dim activo As Boolean = True 'por defecto todos los usuarios estan de alta = 1
 
         Try
@@ -63,11 +64,11 @@ Public Class D_UsuarioMYSQL
             End While
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
             Console.WriteLine(ex.Message)
-            u.Rol = -2
+            u.Nombre = -2
         End Try
 
         If activo = False Then
-            u.Rol = -3 'de baja
+            u.Nombre = -3 'de baja
         End If
 
         Cerrar(conexion)

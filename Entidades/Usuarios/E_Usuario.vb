@@ -16,12 +16,6 @@ Public Class E_Usuario
 
     End Sub
 
-    Sub New(cedula As Integer, contrasena As String, rol As String) 'CONSTRUCTOR PARA LOGIN
-        _cedula = cedula
-        _contrasena = contrasena
-        _rol = rol
-    End Sub
-
     'CONSTRUCTOR COMPLETO
     Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte(), rol As String, activo As Boolean)
         _nombre1 = nombre1
@@ -40,7 +34,7 @@ Public Class E_Usuario
     End Sub
 
     'PROPIEDADES GET & SET
-    Property Nombre1() As String
+    Property Nombre1 As String
         Get
             Return (_nombre1)
         End Get
@@ -49,7 +43,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property Nombre2() As String
+    Property Nombre2 As String
         Get
             Return (_nombre2)
         End Get
@@ -58,7 +52,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property Apellido1() As String
+    Property Apellido1 As String
         Get
             Return (_apellido1)
         End Get
@@ -67,7 +61,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property Apellido2() As String
+    Property Apellido2 As String
         Get
             Return (_apellido2)
         End Get
@@ -76,7 +70,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property Correo() As String
+    Property Correo As String
         Get
             Return (_correo)
         End Get
@@ -85,7 +79,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property TelefonosLista() As List(Of String)
+    Property TelefonosLista As List(Of String)
         Get
             Return (_telefonosLista)
         End Get
@@ -94,7 +88,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property Cedula() As Integer
+    Property Cedula As Integer
         Get
             Return (_cedula)
         End Get
@@ -103,7 +97,7 @@ Public Class E_Usuario
         End Set
     End Property
 
-    Property Direccion_Calle() As String
+    Property Direccion_Calle As String
         Get
             Return (_direccion_calle)
         End Get
@@ -111,7 +105,7 @@ Public Class E_Usuario
             _direccion_calle = value
         End Set
     End Property
-    Property Direccion_Numero() As Integer
+    Property Direccion_Numero As Integer
         Get
             Return (_direccion_numero)
         End Get

@@ -5,7 +5,7 @@ Public Class frmPaciente
     Dim frmAnalisis As New frmAnalisis 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
     Dim frmIni As New frmInicioPaciente
-    Protected _paciente As E_Paciente
+    Protected _paciente As New E_Paciente
 
     Property PacienteActual As E_Paciente
         Get
@@ -14,6 +14,7 @@ Public Class frmPaciente
         Set(value As E_Paciente)
             _paciente = value
             frmDiagnostico.CI_Paciente = value.Cedula
+            frmGestion.PacienteLogeado = PacienteActual
         End Set
     End Property
 
@@ -55,7 +56,6 @@ Public Class frmPaciente
                 addFrm(frmDiagnostico)
 
             Case "Gestion"
-                frmGestion.PacienteLogeado = New E_Paciente With {.Cedula = PacienteActual.Cedula}
                 addFrm(frmGestion)
 
             Case "Analisis"
@@ -69,7 +69,6 @@ Public Class frmPaciente
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
-
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
@@ -93,26 +92,11 @@ Public Class frmPaciente
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
 
-        Dim sender = New Object
-        Dim e = New EventArgs
-
         'HANDLERS PARA FORMULARIO INICIO
-        AddHandler frmIni.btnGestion.Click,
-                    Sub()
-                        GestionToolStripMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler frmIni.btnDiagnosticos.Click,
-                    Sub()
-                        DiagnosticoToolStripMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler frmIni.btnAnalisis.Click,
-                    Sub()
-                        AnalisisToolStripMenuItem_Click(sender, e)
-                    End Sub
-        AddHandler frmIni.btnSalir.Click,
-                    Sub()
-                        SalirToolStripMenuItem_Click(sender, e)
-                    End Sub
+        AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
+        AddHandler frmIni.btnDiagnosticos.Click, AddressOf DiagnosticoToolStripMenuItem_Click
+        AddHandler frmIni.btnAnalisis.Click, AddressOf AnalisisToolStripMenuItem_Click
+        AddHandler frmIni.btnSalir.Click, AddressOf SalirToolStripMenuItem_Click
     End Sub
 
 End Class

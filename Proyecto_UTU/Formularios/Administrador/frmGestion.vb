@@ -417,13 +417,13 @@ Public Class frmGestion
                             ci_valida = False
                             LimpiarControles(Me)
                             configurarControles()
-                        Case 2
+                        Case -2
                             MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 3
+                        Case -3
                             MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 4
+                        Case -4
                             MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 5
+                        Case -5
                             MessageBox.Show("Error ingresando al paciente", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Select
                 End If
@@ -446,15 +446,15 @@ Public Class frmGestion
                             ci_valida = False
                             LimpiarControles(Me)
                             configurarControles()
-                        Case 2
+                        Case -2
                             MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 3
+                        Case -3
                             MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 4
+                        Case -4
                             MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 5
+                        Case -5
                             MessageBox.Show("Error ingresando al médico", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Case 6
+                        Case -6
                             MessageBox.Show("Error ingresando especialidades", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Select
                 End If
@@ -477,13 +477,13 @@ Public Class frmGestion
                         ci_valida = False
                         LimpiarControles(Me)
                         configurarControles()
-                    Case 2
+                    Case -2
                         MessageBox.Show(MensajeDeErrorUsuarioMYSQL(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Case 3
+                    Case -3
                         MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Case 4
+                    Case -4
                         MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Case 5
+                    Case -5
                         MessageBox.Show("Error ingresando al auxiliar", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 End Select
@@ -606,15 +606,13 @@ Public Class frmGestion
         Select Case res
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 0
-                MessageBox.Show("No se pudo dar de baja al usuario", "Baja fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue dado de baja.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ci_valida = False
                 LimpiarControles(Me)
                 configurarControles()
-            Case 2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error dando baja", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
 
@@ -630,14 +628,12 @@ Public Class frmGestion
         Select Case res
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 0
-                MessageBox.Show("No se pudo dar de alta al usuario", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El usuario fue dado de alta.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ci_valida = False
                 LimpiarControles(Me)
                 configurarControles()
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
@@ -686,11 +682,11 @@ Public Class frmGestion
                 ci_valida = False
                 LimpiarControles(Me)
                 configurarControles()
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error modificando usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 3
+            Case -3
                 MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 5
+            Case -5
                 MessageBox.Show("Error modificando especialidades del médico", "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
@@ -732,10 +728,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fue encontrado un paciente con esa cédula", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
@@ -758,10 +754,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fueron encontrados pacientes con ese apellido", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
@@ -789,10 +785,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fue encontrado un medico con esa cédula", "Medico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
@@ -813,10 +809,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fueron encontrados médicos con ese apellido", "Médicos no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
@@ -840,10 +836,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fueron encontrados médicos con esa especialidad", "Médicos no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
@@ -871,10 +867,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fue encontrado un auxiliar con esa cédula", "Medico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
@@ -894,10 +890,10 @@ Public Class frmGestion
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 2
+                            Case -2
                                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Acción fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            Case 8
+                            Case -8
                                 MessageBox.Show("No fueron encontrados auxiliares con ese apellido", "Auxiliares no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select

@@ -244,8 +244,8 @@ Public Class frmMedico
                     Exit Sub
                 End If
                 Dim f = frmCatalogo.FormSeleccionado
-                f.Medico = MedicoActual
-                f.Paciente = _paciente
+                f.Atiende.Medico = MedicoActual
+                f.Atiende.Paciente = _paciente
                 CargarFormulario(f)
                 filtroB = ""
             Case "CrearFormulario"
@@ -479,7 +479,6 @@ Public Class frmMedico
                 MessageBox.Show("No se encontraron pacientes para atender.", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
             Case Else
-                Console.WriteLine("encontre entrevistas")
                 '_entrevistas.tblTarjetas.Controls.Clear()
                 _entrevistas.ListaEntrevistas = result
                 addFrm(_entrevistas)
@@ -600,7 +599,6 @@ Public Class frmMedico
             InstanciarFormulario("AsignarAnalisis")
         End If
     End Sub
-
     Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
         If ID_Consulta = 0 Then
             MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -647,7 +645,6 @@ Public Class frmMedico
         Console.WriteLine("Agarre ID= " & tb.Frmlimpio.MiFormulario.Atiende.ID)
         ID_Consulta = tb.Frmlimpio.MiFormulario.Atiende.ID
     End Sub
-
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
     End Sub
