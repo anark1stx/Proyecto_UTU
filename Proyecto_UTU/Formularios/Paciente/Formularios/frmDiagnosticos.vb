@@ -44,7 +44,7 @@ Public Class frmDiagnosticos
                 Exit Sub
         End Select
         Formulario = r
-        Dim fl = New formularioLimpio
+        Dim fl = New FormularioEntrevista
         Dim controles = ConvertirFormulario(r)
         PoblarRespuestas(r.PreguntasYRespuestas, controles)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())

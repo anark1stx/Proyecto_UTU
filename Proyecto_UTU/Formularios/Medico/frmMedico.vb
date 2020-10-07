@@ -153,7 +153,7 @@ Public Class frmMedico
     End Sub
 
     Public Sub CargarDatosFormulario(f As E_Formulario) 'este metodo as para los que crean los médicos/auxiliares, por ahora es el que está funcional
-        Dim fl = New formularioLimpio
+        Dim fl = New FormularioEntrevista
         Dim controles = ConvertirFormulario(f)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
         BuscarPreguntas(fl.pnlContenedor, f.PreguntasYRespuestas)
@@ -486,9 +486,9 @@ Public Class frmMedico
             Exit Sub
         End If
 
-        Dim c As New E_EntrevistaIni(AuxiliarActual, MedicoActual, _paciente, frmIdentificacion.txtMotivoC.Text)
-        Dim nm As New N_Medico
-        Dim existeE = Await Task.Run(Function() nm.EntrevistaInicialExiste(c))
+        Dim c As New E_Atiende(NombreConsulta, frmIdentificacion.txtMotivoC.Text, _paciente, MedicoActual)
+        Dim na As New N_Atiende
+        Dim existeE = Await Task.Run(Function() na.AtiendeExiste(c))
         Select Case existeE
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -502,7 +502,7 @@ Public Class frmMedico
             Case Else
         End Select
 
-        Dim result = Await Task.Run(Function() nm.AltaEntrevistaInicial(c)) 'antes de esto verificar que no exista ya una entrevista con la misma CP {CI_P,CI_M,CI_A}
+        Dim result = Await Task.Run(Function() na.AltaAtiende(c))
         Select Case result
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -517,8 +517,8 @@ Public Class frmMedico
     End Sub
 
     Async Sub VerConsultasDeHoy()
-        Dim nm As New N_Medico
-        Dim result = Await Task.Run(Function() nm.ConsultarMisConsultasDeHoy(MedicoActual.Cedula))
+        Dim na As New N_Atiende
+        Dim result = Await Task.Run(Function() na.ConsultarMisConsultasDeHoy(MedicoActual.Cedula))
         Select Case result(0).ID
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -553,14 +553,14 @@ Public Class frmMedico
         Dim np As New N_Paciente
         frmIdentificacion.PacienteBuscar = Await Task.Run(Function() np.BuscarPacienteCI(CInt(frmIdentificacion.txtCedulaPaciente.Text)))
         frmIdentificacion.PacienteBuscar.Foto = Await Task.Run(Function() np.LeerFoto(frmIdentificacion.PacienteBuscar.Cedula))
-        Select Case frmIdentificacion.PacienteBuscar.ErrMsg
+        Select Case frmIdentificacion.PacienteBuscar.Cedula
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
-            Case 8
+            Case -8
                 MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 LimpiarControles(frmIdentificacion)
             Case Else
@@ -591,16 +591,16 @@ Public Class frmMedico
         Dim nm As New N_Medico
         frmSelecMed.MedicoSelect = Await Task.Run(Function() nm.BuscarMedicoCI(ci))
         frmSelecMed.MedicoSelect.Foto = Await Task.Run(Function() nm.LeerFoto(ci))
-        Select Case frmSelecMed.MedicoSelect.ErrMsg
+        Select Case frmSelecMed.MedicoSelect.Cedula
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmSelecMed)
                 Exit Sub
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmSelecMed)
                 Exit Sub
-            Case 8
+            Case -8
                 MessageBox.Show("No se encontró un médico con esa cédula.", "Médico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 LimpiarControles(frmSelecMed)
                 Exit Sub

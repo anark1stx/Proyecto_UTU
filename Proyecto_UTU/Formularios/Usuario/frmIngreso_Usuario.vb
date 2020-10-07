@@ -12,7 +12,7 @@ Public Class frmIngreso_Usuario
 
             Dim usu = Await Task.Run(Function() umysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text))
 
-            Select Case usu.ErrMsg
+            Select Case usu.Nombre
                 Case -1
                     MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -22,10 +22,7 @@ Public Class frmIngreso_Usuario
                 Case -3
                     MessageBox.Show("Su usuario fue dado de baja en el sistema. Si cree que esto se trata de un error comuníquese con administración.", "Usuario dado de baja", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
-                Case 2
-                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "No tiene permisos para consultar su rol.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                Case 5
+                Case -5
                     MessageBox.Show(MensajeDeErrorCredsInvalidas(), "Credenciales incorrectas.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     lblMensajeErrorCI.Visible = True
                     Exit Sub

@@ -8256,11 +8256,11 @@
         </member>
         <member name="F:MySql.Data.MySqlClient.MySqlErrorCode.GetErroMessage">
             <summary></summary>
-            <remarks>ER_GET_ERRMSG</remarks>
+            <remarks>ER_GET_Nombre</remarks>
         </member>
         <member name="F:MySql.Data.MySqlClient.MySqlErrorCode.GetTemporaryErrorMessage">
             <summary></summary>
-            <remarks>ER_GET_TEMPORARY_ERRMSG</remarks>
+            <remarks>ER_GET_TEMPORARY_Nombre</remarks>
         </member>
         <member name="F:MySql.Data.MySqlClient.MySqlErrorCode.UnknownTimeZone">
             <summary></summary>

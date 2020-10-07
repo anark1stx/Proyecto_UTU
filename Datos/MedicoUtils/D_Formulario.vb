@@ -358,7 +358,7 @@ Public Class D_Formulario
             Return -1
         End If
         Dim leer As MySqlDataReader
-        For Each signo As E_Enfermedad.SignoClinico In form.Enfermedad.SignosClinicos
+        For Each signo As E_SignoClinico In form.Enfermedad.SignosClinicos
             Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSignoClinico", '*Alta a la tabla signo.
@@ -405,7 +405,7 @@ Public Class D_Formulario
             Return -1
         End If
         Dim leer As MySqlDataReader
-        For Each sintoma As E_Enfermedad.Sintoma In form.Enfermedad.Sintomas
+        For Each sintoma As E_Sintoma In form.Enfermedad.Sintomas
             Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSintoma", '*Alta a la tabla sintoma.

@@ -85,10 +85,10 @@
     <Compile Include="Formularios\Administrador\frmGestion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\formularioLimpio.Designer.vb">
-      <DependentUpon>formularioLimpio.vb</DependentUpon>
+    <Compile Include="Formularios\Medico\FormularioEntrevista.Designer.vb">
+      <DependentUpon>FormularioEntrevista.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\formularioLimpio.vb">
+    <Compile Include="Formularios\Medico\FormularioEntrevista.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.Designer.vb">
@@ -115,10 +115,10 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\ContenedorEntrevistas.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\ContenedorEntrevistas.Designer.vb">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\ContenedorEntrevistas.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\ContenedorEntrevistas.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.Designer.vb">
@@ -310,8 +310,8 @@
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\formularioLimpio.resx">
-      <DependentUpon>formularioLimpio.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\Medico\FormularioEntrevista.resx">
+      <DependentUpon>FormularioEntrevista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.resx">
       <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
@@ -325,7 +325,7 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
       <DependentUpon>TarjetaPaciente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\PreHechos\ContenedorEntrevistas.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\ContenedorEntrevistas.resx">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">

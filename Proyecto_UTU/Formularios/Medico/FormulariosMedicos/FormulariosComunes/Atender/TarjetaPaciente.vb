@@ -1,12 +1,12 @@
 ﻿Imports Utilidades
 Imports Entidades
 Public Class TarjetaPaciente
-    Protected _mientrevista As New E_EntrevistaIni
-    Property MiEntrevista As E_EntrevistaIni
+    Protected _mientrevista As New E_Atiende
+    Property MiEntrevista As E_Atiende
         Get
             Return _mientrevista
         End Get
-        Set(value As E_EntrevistaIni)
+        Set(value As E_Atiende)
             _mientrevista = value
         End Set
     End Property

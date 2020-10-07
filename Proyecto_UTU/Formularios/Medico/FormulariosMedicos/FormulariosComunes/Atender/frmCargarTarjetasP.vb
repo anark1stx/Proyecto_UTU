@@ -1,21 +1,21 @@
 ﻿Imports Entidades
 Public Class frmCargarTarjetasP
-    Protected _listaE As New List(Of E_EntrevistaIni)
-    Protected _e_seleccionada As E_EntrevistaIni
-    Property ListaEntrevistas As List(Of E_EntrevistaIni)
+    Protected _listaE As New List(Of E_Atiende)
+    Protected _e_seleccionada As E_Atiende
+    Property ListaEntrevistas As List(Of E_Atiende)
         Get
             Return _listaE
         End Get
-        Set(value As List(Of E_EntrevistaIni))
+        Set(value As List(Of E_Atiende))
             _listaE = value
         End Set
     End Property
 
-    Property EntrevistaSeleccionada As E_EntrevistaIni
+    Property EntrevistaSeleccionada As E_Atiende
         Get
             Return _e_seleccionada
         End Get
-        Set(value As E_EntrevistaIni)
+        Set(value As E_Atiende)
             _e_seleccionada = value
         End Set
     End Property
@@ -29,7 +29,7 @@ Public Class frmCargarTarjetasP
         tblTarjetas.RowStyles.Clear()
         tblTarjetas.RowCount = 1
         If ListaEntrevistas.Count > 0 Then
-            For Each ei As E_EntrevistaIni In ListaEntrevistas
+            For Each ei As E_Atiende In ListaEntrevistas
                 If Not ei Is ListaEntrevistas.Last() Then
                     tblTarjetas.RowCount += 1
                 End If

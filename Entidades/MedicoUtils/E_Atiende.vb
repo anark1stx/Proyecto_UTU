@@ -62,8 +62,11 @@
 
     End Sub
 
-    Public Sub New(nombre, motivo)
+    Public Sub New(nombre As String, motivo As String, paciente As E_Paciente, medico As E_Medico)
         _nombre_c = nombre
+        _medico = medico
+        _paciente = paciente
+        _motivo = motivo
     End Sub
 
 End Class

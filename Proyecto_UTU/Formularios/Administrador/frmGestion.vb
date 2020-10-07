@@ -16,7 +16,7 @@ Public Class frmGestion
     Dim a As New E_Usuario
     Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
-    Dim negocio As New N_Usuario
+    Dim negocio As New N_Auxiliar
     Public Enum Accion
         Alta
         Baja
@@ -327,7 +327,7 @@ Public Class frmGestion
                         ci_valida = True
                     End If
                     If Mode = Accion.Alta AndAlso ci_valida Then
-                        Dim nu As New N_Usuario
+                        Dim nu As New N_Auxiliar
                         Dim code = Await Task.Run(Function() nu.UsuarioExiste(Val(lblCedulaTXT.Text)))
 
                         Select Case code
@@ -403,7 +403,7 @@ Public Class frmGestion
                 Dim p = Base_props_paciente(u)
 
                 If Not p.ValidarMisDatos() Then
-                    MessageBox.Show(p.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(p.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
 
@@ -433,7 +433,7 @@ Public Class frmGestion
 
                 Dim m = Base_Props_Medico(u)
                 If Not m.ValidarMisDatos() Then
-                    MessageBox.Show(m.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(m.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
                     Dim nm As New N_Medico
@@ -463,11 +463,11 @@ Public Class frmGestion
                 Dim u = Base_props_user()
 
                 If Not u.ValidarMisDatos() Then
-                    MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
 
-                Dim nu As New N_Usuario
+                Dim nu As New N_Auxiliar
                 Dim res = Await Task.Run(Function() nu.AltaAuxiliar(u))
                 Select Case res
                     Case -1
@@ -599,7 +599,7 @@ Public Class frmGestion
             Exit Sub
         End If
 
-        Dim nu As New N_Usuario
+        Dim nu As New N_Auxiliar
 
         Dim res = Await Task.Run(Function() nu.BajaLogicaUsuario(u))
 
@@ -623,7 +623,7 @@ Public Class frmGestion
             .Cedula = lblCedulaTXT.Text
         }
 
-        Dim nu As New N_Usuario
+        Dim nu As New N_Auxiliar
 
         Dim res = Await Task.Run(Function() nu.AltaLogicaUsuario(u))
 
@@ -652,19 +652,19 @@ Public Class frmGestion
         End If
 
         If Not u.ValidarMisDatos() Then
-            MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         Select Case Usuario
             Case TipoUsuario.Auxiliar
-                Dim nu As New N_Usuario
+                Dim nu As New N_Auxiliar
                 code = Await Task.Run(Function() nu.ModificacionAuxiliar(u))
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 u = Base_props_paciente(u)
                 If Not DirectCast(u, E_Paciente).ValidarMisDatos() Then
-                    MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
                 code = Await Task.Run(Function() np.ModificacionPaciente(u))
@@ -672,7 +672,7 @@ Public Class frmGestion
                 Dim nm As New N_Medico
                 u = Base_Props_Medico(u)
                 If Not DirectCast(u, E_Medico).ValidarMisDatos() Then
-                    MessageBox.Show(u.ErrMsg, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
                 code = Await Task.Run(Function() nm.ModificacionMedico(u))
@@ -728,7 +728,7 @@ Public Class frmGestion
 
                         p = Await Task.Run(Function() np.BuscarPacienteCI(txtBusqueda.Text))
 
-                        Select Case p.ErrMsg
+                        Select Case p.Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -754,7 +754,7 @@ Public Class frmGestion
                         End If
                         pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
 
-                        Select Case pList(0).ErrMsg
+                        Select Case pList(0).Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -785,7 +785,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         m = Await Task.Run(Function() nm.BuscarMedicoCI(txtBusqueda.Text))
-                        Select Case m.ErrMsg
+                        Select Case m.Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -809,7 +809,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         mList = Await Task.Run(Function() nm.BuscarMedicoApellido(txtBusqueda.Text))
-                        Select Case mList(0).ErrMsg
+                        Select Case mList(0).Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -836,7 +836,7 @@ Public Class frmGestion
                         End If
                         mList = Await Task.Run(Function() nm.BuscarMedicoEspecialidad(txtBusqueda.Text))
 
-                        Select Case mList(0).ErrMsg
+                        Select Case mList(0).Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -859,7 +859,7 @@ Public Class frmGestion
                 End Select
 
             Case TipoUsuario.Auxiliar
-                Dim naux As New N_Usuario
+                Dim naux As New N_Auxiliar
                 Select Case Filter
                     Case Filtro.Cedula
                         If Not check_Cedula(txtBusqueda.Text) Then
@@ -867,7 +867,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         a = Await Task.Run(Function() naux.BuscarAuxiliarCI(txtBusqueda.Text))
-                        Select Case a.ErrMsg
+                        Select Case a.Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -890,7 +890,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         aList = Await Task.Run(Function() naux.BuscarAuxiliaresApellido(txtBusqueda.Text))
-                        Select Case aList(0).ErrMsg
+                        Select Case aList(0).Nombre
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -972,7 +972,7 @@ Public Class frmGestion
         dgw.Columns("Rol").Visible = False
         dgw.Columns("Contrasena").Visible = False
         dgw.Columns("Foto").Visible = False
-        dgw.Columns("ErrMsg").Visible = False
+        dgw.Columns("Nombre").Visible = False
     End Sub
 
     Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick

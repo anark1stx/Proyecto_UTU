@@ -2,7 +2,7 @@
 Imports FormulariosPersonalizados
 Public Class ContenedorEntrevistas
     Protected _enfermedad As New E_Enfermedad
-    Protected _frmLimpio As New formularioLimpio
+    Protected _frmLimpio As New FormularioEntrevista
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
     Protected _modo As Modo
@@ -16,15 +16,18 @@ Public Class ContenedorEntrevistas
             Return _modo
         End Get
         Set(value As Modo)
-            _modo = value
+            If value <> _modo Then
+                _modo = value
+                ResetMode()
+            End If
         End Set
     End Property
 
-    Property Frmlimpio As formularioLimpio
+    Property Frmlimpio As FormularioEntrevista
         Get
             Return _frmLimpio
         End Get
-        Set(value As formularioLimpio)
+        Set(value As FormularioEntrevista)
             _frmLimpio = value
         End Set
     End Property
@@ -90,7 +93,7 @@ Public Class ContenedorEntrevistas
                         Console.WriteLine("combo vacio")
                     End Try
                     cb.DropDownStyle = ComboBoxStyle.DropDownList
-                Case GetType(TabControl), GetType(TabPage), GetType(Panel), GetType(formularioLimpio), GetType(TableLayoutPanel)
+                Case GetType(TabControl), GetType(TabPage), GetType(Panel), GetType(FormularioEntrevista), GetType(TableLayoutPanel)
                     makeFormReadOnly(c)
             End Select
         Next
@@ -102,7 +105,7 @@ Public Class ContenedorEntrevistas
         End If
         If Not lbSignosClinicos.Items.Contains(txtSgClinico.Text) Then
             lbSignosClinicos.Items.Add(txtSgClinico.Text)
-            Dim sg As New E_Enfermedad.SignoClinico
+            Dim sg As New E_SignoClinico
             sg.Nombre = txtSgClinico.Text
             Frmlimpio.MiFormulario.Enfermedad.SignosClinicos.Add(sg)
             txtSgClinico.Clear()
@@ -118,8 +121,9 @@ Public Class ContenedorEntrevistas
         End If
         If Not lbSintomas.Items.Contains(txtSintoma.Text) Then
             lbSintomas.Items.Add(txtSintoma.Text)
-            Dim sintoma As New E_Enfermedad.Sintoma
-            sintoma.Nombre = txtSintoma.Text
+            Dim sintoma As New E_Sintoma With {
+                .Nombre = txtSintoma.Text
+            }
             Frmlimpio.MiFormulario.Enfermedad.Sintomas.Add(sintoma)
             txtSintoma.Clear()
         Else
@@ -195,8 +199,8 @@ Public Class ContenedorEntrevistas
 
     Private Sub btnSugerirDiagnostico_Click(sender As Object, e As EventArgs) Handles btnSugerirDiagnostico.Click
         MsgBox("Aun no implementado.")
+        'ejecutar los procedimientos Sugerir[{enfermedad,tratamiento,analisis}] según [{pyr,sintomas,signos clinicos}]
     End Sub
-
     Private Sub txtNomEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtNomEnfermedad.TextChanged
         Frmlimpio.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
     End Sub

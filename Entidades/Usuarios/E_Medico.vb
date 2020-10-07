@@ -40,10 +40,10 @@ Public Class E_Medico
 
         For Each es As String In Especialidad
             If Not check_Largo(es, 3, 50, True) Then
-                _errMsg = "Especialidad: " & es & " " & MensajeDeErrorLongitud(3, 50)
+                ' = "Especialidad: " & es & " " & MensajeDeErrorLongitud(3, 50)
                 Return 0
                 If Not check_regex(es, RegexAlfaNumerico()) Then
-                    _errMsg = "Especialidad: " & es & ". " & optMsg
+                    ' = "Especialidad: " & es & ". " & optMsg
                     Return 0
                 End If
             End If

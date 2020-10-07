@@ -6,6 +6,7 @@ Public Class frmGestionMedico
     Protected _medico As E_Medico
     Protected _auxiliar As E_Usuario
     Private nm As New N_Medico
+    Private na As New N_Auxiliar
     Property MedicoLogeado As E_Medico
         Get
             Return _medico
@@ -34,7 +35,7 @@ Public Class frmGestionMedico
     Private Async Sub frmGestionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Select Case MiModo
             Case frmMedico.Modo.SoyAuxiliar
-                AuxiliarLogeado = Await Task.Run(Function() nm.BuscarAuxiliarCI(AuxiliarLogeado.Cedula))
+                AuxiliarLogeado = Await Task.Run(Function() na.BuscarAuxiliarCI(AuxiliarLogeado.Cedula))
                 AuxiliarLogeado.Foto = Await Task.Run(Function() nm.LeerFoto(AuxiliarLogeado.Cedula))
                 bindPropsAuxiliar()
             Case frmMedico.Modo.SoyMedico
