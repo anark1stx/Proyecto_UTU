@@ -5,7 +5,7 @@
     Protected _motivo As String
     Protected _paciente As New E_Paciente
     Protected _medico As New E_Medico
-
+    Protected _c_referencia As New E_Atiende
     Property Paciente As E_Paciente
         Get
             Return _paciente
@@ -23,7 +23,7 @@
         End Set
     End Property
 
-    Property ID As Integer 'id de consulta
+    Property ID As Integer
         Get
             Return _id
         End Get
@@ -58,15 +58,21 @@
         End Set
     End Property
 
+    Property ConsultaReferencia As E_Atiende
+        Get
+            Return _c_referencia
+        End Get
+        Set(value As E_Atiende)
+            _c_referencia = value
+        End Set
+    End Property
     Public Sub New()
 
     End Sub
-
     Public Sub New(nombre As String, motivo As String, paciente As E_Paciente, medico As E_Medico)
         _nombre_c = nombre
         _medico = medico
         _paciente = paciente
         _motivo = motivo
     End Sub
-
 End Class

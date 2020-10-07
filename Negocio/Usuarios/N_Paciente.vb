@@ -22,12 +22,4 @@ Public Class N_Paciente
         Return objDatos.BuscarMisAnalisis(CI)
     End Function
 
-    Public Function BuscarAtiende(CI As Integer) As List(Of E_Atiende)
-        Return objDatos.BuscarMisConsultas(CI)
-    End Function
-
-    Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
-        Return objDatos.BuscarDiagnostico(ID_C)
-    End Function
-
 End Class

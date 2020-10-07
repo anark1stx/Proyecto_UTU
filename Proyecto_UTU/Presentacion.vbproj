@@ -193,6 +193,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
+      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFrm.Designer.vb">
       <DependentUpon>frmPresentacionFrm.vb</DependentUpon>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.resx">
       <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
+      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFrm.resx">
       <DependentUpon>frmPresentacionFrm.vb</DependentUpon>

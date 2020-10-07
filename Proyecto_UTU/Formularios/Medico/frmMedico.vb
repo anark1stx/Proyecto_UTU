@@ -114,7 +114,6 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
                 _entrevistas.tblAcciones.Visible = False
-                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.AgregarAListaHoy
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -135,7 +134,6 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
                 _entrevistas.tblAcciones.Visible = True
-                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.MedicoAtiende
         End Select
         frmGestion.MiModo = MiModo
     End Sub
@@ -181,8 +179,6 @@ Public Class frmMedico
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
                 End If
                 LimpiarControles(frmIdentificacion)
-                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.MedicoAtiende
-                frmIdentificacion.configurarControles()
                 _paciente.Cedula = 0 'reseteo los datos
                 ID_Consulta = 0
                 addFrm(frmIdentificacion)
@@ -219,8 +215,6 @@ Public Class frmMedico
                 End Select
             Case "EntrevistaInicial"
                 LimpiarControles(frmIdentificacion)
-                frmIdentificacion.ModoActual = Identificacion_Paciente.Modo.AgregarAListaHoy
-                frmIdentificacion.configurarControles()
                 addFrm(frmIdentificacion)
                 If MedicoActual.Cedula = 0 Then 'hasta que no seleccione un medico, no le dejamos agregar pacienes al listado
                     MessageBox.Show("Debe identificar al médico que va a atender la consulta primero.", "Falta identificar al medico", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -260,9 +254,8 @@ Public Class frmMedico
                 frmCrear.Show()
             Case "EditarFormulario"
                 frmCrear.Show()
-                Dim sender As Object = New Object()
-                Dim e As EventArgs = New EventArgs()
-                frmCrear.btnAbrir_Click(sender, e)
+                Dim sender As Object = New Object
+                frmCrear.btnAbrir.PerformClick()
             Case "IngresarTratamiento"
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
@@ -369,15 +362,7 @@ Public Class frmMedico
         'HANDLERS PARA FORMULARIO IDENTIFICACION PACIENTE
 
         AddHandler frmIdentificacion.btnBuscar.Click, AddressOf CargarDatosPaciente
-        AddHandler frmIdentificacion.btnEntrevistar.Click,
-                    Sub()
-                        Select Case frmIdentificacion.ModoActual
-                            Case Identificacion_Paciente.Modo.MedicoAtiende
-                                InstanciarFormulario("Entrevista")
-                            Case Identificacion_Paciente.Modo.AgregarAListaHoy
-                                AgregarPacienteAListado()
-                        End Select
-                    End Sub
+        AddHandler frmIdentificacion.btnAgregarLista.Click, AddressOf AgregarPacienteAListado
         AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged, AddressOf CargarDatosPaciente
 
         AddHandler _entrevistas.btnRefrescar.Click, AddressOf VerConsultasDeHoy
@@ -505,7 +490,7 @@ Public Class frmMedico
         End Select
     End Sub
 
-    Async Sub CargarDatosPaciente()
+    Async Sub CargarDatosPaciente() 'cargar tambien al combobox sus consultas previas
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             _paciente.Cedula = 0
             Exit Sub
@@ -534,6 +519,9 @@ Public Class frmMedico
                 _paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
                 frmIdentificacion.PoblarDatos()
         End Select
+
+        Dim na As New N_Atiende
+
     End Sub
 
     Async Sub CargarDatosMedico()

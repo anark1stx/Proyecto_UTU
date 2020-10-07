@@ -73,7 +73,7 @@
     <Compile Include="MedicoUtils\Enfermedad\Sintomas\E_Registra.vb" />
     <Compile Include="MedicoUtils\Enfermedad\Sintomas\Sintoma.vb" />
     <Compile Include="MedicoUtils\E_Analisis.vb" />
-    <Compile Include="MedicoUtils\E_Atiende.vb" />
+    <Compile Include="MedicoUtils\Atiende\E_Atiende.vb" />
     <Compile Include="MedicoUtils\Enfermedad\E_Enfermedad.vb" />
     <Compile Include="MedicoUtils\E_Formulario.vb" />
     <Compile Include="MedicoUtils\E_Tratamiento.vb" />

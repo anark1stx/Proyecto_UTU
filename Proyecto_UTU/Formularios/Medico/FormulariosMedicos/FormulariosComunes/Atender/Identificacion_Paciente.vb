@@ -2,21 +2,6 @@
 Imports Utilidades
 Public Class Identificacion_Paciente
     Protected _paciente As New E_Paciente
-    Protected _modo As New Modo
-
-    Public Enum Modo
-        AgregarAListaHoy
-        MedicoAtiende
-    End Enum
-
-    Property ModoActual As Modo
-        Get
-            Return _modo
-        End Get
-        Set(value As Modo)
-            _modo = value
-        End Set
-    End Property
     Property PacienteBuscar As E_Paciente
         Get
             Return _paciente
@@ -68,30 +53,6 @@ Public Class Identificacion_Paciente
 
     Private Sub Identificacion_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
-    End Sub
-
-    Sub configurarControles()
-        Select Case ModoActual
-            Case Modo.AgregarAListaHoy 'pedir CI y poner en botones "agregar a listado"
-                btnEntrevistar.Text = "Agregar a listado"
-                btnEntrevistar.ImageIndex = 1
-                btnConsultasPrevias.Visible = False
-                tblAcciones.SetRow(txtMotivoC, 0)
-                tblAcciones.SetRow(btnConsultasPrevias, 2)
-                tblAcciones.SetRow(btnEntrevistar, 1)
-                txtMotivoC.Visible = True
-                txtMotivoC.Multiline = True
-            Case Modo.MedicoAtiende 'pedir CI y poner en botones "atender, ver consultas previas"
-                btnEntrevistar.Text = "Atender"
-                btnConsultasPrevias.Visible = True
-                btnEntrevistar.ImageIndex = 0
-                txtMotivoC.Anchor += AnchorStyles.Bottom
-                txtMotivoC.Anchor += AnchorStyles.Right
-                tblAcciones.SetRow(txtMotivoC, 2)
-                tblAcciones.SetRow(btnEntrevistar, 0)
-                tblAcciones.SetRow(btnConsultasPrevias, 1)
-                txtMotivoC.Visible = False
-        End Select
     End Sub
 
 End Class

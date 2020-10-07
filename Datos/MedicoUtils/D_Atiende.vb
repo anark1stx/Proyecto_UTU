@@ -30,7 +30,7 @@ Public Class D_Atiende
         Cerrar(conexion)
         Return 1
     End Function
-    Public Function ConsultarMisConsultasDeHoy(CI_m As Integer) As List(Of E_Atiende)
+    Public Function ConsultarConsultasPendientes(CI_m As Integer) As List(Of E_Atiende)
         Dim leer As MySqlDataReader
         Dim Clist As New List(Of E_Atiende)
 
@@ -79,6 +79,52 @@ Public Class D_Atiende
 
     Public Function AtiendeExiste(atiende As E_Atiende) As Integer
 
+    End Function
+
+    Public Function BuscarMisConsultas(CI As Integer) As List(Of E_Atiende)
+        Dim list As New List(Of E_Atiende)
+
+        If Conectar(conexion) = -1 Then
+            list.Add(New E_Atiende With {.ID = -1})
+            Return list
+        End If
+
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarConsultasPrevias",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Cerrar(conexion)
+            list.Add(New E_Atiende With {.ID = -2})
+            Return list
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                list.Add(New E_Atiende With {
+                .ID = leer.GetInt32("ID_consulta"),
+                .Fecha = leer.GetDateTime("fecha").ToShortDateString(),
+                .Paciente = New E_Paciente With {.Cedula = leer.GetInt32("CI_paciente")},
+                .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")},
+                .Motivo = leer.GetString("motivo"),
+                .NombreConsulta = leer.GetString("nombre_ref")
+                })
+            End While
+        Else
+            list.Add(New E_Atiende With {.ID = -8})
+        End If
+
+        Cerrar(conexion)
+
+        Return list
     End Function
 
 End Class

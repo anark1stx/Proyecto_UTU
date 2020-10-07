@@ -34,5 +34,7 @@ Public Class N_Formulario
     Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer
         Return objDatos.AltaSugiereTratamiento(form)
     End Function
-
+    Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
+        Return objDatos.BuscarDiagnostico(ID_C)
+    End Function
 End Class
