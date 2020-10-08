@@ -40,14 +40,19 @@ Public Class frmCargarTarjetasP
                 addHandlers(tarjeta)
             Next
         End If
+        tarjetasResponsive()
+
+    End Sub
+
+    Sub tarjetasResponsive()
         Dim filas As Integer = tblTarjetas.RowCount
         Dim height_prom As Integer = 100 / filas
 
         For i = 0 To filas - 1 'ajustar alto de las filas del tbl
             tblTarjetas.RowStyles.Add(New RowStyle(SizeType.Percent, height_prom))
         Next
-
     End Sub
+
 
     Sub addHandlers(tarjeta As TarjetaPaciente)
         'AddHandler tarjeta.MouseHover, AddressOf SeleccionarTarjetaDeTBL

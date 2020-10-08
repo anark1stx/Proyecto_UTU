@@ -69,10 +69,12 @@
     Public Sub New()
 
     End Sub
-    Public Sub New(nombre As String, motivo As String, paciente As E_Paciente, medico As E_Medico)
+    Public Sub New(nombre As String, motivo As String, paciente As E_Paciente, medico As E_Medico, fecha As Date)
         _nombre_c = nombre
         _medico = medico
         _paciente = paciente
         _motivo = motivo
+        _fecha = fecha
     End Sub
+
 End Class

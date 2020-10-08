@@ -32,15 +32,23 @@ Public Class Identificacion_Paciente
     End Property
 
     Sub CargarConsultas()
-        Dim itemFormateados = ConsultasPrevias.Select(Function(consulta) New With {
+        If ConsultasPrevias.Count > 1 Then
+            Dim itemFormateados = ConsultasPrevias.Select(Function(consulta) New With {
             consulta.ID,
             consulta.Fecha,
             Key .FormattedItem = String.Format("{0} - {1}", consulta.Fecha.ToShortDateString(), consulta.NombreConsulta)
-        }).ToArray()
+            }).ToArray()
 
-        cbConsultasPrevias.DataSource = itemFormateados
-        cbConsultasPrevias.DisplayMember = "FormattedItem"
-        cbConsultasPrevias.ValueMember = "ID"
+            cbConsultasPrevias.DataSource = itemFormateados
+            cbConsultasPrevias.DisplayMember = "FormattedItem"
+            cbConsultasPrevias.ValueMember = "ID"
+            btnReferenciaConsulta.Enabled = True
+            btnVerConsulta.Enabled = True
+        Else
+            cbConsultasPrevias.Text = "El paciente no tiene consultas previas"
+            btnReferenciaConsulta.Enabled = False
+            btnVerConsulta.Enabled = False
+        End If
     End Sub
 
     Sub PoblarDatos()
@@ -88,5 +96,13 @@ Public Class Identificacion_Paciente
 
     Private Sub btnReferenciaConsulta_Click(sender As Object, e As EventArgs) Handles btnReferenciaConsulta.Click
         Consulta.ConsultaReferencia = ConsultasPrevias(cbConsultasPrevias.SelectedIndex)
+    End Sub
+
+    Private Sub txtMotivoC_TextChanged(sender As Object, e As EventArgs) Handles txtMotivoC.TextChanged
+        Consulta.Motivo = txtMotivoC.Text
+    End Sub
+
+    Private Sub cbConsultasPrevias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbConsultasPrevias.SelectedIndexChanged
+        Consulta.ConsultaReferencia = New E_Atiende With {.ID = cbConsultasPrevias.SelectedValue}
     End Sub
 End Class

@@ -3,7 +3,7 @@ Imports Negocio
 Imports Utilidades
 Public Class frmAnalisisCrear
     Dim negocio As New N_Analisis
-    Dim listaParametros As New List(Of E_Analisis.Parametro)
+    Dim listaParametrosAIngresar As New List(Of E_Analisis.Parametro)
     Dim listaIndicaciones As New List(Of E_Analisis.Indicacion)
     Dim listaParametrosBD As New List(Of E_Analisis.Parametro)
     Dim ACStringCol As New AutoCompleteStringCollection
@@ -23,7 +23,7 @@ Public Class frmAnalisisCrear
     Private Sub btnAgregarPrm_Click(sender As Object, e As EventArgs) Handles btnAgregarPrm.Click
 
         If Not parametroSeleccionado.ID = 0 Then
-            listaParametros.Add(parametroSeleccionado)
+            listaParametrosAIngresar.Add(parametroSeleccionado)
             ParametroBindingSource.Add(parametroSeleccionado)
             dgwParametros.DataSource = ParametroBindingSource
             Exit Sub
@@ -34,7 +34,7 @@ Public Class frmAnalisisCrear
             Exit Sub
         End If
 
-        If listaParametros.Exists(Function(p) p.Nombre = txtNombrePrm.Text) Then
+        If listaParametrosAIngresar.Exists(Function(p) p.Nombre = txtNombrePrm.Text) Then
             MessageBox.Show("Ya fue ingresado un parametro con ese nombre.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
@@ -75,7 +75,7 @@ Public Class frmAnalisisCrear
         End Try
 
         Dim pr = New E_Analisis.Parametro(txtNombrePrm.Text, txtUnidad.Text, min, max)
-        listaParametros.Add(pr)
+        listaParametrosAIngresar.Add(pr)
         ParametroBindingSource.Add(pr)
         dgwParametros.DataSource = ParametroBindingSource
     End Sub
@@ -117,7 +117,7 @@ Public Class frmAnalisisCrear
 
             If MessageBox.Show("¿Seguro que desea eliminar este parametro?", "Eliminar parametro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 ParametroBindingSource.RemoveAt(e.RowIndex)
-                listaParametros.RemoveAt(e.RowIndex)
+                listaParametrosAIngresar.RemoveAt(e.RowIndex)
             End If
         End If
     End Sub
@@ -168,15 +168,15 @@ Public Class frmAnalisisCrear
     End Sub
 
     Private Sub dgwParametros_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellClick
-        txtNombrePrm.Text = listaParametros(e.RowIndex).Nombre
-        txtUnidad.Text = listaParametros(e.RowIndex).Unidad
-        txtVMin.Text = listaParametros(e.RowIndex).ValorMinimo
-        txtVMax.Text = listaParametros(e.RowIndex).ValorMaximo
+        txtNombrePrm.Text = listaParametrosAIngresar(e.RowIndex).Nombre
+        txtUnidad.Text = listaParametrosAIngresar(e.RowIndex).Unidad
+        txtVMin.Text = listaParametrosAIngresar(e.RowIndex).ValorMinimo
+        txtVMax.Text = listaParametrosAIngresar(e.RowIndex).ValorMaximo
     End Sub
 
     Private Sub btnAgregarAnalisis_Click(sender As Object, e As EventArgs) Handles btnAgregarAnalisis.Click
 
-        If listaParametros.Count < 5 Then
+        If listaParametrosAIngresar.Count < 5 Then
             MessageBox.Show("Ingrese al menos 5 parametros", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
@@ -186,7 +186,7 @@ Public Class frmAnalisisCrear
             Exit Sub
         End If
 
-        Dim analisisCreado As New E_Analisis(txtNombreAnalisis.Text, listaParametros, listaIndicaciones)
+        Dim analisisCreado As New E_Analisis(txtNombreAnalisis.Text, listaParametrosAIngresar, listaIndicaciones)
         Dim na As New N_Analisis
         Dim code = na.AltaAnalisis(analisisCreado)
 

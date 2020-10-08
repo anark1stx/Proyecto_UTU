@@ -2,8 +2,8 @@
 Imports Utilidades
 Public Class frmDefinirConsulta
     Protected _medicoSelect As New E_Medico
-    Protected _nombreConsulta As String 'no se va a guardar en entrevistainicial, queda guardado en Atiende, nosotros aca lo persistimos nomas
-    Protected _comomedico As Boolean = False
+    Protected _nombreConsulta As String
+    Protected _fechaConsulta As Date
     Property MedicoSelect As E_Medico
         Get
             Return _medicoSelect
@@ -21,13 +21,12 @@ Public Class frmDefinirConsulta
             _nombreConsulta = value
         End Set
     End Property
-
-    Property ComoMedico As Boolean
+    Property FechaConsulta As Date
         Get
-            Return _comomedico
+            Return _fechaConsulta
         End Get
-        Set(value As Boolean)
-            _comomedico = value
+        Set(value As Date)
+            _fechaConsulta = value
         End Set
     End Property
     Sub PoblarDatos()
@@ -62,19 +61,19 @@ Public Class frmDefinirConsulta
             MessageBox.Show("No fue seleccionado ningún médico. Luego de ingresar su cédula presione el botón de buscar.", "No se seleccionó un médico.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         Else
-            If _comomedico Then
-                If Not check_Largo(txtNomConsulta.Text, 5, 120, True) Then
-                    MessageBox.Show(MensajeDeErrorLongitud(5, 120), "Información inválida.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Exit Sub
-                End If
+            If Not check_Largo(txtNomConsulta.Text, 5, 120, True) Then
+                MessageBox.Show(MensajeDeErrorLongitud(5, 120), "Información inválida.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
 
-                If Not check_regex(txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
-                    MessageBox.Show(MensajeDeErrorCaracteres(), "Se detectaron caracteres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
+            If Not check_regex(txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+                MessageBox.Show(MensajeDeErrorCaracteres(), "Se detectaron caracteres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End If
             Me.Hide() 'si esta todo bien
             NombreConsulta = txtNomConsulta.Text
+            FechaConsulta = dtpHoraConsulta.Value
+            FechaConsulta.AddSeconds(-FechaConsulta.Second)
         End If
     End Sub
 

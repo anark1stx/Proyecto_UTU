@@ -24,7 +24,7 @@ Public Class frmMedico
 
     Dim ContenedorE As New ContenedorEntrevistas
 
-    Dim frmSelecMed As New frmDefinirConsulta
+    Dim frmDefinirConsulta As New frmDefinirConsulta
     Dim frmConsultasPendientes As New frmCargarTarjetasP
 
     Protected _medico As E_Medico
@@ -92,11 +92,10 @@ Public Class frmMedico
                 frmIni.btnGestion.ImageIndex = 1
                 SeleccionarMedicoToolStripMenuItem.Visible = True
                 EntrevistaInicialToolStripMenuItem.Visible = True
-                frmSelecMed.tblNomRef.Visible = False
-                frmSelecMed.txtCIMedico.ReadOnly = False
-                frmSelecMed.btnBuscarMedico.Visible = True
-                frmSelecMed.txtCIMedico.BackColor = Color.White
-                frmSelecMed.txtCIMedico.BorderStyle = BorderStyle.FixedSingle
+                frmDefinirConsulta.txtCIMedico.ReadOnly = False
+                frmDefinirConsulta.btnBuscarMedico.Visible = True
+                frmDefinirConsulta.txtCIMedico.BackColor = Color.White
+                frmDefinirConsulta.txtCIMedico.BorderStyle = BorderStyle.FixedSingle
                 frmIni.btnGestion.ImageIndex = 1
                 frmIni.lblAtender.Text = "Ingresar pacientes para consulta"
                 frmIni.btnAtenderPaciente.ImageIndex = 1
@@ -112,11 +111,11 @@ Public Class frmMedico
                 frmIni.btnGestion.ImageIndex = 0
                 SeleccionarMedicoToolStripMenuItem.Visible = False
                 EntrevistaInicialToolStripMenuItem.Visible = False
-                frmSelecMed.tblNomRef.Visible = True
-                frmSelecMed.txtCIMedico.ReadOnly = True
-                frmSelecMed.btnBuscarMedico.Visible = False
-                frmSelecMed.txtCIMedico.BackColor = Color.LightBlue
-                frmSelecMed.txtCIMedico.BorderStyle = BorderStyle.None
+                frmDefinirConsulta.tblNomRef.Visible = True
+                frmDefinirConsulta.txtCIMedico.ReadOnly = True
+                frmDefinirConsulta.btnBuscarMedico.Visible = False
+                frmDefinirConsulta.txtCIMedico.BackColor = Color.LightBlue
+                frmDefinirConsulta.txtCIMedico.BorderStyle = BorderStyle.None
                 frmIni.btnGestion.ImageIndex = 0
                 frmIni.lblAtender.Text = "Atender Paciente"
                 frmIni.btnAtenderPaciente.ImageIndex = 0
@@ -129,6 +128,7 @@ Public Class frmMedico
     Public Sub addFrm(frm As Form)
         If Not pnlContenedorFormularios.Controls.Contains(frm) Then
             pnlContenedorFormularios.Controls.Clear()
+            LimpiarControles(frm) 'a lo que reutilizo las instancias de los formularios cada vez tengo que borrar los datos que hayan quedado del ultimo ingreso de datos
             frm.Dock = DockStyle.Fill
             frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
             frm.TopMost = True
@@ -172,36 +172,33 @@ Public Class frmMedico
             Case "SeleccionarMedico"
                 Select Case MiModo
                     Case Modo.SoyMedico
-                        frmSelecMed.ComoMedico = True
                         CargarDatosMedico()
-                        frmSelecMed.ActiveControl = frmSelecMed.txtNomConsulta
-                    Case Modo.SoyAuxiliar
-                        frmSelecMed.ComoMedico = False
                 End Select
-                frmSelecMed.ShowDialog()
+                frmDefinirConsulta.ActiveControl = frmDefinirConsulta.txtNomConsulta
+                frmDefinirConsulta.ShowDialog()
 
+                If String.IsNullOrWhiteSpace(frmDefinirConsulta.NombreConsulta) Or Not check_regex(frmDefinirConsulta.NombreConsulta, RegexAlfaNumericoEspaciosPuntosComasTildes) Or Not check_Largo(frmDefinirConsulta.txtNomConsulta.Text, 5, 120, True) Then
+                    MessageBox.Show("No se registró un nombre de consulta válido. Verifique.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    BloquearIdentificacion(True)
+                    Exit Sub
+                End If
+
+                BloquearIdentificacion(False)
+                Consulta.NombreConsulta = frmDefinirConsulta.NombreConsulta
+                Consulta.Fecha = frmDefinirConsulta.FechaConsulta
+                Console.WriteLine("fecha???: " & Consulta.Fecha)
                 Select Case MiModo
-                    Case Modo.SoyMedico
-                        If String.IsNullOrWhiteSpace(frmSelecMed.txtNomConsulta.Text) Or Not check_regex(frmSelecMed.txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Or Not check_Largo(frmSelecMed.txtNomConsulta.Text, 5, 120, True) Then
-                            MessageBox.Show("No se registró un nombre de consulta válido. Verifique.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            BloquearIdentificacion(True)
-                            Exit Sub
-                        End If
-                        BloquearIdentificacion(False)
-                        Consulta.NombreConsulta = frmSelecMed.NombreConsulta
                     Case Modo.SoyAuxiliar
-                        If frmSelecMed.MedicoSelect.Cedula = 0 Then
+                        If frmDefinirConsulta.MedicoSelect.Cedula = 0 Then
                             MessageBox.Show("No se seleccionó ningún médico.", "No fue seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             BloquearIdentificacion(True)
                             Exit Sub
                         Else
-                            MedicoActual.Cedula = frmSelecMed.MedicoSelect.Cedula
-                            InstanciarFormulario("EntrevistaInicial") 'se lo dejamos cargado
+                            MedicoActual.Cedula = frmDefinirConsulta.MedicoSelect.Cedula
                             BloquearIdentificacion(False)
                         End If
                 End Select
             Case "EntrevistaInicial"
-                LimpiarControles(frmIdentificacion)
                 addFrm(frmIdentificacion)
                 If MedicoActual.Cedula = 0 Then 'hasta que no seleccione un medico, no le dejamos agregar pacienes al listado
                     MessageBox.Show("Debe identificar al médico que va a atender la consulta primero.", "Falta identificar al medico", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -209,10 +206,6 @@ Public Class frmMedico
                     InstanciarFormulario("SeleccionarMedico")
                     Exit Sub
                 End If
-
-            Case "VerListadoDeHoy"
-                LimpiarControles(frmConsultasPendientes)
-                VerConsultasDeHoy()
             Case "Entrevista"
                 If Consulta.Paciente.Cedula = 0 Then
                     MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -250,28 +243,22 @@ Public Class frmMedico
             Case "AsignarTratamiento" 'agarrar la ID de consulta
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Asignar
-                frmTratamientoC.CI_Paciente = Consulta.Paciente.Cedula
-                frmTratamientoC.ID_C = Consulta.ID
-                If String.IsNullOrWhiteSpace(ContenedorE.Frmlimpio.MiFormulario.Enfermedad.Nombre) Then 'si no fue ingresada una enfermedad, en vez de hacer alta a la tabla Sugiere, hago alta a la tabla Siguefc
-
-
-                Else
-                    frmTratamientoC.Enfermedad = ContenedorE.Frmlimpio.MiFormulario.Enfermedad.Nombre
-                End If
+                'frmTratamientoC.CI_Paciente = Consulta.Paciente.Cedula
+                'frmTratamientoC.ID_C = Consulta.ID CAMBIAR ESTO POR UNA PROPIEDAD CONSULTA
 
                 frmTratamientoC.ShowDialog()
             Case "AsignarAnalisis" 'agarrar la ID de consulta
                 LimpiarControles(frmAnalisisS)
-                frmAnalisisS.ID_C = Consulta.ID
-                frmAnalisisS.CI_paciente = Consulta.Paciente.Cedula
-                frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
-                frmAnalisisS.ShowDialog()
+                'frmAnalisisS.ID_C = Consulta.ID LO MISMO QUE CON EL TRATAMIENTO
+                'frmAnalisisS.CI_paciente = Consulta.Paciente.Cedula
+                'frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
+                'frmAnalisisS.ShowDialog()
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
                 frmTratamientoS.ShowDialog()
             Case "IngresarAnalisis"
                 LimpiarControles(frmAnalisisC)
-                addFrm(frmAnalisisC)
+                frmAnalisisC.ShowDialog()
             Case "SeguirAnalisis"
                 LimpiarControles(frmAnalisisS)
                 frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Buscar
@@ -343,7 +330,7 @@ Public Class frmMedico
                         InstanciarFormulario("EditarFormulario")
                     End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR MEDICO
-        AddHandler frmSelecMed.btnBuscarMedico.Click, AddressOf CargarDatosMedico
+        AddHandler frmDefinirConsulta.btnBuscarMedico.Click, AddressOf CargarDatosMedico
 
         'HANDLERS PARA FORMULARIO IDENTIFICACION PACIENTE
 
@@ -424,7 +411,7 @@ Public Class frmMedico
             Exit Sub
         End If
 
-        Dim c As New E_Atiende(Consulta.NombreConsulta, frmIdentificacion.txtMotivoC.Text, Consulta.Paciente, MedicoActual)
+        Dim c As New E_Atiende(Consulta.NombreConsulta, Consulta.Motivo, Consulta.Paciente, MedicoActual, Consulta.Fecha)
         Dim na As New N_Atiende
         Dim existeE = Await Task.Run(Function() na.AtiendeExiste(c))
         Select Case existeE
@@ -454,6 +441,7 @@ Public Class frmMedico
     End Sub
 
     Async Sub VerConsultasDeHoy()
+        LimpiarControles(frmConsultasPendientes)
         Dim na As New N_Atiende
         Dim result = Await Task.Run(Function() na.ConsultarMisConsultasDeHoy(MedicoActual.Cedula))
         Select Case result(0).ID
@@ -521,41 +509,41 @@ Public Class frmMedico
         Dim ci As Integer = 0
         Select Case MiModo
             Case Modo.SoyAuxiliar
-                If Not frmSelecMed.txtCIMedico.TextLength = 8 Then
+                If Not frmDefinirConsulta.txtCIMedico.TextLength = 8 Then
                     MedicoActual.Cedula = 0
                     Exit Sub
                 End If
-                If Not check_Cedula(frmSelecMed.txtCIMedico.Text) Then
+                If Not check_Cedula(frmDefinirConsulta.txtCIMedico.Text) Then
                     MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     MedicoActual.Cedula = 0
-                    LimpiarControles(frmSelecMed)
+                    LimpiarControles(frmDefinirConsulta)
                     Exit Sub
                 End If
-                ci = CInt(frmSelecMed.txtCIMedico.Text)
+                ci = CInt(frmDefinirConsulta.txtCIMedico.Text)
             Case Modo.SoyMedico
                 ci = MedicoActual.Cedula
         End Select
 
         Dim nm As New N_Medico
-        frmSelecMed.MedicoSelect = Await Task.Run(Function() nm.BuscarMedicoCI(ci))
-        frmSelecMed.MedicoSelect.Foto = Await Task.Run(Function() nm.LeerFoto(ci))
-        Select Case frmSelecMed.MedicoSelect.Cedula
+        frmDefinirConsulta.MedicoSelect = Await Task.Run(Function() nm.BuscarMedicoCI(ci))
+        frmDefinirConsulta.MedicoSelect.Foto = Await Task.Run(Function() nm.LeerFoto(ci))
+        Select Case frmDefinirConsulta.MedicoSelect.Cedula
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                LimpiarControles(frmSelecMed)
+                LimpiarControles(frmDefinirConsulta)
                 Exit Sub
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                LimpiarControles(frmSelecMed)
+                LimpiarControles(frmDefinirConsulta)
                 Exit Sub
             Case -8
                 MessageBox.Show("No se encontró un médico con esa cédula.", "Médico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                LimpiarControles(frmSelecMed)
+                LimpiarControles(frmDefinirConsulta)
                 Exit Sub
             Case Else
-                Console.WriteLine(frmSelecMed.MedicoSelect.Cedula)
-                _medico = New E_Medico With {.Cedula = frmSelecMed.MedicoSelect.Cedula}
-                frmSelecMed.PoblarDatos()
+                Console.WriteLine(frmDefinirConsulta.MedicoSelect.Cedula)
+                _medico = New E_Medico With {.Cedula = frmDefinirConsulta.MedicoSelect.Cedula}
+                frmDefinirConsulta.PoblarDatos()
         End Select
     End Sub
 
@@ -605,7 +593,7 @@ Public Class frmMedico
     End Sub
 
     Private Sub VerListadoDeHoyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerListadoDeHoyToolStripMenuItem.Click
-        InstanciarFormulario("VerListadoDeHoy")
+        VerConsultasDeHoy()
     End Sub
 
     Private Sub SeleccionarMedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionarMedicoToolStripMenuItem.Click
@@ -613,7 +601,7 @@ Public Class frmMedico
     End Sub
 
     Private Sub VerListadoDeHoyToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles VerListadoDeHoyToolStripMenuItem1.Click
-        InstanciarFormulario("VerListadoDeHoy")
+        VerConsultasDeHoy()
     End Sub
 
     Private Sub DefinirConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DefinirConsultaToolStripMenuItem.Click

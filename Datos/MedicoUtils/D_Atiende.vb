@@ -13,11 +13,13 @@ Public Class D_Atiende
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaAtiende"
         }
-
+        Console.WriteLine("fechaaaaa: " & consulta.Fecha)
+        cmd.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = consulta.Fecha
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = consulta.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = consulta.Medico.Cedula
         cmd.Parameters.Add("NOM_CONSULTA", MySqlDbType.VarChar, 120).Value = consulta.NombreConsulta
         cmd.Parameters.Add("MOT", MySqlDbType.VarChar).Value = consulta.Motivo
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
         Try
             cmd.ExecuteNonQuery()
@@ -111,7 +113,7 @@ Public Class D_Atiende
             While leer.Read()
                 list.Add(New E_Atiende With {
                 .ID = leer.GetInt32("ID_consulta"),
-                .Fecha = leer.GetDateTime("fecha").ToShortDateString(),
+                .Fecha = leer.GetDateTime("fecha"),
                 .Paciente = New E_Paciente With {.Cedula = leer.GetInt32("CI_paciente")},
                 .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")},
                 .Motivo = leer.GetString("motivo"),
