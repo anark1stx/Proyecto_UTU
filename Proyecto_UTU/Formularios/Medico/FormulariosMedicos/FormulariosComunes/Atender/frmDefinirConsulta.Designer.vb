@@ -243,7 +243,7 @@ Partial Class frmDefinirConsulta
         Me.tblNomRef.Name = "tblNomRef"
         Me.tblNomRef.RowCount = 1
         Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
         Me.tblNomRef.Size = New System.Drawing.Size(1128, 39)
         Me.tblNomRef.TabIndex = 5
         '

@@ -4,6 +4,8 @@ Public Class frmDefinirConsulta
     Protected _medicoSelect As New E_Medico
     Protected _nombreConsulta As String
     Protected _fechaConsulta As Date
+    Private corrigiendohora As Boolean
+    Private ultimahora As Date
     Property MedicoSelect As E_Medico
         Get
             Return _medicoSelect
@@ -85,5 +87,36 @@ Public Class frmDefinirConsulta
 
     Private Sub frmDefinirConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpHoraConsulta.CustomFormat = "hh:mm tt"
+        corrigiendohora = True
+        dtpHoraConsulta.Value = Now
+        dtpHoraConsulta.MinDate = New Date(Now.Year, Now.Month, Now.Day, Now.Hour - 1, 30, 0)
+        dtpHoraConsulta.MaxDate = New Date(Now.Year, Now.Month, Now.Day, Now.Hour, 55, 0)
+        Dim redondear = dtpHoraConsulta.Value.Minute Mod 5
+        Select Case redondear
+            Case <> 0
+                dtpHoraConsulta.Value = dtpHoraConsulta.Value.AddMinutes(10 - redondear)
+        End Select
+        ultimahora = dtpHoraConsulta.Value
+        corrigiendohora = False
+    End Sub
+    Sub Intervalo5minutos()
+
+        If (dtpHoraConsulta.Value.Minute * 60 + dtpHoraConsulta.Value.Second) Mod 300 <> 0 Then
+            Dim diff As TimeSpan = dtpHoraConsulta.Value - ultimahora
+            If diff.Ticks < 0 Then
+                dtpHoraConsulta.Value = ultimahora.AddMinutes(-5)
+            Else
+                dtpHoraConsulta.Value = ultimahora.AddMinutes(5)
+            End If
+        End If
+        ultimahora = dtpHoraConsulta.Value
+    End Sub
+
+    Private Sub dtpHoraConsulta_ValueChanged(sender As Object, e As EventArgs) Handles dtpHoraConsulta.ValueChanged
+        If Not corrigiendohora Then
+            corrigiendohora = True
+            Intervalo5minutos()
+            corrigiendohora = False
+        End If
     End Sub
 End Class

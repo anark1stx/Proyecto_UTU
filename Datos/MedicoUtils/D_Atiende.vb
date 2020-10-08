@@ -69,6 +69,7 @@ Public Class D_Atiende
                     .Motivo = leer.GetString("motivo"),
                     .NombreConsulta = leer.GetString("nombre_ref")
                     }
+                consulta.Paciente.Foto = dp.LeerFotoUsuario(consulta.Paciente.Cedula)
                 Clist.Add(consulta)
             End While
         Else
