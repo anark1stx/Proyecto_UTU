@@ -72,8 +72,7 @@ Public Class frmDefinirConsulta
             End If
             Me.Hide() 'si esta todo bien
             NombreConsulta = txtNomConsulta.Text
-            FechaConsulta = dtpHoraConsulta.Value
-            FechaConsulta.AddSeconds(-FechaConsulta.Second)
+            FechaConsulta = New Date(Now.Year, Now.Month, Now.Day, dtpHoraConsulta.Value.Hour, dtpHoraConsulta.Value.Minute, 0, 0)
         End If
     End Sub
 

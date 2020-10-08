@@ -397,11 +397,11 @@ Public Class frmMedico
             LimpiarControles(frmIdentificacion)
             Exit Sub
         End If
-        If Not frmIdentificacion.txtMotivoC.TextLength > 10 Then
-            MessageBox.Show("La cédula ingresada no es valida. ", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If Not frmIdentificacion.Consulta.Motivo.Length > 10 Then
+            MessageBox.Show("Ingrese un motivo de consulta. ", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If Not check_regex(frmIdentificacion.txtMotivoC.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+        If Not check_regex(frmIdentificacion.Consulta.Motivo, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -411,6 +411,9 @@ Public Class frmMedico
             Exit Sub
         End If
 
+        Consulta.Fecha = frmDefinirConsulta.FechaConsulta
+        Consulta.Motivo = frmIdentificacion.Consulta.Motivo
+        Console.WriteLine("fecha de la consulta = " & Consulta.Fecha)
         Dim c As New E_Atiende(Consulta.NombreConsulta, Consulta.Motivo, Consulta.Paciente, MedicoActual, Consulta.Fecha)
         Dim na As New N_Atiende
         Dim existeE = Await Task.Run(Function() na.AtiendeExiste(c))
