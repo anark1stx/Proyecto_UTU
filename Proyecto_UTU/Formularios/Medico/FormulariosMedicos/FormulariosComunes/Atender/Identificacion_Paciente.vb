@@ -32,23 +32,24 @@ Public Class Identificacion_Paciente
     End Property
 
     Sub CargarConsultas()
-        If ConsultasPrevias.Count > 1 Then
-            Dim itemFormateados = ConsultasPrevias.Select(Function(consulta) New With {
-            consulta.ID,
-            consulta.Fecha,
-            Key .FormattedItem = String.Format("{0} - {1}", consulta.Fecha.ToShortDateString(), consulta.NombreConsulta)
-            }).ToArray()
+        Select Case ConsultasPrevias(0).ID
+            Case -8
+                cbConsultasPrevias.Text = "El paciente no tiene consultas previas"
+                btnReferenciaConsulta.Enabled = False
+                btnVerConsulta.Enabled = False
+            Case <> -1, -2
+                Dim itemFormateados = ConsultasPrevias.Select(Function(consulta) New With {
+                    consulta.ID,
+                    consulta.Fecha,
+                    Key .FormattedItem = String.Format("{0} - {1}", consulta.Fecha.ToShortDateString(), consulta.NombreConsulta)
+                }).ToArray()
 
-            cbConsultasPrevias.DataSource = itemFormateados
-            cbConsultasPrevias.DisplayMember = "FormattedItem"
-            cbConsultasPrevias.ValueMember = "ID"
-            btnReferenciaConsulta.Enabled = True
-            btnVerConsulta.Enabled = True
-        Else
-            cbConsultasPrevias.Text = "El paciente no tiene consultas previas"
-            btnReferenciaConsulta.Enabled = False
-            btnVerConsulta.Enabled = False
-        End If
+                cbConsultasPrevias.DataSource = itemFormateados
+                cbConsultasPrevias.DisplayMember = "FormattedItem"
+                cbConsultasPrevias.ValueMember = "ID"
+                btnReferenciaConsulta.Enabled = True
+                btnVerConsulta.Enabled = True
+        End Select
     End Sub
 
     Sub PoblarDatos()
@@ -103,6 +104,6 @@ Public Class Identificacion_Paciente
     End Sub
 
     Private Sub cbConsultasPrevias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbConsultasPrevias.SelectedIndexChanged
-        Consulta.ConsultaReferencia = New E_Atiende With {.ID = cbConsultasPrevias.SelectedValue}
+        Consulta.ConsultaReferencia = ConsultasPrevias(cbConsultasPrevias.SelectedIndex)
     End Sub
 End Class

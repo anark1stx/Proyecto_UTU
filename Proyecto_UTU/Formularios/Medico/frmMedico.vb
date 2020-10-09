@@ -43,6 +43,7 @@ Public Class frmMedico
         End Get
         Set(value As Modo)
             _modo = value
+            resetMode()
         End Set
     End Property
 
@@ -74,10 +75,9 @@ Public Class frmMedico
 
     Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
-        Consulta.Paciente.Cedula = 0
-        Consulta.ID = 0
-        resetMode()
         InstanciarFormulario("Inicio")
+        Me.MaximizeBox = False
+        Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Sub resetMode()
@@ -85,7 +85,6 @@ Public Class frmMedico
             Case Modo.SoyAuxiliar
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = False
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = False
-                EntrevistarPacienteToolStripMenuItem.Visible = False
                 IdentificarPacienteToolStripMenuItem.Visible = False
                 AtenderMenuItem.Visible = False
                 frmIni.btnAtenderPaciente.ImageIndex = 1
@@ -104,7 +103,6 @@ Public Class frmMedico
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
-                EntrevistarPacienteToolStripMenuItem.Visible = True
                 IdentificarPacienteToolStripMenuItem.Visible = True
                 AtenderMenuItem.Visible = True
                 frmIni.btnAtenderPaciente.ImageIndex = 0
@@ -186,7 +184,6 @@ Public Class frmMedico
                 BloquearIdentificacion(False)
                 Consulta.NombreConsulta = frmDefinirConsulta.NombreConsulta
                 Consulta.Fecha = frmDefinirConsulta.FechaConsulta
-                Console.WriteLine("fecha???: " & Consulta.Fecha)
                 Select Case MiModo
                     Case Modo.SoyAuxiliar
                         If frmDefinirConsulta.MedicoSelect.Cedula = 0 Then
@@ -207,14 +204,6 @@ Public Class frmMedico
                     Exit Sub
                 End If
             Case "Entrevista"
-                If Consulta.Paciente.Cedula = 0 Then
-                    MessageBox.Show("Debe identificar al paciente primero.", "Falta identificar al paciente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Exit Sub
-                End If
-                If String.IsNullOrEmpty(Consulta.NombreConsulta) Then
-                    InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
-                End If
-
                 addFrm(frmSeleccionarFrmEntrevista)
             Case "Otro"
                 If Not String.IsNullOrWhiteSpace(filtroB) Then
@@ -338,6 +327,15 @@ Public Class frmMedico
         AddHandler frmIdentificacion.btnAgregarLista.Click, AddressOf AgregarPacienteAListado
         AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged, AddressOf CargarDatosPaciente
 
+        AddHandler frmIdentificacion.btnAtenderAhora.Click,
+            Sub()
+                Consulta.Paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
+                AgregarPacienteAListado()
+                If Consulta.Paciente.Cedula > 0 Then
+                    InstanciarFormulario("Entrevista")
+                End If
+            End Sub
+
         AddHandler frmConsultasPendientes.btnRefrescar.Click, AddressOf VerConsultasDeHoy
         'AddHandler frmConsultasPendientes.btnVerConsultasPrevias, <- pendiente
 
@@ -397,7 +395,7 @@ Public Class frmMedico
             LimpiarControles(frmIdentificacion)
             Exit Sub
         End If
-        If Not frmIdentificacion.Consulta.Motivo.Length > 10 Then
+        If frmIdentificacion.Consulta.Motivo.Length < 10 Then
             MessageBox.Show("Ingrese un motivo de consulta. ", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -413,7 +411,8 @@ Public Class frmMedico
 
         Consulta.Fecha = frmDefinirConsulta.FechaConsulta
         Consulta.Motivo = frmIdentificacion.Consulta.Motivo
-        Console.WriteLine("fecha de la consulta = " & Consulta.Fecha)
+        Consulta.Medico = frmDefinirConsulta.MedicoSelect
+
         Dim c As New E_Atiende(Consulta.NombreConsulta, Consulta.Motivo, Consulta.Paciente, MedicoActual, Consulta.Fecha)
         Dim na As New N_Atiende
         Dim existeE = Await Task.Run(Function() na.AtiendeExiste(c))
@@ -468,13 +467,22 @@ Public Class frmMedico
     Async Sub CargarDatosPaciente() 'cargo tambien las consultas previas ademas de sus datos
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             Consulta.Paciente.Cedula = 0
+            frmIdentificacion.btnReferenciaConsulta.Enabled = False
+            frmIdentificacion.cbConsultasPrevias.Enabled = False
+            frmIdentificacion.btnVerConsulta.Enabled = False
+            LimpiarControles(frmIdentificacion)
+            frmIdentificacion.PacienteBuscar.Cedula = 0
             Exit Sub
         End If
         If Not check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
-            MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Consulta.Paciente.Cedula = 0
             LimpiarControles(frmIdentificacion)
             Exit Sub
+        Else
+            frmIdentificacion.btnReferenciaConsulta.Enabled = True
+            frmIdentificacion.cbConsultasPrevias.Enabled = True
+            frmIdentificacion.btnVerConsulta.Enabled = True
         End If
 
         Dim np As New N_Paciente
@@ -591,7 +599,7 @@ Public Class frmMedico
         InstanciarFormulario("Identificacion")
     End Sub
 
-    Private Sub EntrevistarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntrevistarPacienteToolStripMenuItem.Click
+    Private Sub EntrevistarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs)
         InstanciarFormulario("Entrevista")
     End Sub
 

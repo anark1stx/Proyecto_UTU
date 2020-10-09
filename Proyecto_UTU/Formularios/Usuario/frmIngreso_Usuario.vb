@@ -11,7 +11,6 @@ Public Class frmIngreso_Usuario
         Else
 
             Dim usu = Await Task.Run(Function() n_u_mysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text))
-
             Select Case usu.Nombre
                 Case -1
                     MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)

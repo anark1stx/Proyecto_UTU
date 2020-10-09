@@ -23,7 +23,6 @@ Public Module mdlUtilidades
         For i As Integer = 0 To listaElementos.Count - 1
             cbox.Items.Add(listaElementos(i)) 'Añadir el elemento al combobox
         Next
-
     End Sub
     Function subirImagen() As String
 
@@ -397,7 +396,7 @@ Public Module mdlUtilidades
     End Function
     Public Function check_Cedula(cedula As String) As Boolean
 
-        If IsNumeric(cedula) = 0 Then
+        If Not IsNumeric(cedula) Then
             optMsg = "Verifique la cedula, ingrese solo numeros."
             Return 0
         End If

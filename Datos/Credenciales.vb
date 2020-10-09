@@ -18,10 +18,17 @@ Module Credenciales
         Try
             conn.ConnectionString = retornarCStringBD()
             conn.Open()
-            Return 1
-        Catch ex As Exception
-            Return Err.Number
+        Catch ex As MySqlException
+            Select Case ex.Number 'como son numeros feos los cambio
+                Case 1042 'codigo de exito para conexion fallida de la clase MysqlException
+                    Return -1
+                Case 0 'codigo de error de autenticacion
+                    Return -5
+                Case Else
+                    Return ex.Number
+            End Select
         End Try
+        Return 1
     End Function
 
     Public Sub Cerrar(conn As MySqlConnection)
