@@ -190,7 +190,7 @@ Public Class ContenedorEntrevistas
         tbpEntrevista.Controls.Add(Frmlimpio)
         Frmlimpio.Visible = True
         Frmlimpio.Dock = DockStyle.Fill
-        Frmlimpio.pnlContenedor.Controls.Add(Eventos.Acciones)
+        tblResolucion.Controls.Add(Eventos.Acciones)
 
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True

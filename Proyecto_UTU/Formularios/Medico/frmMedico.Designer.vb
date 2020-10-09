@@ -22,7 +22,7 @@ Partial Class frmMedico
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuOpciones = New System.Windows.Forms.MenuStrip()
         Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntrevistaInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,18 +46,19 @@ Partial Class frmMedico
         Me.BitacoraMedicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
-        Me.MenuStrip1.SuspendLayout()
+        Me.FinalizarConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuOpciones.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MenuStrip1
+        'MenuOpciones
         '
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.EntrevistaInicialToolStripMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.TratamientosMenuItem, Me.AnalisisMenuItem, Me.BitacoraMedicaToolStripMenuItem, Me.SalirToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 28)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.MenuOpciones.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuOpciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.EntrevistaInicialToolStripMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.TratamientosMenuItem, Me.AnalisisMenuItem, Me.BitacoraMedicaToolStripMenuItem, Me.SalirToolStripMenuItem, Me.FinalizarConsultaToolStripMenuItem})
+        Me.MenuOpciones.Location = New System.Drawing.Point(0, 0)
+        Me.MenuOpciones.Name = "MenuOpciones"
+        Me.MenuOpciones.Size = New System.Drawing.Size(1130, 28)
+        Me.MenuOpciones.TabIndex = 0
+        Me.MenuOpciones.Text = "MenuStrip1"
         '
         'InicioToolStripMenuItem
         '
@@ -206,6 +207,13 @@ Partial Class frmMedico
         Me.pnlContenedorFormularios.Size = New System.Drawing.Size(1130, 720)
         Me.pnlContenedorFormularios.TabIndex = 1
         '
+        'FinalizarConsultaToolStripMenuItem
+        '
+        Me.FinalizarConsultaToolStripMenuItem.Name = "FinalizarConsultaToolStripMenuItem"
+        Me.FinalizarConsultaToolStripMenuItem.Size = New System.Drawing.Size(139, 24)
+        Me.FinalizarConsultaToolStripMenuItem.Text = "Finalizar Consulta"
+        Me.FinalizarConsultaToolStripMenuItem.Visible = False
+        '
         'frmMedico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -213,20 +221,20 @@ Partial Class frmMedico
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1130, 748)
         Me.Controls.Add(Me.pnlContenedorFormularios)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.MenuOpciones)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.MenuOpciones
         Me.Name = "frmMedico"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Médico - Hospital xxxx xxxx"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.MenuOpciones.ResumeLayout(False)
+        Me.MenuOpciones.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuOpciones As MenuStrip
     Friend WithEvents GestionMenuItem As ToolStripMenuItem
     Friend WithEvents AtenderMenuItem As ToolStripMenuItem
     Friend WithEvents pnlContenedorFormularios As Panel
@@ -250,4 +258,5 @@ Partial Class frmMedico
     Friend WithEvents DefinirConsultaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IdentificarPacienteToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents BitacoraMedicaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FinalizarConsultaToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -39,24 +39,24 @@ Partial Class ContenedorEntrevistas
         Me.lblIngreseSignoClinico = New System.Windows.Forms.Label()
         Me.txtSgClinico = New System.Windows.Forms.TextBox()
         Me.lbSignosClinicos = New System.Windows.Forms.ListBox()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.tpResolucion = New System.Windows.Forms.TabPage()
         Me.tblResolucion = New System.Windows.Forms.TableLayoutPanel()
         Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
         Me.lblAnalisisReq = New System.Windows.Forms.Label()
         Me.chkEnfermo = New System.Windows.Forms.CheckBox()
         Me.lblPresenta = New System.Windows.Forms.Label()
         Me.txtNomEnfermedad = New System.Windows.Forms.TextBox()
+        Me.chkAnalisis = New System.Windows.Forms.CheckBox()
         Me.chkTratamiento = New System.Windows.Forms.CheckBox()
         Me.lblTratamientoS = New System.Windows.Forms.Label()
         Me.txtNomTratamiento = New System.Windows.Forms.TextBox()
         Me.btnSugerirDiagnostico = New System.Windows.Forms.Button()
-        Me.chkAnalisis = New System.Windows.Forms.CheckBox()
         Me.TabControlFormulario.SuspendLayout()
         Me.tbpSintomasYsg.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.pnlSigno.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.tpResolucion.SuspendLayout()
         Me.tblResolucion.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -64,7 +64,7 @@ Partial Class ContenedorEntrevistas
         '
         Me.TabControlFormulario.Controls.Add(Me.tbpEntrevista)
         Me.TabControlFormulario.Controls.Add(Me.tbpSintomasYsg)
-        Me.TabControlFormulario.Controls.Add(Me.TabPage1)
+        Me.TabControlFormulario.Controls.Add(Me.tpResolucion)
         Me.TabControlFormulario.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlFormulario.Location = New System.Drawing.Point(0, 0)
         Me.TabControlFormulario.Name = "TabControlFormulario"
@@ -249,15 +249,15 @@ Partial Class ContenedorEntrevistas
         Me.lbSignosClinicos.Size = New System.Drawing.Size(593, 654)
         Me.lbSignosClinicos.TabIndex = 37
         '
-        'TabPage1
+        'tpResolucion
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.LightBlue
-        Me.TabPage1.Controls.Add(Me.tblResolucion)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(1318, 757)
-        Me.TabPage1.TabIndex = 2
-        Me.TabPage1.Text = "Resolución"
+        Me.tpResolucion.BackColor = System.Drawing.Color.LightBlue
+        Me.tpResolucion.Controls.Add(Me.tblResolucion)
+        Me.tpResolucion.Location = New System.Drawing.Point(4, 25)
+        Me.tpResolucion.Name = "tpResolucion"
+        Me.tpResolucion.Size = New System.Drawing.Size(1318, 757)
+        Me.tpResolucion.TabIndex = 2
+        Me.tpResolucion.Text = "Resolución"
         '
         'tblResolucion
         '
@@ -275,22 +275,22 @@ Partial Class ContenedorEntrevistas
         Me.tblResolucion.Controls.Add(Me.lblTratamientoS, 1, 2)
         Me.tblResolucion.Controls.Add(Me.txtNomTratamiento, 2, 2)
         Me.tblResolucion.Controls.Add(Me.btnSugerirDiagnostico, 1, 3)
-        Me.tblResolucion.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tblResolucion.Dock = System.Windows.Forms.DockStyle.Top
         Me.tblResolucion.Location = New System.Drawing.Point(0, 0)
         Me.tblResolucion.Name = "tblResolucion"
         Me.tblResolucion.RowCount = 4
-        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 124.0!))
-        Me.tblResolucion.Size = New System.Drawing.Size(1318, 757)
+        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tblResolucion.Size = New System.Drawing.Size(1318, 697)
         Me.tblResolucion.TabIndex = 0
         '
         'txtNomAnalisis
         '
         Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomAnalisis.Location = New System.Drawing.Point(908, 299)
+        Me.txtNomAnalisis.Location = New System.Drawing.Point(908, 244)
         Me.txtNomAnalisis.Name = "txtNomAnalisis"
         Me.txtNomAnalisis.Size = New System.Drawing.Size(379, 34)
         Me.txtNomAnalisis.TabIndex = 6
@@ -301,7 +301,7 @@ Partial Class ContenedorEntrevistas
         Me.lblAnalisisReq.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblAnalisisReq.AutoSize = True
         Me.lblAnalisisReq.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnalisisReq.Location = New System.Drawing.Point(572, 304)
+        Me.lblAnalisisReq.Location = New System.Drawing.Point(572, 248)
         Me.lblAnalisisReq.Name = "lblAnalisisReq"
         Me.lblAnalisisReq.Size = New System.Drawing.Size(173, 25)
         Me.lblAnalisisReq.TabIndex = 5
@@ -316,7 +316,7 @@ Partial Class ContenedorEntrevistas
         Me.chkEnfermo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkEnfermo.Location = New System.Drawing.Point(57, 3)
         Me.chkEnfermo.Name = "chkEnfermo"
-        Me.chkEnfermo.Size = New System.Drawing.Size(325, 205)
+        Me.chkEnfermo.Size = New System.Drawing.Size(325, 168)
         Me.chkEnfermo.TabIndex = 1
         Me.chkEnfermo.Text = "¿El paciente está enfermo?"
         Me.chkEnfermo.UseVisualStyleBackColor = True
@@ -326,7 +326,7 @@ Partial Class ContenedorEntrevistas
         Me.lblPresenta.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblPresenta.AutoSize = True
         Me.lblPresenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPresenta.Location = New System.Drawing.Point(561, 93)
+        Me.lblPresenta.Location = New System.Drawing.Point(561, 74)
         Me.lblPresenta.Name = "lblPresenta"
         Me.lblPresenta.Size = New System.Drawing.Size(195, 25)
         Me.lblPresenta.TabIndex = 2
@@ -337,11 +337,24 @@ Partial Class ContenedorEntrevistas
         '
         Me.txtNomEnfermedad.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomEnfermedad.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomEnfermedad.Location = New System.Drawing.Point(908, 88)
+        Me.txtNomEnfermedad.Location = New System.Drawing.Point(908, 70)
         Me.txtNomEnfermedad.Name = "txtNomEnfermedad"
         Me.txtNomEnfermedad.Size = New System.Drawing.Size(379, 34)
         Me.txtNomEnfermedad.TabIndex = 3
         Me.txtNomEnfermedad.Visible = False
+        '
+        'chkAnalisis
+        '
+        Me.chkAnalisis.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.chkAnalisis.AutoSize = True
+        Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkAnalisis.Location = New System.Drawing.Point(22, 177)
+        Me.chkAnalisis.Name = "chkAnalisis"
+        Me.chkAnalisis.Size = New System.Drawing.Size(395, 168)
+        Me.chkAnalisis.TabIndex = 4
+        Me.chkAnalisis.Text = "¿El paciente requiere un análisis?"
+        Me.chkAnalisis.UseVisualStyleBackColor = True
         '
         'chkTratamiento
         '
@@ -349,20 +362,19 @@ Partial Class ContenedorEntrevistas
         Me.chkTratamiento.AutoSize = True
         Me.chkTratamiento.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkTratamiento.Location = New System.Drawing.Point(53, 425)
+        Me.chkTratamiento.Location = New System.Drawing.Point(53, 351)
         Me.chkTratamiento.Name = "chkTratamiento"
-        Me.chkTratamiento.Size = New System.Drawing.Size(333, 205)
+        Me.chkTratamiento.Size = New System.Drawing.Size(333, 168)
         Me.chkTratamiento.TabIndex = 7
         Me.chkTratamiento.Text = "¿Se sugiere un tratamiento?"
         Me.chkTratamiento.UseVisualStyleBackColor = True
-        Me.chkTratamiento.Visible = False
         '
         'lblTratamientoS
         '
         Me.lblTratamientoS.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblTratamientoS.AutoSize = True
         Me.lblTratamientoS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTratamientoS.Location = New System.Drawing.Point(557, 515)
+        Me.lblTratamientoS.Location = New System.Drawing.Point(557, 422)
         Me.lblTratamientoS.Name = "lblTratamientoS"
         Me.lblTratamientoS.Size = New System.Drawing.Size(202, 25)
         Me.lblTratamientoS.TabIndex = 8
@@ -373,7 +385,7 @@ Partial Class ContenedorEntrevistas
         '
         Me.txtNomTratamiento.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtNomTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomTratamiento.Location = New System.Drawing.Point(908, 510)
+        Me.txtNomTratamiento.Location = New System.Drawing.Point(908, 418)
         Me.txtNomTratamiento.Name = "txtNomTratamiento"
         Me.txtNomTratamiento.Size = New System.Drawing.Size(379, 34)
         Me.txtNomTratamiento.TabIndex = 9
@@ -385,26 +397,12 @@ Partial Class ContenedorEntrevistas
         Me.btnSugerirDiagnostico.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnSugerirDiagnostico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSugerirDiagnostico.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSugerirDiagnostico.Location = New System.Drawing.Point(442, 636)
+        Me.btnSugerirDiagnostico.Location = New System.Drawing.Point(442, 525)
         Me.btnSugerirDiagnostico.Name = "btnSugerirDiagnostico"
-        Me.btnSugerirDiagnostico.Size = New System.Drawing.Size(433, 118)
+        Me.btnSugerirDiagnostico.Size = New System.Drawing.Size(433, 169)
         Me.btnSugerirDiagnostico.TabIndex = 10
         Me.btnSugerirDiagnostico.Text = "Sugerir diagnóstico"
         Me.btnSugerirDiagnostico.UseVisualStyleBackColor = False
-        '
-        'chkAnalisis
-        '
-        Me.chkAnalisis.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.chkAnalisis.AutoSize = True
-        Me.chkAnalisis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAnalisis.Location = New System.Drawing.Point(22, 214)
-        Me.chkAnalisis.Name = "chkAnalisis"
-        Me.chkAnalisis.Size = New System.Drawing.Size(395, 205)
-        Me.chkAnalisis.TabIndex = 4
-        Me.chkAnalisis.Text = "¿El paciente requiere un análisis?"
-        Me.chkAnalisis.UseVisualStyleBackColor = True
-        Me.chkAnalisis.Visible = False
         '
         'ContenedorEntrevistas
         '
@@ -421,7 +419,7 @@ Partial Class ContenedorEntrevistas
         Me.Panel1.PerformLayout()
         Me.pnlSigno.ResumeLayout(False)
         Me.pnlSigno.PerformLayout()
-        Me.TabPage1.ResumeLayout(False)
+        Me.tpResolucion.ResumeLayout(False)
         Me.tblResolucion.ResumeLayout(False)
         Me.tblResolucion.PerformLayout()
         Me.ResumeLayout(False)
@@ -444,7 +442,7 @@ Partial Class ContenedorEntrevistas
     Friend WithEvents lblIngreseSintoma As Label
     Friend WithEvents txtSintoma As TextBox
     Friend WithEvents lbSintomas As ListBox
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents tpResolucion As TabPage
     Friend WithEvents tblResolucion As TableLayoutPanel
     Friend WithEvents chkEnfermo As CheckBox
     Friend WithEvents lblPresenta As Label

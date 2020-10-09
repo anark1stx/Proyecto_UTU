@@ -79,11 +79,6 @@ Public Class D_Atiende
         Return Clist
 
     End Function
-
-    Public Function AtiendeExiste(atiende As E_Atiende) As Integer
-
-    End Function
-
     Public Function BuscarMisConsultas(CI As Integer) As List(Of E_Atiende)
         Dim list As New List(Of E_Atiende)
 

@@ -134,7 +134,7 @@ Public Class frmMedico
             frm.Show()
         End If
     End Sub
-    Public Sub CargarFormulario(f As E_Formulario)
+    Public Sub CargarFormularioEntrevista(f As E_Formulario)
         Dim fl = New FormularioEntrevista
         Dim controles = ConvertirFormulario(f)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
@@ -147,13 +147,24 @@ Public Class frmMedico
         ContenedorE.Frmlimpio = fl
         ContenedorE.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(ContenedorE)
+        HabilitarMenu(False)
     End Sub
     Sub BloquearIdentificacion(_case As Boolean)
         frmIdentificacion.Enabled = Not _case
     End Sub
 
-    Public Sub InstanciarFormulario(formulario As String)
+    Sub HabilitarMenu(_case As Boolean)
+        MenuOpciones.Enabled = _case
+        If Not _case Then
+            FinalizarConsultaToolStripMenuItem.Visible = True
+            FinalizarConsultaToolStripMenuItem.Enabled = True
+        Else
+            FinalizarConsultaToolStripMenuItem.Visible = False
+            FinalizarConsultaToolStripMenuItem.Enabled = False
+        End If
+    End Sub
 
+    Public Sub InstanciarFormulario(formulario As String)
         Select Case formulario
             Case "Inicio"
                 addFrm(frmIni)
@@ -216,7 +227,7 @@ Public Class frmMedico
                 Dim f = frmCatalogo.FormSeleccionado
                 f.Atiende.Medico = MedicoActual
                 f.Atiende.Paciente = Consulta.Paciente
-                CargarFormulario(f)
+                CargarFormularioEntrevista(f)
                 filtroB = ""
             Case "CrearFormulario"
                 frmCrear.Show()
@@ -415,18 +426,6 @@ Public Class frmMedico
 
         Dim c As New E_Atiende(Consulta.NombreConsulta, Consulta.Motivo, Consulta.Paciente, MedicoActual, Consulta.Fecha)
         Dim na As New N_Atiende
-        Dim existeE = Await Task.Run(Function() na.AtiendeExiste(c))
-        Select Case existeE
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            Case -2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 1
-                MessageBox.Show("Ese paciente ya fue agregado al listado.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                LimpiarControles(frmIdentificacion)
-                Exit Sub
-        End Select
 
         Dim result = Await Task.Run(Function() na.AltaAtiende(c))
         Select Case result
@@ -502,7 +501,6 @@ Public Class frmMedico
                 Consulta.Paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
                 frmIdentificacion.PoblarDatos()
         End Select
-
         Dim na As New N_Atiende
         Dim r = Await Task.Run(Function() na.BuscarAtiende(Consulta.Paciente.Cedula))
         Select Case r(0).ID
@@ -636,4 +634,8 @@ Public Class frmMedico
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
     End Sub
 
+    Private Sub FinalizarConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinalizarConsultaToolStripMenuItem.Click
+        'leer si los datos de ContenedorEntrevistas estan completados todos, accionar ContenedorEntrevistas.Eventos.Acciones.Guardar()
+        'pedir confirmacion, informar si falta dar respuesta a alguna pregunta, si falta indicar tratamiento, analisis, sintomas, signos clinicos, enfermedad, etc.
+    End Sub
 End Class

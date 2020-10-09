@@ -109,10 +109,10 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\ContenedorEntrevistas.Designer.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.Designer.vb">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\ContenedorEntrevistas.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.Designer.vb">
@@ -310,7 +310,7 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
       <DependentUpon>TarjetaPaciente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\ContenedorEntrevistas.resx">
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.resx">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">
