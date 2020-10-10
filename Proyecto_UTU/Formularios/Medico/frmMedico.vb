@@ -100,6 +100,9 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
                 frmConsultasPendientes.tblAcciones.Visible = False
+                frmIdentificacion.btnAtenderAhora.Visible = False
+                frmIdentificacion.tblAcciones.SetRow(frmIdentificacion.btnAgregarLista, frmIdentificacion.tblAcciones.GetRow(frmIdentificacion.btnAtenderAhora))
+                frmIdentificacion.tblAcciones.SetRowSpan(frmIdentificacion.btnAgregarLista, 2)
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
                 AsignarAnalisisPacienteToolStripMenuItem.Visible = True
@@ -119,6 +122,8 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
                 frmConsultasPendientes.tblAcciones.Visible = True
+                frmIdentificacion.btnAtenderAhora.Visible = True
+                frmIdentificacion.tblAcciones.SetRowSpan(frmIdentificacion.btnAgregarLista, 1)
         End Select
         frmGestion.MiModo = MiModo
     End Sub
@@ -179,10 +184,9 @@ Public Class frmMedico
                 Consulta.ID = 0
                 addFrm(frmIdentificacion)
             Case "SeleccionarMedico"
-                Select Case MiModo
-                    Case Modo.SoyMedico
-                        CargarDatosMedico()
-                End Select
+                If MiModo = Modo.SoyMedico Then
+                    CargarDatosMedico()
+                End If
                 frmDefinirConsulta.ActiveControl = frmDefinirConsulta.txtNomConsulta
                 frmDefinirConsulta.ShowDialog()
 
@@ -207,18 +211,20 @@ Public Class frmMedico
                         End If
                 End Select
             Case "EntrevistaInicial"
-                addFrm(frmIdentificacion)
                 If MedicoActual.Cedula = 0 Then 'hasta que no seleccione un medico, no le dejamos agregar pacienes al listado
                     MessageBox.Show("Debe identificar al médico que va a atender la consulta primero.", "Falta identificar al medico", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     BloquearIdentificacion(True)
                     InstanciarFormulario("SeleccionarMedico")
                     Exit Sub
+                Else
+                    addFrm(frmIdentificacion)
                 End If
             Case "Entrevista"
                 addFrm(frmSeleccionarFrmEntrevista)
             Case "Otro"
                 If Not String.IsNullOrWhiteSpace(filtroB) Then
                     frmCatalogo.txtBuscar.Text = filtroB
+                    frmCatalogo.btnBuscar.PerformClick()
                 End If
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
@@ -436,7 +442,6 @@ Public Class frmMedico
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             Case 1
-                MessageBox.Show("El paciente fue agregado al listado.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
         End Select
     End Sub
@@ -456,7 +461,6 @@ Public Class frmMedico
                 MessageBox.Show("No se encontraron pacientes para atender.", "Pacientes no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarControles(frmIdentificacion)
             Case Else
-                'frmConsultasPendientes.tblTarjetas.Controls.Clear()
                 frmConsultasPendientes.ListaConsultas = result
                 addFrm(frmConsultasPendientes)
                 frmConsultasPendientes.RefrescarTarjetas()
