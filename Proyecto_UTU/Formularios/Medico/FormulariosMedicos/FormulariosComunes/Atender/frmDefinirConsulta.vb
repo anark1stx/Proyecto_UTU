@@ -90,7 +90,7 @@ Public Class frmDefinirConsulta
         corrigiendohora = True
         dtpHoraConsulta.Value = Now
         dtpHoraConsulta.MinDate = New Date(Now.Year, Now.Month, Now.Day, Now.Hour - 1, 30, 0)
-        dtpHoraConsulta.MaxDate = New Date(Now.Year, Now.Month, Now.Day, Now.Hour, 55, 0)
+        dtpHoraConsulta.MaxDate = New Date(Now.Year, Now.Month, Now.Day + 1, Now.Hour, 55, 0) 'puede ser que la consulta empiece a las 00:10 
         Dim redondear = dtpHoraConsulta.Value.Minute Mod 5
         Select Case redondear
             Case <> 0

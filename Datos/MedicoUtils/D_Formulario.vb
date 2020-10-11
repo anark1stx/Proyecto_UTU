@@ -284,17 +284,11 @@ Public Class D_Formulario
         cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
         cmd.Parameters.Add("ID_PREG", MySqlDbType.Int32)
         cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar)
-        Console.WriteLine("ALTARESPONDE: ID DE CONSULTA =" & form.Atiende.ID)
-        Console.WriteLine("ALTARESPONDE: FECHA DE CONSULTA =" & form.Atiende.Fecha)
-        Console.WriteLine("ALTARESPONDE: PACIENTE CI DE CONSULTA =" & form.Atiende.Paciente.Cedula)
-        Console.WriteLine("ALTARESPONDE: MEDICO CI DE CONSULTA =" & form.Atiende.Medico.Cedula)
-        Console.WriteLine("ALTARESPONDE: ID DE FORMULARIO=" & form.ID)
         For Each pyr As PreguntaRespuesta In form.PreguntasYRespuestas
 
             cmd.Parameters("ID_PREG").Value = pyr.ID_Pregunta
-            Console.WriteLine("ALTARESPONDE: ID DE PREGUNTA=" & pyr.ID_Pregunta)
             Dim r As String = ""
-            Select Case pyr.Respuesta.GetType 'mover esto afuera de aca xd
+            Select Case pyr.Respuesta.GetType
                 Case GetType(Windows.Forms.ListBox)
                     Dim lb = DirectCast(pyr.Respuesta, Windows.Forms.ListBox) 'casteo la respuesta como un string separado por comas
                     For i = 0 To lb.Items.Count - 1
@@ -323,7 +317,7 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
     End Function
-    Public Function AltaSignosClinicos(form As E_Formulario)
+    Public Function AltaSignosClinicos(form As E_Formulario) 'mandar esto a otra clase de la capa datos
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -373,7 +367,7 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
     End Function
-    Public Function AltaSintomas(form As E_Formulario)
+    Public Function AltaSintomas(form As E_Formulario) 'mandar esto a otra clase de la capa datos
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -423,6 +417,8 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
     End Function
+
+    'mover esto a otra clase de la capa datos
     Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'primero alta a enfermedad y luego a determina.
         If String.IsNullOrWhiteSpace(form.Enfermedad.Nombre) Then
             Return 1
@@ -515,7 +511,7 @@ Public Class D_Formulario
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
+            Console.WriteLine("err cargando formulario usado" & ex.Message)
             Cerrar(conexion)
             form.ID = -2
             Return form
@@ -570,6 +566,7 @@ Public Class D_Formulario
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
+            Console.WriteLine("err buscando respuestas" & ex.Message)
             pyr.Add(New PreguntaRespuesta With {.Tag = -2})
             Return pyr
         End Try
