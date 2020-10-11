@@ -140,16 +140,16 @@ Public Class frmMedico
         End If
     End Sub
     Public Sub CargarFormularioEntrevista(f As E_Formulario)
-        Dim fl = New FormularioEntrevista
+        Dim fe = New FormularioEntrevista
         Dim controles = ConvertirFormulario(f)
-        fl.pnlContenedor.Controls.AddRange(controles.ToArray())
-        BuscarPreguntas(fl.pnlContenedor, f.PreguntasYRespuestas)
-        UnirPreguntasConRespuestas(fl.pnlContenedor, f.PreguntasYRespuestas)
+        fe.pnlContenedor.Controls.AddRange(controles.ToArray())
+        BuscarPreguntas(fe.pnlContenedor, f.PreguntasYRespuestas)
         BuscarIDsP(f.PreguntasYRespuestas)
-        fl.MiFormulario = f
-        fl.MiFormulario.Atiende = Consulta
+        UnirPreguntasConRespuestas(fe.pnlContenedor, f.PreguntasYRespuestas)
+        fe.MiFormulario = f
+        fe.MiFormulario.Atiende = Consulta
         pnlContenedorFormularios.Controls.Clear()
-        ContenedorE.Frmlimpio = fl
+        ContenedorE.Entrevista = fe
         ContenedorE.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(ContenedorE)
         HabilitarMenu(False)
@@ -163,9 +163,13 @@ Public Class frmMedico
         If Not _case Then
             FinalizarConsultaToolStripMenuItem.Visible = True
             FinalizarConsultaToolStripMenuItem.Enabled = True
+            TratamientosMenuItem.Enabled = True
+            IngresarNuevoTratamientoMenuItem.Enabled = True
+            TratamientoSeguimientoMenuItem.Enabled = False
         Else
             FinalizarConsultaToolStripMenuItem.Visible = False
             FinalizarConsultaToolStripMenuItem.Enabled = False
+            TratamientoSeguimientoMenuItem.Enabled = True
         End If
     End Sub
 
@@ -317,20 +321,9 @@ Public Class frmMedico
     End Sub
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
-
-        Dim sender = New Object
-        Dim e = New EventArgs
-
-        'HANDLERS PARA FORMULARIO INICIO
-        AddHandler frmIni.btnGestion.Click,
-                    Sub()
-                        GestionToolStripMenuItem_Click(sender, e)
-                    End Sub
+        AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnAtenderPaciente.Click, AddressOf IdentificarPacienteToolStripMenuItem_Click
-        AddHandler frmIni.btnCrearFormulario.Click,
-                    Sub()
-                        CrearFormularioMenuItem_Click(sender, e)
-                    End Sub
+        AddHandler frmIni.btnCrearFormulario.Click, AddressOf CrearFormularioMenuItem_Click
         AddHandler frmIni.btnEditarFormulario.Click,
                     Sub()
                         InstanciarFormulario("EditarFormulario")
@@ -341,16 +334,14 @@ Public Class frmMedico
         'HANDLERS PARA FORMULARIO IDENTIFICACION PACIENTE
 
         AddHandler frmIdentificacion.btnBuscar.Click, AddressOf CargarDatosPaciente
-        AddHandler frmIdentificacion.btnAgregarLista.Click, AddressOf AgregarPacienteAListado
+        AddHandler frmIdentificacion.btnAgregarLista.Click, Sub()
+                                                                AgregarPacienteAListado(False)
+                                                            End Sub
         AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged, AddressOf CargarDatosPaciente
 
         AddHandler frmIdentificacion.btnAtenderAhora.Click,
             Sub()
-                Consulta.Paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
-                AgregarPacienteAListado()
-                If Consulta.Paciente.Cedula > 0 Then
-                    InstanciarFormulario("Entrevista")
-                End If
+                AgregarPacienteAListado(True)
             End Sub
 
         AddHandler frmConsultasPendientes.btnRefrescar.Click, AddressOf VerConsultasDeHoy
@@ -367,7 +358,7 @@ Public Class frmMedico
             End Sub
         AddHandler frmConsultasPendientes.btnAtender.Click,
             Sub()
-                Consulta.Paciente.Cedula = frmConsultasPendientes.ConsultaSeleccionada.Paciente.Cedula
+                Consulta = frmConsultasPendientes.ConsultaSeleccionada
                 InstanciarFormulario("Entrevista")
             End Sub
         'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
@@ -405,18 +396,18 @@ Public Class frmMedico
             End Sub
     End Sub
 
-    Async Sub AgregarPacienteAListado()
+    Async Sub AgregarPacienteAListado(atenderahora As Boolean)
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             MessageBox.Show("La cédula ingresada no es valida. " & MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Consulta.Paciente.Cedula = 0
             LimpiarControles(frmIdentificacion)
             Exit Sub
         End If
-        If frmIdentificacion.Consulta.Motivo.Length < 10 Then
+        If frmIdentificacion.txtMotivoC.TextLength < 10 Then
             MessageBox.Show("Ingrese un motivo de consulta. ", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If Not check_regex(frmIdentificacion.Consulta.Motivo, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+        If Not check_regex(frmIdentificacion.txtMotivoC.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -427,13 +418,11 @@ Public Class frmMedico
         End If
 
         Consulta.Fecha = frmDefinirConsulta.FechaConsulta
-        Consulta.Motivo = frmIdentificacion.Consulta.Motivo
         Consulta.Medico = frmDefinirConsulta.MedicoSelect
-
-        Dim c As New E_Atiende(Consulta.NombreConsulta, Consulta.Motivo, Consulta.Paciente, MedicoActual, Consulta.Fecha)
+        Consulta.Motivo = frmIdentificacion.Consulta.Motivo
         Dim na As New N_Atiende
 
-        Dim result = Await Task.Run(Function() na.AltaAtiende(c))
+        Dim result = Await Task.Run(Function() na.AltaAtiende(Consulta))
         Select Case result
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -444,6 +433,10 @@ Public Class frmMedico
             Case 1
                 LimpiarControles(frmIdentificacion)
         End Select
+        Console.WriteLine("Agregar paciente a listado. ID DE CONSULTA = " & Consulta.ID)
+        If atenderahora Then
+            InstanciarFormulario("Entrevista")
+        End If
     End Sub
 
     Async Sub VerConsultasDeHoy()
@@ -577,20 +570,15 @@ Public Class frmMedico
     End Sub
 
     Private Sub AsignarAnalisisPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarAnalisisPacienteToolStripMenuItem.Click
-        'mostrar cuadro emergente en el que le permito buscar analisis por nombre y el selecciona.
-        'frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
-        'frmTratamientoC.ResetMode()
-        'frmTratamientoC.ResetMode()
-
         If Consulta.ID = 0 Then
-            MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Debe estar atendiendo un paciente para asignarle un análisis.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             InstanciarFormulario("AsignarAnalisis")
         End If
     End Sub
     Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
         If Consulta.ID = 0 Then
-            MessageBox.Show("Debe atender a un paciente y guardar su diagnóstico, posteriormente podrá asignar análisis y tratamientos.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Debe estar atendiendo un paciente para asignarle un tratamiento.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             InstanciarFormulario("AsignarTratamiento")
         End If
@@ -626,13 +614,13 @@ Public Class frmMedico
     End Sub
 
     Private Sub AnalisisMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisMenuItem.Click
-        Console.WriteLine("Agarre ID= " & ContenedorE.Frmlimpio.MiFormulario.Atiende.ID)
-        Consulta.ID = ContenedorE.Frmlimpio.MiFormulario.Atiende.ID
+        Console.WriteLine("Agarre ID= " & ContenedorE.Entrevista.MiFormulario.Atiende.ID)
+        Consulta.ID = ContenedorE.Entrevista.MiFormulario.Atiende.ID
     End Sub
 
     Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
-        Console.WriteLine("Agarre ID= " & ContenedorE.Frmlimpio.MiFormulario.Atiende.ID)
-        Consulta.ID = ContenedorE.Frmlimpio.MiFormulario.Atiende.ID
+        Console.WriteLine("Agarre ID= " & ContenedorE.Entrevista.MiFormulario.Atiende.ID)
+        Consulta.ID = ContenedorE.Entrevista.MiFormulario.Atiende.ID
     End Sub
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.

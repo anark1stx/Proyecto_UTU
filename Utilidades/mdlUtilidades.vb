@@ -4,7 +4,7 @@ Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
 
 Public Module mdlUtilidades
-
+    Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"})
     Public optMsg As String = ""
     Public RegexLiteralAcentos = New Regex("^[A-zÁ-ú]*$")
     Public RegexLiteral = New Regex("^[A-Za-z]*$")
@@ -287,12 +287,13 @@ Public Module mdlUtilidades
     End Function
 
     Public Function check_regex(propiedad As String, regex As Regex) As Boolean
+        If String.IsNullOrEmpty(propiedad) Then
+            Return 0
+        End If
 
         If regex.IsMatch(propiedad) Then
-            Console.WriteLine("matches")
             Return 1
         Else
-            Console.WriteLine("no match")
             optMsg = "Caracteres inválidos."
             Return 0
         End If
@@ -321,8 +322,6 @@ Public Module mdlUtilidades
             optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com, recuerde que el mínimo de caracteres que tiene un usuario de correo son 6."
             Return 0
         End If
-
-        Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"}) '-> Guardar esto en la BD para que el administrador pueda modificarlo luego, por si quiere agregar o sacar dominios
 
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
@@ -441,10 +440,10 @@ Public Module mdlUtilidades
 
     Public Function check_direccion(direccion As List(Of String)) As Boolean
 
-        If direccion.Count <> 2 Then 'Si no hay de dos items pafuera
+        If direccion.Count <> 2 Then
             Return 0
         Else
-            If Not check_regex(direccion(1), RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+            If Not check_regex(direccion(0), RegexAlfaNumericoEspaciosPuntosComasTildes) Then
                 optMsg = "Caractéres inválidos"
                 Return 0
             End If

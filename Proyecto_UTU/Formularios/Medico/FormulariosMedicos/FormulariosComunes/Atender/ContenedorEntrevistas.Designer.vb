@@ -289,9 +289,11 @@ Partial Class ContenedorEntrevistas
         'txtNomAnalisis
         '
         Me.txtNomAnalisis.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtNomAnalisis.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.txtNomAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNomAnalisis.Location = New System.Drawing.Point(908, 244)
         Me.txtNomAnalisis.Name = "txtNomAnalisis"
+        Me.txtNomAnalisis.ReadOnly = True
         Me.txtNomAnalisis.Size = New System.Drawing.Size(379, 34)
         Me.txtNomAnalisis.TabIndex = 6
         Me.txtNomAnalisis.Visible = False
@@ -384,9 +386,11 @@ Partial Class ContenedorEntrevistas
         'txtNomTratamiento
         '
         Me.txtNomTratamiento.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtNomTratamiento.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.txtNomTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNomTratamiento.Location = New System.Drawing.Point(908, 418)
         Me.txtNomTratamiento.Name = "txtNomTratamiento"
+        Me.txtNomTratamiento.ReadOnly = True
         Me.txtNomTratamiento.Size = New System.Drawing.Size(379, 34)
         Me.txtNomTratamiento.TabIndex = 9
         Me.txtNomTratamiento.Visible = False

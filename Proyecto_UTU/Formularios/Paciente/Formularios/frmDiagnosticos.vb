@@ -59,7 +59,7 @@ Public Class frmDiagnosticos
             entrevista.txtNomEnfermedad.Text = r.Enfermedad.Nombre
             entrevista.chkEnfermo.Checked = True
         End If
-        entrevista.Frmlimpio = fl
+        entrevista.Entrevista = fl
         entrevista.Visible = True
         entrevista.ModoActual = ContenedorEntrevistas.Modo.Consulta
         entrevista.ResetMode()

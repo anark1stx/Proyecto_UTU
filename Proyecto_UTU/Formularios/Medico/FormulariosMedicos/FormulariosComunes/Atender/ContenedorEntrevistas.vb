@@ -2,7 +2,7 @@
 Imports FormulariosPersonalizados
 Public Class ContenedorEntrevistas
     Protected _enfermedad As New E_Enfermedad
-    Protected _frmLimpio As New FormularioEntrevista
+    Protected _Entrevista As New FormularioEntrevista
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
     Protected _modo As Modo
@@ -23,12 +23,12 @@ Public Class ContenedorEntrevistas
         End Set
     End Property
 
-    Property Frmlimpio As FormularioEntrevista
+    Property Entrevista As FormularioEntrevista
         Get
-            Return _frmLimpio
+            Return _Entrevista
         End Get
         Set(value As FormularioEntrevista)
-            _frmLimpio = value
+            _Entrevista = value
         End Set
     End Property
 
@@ -107,7 +107,7 @@ Public Class ContenedorEntrevistas
             lbSignosClinicos.Items.Add(txtSgClinico.Text)
             Dim sg As New E_SignoClinico
             sg.Nombre = txtSgClinico.Text
-            Frmlimpio.MiFormulario.Enfermedad.SignosClinicos.Add(sg)
+            Entrevista.MiFormulario.Enfermedad.SignosClinicos.Add(sg)
             txtSgClinico.Clear()
         Else
             MessageBox.Show("Ese signo clínico ya fue ingresado")
@@ -124,7 +124,7 @@ Public Class ContenedorEntrevistas
             Dim sintoma As New E_Sintoma With {
                 .Nombre = txtSintoma.Text
             }
-            Frmlimpio.MiFormulario.Enfermedad.Sintomas.Add(sintoma)
+            Entrevista.MiFormulario.Enfermedad.Sintomas.Add(sintoma)
             txtSintoma.Clear()
         Else
             MessageBox.Show("Ese síntoma ya fue ingresado")
@@ -133,14 +133,14 @@ Public Class ContenedorEntrevistas
 
     Private Sub btnBorrarSintoma_Click(sender As Object, e As EventArgs) Handles btnBorrarSintoma.Click
         If lbSintomas.SelectedItem IsNot String.Empty Then
-            Frmlimpio.MiFormulario.Enfermedad.Sintomas.Remove(Frmlimpio.MiFormulario.Enfermedad.Sintomas.Find(Function(p) p.Nombre = lbSintomas.SelectedItem.ToString()))
+            Entrevista.MiFormulario.Enfermedad.Sintomas.Remove(Entrevista.MiFormulario.Enfermedad.Sintomas.Find(Function(p) p.Nombre = lbSintomas.SelectedItem.ToString()))
             lbSintomas.Items.Remove(lbSintomas.SelectedItem)
         End If
     End Sub
 
     Private Sub btnBorrarSigno_Click(sender As Object, e As EventArgs) Handles btnBorrarSigno.Click
         If lbSignosClinicos.SelectedItem IsNot String.Empty Then
-            Frmlimpio.MiFormulario.Enfermedad.SignosClinicos.Remove(Frmlimpio.MiFormulario.Enfermedad.SignosClinicos.Find(Function(p) p.Nombre = lbSignosClinicos.SelectedItem.ToString()))
+            Entrevista.MiFormulario.Enfermedad.SignosClinicos.Remove(Entrevista.MiFormulario.Enfermedad.SignosClinicos.Find(Function(p) p.Nombre = lbSignosClinicos.SelectedItem.ToString()))
             lbSignosClinicos.Items.Remove(lbSignosClinicos.SelectedItem)
         End If
     End Sub
@@ -156,19 +156,29 @@ Public Class ContenedorEntrevistas
         End If
     End Sub
 
-    Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged
+    Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged, txtNomAnalisis.Click
         If chkAnalisis.Checked Then
             lblAnalisisReq.Visible = True
             txtNomAnalisis.Visible = True
+            Dim frmAsignarA As New frmAnalisisSeguimiento
+            frmAsignarA.ShowDialog()
+            If frmAsignarA.AnalisisSelect IsNot Nothing Then
+                Entrevista.MiFormulario.Analisis = frmAsignarA.AnalisisSelect
+            End If
         Else
             lblAnalisisReq.Visible = False
             txtNomAnalisis.Visible = False
         End If
     End Sub
-    Private Sub chkTratamiento_CheckedChanged(sender As Object, e As EventArgs) Handles chkTratamiento.CheckedChanged
+    Private Sub chkTratamiento_CheckedChanged(sender As Object, e As EventArgs) Handles chkTratamiento.CheckedChanged, txtNomTratamiento.Click
         If chkTratamiento.Checked Then
             lblTratamientoS.Visible = True
             txtNomTratamiento.Visible = True
+            Dim frmAsignarT As New frmTratamientoCrear
+            frmAsignarT.ShowDialog()
+            If frmAsignarT.TratamientoSeleccionado IsNot Nothing Then
+                Entrevista.MiFormulario.Tratamiento = frmAsignarT.TratamientoSeleccionado
+            End If
         Else
             lblTratamientoS.Visible = False
             txtNomTratamiento.Visible = False
@@ -183,14 +193,14 @@ Public Class ContenedorEntrevistas
         Eventos.Acciones.TopLevel = False
         Eventos.Acciones.TopMost = True
 
-        Eventos.PanelDestino = Frmlimpio.pnlContenedor
-        Eventos.FormDatos = Frmlimpio.MiFormulario
-        Frmlimpio.TopMost = True
-        Frmlimpio.TopLevel = False
-        tbpEntrevista.Controls.Add(Frmlimpio)
-        Frmlimpio.Visible = True
-        Frmlimpio.Dock = DockStyle.Fill
-        tblResolucion.Controls.Add(Eventos.Acciones)
+        Eventos.PanelDestino = Entrevista.pnlContenedor
+        Eventos.FormDatos = Entrevista.MiFormulario
+        Entrevista.TopMost = True
+        Entrevista.TopLevel = False
+        tbpEntrevista.Controls.Add(Entrevista)
+        Entrevista.Visible = True
+        Entrevista.Dock = DockStyle.Fill
+        tpResolucion.Controls.Add(Eventos.Acciones)
 
         Eventos.Acciones.Dock = DockStyle.Bottom
         Eventos.Acciones.Visible = True
@@ -202,6 +212,6 @@ Public Class ContenedorEntrevistas
         'ejecutar los procedimientos Sugerir[{enfermedad,tratamiento,analisis}] según [{pyr,sintomas,signos clinicos}]
     End Sub
     Private Sub txtNomEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtNomEnfermedad.TextChanged
-        Frmlimpio.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
+        Entrevista.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
     End Sub
 End Class

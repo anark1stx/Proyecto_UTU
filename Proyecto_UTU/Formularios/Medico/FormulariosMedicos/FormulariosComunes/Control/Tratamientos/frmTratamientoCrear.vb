@@ -6,33 +6,14 @@ Public Class frmTratamientoCrear
     Protected _modo As New Modo
     Dim negocio As New N_Tratamiento
     Dim listaTrats As New List(Of E_Tratamiento)
-    Dim tratamiento_seleccionado As New E_Tratamiento
-    Protected _CI_Paciente As Integer
-    Protected _ID_C As Integer
-    Protected _enfermedad As String 'solamente se puede sugerir un tratamiento si se ingreso una enfermedad
-    Property CI_Paciente As Integer
-        Get
-            Return _CI_Paciente
-        End Get
-        Set(value As Integer)
-            _CI_Paciente = value
-        End Set
-    End Property
-    Property ID_C As Integer
-        Get
-            Return _id_c
-        End Get
-        Set(value As Integer)
-            _id_c = value
-        End Set
-    End Property
+    Protected _tratamiento_seleccionado As New E_Tratamiento
 
-    Property Enfermedad As String
+    Property TratamientoSeleccionado As E_Tratamiento
         Get
-            Return _enfermedad
+            Return _tratamiento_seleccionado
         End Get
-        Set(value As String)
-            _enfermedad = value
+        Set(value As E_Tratamiento)
+            _tratamiento_seleccionado = value
         End Set
     End Property
 
@@ -56,32 +37,6 @@ Public Class frmTratamientoCrear
     Private Async Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Select Case ModoActual
             Case Modo.Alta
-                If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
-                    MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
-
-                If Not check_Largo(txtNombreTratamiento.Text, 10, 160, True) Then
-                    MessageBox.Show("Nombre: " & MensajeDeErrorLongitud(10, 160), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
-
-                If Not check_Largo(txtDescripcionTratamiento.Text, 10, 16000, True) Then
-                    MessageBox.Show("Descripción: " & MensajeDeErrorLongitud(10, 16000), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
-
-                Dim t = New E_Tratamiento(txtNombreTratamiento.Text, txtDescripcionTratamiento.Text)
-                Dim result = Await Task.Run(Function() negocio.AltaTratamiento(t))
-                Select Case result
-                    Case -1
-                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Case 2
-                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Case 1
-                        MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End Select
-            Case Modo.Asignar 'asignar tratamiento a paciente
                 If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
                     MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -176,14 +131,14 @@ Public Class frmTratamientoCrear
         If listaTrats.Exists(Function(p) p.Nombre = txtNombreTratamiento.Text) Then
             Dim trat As E_Tratamiento = listaTrats.Find(Function(p) p.Nombre = txtNombreTratamiento.Text)
             txtDescripcionTratamiento.Text = trat.Descripcion
-            tratamiento_seleccionado = trat
+            TratamientoSeleccionado = trat
         Else
-            tratamiento_seleccionado = New E_Tratamiento With {.ID = 0}
+            TratamientoSeleccionado = New E_Tratamiento With {.ID = 0}
         End If
     End Sub
 
     Private Sub dgwTratamientos_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwTratamientos.CellMouseClick
-        tratamiento_seleccionado = listaTrats(dgwTratamientos.CurrentCell.RowIndex)
-        txtDescripcionTratamiento.Text = tratamiento_seleccionado.Descripcion
+        TratamientoSeleccionado = listaTrats(dgwTratamientos.CurrentCell.RowIndex)
+        txtDescripcionTratamiento.Text = TratamientoSeleccionado.Descripcion
     End Sub
 End Class

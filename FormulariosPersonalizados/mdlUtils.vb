@@ -149,18 +149,30 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     End If
 
                     If String.IsNullOrWhiteSpace(FormDatos.Enfermedad.Nombre) Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad? Si no registra una enfermedad, no podrá ser sugerido un tratamiento en base a esta consulta.", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar una enfermedad?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
 
                     For Each p As PreguntaRespuesta In FormDatos.PreguntasYRespuestas
-                        If p.Respuesta.Text Is String.Empty Then
+                        If String.IsNullOrEmpty(p.Respuesta.Text) Then
                             If MessageBox.Show("La pregunta: " & p.Pregunta.Text & " no fue respondida, seguro que desea guardar?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                                 Exit Sub
                             End If
                         End If
                     Next
+
+                    If FormDatos.Analisis Is Nothing Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar un análisis?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                            Exit Sub
+                        End If
+                    End If
+
+                    If FormDatos.Tratamiento Is Nothing Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar un tratamiento?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                            Exit Sub
+                        End If
+                    End If
 
                     Dim negocio As New N_Formulario
                     resultado = negocio.AltaFormularioDatos(FormDatos)
@@ -289,13 +301,9 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     End Function
 
     Async Sub BuscarIDsP(pregs As List(Of PreguntaRespuesta))
-        Dim result = Await Task.Run(Function() BuscarIDS_preguntas(pregs))
-    End Sub
-
-    Function BuscarIDS_preguntas(pregs As List(Of PreguntaRespuesta))
         Dim nf As New N_Formulario
-        Return nf.BuscarID_preguntas(pregs)
-    End Function
+        Dim result = Await Task.Run(Function() nf.BuscarID_preguntas(pregs))
+    End Sub
 
     Public Sub GuardarFormulario(FormDisenado As E_Formulario, lista_controles As ControlesGuardados.ListaControles, pnlDestino As Panel)
         Dim Negocio As New N_Formulario

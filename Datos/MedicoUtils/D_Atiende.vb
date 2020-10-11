@@ -28,8 +28,9 @@ Public Class D_Atiende
             Console.WriteLine(ex.Message)
             Return -2
         End Try
-
+        consulta.ID = cmd.Parameters("ID_C").Value
         Cerrar(conexion)
+        Console.WriteLine("OUTPUT PARAMETER ID CONSULTA= " & consulta.ID)
         Return 1
     End Function
     Public Function ConsultarConsultasPendientes(CI_m As Integer) As List(Of E_Atiende)

@@ -284,10 +284,15 @@ Public Class D_Formulario
         cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
         cmd.Parameters.Add("ID_PREG", MySqlDbType.Int32)
         cmd.Parameters.Add("RESPUESTA", MySqlDbType.VarChar)
+        Console.WriteLine("ALTARESPONDE: ID DE CONSULTA =" & form.Atiende.ID)
+        Console.WriteLine("ALTARESPONDE: FECHA DE CONSULTA =" & form.Atiende.Fecha)
+        Console.WriteLine("ALTARESPONDE: PACIENTE CI DE CONSULTA =" & form.Atiende.Paciente.Cedula)
+        Console.WriteLine("ALTARESPONDE: MEDICO CI DE CONSULTA =" & form.Atiende.Medico.Cedula)
+        Console.WriteLine("ALTARESPONDE: ID DE FORMULARIO=" & form.ID)
         For Each pyr As PreguntaRespuesta In form.PreguntasYRespuestas
 
             cmd.Parameters("ID_PREG").Value = pyr.ID_Pregunta
-
+            Console.WriteLine("ALTARESPONDE: ID DE PREGUNTA=" & pyr.ID_Pregunta)
             Dim r As String = ""
             Select Case pyr.Respuesta.GetType 'mover esto afuera de aca xd
                 Case GetType(Windows.Forms.ListBox)
@@ -311,7 +316,7 @@ Public Class D_Formulario
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
                 Cerrar(conexion)
-                Return 2
+                Return -2
             End Try
 
         Next
@@ -322,14 +327,14 @@ Public Class D_Formulario
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-        Dim leer As MySqlDataReader
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSignoClinico", '*Alta a la tabla signo.
             .Connection = conexion
         }
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160)
-
+        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160)
+        cmd.Parameters.Add("ID_SC", MySqlDbType.Int32).Direction = ParameterDirection.Output
         Dim cmd2 As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaExamenFisico", '*Alta a la tabla examenfisico.
@@ -344,18 +349,15 @@ Public Class D_Formulario
         For Each signo As E_SignoClinico In form.Enfermedad.SignosClinicos
 
             cmd.Parameters("NOM").Value = signo.Nombre
-
+            cmd.Parameters("DESCR").Value = signo.Descripcion
             Try
-                leer = cmd.ExecuteReader()
+                cmd.ExecuteNonQuery()
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
                 Cerrar(conexion)
                 Return -2
             End Try
-            While leer.Read()
-                signo.ID = leer.GetInt32("ID")
-            End While
-            leer.Close()
+            signo.ID = cmd.Parameters("ID_SC").Value
 
             cmd2.Parameters("ID_SC").Value = signo.ID
 
@@ -375,13 +377,15 @@ Public Class D_Formulario
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-        Dim leer As MySqlDataReader
+
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSintoma", '*Alta a la tabla sintoma.
             .Connection = conexion
         }
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160)
+        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160)
+        cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
         Dim cmd2 As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -396,25 +400,22 @@ Public Class D_Formulario
 
         For Each sintoma As E_Sintoma In form.Enfermedad.Sintomas
             cmd.Parameters("NOM").Value = sintoma.Nombre
+            cmd.Parameters("DESCR").Value = sintoma.Descripcion
             Try
-                leer = cmd.ExecuteReader()
+                cmd.ExecuteNonQuery()
             Catch ex As Exception
-                Console.WriteLine(ex.Message)
+                Console.WriteLine("error alta sintoma" & ex.Message)
                 Cerrar(conexion)
                 Return -2
             End Try
-            While leer.Read()
-                sintoma.ID = leer.GetInt32("ID")
-            End While
-            leer.Close()
-
+            sintoma.ID = cmd.Parameters("ID_S").Value
             cmd2.Parameters("ID_S").Value = sintoma.ID
 
             Try
                 cmd2.ExecuteNonQuery()
             Catch ex As Exception
                 Cerrar(conexion)
-                Console.WriteLine(ex.Message)
+                Console.WriteLine("error alta registra sintoma" & ex.Message)
                 Return -2
             End Try
         Next
@@ -437,12 +438,12 @@ Public Class D_Formulario
             .Connection = conexion
         }
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar).Value = form.Enfermedad.Nombre
-
+        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160).Value = form.Enfermedad.Descripcion
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Return 2
+            Console.WriteLine("err alta enfermedad" & ex.Message)
+            Return -2
         End Try
 
         Dim cmd2 As New MySqlCommand With {
@@ -451,7 +452,7 @@ Public Class D_Formulario
             .Connection = conexion
         }
         cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-        cmd2.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = form.Atiende.Fecha
+        cmd2.Parameters.Add("FEC", MySqlDbType.DateTime).Value = form.Atiende.Fecha
         cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
         cmd2.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
         cmd2.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
@@ -463,8 +464,8 @@ Public Class D_Formulario
             Try
                 cmd2.ExecuteNonQuery()
             Catch ex As Exception
-                Console.WriteLine(ex.Message)
-                Return 2
+                Console.WriteLine("error alta determina enfermedad" & ex.Message)
+                Return -2
             End Try
         Next
 
