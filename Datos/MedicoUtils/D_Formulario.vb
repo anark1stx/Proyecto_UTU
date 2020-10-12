@@ -245,24 +245,55 @@ Public Class D_Formulario
         Return 1
     End Function
 
-    Public Function ConsultaDatosDeFormulario(ID_consulta As Integer) As E_Formulario 'retornar el objeto formulario con todas las respuestas
-        Dim formularioConDatos As New E_Formulario
-        'leer la id de las preguntas
-    End Function
-
     Public Function AltaFormularioDatos(form As E_Formulario) As Integer
         Dim resultresponde = AltaResponde(form)
         If resultresponde = 1 Then
-            Dim resultsignoclinico = AltaSignosClinicos(form)
-            If resultsignoclinico = 1 Then
-                Dim resultsintoma = AltaSintomas(form)
-                If resultsintoma = 1 Then
-                    Return AltaDeterminaEnfermedad(form)
+            Dim resultDetermina = AltaDeterminaEnfermedad(form)
+            If resultDetermina = 1 Then
+                Dim d_sg As New D_SignoClinico
+                Dim resultExamenF = 0
+                If form.Enfermedad.SignosClinicos.Count < 1 Then
+                    resultExamenF = 1
                 Else
-                    Return resultsintoma
+                    For i = 0 To form.Enfermedad.SignosClinicos.Count - 1
+                        resultExamenF = d_sg.AltaExamenFisico(form.Enfermedad.SignosClinicos(i), form.Atiende)
+                        If resultExamenF <> 1 Then
+                            Return resultExamenF
+                        End If
+                    Next
                 End If
+                Dim resultRegistraS = 0
+                If resultExamenF = 1 Then
+                    Dim d_sin As New D_Sintoma
+                    If form.Enfermedad.Sintomas.Count < 1 Then
+                        resultRegistraS = 1
+                    Else
+                        For i = 0 To form.Enfermedad.Sintomas.Count - 1
+                            resultRegistraS = d_sin.AltaRegistraSintoma(form.Enfermedad.Sintomas(i), form.Atiende)
+                            If resultRegistraS <> 1 Then
+                                Return resultRegistraS
+                            End If
+                        Next
+                    End If
+                Else
+                    Return resultExamenF
+                End If
+                Dim resultSugiereT = 0
+                If form.Tratamiento.ID = 0 Then
+                    resultSugiereT = 1
+                Else
+                    'resultSugiereT = d_T.AltaSugiere
+                End If
+                Dim resultRequiereA = 0
+                If form.Analisis.ID = 0 Then
+                    resultRequiereA = 1
+                Else
+                    'resultRequiereA = d_A.AltaRequiere
+                End If
+
+                Return 1
             Else
-                Return resultsignoclinico
+                    Return resultDetermina
             End If
         Else
             Return resultresponde
@@ -317,130 +348,16 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
     End Function
-    Public Function AltaSignosClinicos(form As E_Formulario) 'mandar esto a otra clase de la capa datos
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaSignoClinico", '*Alta a la tabla signo.
-            .Connection = conexion
-        }
-        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160)
-        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160)
-        cmd.Parameters.Add("ID_SC", MySqlDbType.Int32).Direction = ParameterDirection.Output
-        Dim cmd2 As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaExamenFisico", '*Alta a la tabla examenfisico.
-            .Connection = conexion
-        }
-        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-        cmd2.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = form.Atiende.Fecha
-        cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
-        cmd2.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
-        cmd2.Parameters.Add("ID_SC", MySqlDbType.Int32)
-
-        For Each signo As E_SignoClinico In form.Enfermedad.SignosClinicos
-
-            cmd.Parameters("NOM").Value = signo.Nombre
-            cmd.Parameters("DESCR").Value = signo.Descripcion
-            Try
-                cmd.ExecuteNonQuery()
-            Catch ex As Exception
-                Console.WriteLine(ex.Message)
-                Cerrar(conexion)
-                Return -2
-            End Try
-            signo.ID = cmd.Parameters("ID_SC").Value
-
-            cmd2.Parameters("ID_SC").Value = signo.ID
-
-            Try
-                cmd2.ExecuteNonQuery()
-            Catch ex As Exception
-                Cerrar(conexion)
-                Console.WriteLine(ex.Message)
-                Return -2
-            End Try
-        Next
-
-        Cerrar(conexion)
-        Return 1
-    End Function
-    Public Function AltaSintomas(form As E_Formulario) 'mandar esto a otra clase de la capa datos
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaSintoma", '*Alta a la tabla sintoma.
-            .Connection = conexion
-        }
-        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160)
-        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160)
-        cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Direction = ParameterDirection.Output
-
-        Dim cmd2 As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaRegistraSintoma", '*Alta a la tabla registra.
-            .Connection = conexion
-        }
-        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-        cmd2.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = form.Atiende.Fecha
-        cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
-        cmd2.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
-        cmd2.Parameters.Add("ID_S", MySqlDbType.Int32)
-
-        For Each sintoma As E_Sintoma In form.Enfermedad.Sintomas
-            cmd.Parameters("NOM").Value = sintoma.Nombre
-            cmd.Parameters("DESCR").Value = sintoma.Descripcion
-            Try
-                cmd.ExecuteNonQuery()
-            Catch ex As Exception
-                Console.WriteLine("error alta sintoma" & ex.Message)
-                Cerrar(conexion)
-                Return -2
-            End Try
-            sintoma.ID = cmd.Parameters("ID_S").Value
-            cmd2.Parameters("ID_S").Value = sintoma.ID
-
-            Try
-                cmd2.ExecuteNonQuery()
-            Catch ex As Exception
-                Cerrar(conexion)
-                Console.WriteLine("error alta registra sintoma" & ex.Message)
-                Return -2
-            End Try
-        Next
-
-        Cerrar(conexion)
-        Return 1
-    End Function
-
     'mover esto a otra clase de la capa datos
     Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'primero alta a enfermedad y luego a determina.
         If String.IsNullOrWhiteSpace(form.Enfermedad.Nombre) Then
             Return 1
         End If
 
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaEnfermedad", '*Alta a la tabla enfermedad.
-            .Connection = conexion
-        }
-        cmd.Parameters.Add("NOM", MySqlDbType.VarChar).Value = form.Enfermedad.Nombre
-        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160).Value = form.Enfermedad.Descripcion
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine("err alta enfermedad" & ex.Message)
+        Dim df As New D_Enfermedad
+        If df.AltaEnfermedad(form.Enfermedad) <> 1 Then
             Return -2
-        End Try
+        End If
 
         Dim cmd2 As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -534,7 +451,8 @@ Public Class D_Formulario
                 form.PreguntasYRespuestas = r
         End Select
 
-        Dim r2 = BuscarEnfermedadConsulta(ID_C)
+        Dim d_enf As New D_Enfermedad
+        Dim r2 = d_enf.BuscarEnfermedadConsulta(ID_C)
 
         Select Case r2.Nombre
             Case -1, -2
@@ -582,104 +500,4 @@ Public Class D_Formulario
 
         Return pyr
     End Function
-    Public Function BuscarEnfermedadConsulta(ID_C As Integer) As E_Enfermedad 'ademas de devolver la enfermedad devuelve sintomas y signos clinicos
-        Dim enf As New E_Enfermedad
-        If Conectar(conexion) = -1 Then
-            enf.Nombre = -1
-            Return enf
-        End If
-
-        Dim leer As MySqlDataReader
-        Dim cmd As New MySqlCommand With {
-        .CommandType = CommandType.StoredProcedure,
-        .CommandText = "ConsultarEnfermedadDeterminada",
-        .Connection = conexion
-        }
-
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
-
-        Try
-            leer = cmd.ExecuteReader()
-        Catch ex As Exception
-            Cerrar(conexion)
-            enf.Nombre = -2
-            Return enf
-        End Try
-
-        If leer.HasRows Then
-            While leer.Read()
-                enf = New E_Enfermedad With {
-                .Nombre = leer.GetString("nombre_enfermedad")
-                }
-            End While
-        Else
-            enf.Nombre = -8
-        End If
-
-        Cerrar(conexion)
-        If Conectar(conexion) = -1 Then
-            enf.Nombre = -1
-            Return enf
-        End If
-
-        Dim cmd2 As New MySqlCommand With {
-        .CommandType = CommandType.StoredProcedure,
-        .CommandText = "ConsultarSintomasR",
-        .Connection = conexion
-        }
-
-        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
-
-        Try
-            leer = cmd2.ExecuteReader()
-        Catch ex As Exception
-            Cerrar(conexion)
-            enf.Nombre = -2
-            Return enf
-        End Try
-
-        If leer.HasRows Then
-            While leer.Read()
-                enf.Sintomas.Add(New E_Sintoma With {
-                .Nombre = leer.GetString("nombre")
-                })
-            End While
-        End If
-
-        Cerrar(conexion)
-
-        If Conectar(conexion) = -1 Then
-            enf.Nombre = -1
-            Return enf
-        End If
-
-        Dim cmd3 As New MySqlCommand With {
-        .CommandType = CommandType.StoredProcedure,
-        .CommandText = "ConsultarExamenFisico",
-        .Connection = conexion
-        }
-
-        cmd3.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
-
-        Try
-            leer = cmd3.ExecuteReader()
-        Catch ex As Exception
-            Cerrar(conexion)
-            enf.Nombre = -2
-            Return enf
-        End Try
-
-        If leer.HasRows Then
-            While leer.Read()
-                enf.SignosClinicos.Add(New E_SignoClinico With {
-                .Nombre = leer.GetString("nombre")
-                })
-            End While
-        End If
-
-        Cerrar(conexion)
-        Return enf
-    End Function
-
-
 End Class
