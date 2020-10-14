@@ -2,20 +2,27 @@
 Imports MySql.Data.MySqlClient
 Public Class D_SignoClinico
     Dim conexion As New MySqlConnection
-    Public Function AltaSignoClinico(Signo As E_SignoClinico) As Integer
+    Public Function AltaModSignoClinico(Signo As E_SignoClinico, altaomod As Boolean) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-
-        Dim cmd As New MySqlCommand With {
+        Dim cmd As MySqlCommand
+        If altaomod Then '1 = mod, 0 = alta
+            cmd = New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaSignoClinicoDescripcion",
+            .Connection = conexion
+            }
+        Else
+            cmd = New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSignoClinico", '*Alta a la tabla Signo.
             .Connection = conexion
-        }
+            }
+            cmd.Parameters.Add("ID_SC", MySqlDbType.Int32).Direction = ParameterDirection.Output
+        End If
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = Signo.Nombre
         cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160).Value = Signo.Descripcion
-        cmd.Parameters.Add("ID_SC", MySqlDbType.Int32).Direction = ParameterDirection.Output
-
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
@@ -28,13 +35,18 @@ Public Class D_SignoClinico
         Return 1
     End Function
     Public Function AltaExamenFisico(Signo As E_SignoClinico, consulta As E_Atiende) As Integer
+        Dim resultAltaSg = AltaModSignoClinico(Signo, 0)
+        If resultAltaSg <> 1 Then 'tal vez el signo clinico no este indexado en la base de datos, si asi es el caso lo damos de alta
+            Return resultAltaSg
+        End If
+
         If Conectar(conexion) = -1 Then
             Return -1
         End If
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaExamenFisico", '*Alta a la tabla registra.
+            .CommandText = "AltaExamenFisico", '*Alta a la tabla examenfisico.
             .Connection = conexion
         }
         cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = consulta.ID

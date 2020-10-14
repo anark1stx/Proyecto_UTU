@@ -3,20 +3,27 @@ Imports MySql.Data.MySqlClient
 
 Public Class D_Sintoma
     Dim conexion As New MySqlConnection
-    Public Function AltaSintoma(Sintoma As E_Sintoma) As Integer
+    Public Function AltaModSintoma(Sintoma As E_Sintoma, altaomod As Boolean) As Integer 'note: ver si el orden de los parametros afecta en algo.
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-
-        Dim cmd As New MySqlCommand With {
+        Dim cmd As MySqlCommand
+        If altaomod Then '0 = alta, 1 = mod
+            cmd = New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaSintomaDescripcion",
+            .Connection = conexion
+            }
+        Else
+            cmd = New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSintoma", '*Alta a la tabla sintoma.
             .Connection = conexion
-        }
+            }
+            cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Direction = ParameterDirection.Output
+        End If
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = Sintoma.Nombre
         cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160).Value = Sintoma.Descripcion
-        cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Direction = ParameterDirection.Output
-
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
@@ -29,6 +36,11 @@ Public Class D_Sintoma
         Return 1
     End Function
     Public Function AltaRegistraSintoma(Sintoma As E_Sintoma, consulta As E_Atiende) As Integer
+        Dim resultAltaSn = AltaModSintoma(Sintoma, 0)
+        If resultAltaSn <> 1 Then 'tal vez el signo clinico no este indexado en la base de datos, si asi es el caso lo damos de alta
+            Return resultAltaSn
+        End If
+
         If Conectar(conexion) = -1 Then
             Return -1
         End If

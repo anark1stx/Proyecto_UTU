@@ -349,13 +349,13 @@ Public Class D_Formulario
         Return 1
     End Function
     'mover esto a otra clase de la capa datos
-    Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'primero alta a enfermedad y luego a determina.
+    Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'este metodo esta aca porque usa mas parametros del formulario y de la consulta que de la enfermedad en si
         If String.IsNullOrWhiteSpace(form.Enfermedad.Nombre) Then
             Return 1
         End If
 
         Dim df As New D_Enfermedad
-        If df.AltaEnfermedad(form.Enfermedad) <> 1 Then
+        If df.AltaModEnfermedad(form.Enfermedad, 0) <> 1 Then
             Return -2
         End If
 
@@ -461,9 +461,7 @@ Public Class D_Formulario
         End Select
 
         form.Enfermedad = r2
-
         Return form
-
     End Function
 
     Public Function BuscarRespuestas(ID_C As Integer) As List(Of PreguntaRespuesta)
