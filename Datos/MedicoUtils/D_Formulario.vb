@@ -4,70 +4,46 @@ Imports MySql.Data.MySqlClient
 Public Class D_Formulario
     Dim conexion As New MySqlConnection
 
-    Public Function AltaFormulario(form As E_Formulario) As Integer
+    Public Function AltaModFormulario(form As E_Formulario, altaomod As Boolean) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaFormulario",
             .Connection = conexion
         }
+
+        If altaomod Then '1=mod
+            cmd.CommandText = "ModificarFormulario"
+            cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
+        Else
+            cmd.CommandText = "AltaFormulario"
+            cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Direction = ParameterDirection.Output
+        End If
 
         cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = form.Nombre
         cmd.Parameters.Add("XML", MySqlDbType.MediumText).Value = form.XML
         cmd.Parameters.Add("V_PREVIA", MySqlDbType.MediumBlob).Value = form.VistaPrevia
-        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Direction = ParameterDirection.Output
+
         Try
             cmd.ExecuteReader()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Cerrar(conexion)
-            Return 2
+            Return -2
         End Try
-
         Cerrar(conexion)
-        form.ID = cmd.Parameters("ID_F").Value
-        Console.WriteLine("este form tiene id: " & form.ID)
 
-        Dim result = AltaPreguntas(form)
-
-        Return result
-    End Function
-
-    Public Function ModificarFormulario(form As E_Formulario) As Integer
-        If Conectar(conexion) = -1 Then
-            Return -1
+        If altaomod Then 'si es una modificacion tiro todos los records de la tabla "de" (ID_F,ID_P)
+            Dim res = BorrarPreguntasDeFormulario(form)
+            Select Case res
+                Case <> 1
+                    Return res
+            End Select
         End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "ModificarFormulario",
-            .Connection = conexion
-        }
-        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
-        cmd.Parameters.Add("NOMBRE", MySqlDbType.VarChar, 90).Value = form.Nombre
-        cmd.Parameters.Add("XML", MySqlDbType.MediumText).Value = form.XML
-        cmd.Parameters.Add("V_PREVIA", MySqlDbType.MediumBlob).Value = form.VistaPrevia
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Cerrar(conexion)
-            Return 2
-        End Try
-        Cerrar(conexion)
-
-        Dim result = BorrarPreguntasDeFormulario(form)
-        Select Case result
-            Case -1, 2
-                Return result
-        End Select
-        Dim result2 = AltaPreguntas(form)
-        Return result2
+        Return AltaPreguntas(form)
     End Function
-
     Public Function BajaFormulario(form As E_Formulario) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
@@ -75,7 +51,7 @@ Public Class D_Formulario
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "BajaFormulario",
+            .CommandText = "BajaFormulario", 'como todas las tablas tienen ON DELETE CASCADE, si borro el formulario no hace falta tirar un delete a la tabla "de", se borran solas
             .Connection = conexion
         }
 
@@ -86,7 +62,7 @@ Public Class D_Formulario
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Cerrar(conexion)
-            Return 2
+            Return -2
         End Try
         Cerrar(conexion)
         Return 1
@@ -105,9 +81,7 @@ Public Class D_Formulario
                 .CommandText = "BuscarFormulariosXNombre",
                 .Connection = conexion
         }
-
         cmd.Parameters.Add("NOM_F", MySqlDbType.VarChar, 90).Value = buscar
-
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
@@ -132,9 +106,7 @@ Public Class D_Formulario
         Else
             formList.Add(New E_Formulario With {.ID = -8})
         End If
-
         Cerrar(conexion)
-
         Return formList
     End Function
 
@@ -520,9 +492,7 @@ Public Class D_Formulario
                         .Text = leer.GetString("respuesta")
             }})
         End While
-
         Cerrar(conexion)
-
         Return pyr
     End Function
 End Class

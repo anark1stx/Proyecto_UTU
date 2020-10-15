@@ -31,8 +31,12 @@ Public Class D_Sintoma
             Cerrar(conexion)
             Return -2
         End Try
+
+        If Not altaomod Then
+            Sintoma.ID = cmd.Parameters("ID_S").Value
+        End If
+
         Cerrar(conexion)
-        Sintoma.ID = cmd.Parameters("ID_S").Value
         Return 1
     End Function
     Public Function AltaRegistraSintoma(Sintoma As E_Sintoma, consulta As E_Atiende) As Integer
@@ -99,7 +103,75 @@ Public Class D_Sintoma
                 })
             End While
         End If
+        Cerrar(conexion)
         Return sintomas
+    End Function
+    Public Function ListarSintomas(nombre As String) As List(Of E_Sintoma) 'retorno una lista ya que voy a emplear LIKE para la busqueda, entonces puede ser que encuentre varias coincidencias
+        Dim leer As MySqlDataReader
+        Dim lSintoma As New List(Of E_Sintoma)
+        If Conectar(conexion) = -1 Then
+            lSintoma.Add(New E_Sintoma With {.ID = -1})
+            Return lSintoma
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarSintomasxNombre"
+        }
+
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            lSintoma.Add(New E_Sintoma With {.ID = -2})
+            Return lSintoma
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                lSintoma.Add(New E_Sintoma With {
+                .ID = leer.GetInt32("ID"),
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+        End If
+        Cerrar(conexion)
+        Return lSintoma
+    End Function
+
+    Public Function ConsultarDescripcionSintoma(sintoma As E_Sintoma) As Integer
+        Dim leer As MySqlDataReader
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarDescripcionSintoma"
+        }
+
+        cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Value = sintoma.ID
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return -2
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                sintoma.Descripcion = leer.GetString("descripcion")
+            End While
+        Else
+            Return -8 'no hay descripcion disponible
+        End If
+        Cerrar(conexion)
+        Return 1
     End Function
 
 End Class

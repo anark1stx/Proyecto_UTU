@@ -3,14 +3,9 @@ Imports Datos
 Public Class N_Formulario
     Dim objDatos As New D_Formulario
 
-    Public Function AltaFormulario(form As E_Formulario) As Integer
-        Return objDatos.AltaFormulario(form)
+    Public Function AltaModFormulario(form As E_Formulario, altaomod As Boolean) As Integer
+        Return objDatos.AltaModFormulario(form, altaomod)
     End Function
-
-    Public Function ModificarFormulario(form As E_Formulario) As Integer
-        Return objDatos.ModificarFormulario(form)
-    End Function
-
     Public Function BuscarFormularios(busqueda As String) As List(Of E_Formulario)
         Return objDatos.BuscarFormularios(busqueda)
     End Function
