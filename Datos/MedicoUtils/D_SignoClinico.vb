@@ -101,4 +101,72 @@ Public Class D_SignoClinico
         Return signos
     End Function
 
+    Public Function ListarSignoCs(nombre As String) As List(Of E_SignoClinico) 'retorno una lista ya que voy a emplear LIKE para la busqueda, entonces puede ser que encuentre varias coincidencias
+        Dim leer As MySqlDataReader
+        Dim lSignoC As New List(Of E_SignoClinico)
+        If Conectar(conexion) = -1 Then
+            lSignoC.Add(New E_SignoClinico With {.ID = -1})
+            Return lSignoC
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarSignosCxNombre"
+        }
+
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            lSignoC.Add(New E_SignoClinico With {.ID = -2})
+            Return lSignoC
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                lSignoC.Add(New E_SignoClinico With {
+                .ID = leer.GetInt32("ID"),
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+        End If
+        Cerrar(conexion)
+        Return lSignoC
+    End Function
+
+    Public Function ConsultarDescripcionSignoC(signoc As E_SignoClinico) As Integer
+        Dim leer As MySqlDataReader
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarDescripcionSignoC"
+        }
+
+        cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Value = signoc.ID
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return -2
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                signoc.Descripcion = leer.GetString("descripcion")
+            End While
+        Else
+            Return -8 'no hay descripcion disponible
+        End If
+        Cerrar(conexion)
+        Return 1
+    End Function
+
 End Class

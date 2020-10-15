@@ -85,4 +85,83 @@ Public Class D_Enfermedad
         Return enf
         Cerrar(conexion)
     End Function
+
+    Public Function ListarEnfermedades(nombre As String) As List(Of E_Enfermedad)
+        Dim leer As MySqlDataReader
+        Dim lSintoma As New List(Of E_Enfermedad)
+        If Conectar(conexion) = -1 Then
+            lSintoma.Add(New E_Enfermedad With {.Nombre = -1})
+            Return lSintoma
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarEnfermedadesxNombre"
+        }
+
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            lSintoma.Add(New E_Enfermedad With {.Nombre = -2})
+            Return lSintoma
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                lSintoma.Add(New E_Enfermedad With {
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+        End If
+        Cerrar(conexion)
+        Return lSintoma
+    End Function
+
+    Public Function ConsultarDescripcionEnfermedad(enfermedad As E_Enfermedad) As Integer
+        Dim leer As MySqlDataReader
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarDescripcionEnfermedad"
+        }
+
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = enfermedad.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Return -2
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                enfermedad.Descripcion = leer.GetString("descripcion")
+            End While
+        Else
+            Return -8 'no hay descripcion disponible
+        End If
+        Cerrar(conexion)
+        Return 1
+    End Function
+
+    Public Function SugerirEnfermedadSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Enfermedad
+
+    End Function
+
+    Public Function SugerirEnfermedadSegunSintomas(sList As List(Of E_Sintoma)) As E_Enfermedad
+
+    End Function
+    Public Function SugerirEnfermedadSegunSignosC(scList As List(Of E_SignoClinico)) As E_Enfermedad
+
+    End Function
+
 End Class
