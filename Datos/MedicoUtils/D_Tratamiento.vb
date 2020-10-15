@@ -14,7 +14,7 @@ Public Class D_Tratamiento
         }
 
         cmd.Parameters.Add("NOM_T", MySqlDbType.VarChar, 160).Value = tratamiento.Nombre
-        cmd.Parameters.Add("DESCRIPCION", MySqlDbType.VarChar, 16000).Value = tratamiento.Descripcion
+        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 16000).Value = tratamiento.Descripcion
         Try
             cmd.ExecuteReader()
         Catch ex As Exception
@@ -68,7 +68,7 @@ Public Class D_Tratamiento
         Return tratamientoList
     End Function
 
-    Function AltaPacienteSigueTratamiento()
+    Function AltaPacienteSigueTratamiento() As Integer
 
     End Function
 

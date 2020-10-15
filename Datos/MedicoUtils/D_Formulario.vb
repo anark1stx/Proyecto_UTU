@@ -250,54 +250,104 @@ Public Class D_Formulario
         If resultresponde = 1 Then
             Dim resultDetermina = AltaDeterminaEnfermedad(form)
             If resultDetermina = 1 Then
-                Dim d_sg As New D_SignoClinico
-                Dim resultExamenF = 0
-                If form.Enfermedad.SignosClinicos.Count < 1 Then
-                    resultExamenF = 1
-                Else
+                If form.Enfermedad.SignosClinicos.Count > 0 Then
+                    Dim d_sg As New D_SignoClinico
                     For i = 0 To form.Enfermedad.SignosClinicos.Count - 1
-                        resultExamenF = d_sg.AltaExamenFisico(form.Enfermedad.SignosClinicos(i), form.Atiende)
+                        Dim resultExamenF = d_sg.AltaExamenFisico(form.Enfermedad.SignosClinicos(i), form.Atiende)
                         If resultExamenF <> 1 Then
                             Return resultExamenF
                         End If
                     Next
                 End If
-                Dim resultRegistraS = 0
-                If resultExamenF = 1 Then
+                If form.Enfermedad.Sintomas.Count > 0 Then
                     Dim d_sin As New D_Sintoma
-                    If form.Enfermedad.Sintomas.Count < 1 Then
-                        resultRegistraS = 1
-                    Else
-                        For i = 0 To form.Enfermedad.Sintomas.Count - 1
-                            resultRegistraS = d_sin.AltaRegistraSintoma(form.Enfermedad.Sintomas(i), form.Atiende)
-                            If resultRegistraS <> 1 Then
-                                Return resultRegistraS
-                            End If
-                        Next
-                    End If
-                Else
-                    Return resultExamenF
-                End If
-                Dim resultSugiereT = 0
-                If form.Tratamiento.ID = 0 Then
-                    resultSugiereT = 1
-                Else
-                    'resultSugiereT = d_T.AltaSugiere
-                End If
-                Dim resultRequiereA = 0
-                If form.Analisis.ID = 0 Then
-                    resultRequiereA = 1
-                Else
-                    'resultRequiereA = d_A.AltaRequiere
+                    For i = 0 To form.Enfermedad.Sintomas.Count - 1
+                        Dim resultRegistraS = d_sin.AltaRegistraSintoma(form.Enfermedad.Sintomas(i), form.Atiende)
+                        If resultRegistraS <> 1 Then
+                            Return resultRegistraS
+                        End If
+                    Next
                 End If
 
-                Return 1
+                If form.Tratamiento.ID > 0 Then 'si la id del tratamiento es 0 es porque no se cargo ningun tratamiento directamente
+                    Dim d_trat As New D_Tratamiento
+                    Dim resultTratamiento = AltaSugiereTratamiento(form)
+                    If resultTratamiento <> 1 Then
+                        Return resultTratamiento
+                    End If
+                End If
+
+                If form.Analisis.ID > 0 Then
+                    Return AsignarAnalisis(form)
+                End If
             Else
-                    Return resultDetermina
+                Return resultDetermina
             End If
         Else
             Return resultresponde
         End If
+        Return 1
+    End Function
+    Public Function AsignarAnalisis(form As E_Formulario) As Integer
+
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaAnalisisRequerido",
+            .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
+        cmd.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = form.Atiende.Fecha
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
+        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
+        cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
+        cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
+        For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
+            cmd.Parameters("ID_P").Value = p.ID_Pregunta
+            Try
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                Cerrar(conexion)
+                Console.WriteLine(ex.Message)
+                Return -2
+            End Try
+        Next
+        Cerrar(conexion)
+        Return 1
+    End Function
+    Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaTratamientoSugerido", '*Alta a la tabla requiere.
+            .Connection = conexion
+        }
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
+        cmd.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = form.Atiende.Fecha
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
+        cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
+        cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
+        cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
+        For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
+            cmd.Parameters("ID_P").Value = p.ID_Pregunta
+            Try
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                Cerrar(conexion)
+                Console.WriteLine(ex.Message)
+                Return -2
+            End Try
+        Next
+        Cerrar(conexion)
+        Return 1
     End Function
     Public Function AltaResponde(form As E_Formulario)
         If Conectar(conexion) = -1 Then
@@ -386,29 +436,6 @@ Public Class D_Formulario
         Return 1
 
     End Function
-
-    Public Function AltaSugiereTratamiento(form As E_Formulario) As Integer
-        If Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaTratamientoSugerido", '*Alta a la tabla requiere.
-            .Connection = conexion
-        }
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = form.Atiende.ID
-        cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = form.Tratamiento.ID
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
-
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Return 2
-        End Try
-        Return 1
-    End Function
     Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
         Dim form As New E_Formulario
         Dim pyr As New List(Of PreguntaRespuesta)
@@ -444,7 +471,7 @@ Public Class D_Formulario
 
         Dim r = BuscarRespuestas(ID_C)
         Select Case r(0).Tag
-            Case -1, -2, -8
+            Case <> -1
                 form.ID = r(0).Tag
                 Return form
             Case Else
@@ -455,7 +482,7 @@ Public Class D_Formulario
         Dim r2 = d_enf.BuscarEnfermedadConsulta(ID_C)
 
         Select Case r2.Nombre
-            Case -1, -2
+            Case <> -1
                 form.ID = r2.Nombre
                 Return form
         End Select
