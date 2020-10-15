@@ -23,7 +23,7 @@ Public Class D_Analisis
             leer = cmd.ExecuteReader() 'porque preciso el ID del analisis, sino seria NonQuery.
         Catch ex As Exception
             Cerrar(conexion)
-            Return 2 'no se pudo ingresar analisis
+            Return -2 'no se pudo ingresar analisis
         End Try
 
         a.ID = cmd.Parameters("ID_AN").Value
@@ -192,11 +192,43 @@ Public Class D_Analisis
         Return existe
 
     End Function
+    Public Function ConsultarResultadosAnalisis(a As E_Analisis) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultaAnalisisResultados"
+        }
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = a.ConsultaReq.ID
+        cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
 
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            Return -2
+        End Try
 
-
-    Public Function ConsultarResultadosAnalisis(consulta As E_Atiende, a As E_Analisis) As E_Analisis
-
+        If leer.HasRows Then
+            While leer.Read()
+                a.Parametros.Add(New E_Analisis.Parametro With {
+                .Nombre = leer.GetString("nombre"),
+                .ID = leer.GetString("ID"),
+                .Unidad = leer.GetString("unidad"),
+                .ValorMinimo = leer.GetDecimal("referencia_min"),
+                .ValorMaximo = leer.GetDecimal("referencia_max"),
+                .Valor = leer.GetDecimal("valor")
+                })
+            End While
+        Else
+            Return -8
+        End If
+        Cerrar(conexion)
+        Return 1
     End Function
 
     Public Function BuscarAnalisisXNombre(nom As String) As List(Of E_Analisis)
@@ -235,12 +267,9 @@ Public Class D_Analisis
         Else
             aList.Add(New E_Analisis With {.ID = -8})
         End If
-
         Cerrar(conexion)
         Return aList
     End Function
-
-
     Public Function ListarAnalisisDePaciente(CI_P As Integer) As List(Of E_Analisis)
         Dim aList As New List(Of E_Analisis)
         Dim leer As MySqlDataReader
@@ -277,7 +306,6 @@ Public Class D_Analisis
         Else
             aList.Add(New E_Analisis With {.ID = -8})
         End If
-
         Cerrar(conexion)
         Return aList
     End Function
@@ -311,6 +339,7 @@ Public Class D_Analisis
                 Return -2
             End Try
         Next
+        Cerrar(conexion)
         Return 1
     End Function
 End Class

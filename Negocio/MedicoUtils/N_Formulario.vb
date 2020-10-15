@@ -37,4 +37,7 @@ Public Class N_Formulario
     Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
         Return objDatos.BuscarDiagnostico(ID_C)
     End Function
+    Public Function AsignarAnalisisAPaciente(form As E_Formulario) As Integer
+        Return objDatos.AsignarAnalisis(form)
+    End Function
 End Class
