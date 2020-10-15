@@ -3,7 +3,7 @@
     Protected _nombre As String
     Protected _indicaciones As List(Of Indicacion)
     Protected _parametros As List(Of Parametro)
-    Protected _fechaReq As Date
+    Protected _consultaReq As E_Atiende
     Protected _fechaRes As Date
     Property ID As Integer
         Get
@@ -38,12 +38,13 @@
             _indicaciones = value
         End Set
     End Property
-    Property FechaReq As Date
+
+    Property ConsultaReq As E_Atiende
         Get
-            Return _fechaReq
+            Return _consultaReq
         End Get
-        Set(value As Date)
-            _fechaReq = value
+        Set(value As E_Atiende)
+            _consultaReq = value
         End Set
     End Property
 

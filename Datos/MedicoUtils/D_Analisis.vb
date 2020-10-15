@@ -241,49 +241,76 @@ Public Class D_Analisis
     End Function
 
 
-    Public Function ListarAnalisisDePaciente(CI_P As Integer)
-
-        Dim pList As New List(Of E_Analisis.Parametro)
-
+    Public Function ListarAnalisisDePaciente(CI_P As Integer) As List(Of E_Analisis)
+        Dim aList As New List(Of E_Analisis)
         Dim leer As MySqlDataReader
-        Dim cmd As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "BuscarParametros",
-            .Connection = conexion
-        }
-
         If Conectar(conexion) = -1 Then
-            Cerrar(conexion)
-            pList.Add(New E_Analisis.Parametro With {.ID = -1})
-            Return pList
+            aList.Add(New E_Analisis With {.ID = -1})
+            Return aList
         End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ListadoAnalisisPaciente"
+        }
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI_P
 
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            pList.Add(New E_Analisis.Parametro With {.ID = -2})
-            Return pList
+            Console.WriteLine(ex.Message)
+            aList.Add(New E_Analisis With {.ID = -2})
+            Return aList
         End Try
-        If leer.HasRows Then
-            While leer.Read()
-                Console.WriteLine("reading parametros")
-                pList.Add(New E_Analisis.Parametro With {
-                .ID = leer.GetInt32("ID"),
-                .Nombre = leer.GetString("nombre"),
-                .Unidad = leer.GetString("unidad"),
-                .ValorMinimo = leer.GetDouble("referencia_min"),
-                .ValorMaximo = leer.GetDouble("referencia_max")
-                })
 
-            End While
+        If leer.HasRows Then
+            aList.Add(New E_Analisis With {
+                .ID = leer.GetInt32("ID_analisis"),
+                .Nombre = leer.GetString("nombre"),
+                .ConsultaReq = New E_Atiende With {
+                .ID = leer.GetString("ID_Consulta"),
+                .Fecha = leer.GetString("fecha_c")
+                }
+            })
         Else
-            pList.Add(New E_Analisis.Parametro With {.ID = -8})
+            aList.Add(New E_Analisis With {.ID = -8})
         End If
 
-
         Cerrar(conexion)
-        Return pList
+        Return aList
     End Function
+    Public Function AltaAnalisisResultados(a As E_Analisis) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
 
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaAnalisisResultados",
+            .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = a.ConsultaReq.ID
+        cmd.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = a.ConsultaReq.Fecha
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = a.ConsultaReq.Paciente.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = a.ConsultaReq.Medico.Cedula
+        cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
+        cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
+        cmd.Parameters.Add("VAL", MySqlDbType.Decimal)
+
+        For Each p As E_Analisis.Parametro In a.Parametros
+            cmd.Parameters("ID_P").Value = p.ID
+            cmd.Parameters("VAL").Value = p.Valor
+            Try
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                Cerrar(conexion)
+                Console.WriteLine(ex.Message)
+                Return -2
+            End Try
+        Next
+        Return 1
+    End Function
 End Class
