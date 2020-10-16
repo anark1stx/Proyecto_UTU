@@ -2,7 +2,7 @@
 Imports System.Drawing
 <Serializable()>
 Public Class ControlesGuardados
-    <Xml.Serialization.XmlInclude(GetType(Panel)), Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button)), Xml.Serialization.XmlInclude(GetType(TableLayoutPanel))> 'Todos los controles que heredan directamente de SControl
+    <Xml.Serialization.XmlInclude(GetType(TextControl)), Xml.Serialization.XmlInclude(GetType(Button))> 'Todos los controles que heredan directamente de SControl
     Public Class SControl 'Posicion, Nombre y tamaño son las unicas dos propiedades que vamos a tomar de todos los controles de forma obligatoria.
         <Xml.Serialization.XmlIgnore>
         Public _posicion As Point
@@ -106,7 +106,7 @@ Public Class ControlesGuardados
         End Sub
 
     End Class
-    <Xml.Serialization.XmlInclude(GetType(GroupBox)), Xml.Serialization.XmlInclude(GetType(Textbox)), Xml.Serialization.XmlInclude(GetType(Label)), Xml.Serialization.XmlInclude(GetType(ListBox)), Xml.Serialization.XmlInclude(GetType(CheckBox))>
+    <Xml.Serialization.XmlInclude(GetType(Textbox)), Xml.Serialization.XmlInclude(GetType(Label)), Xml.Serialization.XmlInclude(GetType(ListBox)), Xml.Serialization.XmlInclude(GetType(CheckBox))>
     Public Class TextControl 'Aquellos controles que tienen Texto
         Inherits SControl
         <Xml.Serialization.XmlIgnore>
@@ -174,131 +174,6 @@ Public Class ControlesGuardados
 
 
     End Class
-    Public Class Panel
-        Inherits SControl
-        <Xml.Serialization.XmlIgnore>
-        Public _autoScroll As Boolean
-        <Xml.Serialization.XmlIgnore>
-        Public _childs As List(Of SControl)
-
-        Property AutoScroll As Boolean
-            Get
-                Return _autoScroll
-            End Get
-            Set(value As Boolean)
-                _autoScroll = value
-            End Set
-        End Property
-        Property Childs As List(Of SControl)
-            Get
-                Return _childs
-            End Get
-            Set(value As List(Of SControl))
-                _childs = value
-            End Set
-        End Property
-
-        Sub New()
-
-        End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, autoScroll As Boolean, childs As List(Of SControl))
-
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = dock
-            _anchor = anchor
-            _fgColor = fg
-            _bgColor = bg
-            _autoScroll = autoScroll
-            _childs = childs
-        End Sub
-    End Class
-    Public Class GroupBox
-        Inherits TextControl 'Los groupBoxes suelen tener un Texto.
-        <Xml.Serialization.XmlIgnore>
-        Public _childs As List(Of SControl)
-        Property Childs As List(Of SControl)
-            Get
-                Return _childs
-            End Get
-            Set(value As List(Of SControl))
-                _childs = value
-            End Set
-        End Property
-        Sub New()
-
-        End Sub
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, Texto As String, Childs As List(Of SControl), font As Font)
-
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = dock
-            _anchor = anchor
-            _fgColor = fg
-            _bgColor = bg
-            _Texto = Texto
-            _childs = Childs
-            _font = FontToStr(font)
-        End Sub
-    End Class
-
-    Public Class TableLayoutPanel 'Si bien TBL esta compuesto de paneles, no nos interesa guardar si tiene autoScroll.
-        Inherits SControl
-        <Xml.Serialization.XmlIgnore>
-        Public __childs As List(Of TBLControl)
-        <Xml.Serialization.XmlIgnore>
-        Public _rows As Integer 'cantidad de filas de la tbl
-        <Xml.Serialization.XmlIgnore>
-        Public _cols As Integer 'Cantidad de las columnas de la tbl
-        Property ChildsTuple As List(Of TBLControl)
-            Get
-                Return __childs
-            End Get
-            Set(value As List(Of TBLControl))
-                __childs = value
-            End Set
-        End Property
-
-        Property Cols As Integer
-            Get
-                Return _cols
-            End Get
-            Set(value As Integer)
-                _cols = value
-            End Set
-        End Property
-
-        Property Rows As Integer
-            Get
-                Return _rows
-            End Get
-            Set(value As Integer)
-                _rows = value
-            End Set
-        End Property
-
-
-        Sub New(posicion As Point, tamano As Size, nombre As String, dock As DockStyle, anchor As AnchorStyles, fg As String, bg As String, childs As List(Of TBLControl), cols As Integer, rows As Integer)
-            _posicion = posicion
-            _tamano = tamano
-            _nombre = nombre
-            _dock = dock
-            _anchor = anchor
-            _fgColor = fg
-            _bgColor = bg
-            __childs = childs
-            _cols = cols
-            _rows = rows
-        End Sub
-
-        Sub New()
-
-        End Sub
-
-    End Class
-
     Public Class Textbox
         Inherits TextControl
         Sub New()
@@ -493,52 +368,6 @@ Public Class ControlesGuardados
         End Sub
         Public Sub New(controles As List(Of SControl))
             _Controles = controles
-        End Sub
-
-    End Class
-
-    Public Class TBLControl 'CHILD,COL,ROW
-        <Xml.Serialization.XmlIgnore>
-        Protected _control As SControl
-        <Xml.Serialization.XmlIgnore>
-        Protected _colIndex As Integer
-        <Xml.Serialization.XmlIgnore>
-        Protected _rowIndex As Integer
-
-        Property Control As SControl
-            Get
-                Return _control
-            End Get
-            Set(value As SControl)
-                _control = value
-            End Set
-        End Property
-
-        Property ColIndex As Integer
-            Get
-                Return _colIndex
-            End Get
-            Set(value As Integer)
-                _colIndex = value
-            End Set
-        End Property
-        Property RowIndex As Integer
-            Get
-                Return _rowIndex
-            End Get
-            Set(value As Integer)
-                _rowIndex = value
-            End Set
-        End Property
-
-        Public Sub New()
-
-        End Sub
-
-        Public Sub New(control As SControl, colIndex As Integer, rowIndex As Integer)
-            _control = control
-            _colIndex = colIndex
-            _rowIndex = rowIndex
         End Sub
 
     End Class

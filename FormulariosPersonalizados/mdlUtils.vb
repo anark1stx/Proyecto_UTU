@@ -295,7 +295,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     Async Sub BuscarIDsP(pregs As List(Of PreguntaRespuesta))
         Dim nf As New N_Formulario
         Dim result = Await Task.Run(Function() nf.BuscarID_preguntas(pregs))
-        Select Case resultado
+        Select Case result
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case -2
