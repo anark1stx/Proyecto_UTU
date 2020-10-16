@@ -250,8 +250,12 @@ Public Class D_Formulario
                 End If
 
                 If form.Analisis.ID > 0 Then
-                    Return AsignarAnalisis(form)
+                    Dim resultAnalisis = AsignarAnalisis(form)
+                    If resultAnalisis <> 1 Then
+                        Return resultAnalisis
+                    End If
                 End If
+                Return FinalizarConsulta(form.Atiende)
             Else
                 Return resultDetermina
             End If
@@ -260,6 +264,30 @@ Public Class D_Formulario
         End If
         Return 1
     End Function
+
+    Public Function FinalizarConsulta(consulta As E_Atiende) As Integer
+
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "FinalizarConsulta",
+            .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = consulta.ID
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            Return -2
+        End Try
+        Cerrar(conexion)
+        Return 1
+    End Function
+
     Public Function AsignarAnalisis(form As E_Formulario) As Integer
 
         If Conectar(conexion) = -1 Then

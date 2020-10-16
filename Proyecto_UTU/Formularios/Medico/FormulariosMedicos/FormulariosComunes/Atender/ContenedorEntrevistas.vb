@@ -6,7 +6,6 @@ Public Class ContenedorEntrevistas
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
     Protected _modo As Modo
-
     Public Enum Modo
         Ingreso
         Consulta
@@ -213,5 +212,8 @@ Public Class ContenedorEntrevistas
     End Sub
     Private Sub txtNomEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtNomEnfermedad.TextChanged
         Entrevista.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
+    End Sub
+    Public Sub FinalizarConsulta() 'llamo a este metodo desde frmMedico.FinalizarConsultaToolStripMenuItem_Click
+        Eventos.Guardar()
     End Sub
 End Class

@@ -600,7 +600,6 @@ Public Class frmMedico
     End Sub
 
     Private Sub FinalizarConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinalizarConsultaToolStripMenuItem.Click
-        'leer si los datos de ContenedorEntrevistas estan completados todos, accionar ContenedorEntrevistas.Eventos.Acciones.Guardar()
-        'pedir confirmacion, informar si falta dar respuesta a alguna pregunta, si falta indicar tratamiento, analisis, sintomas, signos clinicos, enfermedad, etc.
+        ContenedorE.FinalizarConsulta()
     End Sub
 End Class

@@ -162,14 +162,14 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         End If
                     Next
 
-                    If FormDatos.Analisis Is Nothing Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar un análisis?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                    If String.IsNullOrEmpty(FormDatos.Analisis.Nombre) Then
+                        If MessageBox.Show("¿Desea guardar sin asignar un análisis?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
 
-                    If FormDatos.Tratamiento Is Nothing Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar un tratamiento?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                    If String.IsNullOrEmpty(FormDatos.Tratamiento.Nombre) Then
+                        If MessageBox.Show("¿Desea guardar sin asignar un tratamiento?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
