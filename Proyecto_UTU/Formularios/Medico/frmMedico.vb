@@ -146,18 +146,17 @@ Public Class frmMedico
         frmIdentificacion.Enabled = Not _case
     End Sub
 
-    Sub HabilitarMenu(_case As Boolean)
+    Sub HabilitarMenu(_case As Boolean) 'cuando el medico abra un formulario de entrevista, bloqueo todos los toolstripbutton y solo habilito: {finalizarConsula,Tratamientos,Analisis}
         MenuOpciones.Enabled = _case
+        For Each item As ToolStripMenuItem In MenuOpciones.Controls
+            If item IsNot AsginarTratamientoPacienteToolStripMenuItem AndAlso item IsNot AsignarAnalisisPacienteToolStripMenuItem AndAlso item IsNot AnalisisMenuItem AndAlso item IsNot TratamientosMenuItem AndAlso item IsNot IngresarNuevoTratamientoMenuItem Then
+                item.Enabled = _case
+            End If
+        Next
         If Not _case Then
             FinalizarConsultaToolStripMenuItem.Visible = True
-            FinalizarConsultaToolStripMenuItem.Enabled = True
-            TratamientosMenuItem.Enabled = True
-            IngresarNuevoTratamientoMenuItem.Enabled = True
-            TratamientoSeguimientoMenuItem.Enabled = False
         Else
             FinalizarConsultaToolStripMenuItem.Visible = False
-            FinalizarConsultaToolStripMenuItem.Enabled = False
-            TratamientoSeguimientoMenuItem.Enabled = True
         End If
     End Sub
 
