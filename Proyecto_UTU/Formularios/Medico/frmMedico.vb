@@ -290,7 +290,8 @@ Public Class frmMedico
         InstanciarFormulario("Inicio")
     End Sub
     Private Sub frmMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Me.Close()
+        frmIngreso_Usuario.Show()
+        Me.Dispose()
     End Sub
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo

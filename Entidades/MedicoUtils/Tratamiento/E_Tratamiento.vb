@@ -2,10 +2,20 @@
     Protected _id As Integer
     Protected _nombre As String
     Protected _descripcion As String
+    Protected _consultaReq As E_Atiende
     Protected _fecha_inicio As Date
     Protected _fecha_fin As Date
     Protected _resultado As String
     Protected _listaSeguimientos As List(Of E_Seguimiento)
+
+    Property ConsultaReq As E_Atiende
+        Get
+            Return _consultaReq
+        End Get
+        Set(value As E_Atiende)
+            _consultaReq = value
+        End Set
+    End Property
     Property FechaInicio As Date
         Get
             Return _fecha_inicio

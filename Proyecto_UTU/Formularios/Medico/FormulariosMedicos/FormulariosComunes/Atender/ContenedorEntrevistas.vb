@@ -167,6 +167,8 @@ Public Class ContenedorEntrevistas
         Else
             lblAnalisisReq.Visible = False
             txtNomAnalisis.Visible = False
+            txtNomAnalisis.Clear()
+            Entrevista.MiFormulario.Analisis = Nothing
         End If
     End Sub
     Private Sub chkTratamiento_CheckedChanged(sender As Object, e As EventArgs) Handles chkTratamiento.CheckedChanged, txtNomTratamiento.Click
@@ -174,6 +176,7 @@ Public Class ContenedorEntrevistas
             lblTratamientoS.Visible = True
             txtNomTratamiento.Visible = True
             Dim frmAsignarT As New frmTratamientoCrear
+            frmAsignarT.ModoActual = frmTratamientoCrear.Modo.Asignar
             frmAsignarT.ShowDialog()
             If frmAsignarT.TratamientoSeleccionado IsNot Nothing Then
                 Entrevista.MiFormulario.Tratamiento = frmAsignarT.TratamientoSeleccionado
@@ -181,6 +184,8 @@ Public Class ContenedorEntrevistas
         Else
             lblTratamientoS.Visible = False
             txtNomTratamiento.Visible = False
+            txtNomTratamiento.Clear()
+            Entrevista.MiFormulario.Tratamiento = Nothing
         End If
     End Sub
 

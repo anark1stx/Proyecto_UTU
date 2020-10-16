@@ -226,8 +226,42 @@ Public Class D_Tratamiento
         Return seguimientoReturn
     End Function
 
-    Public Function ConsultarTratamientoRequerido(ID_C As Integer) As E_Tratamiento
+    Public Function ConsultarTratamientoSugerido(consulta As E_Atiende) As E_Tratamiento
+        Dim t As New E_Tratamiento With {
+        .ConsultaReq = consulta
+        }
+        If Conectar(conexion) = -1 Then
+            t.ID = -1
+            Return t
+        End If
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarTratamientoSugerido"
+        }
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = t.ConsultaReq.ID
 
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            t.ID = -2
+            Return t
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                t.ID = leer.GetInt32("ID")
+                t.Nombre = leer.GetString("nombre")
+                t.Descripcion = leer.GetString("descripcion")
+            End While
+        Else
+            t.ID = -8
+        End If
+        Cerrar(conexion)
+        Return t
     End Function
 
     Public Function SugerirTratamientoSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Tratamiento
@@ -241,5 +275,8 @@ Public Class D_Tratamiento
 
     End Function
 
+    Public Function SugerirTratamientoSegunEnfermedad(enf As E_Enfermedad) As E_Tratamiento
+
+    End Function
 
 End Class

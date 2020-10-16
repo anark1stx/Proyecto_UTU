@@ -61,7 +61,8 @@ Public Class frmPaciente
     End Sub
 
     Public Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        Me.Close()
+        frmIngreso_Usuario.Show()
+        Me.Dispose()
     End Sub
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo

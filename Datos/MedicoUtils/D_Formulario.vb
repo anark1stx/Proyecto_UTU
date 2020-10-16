@@ -490,13 +490,13 @@ Public Class D_Formulario
         form.Enfermedad = r2
 
         Dim d_an As New D_Analisis
-        Dim r3 = d_an.ConsultarAnalisisRequerido(ID_C)
+        Dim r3 = d_an.ConsultarAnalisisRequerido(form.Atiende)
         If r3.ID <> 1 Then
             form.ID = r3.ID
             Return form
         End If
         Dim d_tr As New D_Tratamiento
-        Dim r4 = d_tr.ConsultarTratamientoRequerido(ID_C)
+        Dim r4 = d_tr.ConsultarTratamientoSugerido(form.Atiende)
         If r4.ID <> 1 Then
             form.ID = r4.ID
             Return form

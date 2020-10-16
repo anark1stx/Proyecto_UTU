@@ -343,8 +343,41 @@ Public Class D_Analisis
         Return 1
     End Function
 
-    Public Function ConsultarAnalisisRequerido(ID_C As Integer) As E_Analisis
+    Public Function ConsultarAnalisisRequerido(consulta As E_Atiende) As E_Analisis
+        Dim a As New E_Analisis With {
+        .ConsultaReq = consulta
+        }
+        If Conectar(conexion) = -1 Then
+            a.ID = -1
+            Return a
+        End If
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "ConsultarAnalisisRequerido"
+        }
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = a.ConsultaReq.ID
 
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            a.ID = -2
+            Return a
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                a.ID = leer.GetInt32("ID")
+                a.Nombre = leer.GetString("nombre")
+            End While
+        Else
+            a.ID = -8
+        End If
+        Cerrar(conexion)
+        Return a
     End Function
 
     Public Function SugerirAnalisisSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Analisis
@@ -355,6 +388,10 @@ Public Class D_Analisis
 
     End Function
     Public Function SugerirAnalisisSegunSignosC(scList As List(Of E_SignoClinico)) As E_Analisis
+
+    End Function
+
+    Public Function SugerirAnalisisSegunEnfermedad(enf As E_Enfermedad) As E_Analisis
 
     End Function
 

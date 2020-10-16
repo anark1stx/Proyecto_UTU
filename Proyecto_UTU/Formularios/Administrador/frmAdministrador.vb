@@ -72,7 +72,8 @@ Public Class frmAdministrador
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        Me.Close()
+        frmIngreso_Usuario.Show()
+        Me.Dispose()
     End Sub
 
 #End Region

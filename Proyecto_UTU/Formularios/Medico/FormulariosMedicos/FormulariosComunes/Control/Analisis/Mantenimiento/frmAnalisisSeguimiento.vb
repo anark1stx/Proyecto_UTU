@@ -65,19 +65,9 @@ Public Class frmAnalisisSeguimiento
                 If AnalisisSelect.ID = 0 Then
                     MessageBox.Show("Seleccione un análisis primero", "Debe seleccionar un análisis", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
+                Else
+                    Me.Hide() 'ya que cuando este formulario esta en modo "Asignar", en realidad esta como .ShowDialog(), y cuando este se cierra ContenedorEntrevistas lee el analisis que se guardo en AnalisisSelect
                 End If
-                Dim result = na.AsignarAnalisisAPaciente(CI_paciente, AnalisisSelect.ID, ID_C)
-                Select Case result
-                    Case -1
-                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Exit Sub
-                    Case -2
-                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Exit Sub
-                    Case 1
-                        MessageBox.Show("El analisis " & AnalisisSelect.Nombre & "fue asignado correctamente al paciente.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Exit Sub
-                End Select
         End Select
     End Sub
 
@@ -92,7 +82,8 @@ Public Class frmAnalisisSeguimiento
                 'primero buscar si existe paciente con esa cedula
                 'primero buscar si existe paciente con esa cedula
                 CI_paciente = txtBuscar.Text
-                Dim result = np.BuscarMisAnalisis(CI_paciente)
+                Dim na As New N_Analisis
+                Dim result = na.ListadoAnalisisPaciente(CI_paciente)
                 Select Case result(0).ID
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -126,7 +117,6 @@ Public Class frmAnalisisSeguimiento
                 analisis_encontrados = result
                 Console.WriteLine("cantidad de analisis: " & analisis_encontrados.Count)
                 dgwAnalisisPaciente.DataSource = analisis_encontrados
-
         End Select
     End Sub
     Sub resetMode()
