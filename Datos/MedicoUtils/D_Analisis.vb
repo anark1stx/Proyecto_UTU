@@ -94,7 +94,7 @@ Public Class D_Analisis
         For Each i As E_Analisis.Indicacion In a.Indicaciones
             Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaIndicacion",
+            .CommandText = "AltaAnalisisIndicacion",
             .Connection = conexion
             }
 
@@ -341,6 +341,10 @@ Public Class D_Analisis
         Next
         Cerrar(conexion)
         Return 1
+    End Function
+
+    Public Function ConsultarAnalisisRequerido(ID_C As Integer) As E_Analisis
+
     End Function
 
     Public Function SugerirAnalisisSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Analisis

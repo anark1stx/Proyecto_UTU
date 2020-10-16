@@ -334,8 +334,9 @@ Public Class D_Formulario
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
         cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
-        cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
+        cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = form.Tratamiento.ID
+
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
             cmd.Parameters("ID_P").Value = p.ID_Pregunta
             Try
@@ -482,12 +483,24 @@ Public Class D_Formulario
         Dim r2 = d_enf.BuscarEnfermedadConsulta(ID_C)
 
         Select Case r2.Nombre
-            Case <> -1
+            Case <> 1
                 form.ID = r2.Nombre
                 Return form
         End Select
-
         form.Enfermedad = r2
+
+        Dim d_an As New D_Analisis
+        Dim r3 = d_an.ConsultarAnalisisRequerido(ID_C)
+        If r3.ID <> 1 Then
+            form.ID = r3.ID
+            Return form
+        End If
+        Dim d_tr As New D_Tratamiento
+        Dim r4 = d_tr.ConsultarTratamientoRequerido(ID_C)
+        If r4.ID <> 1 Then
+            form.ID = r4.ID
+            Return form
+        End If
         Return form
     End Function
 

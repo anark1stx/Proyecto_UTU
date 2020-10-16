@@ -226,6 +226,10 @@ Public Class D_Tratamiento
         Return seguimientoReturn
     End Function
 
+    Public Function ConsultarTratamientoRequerido(ID_C As Integer) As E_Tratamiento
+
+    End Function
+
     Public Function SugerirTratamientoSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Tratamiento
 
     End Function
