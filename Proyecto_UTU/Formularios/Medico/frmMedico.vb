@@ -127,18 +127,6 @@ Public Class frmMedico
         End Select
         frmGestion.MiModo = MiModo
     End Sub
-
-    Public Sub addFrm(frm As Form)
-        If Not pnlContenedorFormularios.Controls.Contains(frm) Then
-            pnlContenedorFormularios.Controls.Clear()
-            LimpiarControles(frm) 'a lo que reutilizo las instancias de los formularios cada vez tengo que borrar los datos que hayan quedado del ultimo ingreso de datos
-            frm.Dock = DockStyle.Fill
-            frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
-            frm.TopMost = True
-            Me.pnlContenedorFormularios.Controls.Add(frm)
-            frm.Show()
-        End If
-    End Sub
     Public Sub CargarFormularioEntrevista(f As E_Formulario)
         Dim fe = New FormularioEntrevista
         Dim controles = ConvertirFormulario(f)
@@ -176,9 +164,9 @@ Public Class frmMedico
     Public Sub InstanciarFormulario(formulario As String)
         Select Case formulario
             Case "Inicio"
-                addFrm(frmIni)
+                addFrm(frmIni, pnlContenedorFormularios)
             Case "Gestion"
-                addFrm(frmGestion)
+                addFrm(frmGestion, pnlContenedorFormularios)
             Case "Identificacion"
                 If String.IsNullOrEmpty(Consulta.NombreConsulta) Then
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
@@ -186,7 +174,7 @@ Public Class frmMedico
                 LimpiarControles(frmIdentificacion)
                 Consulta.Paciente.Cedula = 0 'reseteo los datos
                 Consulta.ID = 0
-                addFrm(frmIdentificacion)
+                addFrm(frmIdentificacion, pnlContenedorFormularios)
             Case "SeleccionarMedico"
                 If MiModo = Modo.SoyMedico Then
                     CargarDatosMedico()
@@ -221,10 +209,10 @@ Public Class frmMedico
                     InstanciarFormulario("SeleccionarMedico")
                     Exit Sub
                 Else
-                    addFrm(frmIdentificacion)
+                    addFrm(frmIdentificacion, pnlContenedorFormularios)
                 End If
             Case "Entrevista"
-                addFrm(frmSeleccionarFrmEntrevista)
+                addFrm(frmSeleccionarFrmEntrevista, pnlContenedorFormularios)
             Case "Otro"
                 If Not String.IsNullOrWhiteSpace(filtroB) Then
                     frmCatalogo.txtBuscar.Text = filtroB
@@ -282,7 +270,7 @@ Public Class frmMedico
                 'Dim a = pac.buscarAnalisis()
 
                 'frmAnalisisResultados.Consulta.Paciente = pac
-                addFrm(frmAnalisisResultados)
+                addFrm(frmAnalisisResultados, pnlContenedorFormularios)
         End Select
 
     End Sub
@@ -455,7 +443,7 @@ Public Class frmMedico
                 LimpiarControles(frmIdentificacion)
             Case Else
                 frmConsultasPendientes.ListaConsultas = result
-                addFrm(frmConsultasPendientes)
+                addFrm(frmConsultasPendientes, pnlContenedorFormularios)
                 frmConsultasPendientes.RefrescarTarjetas()
         End Select
     End Sub

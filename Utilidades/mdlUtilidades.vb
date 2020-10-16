@@ -462,4 +462,17 @@ Public Module mdlUtilidades
         End If
 
     End Function
+
+    Public Sub addFrm(frm As Form, pnlDestino As Panel)
+        If Not pnlDestino.Controls.Contains(frm) Then
+            pnlDestino.Controls.Clear()
+            LimpiarControles(frm) 'a lo que reutilizo las instancias de los formularios cada vez tengo que borrar los datos que hayan quedado del ultimo ingreso de datos
+            frm.Dock = DockStyle.Fill
+            frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+            frm.TopMost = True
+            pnlDestino.Controls.Add(frm)
+            frm.Show()
+        End If
+    End Sub
+
 End Module

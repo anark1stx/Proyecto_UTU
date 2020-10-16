@@ -1,5 +1,5 @@
 ﻿Imports Entidades
-Imports Negocio
+Imports Utilidades
 Public Class frmPaciente
     Dim frmDiagnostico As New frmDiagnosticos 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmAnalisis As New frmAnalisis 'Instancia de formulario que tiene los diagnosticos del paciente
@@ -17,18 +17,6 @@ Public Class frmPaciente
             frmGestion.PacienteLogeado = PacienteActual
         End Set
     End Property
-
-    Public Sub addFrm(frm As Form)
-        If Not pnlContenedorFormularios.Controls.Contains(frm) Then
-            pnlContenedorFormularios.Controls.Clear()
-            frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmConsulta no está en el nivel más alto.
-            frm.TopMost = True 'si el formulario nuevo debe mostrarse encima del que ya habia.
-            Me.pnlContenedorFormularios.Controls.Add(frm) 'Añadir el formulario al panel
-            frm.Show()
-            frm.Dock = DockStyle.Fill
-        End If
-    End Sub
-
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
         'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
@@ -36,13 +24,11 @@ Public Class frmPaciente
 
     Private Sub DiagnosticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiagnosticoToolStripMenuItem.Click
         'Cargar formulario de consulta con el paciente.
-
         InstanciarFormulario("Diagnostico")
     End Sub
 
     Private Sub AnalisisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisToolStripMenuItem.Click
         'Cargar formulario de consulta con el paciente.
-
         InstanciarFormulario("Analisis")
     End Sub
 
@@ -50,17 +36,17 @@ Public Class frmPaciente
 
         Select Case formulario
             Case "Inicio"
-                addFrm(frmIni)
+                addFrm(frmIni, pnlContenedorFormularios)
             Case "Diagnostico"
 
-                addFrm(frmDiagnostico)
+                addFrm(frmDiagnostico, pnlContenedorFormularios)
 
             Case "Gestion"
-                addFrm(frmGestion)
+                addFrm(frmGestion, pnlContenedorFormularios)
 
             Case "Analisis"
 
-                addFrm(frmAnalisis)
+                addFrm(frmAnalisis, pnlContenedorFormularios)
 
         End Select
 

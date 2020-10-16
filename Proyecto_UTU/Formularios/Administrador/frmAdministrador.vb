@@ -4,20 +4,6 @@ Public Class frmAdministrador
     Dim _frmInicio As New frmInicioAdm 'Este es el formulario que muestra los botones grandes para hacer ABMLB
 
     Dim _frmGestion As New frmGestion 'Gestion muestra Datos[tipoUsuario] + DatagridView que lista a los usuarios según parametros de busqueda
-
-    Private Sub addFrm(frm As Form, pnl As Panel)
-        If Not pnl.Controls.Contains(frm) Then
-            pnl.Controls.Clear()
-
-            frm.TopLevel = False
-            frm.TopMost = True
-            pnl.Controls.Add(frm)
-
-            frm.Show()
-        End If
-
-    End Sub
-
     Friend Sub InstanciarFormulario(formularioPadre As String, Optional uType As frmGestion.TipoUsuario = Nothing, Optional aType As frmGestion.Accion = Nothing)
 
         Select Case formularioPadre
