@@ -67,6 +67,7 @@
     <Compile Include="MedicoUtils\N_Atiende.vb" />
     <Compile Include="MedicoUtils\N_Enfermedad.vb" />
     <Compile Include="MedicoUtils\N_Formulario.vb" />
+    <Compile Include="MedicoUtils\N_SignoClinico.vb" />
     <Compile Include="MedicoUtils\N_Sintoma.vb" />
     <Compile Include="MedicoUtils\N_Tratamiento.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
