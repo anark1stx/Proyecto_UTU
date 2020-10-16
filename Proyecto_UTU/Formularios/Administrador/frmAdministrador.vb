@@ -72,18 +72,7 @@ Public Class frmAdministrador
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        e = New FormClosingEventArgs(CloseReason.UserClosing, False)
-        frmAdministrador_FormClosing(sender, e)
-    End Sub
-
-    Private Sub frmAdministrador_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If e.CloseReason = CloseReason.UserClosing Then
-            e.Cancel = True
-            Me.pnlContenedor.Controls.Clear() 'limpiar los controles
-            Me.Hide()
-            InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
-            frmIngreso_Usuario.Show()
-        End If
+        Me.Close()
     End Sub
 
 #End Region
@@ -110,6 +99,4 @@ Public Class frmAdministrador
         AddHandler _frmInicio.btnModificarAuxiliar.Click, AddressOf AuxiliarModificacionMenuItem_Click
         AddHandler _frmInicio.btnBusquedaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
     End Sub
-
-
 End Class

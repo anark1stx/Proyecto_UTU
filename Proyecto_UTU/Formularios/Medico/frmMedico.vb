@@ -290,22 +290,8 @@ Public Class frmMedico
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
         InstanciarFormulario("Inicio")
     End Sub
-
-    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        Dim _event = New FormClosingEventArgs(CloseReason.UserClosing, False)
-        frmMedico_FormClosing(sender, _event)
-    End Sub
-
     Private Sub frmMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If e.CloseReason = CloseReason.UserClosing Then
-            e.Cancel = True
-            Me.pnlContenedorFormularios.Controls.Clear()
-            Me.Hide()
-            Consulta.Paciente.Cedula = 0
-            Consulta.ID = 0
-            InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
-            frmIngreso_Usuario.Show()
-        End If
+        Me.Close()
     End Sub
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo

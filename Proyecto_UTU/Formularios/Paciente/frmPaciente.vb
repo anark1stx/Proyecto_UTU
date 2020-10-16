@@ -28,7 +28,6 @@ Public Class frmPaciente
     End Sub
 
     Private Sub AnalisisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisToolStripMenuItem.Click
-        'Cargar formulario de consulta con el paciente.
         InstanciarFormulario("Analisis")
     End Sub
 
@@ -62,18 +61,7 @@ Public Class frmPaciente
     End Sub
 
     Public Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        e = New FormClosingEventArgs(CloseReason.UserClosing, False)
-        frmPaciente_FormClosing(sender, e)
-    End Sub
-
-    Private Sub frmPaciente_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If e.CloseReason = CloseReason.UserClosing Then
-            e.Cancel = True
-            Me.pnlContenedorFormularios.Controls.Clear()
-            Me.Hide()
-            InicioToolStripMenuItem_Click(sender, e) 'dejar en el formulario de inicio
-            frmIngreso_Usuario.Show()
-        End If
+        Me.Close()
     End Sub
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
