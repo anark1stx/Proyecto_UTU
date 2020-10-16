@@ -17,9 +17,4 @@ Public Class N_Paciente
     Public Function ModificacionPaciente(u As E_Paciente) As Integer
         Return objDatos.AltaModPaciente(u, 1)
     End Function
-
-    Public Function BuscarMisAnalisis(CI As Integer) As List(Of E_Analisis)
-        Return objDatos.BuscarMisAnalisis(CI)
-    End Function
-
 End Class
