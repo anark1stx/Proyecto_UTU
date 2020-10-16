@@ -300,8 +300,8 @@ Public Class frmCrearFormulario
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Select Case frmPlano.Controls.Count
-            Case < 2
-                MessageBox.Show("Agregue más controles al formulario personalizado.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Case < 8
+                MessageBox.Show("Agregue más controles al formulario personalizado. Mínimo aceptado: 8", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
             Case > 50
                 MessageBox.Show("El sistema no soporta más de 50 controles en un formulario, disminuya la cantidad.", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -317,7 +317,7 @@ Public Class frmCrearFormulario
         End Try
 
         If sinrespuesta IsNot Nothing Then
-            MessageBox.Show(sinrespuesta.Pregunta.Text, "Falta asignar un campo de respuesta para la pregunta.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(sinrespuesta.Pregunta.Text, ": Falta asignar un campo de respuesta para la pregunta.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
@@ -328,55 +328,10 @@ Public Class frmCrearFormulario
             controlesInstanciados.Add(i)
         Next
 
-        Dim fbr As New FabricaDeControles()
-        GuardarFormulario(fbr.Serializar(controlesInstanciados))
-
+        Dim fbr As New FabricaDeControles
+        GuardarFormulario(FormDisenado, fbr.Serializar(controlesInstanciados), pnlFormularioPersonalizado)
+        frmPlano.Controls.Clear()
     End Sub
-
-    Public Sub GuardarFormulario(lista_controles As ControlesGuardados.ListaControles)
-
-        Dim gestor As New GestorXMLv2
-        Dim resultado As Integer = 0
-        FormDisenado.XML = gestor.Serializar(lista_controles)
-        Dim capturaDePantalla = ImprimirFormulario(pnlFormularioPersonalizado, New Rectangle(0, 0, 720, 480))
-        FormDisenado.VistaPrevia = Image2Bytes(capturaDePantalla)
-        FormDisenado.PreguntasYRespuestas = frmPlano.PreguntasYRespuestas
-        If FormDisenado.ID = 0 Then 'si es 0 es porque no lo estamos editando, es un form nuevo
-            resultado = negocio.AltaFormulario(FormDisenado)
-        Else
-            resultado = negocio.ModificarFormulario(FormDisenado) 'hacer alta y baja con las preguntas aca!
-        End If
-        Select Case resultado
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 1
-                MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Dim ev As New EventArgs
-                Dim sender As New Object
-                btnLimpiar_Click(sender, ev)
-                FormDisenado = Nothing
-        End Select
-
-    End Sub
-
-    Sub BajaFormulario()
-        Dim resultado = negocio.BajaFormulario(FormDisenado)
-
-        Select Case resultado
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 1
-                MessageBox.Show("Formulario dado de baja con éxito.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Dim ev As New EventArgs
-                Dim sender As New Object
-                btnLimpiar_Click(sender, ev)
-        End Select
-    End Sub
-
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Hide()
@@ -409,7 +364,7 @@ Public Class frmCrearFormulario
                         agregarHandlersBasicos(c2)
                     Next
                 Else
-                    agregarHandlersBasicos(c) 'esto es para evitar agregarle handlers a un panel contenedor, solo vamos a agregarlo a c en caso de que c no sea un contenedor de otros controles.
+                    agregarHandlersBasicos(c)
                 End If
                 frmPlano.Controls.Add(c)
             Next
@@ -452,7 +407,9 @@ Public Class frmCrearFormulario
         Else
             Dim eleccion = MessageBox.Show("¿Seguro que desea dar de baja este formulario? Se perderán los datos de las consultas médicas que se hayan realizado con este.", "Confirmar baja", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
             If eleccion = vbYes Then
-                BajaFormulario()
+                BajaFormulario(FormDisenado)
+                FormDisenado = Nothing
+                frmPlano.Controls.Clear()
             Else
                 Exit Sub
             End If

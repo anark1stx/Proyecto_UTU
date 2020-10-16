@@ -178,21 +178,13 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     resultado = negocio.AltaFormularioDatos(FormDatos)
                     Console.WriteLine("ID DE LA CONSULTA: " & FormDatos.Atiende.ID)
                 Case 1
-                    Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
-                    Dim negocio As New N_Tratamiento
-                    resultado = negocio.AltaTratamientoDatos(TratamientoDatos)
+                    'Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
+                    'Dim negocio As New N_Tratamiento
+                    'resultado = negocio.AltaSeguimientoDiario(TratamientoDatos, TratamientoDatos.ListaSeguimientos(0),)
                 Case 2
                     Console.WriteLine("Evento guardar Datos Analisis!!!!")
                     Dim Negocio As New N_Analisis
-                    resultado = Negocio.AltaAnalisisDatos(AnalisisDatos)
-                Case 3 'asignar analisis
-                    'Console.WriteLine("asignando analisis")
-                    'Dim negocio As New N_Formulario
-                    'resultado = negocio.AltaRequiereAnalisis(FormDatos)
-                Case 4 'asignar tratamiento
-                    Console.WriteLine("asignando tratamiento")
-                    Dim negocio As New N_Formulario
-                    resultado = negocio.AltaSugiereTratamiento(FormDatos)
+                    resultado = Negocio.AltaAnalisisResultados(AnalisisDatos)
             End Select
             Select Case resultado
                 Case -1
@@ -303,6 +295,14 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     Async Sub BuscarIDsP(pregs As List(Of PreguntaRespuesta))
         Dim nf As New N_Formulario
         Dim result = Await Task.Run(Function() nf.BuscarID_preguntas(pregs))
+        Select Case resultado
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
     End Sub
 
     Public Sub GuardarFormulario(FormDisenado As E_Formulario, lista_controles As ControlesGuardados.ListaControles, pnlDestino As Panel)
@@ -316,19 +316,30 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         UnirPreguntasConRespuestas(pnlDestino, FormDisenado.PreguntasYRespuestas)
 
         If FormDisenado.ID = 0 Then 'si es 0 es porque no lo estamos editando, es un form nuevo
-            resultado = Negocio.AltaFormulario(FormDisenado)
+            resultado = Negocio.AltaModFormulario(FormDisenado, 0)
         Else
-            resultado = Negocio.ModificarFormulario(FormDisenado) 'hacer alta y baja con las preguntas aca!
+            resultado = Negocio.AltaModFormulario(FormDisenado, 1) 'hacer alta y baja con las preguntas aca!
         End If
         Select Case resultado
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Select
 
     End Sub
-
+    Sub BajaFormulario(FormDisenado As E_Formulario)
+        Dim nf As New N_Formulario
+        Dim resultado = nf.BajaFormulario(FormDisenado)
+        Select Case resultado
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Formulario dado de baja con éxito.", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Select
+    End Sub
 End Module
