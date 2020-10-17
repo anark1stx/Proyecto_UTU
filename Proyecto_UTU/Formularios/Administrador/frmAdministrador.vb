@@ -97,7 +97,10 @@ Public Class frmAdministrador
         AddHandler _frmInicio.btnBajaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
         AddHandler _frmInicio.btnModificarAuxiliar.Click, AddressOf AuxiliarModificacionMenuItem_Click
         AddHandler _frmInicio.btnBusquedaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
-        'handler para boton Salir
-        AddHandler SalirToolStripMenuItem.Click, AddressOf frmAdmin_FormClosing
+    End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        frmIngreso_Usuario.Show()
+        Me.Dispose()
     End Sub
 End Class

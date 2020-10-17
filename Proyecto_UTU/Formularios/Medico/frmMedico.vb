@@ -17,8 +17,6 @@ Public Class frmMedico
     Dim frmAnalisisS As New frmAnalisisSeguimiento
     Dim frmAnalisisResultados As New frmDatosAnalisis
 
-    Dim frmCrear As New frmCrearFormulario
-
     Dim filtroB As String = ""
     Dim frmCatalogo As New frmCatalogoFormulariosBD
 
@@ -222,11 +220,10 @@ Public Class frmMedico
                 CargarFormularioEntrevista(f)
                 filtroB = ""
             Case "CrearFormulario"
-                frmCrear.Show()
+                frmCrearFormulario.ShowDialog()
             Case "EditarFormulario"
-                frmCrear.Show()
-                Dim sender As Object = New Object
-                frmCrear.btnAbrir.PerformClick()
+                frmCrearFormulario.ShowDialog()
+                frmCrearFormulario.btnAbrir.PerformClick()
             Case "IngresarTratamiento"
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
@@ -363,8 +360,6 @@ Public Class frmMedico
             Sub()
                 InstanciarFormulario("DatosAnalisis")
             End Sub
-        'handler para boton Salir
-        AddHandler SalirToolStripMenuItem.Click, AddressOf frmMedico_FormClosing
     End Sub
 
     Async Sub AgregarPacienteAListado(atenderahora As Boolean)
@@ -594,5 +589,10 @@ Public Class frmMedico
     End Sub
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
+    End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        frmIngreso_Usuario.Show()
+        Me.Dispose()
     End Sub
 End Class

@@ -44,11 +44,8 @@ Public Class frmPaciente
                 addFrm(frmGestion, pnlContenedorFormularios)
 
             Case "Analisis"
-
                 addFrm(frmAnalisis, pnlContenedorFormularios)
-
         End Select
-
     End Sub
 
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -72,8 +69,10 @@ Public Class frmPaciente
         AddHandler frmIni.btnDiagnosticos.Click, AddressOf DiagnosticoToolStripMenuItem_Click
         AddHandler frmIni.btnAnalisis.Click, AddressOf AnalisisToolStripMenuItem_Click
         AddHandler frmIni.btnSalir.Click, AddressOf frmPaciente_FormClosing
-        'handler para boton Salir
-        AddHandler SalirToolStripMenuItem.Click, AddressOf frmPaciente_FormClosing
     End Sub
 
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        frmIngreso_Usuario.Show()
+        Me.Dispose()
+    End Sub
 End Class
