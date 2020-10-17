@@ -5,7 +5,11 @@ Module Credenciales
         Protected _usr As String = ""
         Protected _pwd As String = ""
         Protected _str As String = ""
-
+        Private ReadOnly Property ConnectionString As String
+            Get
+                Return _str
+            End Get
+        End Property
         Sub New()
 
         End Sub
@@ -15,13 +19,9 @@ Module Credenciales
             _pwd = pwd
             _str = String.Format("SERVER=archivos.overclode.sibim;DATABASE=sibim;UID={0}; PWD={1};", _usr, _pwd)
         End Sub
-        Public Function retornarCStringBD() As String
-            Return _str
-        End Function
-
         Public Function Conectar(ByVal conn As MySqlConnection) As Integer 'devuelve codigo de exito dependiendo de si pudo abrir la conexion o no.
             Try
-                conn.ConnectionString = retornarCStringBD()
+                conn.ConnectionString = ConnectionString
                 conn.Open()
             Catch ex As MySqlException
                 Select Case ex.Number 'como son numeros feos los cambio
