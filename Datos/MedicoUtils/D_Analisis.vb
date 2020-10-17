@@ -42,21 +42,36 @@ Public Class D_Analisis
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-
-        For Each p As E_Analisis.Parametro In a.Parametros
-            Dim cmd As New MySqlCommand With {
+        Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaAnalisisParametro",
             .Connection = conexion
+        }
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90)
+        cmd.Parameters.Add("UNI", MySqlDbType.VarChar, 20)
+        cmd.Parameters.Add("REF_MIN", MySqlDbType.Double, 8)
+        cmd.Parameters.Add("REF_MAX", MySqlDbType.Double, 8)
+        cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
+        cmd.Parameters("ID_P").Direction = ParameterDirection.Output
+
+        Dim cmd2 As New MySqlCommand With {
+                .CommandType = CommandType.StoredProcedure,
+                .CommandText = "AltaAnalisisTieneParametro",
+                .Connection = conexion
             }
+
+        cmd2.Parameters.Add("ID_AN", MySqlDbType.Int32)
+        cmd2.Parameters.Add("ID_P", MySqlDbType.Int32)
+
+        For Each p As E_Analisis.Parametro In a.Parametros
+
             If p.ID = 0 Then
-                cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = p.Nombre
-                cmd.Parameters.Add("UNI", MySqlDbType.VarChar, 20).Value = p.Unidad
-                cmd.Parameters.Add("REF_MIN", MySqlDbType.Double, 8).Value = p.ValorMinimo
-                cmd.Parameters.Add("REF_MAX", MySqlDbType.Double, 8).Value = p.ValorMaximo
-                cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Direction = ParameterDirection.Output
+                cmd.Parameters("NOM").Value = p.Nombre
+                cmd.Parameters("UNI").Value = p.Unidad
+                cmd.Parameters("REF_MIN").Value = p.ValorMinimo
+                cmd.Parameters("REF_MAX").Value = p.ValorMaximo
                 Try
-                    cmd.ExecuteReader()
+                    cmd.ExecuteNonQuery()
                     p.ID = cmd.Parameters("ID_P").Value
                 Catch ex As Exception
                     Cerrar(conexion)
@@ -67,14 +82,8 @@ Public Class D_Analisis
                 Console.WriteLine("El parametro ya esta registrado en la BD")
             End If
 
-            Dim cmd2 As New MySqlCommand With {
-                .CommandType = CommandType.StoredProcedure,
-                .CommandText = "AltaAnalisisTieneParametro",
-                .Connection = conexion
-            }
-
-            cmd2.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
-            cmd2.Parameters.Add("ID_P", MySqlDbType.Int32).Value = p.ID
+            cmd2.Parameters("ID_AN").Value = a.ID
+            cmd2.Parameters("ID_P").Value = p.ID
             Try
                 cmd2.ExecuteNonQuery()
             Catch ex As Exception
@@ -139,7 +148,6 @@ Public Class D_Analisis
         }
 
         If Conectar(conexion) = -1 Then
-            Cerrar(conexion)
             pList.Add(New E_Analisis.Parametro With {.ErrCode = -1})
             Return pList
         End If
@@ -186,7 +194,7 @@ Public Class D_Analisis
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Console.WriteLine(ex.Message)
+            Console.WriteLine("err analisis existe" & ex.Message)
             Return -2
         End Try
 
