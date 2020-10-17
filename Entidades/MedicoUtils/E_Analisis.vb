@@ -5,6 +5,16 @@
     Protected _parametros As List(Of Parametro)
     Protected _consultaReq As E_Atiende
     Protected _fechaRes As Date
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
     Property ID As Integer
         Get
             Return _id
@@ -74,6 +84,16 @@
         Protected _valorMinimo As Double
         Protected _valorMaximo As Double
         Protected _valor As Double
+        Protected _errCode As Integer
+
+        Property ErrCode As Integer
+            Get
+                Return _errCode
+            End Get
+            Set(value As Integer)
+                _errCode = value
+            End Set
+        End Property
 
         Property ID As Integer
             Get
@@ -143,7 +163,7 @@
     Public Class Indicacion
         Protected _id_a As Integer
         Protected _nombre As String
-        Protected _indicacion As String
+        Protected _descripcion As String
 
         Property Nombre As String
             Get
@@ -154,12 +174,12 @@
             End Set
         End Property
 
-        Property Indicacion As String
+        Property Descripcion As String
             Get
-                Return _indicacion
+                Return _descripcion
             End Get
             Set(value As String)
-                _indicacion = value
+                _descripcion = value
             End Set
         End Property
 
@@ -175,10 +195,10 @@
 
         End Sub
 
-        Sub New(id_an As Integer, nombre As String, indicacion As String)
+        Sub New(id_an As Integer, nombre As String, descripcion As String)
             _id_a = id_an
             _nombre = nombre
-            _indicacion = indicacion
+            _descripcion = descripcion
         End Sub
 
     End Class

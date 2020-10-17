@@ -4,6 +4,16 @@ Public Class PreguntaRespuesta
     Protected _id_pregunta As Integer
     Protected _respuesta As Control
     Protected _tag As String
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
     Property Pregunta As Control
         Get
             Return _pregunta

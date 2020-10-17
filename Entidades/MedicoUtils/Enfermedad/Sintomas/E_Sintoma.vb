@@ -2,6 +2,16 @@
     Protected _id As Integer
     Protected _nombre As String
     Protected _descripcion As String
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
 
     Property ID As Integer
         Get

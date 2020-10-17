@@ -151,13 +151,10 @@ Public Class frmMedico
         For Each item As ToolStripMenuItem In MenuOpciones.Controls
             If item IsNot AsginarTratamientoPacienteToolStripMenuItem AndAlso item IsNot AsignarAnalisisPacienteToolStripMenuItem AndAlso item IsNot AnalisisMenuItem AndAlso item IsNot TratamientosMenuItem AndAlso item IsNot IngresarNuevoTratamientoMenuItem Then
                 item.Enabled = _case
+            Else
+                item.Enabled = Not _case
             End If
         Next
-        If Not _case Then
-            FinalizarConsultaToolStripMenuItem.Visible = True
-        Else
-            FinalizarConsultaToolStripMenuItem.Visible = False
-        End If
     End Sub
 
     Public Sub InstanciarFormulario(formulario As String)
@@ -598,9 +595,5 @@ Public Class frmMedico
     End Sub
     Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
-    End Sub
-
-    Private Sub FinalizarConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinalizarConsultaToolStripMenuItem.Click
-        ContenedorE.FinalizarConsulta()
     End Sub
 End Class

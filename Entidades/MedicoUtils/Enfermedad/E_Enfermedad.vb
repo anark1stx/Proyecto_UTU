@@ -3,6 +3,16 @@
     Protected _descripcion As String
     Protected _sintomas As New List(Of E_Sintoma)
     Protected _signos As New List(Of E_SignoClinico)
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
     Property Nombre As String
         Get
             Return _nombre

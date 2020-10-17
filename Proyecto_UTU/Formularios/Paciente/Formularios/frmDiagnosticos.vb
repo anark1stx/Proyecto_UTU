@@ -46,9 +46,13 @@ Public Class frmDiagnosticos
         End Select
         Formulario = r
         Dim fl = New FormularioEntrevista
+        Console.WriteLine("cantidad de pyr: " & r.PreguntasYRespuestas.Count)
+        For Each p As PreguntaRespuesta In r.PreguntasYRespuestas
+            Console.WriteLine("RESPUESTA: {NOMBRECONTROL: " & p.Respuesta.Name & "} {TEXT:" & p.Respuesta.Text & "}")
+        Next
         Dim controles = ConvertirFormulario(r)
-        PoblarRespuestas(r.PreguntasYRespuestas, controles)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
+        PoblarRespuestas(r.PreguntasYRespuestas, controles)
         fl.MiFormulario = r
 
         entrevista.lbSignosClinicos.DataSource = r.Enfermedad.SignosClinicos
@@ -61,8 +65,8 @@ Public Class frmDiagnosticos
         End If
         entrevista.Entrevista = fl
         entrevista.Visible = True
-        entrevista.ModoActual = ContenedorEntrevistas.Modo.Consulta
-        entrevista.ResetMode()
+        'entrevista.ModoActual = ContenedorEntrevistas.Modo.Consulta
+        'entrevista.ResetMode()
     End Sub
 
     Private Async Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load

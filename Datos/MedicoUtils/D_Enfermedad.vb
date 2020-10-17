@@ -42,7 +42,7 @@ Public Class D_Enfermedad
     Public Function BuscarEnfermedadConsulta(ID_C As Integer) As E_Enfermedad 'ademas de buscar la enfermedad aprovecho para buscar sintomas y signos clinicos desde esta misma funcion
         Dim enf As New E_Enfermedad
         If Conectar(conexion) = -1 Then
-            enf.Nombre = -1
+            enf.ErrCode = -1
             Return enf
         End If
 
@@ -59,25 +59,24 @@ Public Class D_Enfermedad
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            enf.Nombre = -2
+            enf.ErrCode = -2
             Return enf
         End Try
 
         If leer.HasRows Then
             While leer.Read()
                 enf = New E_Enfermedad With {
-                .Nombre = leer.GetString("nombre_enfermedad")
-                }
+                .Nombre = leer.GetString("nombre_enfermedad")}
             End While
         Else
-            enf.Nombre = -8
+            enf.ErrCode = -8
         End If
 
         Dim d_sin As New D_Sintoma
         Dim d_sign As New D_SignoClinico
         enf.Sintomas = d_sin.BuscarSintomasRegistrados(ID_C)
 
-        If enf.Sintomas(0).ID <> 0 Then 'adentro de la ID del primer elemento se guardan mensajes de error como -1,-2
+        If enf.Sintomas(0).ErrCode <> 0 Then
             Return enf
         End If
 
@@ -88,10 +87,10 @@ Public Class D_Enfermedad
 
     Public Function ListarEnfermedades(nombre As String) As List(Of E_Enfermedad)
         Dim leer As MySqlDataReader
-        Dim lSintoma As New List(Of E_Enfermedad)
+        Dim lEnfermedades As New List(Of E_Enfermedad)
         If Conectar(conexion) = -1 Then
-            lSintoma.Add(New E_Enfermedad With {.Nombre = -1})
-            Return lSintoma
+            lEnfermedades.Add(New E_Enfermedad With {.ErrCode = -1})
+            Return lEnfermedades
         End If
 
         Dim cmd As New MySqlCommand With {
@@ -106,19 +105,21 @@ Public Class D_Enfermedad
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            lSintoma.Add(New E_Enfermedad With {.Nombre = -2})
-            Return lSintoma
+            lEnfermedades.Add(New E_Enfermedad With {.ErrCode = -2})
+            Return lEnfermedades
         End Try
 
         If leer.HasRows Then
             While leer.Read()
-                lSintoma.Add(New E_Enfermedad With {
+                lEnfermedades.Add(New E_Enfermedad With {
                 .Nombre = leer.GetString("nombre")
                 })
             End While
+        Else
+            lEnfermedades.Add(New E_Enfermedad With {.ErrCode = -8})
         End If
         Cerrar(conexion)
-        Return lSintoma
+        Return lEnfermedades
     End Function
 
     Public Function ConsultarDescripcionEnfermedad(enfermedad As E_Enfermedad) As Integer

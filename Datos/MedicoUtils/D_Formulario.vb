@@ -72,7 +72,7 @@ Public Class D_Formulario
         Dim leer As MySqlDataReader
         Dim formList As New List(Of E_Formulario)
         If Conectar(conexion) = -1 Then
-            formList.Add(New E_Formulario With {.ID = -1})
+            formList.Add(New E_Formulario With {.ErrCode = -1})
             Return formList '-1 exit code para conexion fallida
         End If
 
@@ -86,7 +86,7 @@ Public Class D_Formulario
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            formList.Add(New E_Formulario With {.ID = -2})
+            formList.Add(New E_Formulario With {.ErrCode = -2})
             Return formList
         End Try
 
@@ -104,7 +104,7 @@ Public Class D_Formulario
                 formList.Add(f)
             End While
         Else
-            formList.Add(New E_Formulario With {.ID = -8})
+            formList.Add(New E_Formulario With {.ErrCode = -8})
         End If
         Cerrar(conexion)
         Return formList
@@ -143,7 +143,7 @@ Public Class D_Formulario
         Next
         Return 1
     End Function
-    Public Function BorrarPreguntasDeFormulario(form As E_Formulario) 'voy a usar este metodo en modificar, borro todas las preguntas y las vuelvo a agregar.
+    Public Function BorrarPreguntasDeFormulario(form As E_Formulario) As Integer 'voy a usar este metodo en modificar, borro todas las preguntas y las vuelvo a agregar.
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -164,10 +164,10 @@ Public Class D_Formulario
         Return 1
     End Function
     Public Function AltaPreguntas(form As E_Formulario) As Integer
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
-            If Conectar(conexion) = -1 Then
-                Return -1
-            End If
             'hacer alta a la tabla preguntas 
             Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,
@@ -190,10 +190,6 @@ Public Class D_Formulario
                 End Try
             End If
 
-            If Conectar(conexion) = -1 Then
-                Return -1
-            End If
-
             Dim cmd2 As New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
                 .CommandText = "AltaPreguntaDeFormulario", 'alta a la tabla "de"
@@ -207,10 +203,9 @@ Public Class D_Formulario
             Try
                 cmd2.ExecuteNonQuery()
                 Console.WriteLine("INSERTO: pregunta" & p.ID_Pregunta & " formulario: " & form.ID & " nomcontrolp: " & p.Pregunta.Name & " nomcontrolr: " & p.Respuesta.Name)
-                Cerrar(conexion)
             Catch ex As Exception
                 Cerrar(conexion)
-                Return 0
+                Return -2
             End Try
         Next
         Cerrar(conexion)
@@ -350,7 +345,7 @@ Public Class D_Formulario
         Cerrar(conexion)
         Return 1
     End Function
-    Public Function AltaResponde(form As E_Formulario)
+    Public Function AltaResponde(form As E_Formulario) As Integer
         If Conectar(conexion) = -1 Then
             Return -1
         End If
@@ -410,6 +405,10 @@ Public Class D_Formulario
             Return -2
         End If
 
+        If Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
         Dim cmd2 As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaDeterminaEnfermedad", '*Alta a la tabla enfermedad.
@@ -429,19 +428,18 @@ Public Class D_Formulario
                 cmd2.ExecuteNonQuery()
             Catch ex As Exception
                 Console.WriteLine("error alta determina enfermedad" & ex.Message)
+                Cerrar(conexion)
                 Return -2
             End Try
         Next
-
         Cerrar(conexion)
         Return 1
-
     End Function
     Public Function BuscarDiagnostico(ID_C As Integer) As E_Formulario
         Dim form As New E_Formulario
         Dim pyr As New List(Of PreguntaRespuesta)
         If Conectar(conexion) = -1 Then
-            form.ID = -1
+            form.ErrCode = -1
             Return form
         End If
         Dim cmd As New MySqlCommand With {
@@ -458,7 +456,7 @@ Public Class D_Formulario
         Catch ex As Exception
             Console.WriteLine("err cargando formulario usado" & ex.Message)
             Cerrar(conexion)
-            form.ID = -2
+            form.ErrCode = -2
             Return form
         End Try
 
@@ -471,9 +469,9 @@ Public Class D_Formulario
         Cerrar(conexion)
 
         Dim r = BuscarRespuestas(ID_C)
-        Select Case r(0).Tag
-            Case <> -1
-                form.ID = r(0).Tag
+        Select Case r(0).ErrCode
+            Case <> 1
+                form.ErrCode = r(0).ErrCode
                 Return form
             Case Else
                 form.PreguntasYRespuestas = r
@@ -482,23 +480,23 @@ Public Class D_Formulario
         Dim d_enf As New D_Enfermedad
         Dim r2 = d_enf.BuscarEnfermedadConsulta(ID_C)
 
-        Select Case r2.Nombre
+        Select Case r2.ErrCode
             Case <> 1
-                form.ID = r2.Nombre
+                form.ErrCode = r2.ErrCode
                 Return form
         End Select
         form.Enfermedad = r2
 
         Dim d_an As New D_Analisis
         Dim r3 = d_an.ConsultarAnalisisRequerido(form.Atiende)
-        If r3.ID <> 1 Then
-            form.ID = r3.ID
+        If r3.ErrCode <> 1 Then
+            form.ErrCode = r3.ErrCode
             Return form
         End If
         Dim d_tr As New D_Tratamiento
         Dim r4 = d_tr.ConsultarTratamientoSugerido(form.Atiende)
-        If r4.ID <> 1 Then
-            form.ID = r4.ID
+        If r4.ErrCode <> 1 Then
+            form.ErrCode = r4.ErrCode
             Return form
         End If
         Return form
@@ -507,7 +505,7 @@ Public Class D_Formulario
     Public Function BuscarRespuestas(ID_C As Integer) As List(Of PreguntaRespuesta)
         Dim pyr As New List(Of PreguntaRespuesta)
         If Conectar(conexion) = -1 Then
-            pyr.Add(New PreguntaRespuesta With {.Tag = -1})
+            pyr.Add(New PreguntaRespuesta With {.ErrCode = -1})
             Return pyr
         End If
         Dim cmd As New MySqlCommand With {
@@ -523,7 +521,7 @@ Public Class D_Formulario
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine("err buscando respuestas" & ex.Message)
-            pyr.Add(New PreguntaRespuesta With {.Tag = -2})
+            pyr.Add(New PreguntaRespuesta With {.ErrCode = -2})
             Return pyr
         End Try
 

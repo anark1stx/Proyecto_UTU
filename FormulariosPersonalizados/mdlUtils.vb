@@ -162,13 +162,13 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         End If
                     Next
 
-                    If String.IsNullOrEmpty(FormDatos.Analisis.Nombre) Then
+                    If FormDatos.Analisis Is Nothing Then
                         If MessageBox.Show("¿Desea guardar sin asignar un análisis?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
 
-                    If String.IsNullOrEmpty(FormDatos.Tratamiento.Nombre) Then
+                    If FormDatos.Tratamiento Is Nothing Then
                         If MessageBox.Show("¿Desea guardar sin asignar un tratamiento?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
@@ -300,8 +300,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 1
-                MessageBox.Show("Formulario guardado con éxito.", "Alta/Modificación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Select
     End Sub
 

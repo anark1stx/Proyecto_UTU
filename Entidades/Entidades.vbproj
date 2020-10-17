@@ -68,10 +68,8 @@
     <Compile Include="MedicoUtils\Enfermedad\Categoria\E_Categoria.vb" />
     <Compile Include="MedicoUtils\Enfermedad\Categoria\E_Clasificacion.vb" />
     <Compile Include="MedicoUtils\Enfermedad\Categoria\E_SubCategoria.vb" />
-    <Compile Include="MedicoUtils\Enfermedad\SignoClinico\E_ExamenFisico.vb" />
     <Compile Include="MedicoUtils\Enfermedad\SignoClinico\E_SignoClinico.vb" />
-    <Compile Include="MedicoUtils\Enfermedad\Sintomas\E_Registra.vb" />
-    <Compile Include="MedicoUtils\Enfermedad\Sintomas\Sintoma.vb" />
+    <Compile Include="MedicoUtils\Enfermedad\Sintomas\E_Sintoma.vb" />
     <Compile Include="MedicoUtils\E_Analisis.vb" />
     <Compile Include="MedicoUtils\Atiende\E_Atiende.vb" />
     <Compile Include="MedicoUtils\Enfermedad\E_Enfermedad.vb" />

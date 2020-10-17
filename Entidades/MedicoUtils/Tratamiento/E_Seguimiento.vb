@@ -2,6 +2,16 @@
     Protected _id_seg As Integer
     Protected _descripcion As String
     Protected _fecha As Date
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
     Property ID_Seguimiento As Integer
         Get
             Return _id_seg

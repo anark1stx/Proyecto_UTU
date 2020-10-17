@@ -30,7 +30,7 @@ Public Class D_Tratamiento
         Dim leer As MySqlDataReader
         Dim tratamientoList As New List(Of E_Tratamiento)
         If Conectar(conexion) = -1 Then
-            tratamientoList.Add(New E_Tratamiento With {.ID = -1})
+            tratamientoList.Add(New E_Tratamiento With {.ErrCode = -1})
             Return tratamientoList '-1 exit code para conexion fallida
         End If
 
@@ -46,7 +46,7 @@ Public Class D_Tratamiento
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            tratamientoList.Add(New E_Tratamiento With {.ID = -2})
+            tratamientoList.Add(New E_Tratamiento With {.ErrCode = -2})
             Return tratamientoList
         End Try
 
@@ -60,7 +60,7 @@ Public Class D_Tratamiento
                 tratamientoList.Add(f)
             End While
         Else
-            tratamientoList.Add(New E_Tratamiento With {.ID = -8})
+            tratamientoList.Add(New E_Tratamiento With {.ErrCode = -8})
         End If
 
         Cerrar(conexion)
@@ -151,7 +151,7 @@ Public Class D_Tratamiento
         Dim leer As MySqlDataReader
         Dim lTratamientos As New List(Of E_Tratamiento)
         If Conectar(conexion) = -1 Then
-            lTratamientos.Add(New E_Tratamiento With {.ID = -1})
+            lTratamientos.Add(New E_Tratamiento With {.ErrCode = -1})
             Return lTratamientos
         End If
 
@@ -166,7 +166,7 @@ Public Class D_Tratamiento
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Cerrar(conexion)
-            lTratamientos.Add(New E_Tratamiento With {.ID = -2})
+            lTratamientos.Add(New E_Tratamiento With {.ErrCode = -2})
             Return lTratamientos
         End Try
 
@@ -180,7 +180,7 @@ Public Class D_Tratamiento
                 })
             End While
         Else
-            lTratamientos.Add(New E_Tratamiento With {.ID = -8})
+            lTratamientos.Add(New E_Tratamiento With {.ErrCode = -8})
         End If
         Cerrar(conexion)
         Return lTratamientos
@@ -190,7 +190,7 @@ Public Class D_Tratamiento
         Dim leer As MySqlDataReader
         Dim seguimientoReturn As New E_Seguimiento
         If Conectar(conexion) = -1 Then
-            seguimientoReturn.ID_Seguimiento = -1
+            seguimientoReturn.ErrCode = -1
             Return seguimientoReturn
         End If
 
@@ -220,7 +220,7 @@ Public Class D_Tratamiento
             End While
             t.ListaSeguimientos.Add(seguimientoReturn)
         Else
-            seguimientoReturn.ID_Seguimiento = -8
+            seguimientoReturn.ErrCode = -8
         End If
         Cerrar(conexion)
         Return seguimientoReturn
@@ -231,7 +231,7 @@ Public Class D_Tratamiento
         .ConsultaReq = consulta
         }
         If Conectar(conexion) = -1 Then
-            t.ID = -1
+            t.ErrCode = -1
             Return t
         End If
         Dim leer As MySqlDataReader
@@ -247,7 +247,7 @@ Public Class D_Tratamiento
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            t.ID = -2
+            t.ErrCode = -2
             Return t
         End Try
 
@@ -258,7 +258,7 @@ Public Class D_Tratamiento
                 t.Descripcion = leer.GetString("descripcion")
             End While
         Else
-            t.ID = -8
+            t.ErrCode = -8
         End If
         Cerrar(conexion)
         Return t

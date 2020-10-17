@@ -8,6 +8,16 @@
     Protected _analisis As New E_Analisis
     Protected _tratamiento As New E_Tratamiento
     Protected _atiende As New E_Atiende
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
     Property ID As Integer
         Get
             Return _id

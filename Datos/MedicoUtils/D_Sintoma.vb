@@ -76,7 +76,7 @@ Public Class D_Sintoma
         Dim sintomas As New List(Of E_Sintoma)
 
         If Conectar(conexion) = -1 Then
-            sintomas.Add(New E_Sintoma With {.ID = -1})
+            sintomas.Add(New E_Sintoma With {.ErrCode = -1})
             Return sintomas
         End If
 
@@ -92,7 +92,7 @@ Public Class D_Sintoma
             leer = cmd2.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            sintomas.Add(New E_Sintoma With {.ID = -2})
+            sintomas.Add(New E_Sintoma With {.ErrCode = -2})
             Return sintomas
         End Try
 
@@ -110,7 +110,7 @@ Public Class D_Sintoma
         Dim leer As MySqlDataReader
         Dim lSintoma As New List(Of E_Sintoma)
         If Conectar(conexion) = -1 Then
-            lSintoma.Add(New E_Sintoma With {.ID = -1})
+            lSintoma.Add(New E_Sintoma With {.ErrCode = -1})
             Return lSintoma
         End If
 
@@ -126,7 +126,7 @@ Public Class D_Sintoma
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            lSintoma.Add(New E_Sintoma With {.ID = -2})
+            lSintoma.Add(New E_Sintoma With {.ErrCode = -2})
             Return lSintoma
         End Try
 

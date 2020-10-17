@@ -7,6 +7,16 @@
     Protected _fecha_fin As Date
     Protected _resultado As String
     Protected _listaSeguimientos As List(Of E_Seguimiento)
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
 
     Property ConsultaReq As E_Atiende
         Get

@@ -38,7 +38,7 @@ Public Class D_Atiende
         Dim Clist As New List(Of E_Atiende)
 
         If Conectar(conexion) = -1 Then
-            Clist.Add(New E_Atiende With {.ID = -1})
+            Clist.Add(New E_Atiende With {.ErrCode = -1})
             Return Clist
         End If
 
@@ -55,7 +55,7 @@ Public Class D_Atiende
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            Clist.Add(New E_Atiende With {.ID = -2})
+            Clist.Add(New E_Atiende With {.ErrCode = -2})
             Return Clist ' no se pudo ingresar entrevista inicial
         End Try
 
@@ -74,7 +74,7 @@ Public Class D_Atiende
                 Clist.Add(consulta)
             End While
         Else
-            Clist.Add(New E_Atiende With {.ID = -8})
+            Clist.Add(New E_Atiende With {.ErrCode = -8})
         End If
         Cerrar(conexion)
         Return Clist
@@ -84,7 +84,7 @@ Public Class D_Atiende
         Dim list As New List(Of E_Atiende)
 
         If Conectar(conexion) = -1 Then
-            list.Add(New E_Atiende With {.ID = -1})
+            list.Add(New E_Atiende With {.ErrCode = -1})
             Return list
         End If
 
@@ -102,7 +102,7 @@ Public Class D_Atiende
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Cerrar(conexion)
-            list.Add(New E_Atiende With {.ID = -2})
+            list.Add(New E_Atiende With {.ErrCode = -2})
             Return list
         End Try
 
@@ -118,7 +118,7 @@ Public Class D_Atiende
                 })
             End While
         Else
-            list.Add(New E_Atiende With {.ID = -8})
+            list.Add(New E_Atiende With {.ErrCode = -8})
         End If
 
         Cerrar(conexion)

@@ -91,15 +91,26 @@ Public Class D_Analisis
         If Conectar(conexion) = -1 Then
             Return -1
         End If
-        For Each i As E_Analisis.Indicacion In a.Indicaciones
-            Dim cmd As New MySqlCommand With {
+        Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaAnalisisIndicacion",
             .Connection = conexion
-            }
+        }
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90)
 
-            cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = i.Nombre
 
+        Dim cmd2 As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaEspecificacion",
+            .Connection = conexion
+        }
+
+        cmd2.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
+        cmd2.Parameters.Add("NOM_I", MySqlDbType.VarChar, 90)
+        cmd2.Parameters.Add("DESCR", MySqlDbType.VarChar, 500)
+
+        For Each i As E_Analisis.Indicacion In a.Indicaciones
+            cmd.Parameters("NOM").Value = i.Nombre
             Try
                 cmd.ExecuteNonQuery()
                 Cerrar(conexion)
@@ -108,16 +119,8 @@ Public Class D_Analisis
                 Cerrar(conexion)
                 Return -6 'no se pudo ingresar indicacion
             End Try
-
-            Dim cmd2 As New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaEspecificacion",
-            .Connection = conexion
-            }
-
-            cmd2.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
             cmd2.Parameters.Add("NOM_I", MySqlDbType.VarChar, 90).Value = i.Nombre
-            cmd2.Parameters.Add("DESCR", MySqlDbType.VarChar, 500).Value = i.Nombre
+            cmd2.Parameters.Add("DESCR", MySqlDbType.VarChar, 500).Value = i.Descripcion
 
         Next
         Cerrar(conexion)
@@ -137,7 +140,7 @@ Public Class D_Analisis
 
         If Conectar(conexion) = -1 Then
             Cerrar(conexion)
-            pList.Add(New E_Analisis.Parametro With {.ID = -1})
+            pList.Add(New E_Analisis.Parametro With {.ErrCode = -1})
             Return pList
         End If
 
@@ -145,7 +148,7 @@ Public Class D_Analisis
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            pList.Add(New E_Analisis.Parametro With {.ID = -2})
+            pList.Add(New E_Analisis.Parametro With {.ErrCode = -2})
             Return pList
         End Try
         If leer.HasRows Then
@@ -159,7 +162,7 @@ Public Class D_Analisis
                 })
             End While
         Else
-            pList.Add(New E_Analisis.Parametro With {.ID = -8})
+            pList.Add(New E_Analisis.Parametro With {.ErrCode = -8})
         End If
         Cerrar(conexion)
         Return pList
@@ -184,13 +187,12 @@ Public Class D_Analisis
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            Return 2
+            Return -2
         End Try
 
         Dim existe As Integer = cmd.Parameters("EXISTE").Value
         Cerrar(conexion)
         Return existe
-
     End Function
     Public Function ConsultarResultadosAnalisis(a As E_Analisis) As Integer
         If Conectar(conexion) = -1 Then
@@ -236,7 +238,7 @@ Public Class D_Analisis
         Dim aList As New List(Of E_Analisis)
         If Conectar(conexion) = -1 Then
             Cerrar(conexion)
-            aList.Add(New E_Analisis With {.ID = -1})
+            aList.Add(New E_Analisis With {.ErrCode = -1})
             Return aList
         End If
 
@@ -253,7 +255,7 @@ Public Class D_Analisis
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            aList.Add(New E_Analisis With {.ID = -2})
+            aList.Add(New E_Analisis With {.ErrCode = -2})
             Return aList
         End Try
 
@@ -265,7 +267,7 @@ Public Class D_Analisis
                 })
             End While
         Else
-            aList.Add(New E_Analisis With {.ID = -8})
+            aList.Add(New E_Analisis With {.ErrCode = -8})
         End If
         Cerrar(conexion)
         Return aList
@@ -274,7 +276,7 @@ Public Class D_Analisis
         Dim aList As New List(Of E_Analisis)
         Dim leer As MySqlDataReader
         If Conectar(conexion) = -1 Then
-            aList.Add(New E_Analisis With {.ID = -1})
+            aList.Add(New E_Analisis With {.ErrCode = -1})
             Return aList
         End If
 
@@ -290,7 +292,7 @@ Public Class D_Analisis
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            aList.Add(New E_Analisis With {.ID = -2})
+            aList.Add(New E_Analisis With {.ErrCode = -2})
             Return aList
         End Try
 
@@ -304,7 +306,7 @@ Public Class D_Analisis
                 }
             })
         Else
-            aList.Add(New E_Analisis With {.ID = -8})
+            aList.Add(New E_Analisis With {.ErrCode = -8})
         End If
         Cerrar(conexion)
         Return aList
@@ -348,7 +350,7 @@ Public Class D_Analisis
         .ConsultaReq = consulta
         }
         If Conectar(conexion) = -1 Then
-            a.ID = -1
+            a.ErrCode = -1
             Return a
         End If
         Dim leer As MySqlDataReader
@@ -364,7 +366,7 @@ Public Class D_Analisis
         Catch ex As Exception
             Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            a.ID = -2
+            a.ErrCode = -2
             Return a
         End Try
 
@@ -374,7 +376,7 @@ Public Class D_Analisis
                 a.Nombre = leer.GetString("nombre")
             End While
         Else
-            a.ID = -8
+            a.ErrCode = -8
         End If
         Cerrar(conexion)
         Return a

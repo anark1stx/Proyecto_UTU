@@ -69,8 +69,8 @@ Public Class ContenedorEntrevistas
                 btnSugerirDiagnostico.Visible = False
                 chkAnalisis.Visible = True
                 chkTratamiento.Visible = True
-                makeFormReadOnly(Me)
                 Eventos.Modo = EventosDeTBP.ModoEvento.ConsultaDatos
+                makeFormReadOnly(Me)
         End Select
     End Sub
 
@@ -217,8 +217,5 @@ Public Class ContenedorEntrevistas
     End Sub
     Private Sub txtNomEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtNomEnfermedad.TextChanged
         Entrevista.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
-    End Sub
-    Public Sub FinalizarConsulta() 'llamo a este metodo desde frmMedico.FinalizarConsultaToolStripMenuItem_Click
-        Eventos.Guardar()
     End Sub
 End Class

@@ -71,7 +71,7 @@ Public Class D_SignoClinico
         Dim signos As New List(Of E_SignoClinico)
 
         If Conectar(conexion) = -1 Then
-            signos.Add(New E_SignoClinico With {.ID = -1})
+            signos.Add(New E_SignoClinico With {.ErrCode = -1})
             Return signos
         End If
 
@@ -87,7 +87,7 @@ Public Class D_SignoClinico
             leer = cmd2.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            signos.Add(New E_SignoClinico With {.ID = -2})
+            signos.Add(New E_SignoClinico With {.ErrCode = -2})
             Return signos
         End Try
 
@@ -105,7 +105,7 @@ Public Class D_SignoClinico
         Dim leer As MySqlDataReader
         Dim lSignoC As New List(Of E_SignoClinico)
         If Conectar(conexion) = -1 Then
-            lSignoC.Add(New E_SignoClinico With {.ID = -1})
+            lSignoC.Add(New E_SignoClinico With {.ErrCode = -1})
             Return lSignoC
         End If
 
@@ -121,7 +121,7 @@ Public Class D_SignoClinico
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            lSignoC.Add(New E_SignoClinico With {.ID = -2})
+            lSignoC.Add(New E_SignoClinico With {.ErrCode = -2})
             Return lSignoC
         End Try
 
