@@ -90,7 +90,7 @@ Public Class frmAnalisisCrear
     Private Async Sub cargarParametros()
         listaParametrosBD = Await Task.Run(Function() negocio.RetornarParametros())
 
-        Select Case listaParametrosBD(0).ID
+        Select Case listaParametrosBD(0).ErrCode
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -102,26 +102,21 @@ Public Class frmAnalisisCrear
                 Exit Sub
         End Select
 
-        If Not listaParametrosBD(0).ID = 0 Then
-            For Each p As E_Analisis.Parametro In listaParametrosBD
-                ACStringCol.Add(p.Nombre)
-            Next
+        For Each p As E_Analisis.Parametro In listaParametrosBD
+            ACStringCol.Add(p.Nombre)
+        Next
 
-            txtNombrePrm.AutoCompleteCustomSource = ACStringCol
-        End If
-
+        txtNombrePrm.AutoCompleteCustomSource = ACStringCol
     End Sub
 
     Private Sub dgwParametros_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwParametros.CellContentClick
         If dgwParametros.Columns(e.ColumnIndex).Name = "BorrarPrm" Then
-
             If MessageBox.Show("¿Seguro que desea eliminar este parametro?", "Eliminar parametro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 ParametroBindingSource.RemoveAt(e.RowIndex)
                 listaParametrosAIngresar.RemoveAt(e.RowIndex)
             End If
         End If
     End Sub
-
 
     Private Sub btnAgregarIndicacion_Click(sender As Object, e As EventArgs) Handles btnAgregarIndicacion.Click
 
@@ -144,13 +139,13 @@ Public Class frmAnalisisCrear
             Exit Sub
         End If
 
-        If listaIndicaciones.Exists(Function(i) i.Indicacion = txtIndicacionDescripcion.Text) Then
+        If listaIndicaciones.Exists(Function(i) i.Descripcion = txtIndicacionDescripcion.Text) Then
             MessageBox.Show("Ya fue ingresada una indicación con esa descripción.", "Información duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
 
-        Dim ind As New E_Analisis.Indicacion With {.Nombre = txtNomIndicacion.Text, .Indicacion = txtIndicacionDescripcion.Text}
+        Dim ind As New E_Analisis.Indicacion With {.Nombre = txtNomIndicacion.Text, .Descripcion = txtIndicacionDescripcion.Text}
         listaIndicaciones.Add(ind)
         IndicacionBindingSource.Add(ind)
         dgwIndicaciones.DataSource = IndicacionBindingSource
@@ -195,11 +190,11 @@ Public Class frmAnalisisCrear
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case 1
                 MessageBox.Show("El análisis fue ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Case 2
+            Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 3, 5
+            Case -3, -5
                 MessageBox.Show("Error ingresando parámetros.", "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case 6
+            Case -6
                 MessageBox.Show("Error ingresando indicaciones.", "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
 
@@ -220,7 +215,7 @@ Public Class frmAnalisisCrear
                     MessageBox.Show("Ya existe registrado un análisis con ese nombre", "Análisis existente", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     pnlDatos.Enabled = False
                     Exit Sub
-                Case 2
+                Case -2
                     MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     pnlDatos.Enabled = False
                     Exit Sub

@@ -9,14 +9,10 @@ Public Class frmGestion
     Protected _tipo As TipoUsuario
     Protected _filtro As Filtro
     Private ci_valida As Boolean = False
-    Dim p As New E_Paciente
     Dim pList As New List(Of E_Paciente)
-    Dim m As New E_Medico
     Dim mList As New List(Of E_Medico)
-    Dim a As New E_Usuario
     Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
-    Dim negocio As New N_Auxiliar
     Public Enum Accion
         Alta
         Baja
@@ -553,15 +549,7 @@ Public Class frmGestion
 
     Function Base_props_user() As E_Usuario
         Dim u_default As New E_Usuario
-        Dim direccion As New List(Of String)({lblDireccionTXT.Text, lblDireccionNumeroTXT.Text})
 
-        For i = 0 To direccion.Count - 1
-            direccion(i) = RemoverEspacios(direccion(i))
-        Next
-
-        If direccion(1) Is String.Empty Then
-            direccion(1) = 0
-        End If
 
         Dim telefonos As New List(Of String)
         For Each t As String In cbTelefonos.Items
@@ -577,8 +565,8 @@ Public Class frmGestion
                     .Nombre2 = lblNombre2TXT.Text,
                     .Apellido1 = lblApellido1TXT.Text,
                     .Apellido2 = lblApellido2TXT.Text,
-                    .Direccion_Calle = direccion(0),
-                    .Direccion_Numero = direccion(1),
+                    .Direccion_Calle = lblDireccionTXT.Text,
+                    .Direccion_Numero = lblDireccionNumeroTXT.Text,
                     .Foto = Image2Bytes(pBoxFotoUsuario.Image),
                     .Activo = 1,
                     .Correo = lblCorreoTXT.Text,
@@ -713,6 +701,7 @@ Public Class frmGestion
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
+                Dim p As New E_Paciente
                 Select Case Filter
                     Case Filtro.Cedula
 
@@ -724,7 +713,7 @@ Public Class frmGestion
 
                         p = Await Task.Run(Function() np.BuscarPacienteCI(txtBusqueda.Text))
 
-                        Select Case p.Nombre
+                        Select Case p.ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -750,7 +739,7 @@ Public Class frmGestion
                         End If
                         pList = Await Task.Run(Function() np.BuscarPacienteApellido(txtBusqueda.Text))
 
-                        Select Case pList(0).Nombre
+                        Select Case pList(0).ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -774,6 +763,7 @@ Public Class frmGestion
 
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
+                Dim m As New E_Medico
                 Select Case Filter
                     Case Filtro.Cedula
                         If Not check_Cedula(txtBusqueda.Text) Then
@@ -781,7 +771,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         m = Await Task.Run(Function() nm.BuscarMedicoCI(txtBusqueda.Text))
-                        Select Case m.Nombre
+                        Select Case m.ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -805,7 +795,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         mList = Await Task.Run(Function() nm.BuscarMedicoApellido(txtBusqueda.Text))
-                        Select Case mList(0).Nombre
+                        Select Case mList(0).ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -832,7 +822,7 @@ Public Class frmGestion
                         End If
                         mList = Await Task.Run(Function() nm.BuscarMedicoEspecialidad(txtBusqueda.Text))
 
-                        Select Case mList(0).Nombre
+                        Select Case mList(0).ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -856,6 +846,7 @@ Public Class frmGestion
 
             Case TipoUsuario.Auxiliar
                 Dim naux As New N_Auxiliar
+                Dim a As New E_Usuario
                 Select Case Filter
                     Case Filtro.Cedula
                         If Not check_Cedula(txtBusqueda.Text) Then
@@ -863,7 +854,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         a = Await Task.Run(Function() naux.BuscarAuxiliarCI(txtBusqueda.Text))
-                        Select Case a.Nombre
+                        Select Case a.ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -886,7 +877,7 @@ Public Class frmGestion
                             Exit Sub
                         End If
                         aList = Await Task.Run(Function() naux.BuscarAuxiliaresApellido(txtBusqueda.Text))
-                        Select Case aList(0).Nombre
+                        Select Case aList(0).ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
@@ -935,6 +926,7 @@ Public Class frmGestion
     End Sub
 
     Async Sub CargarFotoU(CI As Integer)
+        Dim negocio As New N_Usuario
         pBoxFotoUsuario.Image = Await Task.Run(Function() Bytes2Image(negocio.LeerFoto(CI)))
     End Sub
 
@@ -975,17 +967,17 @@ Public Class frmGestion
         LimpiarControles(pnlDatosUsuario)
         Select Case Usuario
             Case TipoUsuario.Paciente
-                p = pList(dgwUsuarios.CurrentCell.RowIndex)
+                Dim p = pList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(p)
                 PacienteBindings(p)
                 ci_valida = True
             Case TipoUsuario.Medico
-                m = mList(dgwUsuarios.CurrentCell.RowIndex)
+                Dim m = mList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(m)
                 MedicoBindings(m)
                 ci_valida = True
             Case TipoUsuario.Auxiliar
-                a = aList(dgwUsuarios.CurrentCell.RowIndex)
+                Dim a = aList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(a)
                 MedicoBindings(a)
                 ci_valida = True
