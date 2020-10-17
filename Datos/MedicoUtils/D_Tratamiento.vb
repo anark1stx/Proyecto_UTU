@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 Public Class D_Tratamiento
     Dim conexion As New MySqlConnection
     Public Function AltaTratamiento(tratamiento As E_Tratamiento) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -19,17 +19,17 @@ Public Class D_Tratamiento
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
 
         Return 1
     End Function
     Function BuscarTratamientos(buscar As String) As List(Of E_Tratamiento)
         Dim leer As MySqlDataReader
         Dim tratamientoList As New List(Of E_Tratamiento)
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             tratamientoList.Add(New E_Tratamiento With {.ErrCode = -1})
             Return tratamientoList '-1 exit code para conexion fallida
         End If
@@ -45,7 +45,7 @@ Public Class D_Tratamiento
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             tratamientoList.Add(New E_Tratamiento With {.ErrCode = -2})
             Return tratamientoList
         End Try
@@ -63,13 +63,13 @@ Public Class D_Tratamiento
             tratamientoList.Add(New E_Tratamiento With {.ErrCode = -8})
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
 
         Return tratamientoList
     End Function
 
     Function AltaPacienteSigueTratamiento(CI_P As Integer, t As E_Tratamiento) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -87,16 +87,16 @@ Public Class D_Tratamiento
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
 
         Return 1
     End Function
 
     Function AltaSeguimientoDiario(t As E_Tratamiento, seguimiento As E_Seguimiento, CI_P As Integer) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -115,14 +115,14 @@ Public Class D_Tratamiento
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
     Function AltaResultadoTratamiento(t As E_Tratamiento, CI_P As Integer) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -140,17 +140,17 @@ Public Class D_Tratamiento
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
 
         Return 1
     End Function
     Function ConsultarHistorialTratamientos(CI_P As Integer) As List(Of E_Tratamiento)
         Dim leer As MySqlDataReader
         Dim lTratamientos As New List(Of E_Tratamiento)
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             lTratamientos.Add(New E_Tratamiento With {.ErrCode = -1})
             Return lTratamientos
         End If
@@ -165,7 +165,7 @@ Public Class D_Tratamiento
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             lTratamientos.Add(New E_Tratamiento With {.ErrCode = -2})
             Return lTratamientos
         End Try
@@ -182,14 +182,14 @@ Public Class D_Tratamiento
         Else
             lTratamientos.Add(New E_Tratamiento With {.ErrCode = -8})
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return lTratamientos
     End Function
 
     Function ConsultarSeguimientoDiario(t As E_Tratamiento, CI_P As Integer, fecha As Date) As E_Seguimiento
         Dim leer As MySqlDataReader
         Dim seguimientoReturn As New E_Seguimiento
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             seguimientoReturn.ErrCode = -1
             Return seguimientoReturn
         End If
@@ -207,7 +207,7 @@ Public Class D_Tratamiento
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             seguimientoReturn.ID_Seguimiento = -2
             Return seguimientoReturn
         End Try
@@ -222,7 +222,7 @@ Public Class D_Tratamiento
         Else
             seguimientoReturn.ErrCode = -8
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return seguimientoReturn
     End Function
 
@@ -230,7 +230,7 @@ Public Class D_Tratamiento
         Dim t As New E_Tratamiento With {
         .ConsultaReq = consulta
         }
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             t.ErrCode = -1
             Return t
         End If
@@ -245,7 +245,7 @@ Public Class D_Tratamiento
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             t.ErrCode = -2
             Return t
@@ -260,7 +260,7 @@ Public Class D_Tratamiento
         Else
             t.ErrCode = -8
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return t
     End Function
 

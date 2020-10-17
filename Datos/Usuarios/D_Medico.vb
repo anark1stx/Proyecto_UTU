@@ -15,7 +15,7 @@ Public Class D_Medico
             .Connection = conexion
         }
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return New E_Medico With {.ErrCode = -1}
         End If
         Dim u As New E_Medico With {.Cedula = ci}
@@ -28,7 +28,7 @@ Public Class D_Medico
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             u.ErrCode = -2
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return u
         End Try
 
@@ -52,7 +52,7 @@ Public Class D_Medico
         Else
             u.Cedula = -8 'no encontre usuario
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return u
     End Function
 
@@ -63,7 +63,7 @@ Public Class D_Medico
 
         Dim leer As MySqlDataReader
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -1})
         End If
 
@@ -77,7 +77,7 @@ Public Class D_Medico
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -2})
         End Try
 
@@ -112,7 +112,7 @@ Public Class D_Medico
             uList.Add(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return uList
 
     End Function
@@ -124,7 +124,7 @@ Public Class D_Medico
 
         Dim leer As MySqlDataReader
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -1})
         End If
 
@@ -138,7 +138,7 @@ Public Class D_Medico
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -2})
         End Try
 
@@ -173,7 +173,7 @@ Public Class D_Medico
             uList = New List(Of E_Medico)(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return uList
 
     End Function
@@ -191,7 +191,7 @@ Public Class D_Medico
         }
         If Not accion Then
             cmd.CommandText = "AltaMedico"
-            If Conectar(conexion) = -1 Then
+            If Sesion.Conectar(conexion) = -1 Then
                 Return -1
             End If
         Else 'es modificar sus especialidades
@@ -206,9 +206,9 @@ Public Class D_Medico
 
         Try
             cmd.ExecuteNonQuery()
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -5 'No se pudo crear medico
         End Try
 
@@ -216,7 +216,7 @@ Public Class D_Medico
     End Function
 
     Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -233,11 +233,11 @@ Public Class D_Medico
                 cmd.ExecuteNonQuery()
                 Console.WriteLine("DANDO ALTA A: " & es)
             Catch ex As Exception
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
                 Return -2 ' no se pudo ingresar la especialidad
             End Try
         Next
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
     Public Function ModificarMedicoEspecialidad(u As E_Medico) As Integer
@@ -257,18 +257,18 @@ Public Class D_Medico
         }
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2 ' no se pudo borrar especialidad
         End Try
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 

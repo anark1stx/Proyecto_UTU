@@ -8,7 +8,7 @@ Public Class D_Usuario
     Public Function LeerFotoUsuario(CI As Integer) As Byte()
         Dim foto As Byte() = {}
         Dim leer As MySqlDataReader
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return {}
         End If
 
@@ -23,7 +23,8 @@ Public Class D_Usuario
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
+            Console.WriteLine("error ejecutando")
             Return {}
         End Try
 
@@ -32,12 +33,12 @@ Public Class D_Usuario
                 foto = CType(leer("foto"), Byte())
             End While
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return foto
     End Function
 
     Public Function UsuarioExiste(ci As Integer) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -54,11 +55,11 @@ Public Class D_Usuario
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2 'error al ejecutar cmd
         End Try
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Dim existe As Integer = cmd.Parameters("EXISTE").Value
         Return existe
     End Function
@@ -80,7 +81,7 @@ Public Class D_Usuario
             cmd.CommandText = "ModificarUsuario"
         End If
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -101,7 +102,7 @@ Public Class D_Usuario
             Return -4 'No se pudo crear usuario sibim
         End Try
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         If AltaUsuarioTelefono(u) Then
             Return 1 'todo ok
         Else
@@ -112,7 +113,7 @@ Public Class D_Usuario
 
     Public Function ModificarUsuarioTelefono(u As E_Usuario) As Integer
 
-        If borrarTelefonos(u.Cedula) = 1 Then
+        If BorrarTelefonos(u.Cedula) = 1 Then
 
             If AltaUsuarioTelefono(u) = 1 Then
                 Return 1 'todo ok
@@ -125,7 +126,7 @@ Public Class D_Usuario
 
     End Function
     Public Function AltaUsuarioTelefono(u As E_Usuario) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -142,17 +143,17 @@ Public Class D_Usuario
             Try
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
                 Return -3
             End Try
         Next
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
     Public Function BorrarTelefonos(CI As Integer) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As New MySqlCommand With {
@@ -165,16 +166,16 @@ Public Class D_Usuario
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2 ' no se pudo borrar telefono
         End Try
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
     Public Function A_BLogicaUsuario(CI As Integer, A_B As Boolean) As Integer '0 = baja logica ; 1= alta logica
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As New MySqlCommand With {
@@ -188,10 +189,10 @@ Public Class D_Usuario
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2 'fallo comando exec
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 

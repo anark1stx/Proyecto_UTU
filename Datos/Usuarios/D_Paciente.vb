@@ -5,7 +5,7 @@ Public Class D_Paciente
     Dim conexion As New MySqlConnection
     Public Function BuscarPacienteCI(ci As Integer) As E_Paciente
         Console.WriteLine("leyendo paciente por ci")
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return New E_Paciente With {.ErrCode = -1} '-1 exit code para conexion fallida
         End If
 
@@ -26,7 +26,7 @@ Public Class D_Paciente
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return New E_Paciente With {.ErrCode = -2} 'error ejecutando
         End Try
 
@@ -56,7 +56,7 @@ Public Class D_Paciente
         End If
 
         u.TelefonosLista = listaTel.Distinct.ToList()
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return u
     End Function
 
@@ -68,7 +68,7 @@ Public Class D_Paciente
 
         Dim leer As MySqlDataReader
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             lastU.ErrCode = -1
             uList.Add(lastU)
             Return uList
@@ -84,7 +84,7 @@ Public Class D_Paciente
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             lastU.ErrCode = -2
             uList.Add(lastU)
             Return uList
@@ -122,7 +122,7 @@ Public Class D_Paciente
             uList.Add(New E_Paciente() With {.ErrCode = -8}) 'no encontre usuarios
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return uList
 
     End Function
@@ -145,7 +145,7 @@ Public Class D_Paciente
             cmd.CommandText = "ModificarPaciente"
         End If
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -158,10 +158,10 @@ Public Class D_Paciente
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -5 'No se pudo crear/modificar paciente
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 End Class

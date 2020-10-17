@@ -7,7 +7,7 @@ Public Class D_Enfermedad
             Return 1
         End If
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -35,13 +35,13 @@ Public Class D_Enfermedad
             Console.WriteLine("err alta enfermedad" & ex.Message)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
     Public Function BuscarEnfermedadConsulta(ID_C As Integer) As E_Enfermedad 'ademas de buscar la enfermedad aprovecho para buscar sintomas y signos clinicos desde esta misma funcion
         Dim enf As New E_Enfermedad
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             enf.ErrCode = -1
             Return enf
         End If
@@ -58,7 +58,7 @@ Public Class D_Enfermedad
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             enf.ErrCode = -2
             Return enf
         End Try
@@ -82,13 +82,13 @@ Public Class D_Enfermedad
 
         enf.SignosClinicos = d_sign.BuscarExamenFisico(ID_C)
         Return enf
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
     End Function
 
     Public Function ListarEnfermedades(nombre As String) As List(Of E_Enfermedad)
         Dim leer As MySqlDataReader
         Dim lEnfermedades As New List(Of E_Enfermedad)
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             lEnfermedades.Add(New E_Enfermedad With {.ErrCode = -1})
             Return lEnfermedades
         End If
@@ -104,7 +104,7 @@ Public Class D_Enfermedad
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             lEnfermedades.Add(New E_Enfermedad With {.ErrCode = -2})
             Return lEnfermedades
         End Try
@@ -118,13 +118,13 @@ Public Class D_Enfermedad
         Else
             lEnfermedades.Add(New E_Enfermedad With {.ErrCode = -8})
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return lEnfermedades
     End Function
 
     Public Function ConsultarDescripcionEnfermedad(enfermedad As E_Enfermedad) As Integer
         Dim leer As MySqlDataReader
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -139,7 +139,7 @@ Public Class D_Enfermedad
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
 
@@ -150,7 +150,7 @@ Public Class D_Enfermedad
         Else
             Return -8 'no hay descripcion disponible
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 

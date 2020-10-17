@@ -15,19 +15,19 @@ Public Class D_Analisis
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = a.Nombre
         cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Direction = ParameterDirection.Output
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
         Try
             leer = cmd.ExecuteReader() 'porque preciso el ID del analisis, sino seria NonQuery.
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2 'no se pudo ingresar analisis
         End Try
 
         a.ID = cmd.Parameters("ID_AN").Value
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
 
         Dim exitCodeParametro = AltaParametros(a)
         Select Case exitCodeParametro
@@ -39,7 +39,7 @@ Public Class D_Analisis
     End Function
 
     Public Function AltaParametros(a As E_Analisis) As Integer 'hacer algo para verificar existencia del parametro antes
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As New MySqlCommand With {
@@ -74,7 +74,7 @@ Public Class D_Analisis
                     cmd.ExecuteNonQuery()
                     p.ID = cmd.Parameters("ID_P").Value
                 Catch ex As Exception
-                    Cerrar(conexion)
+                    Sesion.Cerrar(conexion)
                     Console.WriteLine("ERR" & ex.Message)
                     Return -5 'no se pudo ingresar parametro
                 End Try
@@ -87,17 +87,17 @@ Public Class D_Analisis
             Try
                 cmd2.ExecuteNonQuery()
             Catch ex As Exception
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
                 Console.WriteLine("ERR2" & ex.Message)
                 Return -3
             End Try
         Next
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
     Public Function AltaIndicacion(a As E_Analisis) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As New MySqlCommand With {
@@ -122,10 +122,10 @@ Public Class D_Analisis
             cmd.Parameters("NOM").Value = i.Nombre
             Try
                 cmd.ExecuteNonQuery()
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
                 Return -6 'no se pudo ingresar indicacion
             End Try
             cmd2.Parameters("NOM_I").Value = i.Nombre
@@ -135,12 +135,12 @@ Public Class D_Analisis
                 cmd2.ExecuteNonQuery()
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
                 Return -6
             End Try
 
         Next
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
@@ -155,7 +155,7 @@ Public Class D_Analisis
             .Connection = conexion
         }
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             pList.Add(New E_Analisis.Parametro With {.ErrCode = -1})
             Return pList
         End If
@@ -163,7 +163,7 @@ Public Class D_Analisis
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             pList.Add(New E_Analisis.Parametro With {.ErrCode = -2})
             Return pList
         End Try
@@ -180,12 +180,12 @@ Public Class D_Analisis
         Else
             pList.Add(New E_Analisis.Parametro With {.ErrCode = -8})
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return pList
     End Function
 
     Public Function AnalisisExiste(nombreanalisis As String) As Integer 'si el analisis ya existe avisar y pedir que cambie el nombre
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As New MySqlCommand With {
@@ -201,17 +201,17 @@ Public Class D_Analisis
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine("err analisis existe" & ex.Message)
             Return -2
         End Try
 
         Dim existe As Integer = cmd.Parameters("EXISTE").Value
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return existe
     End Function
     Public Function ConsultarResultadosAnalisis(a As E_Analisis) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim leer As MySqlDataReader
@@ -226,7 +226,7 @@ Public Class D_Analisis
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             Return -2
         End Try
@@ -245,15 +245,15 @@ Public Class D_Analisis
         Else
             Return -8
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
     Public Function BuscarAnalisisXNombre(nom As String) As List(Of E_Analisis)
 
         Dim aList As New List(Of E_Analisis)
-        If Conectar(conexion) = -1 Then
-            Cerrar(conexion)
+        If Sesion.Conectar(conexion) = -1 Then
+            Sesion.Cerrar(conexion)
             aList.Add(New E_Analisis With {.ErrCode = -1})
             Return aList
         End If
@@ -270,7 +270,7 @@ Public Class D_Analisis
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             aList.Add(New E_Analisis With {.ErrCode = -2})
             Return aList
         End Try
@@ -285,13 +285,13 @@ Public Class D_Analisis
         Else
             aList.Add(New E_Analisis With {.ErrCode = -8})
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return aList
     End Function
     Public Function ListarAnalisisDePaciente(CI_P As Integer) As List(Of E_Analisis)
         Dim aList As New List(Of E_Analisis)
         Dim leer As MySqlDataReader
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             aList.Add(New E_Analisis With {.ErrCode = -1})
             Return aList
         End If
@@ -306,7 +306,7 @@ Public Class D_Analisis
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             aList.Add(New E_Analisis With {.ErrCode = -2})
             Return aList
@@ -324,11 +324,11 @@ Public Class D_Analisis
         Else
             aList.Add(New E_Analisis With {.ErrCode = -8})
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return aList
     End Function
     Public Function AltaAnalisisResultados(a As E_Analisis) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -352,12 +352,12 @@ Public Class D_Analisis
             Try
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
-                Cerrar(conexion)
+                Sesion.Cerrar(conexion)
                 Console.WriteLine(ex.Message)
                 Return -2
             End Try
         Next
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
@@ -365,7 +365,7 @@ Public Class D_Analisis
         Dim a As New E_Analisis With {
         .ConsultaReq = consulta
         }
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             a.ErrCode = -1
             Return a
         End If
@@ -380,7 +380,7 @@ Public Class D_Analisis
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             a.ErrCode = -2
             Return a
@@ -394,7 +394,7 @@ Public Class D_Analisis
         Else
             a.ErrCode = -8
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return a
     End Function
 

@@ -4,7 +4,7 @@ Public Class D_Atiende
     Dim conexion As New MySqlConnection
 
     Public Function AltaAtiende(consulta As E_Atiende) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -24,12 +24,12 @@ Public Class D_Atiende
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception 'lo mas seguro es que la excepcion que se produzca aca sea que ya existe una tupla con la misma clave primaria {CI_M,CI_P,CI_A} (duplicate entry)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             Return -2
         End Try
         consulta.ID = cmd.Parameters("ID_C").Value
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Console.WriteLine("OUTPUT PARAMETER ID CONSULTA= " & consulta.ID)
         Return 1
     End Function
@@ -37,7 +37,7 @@ Public Class D_Atiende
         Dim leer As MySqlDataReader
         Dim Clist As New List(Of E_Atiende)
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Clist.Add(New E_Atiende With {.ErrCode = -1})
             Return Clist
         End If
@@ -53,7 +53,7 @@ Public Class D_Atiende
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             Clist.Add(New E_Atiende With {.ErrCode = -2})
             Return Clist ' no se pudo ingresar entrevista inicial
@@ -76,14 +76,14 @@ Public Class D_Atiende
         Else
             Clist.Add(New E_Atiende With {.ErrCode = -8})
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return Clist
 
     End Function
     Public Function BuscarMisConsultas(CI As Integer) As List(Of E_Atiende)
         Dim list As New List(Of E_Atiende)
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             list.Add(New E_Atiende With {.ErrCode = -1})
             Return list
         End If
@@ -101,7 +101,7 @@ Public Class D_Atiende
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             list.Add(New E_Atiende With {.ErrCode = -2})
             Return list
         End Try
@@ -121,7 +121,7 @@ Public Class D_Atiende
             list.Add(New E_Atiende With {.ErrCode = -8})
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
 
         Return list
     End Function

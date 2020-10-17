@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 Public Class D_SignoClinico
     Dim conexion As New MySqlConnection
     Public Function AltaModSignoClinico(Signo As E_SignoClinico, altaomod As Boolean) As Integer
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As MySqlCommand
@@ -27,10 +27,10 @@ Public Class D_SignoClinico
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine("error alta Signo" & ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Signo.ID = cmd.Parameters("ID_SC").Value
         Return 1
     End Function
@@ -40,7 +40,7 @@ Public Class D_SignoClinico
             Return resultAltaSg
         End If
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -58,11 +58,11 @@ Public Class D_SignoClinico
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine("error alta examen fisico" & ex.Message)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
@@ -70,7 +70,7 @@ Public Class D_SignoClinico
         Dim leer As MySqlDataReader
         Dim signos As New List(Of E_SignoClinico)
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             signos.Add(New E_SignoClinico With {.ErrCode = -1})
             Return signos
         End If
@@ -86,7 +86,7 @@ Public Class D_SignoClinico
         Try
             leer = cmd2.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             signos.Add(New E_SignoClinico With {.ErrCode = -2})
             Return signos
         End Try
@@ -104,7 +104,7 @@ Public Class D_SignoClinico
     Public Function ListarSignoCs(nombre As String) As List(Of E_SignoClinico) 'retorno una lista ya que voy a emplear LIKE para la busqueda, entonces puede ser que encuentre varias coincidencias
         Dim leer As MySqlDataReader
         Dim lSignoC As New List(Of E_SignoClinico)
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             lSignoC.Add(New E_SignoClinico With {.ErrCode = -1})
             Return lSignoC
         End If
@@ -120,7 +120,7 @@ Public Class D_SignoClinico
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             lSignoC.Add(New E_SignoClinico With {.ErrCode = -2})
             Return lSignoC
         End Try
@@ -133,13 +133,13 @@ Public Class D_SignoClinico
                 })
             End While
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return lSignoC
     End Function
 
     Public Function ConsultarDescripcionSignoC(signoc As E_SignoClinico) As Integer
         Dim leer As MySqlDataReader
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -154,7 +154,7 @@ Public Class D_SignoClinico
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
 
@@ -165,7 +165,7 @@ Public Class D_SignoClinico
         Else
             Return -8 'no hay descripcion disponible
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 

@@ -7,9 +7,8 @@ Public Class D_UsuarioMYSQL
         Console.WriteLine("leyendo usuario")
         Dim u As New E_UsuarioMYSQL
         Dim leer As MySqlDataReader
-
-        construirCnString(usuario, contrasena)
-        Dim exitCode As Integer = Conectar(conexion)
+        Sesion = New MySQLSesion(usuario, contrasena)
+        Dim exitCode As Integer = Sesion.Conectar(conexion)
 
         If exitCode <> 1 Then
             Return New E_UsuarioMYSQL With {.ErrCode = exitCode}
@@ -41,7 +40,7 @@ Public Class D_UsuarioMYSQL
         leer.Close()
 
         If u.Rol = "administrador" Then
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return u
         End If
 
@@ -68,13 +67,13 @@ Public Class D_UsuarioMYSQL
             u.Nombre = -3 'de baja
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return u
     End Function
 
     Public Function AltaUsuario(u As E_UsuarioMYSQL) As Integer
 
-        If Conectar(conexion) = -1 Then 'errores con la conexion
+        If Sesion.Conectar(conexion) = -1 Then 'errores con la conexion
             Return -1
         End If
 
@@ -90,13 +89,12 @@ Public Class D_UsuarioMYSQL
 
         Try
             cmd.ExecuteNonQuery()
-            Cerrar(conexion)
             Return 1 'todo ok
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2 'Error dando alta usuario mysql
         End Try
-
+        Sesion.Cerrar(conexion)
     End Function
 
 End Class

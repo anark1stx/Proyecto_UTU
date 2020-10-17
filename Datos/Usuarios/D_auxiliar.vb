@@ -6,7 +6,7 @@ Public Class D_auxiliar
     Dim conexion As New MySqlConnection
     Public Function BuscarAuxiliarCI(ci As Integer) As E_Usuario
         Dim leer As MySqlDataReader
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return New E_Usuario With {.ErrCode = -1}
         End If
 
@@ -23,7 +23,7 @@ Public Class D_auxiliar
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return New E_Usuario With {.ErrCode = -2}
         End Try
 
@@ -48,7 +48,7 @@ Public Class D_auxiliar
         Else
             u.ErrCode = -8 'no encontre usuario
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return u
     End Function
     Public Function BuscarAuxiliarApellido(ap As String) As List(Of E_Usuario)
@@ -58,7 +58,7 @@ Public Class D_auxiliar
 
         Dim leer As MySqlDataReader
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             lastU.ErrCode = -1
             uList.Add(lastU)
             Return uList
@@ -74,7 +74,7 @@ Public Class D_auxiliar
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             lastU.ErrCode = 2
             uList.Add(lastU)
             Return uList
@@ -107,7 +107,7 @@ Public Class D_auxiliar
             uList = New List(Of E_Usuario)(New E_Usuario With {.ErrCode = 8}) 'no encontre usuarios
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return uList
     End Function
     Public Function AltaModAuxiliar(u As E_Usuario, accion As Boolean) As Integer
@@ -118,7 +118,7 @@ Public Class D_auxiliar
         End Select
 
         If Not accion Then 'darlo de alta en la tabla auxiliar
-            If Conectar(conexion) = -1 Then
+            If Sesion.Conectar(conexion) = -1 Then
                 Return -1
             End If
 
@@ -136,7 +136,7 @@ Public Class D_auxiliar
                 Return -4 'No se pudo crear usuario sibim
             End Try
 
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return 1
         Else 'fue una modificacion y ya se hizo en mybase, los atributos modificables del auxiliar son los mismos que estan en la tabla usuario
             Return code

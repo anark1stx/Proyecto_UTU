@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class D_Sintoma
     Dim conexion As New MySqlConnection
     Public Function AltaModSintoma(Sintoma As E_Sintoma, altaomod As Boolean) As Integer 'note: ver si el orden de los parametros afecta en algo.
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As MySqlCommand
@@ -28,7 +28,7 @@ Public Class D_Sintoma
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine("error alta sintoma" & ex.Message)
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
 
@@ -36,7 +36,7 @@ Public Class D_Sintoma
             Sintoma.ID = cmd.Parameters("ID_S").Value
         End If
 
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
     Public Function AltaRegistraSintoma(Sintoma As E_Sintoma, consulta As E_Atiende) As Integer
@@ -45,7 +45,7 @@ Public Class D_Sintoma
             Return resultAltaSn
         End If
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -63,11 +63,11 @@ Public Class D_Sintoma
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Console.WriteLine("error alta registra sintoma" & ex.Message)
             Return -2
         End Try
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
@@ -75,7 +75,7 @@ Public Class D_Sintoma
         Dim leer As MySqlDataReader
         Dim sintomas As New List(Of E_Sintoma)
 
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             sintomas.Add(New E_Sintoma With {.ErrCode = -1})
             Return sintomas
         End If
@@ -91,7 +91,7 @@ Public Class D_Sintoma
         Try
             leer = cmd2.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             sintomas.Add(New E_Sintoma With {.ErrCode = -2})
             Return sintomas
         End Try
@@ -103,13 +103,13 @@ Public Class D_Sintoma
                 })
             End While
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return sintomas
     End Function
     Public Function ListarSintomas(nombre As String) As List(Of E_Sintoma) 'retorno una lista ya que voy a emplear LIKE para la busqueda, entonces puede ser que encuentre varias coincidencias
         Dim leer As MySqlDataReader
         Dim lSintoma As New List(Of E_Sintoma)
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             lSintoma.Add(New E_Sintoma With {.ErrCode = -1})
             Return lSintoma
         End If
@@ -125,7 +125,7 @@ Public Class D_Sintoma
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             lSintoma.Add(New E_Sintoma With {.ErrCode = -2})
             Return lSintoma
         End Try
@@ -138,13 +138,13 @@ Public Class D_Sintoma
                 })
             End While
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return lSintoma
     End Function
 
     Public Function ConsultarDescripcionSintoma(sintoma As E_Sintoma) As Integer
         Dim leer As MySqlDataReader
-        If Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
 
@@ -159,7 +159,7 @@ Public Class D_Sintoma
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Cerrar(conexion)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
 
@@ -170,7 +170,7 @@ Public Class D_Sintoma
         Else
             Return -8 'no hay descripcion disponible
         End If
-        Cerrar(conexion)
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
