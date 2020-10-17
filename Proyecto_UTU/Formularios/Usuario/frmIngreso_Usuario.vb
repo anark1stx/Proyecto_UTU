@@ -26,7 +26,6 @@ Public Class frmIngreso_Usuario
                     lblMensajeErrorCI.Visible = True
                     Exit Sub
             End Select
-            Console.WriteLine("ya lei usuario")
 
             Select Case usu.Rol
                 Case "administrador"

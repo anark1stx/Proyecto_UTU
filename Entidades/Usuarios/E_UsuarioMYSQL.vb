@@ -2,13 +2,13 @@
     Protected _nombre As String
     Protected _contrasena As String
     Protected _rol As String
-    Protected _errCode As Integer
+    Protected _errCode As String
 
-    Property ErrCode As Integer
+    Property ErrCode As String
         Get
             Return _errCode
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _errCode = value
         End Set
     End Property
