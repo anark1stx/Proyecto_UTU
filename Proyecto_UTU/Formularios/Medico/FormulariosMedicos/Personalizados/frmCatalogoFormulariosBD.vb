@@ -24,7 +24,7 @@ Public Class frmCatalogoFormulariosBD
 
         Dim listaFormularios As List(Of E_Formulario) = negocio.BuscarFormularios(txtBuscar.Text)
 
-        Select Case listaFormularios(0).ID
+        Select Case listaFormularios(0).ErrCode
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -91,6 +91,6 @@ Public Class frmCatalogoFormulariosBD
     End Sub
 
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
-        If txtBuscar.TextLength > 3 Then btnBuscar_Click(sender, e)
+        If txtBuscar.TextLength > 3 Then btnBuscar.PerformClick()
     End Sub
 End Class

@@ -209,10 +209,9 @@ Public Class frmMedico
                 End If
             Case "Entrevista"
                 addFrm(frmSeleccionarFrmEntrevista, pnlContenedorFormularios)
-            Case "Otro"
+            Case "BuscarFormulario"
                 If Not String.IsNullOrWhiteSpace(filtroB) Then
                     frmCatalogo.txtBuscar.Text = filtroB
-                    frmCatalogo.btnBuscar.PerformClick()
                 End If
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
@@ -337,28 +336,28 @@ Public Class frmMedico
         AddHandler frmSeleccionarFrmEntrevista.btnFrmGenerico.Click,
                     Sub()
                         filtroB = "generico"
-                        InstanciarFormulario("Otro")
+                        InstanciarFormulario("BuscarFormulario")
                     End Sub
 
         AddHandler frmSeleccionarFrmEntrevista.btnFrmDolor.Click,
                     Sub()
                         filtroB = "dolor"
-                        InstanciarFormulario("Otro")
+                        InstanciarFormulario("BuscarFormulario")
                     End Sub
         AddHandler frmSeleccionarFrmEntrevista.btnFrmFiebre.Click,
                     Sub()
                         filtroB = "fiebre"
-                        InstanciarFormulario("Otro")
+                        InstanciarFormulario("BuscarFormulario")
                     End Sub
         AddHandler frmSeleccionarFrmEntrevista.btnFrmMalestar.Click,
                     Sub()
                         filtroB = "malestar"
-                        InstanciarFormulario("Otro")
+                        InstanciarFormulario("BuscarFormulario")
                     End Sub
         AddHandler frmSeleccionarFrmEntrevista.btnFrmOtro.Click,
                     Sub()
                         filtroB = ""
-                        InstanciarFormulario("Otro")
+                        InstanciarFormulario("BuscarFormulario")
                     End Sub
         'HANDLERS PARA SEGUIMIENTO ANALISIS
         AddHandler frmAnalisisS.btnConsultarDatos.Click,
