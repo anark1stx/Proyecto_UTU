@@ -11,7 +11,7 @@ Public Class frmIngreso_Usuario
         Else
 
             Dim usu = Await Task.Run(Function() n_u_mysql.SeleccionarUsuario(txtIngresarCi.Text, txtIngresarContrasena.Text))
-            Select Case usu.Nombre
+            Select Case usu.ErrCode
                 Case -1
                     MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -43,7 +43,6 @@ Public Class frmIngreso_Usuario
                 Case "auxiliar"
                     Dim frmMed As New frmMedico
                     Me.Hide()
-                    frmMed.MedicoActual = New E_Medico With {.Cedula = 0}
                     frmMed.AuxiliarActual = New E_Usuario With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
                     frmMed.MiModo = frmMedico.Modo.SoyAuxiliar
                     frmMed.Show()
@@ -58,17 +57,6 @@ Public Class frmIngreso_Usuario
             lblMensajeErrorCI.Visible = False
         End If
     End Sub
-
-    Private Sub L_lblContrasenaOlvidada_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles L_lblContrasenaOlvidada.LinkClicked
-        Dim _frmOlvideMiContrasena As New frmOlvideMiContrasena
-        If check_Cedula(txtIngresarCi.Text) Then
-            _frmOlvideMiContrasena.txtIngresarCi.Text = txtIngresarCi.Text
-        End If
-
-        _frmOlvideMiContrasena.Show()
-
-    End Sub
-
     Private Sub frmIngresoUsuario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             Me.Dispose()

@@ -11,10 +11,9 @@ Public Class D_UsuarioMYSQL
         construirCnString(usuario, contrasena)
         Dim exitCode As Integer = Conectar(conexion)
 
-        Select Case exitCode
-            Case <> 1
-                Return New E_UsuarioMYSQL With {.Nombre = exitCode}
-        End Select
+        If exitCode <> 1 Then
+            Return New E_UsuarioMYSQL With {.ErrCode = exitCode}
+        End If
 
         Dim cmd As New MySqlCommand With {
             .Connection = conexion,
@@ -26,7 +25,7 @@ Public Class D_UsuarioMYSQL
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
-            u.Rol = -2
+            u.ErrCode = -2
             Return u
         End Try
 
@@ -35,7 +34,7 @@ Public Class D_UsuarioMYSQL
                 u.Rol = leer.GetString("ROL")
             End While
         Else 'no tiene rol asignado en la tabla mysql.default_roles
-            u.Rol = -2
+            u.ErrCode = -2
             Return u
         End If
 
@@ -44,8 +43,6 @@ Public Class D_UsuarioMYSQL
         If u.Rol = "administrador" Then
             Cerrar(conexion)
             Return u
-        Else
-            Console.WriteLine(u.Rol)
         End If
 
         Dim cmd2 As New MySqlCommand With { 'verificar si el usuario de SIBIM fue dado de baja
@@ -64,7 +61,7 @@ Public Class D_UsuarioMYSQL
             End While
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
             Console.WriteLine(ex.Message)
-            u.Nombre = -2
+            u.ErrCode = -2
         End Try
 
         If activo = False Then
