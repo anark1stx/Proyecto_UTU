@@ -84,7 +84,7 @@ Public Class frmAnalisisSeguimiento
                 CI_paciente = txtBuscar.Text
                 Dim na As New N_Analisis
                 Dim result = na.ListadoAnalisisPaciente(CI_paciente)
-                Select Case result(0).ID
+                Select Case result(0).ErrCode
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
@@ -102,7 +102,7 @@ Public Class frmAnalisisSeguimiento
                 Exit Sub
             Case Modo.Asignar 'busco analisis x nombre
                 Dim result = na.BuscarAnalisisXNombre(txtBuscar.Text)
-                Select Case result(0).ID
+                Select Case result(0).ErrCode
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub

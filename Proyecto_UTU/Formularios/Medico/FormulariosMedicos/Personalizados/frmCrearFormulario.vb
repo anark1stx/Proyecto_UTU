@@ -4,8 +4,6 @@ Imports Negocio
 Imports Utilidades
 Public Class frmCrearFormulario
 
-    Dim negocio As New N_Formulario
-
     Dim _cursor As Cursor = Cursors.Hand
     Dim frmPlano As New formularioPlano
 

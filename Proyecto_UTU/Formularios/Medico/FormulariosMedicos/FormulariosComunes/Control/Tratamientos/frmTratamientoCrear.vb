@@ -57,7 +57,7 @@ Public Class frmTratamientoCrear
                 Select Case result
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Case 2
+                    Case -2
                         MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando procedimiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case 1
                         MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -109,7 +109,7 @@ Public Class frmTratamientoCrear
                 Exit Sub
             Else
                 Dim result = Await Task.Run(Function() negocio.BuscarTratamientoXNombre(txtDescripcionTratamiento.Text))
-                Select Case result(0).ID
+                Select Case result(0).ErrCode
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
