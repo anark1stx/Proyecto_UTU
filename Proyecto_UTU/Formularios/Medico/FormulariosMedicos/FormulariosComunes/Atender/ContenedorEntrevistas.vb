@@ -160,9 +160,14 @@ Public Class ContenedorEntrevistas
             lblAnalisisReq.Visible = True
             txtNomAnalisis.Visible = True
             Dim frmAsignarA As New frmAnalisisSeguimiento
+            frmAsignarA.MiModo = frmAnalisisSeguimiento.Modo.Asignar
             frmAsignarA.ShowDialog()
             If frmAsignarA.AnalisisSelect IsNot Nothing Then
                 Entrevista.MiFormulario.Analisis = frmAsignarA.AnalisisSelect
+                txtNomAnalisis.Text = Entrevista.MiFormulario.Analisis.Nombre
+            Else
+                Entrevista.MiFormulario.Analisis = Nothing
+                txtNomAnalisis.Clear()
             End If
         Else
             lblAnalisisReq.Visible = False
@@ -180,6 +185,10 @@ Public Class ContenedorEntrevistas
             frmAsignarT.ShowDialog()
             If frmAsignarT.TratamientoSeleccionado IsNot Nothing Then
                 Entrevista.MiFormulario.Tratamiento = frmAsignarT.TratamientoSeleccionado
+                txtNomTratamiento.Text = Entrevista.MiFormulario.Tratamiento.Nombre
+            Else
+                Entrevista.MiFormulario.Tratamiento = Nothing
+                txtNomTratamiento.Clear()
             End If
         Else
             lblTratamientoS.Visible = False

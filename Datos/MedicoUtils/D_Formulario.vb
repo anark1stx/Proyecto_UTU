@@ -299,7 +299,7 @@ Public Class D_Formulario
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = form.Atiende.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = form.Atiende.Medico.Cedula
         cmd.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
-        cmd.Parameters.Add("ID_A", MySqlDbType.Int32).Value = form.Analisis.ID
+        cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = form.Analisis.ID
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
             cmd.Parameters("ID_P").Value = p.ID_Pregunta
