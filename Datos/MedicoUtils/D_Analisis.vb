@@ -122,7 +122,6 @@ Public Class D_Analisis
             cmd.Parameters("NOM").Value = i.Nombre
             Try
                 cmd.ExecuteNonQuery()
-                Sesion.Cerrar(conexion)
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
                 Sesion.Cerrar(conexion)

@@ -53,6 +53,7 @@ Public Class frmPaciente
         InstanciarFormulario("Inicio")
         Me.MaximizeBox = False
         Me.WindowState = FormWindowState.Maximized
+        Me.Activate()
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click

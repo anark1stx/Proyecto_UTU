@@ -76,6 +76,7 @@ Public Class frmMedico
         InstanciarFormulario("Inicio")
         Me.MaximizeBox = False
         Me.WindowState = FormWindowState.Maximized
+        Me.Activate()
     End Sub
 
     Sub resetMode()
