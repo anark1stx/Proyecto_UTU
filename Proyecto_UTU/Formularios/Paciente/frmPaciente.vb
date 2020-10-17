@@ -51,6 +51,8 @@ Public Class frmPaciente
     Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         agregarHandlers()
         InstanciarFormulario("Inicio")
+        Me.MaximizeBox = False
+        Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click

@@ -7,7 +7,7 @@ Public Class D_auxiliar
     Public Function BuscarAuxiliarCI(ci As Integer) As E_Usuario
         Dim leer As MySqlDataReader
         If Conectar(conexion) = -1 Then
-            Return New E_Usuario With {.Cedula = -1}
+            Return New E_Usuario With {.ErrCode = -1}
         End If
 
         Dim cmd = New MySqlCommand With {
@@ -24,7 +24,7 @@ Public Class D_auxiliar
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New E_Usuario With {.Cedula = -2}
+            Return New E_Usuario With {.ErrCode = -2}
         End Try
 
         If leer.HasRows Then
@@ -46,11 +46,9 @@ Public Class D_auxiliar
             End While
             u.TelefonosLista = listaTel.Distinct().ToList()
         Else
-            u.Cedula = -8 'no encontre usuario
+            u.ErrCode = -8 'no encontre usuario
         End If
-
         Cerrar(conexion)
-
         Return u
     End Function
     Public Function BuscarAuxiliarApellido(ap As String) As List(Of E_Usuario)
@@ -61,7 +59,7 @@ Public Class D_auxiliar
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            lastU.Cedula = -1
+            lastU.ErrCode = -1
             uList.Add(lastU)
             Return uList
         End If
@@ -77,7 +75,7 @@ Public Class D_auxiliar
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            lastU.Cedula = 2
+            lastU.ErrCode = 2
             uList.Add(lastU)
             Return uList
         End Try
@@ -106,7 +104,7 @@ Public Class D_auxiliar
                 End If
             End While
         Else
-            uList = New List(Of E_Usuario)(New E_Usuario With {.Cedula = 8}) 'no encontre usuarios
+            uList = New List(Of E_Usuario)(New E_Usuario With {.ErrCode = 8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -115,7 +113,7 @@ Public Class D_auxiliar
     Public Function AltaModAuxiliar(u As E_Usuario, accion As Boolean) As Integer
         Dim code = MyBase.AltaModUsuarioSibim(u, accion)
         Select Case code
-            Case -1, -2
+            Case <> 1
                 Return code
         End Select
 
@@ -135,7 +133,7 @@ Public Class D_auxiliar
             Try
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
-                Return 4 'No se pudo crear usuario sibim
+                Return -4 'No se pudo crear usuario sibim
             End Try
 
             Cerrar(conexion)

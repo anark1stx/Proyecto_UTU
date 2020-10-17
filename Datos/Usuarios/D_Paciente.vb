@@ -6,7 +6,7 @@ Public Class D_Paciente
     Public Function BuscarPacienteCI(ci As Integer) As E_Paciente
         Console.WriteLine("leyendo paciente por ci")
         If Conectar(conexion) = -1 Then
-            Return New E_Paciente With {.Cedula = -1} '-1 exit code para conexion fallida
+            Return New E_Paciente With {.ErrCode = -1} '-1 exit code para conexion fallida
         End If
 
         Dim leer As MySqlDataReader
@@ -27,7 +27,7 @@ Public Class D_Paciente
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New E_Paciente With {.Cedula = -2} 'error ejecutando
+            Return New E_Paciente With {.ErrCode = -2} 'error ejecutando
         End Try
 
         Dim listaTel As New List(Of String)
@@ -52,7 +52,7 @@ Public Class D_Paciente
                 listaTel.Add(leer.GetString("telefono"))
             End While
         Else
-            Return New E_Paciente With {.Cedula = -8} 'no encontre
+            Return New E_Paciente With {.ErrCode = -8} 'no encontre
         End If
 
         u.TelefonosLista = listaTel.Distinct.ToList()
@@ -69,7 +69,7 @@ Public Class D_Paciente
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            lastU.Cedula = -1
+            lastU.ErrCode = -1
             uList.Add(lastU)
             Return uList
         End If
@@ -85,7 +85,7 @@ Public Class D_Paciente
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            lastU.Cedula = -2
+            lastU.ErrCode = -2
             uList.Add(lastU)
             Return uList
         End Try
@@ -119,7 +119,7 @@ Public Class D_Paciente
                 End If
             End While
         Else
-            uList.Add(New E_Paciente() With {.Cedula = -8}) 'no encontre usuarios
+            uList.Add(New E_Paciente() With {.ErrCode = -8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -157,12 +157,11 @@ Public Class D_Paciente
         cmd.Parameters.Add("SEXO", MySqlDbType.String).Value = u.Sexo
         Try
             cmd.ExecuteNonQuery()
-            Cerrar(conexion)
         Catch ex As Exception
             Cerrar(conexion)
             Return -5 'No se pudo crear/modificar paciente
         End Try
-
+        Cerrar(conexion)
         Return 1
     End Function
 End Class

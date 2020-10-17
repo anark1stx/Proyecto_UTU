@@ -16,7 +16,7 @@ Public Class D_Medico
         }
 
         If Conectar(conexion) = -1 Then
-            Return New E_Medico With {.Cedula = -1}
+            Return New E_Medico With {.ErrCode = -1}
         End If
         Dim u As New E_Medico With {.Cedula = ci}
         Dim listaEsp As New List(Of String)
@@ -27,7 +27,8 @@ Public Class D_Medico
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            u.Cedula = -2
+            u.ErrCode = -2
+            Cerrar(conexion)
             Return u
         End Try
 
@@ -63,7 +64,7 @@ Public Class D_Medico
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            Return New List(Of E_Medico)(New E_Medico With {.Cedula = -1})
+            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -1})
         End If
 
         Dim cmd = New MySqlCommand With {
@@ -77,7 +78,7 @@ Public Class D_Medico
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New List(Of E_Medico)(New E_Medico With {.Cedula = -2})
+            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -2})
         End Try
 
         If leer.HasRows Then
@@ -108,7 +109,7 @@ Public Class D_Medico
                 End If
             End While
         Else
-            uList.Add(New E_Medico With {.Cedula = -8}) 'no encontre usuarios
+            uList.Add(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -124,7 +125,7 @@ Public Class D_Medico
         Dim leer As MySqlDataReader
 
         If Conectar(conexion) = -1 Then
-            Return New List(Of E_Medico)(New E_Medico With {.Cedula = -1})
+            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -1})
         End If
 
         Dim cmd = New MySqlCommand With {
@@ -138,7 +139,7 @@ Public Class D_Medico
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Cerrar(conexion)
-            Return New List(Of E_Medico)(New E_Medico With {.Cedula = -2})
+            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -2})
         End Try
 
         If leer.HasRows Then
@@ -169,7 +170,7 @@ Public Class D_Medico
                 End If
             End While
         Else
-            uList = New List(Of E_Medico)(New E_Medico With {.Cedula = -8}) 'no encontre usuarios
+            uList = New List(Of E_Medico)(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
         End If
 
         Cerrar(conexion)
@@ -247,7 +248,7 @@ Public Class D_Medico
         End If
     End Function
 
-    Public Function BorrarMedicoEspecialidad(u As E_Medico)
+    Public Function BorrarMedicoEspecialidad(u As E_Medico) As Integer
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
@@ -262,12 +263,12 @@ Public Class D_Medico
 
         Try
             cmd.ExecuteNonQuery()
-            Cerrar(conexion)
         Catch ex As Exception
             Cerrar(conexion)
             Return -2 ' no se pudo borrar especialidad
         End Try
 
+        Cerrar(conexion)
         Return 1
     End Function
 
