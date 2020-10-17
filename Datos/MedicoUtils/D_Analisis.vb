@@ -128,8 +128,16 @@ Public Class D_Analisis
                 Cerrar(conexion)
                 Return -6 'no se pudo ingresar indicacion
             End Try
-            cmd2.Parameters.Add("NOM_I", MySqlDbType.VarChar, 90).Value = i.Nombre
-            cmd2.Parameters.Add("DESCR", MySqlDbType.VarChar, 500).Value = i.Descripcion
+            cmd2.Parameters("NOM_I").Value = i.Nombre
+            cmd2.Parameters("DESCR").Value = i.Descripcion
+
+            Try
+                cmd2.ExecuteNonQuery()
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                Cerrar(conexion)
+                Return -6
+            End Try
 
         Next
         Cerrar(conexion)
