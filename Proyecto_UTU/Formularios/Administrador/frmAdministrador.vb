@@ -70,12 +70,10 @@ Public Class frmAdministrador
     Private Sub AuxiliarMenuItemBaja_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click, AuxiliarMenuItemBaja.Click
         InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Auxiliar, frmGestion.Accion.Baja)
     End Sub
-
-    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+    Private Sub frmAdmin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmIngreso_Usuario.Show()
         Me.Dispose()
     End Sub
-
 #End Region
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
@@ -99,5 +97,7 @@ Public Class frmAdministrador
         AddHandler _frmInicio.btnBajaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
         AddHandler _frmInicio.btnModificarAuxiliar.Click, AddressOf AuxiliarModificacionMenuItem_Click
         AddHandler _frmInicio.btnBusquedaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
+        'handler para boton Salir
+        AddHandler SalirToolStripMenuItem.Click, AddressOf frmAdmin_FormClosing
     End Sub
 End Class

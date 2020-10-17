@@ -363,6 +363,8 @@ Public Class frmMedico
             Sub()
                 InstanciarFormulario("DatosAnalisis")
             End Sub
+        'handler para boton Salir
+        AddHandler SalirToolStripMenuItem.Click, AddressOf frmMedico_FormClosing
     End Sub
 
     Async Sub AgregarPacienteAListado(atenderahora As Boolean)

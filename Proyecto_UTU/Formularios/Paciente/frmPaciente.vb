@@ -60,7 +60,7 @@ Public Class frmPaciente
         InstanciarFormulario("Inicio")
     End Sub
 
-    Public Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+    Private Sub frmPaciente_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmIngreso_Usuario.Show()
         Me.Dispose()
     End Sub
@@ -71,7 +71,9 @@ Public Class frmPaciente
         AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnDiagnosticos.Click, AddressOf DiagnosticoToolStripMenuItem_Click
         AddHandler frmIni.btnAnalisis.Click, AddressOf AnalisisToolStripMenuItem_Click
-        AddHandler frmIni.btnSalir.Click, AddressOf SalirToolStripMenuItem_Click
+        AddHandler frmIni.btnSalir.Click, AddressOf frmPaciente_FormClosing
+        'handler para boton Salir
+        AddHandler SalirToolStripMenuItem.Click, AddressOf frmPaciente_FormClosing
     End Sub
 
 End Class
