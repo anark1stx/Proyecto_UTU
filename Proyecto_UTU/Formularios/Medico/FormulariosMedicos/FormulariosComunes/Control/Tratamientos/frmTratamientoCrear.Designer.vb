@@ -23,26 +23,31 @@ Partial Class frmTratamientoCrear
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTratamientoCrear))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.ETratamientoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtNombreTratamiento = New System.Windows.Forms.TextBox()
-        Me.lblNombreTratamiento = New System.Windows.Forms.Label()
+        Me.tblElementos = New System.Windows.Forms.TableLayoutPanel()
         Me.dgwTratamientos = New System.Windows.Forms.DataGridView()
+        Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
+        Me.lblIndicaciones = New System.Windows.Forms.Label()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.lblNombreTratamiento = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.DefinirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
-        Me.lblIndicaciones = New System.Windows.Forms.Label()
-        Me.tblElementos = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ETratamientoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.pnlContenedor.SuspendLayout()
-        CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgwTratamientos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tblElementos.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.tblElementos.SuspendLayout()
+        CType(Me.dgwTratamientos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
+        CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -52,36 +57,26 @@ Partial Class frmTratamientoCrear
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
         Me.pnlContenedor.Controls.Add(Me.lblNombreTratamiento)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
+        Me.pnlContenedor.Location = New System.Drawing.Point(0, 28)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1130, 898)
+        Me.pnlContenedor.Size = New System.Drawing.Size(1130, 870)
         Me.pnlContenedor.TabIndex = 0
         '
-        'ETratamientoBindingSource
+        'TableLayoutPanel1
         '
-        Me.ETratamientoBindingSource.DataSource = GetType(Entidades.E_Tratamiento)
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBuscar.Location = New System.Drawing.Point(787, 3)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(47, 30)
-        Me.btnBuscar.TabIndex = 85
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(0, 831)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(1130, 67)
-        Me.btnGuardar.TabIndex = 84
-        Me.btnGuardar.Text = "Guardar Tratamiento"
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 93.54839!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.451613!))
+        Me.TableLayoutPanel1.Controls.Add(Me.btnBuscar, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.txtNombreTratamiento, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(290, 12)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(837, 37)
+        Me.TableLayoutPanel1.TabIndex = 92
         '
         'txtNombreTratamiento
         '
@@ -93,6 +88,91 @@ Partial Class frmTratamientoCrear
         Me.txtNombreTratamiento.Size = New System.Drawing.Size(776, 30)
         Me.txtNombreTratamiento.TabIndex = 82
         '
+        'tblElementos
+        '
+        Me.tblElementos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tblElementos.ColumnCount = 1
+        Me.tblElementos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblElementos.Controls.Add(Me.dgwTratamientos, 0, 0)
+        Me.tblElementos.Controls.Add(Me.txtDescripcionTratamiento, 0, 2)
+        Me.tblElementos.Controls.Add(Me.lblIndicaciones, 0, 1)
+        Me.tblElementos.Location = New System.Drawing.Point(3, 55)
+        Me.tblElementos.Name = "tblElementos"
+        Me.tblElementos.RowCount = 3
+        Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.92347!))
+        Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.377551!))
+        Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.69898!))
+        Me.tblElementos.Size = New System.Drawing.Size(1127, 742)
+        Me.tblElementos.TabIndex = 91
+        '
+        'dgwTratamientos
+        '
+        Me.dgwTratamientos.AllowUserToAddRows = False
+        Me.dgwTratamientos.AllowUserToDeleteRows = False
+        Me.dgwTratamientos.AutoGenerateColumns = False
+        Me.dgwTratamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwTratamientos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgwTratamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgwTratamientos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn})
+        Me.dgwTratamientos.DataSource = Me.ETratamientoBindingSource
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgwTratamientos.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgwTratamientos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgwTratamientos.Location = New System.Drawing.Point(3, 3)
+        Me.dgwTratamientos.Name = "dgwTratamientos"
+        Me.dgwTratamientos.ReadOnly = True
+        Me.dgwTratamientos.RowHeadersWidth = 51
+        Me.dgwTratamientos.RowTemplate.Height = 24
+        Me.dgwTratamientos.Size = New System.Drawing.Size(1121, 104)
+        Me.dgwTratamientos.TabIndex = 89
+        '
+        'txtDescripcionTratamiento
+        '
+        Me.txtDescripcionTratamiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtDescripcionTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 160)
+        Me.txtDescripcionTratamiento.Multiline = True
+        Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
+        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1121, 579)
+        Me.txtDescripcionTratamiento.TabIndex = 87
+        '
+        'lblIndicaciones
+        '
+        Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblIndicaciones.AutoSize = True
+        Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIndicaciones.Location = New System.Drawing.Point(407, 120)
+        Me.lblIndicaciones.Name = "lblIndicaciones"
+        Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
+        Me.lblIndicaciones.TabIndex = 90
+        Me.lblIndicaciones.Text = "Indicaciones del tratamiento"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(0, 803)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(1130, 67)
+        Me.btnGuardar.TabIndex = 84
+        Me.btnGuardar.Text = "Guardar Tratamiento"
+        Me.btnGuardar.UseVisualStyleBackColor = True
+        '
         'lblNombreTratamiento
         '
         Me.lblNombreTratamiento.AutoSize = True
@@ -103,23 +183,32 @@ Partial Class frmTratamientoCrear
         Me.lblNombreTratamiento.TabIndex = 78
         Me.lblNombreTratamiento.Text = "Nombre del tratamiento:"
         '
-        'dgwTratamientos
+        'MenuStrip1
         '
-        Me.dgwTratamientos.AllowUserToAddRows = False
-        Me.dgwTratamientos.AllowUserToDeleteRows = False
-        Me.dgwTratamientos.AutoGenerateColumns = False
-        Me.dgwTratamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgwTratamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwTratamientos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn})
-        Me.dgwTratamientos.DataSource = Me.ETratamientoBindingSource
-        Me.dgwTratamientos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgwTratamientos.Location = New System.Drawing.Point(3, 3)
-        Me.dgwTratamientos.Name = "dgwTratamientos"
-        Me.dgwTratamientos.ReadOnly = True
-        Me.dgwTratamientos.RowHeadersWidth = 51
-        Me.dgwTratamientos.RowTemplate.Height = 24
-        Me.dgwTratamientos.Size = New System.Drawing.Size(1121, 108)
-        Me.dgwTratamientos.TabIndex = 89
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 28)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'DefinirToolStripMenuItem
+        '
+        Me.DefinirToolStripMenuItem.Name = "DefinirToolStripMenuItem"
+        Me.DefinirToolStripMenuItem.Size = New System.Drawing.Size(334, 24)
+        Me.DefinirToolStripMenuItem.Text = "Definir parámetros temporales del tratamiento"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBuscar.Location = New System.Drawing.Point(787, 3)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(47, 30)
+        Me.btnBuscar.TabIndex = 85
+        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -145,59 +234,9 @@ Partial Class frmTratamientoCrear
         Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
         Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'txtDescripcionTratamiento
+        'ETratamientoBindingSource
         '
-        Me.txtDescripcionTratamiento.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtDescripcionTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 166)
-        Me.txtDescripcionTratamiento.Multiline = True
-        Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
-        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1121, 601)
-        Me.txtDescripcionTratamiento.TabIndex = 87
-        '
-        'lblIndicaciones
-        '
-        Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblIndicaciones.AutoSize = True
-        Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIndicaciones.Location = New System.Drawing.Point(407, 125)
-        Me.lblIndicaciones.Name = "lblIndicaciones"
-        Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
-        Me.lblIndicaciones.TabIndex = 90
-        Me.lblIndicaciones.Text = "Indicaciones del tratamiento"
-        '
-        'tblElementos
-        '
-        Me.tblElementos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblElementos.ColumnCount = 1
-        Me.tblElementos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblElementos.Controls.Add(Me.dgwTratamientos, 0, 0)
-        Me.tblElementos.Controls.Add(Me.txtDescripcionTratamiento, 0, 2)
-        Me.tblElementos.Controls.Add(Me.lblIndicaciones, 0, 1)
-        Me.tblElementos.Location = New System.Drawing.Point(3, 55)
-        Me.tblElementos.Name = "tblElementos"
-        Me.tblElementos.RowCount = 3
-        Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.92347!))
-        Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.377551!))
-        Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.69898!))
-        Me.tblElementos.Size = New System.Drawing.Size(1127, 770)
-        Me.tblElementos.TabIndex = 91
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 93.54839!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.451613!))
-        Me.TableLayoutPanel1.Controls.Add(Me.btnBuscar, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.txtNombreTratamiento, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(290, 12)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(837, 37)
-        Me.TableLayoutPanel1.TabIndex = 92
+        Me.ETratamientoBindingSource.DataSource = GetType(Entidades.E_Tratamiento)
         '
         'frmTratamientoCrear
         '
@@ -206,19 +245,23 @@ Partial Class frmTratamientoCrear
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1130, 898)
         Me.Controls.Add(Me.pnlContenedor)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmTratamientoCrear"
         Me.Text = "frmTratamiento"
         Me.pnlContenedor.ResumeLayout(False)
         Me.pnlContenedor.PerformLayout()
-        CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgwTratamientos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tblElementos.ResumeLayout(False)
-        Me.tblElementos.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.tblElementos.ResumeLayout(False)
+        Me.tblElementos.PerformLayout()
+        CType(Me.dgwTratamientos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -236,4 +279,6 @@ Partial Class frmTratamientoCrear
     Friend WithEvents txtDescripcionTratamiento As TextBox
     Friend WithEvents lblIndicaciones As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents DefinirToolStripMenuItem As ToolStripMenuItem
 End Class

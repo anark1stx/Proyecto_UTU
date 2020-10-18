@@ -5,6 +5,11 @@ Public Class frmTratamientoSeguir
     Dim AccionesFrm As New AccionesFormulario
     Dim Eventos As New EventosDeTBP
     Dim t As E_Tratamiento
+
+    Public Enum Modo
+        DefinirDatosT
+
+    End Enum
     Private Sub frmTratamientoSeguir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.Dock = DockStyle.Fill

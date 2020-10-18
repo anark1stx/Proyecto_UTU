@@ -90,8 +90,29 @@ Public Class D_Tratamiento
             Sesion.Cerrar(conexion)
             Return -2
         End Try
-        Sesion.Cerrar(conexion)
 
+        Dim cmd2 As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "AltaDiaSemana",
+            .Connection = conexion
+        }
+        cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI_P
+        cmd2.Parameters.Add("ID_T", MySqlDbType.Int32).Value = t.ID
+        cmd2.Parameters.Add("FEC_INI", MySqlDbType.Date).Value = t.FechaInicio
+        cmd2.Parameters.Add("D", MySqlDbType.UByte)
+
+        For Each day As DayOfWeek In t.DiasAsignados
+            cmd2.Parameters("D").Value = day
+            Try
+                cmd2.ExecuteNonQuery()
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                Sesion.Cerrar(conexion)
+                Return -2
+            End Try
+        Next
+
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 

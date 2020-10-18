@@ -4,6 +4,35 @@ Public Class Identificacion_Paciente
     Protected _paciente As New E_Paciente
     Protected _consulta As New E_Atiende
     Protected _consultas_previas As New List(Of E_Atiende)
+    Protected _modo As Modo
+
+    Property MiModo As Modo
+        Get
+            Return _modo
+        End Get
+        Set(value As Modo)
+            _modo = value
+            ResetMode()
+        End Set
+    End Property
+
+    Sub ResetMode()
+        Select Case MiModo
+            Case Modo.ConsultaComoMedico
+                tblAcciones.Visible = True
+                btnAtenderAhora.Visible = True
+                tblAcciones.SetRowSpan(btnAgregarLista, 1)
+            Case Modo.ConsultaComoAuxiliar
+                tblAcciones.Visible = True
+                btnAtenderAhora.Visible = False
+                tblAcciones.SetRow(btnAgregarLista, tblAcciones.GetRow(btnAtenderAhora))
+                tblAcciones.SetRowSpan(btnAgregarLista, 2)
+            Case Modo.AsignarTratamiento, Modo.HacerSeguimiento
+                txtCedulaPaciente.Enabled = True
+                tblAcciones.Visible = False
+        End Select
+    End Sub
+
     Property PacienteBuscar As E_Paciente
         Get
             Return _paciente
@@ -30,6 +59,13 @@ Public Class Identificacion_Paciente
             CargarConsultas()
         End Set
     End Property
+
+    Public Enum Modo
+        ConsultaComoMedico
+        ConsultaComoAuxiliar
+        AsignarTratamiento
+        HacerSeguimiento
+    End Enum
 
     Sub CargarConsultas()
         Select Case ConsultasPrevias(0).ID

@@ -115,6 +115,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.Designer.vb">
+      <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.Designer.vb">
       <DependentUpon>frmAgregarItems.vb</DependentUpon>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.resx">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.resx">
+      <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">
       <DependentUpon>frmAgregarItems.vb</DependentUpon>

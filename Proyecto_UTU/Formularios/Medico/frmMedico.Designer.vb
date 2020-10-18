@@ -42,7 +42,6 @@ Partial Class frmMedico
         Me.AnalisisMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalisisIngresarMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalisisHacerSeguimientoMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsignarAnalisisPacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BitacoraMedicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedorFormularios = New System.Windows.Forms.Panel()
@@ -144,24 +143,24 @@ Partial Class frmMedico
         'IngresarNuevoTratamientoMenuItem
         '
         Me.IngresarNuevoTratamientoMenuItem.Name = "IngresarNuevoTratamientoMenuItem"
-        Me.IngresarNuevoTratamientoMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.IngresarNuevoTratamientoMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.IngresarNuevoTratamientoMenuItem.Text = "Ingresar nuevo"
         '
         'TratamientoSeguimientoMenuItem
         '
         Me.TratamientoSeguimientoMenuItem.Name = "TratamientoSeguimientoMenuItem"
-        Me.TratamientoSeguimientoMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.TratamientoSeguimientoMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.TratamientoSeguimientoMenuItem.Text = "Hacer seguimiento"
         '
         'AsginarTratamientoPacienteToolStripMenuItem
         '
         Me.AsginarTratamientoPacienteToolStripMenuItem.Name = "AsginarTratamientoPacienteToolStripMenuItem"
-        Me.AsginarTratamientoPacienteToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.AsginarTratamientoPacienteToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.AsginarTratamientoPacienteToolStripMenuItem.Text = "Asginar a paciente"
         '
         'AnalisisMenuItem
         '
-        Me.AnalisisMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AnalisisIngresarMenuItem1, Me.AnalisisHacerSeguimientoMenuItem1, Me.AsignarAnalisisPacienteToolStripMenuItem})
+        Me.AnalisisMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AnalisisIngresarMenuItem1, Me.AnalisisHacerSeguimientoMenuItem1})
         Me.AnalisisMenuItem.Name = "AnalisisMenuItem"
         Me.AnalisisMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.AnalisisMenuItem.Text = "Análisis"
@@ -169,20 +168,14 @@ Partial Class frmMedico
         'AnalisisIngresarMenuItem1
         '
         Me.AnalisisIngresarMenuItem1.Name = "AnalisisIngresarMenuItem1"
-        Me.AnalisisIngresarMenuItem1.Size = New System.Drawing.Size(217, 26)
+        Me.AnalisisIngresarMenuItem1.Size = New System.Drawing.Size(224, 26)
         Me.AnalisisIngresarMenuItem1.Text = "Ingresar nuevo"
         '
         'AnalisisHacerSeguimientoMenuItem1
         '
         Me.AnalisisHacerSeguimientoMenuItem1.Name = "AnalisisHacerSeguimientoMenuItem1"
-        Me.AnalisisHacerSeguimientoMenuItem1.Size = New System.Drawing.Size(217, 26)
+        Me.AnalisisHacerSeguimientoMenuItem1.Size = New System.Drawing.Size(224, 26)
         Me.AnalisisHacerSeguimientoMenuItem1.Text = "Hacer seguimiento"
-        '
-        'AsignarAnalisisPacienteToolStripMenuItem
-        '
-        Me.AsignarAnalisisPacienteToolStripMenuItem.Name = "AsignarAnalisisPacienteToolStripMenuItem"
-        Me.AsignarAnalisisPacienteToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
-        Me.AsignarAnalisisPacienteToolStripMenuItem.Text = "Asignar a paciente"
         '
         'BitacoraMedicaToolStripMenuItem
         '
@@ -241,7 +234,6 @@ Partial Class frmMedico
     Friend WithEvents AnalisisIngresarMenuItem1 As ToolStripMenuItem
     Friend WithEvents AnalisisHacerSeguimientoMenuItem1 As ToolStripMenuItem
     Friend WithEvents AsginarTratamientoPacienteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AsignarAnalisisPacienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntrevistaInicialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IdentificarPacienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerListadoDeHoyToolStripMenuItem As ToolStripMenuItem

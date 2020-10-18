@@ -8,6 +8,16 @@
     Protected _resultado As String
     Protected _listaSeguimientos As List(Of E_Seguimiento)
     Protected _errCode As Integer
+    Protected _diasAsignados As New List(Of DayOfWeek)
+
+    Property DiasAsignados As List(Of DayOfWeek)
+        Get
+            Return _diasAsignados
+        End Get
+        Set(value As List(Of DayOfWeek))
+            _diasAsignados = value
+        End Set
+    End Property
 
     Property ErrCode As Integer
         Get

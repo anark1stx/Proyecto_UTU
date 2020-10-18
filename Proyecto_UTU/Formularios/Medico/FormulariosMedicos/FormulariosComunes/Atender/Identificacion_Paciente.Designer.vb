@@ -25,7 +25,6 @@ Partial Class Identificacion_Paciente
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
-        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
@@ -47,25 +46,26 @@ Partial Class Identificacion_Paciente
         Me.lblEtapa = New System.Windows.Forms.Label()
         Me.lblEtapaTXT = New System.Windows.Forms.Label()
         Me.tblCedulaBuscar = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
         Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnAgregarLista = New System.Windows.Forms.Button()
         Me.imgsBtnEntrevistar = New System.Windows.Forms.ImageList(Me.components)
-        Me.btnAtenderAhora = New System.Windows.Forms.Button()
         Me.pnlConsultasPrevias = New System.Windows.Forms.Panel()
         Me.btnReferenciaConsulta = New System.Windows.Forms.Button()
-        Me.btnVerConsulta = New System.Windows.Forms.Button()
         Me.cbConsultasPrevias = New System.Windows.Forms.ComboBox()
         Me.lblConsultasPrevias = New System.Windows.Forms.Label()
         Me.txtMotivoC = New System.Windows.Forms.TextBox()
         Me.lblMotivo = New System.Windows.Forms.Label()
+        Me.btnAgregarLista = New System.Windows.Forms.Button()
+        Me.btnAtenderAhora = New System.Windows.Forms.Button()
+        Me.btnVerConsulta = New System.Windows.Forms.Button()
+        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.tblDatosPaciente.SuspendLayout()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.tblCedulaBuscar.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
         Me.pnlConsultasPrevias.SuspendLayout()
+        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tblDatosPaciente
@@ -85,19 +85,6 @@ Partial Class Identificacion_Paciente
         Me.tblDatosPaciente.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblDatosPaciente.Size = New System.Drawing.Size(1167, 299)
         Me.tblDatosPaciente.TabIndex = 103
-        '
-        'pBoxFotoPaciente
-        '
-        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
-        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(376, 293)
-        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoPaciente.TabIndex = 101
-        Me.pBoxFotoPaciente.TabStop = False
         '
         'tabDatos
         '
@@ -374,18 +361,6 @@ Partial Class Identificacion_Paciente
         Me.tblCedulaBuscar.Size = New System.Drawing.Size(480, 27)
         Me.tblCedulaBuscar.TabIndex = 111
         '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBuscar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(428, 3)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(49, 21)
-        Me.btnBuscar.TabIndex = 113
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
         'txtCedulaPaciente
         '
         Me.txtCedulaPaciente.Dock = System.Windows.Forms.DockStyle.Fill
@@ -419,23 +394,6 @@ Partial Class Identificacion_Paciente
         Me.tblAcciones.Size = New System.Drawing.Size(1166, 491)
         Me.tblAcciones.TabIndex = 104
         '
-        'btnAgregarLista
-        '
-        Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
-        Me.btnAgregarLista.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAgregarLista.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregarLista.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAgregarLista.ImageIndex = 1
-        Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAgregarLista.Location = New System.Drawing.Point(3, 382)
-        Me.btnAgregarLista.Name = "btnAgregarLista"
-        Me.btnAgregarLista.Size = New System.Drawing.Size(1160, 106)
-        Me.btnAgregarLista.TabIndex = 105
-        Me.btnAgregarLista.Text = "Agregar a Listado"
-        Me.btnAgregarLista.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAgregarLista.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnAgregarLista.UseVisualStyleBackColor = False
-        '
         'imgsBtnEntrevistar
         '
         Me.imgsBtnEntrevistar.ImageStream = CType(resources.GetObject("imgsBtnEntrevistar.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -443,23 +401,6 @@ Partial Class Identificacion_Paciente
         Me.imgsBtnEntrevistar.Images.SetKeyName(0, "icons8-health-checkup-80.png")
         Me.imgsBtnEntrevistar.Images.SetKeyName(1, "subir.png")
         Me.imgsBtnEntrevistar.Images.SetKeyName(2, "MedicoAtiendePaciente.png")
-        '
-        'btnAtenderAhora
-        '
-        Me.btnAtenderAhora.BackColor = System.Drawing.Color.PapayaWhip
-        Me.btnAtenderAhora.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAtenderAhora.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtenderAhora.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAtenderAhora.ImageIndex = 2
-        Me.btnAtenderAhora.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAtenderAhora.Location = New System.Drawing.Point(3, 263)
-        Me.btnAtenderAhora.Name = "btnAtenderAhora"
-        Me.btnAtenderAhora.Size = New System.Drawing.Size(1160, 113)
-        Me.btnAtenderAhora.TabIndex = 106
-        Me.btnAtenderAhora.Text = "Atender Ahora"
-        Me.btnAtenderAhora.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAtenderAhora.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnAtenderAhora.UseVisualStyleBackColor = False
         '
         'pnlConsultasPrevias
         '
@@ -488,21 +429,6 @@ Partial Class Identificacion_Paciente
         Me.btnReferenciaConsulta.Text = "Referir"
         Me.btnReferenciaConsulta.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnReferenciaConsulta.UseVisualStyleBackColor = False
-        '
-        'btnVerConsulta
-        '
-        Me.btnVerConsulta.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnVerConsulta.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.btnVerConsulta.BackgroundImage = CType(resources.GetObject("btnVerConsulta.BackgroundImage"), System.Drawing.Image)
-        Me.btnVerConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnVerConsulta.Enabled = False
-        Me.btnVerConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVerConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVerConsulta.Location = New System.Drawing.Point(1119, 5)
-        Me.btnVerConsulta.Name = "btnVerConsulta"
-        Me.btnVerConsulta.Size = New System.Drawing.Size(38, 37)
-        Me.btnVerConsulta.TabIndex = 2
-        Me.btnVerConsulta.UseVisualStyleBackColor = False
         '
         'cbConsultasPrevias
         '
@@ -548,6 +474,80 @@ Partial Class Identificacion_Paciente
         Me.lblMotivo.TabIndex = 110
         Me.lblMotivo.Text = "Motivo de consulta"
         '
+        'btnAgregarLista
+        '
+        Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnAgregarLista.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAgregarLista.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregarLista.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAgregarLista.ImageIndex = 1
+        Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
+        Me.btnAgregarLista.Location = New System.Drawing.Point(3, 382)
+        Me.btnAgregarLista.Name = "btnAgregarLista"
+        Me.btnAgregarLista.Size = New System.Drawing.Size(1160, 106)
+        Me.btnAgregarLista.TabIndex = 105
+        Me.btnAgregarLista.Text = "Agregar a Listado"
+        Me.btnAgregarLista.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAgregarLista.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnAgregarLista.UseVisualStyleBackColor = False
+        '
+        'btnAtenderAhora
+        '
+        Me.btnAtenderAhora.BackColor = System.Drawing.Color.PapayaWhip
+        Me.btnAtenderAhora.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAtenderAhora.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAtenderAhora.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAtenderAhora.ImageIndex = 2
+        Me.btnAtenderAhora.ImageList = Me.imgsBtnEntrevistar
+        Me.btnAtenderAhora.Location = New System.Drawing.Point(3, 263)
+        Me.btnAtenderAhora.Name = "btnAtenderAhora"
+        Me.btnAtenderAhora.Size = New System.Drawing.Size(1160, 113)
+        Me.btnAtenderAhora.TabIndex = 106
+        Me.btnAtenderAhora.Text = "Atender Ahora"
+        Me.btnAtenderAhora.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAtenderAhora.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnAtenderAhora.UseVisualStyleBackColor = False
+        '
+        'btnVerConsulta
+        '
+        Me.btnVerConsulta.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnVerConsulta.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.btnVerConsulta.BackgroundImage = CType(resources.GetObject("btnVerConsulta.BackgroundImage"), System.Drawing.Image)
+        Me.btnVerConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnVerConsulta.Enabled = False
+        Me.btnVerConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerConsulta.Location = New System.Drawing.Point(1119, 5)
+        Me.btnVerConsulta.Name = "btnVerConsulta"
+        Me.btnVerConsulta.Size = New System.Drawing.Size(38, 37)
+        Me.btnVerConsulta.TabIndex = 2
+        Me.btnVerConsulta.UseVisualStyleBackColor = False
+        '
+        'pBoxFotoPaciente
+        '
+        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoPaciente.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
+        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
+        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(376, 293)
+        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pBoxFotoPaciente.TabIndex = 101
+        Me.pBoxFotoPaciente.TabStop = False
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnBuscar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Location = New System.Drawing.Point(428, 3)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(49, 21)
+        Me.btnBuscar.TabIndex = 113
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -560,7 +560,6 @@ Partial Class Identificacion_Paciente
         Me.Name = "Identificacion_Paciente"
         Me.Text = "frmConsultaConPaciente"
         Me.tblDatosPaciente.ResumeLayout(False)
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
         Me.tabDatos.PerformLayout()
         Me.tblCedulaBuscar.ResumeLayout(False)
@@ -569,6 +568,7 @@ Partial Class Identificacion_Paciente
         Me.tblAcciones.PerformLayout()
         Me.pnlConsultasPrevias.ResumeLayout(False)
         Me.pnlConsultasPrevias.PerformLayout()
+        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

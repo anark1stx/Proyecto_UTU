@@ -7,7 +7,8 @@ Public Class frmTratamientoCrear
     Dim negocio As New N_Tratamiento
     Dim listaTrats As New List(Of E_Tratamiento)
     Protected _tratamiento_seleccionado As New E_Tratamiento
-
+    Private _paciente As New E_Paciente
+    Private tmpParams As New frmParametrosTemporalesT
     Property TratamientoSeleccionado As E_Tratamiento
         Get
             Return _tratamiento_seleccionado
@@ -16,10 +17,10 @@ Public Class frmTratamientoCrear
             _tratamiento_seleccionado = value
         End Set
     End Property
-
     Public Enum Modo
         Alta 'habilito los campos para escribir
         Asignar 'habilito la lupa y un datagridview
+        Sugerir 'habilito la lupa y un datagridview
     End Enum
 
     Property ModoActual As Modo
@@ -62,12 +63,12 @@ Public Class frmTratamientoCrear
                     Case 1
                         MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Select
-            Case Modo.Asignar
+            Case Modo.Sugerir, Modo.Asignar
                 If TratamientoSeleccionado.ID = 0 Then
                     MessageBox.Show("Seleccione un tratamiento primero", "Debe seleccionar un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
-                    Me.Hide() 'ya que cuando este formulario esta en modo "Asignar", en realidad esta como .ShowDialog(), y cuando este se cierra ContenedorEntrevistas lee el analisis que se guardo en AnalisisSelect
+                    Me.Hide()
                 End If
         End Select
     End Sub
@@ -105,12 +106,25 @@ Public Class frmTratamientoCrear
                 tblElementos.RowStyles(2).Height = 78.7
                 dgwTratamientos.Visible = True
                 btnGuardar.Text = "Asingar Tratamiento"
+            Case Modo.Sugerir
+                dgwTratamientos.Visible = True
+                txtNombreTratamiento.Width -= btnBuscar.Width * 2
+                txtDescripcionTratamiento.Enabled = False
+                tblElementos.SetColumnSpan(txtNombreTratamiento, 1)
+                btnBuscar.Visible = True
+                tblElementos.SetRow(dgwTratamientos, 0)
+                tblElementos.SetRow(lblIndicaciones, 1)
+                tblElementos.SetRow(txtDescripcionTratamiento, 2)
+                tblElementos.RowStyles(1).Height = 6.38
+                tblElementos.RowStyles(2).Height = 78.7
+                dgwTratamientos.Visible = True
+                btnGuardar.Text = "Sugerir Tratamiento"
         End Select
     End Sub
 
     Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 
-        If ModoActual = Modo.Asignar Then
+        If ModoActual = Modo.Asignar Or ModoActual = Modo.Sugerir Then
             If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
                 MessageBox.Show("Nombre de tratamiento inválido. " & MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -147,5 +161,20 @@ Public Class frmTratamientoCrear
     Private Sub dgwTratamientos_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwTratamientos.CellMouseClick
         TratamientoSeleccionado = listaTrats(dgwTratamientos.CurrentCell.RowIndex)
         txtDescripcionTratamiento.Text = TratamientoSeleccionado.Descripcion
+    End Sub
+
+    Private Sub DefinirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DefinirToolStripMenuItem.Click
+        tmpParams.ShowDialog()
+        TratamientoSeleccionado.FechaInicio = tmpParams.dtpFechaInicio.Value
+        TratamientoSeleccionado.FechaFin = tmpParams.dtpFechaFin.Value
+        TratamientoSeleccionado.DiasAsignados.Clear()
+        For Each day As DayOfWeek In tmpParams.lbDiasSelect.Items
+            TratamientoSeleccionado.DiasAsignados.Add(day)
+        Next
+
+        For Each day As DayOfWeek In TratamientoSeleccionado.DiasAsignados
+            Console.WriteLine("dia asignado: " & day)
+        Next
+
     End Sub
 End Class

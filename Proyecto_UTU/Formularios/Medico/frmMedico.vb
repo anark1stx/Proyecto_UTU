@@ -82,12 +82,7 @@ Public Class frmMedico
     Sub resetMode()
         Select Case MiModo
             Case Modo.SoyAuxiliar
-                AsginarTratamientoPacienteToolStripMenuItem.Visible = False
-                AsignarAnalisisPacienteToolStripMenuItem.Visible = False
-                IdentificarPacienteToolStripMenuItem.Visible = False
                 AtenderMenuItem.Visible = False
-                frmIni.btnAtenderPaciente.ImageIndex = 1
-                frmIni.btnGestion.ImageIndex = 1
                 SeleccionarMedicoToolStripMenuItem.Visible = True
                 EntrevistaInicialToolStripMenuItem.Visible = True
                 frmDefinirConsulta.txtCIMedico.ReadOnly = False
@@ -99,16 +94,10 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 1
                 frmGestion.AuxiliarLogeado = New E_Usuario With {.Cedula = AuxiliarActual.Cedula}
                 frmConsultasPendientes.tblAcciones.Visible = False
-                frmIdentificacion.btnAtenderAhora.Visible = False
-                frmIdentificacion.tblAcciones.SetRow(frmIdentificacion.btnAgregarLista, frmIdentificacion.tblAcciones.GetRow(frmIdentificacion.btnAtenderAhora))
-                frmIdentificacion.tblAcciones.SetRowSpan(frmIdentificacion.btnAgregarLista, 2)
             Case Modo.SoyMedico
                 AsginarTratamientoPacienteToolStripMenuItem.Visible = True
-                AsignarAnalisisPacienteToolStripMenuItem.Visible = True
                 IdentificarPacienteToolStripMenuItem.Visible = True
                 AtenderMenuItem.Visible = True
-                frmIni.btnAtenderPaciente.ImageIndex = 0
-                frmIni.btnGestion.ImageIndex = 0
                 SeleccionarMedicoToolStripMenuItem.Visible = False
                 EntrevistaInicialToolStripMenuItem.Visible = False
                 frmDefinirConsulta.tblNomRef.Visible = True
@@ -121,8 +110,6 @@ Public Class frmMedico
                 frmIni.btnAtenderPaciente.ImageIndex = 0
                 frmGestion.MedicoLogeado = New E_Medico With {.Cedula = MedicoActual.Cedula}
                 frmConsultasPendientes.tblAcciones.Visible = True
-                frmIdentificacion.btnAtenderAhora.Visible = True
-                frmIdentificacion.tblAcciones.SetRowSpan(frmIdentificacion.btnAgregarLista, 1)
         End Select
         frmGestion.MiModo = MiModo
     End Sub
@@ -140,22 +127,10 @@ Public Class frmMedico
         ContenedorE.ModoActual = ContenedorEntrevistas.Modo.Ingreso
         ContenedorE.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(ContenedorE)
-        HabilitarMenu(False)
     End Sub
     Sub BloquearIdentificacion(_case As Boolean)
         frmIdentificacion.Enabled = Not _case
     End Sub
-
-    Sub HabilitarMenu(_case As Boolean) 'cuando el medico abra un formulario de entrevista, bloqueo todos los toolstripbutton y solo habilito: {Tratamientos{crear,asignar},Analisis{asignar}}
-        For Each item As ToolStripMenuItem In MenuOpciones.Controls
-            If item Is TratamientosMenuItem Then
-                item.Enabled = Not _case
-            Else
-                item.Enabled = _case
-            End If
-        Next
-    End Sub
-
     Public Sub InstanciarFormulario(formulario As String)
         Select Case formulario
             Case "Inicio"
@@ -169,6 +144,7 @@ Public Class frmMedico
                 LimpiarControles(frmIdentificacion)
                 Consulta.Paciente.Cedula = 0 'reseteo los datos
                 Consulta.ID = 0
+                frmIdentificacion.MiModo = Identificacion_Paciente.Modo.ConsultaComoMedico
                 addFrm(frmIdentificacion, pnlContenedorFormularios)
             Case "SeleccionarMedico"
                 If MiModo = Modo.SoyMedico Then
@@ -204,6 +180,11 @@ Public Class frmMedico
                     InstanciarFormulario("SeleccionarMedico")
                     Exit Sub
                 Else
+                    If MiModo = Modo.SoyAuxiliar Then
+                        frmIdentificacion.MiModo = Identificacion_Paciente.Modo.ConsultaComoAuxiliar
+                    Else
+                        frmIdentificacion.MiModo = Identificacion_Paciente.Modo.ConsultaComoMedico
+                    End If
                     addFrm(frmIdentificacion, pnlContenedorFormularios)
                 End If
             Case "Entrevista"
@@ -229,21 +210,12 @@ Public Class frmMedico
             Case "IngresarTratamiento"
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
-                frmTratamientoC.ResetMode()
                 frmTratamientoC.ShowDialog()
-            Case "AsignarTratamiento" 'agarrar la ID de consulta
+            Case "AsignarTratamiento"
+                LimpiarControles(frmIdentificacion)
+                frmIdentificacion.MiModo = Identificacion_Paciente.Modo.AsignarTratamiento
+                addFrm(frmIdentificacion, pnlContenedorFormularios)
                 LimpiarControles(frmTratamientoC)
-                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Asignar
-                'frmTratamientoC.CI_Paciente = Consulta.Paciente.Cedula
-                'frmTratamientoC.ID_C = Consulta.ID CAMBIAR ESTO POR UNA PROPIEDAD CONSULTA
-
-                frmTratamientoC.ShowDialog()
-            Case "AsignarAnalisis" 'agarrar la ID de consulta
-                LimpiarControles(frmAnalisisS)
-                'frmAnalisisS.ID_C = Consulta.ID LO MISMO QUE CON EL TRATAMIENTO
-                'frmAnalisisS.CI_paciente = Consulta.Paciente.Cedula
-                'frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Asignar
-                'frmAnalisisS.ShowDialog()
             Case "SeguirTratamiento"
                 LimpiarControles(frmTratamientoS)
                 frmTratamientoS.ShowDialog()
@@ -443,10 +415,6 @@ Public Class frmMedico
             Consulta.Paciente.Cedula = 0
             LimpiarControles(frmIdentificacion)
             Exit Sub
-        Else
-            frmIdentificacion.btnReferenciaConsulta.Enabled = True
-            frmIdentificacion.cbConsultasPrevias.Enabled = True
-            frmIdentificacion.btnVerConsulta.Enabled = True
         End If
 
         Dim np As New N_Paciente
@@ -456,27 +424,66 @@ Public Class frmMedico
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
+                frmIdentificacion.btnReferenciaConsulta.Enabled = False
+                frmIdentificacion.cbConsultasPrevias.Enabled = False
+                frmIdentificacion.btnVerConsulta.Enabled = False
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 LimpiarControles(frmIdentificacion)
+                frmIdentificacion.btnReferenciaConsulta.Enabled = False
+                frmIdentificacion.cbConsultasPrevias.Enabled = False
+                frmIdentificacion.btnVerConsulta.Enabled = False
             Case -8
                 MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 LimpiarControles(frmIdentificacion)
+                frmIdentificacion.btnReferenciaConsulta.Enabled = False
+                frmIdentificacion.cbConsultasPrevias.Enabled = False
+                frmIdentificacion.btnVerConsulta.Enabled = False
             Case Else
                 Consulta.Paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
                 frmIdentificacion.PoblarDatos()
+                frmIdentificacion.btnReferenciaConsulta.Enabled = True
+                frmIdentificacion.cbConsultasPrevias.Enabled = True
+                frmIdentificacion.btnVerConsulta.Enabled = True
         End Select
-        Dim na As New N_Atiende
-        Dim r = Await Task.Run(Function() na.BuscarAtiende(Consulta.Paciente.Cedula))
-        Select Case r(0).ErrCode
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            Case -2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
+
+        Select Case frmIdentificacion.MiModo
+            Case Identificacion_Paciente.Modo.AsignarTratamiento
+                LimpiarControles(frmTratamientoC)
+                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Asignar
+                frmTratamientoC.ShowDialog()
+                If frmTratamientoC.TratamientoSeleccionado Is Nothing Then
+                    MessageBox.Show("No se seleccionó ningún tratamiento.", "Seleccione un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    'hacer alta a la tabla sigue
+                    Dim nt As New N_Tratamiento
+                    Dim res = nt.AltaPacienteSigueTratamiento(frmIdentificacion.PacienteBuscar.Cedula, frmTratamientoC.TratamientoSeleccionado)
+                    Select Case res
+                        Case -1
+                            MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        Case -2
+                            MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        Case 1
+                            MessageBox.Show(String.Format("El tratamiento ''{0}'' (#{1}) fue asignado al paciente {2},{3}", frmTratamientoC.TratamientoSeleccionado.Nombre, frmTratamientoC.TratamientoSeleccionado.ID, frmIdentificacion.PacienteBuscar.Nombre1, frmIdentificacion.PacienteBuscar.Apellido1), "Tratamiento asignado con éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End Select
+                End If
+            Case Identificacion_Paciente.Modo.HacerSeguimiento 'leer los tratamientos que estan en sigue
+
+            Case Else
+                Dim na As New N_Atiende
+                Dim r = Await Task.Run(Function() na.BuscarAtiende(Consulta.Paciente.Cedula))
+                Select Case r(0).ErrCode
+                    Case -1
+                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    Case -2
+                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                End Select
+                frmIdentificacion.ConsultasPrevias = r
         End Select
-        frmIdentificacion.ConsultasPrevias = r
     End Sub
 
     Async Sub CargarDatosMedico()
@@ -535,21 +542,8 @@ Public Class frmMedico
     Private Sub AnalisisHacerSeguimientoMenuItem1_Click(sender As Object, e As EventArgs) Handles AnalisisHacerSeguimientoMenuItem1.Click
         InstanciarFormulario("SeguirAnalisis")
     End Sub
-
-    Private Sub AsignarAnalisisPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarAnalisisPacienteToolStripMenuItem.Click
-        If Consulta.ID = 0 Then
-            MessageBox.Show("Debe estar atendiendo un paciente para asignarle un análisis.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            InstanciarFormulario("AsignarAnalisis")
-        End If
-    End Sub
     Private Sub AsginarTratamientoPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsginarTratamientoPacienteToolStripMenuItem.Click
-        If Consulta.ID = 0 Then
-            MessageBox.Show("Debe estar atendiendo un paciente para asignarle un tratamiento.", "Atienda al paciente primero", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            InstanciarFormulario("AsignarTratamiento")
-        End If
-
+        InstanciarFormulario("AsignarTratamiento")
     End Sub
 
     Private Sub IdentificarPacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem.Click
@@ -579,12 +573,6 @@ Public Class frmMedico
     Private Sub IdentificarPacienteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem1.Click
         InstanciarFormulario("EntrevistaInicial")
     End Sub
-
-    Private Sub AnalisisMenuItem_Click(sender As Object, e As EventArgs) Handles AnalisisMenuItem.Click
-        Console.WriteLine("Agarre ID= " & ContenedorE.Entrevista.MiFormulario.Atiende.ID)
-        Consulta.ID = ContenedorE.Entrevista.MiFormulario.Atiende.ID
-    End Sub
-
     Private Sub TratamientosMenuItem_Click(sender As Object, e As EventArgs) Handles TratamientosMenuItem.Click
         Console.WriteLine("Agarre ID= " & ContenedorE.Entrevista.MiFormulario.Atiende.ID)
         Consulta.ID = ContenedorE.Entrevista.MiFormulario.Atiende.ID
