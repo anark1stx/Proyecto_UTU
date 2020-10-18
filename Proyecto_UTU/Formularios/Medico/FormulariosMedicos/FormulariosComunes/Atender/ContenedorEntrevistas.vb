@@ -15,10 +15,8 @@ Public Class ContenedorEntrevistas
             Return _modo
         End Get
         Set(value As Modo)
-            If value <> _modo Then
-                _modo = value
-                ResetMode()
-            End If
+            _modo = value
+            ResetMode()
         End Set
     End Property
 
@@ -54,8 +52,6 @@ Public Class ContenedorEntrevistas
                 btnBorrarSintoma.Visible = True
                 btnSugerirDiagnostico.Visible = True
                 chkEnfermo.AutoCheck = True
-                chkAnalisis.Visible = False
-                chkTratamiento.Visible = False
                 Eventos.Modo = EventosDeTBP.ModoEvento.DatosFormulario
             Case Modo.Consulta
                 txtSgClinico.Visible = False
@@ -67,8 +63,6 @@ Public Class ContenedorEntrevistas
                 btnBorrarSigno.Visible = False
                 btnBorrarSintoma.Visible = False
                 btnSugerirDiagnostico.Visible = False
-                chkAnalisis.Visible = True
-                chkTratamiento.Visible = True
                 Eventos.Modo = EventosDeTBP.ModoEvento.ConsultaDatos
                 makeFormReadOnly(Me)
         End Select

@@ -137,6 +137,7 @@ Public Class frmMedico
         fe.MiFormulario.Atiende = Consulta
         pnlContenedorFormularios.Controls.Clear()
         ContenedorE.Entrevista = fe
+        ContenedorE.ModoActual = ContenedorEntrevistas.Modo.Ingreso
         ContenedorE.Dock = DockStyle.Fill
         pnlContenedorFormularios.Controls.Add(ContenedorE)
         HabilitarMenu(False)
@@ -147,10 +148,10 @@ Public Class frmMedico
 
     Sub HabilitarMenu(_case As Boolean) 'cuando el medico abra un formulario de entrevista, bloqueo todos los toolstripbutton y solo habilito: {Tratamientos{crear,asignar},Analisis{asignar}}
         For Each item As ToolStripMenuItem In MenuOpciones.Controls
-            If item IsNot AsginarTratamientoPacienteToolStripMenuItem AndAlso item IsNot AsignarAnalisisPacienteToolStripMenuItem AndAlso item IsNot AnalisisMenuItem AndAlso item IsNot TratamientosMenuItem AndAlso item IsNot IngresarNuevoTratamientoMenuItem Then
-                item.Enabled = _case
-            Else
+            If item Is TratamientosMenuItem Then
                 item.Enabled = Not _case
+            Else
+                item.Enabled = _case
             End If
         Next
     End Sub
