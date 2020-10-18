@@ -41,6 +41,7 @@ Public Class ContenedorEntrevistas
     End Property
 
     Sub ResetMode()
+        SetUp()
         Select Case ModoActual
             Case Modo.Ingreso
                 txtSgClinico.Visible = True
@@ -57,7 +58,6 @@ Public Class ContenedorEntrevistas
                 chkTratamiento.Visible = False
                 Eventos.Modo = EventosDeTBP.ModoEvento.DatosFormulario
             Case Modo.Consulta
-                'hacer todo readonly
                 txtSgClinico.Visible = False
                 lblIngreseSignoClinico.Text = "Signos clínicos registrados:"
                 txtSintoma.Visible = False
@@ -156,6 +156,11 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub chkAnalisis_CheckedChanged(sender As Object, e As EventArgs) Handles chkAnalisis.CheckedChanged, txtNomAnalisis.Click
+        If ModoActual = Modo.Consulta Then
+            lblAnalisisReq.Visible = True
+            txtNomAnalisis.Visible = True
+            Exit Sub
+        End If
         If chkAnalisis.Checked Then
             lblAnalisisReq.Visible = True
             txtNomAnalisis.Visible = True
@@ -177,6 +182,11 @@ Public Class ContenedorEntrevistas
         End If
     End Sub
     Private Sub chkTratamiento_CheckedChanged(sender As Object, e As EventArgs) Handles chkTratamiento.CheckedChanged, txtNomTratamiento.Click
+        If ModoActual = Modo.Consulta Then
+            lblTratamientoS.Visible = True
+            txtNomTratamiento.Visible = True
+            Exit Sub
+        End If
         If chkTratamiento.Checked Then
             lblTratamientoS.Visible = True
             txtNomTratamiento.Visible = True
@@ -198,8 +208,7 @@ Public Class ContenedorEntrevistas
         End If
     End Sub
 
-    Private Sub ContenedorEntrevistas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Sub SetUp()
         Eventos.Acciones = AccionesFrm
 
         Eventos.PrintDoc = New Printing.PrintDocument

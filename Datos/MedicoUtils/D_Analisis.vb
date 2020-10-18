@@ -363,10 +363,8 @@ Public Class D_Analisis
         Return 1
     End Function
 
-    Public Function ConsultarAnalisisRequerido(consulta As E_Atiende) As E_Analisis
-        Dim a As New E_Analisis With {
-        .ConsultaReq = consulta
-        }
+    Public Function ConsultarAnalisisRequerido(ID_C As Integer) As E_Analisis
+        Dim a As New E_Analisis
         If Sesion.Conectar(conexion) = -1 Then
             a.ErrCode = -1
             Return a
@@ -377,7 +375,7 @@ Public Class D_Analisis
         .CommandType = CommandType.StoredProcedure,
         .CommandText = "ConsultarAnalisisRequerido"
         }
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = a.ConsultaReq.ID
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
 
         Try
             leer = cmd.ExecuteReader()
@@ -394,6 +392,7 @@ Public Class D_Analisis
                 a.Nombre = leer.GetString("nombre")
             End While
         Else
+            Console.WriteLine("no encontre analisis requerido")
             a.ErrCode = -8
         End If
         Sesion.Cerrar(conexion)

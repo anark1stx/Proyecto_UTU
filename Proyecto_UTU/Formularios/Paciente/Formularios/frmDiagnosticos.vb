@@ -34,7 +34,6 @@ Public Class frmDiagnosticos
         Catch ex As Exception
             Exit Sub
         End Try
-
         Dim r = Await Task.Run(Function() nf.BuscarDiagnostico(id_seleccionada))
         Select Case r.ID
             Case -1
@@ -46,27 +45,30 @@ Public Class frmDiagnosticos
         End Select
         Formulario = r
         Dim fl = New FormularioEntrevista
-        Console.WriteLine("cantidad de pyr: " & r.PreguntasYRespuestas.Count)
-        For Each p As PreguntaRespuesta In r.PreguntasYRespuestas
-            Console.WriteLine("RESPUESTA: {NOMBRECONTROL: " & p.Respuesta.Name & "} {TEXT:" & p.Respuesta.Text & "}")
-        Next
         Dim controles = ConvertirFormulario(r)
         fl.pnlContenedor.Controls.AddRange(controles.ToArray())
         PoblarRespuestas(r.PreguntasYRespuestas, controles)
         fl.MiFormulario = r
-
+        entrevista.Entrevista = fl
+        entrevista.ModoActual = ContenedorEntrevistas.Modo.Consulta
         entrevista.lbSignosClinicos.DataSource = r.Enfermedad.SignosClinicos
         entrevista.lbSignosClinicos.DisplayMember = "Nombre"
         entrevista.lbSintomas.DataSource = r.Enfermedad.Sintomas
         entrevista.lbSintomas.DisplayMember = "Nombre"
+        Console.WriteLine("tratamiento: " & r.Tratamiento.Nombre & "analisis: " & r.Analisis.Nombre)
         If Not String.IsNullOrWhiteSpace(r.Enfermedad.Nombre) Then
             entrevista.txtNomEnfermedad.Text = r.Enfermedad.Nombre
             entrevista.chkEnfermo.Checked = True
         End If
-        entrevista.Entrevista = fl
+        If Not String.IsNullOrWhiteSpace(r.Analisis.Nombre) Then
+            entrevista.txtNomAnalisis.Text = r.Analisis.Nombre
+            entrevista.chkAnalisis.Checked = True
+        End If
+        If Not String.IsNullOrWhiteSpace(r.Tratamiento.Nombre) Then
+            entrevista.txtNomTratamiento.Text = r.Tratamiento.Nombre
+            entrevista.chkTratamiento.Checked = True
+        End If
         entrevista.Visible = True
-        'entrevista.ModoActual = ContenedorEntrevistas.Modo.Consulta
-        'entrevista.ResetMode()
     End Sub
 
     Private Async Sub frmDiagnosticos_Load(sender As Object, e As EventArgs) Handles MyBase.Load

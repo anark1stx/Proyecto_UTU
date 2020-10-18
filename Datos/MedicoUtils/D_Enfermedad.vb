@@ -71,7 +71,7 @@ Public Class D_Enfermedad
         Else
             enf.ErrCode = -8
         End If
-
+        Sesion.Cerrar(conexion)
         Dim d_sin As New D_Sintoma
         Dim d_sign As New D_SignoClinico
         enf.Sintomas = d_sin.BuscarSintomasRegistrados(ID_C)
@@ -82,7 +82,6 @@ Public Class D_Enfermedad
 
         enf.SignosClinicos = d_sign.BuscarExamenFisico(ID_C)
         Return enf
-        Sesion.Cerrar(conexion)
     End Function
 
     Public Function ListarEnfermedades(nombre As String) As List(Of E_Enfermedad)

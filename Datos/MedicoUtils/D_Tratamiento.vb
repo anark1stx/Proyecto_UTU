@@ -226,10 +226,8 @@ Public Class D_Tratamiento
         Return seguimientoReturn
     End Function
 
-    Public Function ConsultarTratamientoSugerido(consulta As E_Atiende) As E_Tratamiento
-        Dim t As New E_Tratamiento With {
-        .ConsultaReq = consulta
-        }
+    Public Function ConsultarTratamientoSugerido(ID_C As Integer) As E_Tratamiento
+        Dim t As New E_Tratamiento
         If Sesion.Conectar(conexion) = -1 Then
             t.ErrCode = -1
             Return t
@@ -240,7 +238,7 @@ Public Class D_Tratamiento
         .CommandType = CommandType.StoredProcedure,
         .CommandText = "ConsultarTratamientoSugerido"
         }
-        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = t.ConsultaReq.ID
+        cmd.Parameters.Add("ID_C", MySqlDbType.Int32).Value = ID_C
 
         Try
             leer = cmd.ExecuteReader()
@@ -258,6 +256,7 @@ Public Class D_Tratamiento
                 t.Descripcion = leer.GetString("descripcion")
             End While
         Else
+            Console.WriteLine("no encontre trtamiento")
             t.ErrCode = -8
         End If
         Sesion.Cerrar(conexion)

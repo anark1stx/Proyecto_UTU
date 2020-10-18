@@ -92,6 +92,7 @@ Public Class D_Sintoma
             leer = cmd2.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
+            Console.WriteLine("err leyendo sintomas registrados")
             sintomas.Add(New E_Sintoma With {.ErrCode = -2})
             Return sintomas
         End Try

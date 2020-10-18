@@ -470,7 +470,7 @@ Public Class D_Formulario
 
         Dim r = BuscarRespuestas(ID_C)
         Select Case r(0).ErrCode
-            Case <> 1
+            Case <> 0
                 form.ErrCode = r(0).ErrCode
                 Return form
             Case Else
@@ -481,23 +481,30 @@ Public Class D_Formulario
         Dim r2 = d_enf.BuscarEnfermedadConsulta(ID_C)
 
         Select Case r2.ErrCode
-            Case <> 1
+            Case <> 0
                 form.ErrCode = r2.ErrCode
+                Console.WriteLine("return desde enfermedad")
                 Return form
         End Select
         form.Enfermedad = r2
 
         Dim d_an As New D_Analisis
-        Dim r3 = d_an.ConsultarAnalisisRequerido(form.Atiende)
-        If r3.ErrCode <> 1 Then
+        Dim r3 = d_an.ConsultarAnalisisRequerido(ID_C)
+        Console.WriteLine("exit code consultar analisis requerido: " & r3.ErrCode)
+        Console.WriteLine("nom analisis: " & r3.Nombre)
+        If r3.ErrCode <> 0 Then
             form.ErrCode = r3.ErrCode
             Return form
+        Else
+            form.Analisis = r3
         End If
         Dim d_tr As New D_Tratamiento
-        Dim r4 = d_tr.ConsultarTratamientoSugerido(form.Atiende)
-        If r4.ErrCode <> 1 Then
+        Dim r4 = d_tr.ConsultarTratamientoSugerido(ID_C)
+        If r4.ErrCode <> 0 Then
             form.ErrCode = r4.ErrCode
             Return form
+        Else
+            form.Tratamiento = r4
         End If
         Return form
     End Function
