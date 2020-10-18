@@ -2,11 +2,9 @@
 Imports Negocio
 Imports Utilidades
 Public Class frmAnalisisSeguimiento
-    Dim frmDatos As New frmDatosAnalisis
     Protected _analisisSelect As New E_Analisis
     Protected _ci_p As Integer
     Protected _id_c As Integer
-    Dim np As New N_Paciente
     Dim na As New N_Analisis
     Dim analisis_encontrados As New List(Of E_Analisis)
     Protected _modo
@@ -95,10 +93,8 @@ Public Class frmAnalisisSeguimiento
                         MessageBox.Show("No se encontraron análisis para este paciente.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Sub
                 End Select
-
-                dgwAnalisisPaciente.DataSource = result
                 analisis_encontrados = result
-                Console.WriteLine("cantidad de analisis: " & analisis_encontrados.Count)
+                fixCols()
                 Exit Sub
             Case Modo.Asignar 'busco analisis x nombre
                 Dim result = na.BuscarAnalisisXNombre(txtBuscar.Text)
@@ -115,10 +111,31 @@ Public Class frmAnalisisSeguimiento
                 End Select
 
                 analisis_encontrados = result
-                Console.WriteLine("cantidad de analisis: " & analisis_encontrados.Count)
-                dgwAnalisisPaciente.DataSource = analisis_encontrados
+                fixCols()
         End Select
     End Sub
+
+    Sub fixCols()
+        dgwAnalisisPaciente.Columns.Add("ID_analisis", "ID de análisis")
+        dgwAnalisisPaciente.Columns.Add("nombreA", "Análisis")
+        dgwAnalisisPaciente.Columns.Add("FechaR", "Fecha Requerido")
+        dgwAnalisisPaciente.Columns.Add("FechaRes", "Fecha Resultado")
+
+        For Each a As E_Analisis In analisis_encontrados
+            Dim fecha As String = "-"
+            If a.FechaRes.ToString() <> "1/1/0001 0:00:00" Then 'si no hay fecha de resultado defaultea a ese valor en vez de quedar en null.
+                fecha = a.FechaRes.ToString()
+            End If
+            dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre, a.ConsultaReq.Fecha, fecha)
+        Next
+        Select Case MiModo
+            Case Modo.Asignar
+                dgwAnalisisPaciente.Columns("FechaRes").Visible = False
+            Case Modo.Buscar
+
+        End Select
+    End Sub
+
     Sub resetMode()
         Select Case MiModo
             Case Modo.Buscar 'dejar todo normal

@@ -62,6 +62,13 @@ Public Class frmTratamientoCrear
                     Case 1
                         MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Select
+            Case Modo.Asignar
+                If TratamientoSeleccionado.ID = 0 Then
+                    MessageBox.Show("Seleccione un tratamiento primero", "Debe seleccionar un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                Else
+                    Me.Hide() 'ya que cuando este formulario esta en modo "Asignar", en realidad esta como .ShowDialog(), y cuando este se cierra ContenedorEntrevistas lee el analisis que se guardo en AnalisisSelect
+                End If
         End Select
     End Sub
 

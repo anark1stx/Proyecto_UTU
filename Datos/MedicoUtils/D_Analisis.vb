@@ -312,14 +312,17 @@ Public Class D_Analisis
         End Try
 
         If leer.HasRows Then
-            aList.Add(New E_Analisis With {
-                .ID = leer.GetInt32("ID_analisis"),
+            While leer.Read()
+                aList.Add(New E_Analisis With {
+                .ID = leer.GetInt32("ID"),
                 .Nombre = leer.GetString("nombre"),
                 .ConsultaReq = New E_Atiende With {
                 .ID = leer.GetString("ID_Consulta"),
                 .Fecha = leer.GetString("fecha_c")
                 }
             })
+            End While
+
         Else
             aList.Add(New E_Analisis With {.ErrCode = -8})
         End If
