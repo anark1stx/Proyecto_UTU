@@ -452,10 +452,11 @@ Public Class frmMedico
                 LimpiarControles(frmTratamientoC)
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Asignar
                 frmTratamientoC.ShowDialog()
-                If frmTratamientoC.TratamientoSeleccionado Is Nothing Then
+                If frmTratamientoC.TratamientoSeleccionado.ID = 0 Then
                     MessageBox.Show("No se seleccionó ningún tratamiento.", "Seleccione un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
                 Else
-                    'hacer alta a la tabla sigue
+                    'hacer alta a la tabla sigue,dia_semana
                     Dim nt As New N_Tratamiento
                     Dim res = nt.AltaPacienteSigueTratamiento(frmIdentificacion.PacienteBuscar.Cedula, frmTratamientoC.TratamientoSeleccionado)
                     Select Case res
@@ -466,7 +467,7 @@ Public Class frmMedico
                             MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         Case 1
-                            MessageBox.Show(String.Format("El tratamiento ''{0}'' (#{1}) fue asignado al paciente {2},{3}", frmTratamientoC.TratamientoSeleccionado.Nombre, frmTratamientoC.TratamientoSeleccionado.ID, frmIdentificacion.PacienteBuscar.Nombre1, frmIdentificacion.PacienteBuscar.Apellido1), "Tratamiento asignado con éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show(String.Format("El tratamiento ''{0}'' (#{1}) fue asignado al paciente {2}, {3}", frmTratamientoC.TratamientoSeleccionado.Nombre, frmTratamientoC.TratamientoSeleccionado.ID, frmIdentificacion.PacienteBuscar.Nombre1, frmIdentificacion.PacienteBuscar.Apellido1), "Tratamiento asignado con éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End Select
                 End If
             Case Identificacion_Paciente.Modo.HacerSeguimiento 'leer los tratamientos que estan en sigue
