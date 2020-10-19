@@ -319,8 +319,7 @@ Public Class D_Analisis
                 .ConsultaReq = New E_Atiende With {
                 .ID = leer.GetString("ID_Consulta"),
                 .Fecha = leer.GetString("fecha_c")
-                }
-            })
+                }})
             End While
 
         Else
@@ -397,6 +396,38 @@ Public Class D_Analisis
         End If
         Sesion.Cerrar(conexion)
         Return a
+    End Function
+    Public Function RetornarParametrosDeAnalisis(a As E_Analisis) As Integer 'usar este mismo cuando consulte los resultados
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .CommandText = "BuscarParametrosDeAnalisis",
+            .Connection = conexion
+        }
+        cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
+        If Sesion.Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            Return -2
+        End Try
+        If leer.HasRows Then
+            While leer.Read()
+                a.Parametros.Add(New E_Analisis.Parametro With {
+                .ID = leer.GetInt32("ID"),
+                .Nombre = leer.GetString("nombre"),
+                .Unidad = leer.GetString("unidad"),
+                .ValorMinimo = leer.GetDouble("referencia_min"),
+                .ValorMaximo = leer.GetDouble("referencia_max")
+                })
+            End While
+        End If
+        Sesion.Cerrar(conexion)
+        Return 1
     End Function
 
     Public Function SugerirAnalisisSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Analisis

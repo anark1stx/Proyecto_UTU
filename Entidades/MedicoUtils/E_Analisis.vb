@@ -1,8 +1,8 @@
 ﻿Public Class E_Analisis
     Protected _id As Integer
     Protected _nombre As String
-    Protected _indicaciones As List(Of Indicacion)
-    Protected _parametros As List(Of Parametro)
+    Protected _indicaciones As New List(Of Indicacion)
+    Protected _parametros As New List(Of Parametro)
     Protected _consultaReq As E_Atiende
     Protected _fechaRes As Date
     Protected _errCode As Integer

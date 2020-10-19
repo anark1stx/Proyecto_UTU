@@ -53,19 +53,38 @@ Public Class frmAnalisisSeguimiento
     End Property
 
     Private Sub btnIngresarDatos_Click(sender As Object, e As EventArgs) Handles btnIngresarDatos.Click
-
+        If AnalisisSelect.ID = 0 Then
+            MessageBox.Show("Seleccione un análisis primero", "Debe seleccionar un análisis", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
         Select Case MiModo
             Case Modo.Buscar
                 '1- Verificar que ese análisis aún no se haya llenado
+                If AnalisisSelect.FechaRes.ToString() <> "1/1/0001 0:00:00" Then 'significa que aun no fueron ingresados los resultados
+                    MessageBox.Show("Ya fueron ingresados resultados para ese análisis", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                'agregar todos los parametros del analisis
+                Dim res = na.RetornarParametrosDeAnalisis(AnalisisSelect)
+                Select Case res
+                    Case -1
+                        MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    Case -2
+                        MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                End Select
+
                 '2- Abrir formulario de datos en modo de ingreso (campos con textbox)
+                Dim resultadosA As New frmDatosAnalisis With {
+                    .AnalisisACargar = AnalisisSelect,
+                    .CI_Paciente = CI_paciente
+                }
+                resultadosA.ShowDialog()
             Case Modo.Asignar
                 'asignar el analisis seleccionado
-                If AnalisisSelect.ID = 0 Then
-                    MessageBox.Show("Seleccione un análisis primero", "Debe seleccionar un análisis", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                Else
-                    Me.Hide() 'ya que cuando este formulario esta en modo "Asignar", en realidad esta como .ShowDialog(), y cuando este se cierra ContenedorEntrevistas lee el analisis que se guardo en AnalisisSelect
-                End If
+                Me.Hide() 'ya que cuando este formulario esta en modo "Asignar", en realidad esta como .ShowDialog(), y cuando este se cierra ContenedorEntrevistas lee el analisis que se guardo en AnalisisSelect
         End Select
     End Sub
 
@@ -109,7 +128,6 @@ Public Class frmAnalisisSeguimiento
                         MessageBox.Show("No se encontraron análisis con ese nombre.", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Sub
                 End Select
-
                 analisis_encontrados = result
                 fixCols()
         End Select
