@@ -21,6 +21,9 @@ Public Class N_Tratamiento
     Function ConsultarHistorialTratamientos(CI_P As Integer) As List(Of E_Tratamiento)
         Return objDatos.ConsultarHistorialTratamientos(CI_P)
     End Function
+    Function ConsultarDiasSemana(t As E_Tratamiento, CI_P As Integer) As Integer
+        Return objDatos.ConsultarDiasSemana(t, CI_P)
+    End Function
     Function ConsultarSeguimientoDiario(t As E_Tratamiento, CI_P As Integer, fecha As Date) As E_Seguimiento
         Return objDatos.ConsultarSeguimientoDiario(t, CI_P, fecha)
     End Function

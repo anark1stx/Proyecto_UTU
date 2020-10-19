@@ -128,8 +128,8 @@ Public Class D_Tratamiento
         }
         cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = t.ID
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI_P
-        cmd.Parameters.Add("F_INI", MySqlDbType.Date).Value = t.FechaInicio
-        cmd.Parameters.Add("F_SEG", MySqlDbType.Date).Value = seguimiento.Fecha
+        cmd.Parameters.Add("FEC_INI", MySqlDbType.Date).Value = t.FechaInicio
+        cmd.Parameters.Add("FEC_SEG", MySqlDbType.Date).Value = seguimiento.Fecha
         cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 600).Value = seguimiento.Descripcion
 
         Try
@@ -197,7 +197,9 @@ Public Class D_Tratamiento
                 .ID = leer.GetString("ID_tratamiento"),
                 .FechaInicio = leer.GetString("fecha_inicio"),
                 .FechaFin = leer.GetString("fecha_fin"),
-                .Resultado = leer.GetString("resultado")
+                .Resultado = leer.GetString("resultado"),
+                .Nombre = leer.GetString("nombre"),
+                .Descripcion = leer.GetString("descripcion")
                 })
             End While
         Else
@@ -207,6 +209,35 @@ Public Class D_Tratamiento
         Return lTratamientos
     End Function
 
+    Function ConsultarDiasSemana(t As E_Tratamiento, CI_P As Integer) As Integer
+        Dim leer As MySqlDataReader
+        If Sesion.Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+          .Connection = conexion,
+          .CommandType = CommandType.StoredProcedure,
+          .CommandText = "ConsultarDiasSemana"
+        }
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = CI_P
+        cmd.Parameters.Add("ID_T", MySqlDbType.Int32).Value = t.ID
+        cmd.Parameters.Add("F_INI", MySqlDbType.Date).Value = t.FechaInicio
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Sesion.Cerrar(conexion)
+            Return -2
+        End Try
+
+        While leer.Read()
+            t.DiasAsignados.Add(leer.GetInt16("dia"))
+        End While
+        Sesion.Cerrar(conexion)
+        Return 1
+    End Function
     Function ConsultarSeguimientoDiario(t As E_Tratamiento, CI_P As Integer, fecha As Date) As E_Seguimiento
         Dim leer As MySqlDataReader
         Dim seguimientoReturn As New E_Seguimiento
@@ -227,9 +258,9 @@ Public Class D_Tratamiento
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
-            Console.WriteLine(ex.Message)
+            Console.WriteLine("err consultar s_diario " & ex.Message)
             Sesion.Cerrar(conexion)
-            seguimientoReturn.ID_Seguimiento = -2
+            seguimientoReturn.ErrCode = -2
             Return seguimientoReturn
         End Try
 

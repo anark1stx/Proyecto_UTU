@@ -6,7 +6,7 @@
     Protected _fecha_inicio As Date
     Protected _fecha_fin As Date
     Protected _resultado As String
-    Protected _listaSeguimientos As List(Of E_Seguimiento)
+    Protected _listaSeguimientos As New List(Of E_Seguimiento)
     Protected _errCode As Integer
     Protected _diasAsignados As New List(Of DayOfWeek)
 

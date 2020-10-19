@@ -23,84 +23,130 @@ Partial Class frmTratamientoSeguir
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.txtDuracion = New System.Windows.Forms.TextBox()
-        Me.lblDuracion = New System.Windows.Forms.Label()
+        Me.txtFechaFinalizacion = New System.Windows.Forms.TextBox()
+        Me.txtFechaInicio = New System.Windows.Forms.TextBox()
+        Me.lbDiasSemana = New System.Windows.Forms.ListBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tblSeguimiento = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtSeguimiento = New System.Windows.Forms.TextBox()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblFechaFin = New System.Windows.Forms.Label()
         Me.lblFechaInicio = New System.Windows.Forms.Label()
-        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDiasDisponiblesSeguimiento = New System.Windows.Forms.DateTimePicker()
         Me.lblSeguimiento = New System.Windows.Forms.Label()
         Me.lblNombreTratamientoTXT = New System.Windows.Forms.Label()
         Me.lblIndicaciones = New System.Windows.Forms.Label()
         Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
-        Me.lblNombreTratamiento = New System.Windows.Forms.Label()
         Me.pnlContenedor.SuspendLayout()
+        Me.tblSeguimiento.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
         '
         Me.pnlContenedor.AutoScroll = True
         Me.pnlContenedor.AutoSize = True
-        Me.pnlContenedor.Controls.Add(Me.DateTimePicker2)
-        Me.pnlContenedor.Controls.Add(Me.txtDuracion)
-        Me.pnlContenedor.Controls.Add(Me.lblDuracion)
+        Me.pnlContenedor.Controls.Add(Me.txtFechaFinalizacion)
+        Me.pnlContenedor.Controls.Add(Me.txtFechaInicio)
+        Me.pnlContenedor.Controls.Add(Me.lbDiasSemana)
+        Me.pnlContenedor.Controls.Add(Me.Label2)
+        Me.pnlContenedor.Controls.Add(Me.tblSeguimiento)
         Me.pnlContenedor.Controls.Add(Me.lblFechaFin)
         Me.pnlContenedor.Controls.Add(Me.lblFechaInicio)
-        Me.pnlContenedor.Controls.Add(Me.dtpFechaInicio)
-        Me.pnlContenedor.Controls.Add(Me.TextBox1)
         Me.pnlContenedor.Controls.Add(Me.Label1)
-        Me.pnlContenedor.Controls.Add(Me.DateTimePicker1)
+        Me.pnlContenedor.Controls.Add(Me.dtpDiasDisponiblesSeguimiento)
         Me.pnlContenedor.Controls.Add(Me.lblSeguimiento)
         Me.pnlContenedor.Controls.Add(Me.lblNombreTratamientoTXT)
         Me.pnlContenedor.Controls.Add(Me.lblIndicaciones)
         Me.pnlContenedor.Controls.Add(Me.txtDescripcionTratamiento)
-        Me.pnlContenedor.Controls.Add(Me.lblNombreTratamiento)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1153, 720)
+        Me.pnlContenedor.Size = New System.Drawing.Size(1169, 720)
         Me.pnlContenedor.TabIndex = 0
         '
-        'DateTimePicker2
+        'txtFechaFinalizacion
         '
-        Me.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(617, 65)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(145, 30)
-        Me.DateTimePicker2.TabIndex = 112
-        Me.DateTimePicker2.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
+        Me.txtFechaFinalizacion.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.txtFechaFinalizacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFechaFinalizacion.Location = New System.Drawing.Point(282, 98)
+        Me.txtFechaFinalizacion.Name = "txtFechaFinalizacion"
+        Me.txtFechaFinalizacion.ReadOnly = True
+        Me.txtFechaFinalizacion.Size = New System.Drawing.Size(138, 30)
+        Me.txtFechaFinalizacion.TabIndex = 119
         '
-        'txtDuracion
+        'txtFechaInicio
         '
-        Me.txtDuracion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDuracion.Enabled = False
-        Me.txtDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDuracion.Location = New System.Drawing.Point(969, 67)
-        Me.txtDuracion.Name = "txtDuracion"
-        Me.txtDuracion.Size = New System.Drawing.Size(159, 30)
-        Me.txtDuracion.TabIndex = 111
+        Me.txtFechaInicio.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.txtFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFechaInicio.Location = New System.Drawing.Point(282, 51)
+        Me.txtFechaInicio.Name = "txtFechaInicio"
+        Me.txtFechaInicio.ReadOnly = True
+        Me.txtFechaInicio.Size = New System.Drawing.Size(138, 30)
+        Me.txtFechaInicio.TabIndex = 118
         '
-        'lblDuracion
+        'lbDiasSemana
         '
-        Me.lblDuracion.AutoSize = True
-        Me.lblDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDuracion.Location = New System.Drawing.Point(781, 67)
-        Me.lblDuracion.Name = "lblDuracion"
-        Me.lblDuracion.Size = New System.Drawing.Size(182, 29)
-        Me.lblDuracion.TabIndex = 110
-        Me.lblDuracion.Text = "Duración (días):"
+        Me.lbDiasSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDiasSemana.FormattingEnabled = True
+        Me.lbDiasSemana.ItemHeight = 25
+        Me.lbDiasSemana.Location = New System.Drawing.Point(586, 44)
+        Me.lbDiasSemana.Name = "lbDiasSemana"
+        Me.lbDiasSemana.Size = New System.Drawing.Size(558, 79)
+        Me.lbDiasSemana.TabIndex = 117
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(597, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(532, 25)
+        Me.Label2.TabIndex = 116
+        Me.Label2.Text = "Días de semana en los que se realiza este tratamiento"
+        '
+        'tblSeguimiento
+        '
+        Me.tblSeguimiento.ColumnCount = 1
+        Me.tblSeguimiento.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblSeguimiento.Controls.Add(Me.txtSeguimiento, 0, 0)
+        Me.tblSeguimiento.Controls.Add(Me.btnGuardar, 0, 1)
+        Me.tblSeguimiento.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.tblSeguimiento.Location = New System.Drawing.Point(0, 705)
+        Me.tblSeguimiento.Name = "tblSeguimiento"
+        Me.tblSeguimiento.RowCount = 2
+        Me.tblSeguimiento.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.9222!))
+        Me.tblSeguimiento.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.0778!))
+        Me.tblSeguimiento.Size = New System.Drawing.Size(1148, 437)
+        Me.tblSeguimiento.TabIndex = 113
+        '
+        'txtSeguimiento
+        '
+        Me.txtSeguimiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtSeguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSeguimiento.Location = New System.Drawing.Point(3, 3)
+        Me.txtSeguimiento.Multiline = True
+        Me.txtSeguimiento.Name = "txtSeguimiento"
+        Me.txtSeguimiento.Size = New System.Drawing.Size(1142, 352)
+        Me.txtSeguimiento.TabIndex = 107
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnGuardar.Enabled = False
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(3, 361)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(1142, 73)
+        Me.btnGuardar.TabIndex = 108
+        Me.btnGuardar.Text = "GUARDAR"
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'lblFechaFin
         '
         Me.lblFechaFin.AutoSize = True
         Me.lblFechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaFin.Location = New System.Drawing.Point(366, 67)
+        Me.lblFechaFin.Location = New System.Drawing.Point(12, 99)
         Me.lblFechaFin.Name = "lblFechaFin"
         Me.lblFechaFin.Size = New System.Drawing.Size(245, 29)
         Me.lblFechaFin.TabIndex = 109
@@ -110,33 +156,11 @@ Partial Class frmTratamientoSeguir
         '
         Me.lblFechaInicio.AutoSize = True
         Me.lblFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaInicio.Location = New System.Drawing.Point(12, 67)
+        Me.lblFechaInicio.Location = New System.Drawing.Point(12, 52)
         Me.lblFechaInicio.Name = "lblFechaInicio"
         Me.lblFechaInicio.Size = New System.Drawing.Size(183, 29)
         Me.lblFechaInicio.TabIndex = 108
         Me.lblFechaInicio.Text = "Fecha de inicio:"
-        '
-        'dtpFechaInicio
-        '
-        Me.dtpFechaInicio.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.dtpFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaInicio.Location = New System.Drawing.Point(215, 65)
-        Me.dtpFechaInicio.Name = "dtpFechaInicio"
-        Me.dtpFechaInicio.Size = New System.Drawing.Size(145, 30)
-        Me.dtpFechaInicio.TabIndex = 107
-        Me.dtpFechaInicio.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(3, 710)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(1125, 209)
-        Me.TextBox1.TabIndex = 106
         '
         'Label1
         '
@@ -148,22 +172,22 @@ Partial Class frmTratamientoSeguir
         Me.Label1.TabIndex = 105
         Me.Label1.Text = "Día:"
         '
-        'DateTimePicker1
+        'dtpDiasDisponiblesSeguimiento
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(64, 674)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(159, 30)
-        Me.DateTimePicker1.TabIndex = 104
-        Me.DateTimePicker1.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
+        Me.dtpDiasDisponiblesSeguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDiasDisponiblesSeguimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDiasDisponiblesSeguimiento.Location = New System.Drawing.Point(64, 674)
+        Me.dtpDiasDisponiblesSeguimiento.Name = "dtpDiasDisponiblesSeguimiento"
+        Me.dtpDiasDisponiblesSeguimiento.Size = New System.Drawing.Size(159, 30)
+        Me.dtpDiasDisponiblesSeguimiento.TabIndex = 104
+        Me.dtpDiasDisponiblesSeguimiento.Value = New Date(2020, 8, 19, 0, 0, 0, 0)
         '
         'lblSeguimiento
         '
         Me.lblSeguimiento.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblSeguimiento.AutoSize = True
         Me.lblSeguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSeguimiento.Location = New System.Drawing.Point(467, 640)
+        Me.lblSeguimiento.Location = New System.Drawing.Point(474, 637)
         Me.lblSeguimiento.Name = "lblSeguimiento"
         Me.lblSeguimiento.Size = New System.Drawing.Size(155, 29)
         Me.lblSeguimiento.TabIndex = 103
@@ -173,18 +197,18 @@ Partial Class frmTratamientoSeguir
         '
         Me.lblNombreTratamientoTXT.AutoSize = True
         Me.lblNombreTratamientoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreTratamientoTXT.Location = New System.Drawing.Point(290, 14)
+        Me.lblNombreTratamientoTXT.Location = New System.Drawing.Point(12, 9)
         Me.lblNombreTratamientoTXT.Name = "lblNombreTratamientoTXT"
-        Me.lblNombreTratamientoTXT.Size = New System.Drawing.Size(248, 25)
+        Me.lblNombreTratamientoTXT.Size = New System.Drawing.Size(390, 25)
         Me.lblNombreTratamientoTXT.TabIndex = 102
-        Me.lblNombreTratamientoTXT.Text = "NOMBRE TRATAMIENTO"
+        Me.lblNombreTratamientoTXT.Text = "CI PACIENTE - NOMBRE TRATAMIENTO"
         '
         'lblIndicaciones
         '
         Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblIndicaciones.AutoSize = True
         Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIndicaciones.Location = New System.Drawing.Point(402, 137)
+        Me.lblIndicaciones.Location = New System.Drawing.Point(418, 150)
         Me.lblIndicaciones.Name = "lblIndicaciones"
         Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
         Me.lblIndicaciones.TabIndex = 92
@@ -194,35 +218,29 @@ Partial Class frmTratamientoSeguir
         '
         Me.txtDescripcionTratamiento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDescripcionTratamiento.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.txtDescripcionTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 182)
+        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 191)
         Me.txtDescripcionTratamiento.Multiline = True
         Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
-        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1125, 444)
+        Me.txtDescripcionTratamiento.ReadOnly = True
+        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1141, 422)
         Me.txtDescripcionTratamiento.TabIndex = 91
-        '
-        'lblNombreTratamiento
-        '
-        Me.lblNombreTratamiento.AutoSize = True
-        Me.lblNombreTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreTratamiento.Location = New System.Drawing.Point(12, 11)
-        Me.lblNombreTratamiento.Name = "lblNombreTratamiento"
-        Me.lblNombreTratamiento.Size = New System.Drawing.Size(272, 29)
-        Me.lblNombreTratamiento.TabIndex = 90
-        Me.lblNombreTratamiento.Text = "Nombre del tratamiento:"
         '
         'frmTratamientoSeguir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1153, 720)
+        Me.ClientSize = New System.Drawing.Size(1169, 720)
         Me.Controls.Add(Me.pnlContenedor)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmTratamientoSeguir"
         Me.Text = "frmTratamientoSeguir"
         Me.pnlContenedor.ResumeLayout(False)
         Me.pnlContenedor.PerformLayout()
+        Me.tblSeguimiento.ResumeLayout(False)
+        Me.tblSeguimiento.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -231,16 +249,17 @@ Partial Class frmTratamientoSeguir
     Friend WithEvents pnlContenedor As Panel
     Friend WithEvents lblIndicaciones As Label
     Friend WithEvents txtDescripcionTratamiento As TextBox
-    Friend WithEvents lblNombreTratamiento As Label
     Friend WithEvents lblNombreTratamientoTXT As Label
     Friend WithEvents lblSeguimiento As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents txtDuracion As TextBox
-    Friend WithEvents lblDuracion As Label
+    Friend WithEvents dtpDiasDisponiblesSeguimiento As DateTimePicker
     Friend WithEvents lblFechaFin As Label
     Friend WithEvents lblFechaInicio As Label
-    Friend WithEvents dtpFechaInicio As DateTimePicker
+    Friend WithEvents tblSeguimiento As TableLayoutPanel
+    Friend WithEvents txtSeguimiento As TextBox
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lbDiasSemana As ListBox
+    Friend WithEvents txtFechaFinalizacion As TextBox
+    Friend WithEvents txtFechaInicio As TextBox
 End Class
