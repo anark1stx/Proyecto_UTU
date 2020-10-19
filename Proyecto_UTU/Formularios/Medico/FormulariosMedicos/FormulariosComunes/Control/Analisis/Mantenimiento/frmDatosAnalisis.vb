@@ -1,10 +1,11 @@
 ﻿Imports Negocio
 Imports Entidades
+Imports Utilidades
 Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     Protected _modo As Modo
     Protected _a As New E_Analisis
     Protected _ci_paciente As Integer
-    Private valueList As New List(Of TextBox)
+    Private valueList As New List(Of NumericUpDown)
     Dim na As New N_Analisis
     Property CI_Paciente As Integer
         Get
@@ -66,10 +67,12 @@ Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
 
                 tblParametros.Controls.Add(valorParametro)
             Else 'modo.ingreso
-                Dim valorParametro As New TextBox With {
+                Dim valorParametro As New NumericUpDown With {
                     .Font = New Font("Arial", 14, FontStyle.Regular),
                     .AutoSize = True,
-                    .Dock = DockStyle.Fill
+                    .Dock = DockStyle.Fill,
+                    .Maximum = 99999999,
+                    .DecimalPlaces = 2
                 }
                 tblParametros.Controls.Add(valorParametro)
                 valueList.Add(valorParametro)
@@ -115,18 +118,29 @@ Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     End Sub
 
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        For Each t As TextBox In valueList
+        For Each t As NumericUpDown In valueList
             If String.IsNullOrWhiteSpace(t.Text) Then
                 MessageBox.Show(String.Format("Asigne un valor para el parámetro {0}", AnalisisACargar.Parametros(valueList.IndexOf(t)).Nombre), "Falta proporcionar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
         Next
 
-        For i = 0 To AnalisisACargar.Parametros.Count - 1
-            AnalisisACargar.Parametros(i).Valor = Val(valueList(i).Text)
-            Console.WriteLine(AnalisisACargar.Parametros(i).Nombre & " tiene valor: " & AnalisisACargar.Parametros(i).Valor)
+        For Each p As E_Analisis.Parametro In AnalisisACargar.Parametros
+            p.Valor = valueList(AnalisisACargar.Parametros.IndexOf(p)).Value
         Next
-        Me.Hide()
+
+        Dim r = na.AltaAnalisisResultados(AnalisisACargar)
+        Select Case r
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case 1
+                MessageBox.Show("Alta de resultados de análisis exitosa", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Dispose()
+        End Select
     End Sub
 End Class
 

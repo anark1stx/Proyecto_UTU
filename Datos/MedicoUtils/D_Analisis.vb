@@ -318,7 +318,9 @@ Public Class D_Analisis
                 .Nombre = leer.GetString("nombre"),
                 .ConsultaReq = New E_Atiende With {
                 .ID = leer.GetString("ID_Consulta"),
-                .Fecha = leer.GetString("fecha_c")
+                .Fecha = leer.GetString("fecha_c"),
+                .Paciente = New E_Paciente With {.Cedula = leer.GetInt32("CI_paciente")},
+                .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")}
                 }})
             End While
 
@@ -344,6 +346,7 @@ Public Class D_Analisis
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = a.ConsultaReq.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = a.ConsultaReq.Medico.Cedula
         cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
+        cmd.Parameters.Add("FEC_R", MySqlDbType.Int32).Value = Date.Now()
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
         cmd.Parameters.Add("VAL", MySqlDbType.Decimal)
 
