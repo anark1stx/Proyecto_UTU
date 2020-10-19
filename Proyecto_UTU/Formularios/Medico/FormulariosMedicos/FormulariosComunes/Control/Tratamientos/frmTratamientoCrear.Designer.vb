@@ -32,22 +32,22 @@ Partial Class frmTratamientoCrear
         Me.txtNombreTratamiento = New System.Windows.Forms.TextBox()
         Me.tblElementos = New System.Windows.Forms.TableLayoutPanel()
         Me.dgwTratamientos = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ETratamientoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
         Me.lblIndicaciones = New System.Windows.Forms.Label()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblNombreTratamiento = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DefinirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ETratamientoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.pnlContenedor.SuspendLayout()
         Me.tblBusqueda.SuspendLayout()
         Me.tblElementos.SuspendLayout()
         CType(Me.dgwTratamientos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
         CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -57,9 +57,9 @@ Partial Class frmTratamientoCrear
         Me.pnlContenedor.Controls.Add(Me.btnGuardar)
         Me.pnlContenedor.Controls.Add(Me.lblNombreTratamiento)
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlContenedor.Location = New System.Drawing.Point(0, 30)
+        Me.pnlContenedor.Location = New System.Drawing.Point(0, 28)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1130, 868)
+        Me.pnlContenedor.Size = New System.Drawing.Size(1130, 870)
         Me.pnlContenedor.TabIndex = 0
         '
         'tblBusqueda
@@ -115,7 +115,7 @@ Partial Class frmTratamientoCrear
         Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.92347!))
         Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.377551!))
         Me.tblElementos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.69898!))
-        Me.tblElementos.Size = New System.Drawing.Size(1127, 740)
+        Me.tblElementos.Size = New System.Drawing.Size(1127, 742)
         Me.tblElementos.TabIndex = 91
         '
         'dgwTratamientos
@@ -149,67 +149,9 @@ Partial Class frmTratamientoCrear
         Me.dgwTratamientos.ReadOnly = True
         Me.dgwTratamientos.RowHeadersWidth = 51
         Me.dgwTratamientos.RowTemplate.Height = 24
+        Me.dgwTratamientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgwTratamientos.Size = New System.Drawing.Size(1121, 104)
         Me.dgwTratamientos.TabIndex = 89
-        '
-        'txtDescripcionTratamiento
-        '
-        Me.txtDescripcionTratamiento.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtDescripcionTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 160)
-        Me.txtDescripcionTratamiento.MaxLength = 16000
-        Me.txtDescripcionTratamiento.Multiline = True
-        Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
-        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1121, 577)
-        Me.txtDescripcionTratamiento.TabIndex = 87
-        '
-        'lblIndicaciones
-        '
-        Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblIndicaciones.AutoSize = True
-        Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIndicaciones.Location = New System.Drawing.Point(407, 120)
-        Me.lblIndicaciones.Name = "lblIndicaciones"
-        Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
-        Me.lblIndicaciones.TabIndex = 90
-        Me.lblIndicaciones.Text = "Indicaciones del tratamiento"
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(0, 801)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(1130, 67)
-        Me.btnGuardar.TabIndex = 84
-        Me.btnGuardar.Text = "Guardar Tratamiento"
-        Me.btnGuardar.UseVisualStyleBackColor = True
-        '
-        'lblNombreTratamiento
-        '
-        Me.lblNombreTratamiento.AutoSize = True
-        Me.lblNombreTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreTratamiento.Location = New System.Drawing.Point(12, 16)
-        Me.lblNombreTratamiento.Name = "lblNombreTratamiento"
-        Me.lblNombreTratamiento.Size = New System.Drawing.Size(272, 29)
-        Me.lblNombreTratamiento.TabIndex = 78
-        Me.lblNombreTratamiento.Text = "Nombre del tratamiento:"
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 30)
-        Me.MenuStrip1.TabIndex = 1
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'DefinirToolStripMenuItem
-        '
-        Me.DefinirToolStripMenuItem.Name = "DefinirToolStripMenuItem"
-        Me.DefinirToolStripMenuItem.Size = New System.Drawing.Size(334, 26)
-        Me.DefinirToolStripMenuItem.Text = "Definir parámetros temporales del tratamiento"
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -239,6 +181,65 @@ Partial Class frmTratamientoCrear
         '
         Me.ETratamientoBindingSource.DataSource = GetType(Entidades.E_Tratamiento)
         '
+        'txtDescripcionTratamiento
+        '
+        Me.txtDescripcionTratamiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtDescripcionTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescripcionTratamiento.Location = New System.Drawing.Point(3, 160)
+        Me.txtDescripcionTratamiento.MaxLength = 16000
+        Me.txtDescripcionTratamiento.Multiline = True
+        Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
+        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1121, 579)
+        Me.txtDescripcionTratamiento.TabIndex = 87
+        '
+        'lblIndicaciones
+        '
+        Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblIndicaciones.AutoSize = True
+        Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIndicaciones.Location = New System.Drawing.Point(407, 120)
+        Me.lblIndicaciones.Name = "lblIndicaciones"
+        Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
+        Me.lblIndicaciones.TabIndex = 90
+        Me.lblIndicaciones.Text = "Indicaciones del tratamiento"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(0, 803)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(1130, 67)
+        Me.btnGuardar.TabIndex = 84
+        Me.btnGuardar.Text = "Guardar Tratamiento"
+        Me.btnGuardar.UseVisualStyleBackColor = True
+        '
+        'lblNombreTratamiento
+        '
+        Me.lblNombreTratamiento.AutoSize = True
+        Me.lblNombreTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreTratamiento.Location = New System.Drawing.Point(12, 16)
+        Me.lblNombreTratamiento.Name = "lblNombreTratamiento"
+        Me.lblNombreTratamiento.Size = New System.Drawing.Size(272, 29)
+        Me.lblNombreTratamiento.TabIndex = 78
+        Me.lblNombreTratamiento.Text = "Nombre del tratamiento:"
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1130, 28)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'DefinirToolStripMenuItem
+        '
+        Me.DefinirToolStripMenuItem.Name = "DefinirToolStripMenuItem"
+        Me.DefinirToolStripMenuItem.Size = New System.Drawing.Size(334, 24)
+        Me.DefinirToolStripMenuItem.Text = "Definir parámetros temporales del tratamiento"
+        '
         'frmTratamientoCrear
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -258,9 +259,9 @@ Partial Class frmTratamientoCrear
         Me.tblElementos.ResumeLayout(False)
         Me.tblElementos.PerformLayout()
         CType(Me.dgwTratamientos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.ETratamientoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

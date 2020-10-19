@@ -100,9 +100,42 @@ Public Class frmTratamientoSeguir
             btnGuardar.Enabled = True
         End If
 
+        If MiModo = Modo.DefinirDatosS Then
+            VerificarSeguimientos()
+        End If
+        VerificarResultado()
         If MiModo = Modo.ConsultarDatosS Then
             btnGuardar.Visible = False
             txtSeguimiento.ReadOnly = True
+        End If
+    End Sub
+
+    Sub VerificarSeguimientos() 'si el tratamiento tiene todos sus seguimientos definidos, habilito el tblResultado
+        If Now() < t.FechaFin Then
+            Exit Sub
+        Else
+            Dim diff = t.FechaFin - t.FechaInicio
+            Dim completo As Boolean = False
+            For i = 0 To diff.Days
+                Dim fecha = t.FechaInicio + New TimeSpan(i, 0, 0, 0)
+                If Not t.ListaSeguimientos.Exists(Function(s) s.Fecha = fecha) Then
+                    completo = False
+                Else
+                    completo = True
+                End If
+            Next
+
+            If completo Then
+                tblResultado.Visible = True
+            Else
+                tblResultado.Visible = False
+            End If
+        End If
+    End Sub
+
+    Sub VerificarResultado()
+        If Not String.IsNullOrEmpty(t.Resultado) Then
+            btnResultado.Enabled = False
         End If
     End Sub
 
@@ -123,7 +156,7 @@ Public Class frmTratamientoSeguir
         Dim seguimiento As New E_Seguimiento With {.Descripcion = txtSeguimiento.Text, .Fecha = dtpDiasDisponiblesSeguimiento.Value}
 
         Dim result = nt.AltaSeguimientoDiario(t, seguimiento, CI_Paciente)
-            Select Case result
+        Select Case result
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 dtpDiasDisponiblesSeguimiento.Enabled = False
@@ -137,6 +170,7 @@ Public Class frmTratamientoSeguir
                 Tratamiento.ListaSeguimientos.Add(seguimiento)
                 txtSeguimiento.ReadOnly = True
                 btnGuardar.Enabled = False
+                VerificarSeguimientos()
         End Select
     End Sub
 
@@ -166,5 +200,29 @@ Public Class frmTratamientoSeguir
             txtSeguimiento.Clear()
             txtSeguimiento.ReadOnly = False
         End If
+    End Sub
+
+    Private Sub btnResultado_Click(sender As Object, e As EventArgs) Handles btnResultado.Click
+        If Not check_Largo(txtResultado.Text, 3, 30, True) Then
+            MessageBox.Show("Escriba el resultado primero", "Falta proveer información", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If Not check_regex(txtResultado.Text, RegexLiteralAcentos) Then
+            MessageBox.Show(MensajeDeErrorCaracteres(), "Caracteres inválidos detectados.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        t.Resultado = txtResultado.Text
+
+        Dim res = nt.AltaResultadoTratamiento(t, CI_Paciente)
+        Select Case res
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case 1
+                MessageBox.Show("Resultado de tratamiento actualizado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                VerificarResultado()
+        End Select
     End Sub
 End Class
