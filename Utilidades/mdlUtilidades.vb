@@ -2,6 +2,8 @@
 Imports System.IO
 Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
+Imports System.Globalization
+Imports System.Threading
 
 Public Module mdlUtilidades
     Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"})
@@ -11,9 +13,19 @@ Public Module mdlUtilidades
     Public RegexAlfaNumericoEspaciosPuntosComasTildes = New Regex("^[a-z-ZA-Z0-9Á-ú., ]*$")
     Public RegexAlfaNumerico = New Regex("^[A-Za-z0-9]*$")
     Public RegexAlfaNumericoPuntos = New Regex("^[A-Za-z0-9+.]*$")
+    Property Idioma As CultureInfo
     Sub setLabelText(lbl As Label, msg As String)
         lbl.Text = msg
         lbl.Visible = True
+    End Sub
+
+    '<STAThread>
+    Public Sub UpdateLang(lang As String)
+        Idioma = CultureInfo.GetCultureInfo(lang)
+        CultureInfo.DefaultThreadCurrentCulture = Idioma
+        CultureInfo.DefaultThreadCurrentUICulture = Idioma
+        My.Application.ChangeUICulture(lang)
+        'Application.EnableVisualStyles()
     End Sub
     Sub hidelbl(lbl As Label) 'Este método esconde los mensajes de error.
         lbl.Visible = False

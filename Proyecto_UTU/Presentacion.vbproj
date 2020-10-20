@@ -370,6 +370,9 @@
     <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.resx">
       <DependentUpon>frmInicioPaciente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.en-US.resx">
+      <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
       <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
     </EmbeddedResource>
