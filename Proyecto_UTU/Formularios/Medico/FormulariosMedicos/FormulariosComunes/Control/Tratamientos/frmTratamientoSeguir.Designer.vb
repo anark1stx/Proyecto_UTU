@@ -42,9 +42,11 @@ Partial Class frmTratamientoSeguir
         Me.btnResultado = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtResultado = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlContenedor.SuspendLayout()
         Me.tblSeguimiento.SuspendLayout()
         Me.tblResultado.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -67,7 +69,7 @@ Partial Class frmTratamientoSeguir
         Me.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContenedor.Location = New System.Drawing.Point(0, 0)
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1187, 720)
+        Me.pnlContenedor.Size = New System.Drawing.Size(1210, 720)
         Me.pnlContenedor.TabIndex = 0
         '
         'txtFechaFinalizacion
@@ -97,14 +99,14 @@ Partial Class frmTratamientoSeguir
         Me.lbDiasSemana.ItemHeight = 25
         Me.lbDiasSemana.Location = New System.Drawing.Point(586, 44)
         Me.lbDiasSemana.Name = "lbDiasSemana"
-        Me.lbDiasSemana.Size = New System.Drawing.Size(558, 79)
+        Me.lbDiasSemana.Size = New System.Drawing.Size(577, 79)
         Me.lbDiasSemana.TabIndex = 117
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(597, 9)
+        Me.Label2.Location = New System.Drawing.Point(601, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(532, 25)
         Me.Label2.TabIndex = 116
@@ -124,7 +126,7 @@ Partial Class frmTratamientoSeguir
         Me.tblSeguimiento.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.9222!))
         Me.tblSeguimiento.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.0778!))
         Me.tblSeguimiento.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81.0!))
-        Me.tblSeguimiento.Size = New System.Drawing.Size(1166, 573)
+        Me.tblSeguimiento.Size = New System.Drawing.Size(1189, 573)
         Me.tblSeguimiento.TabIndex = 113
         '
         'txtSeguimiento
@@ -134,7 +136,7 @@ Partial Class frmTratamientoSeguir
         Me.txtSeguimiento.Location = New System.Drawing.Point(3, 3)
         Me.txtSeguimiento.Multiline = True
         Me.txtSeguimiento.Name = "txtSeguimiento"
-        Me.txtSeguimiento.Size = New System.Drawing.Size(1160, 397)
+        Me.txtSeguimiento.Size = New System.Drawing.Size(1183, 397)
         Me.txtSeguimiento.TabIndex = 107
         '
         'btnGuardar
@@ -144,7 +146,7 @@ Partial Class frmTratamientoSeguir
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Location = New System.Drawing.Point(3, 406)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(1160, 82)
+        Me.btnGuardar.Size = New System.Drawing.Size(1183, 82)
         Me.btnGuardar.TabIndex = 108
         Me.btnGuardar.Text = "GUARDAR SEGUIMIENTO DIARIO"
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -194,7 +196,7 @@ Partial Class frmTratamientoSeguir
         Me.lblSeguimiento.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblSeguimiento.AutoSize = True
         Me.lblSeguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSeguimiento.Location = New System.Drawing.Point(483, 637)
+        Me.lblSeguimiento.Location = New System.Drawing.Point(474, 637)
         Me.lblSeguimiento.Name = "lblSeguimiento"
         Me.lblSeguimiento.Size = New System.Drawing.Size(155, 29)
         Me.lblSeguimiento.TabIndex = 103
@@ -215,7 +217,7 @@ Partial Class frmTratamientoSeguir
         Me.lblIndicaciones.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblIndicaciones.AutoSize = True
         Me.lblIndicaciones.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIndicaciones.Location = New System.Drawing.Point(427, 150)
+        Me.lblIndicaciones.Location = New System.Drawing.Point(418, 150)
         Me.lblIndicaciones.Name = "lblIndicaciones"
         Me.lblIndicaciones.Size = New System.Drawing.Size(312, 27)
         Me.lblIndicaciones.TabIndex = 92
@@ -231,7 +233,7 @@ Partial Class frmTratamientoSeguir
         Me.txtDescripcionTratamiento.Multiline = True
         Me.txtDescripcionTratamiento.Name = "txtDescripcionTratamiento"
         Me.txtDescripcionTratamiento.ReadOnly = True
-        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1159, 422)
+        Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1183, 422)
         Me.txtDescripcionTratamiento.TabIndex = 91
         '
         'tblResultado
@@ -248,16 +250,17 @@ Partial Class frmTratamientoSeguir
         Me.tblResultado.Name = "tblResultado"
         Me.tblResultado.RowCount = 1
         Me.tblResultado.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblResultado.Size = New System.Drawing.Size(1160, 76)
+        Me.tblResultado.Size = New System.Drawing.Size(1183, 76)
         Me.tblResultado.TabIndex = 109
         '
         'btnResultado
         '
+        Me.btnResultado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnResultado.Enabled = False
         Me.btnResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnResultado.Location = New System.Drawing.Point(775, 3)
+        Me.btnResultado.Location = New System.Drawing.Point(791, 3)
         Me.btnResultado.Name = "btnResultado"
-        Me.btnResultado.Size = New System.Drawing.Size(382, 69)
+        Me.btnResultado.Size = New System.Drawing.Size(389, 70)
         Me.btnResultado.TabIndex = 110
         Me.btnResultado.Text = "ACTUALIZAR RESULTADO DEL TRATAMIENTO"
         Me.btnResultado.UseVisualStyleBackColor = True
@@ -267,7 +270,7 @@ Partial Class frmTratamientoSeguir
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(33, 23)
+        Me.Label3.Location = New System.Drawing.Point(37, 23)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(319, 29)
         Me.Label3.TabIndex = 111
@@ -277,19 +280,29 @@ Partial Class frmTratamientoSeguir
         '
         Me.txtResultado.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResultado.Location = New System.Drawing.Point(389, 21)
+        Me.txtResultado.Location = New System.Drawing.Point(404, 21)
         Me.txtResultado.MaxLength = 60
         Me.txtResultado.Name = "txtResultado"
-        Me.txtResultado.Size = New System.Drawing.Size(380, 34)
+        Me.txtResultado.Size = New System.Drawing.Size(373, 34)
         Me.txtResultado.TabIndex = 112
+        '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Controls.Add(Me.pnlContenedor)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1210, 720)
+        Me.Panel1.TabIndex = 1
         '
         'frmTratamientoSeguir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1187, 720)
-        Me.Controls.Add(Me.pnlContenedor)
+        Me.ClientSize = New System.Drawing.Size(1210, 720)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmTratamientoSeguir"
         Me.Text = "frmTratamientoSeguir"
@@ -299,8 +312,9 @@ Partial Class frmTratamientoSeguir
         Me.tblSeguimiento.PerformLayout()
         Me.tblResultado.ResumeLayout(False)
         Me.tblResultado.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -324,4 +338,5 @@ Partial Class frmTratamientoSeguir
     Friend WithEvents btnResultado As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents txtResultado As TextBox
+    Friend WithEvents Panel1 As Panel
 End Class
