@@ -28,6 +28,7 @@ Partial Class frmGestion
         Me.Accion2 = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlDatosUsuario = New System.Windows.Forms.Panel()
         Me.pnlAcciones = New System.Windows.Forms.Panel()
+        Me.btnAltaLogica = New System.Windows.Forms.Button()
         Me.btnAccion2 = New System.Windows.Forms.Button()
         Me.btnAccion1 = New System.Windows.Forms.Button()
         Me.pnlDspCedula = New System.Windows.Forms.Panel()
@@ -78,7 +79,8 @@ Partial Class frmGestion
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.btnAltaLogica = New System.Windows.Forms.Button()
+        Me.lblEstadoTXT = New System.Windows.Forms.TextBox()
+        Me.lblEstado = New System.Windows.Forms.Label()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlAcciones.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
@@ -127,6 +129,17 @@ Partial Class frmGestion
         Me.pnlAcciones.Size = New System.Drawing.Size(170, 53)
         Me.pnlAcciones.TabIndex = 385
         '
+        'btnAltaLogica
+        '
+        Me.btnAltaLogica.BackgroundImage = CType(resources.GetObject("btnAltaLogica.BackgroundImage"), System.Drawing.Image)
+        Me.btnAltaLogica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAltaLogica.Location = New System.Drawing.Point(5, 7)
+        Me.btnAltaLogica.Name = "btnAltaLogica"
+        Me.btnAltaLogica.Size = New System.Drawing.Size(48, 40)
+        Me.btnAltaLogica.TabIndex = 386
+        Me.btnAltaLogica.UseVisualStyleBackColor = True
+        Me.btnAltaLogica.Visible = False
+        '
         'btnAccion2
         '
         Me.btnAccion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
@@ -149,6 +162,8 @@ Partial Class frmGestion
         '
         'pnlDspCedula
         '
+        Me.pnlDspCedula.Controls.Add(Me.lblEstadoTXT)
+        Me.pnlDspCedula.Controls.Add(Me.lblEstado)
         Me.pnlDspCedula.Controls.Add(Me.lblComma)
         Me.pnlDspCedula.Controls.Add(Me.lblDireccionNumeroTXT)
         Me.pnlDspCedula.Controls.Add(Me.lblContrasenaTXT)
@@ -215,7 +230,7 @@ Partial Class frmGestion
         Me.lblContrasenaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblContrasenaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblContrasenaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasenaTXT.Location = New System.Drawing.Point(830, 182)
+        Me.lblContrasenaTXT.Location = New System.Drawing.Point(830, 217)
         Me.lblContrasenaTXT.Name = "lblContrasenaTXT"
         Me.lblContrasenaTXT.ReadOnly = True
         Me.lblContrasenaTXT.Size = New System.Drawing.Size(220, 23)
@@ -226,7 +241,7 @@ Partial Class frmGestion
         '
         Me.lblContrasena.AutoSize = True
         Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasena.Location = New System.Drawing.Point(670, 187)
+        Me.lblContrasena.Location = New System.Drawing.Point(670, 222)
         Me.lblContrasena.Name = "lblContrasena"
         Me.lblContrasena.Size = New System.Drawing.Size(111, 24)
         Me.lblContrasena.TabIndex = 414
@@ -708,16 +723,27 @@ Partial Class frmGestion
         Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
         Me.dgwUsuarios.TabIndex = 6
         '
-        'btnAltaLogica
+        'lblEstadoTXT
         '
-        Me.btnAltaLogica.BackgroundImage = CType(resources.GetObject("btnAltaLogica.BackgroundImage"), System.Drawing.Image)
-        Me.btnAltaLogica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAltaLogica.Location = New System.Drawing.Point(5, 7)
-        Me.btnAltaLogica.Name = "btnAltaLogica"
-        Me.btnAltaLogica.Size = New System.Drawing.Size(48, 40)
-        Me.btnAltaLogica.TabIndex = 386
-        Me.btnAltaLogica.UseVisualStyleBackColor = True
-        Me.btnAltaLogica.Visible = False
+        Me.lblEstadoTXT.BackColor = System.Drawing.Color.LightBlue
+        Me.lblEstadoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoTXT.Location = New System.Drawing.Point(830, 182)
+        Me.lblEstadoTXT.Name = "lblEstadoTXT"
+        Me.lblEstadoTXT.ReadOnly = True
+        Me.lblEstadoTXT.Size = New System.Drawing.Size(220, 23)
+        Me.lblEstadoTXT.TabIndex = 417
+        Me.lblEstadoTXT.Text = "Estado"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(670, 187)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(73, 24)
+        Me.lblEstado.TabIndex = 416
+        Me.lblEstado.Text = "Estado:"
         '
         'frmGestion
         '
@@ -800,4 +826,6 @@ Partial Class frmGestion
     Friend WithEvents lblComma As Label
     Friend WithEvents pnlAcciones As Panel
     Friend WithEvents btnAltaLogica As Button
+    Friend WithEvents lblEstadoTXT As TextBox
+    Friend WithEvents lblEstado As Label
 End Class

@@ -85,20 +85,23 @@ Public Class D_Usuario
             Return -1
         End If
 
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
-        cmd.Parameters.Add("NOMBRE1", MySqlDbType.VarChar, 30).Value = u.Nombre1
-        cmd.Parameters.Add("NOMBRE2", MySqlDbType.VarChar, 30).Value = u.Nombre2
-        cmd.Parameters.Add("APELLIDO1", MySqlDbType.VarChar, 30).Value = u.Apellido1
-        cmd.Parameters.Add("APELLIDO2", MySqlDbType.VarChar, 30).Value = u.Apellido2
-        cmd.Parameters.Add("DIRECCION_C", MySqlDbType.VarChar, 160).Value = u.Direccion_Calle
-        cmd.Parameters.Add("DIRECCION_N", MySqlDbType.Int32).Value = u.Direccion_Numero
-        cmd.Parameters.Add("ACTIVO", MySqlDbType.Bit).Value = u.Activo
-        cmd.Parameters.Add("CORREO", MySqlDbType.VarChar, 50).Value = u.Correo
+        Console.WriteLine(Text.Encoding.Default.GetString(u.Foto))
+
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("NOM1", MySqlDbType.VarChar, 30).Value = u.Nombre1
+        cmd.Parameters.Add("NOM2", MySqlDbType.VarChar, 30).Value = u.Nombre2
+        cmd.Parameters.Add("AP1", MySqlDbType.VarChar, 30).Value = u.Apellido1
+        cmd.Parameters.Add("AP2", MySqlDbType.VarChar, 30).Value = u.Apellido2
+        cmd.Parameters.Add("DIR_C", MySqlDbType.VarChar, 160).Value = u.Direccion_Calle
+        cmd.Parameters.Add("DIR_N", MySqlDbType.Int32).Value = u.Direccion_Numero
+        cmd.Parameters.Add("ACT", MySqlDbType.Bit).Value = u.Activo
+        cmd.Parameters.Add("CORR", MySqlDbType.VarChar, 50).Value = u.Correo
         cmd.Parameters.Add("FOTO", MySqlDbType.MediumBlob, u.Foto.Length).Value = u.Foto
 
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
+            Console.WriteLine("err alta usuario sibim " & ex.Message)
             Return -4 'No se pudo crear usuario sibim
         End Try
 

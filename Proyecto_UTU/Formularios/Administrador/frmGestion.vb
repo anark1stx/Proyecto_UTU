@@ -66,7 +66,7 @@ Public Class frmGestion
 
     ReadOnly Property BASEcontrolesP As List(Of Control)
         Get
-            Return New List(Of Control)(New Control() {lblFnac, dtpFechaNacimiento, lblEtapa, cbEtapa, lblEstadoCivil, cbEstadoCivil, lblSexo, cbSexo, lblOcupacion, lblOcupacionTXT})
+            Return New List(Of Control)(New Control() {lblFnac, dtpFechaNacimiento, lblEtapa, cbEtapa, lblEstadoCivil, cbEstadoCivil, lblSexo, cbSexo, lblOcupacion, lblOcupacionTXT, lblEstado, lblEstadoTXT})
         End Get
     End Property
 
@@ -399,7 +399,7 @@ Public Class frmGestion
                 Dim p = Base_props_paciente(u)
 
                 If Not p.ValidarMisDatos() Then
-                    MessageBox.Show(p.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(p.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
 
@@ -421,15 +421,19 @@ Public Class frmGestion
                             MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Case -5
                             MessageBox.Show("Error ingresando al paciente", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Case -6
+                            MessageBox.Show("Error registrando el estado del paciente, búsquelo y modifique su estado.", "Alta estado fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            ci_valida = False
+                            LimpiarControles(Me)
+                            configurarControles()
                     End Select
                 End If
 
             Case TipoUsuario.Medico
                 Dim u = Base_props_user()
-
                 Dim m = Base_Props_Medico(u)
                 If Not m.ValidarMisDatos() Then
-                    MessageBox.Show(m.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(m.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
                     Dim nm As New N_Medico
@@ -459,7 +463,7 @@ Public Class frmGestion
                 Dim u = Base_props_user()
 
                 If Not u.ValidarMisDatos() Then
-                    MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
 
@@ -540,6 +544,7 @@ Public Class frmGestion
             .Correo = u.Correo,
             .TelefonosLista = u.TelefonosLista,
             .Etapa = cbEtapa.SelectedItem.ToString(),
+            .Estado = New E_Estado With {.Nombre = lblEstadoTXT.Text, .Fecha = Now()},
             .Estado_civil = cbEstadoCivil.SelectedItem().ToString(),
             .FechaNacimiento = dtpFechaNacimiento.Value,
             .Ocupacion = lblOcupacionTXT.Text,
@@ -636,7 +641,7 @@ Public Class frmGestion
         End If
 
         If Not u.ValidarMisDatos() Then
-            MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
@@ -648,7 +653,7 @@ Public Class frmGestion
                 Dim np As New N_Paciente
                 u = Base_props_paciente(u)
                 If Not DirectCast(u, E_Paciente).ValidarMisDatos() Then
-                    MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
                 code = Await Task.Run(Function() np.ModificacionPaciente(u))
@@ -656,7 +661,7 @@ Public Class frmGestion
                 Dim nm As New N_Medico
                 u = Base_Props_Medico(u)
                 If Not DirectCast(u, E_Medico).ValidarMisDatos() Then
-                    MessageBox.Show(u.Nombre, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
                 code = Await Task.Run(Function() nm.ModificacionMedico(u))
@@ -670,12 +675,12 @@ Public Class frmGestion
                 ci_valida = False
                 LimpiarControles(Me)
                 configurarControles()
-            Case -2
+            Case -2, -5
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error modificando usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Case -3
                 MessageBox.Show(MensajeDeErrorIngresoTelefonos(), "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Case -5
-                MessageBox.Show("Error modificando especialidades del médico", "Error modificando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -6
+                MessageBox.Show("Error actualizando el estado del paciente")
         End Select
     End Sub
 
@@ -940,6 +945,7 @@ Public Class frmGestion
         Try
             lblOcupacionTXT.DataBindings.Add("Text", obj, "Ocupacion", False, DataSourceUpdateMode.Never)
             dtpFechaNacimiento.DataBindings.Add("Value", obj, "FechaNacimiento", True, DataSourceUpdateMode.Never)
+            lblEstadoTXT.Text = obj.Estado.Nombre
             cbEstadoCivil.SelectedItem = obj.Estado_civil
             cbEtapa.SelectedItem = obj.Etapa
             Select Case obj.Sexo
@@ -948,7 +954,6 @@ Public Class frmGestion
                 Case "F"
                     cbSexo.SelectedItem = "Femenino"
             End Select
-
         Catch ex As Exception
             Console.WriteLine("already binded")
         End Try

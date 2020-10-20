@@ -6,12 +6,13 @@ Public Class E_Paciente
     Protected _ocupacion As String
     Protected _estado_civil As String
     Protected _etapa As Char
+    Protected _estado As E_Estado
 
     Sub New()
 
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As Date, sexo As Char, ocupacion As String, estado_civil As String, foto As Byte(), etapa As Char, rol As String, activo As Boolean)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As Date, sexo As Char, ocupacion As String, estado_civil As String, foto As Byte(), etapa As Char, rol As String, activo As Boolean, estado As E_Estado)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -30,8 +31,17 @@ Public Class E_Paciente
         _etapa = etapa
         _rol = rol
         _activo = activo
+        _estado = estado
     End Sub
 
+    Property Estado As E_Estado
+        Get
+            Return _estado
+        End Get
+        Set(value As E_Estado)
+            _estado = value
+        End Set
+    End Property
     Property FechaNacimiento() As Date
         Get
             Return (_fechaNacimiento)
@@ -80,14 +90,24 @@ Public Class E_Paciente
     Public Overrides Function ValidarMisDatos() As Boolean
 
         If Not MyBase.ValidarMisDatos() Then
-            Me.Nombre = MyBase.Nombre
             Return 0
         Else
-            If Not check_Largo(Me._ocupacion, 5, 30, True) Then
-                Me.Nombre = "Ocupación: " & MensajeDeErrorLongitud(5, 30)
+            If Not check_Largo(Me.Ocupacion, 5, 30, True) Then
+                Me.ErrCode = "Ocupación: " & MensajeDeErrorLongitud(5, 30)
                 Return 0
             End If
-
+            If Not check_regex(Me.Ocupacion, RegexAlfaNumericoAcentosEspacios) Then
+                Me.ErrCode = "Ocupación: " & MensajeDeErrorLongitud(5, 30)
+                Return 0
+            End If
+            If Not check_Largo(Me.Estado.Nombre, 5, 30, True) Then
+                Me.ErrCode = "Estado: " & MensajeDeErrorLongitud(5, 30)
+                Return 0
+            End If
+            If Not check_regex(Me.Estado.Nombre, RegexAlfaNumericoAcentosEspacios) Then
+                Me.ErrCode = "Estado: " & MensajeDeErrorCaracteres()
+                Return 0
+            End If
             Return 1
         End If
 

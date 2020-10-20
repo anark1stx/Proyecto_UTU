@@ -77,6 +77,7 @@
     <Compile Include="MedicoUtils\Tratamiento\E_Tratamiento.vb" />
     <Compile Include="MedicoUtils\PreguntaRespuesta.vb" />
     <Compile Include="MedicoUtils\Tratamiento\E_Seguimiento.vb" />
+    <Compile Include="Usuarios\E_Estado.vb" />
     <Compile Include="Usuarios\E_Medico.vb" />
     <Compile Include="Usuarios\E_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

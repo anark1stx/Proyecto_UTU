@@ -8,11 +8,14 @@ Imports System.Threading
 Public Module mdlUtilidades
     Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"})
     Public optMsg As String = ""
-    Public RegexLiteralAcentos = New Regex("^[A-zÁ-ú]*$")
-    Public RegexLiteral = New Regex("^[A-Za-z]*$")
-    Public RegexAlfaNumericoEspaciosPuntosComasTildes = New Regex("^[a-z-ZA-Z0-9Á-ú., ]*$")
-    Public RegexAlfaNumerico = New Regex("^[A-Za-z0-9]*$")
-    Public RegexAlfaNumericoPuntos = New Regex("^[A-Za-z0-9+.]*$")
+    Public RegexLiteralAcentos As Regex = New Regex("^[A-zÁ-ú]*$")
+    Public RegexLiteral As Regex = New Regex("^[A-Za-z]*$")
+    Public RegexAlfaNumericoEspaciosPuntosComasTildes As Regex = New Regex("^[a-z-ZA-Z0-9Á-ú., ]*$")
+    Public RegexAlfaNumerico As Regex = New Regex("^[A-Za-z0-9]*$")
+    Public RegexAlfaNumericoAcentosEspacios As Regex = New Regex("^[a-z-ZA-Z0-9Á-ú ]*$")
+    Public RegexAlfaNumericoAcentos As Regex = New Regex("^[a-z-ZA-Z0-9Á-ú]*$")
+    Public RegexAlfaNumericoPuntos As Regex = New Regex("^[A-Za-z0-9+.]*$")
+    Public RegexCorreo As Regex = New Regex("^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z_])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,3})$")
     Property Idioma As New CultureInfo("es-ES")
     Sub setLabelText(lbl As Label, msg As String)
         lbl.Text = msg
@@ -149,25 +152,6 @@ Public Module mdlUtilidades
         Return Color.FromArgb(m_Rnd.Next(78, 201), m_Rnd.Next(78, 201), m_Rnd.Next(78, 201))
     End Function
 
-    Public Sub AgregarItemALista(item As String, lista As ListBox, Optional btn As Button = Nothing) 'btn es porque en el frmDolor (unico formulario el cual usa esta funcion por ahora), pinta el fondo de los botones cuando estos son seleccionados.
-
-        If Not lista.Items.Contains(item) Then
-            lista.Items.Add(item)
-            If btn IsNot Nothing Then
-                pintarFondo(btn, True)
-            End If
-
-        Else
-            lista.Items.Remove(item)
-
-            If btn IsNot Nothing Then
-                pintarFondo(btn, False)
-            End If
-
-        End If
-
-    End Sub
-
     Public Function getCtrls(pnl As Control) As List(Of Control)
 
         Dim list As New List(Of Control)
@@ -199,7 +183,6 @@ Public Module mdlUtilidades
         Dim bytes = ms.ToArray()
         ms.Close()
         Return bytes
-
     End Function
     Function MensajeDeErrorLongitud(min As Integer, max As Integer) As String
         Return "Verifique que haya ingresado más de " & min & " caracteres" & " y menos de " & max
@@ -270,9 +253,6 @@ Public Module mdlUtilidades
         Return "Su usuario o contraseña son incorrectos. Si olvidó su contraseña presione el botón ""Olvidé mi contraseña."" "
     End Function
 
-
-
-
     Function check_Largo(propiedad As String, cantidadMinima As Integer, cantidadMaxima As Integer, requerido As Boolean) As Boolean
 
         If requerido AndAlso String.IsNullOrWhiteSpace(propiedad) Then
@@ -331,7 +311,9 @@ Public Module mdlUtilidades
             optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com, recuerde que el mínimo de caracteres que tiene un usuario de correo son 6."
             Return 0
         End If
-
+        If Not check_regex(correo, RegexCorreo) Then
+            Return 0
+        End If
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
         If Not check_regex(correo_antes_arroba, RegexAlfaNumericoPuntos) Then

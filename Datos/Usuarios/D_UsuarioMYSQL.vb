@@ -64,7 +64,7 @@ Public Class D_UsuarioMYSQL
         End Try
 
         If activo = False Then
-            u.Nombre = -3 'de baja
+            u.ErrCode = -3 'de baja
         End If
 
         Sesion.Cerrar(conexion)
@@ -89,12 +89,12 @@ Public Class D_UsuarioMYSQL
 
         Try
             cmd.ExecuteNonQuery()
-            Return 1 'todo ok
         Catch ex As Exception
             Sesion.Cerrar(conexion)
             Return -2 'Error dando alta usuario mysql
         End Try
         Sesion.Cerrar(conexion)
+        Return 1 'todo ok
     End Function
 
 End Class
