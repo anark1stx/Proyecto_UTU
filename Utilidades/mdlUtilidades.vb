@@ -475,4 +475,25 @@ Public Module mdlUtilidades
         End If
     End Sub
 
+    Public Function ParseDays(day As DayOfWeek) As String
+        Select Case day
+            Case DayOfWeek.Sunday
+                Return "Domingo"
+            Case DayOfWeek.Monday
+                Return "Lunes"
+            Case DayOfWeek.Tuesday
+                Return "Martes"
+            Case DayOfWeek.Wednesday
+                Return "Miércoles"
+            Case DayOfWeek.Thursday
+                Return "Jueves"
+            Case DayOfWeek.Friday
+                Return "Viernes"
+            Case DayOfWeek.Saturday
+                Return "Sabado"
+            Case Else
+                Return day.ToString()
+        End Select
+    End Function
+
 End Module
