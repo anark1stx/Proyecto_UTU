@@ -150,7 +150,7 @@ Public Class D_Analisis
         Dim leer As MySqlDataReader
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "BuscarParametros",
+            .CommandText = "ListarParametros",
             .Connection = conexion
         }
 

@@ -70,14 +70,24 @@ Public Class frmIngreso_Usuario
 
     Private Sub btnEspanol_Click(sender As Object, e As EventArgs) Handles btnEspanol.Click
         'capaz que es mejor solamente recargar la aplicación en vez de cambiar el idioma a espana, puede dar problemas
-        UpdateLang("en-ES")
-        Me.Controls.Clear()
-        InitializeComponent()
+        If Idioma Is Globalization.CultureInfo.GetCultureInfo("es-ES") Then
+            Exit Sub
+        Else
+            Controls.Clear()
+            Me.components.Dispose()
+            UpdateLang("es-ES")
+            InitializeComponent()
+        End If
+
     End Sub
 
     Private Sub btnIngles_Click(sender As Object, e As EventArgs) Handles btnIngles.Click
-        UpdateLang("en-US")
-        Me.Controls.Clear()
-        InitializeComponent()
+        If Idioma Is Globalization.CultureInfo.GetCultureInfo("en-US") Then
+            Exit Sub
+        Else
+            Controls.Clear()
+            UpdateLang("en-US")
+            InitializeComponent()
+        End If
     End Sub
 End Class
