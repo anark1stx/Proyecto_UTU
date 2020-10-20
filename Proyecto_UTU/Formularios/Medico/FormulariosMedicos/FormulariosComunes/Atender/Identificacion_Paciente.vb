@@ -1,5 +1,6 @@
 ﻿Imports Entidades
 Imports Utilidades
+Imports Negocio
 Public Class Identificacion_Paciente
     Protected _paciente As New E_Paciente
     Protected _consulta As New E_Atiende
@@ -107,15 +108,15 @@ Public Class Identificacion_Paciente
         lblFechaNacTXT.Text = PacienteBuscar.FechaNacimiento.ToShortDateString()
         lblOcupacionTXT.Text = PacienteBuscar.Ocupacion
         lblE_CivilTXT.Text = PacienteBuscar.Estado_civil
-        lblEtapaTXT.Text = PacienteBuscar.Etapa
+        txtEstado.Text = PacienteBuscar.Estado.Nombre
         pBoxFotoPaciente.Image = Bytes2Image(PacienteBuscar.Foto)
 
-        lblTelefonoTXT.Text = ""
+        lblTelefonoa.Text = ""
         For Each t As String In PacienteBuscar.TelefonosLista
             If Not t Is PacienteBuscar.TelefonosLista.Last() Then
-                lblTelefonoTXT.Text &= t & ", "
+                lblTelefonoa.Text &= t & ", "
             Else
-                lblTelefonoTXT.Text &= t
+                lblTelefonoa.Text &= t
             End If
         Next
 
@@ -141,5 +142,24 @@ Public Class Identificacion_Paciente
 
     Private Sub cbConsultasPrevias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbConsultasPrevias.SelectedIndexChanged
         Consulta.ConsultaReferencia = ConsultasPrevias(cbConsultasPrevias.SelectedIndex)
+    End Sub
+
+    Private Sub btnActualizarEstado_Click(sender As Object, e As EventArgs) Handles btnActualizarEstado.Click
+        If Not check_regex(txtEstado.Text, RegexAlfaNumericoAcentosEspacios) Then
+            MessageBox.Show(MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        Else
+            Dim np As New N_Paciente
+            PacienteBuscar.Estado = New E_Estado With {.Nombre = txtEstado.Text}
+            Dim res = np.RegistrarEstado(PacienteBuscar)
+            Select Case res
+                Case -1
+                    MessageBox.Show(MensajeDeErrorConexion(), "Hay errores en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Case -2
+                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Case 1
+                    MessageBox.Show("Estado actualizado con éxito.", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Select
+        End If
     End Sub
 End Class

@@ -166,6 +166,8 @@ Public Class frmMedico
                             MedicoActual.Cedula = frmDefinirConsulta.MedicoSelect.Cedula
                             frmIdentificacion.Enabled = True
                         End If
+                    Case Else
+                        frmIdentificacion.Enabled = True
                 End Select
             Case "EntrevistaInicial"
                 If MedicoActual.Cedula = 0 Then 'hasta que no seleccione un medico, no le dejamos agregar pacienes al listado
@@ -400,20 +402,23 @@ Public Class frmMedico
         End Select
     End Sub
 
+    Sub resetearCamposId()
+        Consulta.Paciente.Cedula = 0
+        frmIdentificacion.btnReferenciaConsulta.Enabled = False
+        frmIdentificacion.cbConsultasPrevias.Enabled = False
+        frmIdentificacion.btnVerConsulta.Enabled = False
+        frmIdentificacion.pnlEstado.Enabled = False
+        LimpiarControles(frmIdentificacion)
+        frmIdentificacion.PacienteBuscar.Cedula = 0
+    End Sub
     Async Sub CargarDatosPaciente() 'cargo tambien las consultas previas ademas de sus datos
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
-            Consulta.Paciente.Cedula = 0
-            frmIdentificacion.btnReferenciaConsulta.Enabled = False
-            frmIdentificacion.cbConsultasPrevias.Enabled = False
-            frmIdentificacion.btnVerConsulta.Enabled = False
-            LimpiarControles(frmIdentificacion)
-            frmIdentificacion.PacienteBuscar.Cedula = 0
+            resetearCamposId()
             Exit Sub
         End If
         If Not check_Cedula(frmIdentificacion.txtCedulaPaciente.Text) Then
             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Consulta.Paciente.Cedula = 0
-            LimpiarControles(frmIdentificacion)
+            resetearCamposId()
             Exit Sub
         End If
 

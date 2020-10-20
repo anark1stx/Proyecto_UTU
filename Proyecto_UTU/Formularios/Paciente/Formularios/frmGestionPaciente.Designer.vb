@@ -46,6 +46,8 @@ Partial Class frmGestionPaciente
         Me.lblE_CivilTXT = New System.Windows.Forms.Label()
         Me.lblEtapa = New System.Windows.Forms.Label()
         Me.lblEtapaTXT = New System.Windows.Forms.Label()
+        Me.lblEstadoTXT = New System.Windows.Forms.Label()
+        Me.lblEstado = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
@@ -84,6 +86,8 @@ Partial Class frmGestionPaciente
         Me.tabDatos.ColumnCount = 2
         Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.71552!))
         Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.28448!))
+        Me.tabDatos.Controls.Add(Me.lblEstado, 0, 10)
+        Me.tabDatos.Controls.Add(Me.lblEstadoTXT, 0, 10)
         Me.tabDatos.Controls.Add(Me.lblTelefono, 0, 5)
         Me.tabDatos.Controls.Add(Me.lblCedula, 0, 0)
         Me.tabDatos.Controls.Add(Me.lblCedulaTXT, 1, 0)
@@ -107,7 +111,7 @@ Partial Class frmGestionPaciente
         Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabDatos.Location = New System.Drawing.Point(428, 3)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.RowCount = 10
+        Me.tabDatos.RowCount = 11
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
@@ -118,6 +122,7 @@ Partial Class frmGestionPaciente
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
         Me.tabDatos.Size = New System.Drawing.Size(465, 545)
         Me.tabDatos.TabIndex = 103
         '
@@ -126,7 +131,7 @@ Partial Class frmGestionPaciente
         Me.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(28, 284)
+        Me.lblTelefono.Location = New System.Drawing.Point(28, 257)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(119, 25)
         Me.lblTelefono.TabIndex = 100
@@ -137,7 +142,7 @@ Partial Class frmGestionPaciente
         Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblCedula.AutoSize = True
         Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(47, 14)
+        Me.lblCedula.Location = New System.Drawing.Point(47, 12)
         Me.lblCedula.Name = "lblCedula"
         Me.lblCedula.Size = New System.Drawing.Size(81, 25)
         Me.lblCedula.TabIndex = 82
@@ -148,7 +153,7 @@ Partial Class frmGestionPaciente
         Me.lblCedulaTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblCedulaTXT.AutoSize = True
         Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTXT.Location = New System.Drawing.Point(282, 14)
+        Me.lblCedulaTXT.Location = New System.Drawing.Point(282, 12)
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.Size = New System.Drawing.Size(75, 25)
         Me.lblCedulaTXT.TabIndex = 99
@@ -159,7 +164,7 @@ Partial Class frmGestionPaciente
         Me.lblNombres.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNombres.AutoSize = True
         Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(44, 68)
+        Me.lblNombres.Location = New System.Drawing.Point(44, 61)
         Me.lblNombres.Name = "lblNombres"
         Me.lblNombres.Size = New System.Drawing.Size(87, 25)
         Me.lblNombres.TabIndex = 80
@@ -170,7 +175,7 @@ Partial Class frmGestionPaciente
         Me.lblNombresTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNombresTXT.AutoSize = True
         Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(209, 68)
+        Me.lblNombresTXT.Location = New System.Drawing.Point(209, 61)
         Me.lblNombresTXT.Name = "lblNombresTXT"
         Me.lblNombresTXT.Size = New System.Drawing.Size(221, 25)
         Me.lblNombresTXT.TabIndex = 78
@@ -181,7 +186,7 @@ Partial Class frmGestionPaciente
         Me.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblApellido.AutoSize = True
         Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(43, 122)
+        Me.lblApellido.Location = New System.Drawing.Point(43, 110)
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(88, 25)
         Me.lblApellido.TabIndex = 81
@@ -192,7 +197,7 @@ Partial Class frmGestionPaciente
         Me.lblApellidosTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblApellidosTXT.AutoSize = True
         Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(198, 122)
+        Me.lblApellidosTXT.Location = New System.Drawing.Point(198, 110)
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
         Me.lblApellidosTXT.Size = New System.Drawing.Size(243, 25)
         Me.lblApellidosTXT.TabIndex = 79
@@ -203,7 +208,7 @@ Partial Class frmGestionPaciente
         Me.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(38, 176)
+        Me.lblDireccion.Location = New System.Drawing.Point(38, 159)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(99, 25)
         Me.lblDireccion.TabIndex = 98
@@ -214,7 +219,7 @@ Partial Class frmGestionPaciente
         Me.lblDireccionTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblDireccionTXT.AutoSize = True
         Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(273, 176)
+        Me.lblDireccionTXT.Location = New System.Drawing.Point(273, 159)
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.Size = New System.Drawing.Size(93, 25)
         Me.lblDireccionTXT.TabIndex = 97
@@ -225,7 +230,7 @@ Partial Class frmGestionPaciente
         Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblTelefonoTXT.AutoSize = True
         Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(260, 284)
+        Me.lblTelefonoTXT.Location = New System.Drawing.Point(260, 257)
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(119, 25)
         Me.lblTelefonoTXT.TabIndex = 84
@@ -236,9 +241,9 @@ Partial Class frmGestionPaciente
         Me.lblFechaNac.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblFechaNac.AutoSize = True
         Me.lblFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaNac.Location = New System.Drawing.Point(30, 218)
+        Me.lblFechaNac.Location = New System.Drawing.Point(30, 196)
         Me.lblFechaNac.Name = "lblFechaNac"
-        Me.lblFechaNac.Size = New System.Drawing.Size(115, 50)
+        Me.lblFechaNac.Size = New System.Drawing.Size(115, 49)
         Me.lblFechaNac.TabIndex = 101
         Me.lblFechaNac.Text = "Fecha Nacimiento:"
         '
@@ -247,7 +252,7 @@ Partial Class frmGestionPaciente
         Me.lblFechaNacTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblFechaNacTXT.AutoSize = True
         Me.lblFechaNacTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaNacTXT.Location = New System.Drawing.Point(238, 230)
+        Me.lblFechaNacTXT.Location = New System.Drawing.Point(238, 208)
         Me.lblFechaNacTXT.Name = "lblFechaNacTXT"
         Me.lblFechaNacTXT.Size = New System.Drawing.Size(164, 25)
         Me.lblFechaNacTXT.TabIndex = 102
@@ -258,7 +263,7 @@ Partial Class frmGestionPaciente
         Me.lblSexo.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSexo.AutoSize = True
         Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(55, 338)
+        Me.lblSexo.Location = New System.Drawing.Point(55, 306)
         Me.lblSexo.Name = "lblSexo"
         Me.lblSexo.Size = New System.Drawing.Size(64, 25)
         Me.lblSexo.TabIndex = 103
@@ -269,7 +274,7 @@ Partial Class frmGestionPaciente
         Me.lblSexoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSexoTXT.AutoSize = True
         Me.lblSexoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexoTXT.Location = New System.Drawing.Point(291, 338)
+        Me.lblSexoTXT.Location = New System.Drawing.Point(291, 306)
         Me.lblSexoTXT.Name = "lblSexoTXT"
         Me.lblSexoTXT.Size = New System.Drawing.Size(58, 25)
         Me.lblSexoTXT.TabIndex = 104
@@ -280,7 +285,7 @@ Partial Class frmGestionPaciente
         Me.lblOcupacion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblOcupacion.AutoSize = True
         Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(31, 392)
+        Me.lblOcupacion.Location = New System.Drawing.Point(31, 355)
         Me.lblOcupacion.Name = "lblOcupacion"
         Me.lblOcupacion.Size = New System.Drawing.Size(113, 25)
         Me.lblOcupacion.TabIndex = 105
@@ -291,7 +296,7 @@ Partial Class frmGestionPaciente
         Me.lblOcupacionTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblOcupacionTXT.AutoSize = True
         Me.lblOcupacionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacionTXT.Location = New System.Drawing.Point(266, 392)
+        Me.lblOcupacionTXT.Location = New System.Drawing.Point(266, 355)
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
         Me.lblOcupacionTXT.Size = New System.Drawing.Size(107, 25)
         Me.lblOcupacionTXT.TabIndex = 106
@@ -302,7 +307,7 @@ Partial Class frmGestionPaciente
         Me.lblE_Civil.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblE_Civil.AutoSize = True
         Me.lblE_Civil.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblE_Civil.Location = New System.Drawing.Point(27, 446)
+        Me.lblE_Civil.Location = New System.Drawing.Point(27, 404)
         Me.lblE_Civil.Name = "lblE_Civil"
         Me.lblE_Civil.Size = New System.Drawing.Size(121, 25)
         Me.lblE_Civil.TabIndex = 107
@@ -313,7 +318,7 @@ Partial Class frmGestionPaciente
         Me.lblE_CivilTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblE_CivilTXT.AutoSize = True
         Me.lblE_CivilTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblE_CivilTXT.Location = New System.Drawing.Point(265, 446)
+        Me.lblE_CivilTXT.Location = New System.Drawing.Point(265, 404)
         Me.lblE_CivilTXT.Name = "lblE_CivilTXT"
         Me.lblE_CivilTXT.Size = New System.Drawing.Size(110, 25)
         Me.lblE_CivilTXT.TabIndex = 108
@@ -324,7 +329,7 @@ Partial Class frmGestionPaciente
         Me.lblEtapa.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblEtapa.AutoSize = True
         Me.lblEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEtapa.Location = New System.Drawing.Point(53, 503)
+        Me.lblEtapa.Location = New System.Drawing.Point(53, 453)
         Me.lblEtapa.Name = "lblEtapa"
         Me.lblEtapa.Size = New System.Drawing.Size(69, 25)
         Me.lblEtapa.TabIndex = 109
@@ -335,11 +340,33 @@ Partial Class frmGestionPaciente
         Me.lblEtapaTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblEtapaTXT.AutoSize = True
         Me.lblEtapaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEtapaTXT.Location = New System.Drawing.Point(288, 503)
+        Me.lblEtapaTXT.Location = New System.Drawing.Point(288, 453)
         Me.lblEtapaTXT.Name = "lblEtapaTXT"
         Me.lblEtapaTXT.Size = New System.Drawing.Size(63, 25)
         Me.lblEtapaTXT.TabIndex = 110
         Me.lblEtapaTXT.Text = "Etapa"
+        '
+        'lblEstadoTXT
+        '
+        Me.lblEstadoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblEstadoTXT.AutoSize = True
+        Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoTXT.Location = New System.Drawing.Point(283, 505)
+        Me.lblEstadoTXT.Name = "lblEstadoTXT"
+        Me.lblEstadoTXT.Size = New System.Drawing.Size(73, 25)
+        Me.lblEstadoTXT.TabIndex = 111
+        Me.lblEstadoTXT.Text = "Estado"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(48, 505)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(79, 25)
+        Me.lblEstado.TabIndex = 112
+        Me.lblEstado.Text = "Estado:"
         '
         'frmGestionPaciente
         '
@@ -383,4 +410,6 @@ Partial Class frmGestionPaciente
     Friend WithEvents lblE_CivilTXT As Label
     Friend WithEvents lblEtapa As Label
     Friend WithEvents lblEtapaTXT As Label
+    Friend WithEvents lblEstado As Label
+    Friend WithEvents lblEstadoTXT As Label
 End Class

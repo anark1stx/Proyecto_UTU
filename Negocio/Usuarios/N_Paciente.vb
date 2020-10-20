@@ -17,4 +17,8 @@ Public Class N_Paciente
     Public Function ModificacionPaciente(u As E_Paciente) As Integer
         Return objDatos.AltaModPaciente(u, 1)
     End Function
+
+    Public Function RegistrarEstado(u As E_Paciente) As Integer
+        Return objDatos.AltaRegistroEstado(u)
+    End Function
 End Class

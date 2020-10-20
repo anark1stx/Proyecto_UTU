@@ -59,7 +59,6 @@ Public Class frmGestionPaciente
                 lblSexoTXT.Text = "Femenino"
         End Select
 
+        lblEstadoTXT.Text = PacienteLogeado.Estado.Nombre
     End Sub
-
-
 End Class
