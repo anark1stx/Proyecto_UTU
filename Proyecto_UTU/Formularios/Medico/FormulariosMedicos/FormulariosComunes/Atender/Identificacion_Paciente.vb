@@ -162,4 +162,8 @@ Public Class Identificacion_Paciente
             End Select
         End If
     End Sub
+
+    Private Sub btnVerConsulta_Click(sender As Object, e As EventArgs) Handles btnVerConsulta.Click
+        'abrir en una nueva ventana
+    End Sub
 End Class

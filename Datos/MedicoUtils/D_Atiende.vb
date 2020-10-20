@@ -13,7 +13,6 @@ Public Class D_Atiende
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaAtiende"
         }
-        Console.WriteLine("fechaaaaa: " & consulta.Fecha)
         cmd.Parameters.Add("FEC_C", MySqlDbType.DateTime).Value = consulta.Fecha
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = consulta.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = consulta.Medico.Cedula
@@ -30,9 +29,37 @@ Public Class D_Atiende
         End Try
         consulta.ID = cmd.Parameters("ID_C").Value
         Sesion.Cerrar(conexion)
-        Console.WriteLine("OUTPUT PARAMETER ID CONSULTA= " & consulta.ID)
+        Return AltaConsultaDeReferencia(consulta)
+    End Function
+
+    Public Function AltaConsultaDeReferencia(consulta As E_Atiende)
+        If Sesion.Conectar(conexion) <> 1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "AltaRef_c_previa"
+        }
+        cmd.Parameters.Add("IDC_ACTUAL", MySqlDbType.Int32).Value = consulta.ID
+        cmd.Parameters.Add("F_C_ACTUAL", MySqlDbType.DateTime).Value = consulta.Fecha
+        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = consulta.Paciente.Cedula
+        cmd.Parameters.Add("CI_M_A", MySqlDbType.Int32).Value = consulta.Medico.Cedula
+
+        cmd.Parameters.Add("IDC_REF", MySqlDbType.Int32).Value = consulta.ConsultaReferencia.ID
+        cmd.Parameters.Add("F_C_REF", MySqlDbType.DateTime).Value = consulta.ConsultaReferencia.Fecha
+        cmd.Parameters.Add("CI_M_R", MySqlDbType.Int32).Value = consulta.ConsultaReferencia.Medico.Cedula
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine("err ref c previa")
+            Sesion.Cerrar(conexion)
+            Return -2
+        End Try
         Return 1
     End Function
+
     Public Function ConsultarConsultasPendientes(CI_m As Integer) As List(Of E_Atiende)
         Dim leer As MySqlDataReader
         Dim Clist As New List(Of E_Atiende)
