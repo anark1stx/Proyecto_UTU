@@ -48,6 +48,9 @@ Partial Class Identificacion_Paciente
         Me.tblCedulaBuscar = New System.Windows.Forms.TableLayoutPanel()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
+        Me.pnlEstado = New System.Windows.Forms.Panel()
+        Me.btnActualizarEstado = New System.Windows.Forms.Button()
+        Me.txtEstado = New System.Windows.Forms.TextBox()
         Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregarLista = New System.Windows.Forms.Button()
         Me.imgsBtnEntrevistar = New System.Windows.Forms.ImageList(Me.components)
@@ -59,16 +62,13 @@ Partial Class Identificacion_Paciente
         Me.lblConsultasPrevias = New System.Windows.Forms.Label()
         Me.txtMotivoC = New System.Windows.Forms.TextBox()
         Me.lblMotivo = New System.Windows.Forms.Label()
-        Me.pnlEstado = New System.Windows.Forms.Panel()
-        Me.txtEstado = New System.Windows.Forms.TextBox()
-        Me.btnActualizarEstado = New System.Windows.Forms.Button()
         Me.tblDatosPaciente.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.tblCedulaBuscar.SuspendLayout()
+        Me.pnlEstado.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
         Me.pnlConsultasPrevias.SuspendLayout()
-        Me.pnlEstado.SuspendLayout()
         Me.SuspendLayout()
         '
         'tblDatosPaciente
@@ -388,6 +388,38 @@ Partial Class Identificacion_Paciente
         Me.txtCedulaPaciente.TabIndex = 112
         Me.txtCedulaPaciente.Tag = "noLimpiar"
         '
+        'pnlEstado
+        '
+        Me.pnlEstado.Controls.Add(Me.btnActualizarEstado)
+        Me.pnlEstado.Controls.Add(Me.txtEstado)
+        Me.pnlEstado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlEstado.Location = New System.Drawing.Point(296, 263)
+        Me.pnlEstado.Name = "pnlEstado"
+        Me.pnlEstado.Size = New System.Drawing.Size(480, 27)
+        Me.pnlEstado.TabIndex = 112
+        '
+        'btnActualizarEstado
+        '
+        Me.btnActualizarEstado.BackgroundImage = CType(resources.GetObject("btnActualizarEstado.BackgroundImage"), System.Drawing.Image)
+        Me.btnActualizarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnActualizarEstado.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnActualizarEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnActualizarEstado.Location = New System.Drawing.Point(441, 0)
+        Me.btnActualizarEstado.Name = "btnActualizarEstado"
+        Me.btnActualizarEstado.Size = New System.Drawing.Size(39, 27)
+        Me.btnActualizarEstado.TabIndex = 1
+        Me.btnActualizarEstado.UseVisualStyleBackColor = True
+        '
+        'txtEstado
+        '
+        Me.txtEstado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEstado.Location = New System.Drawing.Point(0, 0)
+        Me.txtEstado.MaxLength = 90
+        Me.txtEstado.Name = "txtEstado"
+        Me.txtEstado.Size = New System.Drawing.Size(480, 30)
+        Me.txtEstado.TabIndex = 0
+        '
         'tblAcciones
         '
         Me.tblAcciones.ColumnCount = 1
@@ -539,38 +571,6 @@ Partial Class Identificacion_Paciente
         Me.lblMotivo.TabIndex = 110
         Me.lblMotivo.Text = "Motivo de consulta"
         '
-        'pnlEstado
-        '
-        Me.pnlEstado.Controls.Add(Me.btnActualizarEstado)
-        Me.pnlEstado.Controls.Add(Me.txtEstado)
-        Me.pnlEstado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlEstado.Location = New System.Drawing.Point(296, 263)
-        Me.pnlEstado.Name = "pnlEstado"
-        Me.pnlEstado.Size = New System.Drawing.Size(480, 27)
-        Me.pnlEstado.TabIndex = 112
-        '
-        'txtEstado
-        '
-        Me.txtEstado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEstado.Location = New System.Drawing.Point(0, 0)
-        Me.txtEstado.MaxLength = 90
-        Me.txtEstado.Name = "txtEstado"
-        Me.txtEstado.Size = New System.Drawing.Size(480, 30)
-        Me.txtEstado.TabIndex = 0
-        '
-        'btnActualizarEstado
-        '
-        Me.btnActualizarEstado.BackgroundImage = CType(resources.GetObject("btnActualizarEstado.BackgroundImage"), System.Drawing.Image)
-        Me.btnActualizarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnActualizarEstado.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnActualizarEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnActualizarEstado.Location = New System.Drawing.Point(441, 0)
-        Me.btnActualizarEstado.Name = "btnActualizarEstado"
-        Me.btnActualizarEstado.Size = New System.Drawing.Size(39, 27)
-        Me.btnActualizarEstado.TabIndex = 1
-        Me.btnActualizarEstado.UseVisualStyleBackColor = True
-        '
         'Identificacion_Paciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -588,12 +588,12 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.PerformLayout()
         Me.tblCedulaBuscar.ResumeLayout(False)
         Me.tblCedulaBuscar.PerformLayout()
+        Me.pnlEstado.ResumeLayout(False)
+        Me.pnlEstado.PerformLayout()
         Me.tblAcciones.ResumeLayout(False)
         Me.tblAcciones.PerformLayout()
         Me.pnlConsultasPrevias.ResumeLayout(False)
         Me.pnlConsultasPrevias.PerformLayout()
-        Me.pnlEstado.ResumeLayout(False)
-        Me.pnlEstado.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

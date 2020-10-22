@@ -1,10 +1,28 @@
 ﻿Public Class E_Enfermedad
     Protected _nombre As String
     Protected _descripcion As String
+    Protected _f_etaria_min As Integer
+    Protected _f_etaria_max As Integer
     Protected _sintomas As New List(Of E_Sintoma)
     Protected _signos As New List(Of E_SignoClinico)
     Protected _errCode As Integer
 
+    Property FranjaEtariaMax As Integer
+        Get
+            Return _f_etaria_max
+        End Get
+        Set(value As Integer)
+            _f_etaria_max = value
+        End Set
+    End Property
+    Property FranjaEtariaMin As Integer
+        Get
+            Return _f_etaria_min
+        End Get
+        Set(value As Integer)
+            _f_etaria_min = value
+        End Set
+    End Property
     Property ErrCode As Integer
         Get
             Return _errCode

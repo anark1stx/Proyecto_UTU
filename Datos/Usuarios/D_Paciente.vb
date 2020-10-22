@@ -171,6 +171,7 @@ Public Class D_Paciente
             Console.WriteLine("mod paciente " & ex.Message)
             Return -5 'No se pudo crear/modificar paciente
         End Try
+        'hacer alta a la tabla de notificaciones indicando que hubo un cambio de etapa en el paciente.
         Sesion.Cerrar(conexion)
         If AltaRegistroEstado(u) <> 1 Then
             Return -6
@@ -215,6 +216,11 @@ Public Class D_Paciente
             Return -2
         End Try
 
+        '
+        'PENDIENTE:
+        'Hacer alta a la tabla de notificaciones cuando cambia el estado
+        '
+        '
         Return 1
     End Function
 

@@ -147,9 +147,7 @@ Public Class D_Atiende
         Else
             list.Add(New E_Atiende With {.ErrCode = -8})
         End If
-
         Sesion.Cerrar(conexion)
-
         Return list
     End Function
 

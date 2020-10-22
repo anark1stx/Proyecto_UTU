@@ -69,7 +69,7 @@ Public Class Identificacion_Paciente
     End Enum
 
     Sub CargarConsultas()
-        Select Case ConsultasPrevias(0).ID
+        Select Case ConsultasPrevias(0).ErrCode
             Case -8
                 cbConsultasPrevias.Text = "El paciente no tiene consultas previas"
                 btnReferenciaConsulta.Enabled = False

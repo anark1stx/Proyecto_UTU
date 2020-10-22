@@ -29,6 +29,9 @@ Public Class D_Enfermedad
 
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar).Value = enfermedad.Nombre
         cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160).Value = enfermedad.Descripcion
+        cmd.Parameters.Add("F_E_MIN", MySqlDbType.Int32).Value = enfermedad.FranjaEtariaMin
+        cmd.Parameters.Add("F_E_MAX", MySqlDbType.Int32).Value = enfermedad.FranjaEtariaMax
+
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
