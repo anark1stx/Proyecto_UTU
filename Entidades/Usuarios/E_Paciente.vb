@@ -76,15 +76,6 @@ Public Class E_Paciente
         End Set
     End Property
 
-    Property Etapa As Char
-        Get
-            Return _etapa
-        End Get
-        Set(value As Char)
-            _etapa = value
-        End Set
-    End Property
-
     Public Overrides Function ValidarMisDatos() As Boolean
 
         If Not MyBase.ValidarMisDatos() Then

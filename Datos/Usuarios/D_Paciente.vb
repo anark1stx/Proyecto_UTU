@@ -48,7 +48,6 @@ Public Class D_Paciente
                 u.FechaNacimiento = leer.GetDateTime("fecha_nac").ToShortDateString() 'esto es para que no salga con el formato: 6/9/2020 00:00:00
                 u.Ocupacion = leer.GetString("ocupacion")
                 u.Sexo = leer.GetChar("sexo")
-                u.Etapa = leer.GetChar("etapa")
                 listaTel.Add(leer.GetString("telefono"))
             End While
         Else
@@ -110,7 +109,6 @@ Public Class D_Paciente
                          .Ocupacion = leer.GetString("ocupacion"),
                          .Estado_civil = leer.GetString("e_civil"),
                          .FechaNacimiento = leer.GetDateTime("fecha_nac").ToShortDateString(),
-                         .Etapa = leer.GetChar("etapa"),
                          .Sexo = leer.GetChar("sexo")
                     }
                     lastU.TelefonosLista.Add(leer.GetString("telefono"))
@@ -162,7 +160,6 @@ Public Class D_Paciente
         cmd.Parameters.Add("OCUP", MySqlDbType.VarChar, 50).Value = u.Ocupacion
         cmd.Parameters.Add("E_C", MySqlDbType.VarChar, 7).Value = u.Estado_civil
         cmd.Parameters.Add("F_NAC", MySqlDbType.DateTime, 50).Value = u.FechaNacimiento
-        cmd.Parameters.Add("ET", MySqlDbType.String).Value = u.Etapa
         cmd.Parameters.Add("S", MySqlDbType.String).Value = u.Sexo
         Try
             cmd.ExecuteNonQuery()
@@ -215,12 +212,6 @@ Public Class D_Paciente
             Sesion.Cerrar(conexion)
             Return -2
         End Try
-
-        '
-        'PENDIENTE:
-        'Hacer alta a la tabla de notificaciones cuando cambia el estado
-        '
-        '
         Return 1
     End Function
 

@@ -39,7 +39,6 @@ Public Class frmGestionPaciente
         lblFechaNacTXT.Text = PacienteLogeado.FechaNacimiento.ToShortDateString()
         lblOcupacionTXT.Text = PacienteLogeado.Ocupacion
         lblE_CivilTXT.Text = PacienteLogeado.Estado_civil
-        lblEtapaTXT.Text = PacienteLogeado.Etapa
         pBoxFotoPaciente.Image = Bytes2Image(PacienteLogeado.Foto)
 
         lblTelefonoTXT.Text = ""

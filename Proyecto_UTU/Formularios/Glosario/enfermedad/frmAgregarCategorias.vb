@@ -2,7 +2,7 @@
 Imports Utilidades
 Imports Negocio
 Public Class frmAgregarCategorias
-    Dim ncat As New 
+    Dim ncat As New N_Categoria
     Protected _listacats As New List(Of E_Categoria)
 
     Property ListaCategorias As List(Of E_Categoria)

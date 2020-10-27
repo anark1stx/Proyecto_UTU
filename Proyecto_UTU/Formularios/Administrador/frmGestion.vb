@@ -496,7 +496,6 @@ Public Class frmGestion
             .Activo = u.Activo,
             .Correo = u.Correo,
             .TelefonosLista = u.TelefonosLista,
-            .Etapa = cbEtapa.SelectedItem.ToString(),
             .Estado = New E_Estado With {.Nombre = lblEstadoTXT.Text, .Fecha = Now()},
             .Estado_civil = cbEstadoCivil.SelectedItem().ToString(),
             .FechaNacimiento = dtpFechaNacimiento.Value,
@@ -900,7 +899,6 @@ Public Class frmGestion
             dtpFechaNacimiento.DataBindings.Add("Value", obj, "FechaNacimiento", True, DataSourceUpdateMode.Never)
             lblEstadoTXT.Text = obj.Estado.Nombre
             cbEstadoCivil.SelectedItem = obj.Estado_civil
-            cbEtapa.SelectedItem = obj.Etapa
             Select Case obj.Sexo
                 Case "M"
                     cbSexo.SelectedItem = "Masculino"
