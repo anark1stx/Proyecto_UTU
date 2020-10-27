@@ -5,7 +5,18 @@
     Protected _f_etaria_max As Integer
     Protected _sintomas As New List(Of E_Sintoma)
     Protected _signos As New List(Of E_SignoClinico)
+    Protected _categorias As New List(Of E_Categoria)
     Protected _errCode As Integer
+
+    Property Categorias As List(Of E_Categoria)
+        Get
+            Return _categorias
+        End Get
+        Set(value As List(Of E_Categoria))
+            _categorias = value
+        End Set
+    End Property
+
 
     Property FranjaEtariaMax As Integer
         Get

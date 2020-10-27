@@ -36,6 +36,7 @@ Public Class D_Enfermedad
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine("err alta enfermedad" & ex.Message)
+            Sesion.Cerrar(conexion)
             Return -2
         End Try
         Sesion.Cerrar(conexion)
@@ -165,6 +166,117 @@ Public Class D_Enfermedad
     End Function
     Public Function SugerirEnfermedadSegunSignosC(scList As List(Of E_SignoClinico)) As E_Enfermedad
 
+    End Function
+
+    Public Function BuscarClasificacion(enf As E_Enfermedad) As Integer
+        Dim list As New List(Of E_Categoria)
+        Dim leer As MySqlDataReader
+        If Sesion.Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarClasificacion"
+        }
+
+        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = enf.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            Return -2
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                list.Add(New E_Categoria With {
+                .Nombre = leer.GetString("nombre_categoria")
+                })
+            End While
+            enf.Categorias = list
+        Else
+            Sesion.Cerrar(conexion)
+            Return -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return 1
+    End Function
+
+    Public Function BuscarSintomasEnfermedad(enf As E_Enfermedad) As Integer
+        Dim list As New List(Of E_Sintoma)
+        Dim leer As MySqlDataReader
+        If Sesion.Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarSintomasEnfermedad"
+        }
+
+        cmd.Parameters.Add("ENF", MySqlDbType.VarChar, 160).Value = enf.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            Return -2
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                list.Add(New E_Sintoma With {
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+            enf.Sintomas = list
+        Else
+            Sesion.Cerrar(conexion)
+            Return -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return 1
+    End Function
+
+    Public Function BuscarSignocCEnfermedad(enf As E_Enfermedad) As Integer
+        Dim list As New List(Of E_SignoClinico)
+        Dim leer As MySqlDataReader
+        If Sesion.Conectar(conexion) = -1 Then
+            Return -1
+        End If
+
+        Dim cmd As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "BuscarSignosCEnfermedad"
+        }
+
+        cmd.Parameters.Add("ENF", MySqlDbType.VarChar, 160).Value = enf.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            Return -2
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                list.Add(New E_SignoClinico With {
+                .Nombre = leer.GetString("nombre")
+                })
+            End While
+            enf.SignosClinicos = list
+        Else
+            Sesion.Cerrar(conexion)
+            Return -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return 1
     End Function
 
 End Class

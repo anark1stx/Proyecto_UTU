@@ -5,14 +5,13 @@ Public Class E_Paciente
     Protected _sexo As Char
     Protected _ocupacion As String
     Protected _estado_civil As String
-    Protected _etapa As Char
     Protected _estado As E_Estado
 
     Sub New()
 
     End Sub
 
-    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As Date, sexo As Char, ocupacion As String, estado_civil As String, foto As Byte(), etapa As Char, rol As String, activo As Boolean, estado As E_Estado)
+    Sub New(cedula As String, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, fechaNacimiento As Date, sexo As Char, ocupacion As String, estado_civil As String, foto As Byte(), rol As String, activo As Boolean, estado As E_Estado)
         _nombre1 = nombre1
         _nombre2 = nombre2
         _apellido1 = apellido1
@@ -28,7 +27,6 @@ Public Class E_Paciente
         _ocupacion = ocupacion
         _estado_civil = estado_civil
         _foto = foto
-        _etapa = etapa
         _rol = rol
         _activo = activo
         _estado = estado

@@ -487,4 +487,43 @@ Public Module mdlUtilidades
         End Select
     End Function
 
+    Public Sub readOnlyControl(c As Control, _readonly As Boolean)
+        Select Case c.GetType()
+            Case GetType(ComboBox)
+                c = DirectCast(c, ComboBox)
+                c.Enabled = Not _readonly
+
+            Case GetType(DateTimePicker)
+                c.Enabled = Not _readonly
+            Case GetType(TextBox)
+
+                DirectCast(c, TextBox).ReadOnly = _readonly
+
+                If _readonly Then
+                    c.BackColor = Color.LightBlue
+                    DirectCast(c, TextBox).BorderStyle = BorderStyle.None
+                Else
+                    c.BackColor = Color.White
+                    DirectCast(c, TextBox).BorderStyle = BorderStyle.Fixed3D
+                End If
+
+            Case GetType(MaskedTextBox)
+                DirectCast(c, MaskedTextBox).ReadOnly = _readonly
+
+                If _readonly Then
+                    c.BackColor = Color.LightBlue
+                    DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.None
+                Else
+                    c.BackColor = Color.White
+                    DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.Fixed3D
+                End If
+        End Select
+    End Sub
+
+    Public Sub loopReadOnly(contenedor As Control, _readonly As Boolean)
+        For Each c As Control In contenedor.Controls
+            readOnlyControl(c, _readonly)
+        Next
+    End Sub
+
 End Module

@@ -1,6 +1,17 @@
 ﻿Public Class E_Categoria
-    Protected _nombre
-    Protected _descripcion
+    Protected _nombre As String
+    Protected _descripcion As String
+    Protected _errCode As Integer
+
+    Property ErrCode As Integer
+        Get
+            Return _errCode
+        End Get
+        Set(value As Integer)
+            _errCode = value
+        End Set
+    End Property
+
     Property Nombre As String
         Get
             Return _nombre

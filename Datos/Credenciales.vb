@@ -17,7 +17,7 @@ Module Credenciales
         Sub New(usr As String, pwd As String)
             _usr = usr
             _pwd = pwd
-            _str = String.Format("SERVER=archivos.overclode.sibim;DATABASE=sibim;UID={0}; PWD={1};", _usr, _pwd)
+            _str = String.Format("SERVER=archivos;DATABASE=sibim;UID={0}; PWD={1};", _usr, _pwd)
         End Sub
         Public Function Conectar(ByVal conn As MySqlConnection) As Integer 'devuelve codigo de exito dependiendo de si pudo abrir la conexion o no.
             Try

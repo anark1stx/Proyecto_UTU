@@ -172,8 +172,6 @@ Public Class frmGestion
     End Sub
 
     Public Sub ConvertirProps()
-
-        Dim news As New List(Of Control)
         Dim _readonly As Boolean = True
 
         Select Case Mode
@@ -183,68 +181,23 @@ Public Class frmGestion
                 _readonly = True 'Todo en textboxes pero con fondo celeste, como si fuera label.
         End Select
 
-        Dim l As New List(Of Control)
         For Each c As Control In ControlesUsuario
-            l.Add(convertirC(c, _readonly))
+            readOnlyControl(c, _readonly)
         Next
-        ControlesUsuario = l
 
         Select Case Usuario
             Case TipoUsuario.Paciente
-                Dim l2 As New List(Of Control)
                 For Each c As Control In ControlesPaciente
-                    l2.Add(convertirC(c, _readonly))
+                    readOnlyControl(c, _readonly)
                 Next
-                ControlesPaciente = l2
             Case TipoUsuario.Medico
                 Dim l2 As New List(Of Control)
                 For Each c As Control In ControlesMedico
-                    l2.Add(convertirC(c, _readonly))
+                    readOnlyControl(c, _readonly)
                 Next
-                ControlesMedico = l2
         End Select
 
     End Sub
-
-    Public Function convertirC(c As Control, _readonly As Boolean) As Control
-        Select Case c.GetType()
-            Case GetType(ComboBox)
-                c = DirectCast(c, ComboBox)
-                c.Enabled = Not _readonly
-
-                Return c
-
-            Case GetType(DateTimePicker)
-                c.Enabled = Not _readonly
-                Return c
-            Case GetType(TextBox)
-
-                DirectCast(c, TextBox).ReadOnly = _readonly
-
-                If _readonly Then
-                    c.BackColor = Color.LightBlue
-                    DirectCast(c, TextBox).BorderStyle = BorderStyle.None
-                Else
-                    c.BackColor = Color.White
-                    DirectCast(c, TextBox).BorderStyle = BorderStyle.Fixed3D
-                End If
-                Return c
-
-            Case GetType(MaskedTextBox)
-                DirectCast(c, MaskedTextBox).ReadOnly = _readonly
-
-                If _readonly Then
-                    c.BackColor = Color.LightBlue
-                    DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.None
-                Else
-                    c.BackColor = Color.White
-                    DirectCast(c, MaskedTextBox).BorderStyle = BorderStyle.Fixed3D
-                End If
-                Return c
-            Case Else
-                Return c
-        End Select
-    End Function
 
     Public Sub RRefresh()
         ControlesMedico = BASEcontrolesM

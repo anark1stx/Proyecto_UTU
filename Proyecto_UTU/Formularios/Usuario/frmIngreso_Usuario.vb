@@ -74,7 +74,6 @@ Public Class frmIngreso_Usuario
             Exit Sub
         Else
             Controls.Clear()
-            Me.components.Dispose()
             UpdateLang("es-ES")
             InitializeComponent()
         End If

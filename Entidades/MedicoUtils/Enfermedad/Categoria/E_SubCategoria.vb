@@ -20,6 +20,10 @@
         End Set
     End Property
 
+    Sub New()
+
+    End Sub
+
     Sub New(categoria_padre As E_Categoria, sub_cat As E_Categoria)
         _categoria_padre = categoria_padre
         _sub_cat = sub_cat
