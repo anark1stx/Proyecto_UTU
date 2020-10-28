@@ -2,27 +2,18 @@
 Imports MySql.Data.MySqlClient
 Public Class D_SignoClinico
     Dim conexion As New MySqlConnection
-    Public Function AltaModSignoClinico(Signo As E_SignoClinico, altaomod As Boolean) As Integer
+    Public Function AltaSignoClinico(Signo As E_SignoClinico) As Integer
         If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
         Dim cmd As MySqlCommand
-        If altaomod Then '1 = mod, 0 = alta
-            cmd = New MySqlCommand With {
-            .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaSignoClinicoDescripcion",
-            .Connection = conexion
-            }
-        Else
-            cmd = New MySqlCommand With {
+        cmd = New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaSignoClinico", '*Alta a la tabla Signo.
             .Connection = conexion
-            }
-            cmd.Parameters.Add("ID_SC", MySqlDbType.Int32).Direction = ParameterDirection.Output
-        End If
+        }
+        cmd.Parameters.Add("ID_SC", MySqlDbType.Int32).Direction = ParameterDirection.Output
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = Signo.Nombre
-        cmd.Parameters.Add("DESCR", MySqlDbType.VarChar, 160).Value = Signo.Descripcion
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
@@ -35,7 +26,7 @@ Public Class D_SignoClinico
         Return 1
     End Function
     Public Function AltaExamenFisico(Signo As E_SignoClinico, consulta As E_Atiende) As Integer
-        Dim resultAltaSg = AltaModSignoClinico(Signo, 0)
+        Dim resultAltaSg = AltaSignoClinico(Signo)
         If resultAltaSg <> 1 Then 'tal vez el signo clinico no este indexado en la base de datos, si asi es el caso lo damos de alta
             Return resultAltaSg
         End If
@@ -99,74 +90,6 @@ Public Class D_SignoClinico
             End While
         End If
         Return signos
-    End Function
-
-    Public Function ListarSignoCs(nombre As String) As List(Of E_SignoClinico) 'retorno una lista ya que voy a emplear LIKE para la busqueda, entonces puede ser que encuentre varias coincidencias
-        Dim leer As MySqlDataReader
-        Dim lSignoC As New List(Of E_SignoClinico)
-        If Sesion.Conectar(conexion) = -1 Then
-            lSignoC.Add(New E_SignoClinico With {.ErrCode = -1})
-            Return lSignoC
-        End If
-
-        Dim cmd As New MySqlCommand With {
-        .Connection = conexion,
-        .CommandType = CommandType.StoredProcedure,
-        .CommandText = "BuscarSignosCxNombre"
-        }
-
-        cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 160).Value = nombre
-
-        Try
-            leer = cmd.ExecuteReader()
-        Catch ex As Exception
-            Sesion.Cerrar(conexion)
-            lSignoC.Add(New E_SignoClinico With {.ErrCode = -2})
-            Return lSignoC
-        End Try
-
-        If leer.HasRows Then
-            While leer.Read()
-                lSignoC.Add(New E_SignoClinico With {
-                .ID = leer.GetInt32("ID"),
-                .Nombre = leer.GetString("nombre")
-                })
-            End While
-        End If
-        Sesion.Cerrar(conexion)
-        Return lSignoC
-    End Function
-
-    Public Function ConsultarDescripcionSignoC(signoc As E_SignoClinico) As Integer
-        Dim leer As MySqlDataReader
-        If Sesion.Conectar(conexion) = -1 Then
-            Return -1
-        End If
-
-        Dim cmd As New MySqlCommand With {
-        .Connection = conexion,
-        .CommandType = CommandType.StoredProcedure,
-        .CommandText = "ConsultarDescripcionSignoC"
-        }
-
-        cmd.Parameters.Add("ID_S", MySqlDbType.Int32).Value = signoc.ID
-
-        Try
-            leer = cmd.ExecuteReader()
-        Catch ex As Exception
-            Sesion.Cerrar(conexion)
-            Return -2
-        End Try
-
-        If leer.HasRows Then
-            While leer.Read()
-                signoc.Descripcion = leer.GetString("descripcion")
-            End While
-        Else
-            Return -8 'no hay descripcion disponible
-        End If
-        Sesion.Cerrar(conexion)
-        Return 1
     End Function
 
 End Class

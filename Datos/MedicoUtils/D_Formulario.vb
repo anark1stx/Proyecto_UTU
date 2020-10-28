@@ -401,7 +401,7 @@ Public Class D_Formulario
         End If
 
         Dim df As New D_Enfermedad
-        If df.AltaModEnfermedad(form.Enfermedad, 0) <> 1 Then
+        If df.AltaEnfermedad(form.Enfermedad) <> 1 Then
             Return -2
         End If
 

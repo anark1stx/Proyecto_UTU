@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MedicoUtils\N_Atiende.vb" />
-    <Compile Include="MedicoUtils\N_Categoria.vb" />
     <Compile Include="MedicoUtils\N_Enfermedad.vb" />
     <Compile Include="MedicoUtils\N_Formulario.vb" />
     <Compile Include="MedicoUtils\N_SignoClinico.vb" />

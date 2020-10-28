@@ -85,30 +85,6 @@
     <Compile Include="Formularios\Administrador\frmGestion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Glosario\enfermedad\frmAgregarCategorias.Designer.vb">
-      <DependentUpon>frmAgregarCategorias.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Glosario\enfermedad\frmAgregarCategorias.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Glosario\enfermedad\frmCategoriaEnf.Designer.vb">
-      <DependentUpon>frmCategoriaEnf.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Glosario\enfermedad\frmCategoriaEnf.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Formularios\Glosario\frmGlosarioContenedor.Designer.vb">
-      <DependentUpon>frmGlosarioContenedor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Glosario\frmGlosarioContenedor.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Glosario\enfermedad\pnlEnfermedad.Designer.vb">
-      <DependentUpon>pnlEnfermedad.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Glosario\enfermedad\pnlEnfermedad.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Formularios\Medico\FormularioEntrevista.Designer.vb">
       <DependentUpon>FormularioEntrevista.vb</DependentUpon>
     </Compile>
@@ -321,21 +297,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Glosario\enfermedad\frmAgregarCategorias.resx">
-      <DependentUpon>frmAgregarCategorias.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Glosario\enfermedad\frmCategoriaEnf.resx">
-      <DependentUpon>frmCategoriaEnf.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Glosario\frmGlosarioContenedor.es-UY.resx">
-      <DependentUpon>frmGlosarioContenedor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Glosario\frmGlosarioContenedor.resx">
-      <DependentUpon>frmGlosarioContenedor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Glosario\enfermedad\pnlEnfermedad.resx">
-      <DependentUpon>pnlEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormularioEntrevista.resx">
       <DependentUpon>FormularioEntrevista.vb</DependentUpon>

@@ -43,13 +43,7 @@ Public Class D_Atiende
         .CommandText = "AltaRef_c_previa"
         }
         cmd.Parameters.Add("IDC_ACTUAL", MySqlDbType.Int32).Value = consulta.ID
-        cmd.Parameters.Add("F_C_ACTUAL", MySqlDbType.DateTime).Value = consulta.Fecha
-        cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = consulta.Paciente.Cedula
-        cmd.Parameters.Add("CI_M_A", MySqlDbType.Int32).Value = consulta.Medico.Cedula
-
         cmd.Parameters.Add("IDC_REF", MySqlDbType.Int32).Value = consulta.ConsultaReferencia.ID
-        cmd.Parameters.Add("F_C_REF", MySqlDbType.DateTime).Value = consulta.ConsultaReferencia.Fecha
-        cmd.Parameters.Add("CI_M_R", MySqlDbType.Int32).Value = consulta.ConsultaReferencia.Medico.Cedula
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
