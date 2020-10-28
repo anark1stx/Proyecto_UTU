@@ -15,6 +15,7 @@ Public Class D_Corresponde
 
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = crr.Medico.Cedula
         cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = crr.Auxiliar.Cedula
+        cmd.Parameters.Add("FEC", MySqlDbType.DateTime).Value = crr.Fecha
 
         Try
             cmd.ExecuteNonQuery()

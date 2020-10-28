@@ -145,7 +145,7 @@ Public Class Identificacion_Paciente
     End Sub
 
     Private Sub btnActualizarEstado_Click(sender As Object, e As EventArgs) Handles btnActualizarEstado.Click
-        If Not check_regex(txtEstado.Text, RegexAlfaNumericoAcentosEspacios) Then
+        If Not check_regex(txtEstado.Text, RegexAlfaNumericoAcentosEspacios, True) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         Else

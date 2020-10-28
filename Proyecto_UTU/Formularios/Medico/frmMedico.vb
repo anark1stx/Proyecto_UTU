@@ -147,7 +147,7 @@ Public Class frmMedico
                 frmDefinirConsulta.ActiveControl = frmDefinirConsulta.txtNomConsulta
                 frmDefinirConsulta.ShowDialog()
 
-                If String.IsNullOrWhiteSpace(frmDefinirConsulta.NombreConsulta) Or Not check_regex(frmDefinirConsulta.NombreConsulta, RegexAlfaNumericoEspaciosPuntosComasTildes) Or Not check_Largo(frmDefinirConsulta.txtNomConsulta.Text, 5, 120, True) Then
+                If Not check_regex(frmDefinirConsulta.NombreConsulta, RegexAlfaNumericoEspaciosPuntosComasTildes, True) Or Not check_Largo(frmDefinirConsulta.txtNomConsulta.Text, 5, 120, True) Then
                     MessageBox.Show("No se registró un nombre de consulta válido. Verifique.", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     frmIdentificacion.Enabled = False
                     Exit Sub
@@ -349,7 +349,7 @@ Public Class frmMedico
             MessageBox.Show("Ingrese un motivo de consulta. ", "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If Not check_regex(frmIdentificacion.txtMotivoC.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+        If Not check_regex(frmIdentificacion.txtMotivoC.Text, RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If

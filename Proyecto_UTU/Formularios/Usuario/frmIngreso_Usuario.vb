@@ -5,7 +5,7 @@ Public Class frmIngreso_Usuario
     Dim n_u_mysql As New N_UsuarioMYSQL
     Private Async Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
-        If Not check_Largo(txtIngresarCi.Text, 3, 30, True) Or Not check_regex(txtIngresarCi.Text, RegexAlfaNumerico) Or Not check_Largo(txtIngresarContrasena.Text, 8, 30, True) Then '8 las cedulas, 30 el maximo de largo que admitimos en la BD, para la contrasena el minimo de caracteres es 8.
+        If Not check_Largo(txtIngresarCi.Text, 3, 30, True) Or Not check_regex(txtIngresarCi.Text, RegexAlfaNumerico, True) Or Not check_Largo(txtIngresarContrasena.Text, 8, 30, True) Then '8 las cedulas, 30 el maximo de largo que admitimos en la BD, para la contrasena el minimo de caracteres es 8.
             MessageBox.Show("Sus credenciales de ingreso no son válidas.", "Verifique su usuario y contraseña.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             lblMensajeErrorCI.Visible = True
         Else

@@ -9,4 +9,8 @@
         Cancelar = False
         Me.Hide()
     End Sub
+
+    Private Sub frmDefinirFechaAsignacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpHora.CustomFormat = "hh:mm tt"
+    End Sub
 End Class

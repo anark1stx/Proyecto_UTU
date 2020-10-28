@@ -11,20 +11,15 @@ Public Class frmGestionPMedico
         tblPMedico.Controls.Add(elegirAuxiliar, 0, 1)
         elegirMedico.Visible = True
         elegirAuxiliar.Visible = True
-        AddHandler elegirMedico.dgwUsuarios.SelectionChanged, AddressOf cambiar
-        AddHandler elegirAuxiliar.dgwUsuarios.SelectionChanged, AddressOf cambiar
         Me.SetBounds(0, 0, Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height)
         Me.MaximizeBox = False
     End Sub
-    Sub cambiar()
-        MsgBox("cambio")
-    End Sub
     Private Sub btnAgregarAsignar_Click(sender As Object, e As EventArgs) Handles btnAgregarAsignar.Click
-        If String.IsNullOrEmpty(elegirMedico.lblCedulaTXT.Text) Then
+        If elegirMedico.MedicoSelected.Cedula = 0 Then
             MessageBox.Show("Seleccione un médico primero.", "Falta proporcionar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If String.IsNullOrEmpty(elegirAuxiliar.lblCedulaTXT.Text) Then
+        If elegirAuxiliar.AuxiliarSelected.Cedula = 0 Then
             MessageBox.Show("Seleccione un auxiliar primero.", "Falta proporcionar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If

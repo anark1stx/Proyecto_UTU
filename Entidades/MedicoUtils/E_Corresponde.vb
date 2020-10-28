@@ -1,6 +1,6 @@
 ﻿Public Class E_Corresponde
-    Property Medico As E_Medico
-    Property Auxiliar As E_Usuario
+    Property Medico As New E_Medico
+    Property Auxiliar As New E_Usuario
     Property Fecha As Date
     Property ErrCode As Integer
 

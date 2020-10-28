@@ -56,9 +56,10 @@ Partial Class frmDefinirFechaAsignacion
         'dtpHora
         '
         Me.dtpHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpHora.Location = New System.Drawing.Point(101, 69)
         Me.dtpHora.Name = "dtpHora"
+        Me.dtpHora.ShowUpDown = True
         Me.dtpHora.Size = New System.Drawing.Size(699, 38)
         Me.dtpHora.TabIndex = 7
         '

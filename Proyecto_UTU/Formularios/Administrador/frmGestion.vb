@@ -13,8 +13,8 @@ Public Class frmGestion
     Dim mList As New List(Of E_Medico)
     Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
-    Property MedicoSelected As E_Medico
-    Property AuxiliarSelected As E_Usuario
+    Property MedicoSelected As New E_Medico
+    Property AuxiliarSelected As New E_Usuario
     Public Enum Accion
         Alta
         Baja
@@ -696,7 +696,7 @@ Public Class frmGestion
                         pList.Add(p)
                         ci_valida = True
                     Case Filtro.Apellido
-                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos, True) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                             Exit Sub
@@ -754,7 +754,7 @@ Public Class frmGestion
                         mList.Add(m)
                         ci_valida = True
                     Case Filtro.Apellido
-                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos, True) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -780,7 +780,7 @@ Public Class frmGestion
                         mList.Add(m)
                         ci_valida = True
                     Case Filtro.Especialidad
-                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos, True) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -836,7 +836,7 @@ Public Class frmGestion
                         aList.Add(a)
                         ci_valida = True
                     Case Filtro.Apellido
-                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos) Then
+                        If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos, True) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
                         End If
@@ -865,7 +865,6 @@ Public Class frmGestion
     End Sub
 
     Private Sub basicBindings(obj As E_Usuario)
-        Console.WriteLine("Binding")
         Try
             lblCedulaTXT.DataBindings.Add("Text", obj, "Cedula", False, DataSourceUpdateMode.Never)
             lblNombre1TXT.DataBindings.Add("Text", obj, "Nombre1", False, DataSourceUpdateMode.Never)
@@ -943,7 +942,6 @@ Public Class frmGestion
             Case TipoUsuario.Auxiliar
                 Dim a = aList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(a)
-                MedicoBindings(a)
                 ci_valida = True
                 AuxiliarSelected = a
         End Select

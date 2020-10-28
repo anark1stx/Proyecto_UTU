@@ -275,9 +275,13 @@ Public Module mdlUtilidades
 
     End Function
 
-    Public Function check_regex(propiedad As String, regex As Regex) As Boolean
+    Public Function check_regex(propiedad As String, regex As Regex, required As Boolean) As Boolean
         If String.IsNullOrEmpty(propiedad) Then
-            Return 0
+            If Not required Then
+                Return 1
+            Else
+                Return 0
+            End If
         End If
 
         If regex.IsMatch(propiedad) Then
@@ -311,12 +315,12 @@ Public Module mdlUtilidades
             optMsg = "Verifique que cumpla con el siguiente formato: usuario@dominio.com, recuerde que el mínimo de caracteres que tiene un usuario de correo son 6."
             Return 0
         End If
-        If Not check_regex(correo, RegexCorreo) Then
+        If Not check_regex(correo, RegexCorreo, True) Then
             Return 0
         End If
         Dim correo_antes_arroba As String = correo.Substring(0, correo.IndexOf("@"))
 
-        If Not check_regex(correo_antes_arroba, RegexAlfaNumericoPuntos) Then
+        If Not check_regex(correo_antes_arroba, RegexAlfaNumericoPuntos, True) Then
             optMsg = "Hay Caracteres inválidos en su correo."
             Return 0
         End If
@@ -434,7 +438,7 @@ Public Module mdlUtilidades
         If direccion.Count <> 2 Then
             Return 0
         Else
-            If Not check_regex(direccion(0), RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+            If Not check_regex(direccion(0), RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
                 optMsg = "Caractéres inválidos"
                 Return 0
             End If

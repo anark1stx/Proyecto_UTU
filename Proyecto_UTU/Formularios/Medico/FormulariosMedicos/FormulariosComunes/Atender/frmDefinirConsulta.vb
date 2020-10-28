@@ -68,7 +68,7 @@ Public Class frmDefinirConsulta
                 Exit Sub
             End If
 
-            If Not check_regex(txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+            If Not check_regex(txtNomConsulta.Text, RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
                 MessageBox.Show(MensajeDeErrorCaracteres(), "Se detectaron caracteres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If

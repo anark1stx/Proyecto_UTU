@@ -42,7 +42,7 @@ Public Class E_Medico
             If Not check_Largo(es, 3, 50, True) Then
                 Me.ErrCode = "Especialidad: " & es & " " & MensajeDeErrorLongitud(3, 50)
                 Return 0
-                If Not check_regex(es, RegexAlfaNumericoAcentosEspacios) Then
+                If Not check_regex(es, RegexAlfaNumericoAcentosEspacios, True) Then
                     Me.ErrCode = "Especialidad: " & es & ". " & optMsg
                     Return 0
                 End If

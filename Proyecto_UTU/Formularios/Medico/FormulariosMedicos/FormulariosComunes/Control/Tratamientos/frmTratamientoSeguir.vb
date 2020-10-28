@@ -148,7 +148,7 @@ Public Class frmTratamientoSeguir
             MessageBox.Show(MensajeDeErrorLongitud(10, 3600), "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If Not check_regex(txtSeguimiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes) Then
+        If Not check_regex(txtSeguimiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -207,7 +207,7 @@ Public Class frmTratamientoSeguir
             MessageBox.Show("Escriba el resultado primero", "Falta proveer información", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If Not check_regex(txtResultado.Text, RegexLiteralAcentos) Then
+        If Not check_regex(txtResultado.Text, RegexLiteralAcentos, True) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Caracteres inválidos detectados.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If

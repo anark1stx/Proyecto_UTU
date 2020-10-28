@@ -85,7 +85,7 @@ Public Class E_Paciente
                 Me.ErrCode = "Ocupación: " & MensajeDeErrorLongitud(5, 30)
                 Return 0
             End If
-            If Not check_regex(Me.Ocupacion, RegexAlfaNumericoAcentosEspacios) Then
+            If Not check_regex(Me.Ocupacion, RegexAlfaNumericoAcentosEspacios, True) Then
                 Me.ErrCode = "Ocupación: " & MensajeDeErrorLongitud(5, 30)
                 Return 0
             End If
@@ -93,7 +93,7 @@ Public Class E_Paciente
                 Me.ErrCode = "Estado: " & MensajeDeErrorLongitud(5, 30)
                 Return 0
             End If
-            If Not check_regex(Me.Estado.Nombre, RegexAlfaNumericoAcentosEspacios) Then
+            If Not check_regex(Me.Estado.Nombre, RegexAlfaNumericoAcentosEspacios, True) Then
                 Me.ErrCode = "Estado: " & MensajeDeErrorCaracteres()
                 Return 0
             End If
