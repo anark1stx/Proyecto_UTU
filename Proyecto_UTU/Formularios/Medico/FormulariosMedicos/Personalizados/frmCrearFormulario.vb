@@ -74,13 +74,17 @@ Public Class frmCrearFormulario
             For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
                 listaP.Add(pyr.Pregunta)
             Next
-            TipoDeTxt.cbTipoDeDato.DataSource = listaP
-            TipoDeTxt.cbTipoDeDato.DisplayMember = "Text"
-            TipoDeTxt.cbTipoDeDato.ValueMember = "Tag"
+            TipoDeTxt.cbPreguntas.DataSource = listaP
+            TipoDeTxt.cbPreguntas.DisplayMember = "Text"
+            TipoDeTxt.cbPreguntas.ValueMember = "Tag"
             TipoDeTxt.ShowDialog()
-            If TipoDeTxt.cbTipoDeDato.SelectedIndex <> -1 Then
-                _instancia.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue
-                frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbTipoDeDato.SelectedValue).Respuesta = _instancia
+            If TipoDeTxt.cbPreguntas.SelectedIndex <> -1 Then
+                _instancia.Tag = TipoDeTxt.cbPreguntas.SelectedValue
+                frmPlano.PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = TipoDeTxt.cbPreguntas.SelectedValue).Respuesta = _instancia
+            Else
+                MessageBox.Show("Para agregar un campo de respuesta debe asignarle una pregunta", "", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                _instancia = Nothing
+                Exit Sub
             End If
             setType()
         Else
@@ -288,8 +292,8 @@ Public Class frmCrearFormulario
                 _instancia.ForeColor = Color.Black
         End Select
         frmPlano.Controls.Add(_instancia)
-        Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
-        Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.
+        Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width)
+        Dim marginY As Double = _instancia.Size.Height / 2
 
         _instancia.Location -= New Point(marginX, marginY)
     End Sub

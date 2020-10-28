@@ -68,15 +68,15 @@ Public Class formularioPlano
                     listaP.Add(pyr.Pregunta)
                 Next
 
-                txtBox.cbTipoDeDato.DataSource = listaP
-                txtBox.cbTipoDeDato.DisplayMember = "Text"
-                txtBox.cbTipoDeDato.ValueMember = "Tag"
+                txtBox.cbPreguntas.DataSource = listaP
+                txtBox.cbPreguntas.DisplayMember = "Text"
+                txtBox.cbPreguntas.ValueMember = "Tag"
                 txtBox.ShowDialog()
-                c.Tag = txtBox.cbTipoDeDato.SelectedValue
+                c.Tag = txtBox.cbPreguntas.SelectedValue
                 If c.Tag Is String.Empty Then
                     Exit Sub
                 Else
-                    PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = txtBox.cbTipoDeDato.SelectedValue).Respuesta = c
+                    PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = txtBox.cbPreguntas.SelectedValue).Respuesta = c
                 End If
                 Select Case c.GetType()
                     Case GetType(ComboBox)

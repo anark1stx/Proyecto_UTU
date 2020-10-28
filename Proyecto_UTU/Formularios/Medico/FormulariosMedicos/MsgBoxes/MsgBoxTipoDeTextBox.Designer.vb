@@ -23,7 +23,7 @@ Partial Class MsgBoxTipoDeTextBox
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lblSeleccioneTipoDeDato = New System.Windows.Forms.Label()
-        Me.cbTipoDeDato = New System.Windows.Forms.ComboBox()
+        Me.cbPreguntas = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblSeleccioneTipoDeDato
@@ -36,16 +36,16 @@ Partial Class MsgBoxTipoDeTextBox
         Me.lblSeleccioneTipoDeDato.Text = "Seleccione la pregunta que será respondida en este campo"
         Me.lblSeleccioneTipoDeDato.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'cbTipoDeDato
+        'cbPreguntas
         '
-        Me.cbTipoDeDato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbTipoDeDato.FormattingEnabled = True
-        Me.cbTipoDeDato.IntegralHeight = False
-        Me.cbTipoDeDato.Location = New System.Drawing.Point(12, 112)
-        Me.cbTipoDeDato.Name = "cbTipoDeDato"
-        Me.cbTipoDeDato.Size = New System.Drawing.Size(757, 37)
-        Me.cbTipoDeDato.TabIndex = 2
+        Me.cbPreguntas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbPreguntas.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPreguntas.FormattingEnabled = True
+        Me.cbPreguntas.IntegralHeight = False
+        Me.cbPreguntas.Location = New System.Drawing.Point(12, 112)
+        Me.cbPreguntas.Name = "cbPreguntas"
+        Me.cbPreguntas.Size = New System.Drawing.Size(757, 37)
+        Me.cbPreguntas.TabIndex = 2
         '
         'MsgBoxTipoDeTextBox
         '
@@ -54,7 +54,7 @@ Partial Class MsgBoxTipoDeTextBox
         Me.BackColor = System.Drawing.Color.LightGreen
         Me.ClientSize = New System.Drawing.Size(781, 181)
         Me.Controls.Add(Me.lblSeleccioneTipoDeDato)
-        Me.Controls.Add(Me.cbTipoDeDato)
+        Me.Controls.Add(Me.cbPreguntas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -66,5 +66,5 @@ Partial Class MsgBoxTipoDeTextBox
     End Sub
 
     Friend WithEvents lblSeleccioneTipoDeDato As Label
-    Friend WithEvents cbTipoDeDato As ComboBox
+    Friend WithEvents cbPreguntas As ComboBox
 End Class
