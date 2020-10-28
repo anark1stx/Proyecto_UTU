@@ -69,7 +69,7 @@ Public Class frmGestion
 
     ReadOnly Property BASEcontrolesP As List(Of Control)
         Get
-            Return New List(Of Control)(New Control() {lblFnac, dtpFechaNacimiento, lblEtapa, cbEtapa, lblEstadoCivil, cbEstadoCivil, lblSexo, cbSexo, lblOcupacion, lblOcupacionTXT, lblEstado, lblEstadoTXT})
+            Return New List(Of Control)(New Control() {lblFnac, dtpFechaNacimiento, lblEstadoCivil, cbEstadoCivil, lblSexo, cbSexo, lblOcupacion, lblOcupacionTXT, lblEstado, lblEstadoTXT})
         End Get
     End Property
 
@@ -116,7 +116,6 @@ Public Class frmGestion
         resetMode()
         ConvertirProps()
         configurarControles()
-        cbEtapa.SelectedIndex = 0
         cbEstadoCivil.SelectedIndex = 0
         cbSexo.SelectedIndex = 0
     End Sub
@@ -310,11 +309,9 @@ Public Class frmGestion
 
                 pnlAcciones.Visible = ci_valida
                 pnlDspCedula.Enabled = ci_valida
-                cbEtapa.Enabled = False
 
             Case Accion.Modificacion
                 lblCedulaTXT.Enabled = False
-                cbEtapa.Enabled = True
                 pnlAcciones.Visible = ci_valida
                 pnlDspCedula.Enabled = ci_valida
             Case Accion.Baja
