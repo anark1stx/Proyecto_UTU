@@ -1,10 +1,42 @@
 ﻿Imports FormulariosPersonalizados
 Imports Entidades
 Public Class formularioPlano
-    Public ubicacion_mouse As Point
-    Public ctrl_seleccionado As Control
-    Public PreguntasYRespuestas As New List(Of PreguntaRespuesta)
-    Public tagCount = 0
+    Property _ubicacion_mouse As Point
+    Property ubicacion_mouse As Point
+        Get
+            Return _ubicacion_mouse
+        End Get
+        Set(value As Point)
+            _ubicacion_mouse = value
+        End Set
+    End Property
+    Protected _ctrl_seleccionado As Control
+    Property ctrl_seleccionado As Control
+        Get
+            Return _ctrl_seleccionado
+        End Get
+        Set(value As Control)
+            _ctrl_seleccionado = value
+        End Set
+    End Property
+    Protected _preguntasyrespuestas As New List(Of PreguntaRespuesta)
+    Property PreguntasYRespuestas As List(Of PreguntaRespuesta)
+        Get
+            Return _preguntasyrespuestas
+        End Get
+        Set(value As List(Of PreguntaRespuesta))
+            _preguntasyrespuestas = value
+        End Set
+    End Property
+    Protected _tagCount As Integer = 0
+    Property tagCount As Integer
+        Get
+            Return _tagCount
+        End Get
+        Set(value As Integer)
+            _tagCount = value
+        End Set
+    End Property
     Dim dragging As Boolean = False
     Dim settings As New MsgBoxControlSettings
     Dim txtBox As New MsgBoxTipoDeTextBox
@@ -27,8 +59,8 @@ Public Class formularioPlano
                 resizingRight = False
             End If
         Else
-                'Abrir settings para configurar el control
-                If TypeOf sender Is TextBox Or TypeOf sender Is ComboBox Then
+            'Abrir settings para configurar el control
+            If TypeOf sender Is TextBox Or TypeOf sender Is ComboBox Then
                 Dim tipo = sender.GetType()
                 Dim c = DirectCast(sender, Control)
                 Dim listaP As New List(Of Control)
@@ -92,9 +124,9 @@ Public Class formularioPlano
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ctrl_seleccionado = sender
             If resizingBottom Then
-                sender.Height = (sender.Top + e.Y) / 1.5
+                sender.Height += (e.Y - sender.Height)
             ElseIf resizingRight Then
-                sender.Width = (sender.Left + e.X) / 1.5
+                sender.Width += (e.X - sender.Width)
             ElseIf Not resizingRight AndAlso Not resizingBottom Then
                 sender.Left = e.X + sender.Left - ubicacion_mouse.X
                 sender.Top = e.Y + sender.Top - ubicacion_mouse.Y

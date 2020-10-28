@@ -169,6 +169,7 @@ Partial Class MsgBoxControlSettings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(721, 502)
+        Me.ControlBox = False
         Me.Controls.Add(Me.pnlSettingsTXT)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnAceptar)

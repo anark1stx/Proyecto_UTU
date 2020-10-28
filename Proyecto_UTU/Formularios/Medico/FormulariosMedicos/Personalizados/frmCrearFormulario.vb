@@ -37,9 +37,7 @@ Public Class frmCrearFormulario
         frmPlano.TopMost = True
         frmPlano.Dock = DockStyle.Fill
         pnlFormularioPersonalizado.Controls.Add(frmPlano)
-
         frmPlano.Show()
-
     End Sub
 #Region "Eventos para el TextBox"
 
@@ -280,11 +278,15 @@ Public Class frmCrearFormulario
     End Sub
     Public Sub setType()
         _instancia.Name = setControlName()
-        If TypeOf (_instancia) IsNot TextBox Or TypeOf (_instancia) IsNot ComboBox Then
-            _instancia.Text = settings.texto
-            _instancia.Font = settings.fuente
-            _instancia.ForeColor = settings.color
-        End If
+        Select Case _instancia.GetType()
+            Case GetType(Label), GetType(CheckBox)
+                _instancia.Text = settings.texto
+                _instancia.Font = settings.fuente
+                _instancia.ForeColor = settings.color
+            Case Else
+                _instancia.Font = SystemFonts.DefaultFont
+                _instancia.ForeColor = Color.Black
+        End Select
         frmPlano.Controls.Add(_instancia)
         Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width) 'Esto es porque hay un pequeño espacio entre el panel de los controles y el panel del personalizado
         Dim marginY As Double = _instancia.Size.Height / 2 'esto es sencillamente pq no se el size que traen por defecto los controles, los estoy instanciando todos con tamaños aleatorios y tienen desfasaje cuando se instancian.

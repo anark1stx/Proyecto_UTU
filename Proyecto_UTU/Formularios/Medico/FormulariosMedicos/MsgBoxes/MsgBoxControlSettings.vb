@@ -32,7 +32,6 @@ Public Class MsgBoxControlSettings
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
-
         texto = txtIngreseTexto.Text
         Me.txtIngreseTexto.Text = ""
         Me.Hide()
@@ -54,33 +53,25 @@ Public Class MsgBoxControlSettings
     End Sub
 
     Public Sub CargarColoresCBWeb()
-
         cbColores.DrawMode = DrawMode.OwnerDrawFixed
-
         Dim colType As Type = GetType(System.Drawing.Color)
         For Each prop As PropertyInfo In colType.GetProperties()
             If prop.PropertyType Is GetType(System.Drawing.Color) Then
                 cbColores.Items.Add(prop.Name)
             End If
         Next
-
     End Sub
-
     Private Sub CargarColoresCBSistema()
-
         cbColores.DrawMode = DrawMode.OwnerDrawFixed
-
         Dim sysType As Type = GetType(System.Drawing.SystemColors)
         For Each prop As PropertyInfo In sysType.GetProperties()
             If prop.PropertyType Is GetType(System.Drawing.Color) Then
                 cbColores.Items.Add(prop.Name)
             End If
         Next
-
     End Sub
 
     Private Sub cbFuente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFuente.SelectedIndexChanged
-
         fuente = New Font(cbFuente.Text, tamano)
         txtIngreseTexto.Font = fuente
     End Sub
@@ -95,7 +86,6 @@ Public Class MsgBoxControlSettings
         color = Color.FromName(cbColores.SelectedItem.ToString())
         txtIngreseTexto.ForeColor = color
     End Sub
-
 
     Private Sub chkSoyPregunta_CheckedChanged(sender As Object, e As EventArgs) Handles chkSoyPregunta.CheckedChanged
         If chkSoyPregunta.CheckState = CheckState.Checked Then
