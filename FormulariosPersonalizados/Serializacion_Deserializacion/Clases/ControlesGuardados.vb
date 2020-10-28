@@ -158,11 +158,15 @@ Public Class ControlesGuardados
         End Sub
 
         Public Function StrToFont() As Font
-
+            Dim fuente As Font = SystemFonts.DefaultFont
             Dim fntConverter As New FontConverter()
+            Try
+                fuente = fntConverter.ConvertFromString(_font)
+            Catch ex As Exception
+                Console.WriteLine("error cultura")
 
-            Return fntConverter.ConvertFromString(_font)
-
+            End Try
+            Return fuente
         End Function
         Public Function FontToStr(fnt As Font) As String
 

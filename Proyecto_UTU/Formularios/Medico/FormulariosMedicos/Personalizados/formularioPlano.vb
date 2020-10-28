@@ -20,6 +20,7 @@ Public Class formularioPlano
         End Set
     End Property
     Protected _preguntasyrespuestas As New List(Of PreguntaRespuesta)
+    Protected _soloLabels As New List(Of PreguntaRespuesta)
     Property PreguntasYRespuestas As List(Of PreguntaRespuesta)
         Get
             Return _preguntasyrespuestas
@@ -28,6 +29,15 @@ Public Class formularioPlano
             _preguntasyrespuestas = value
         End Set
     End Property
+    Property SoloLabels As List(Of PreguntaRespuesta)
+        Get
+            Return _soloLabels
+        End Get
+        Set(value As List(Of PreguntaRespuesta))
+            _soloLabels = value
+        End Set
+    End Property
+
     Protected _tagCount As Integer = 0
     Property tagCount As Integer
         Get
@@ -50,7 +60,6 @@ Public Class formularioPlano
             If (TypeOf (sender) Is TextBox) And e.Location.X >= sender.Width - 8 Then
                 resizingBottom = False
                 resizingRight = True
-                Console.WriteLine("cerca del borde")
             ElseIf (TypeOf (sender) Is TextBox) And e.Location.Y >= sender.Height - 8 Then
                 resizingRight = False
                 resizingBottom = True
@@ -59,65 +68,85 @@ Public Class formularioPlano
                 resizingRight = False
             End If
         Else
-            'Abrir settings para configurar el control
-            If TypeOf sender Is TextBox Or TypeOf sender Is ComboBox Then
-                Dim tipo = sender.GetType()
-                Dim c = DirectCast(sender, Control)
-                Dim listaP As New List(Of Control)
-                For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
-                    listaP.Add(pyr.Pregunta)
-                Next
-
-                txtBox.cbPreguntas.DataSource = listaP
-                txtBox.cbPreguntas.DisplayMember = "Text"
-                txtBox.cbPreguntas.ValueMember = "Tag"
-                txtBox.ShowDialog()
-                c.Tag = txtBox.cbPreguntas.SelectedValue
-                If c.Tag Is String.Empty Then
-                    Exit Sub
-                Else
-                    PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = txtBox.cbPreguntas.SelectedValue).Respuesta = c
-                End If
-                Select Case c.GetType()
-                    Case GetType(ComboBox)
-                        agregarItems.cbItems.Items.AddRange(DirectCast(c, ComboBox).Items.Cast(Of String).ToArray())
-                        agregarItems.ShowDialog()
-                        DirectCast(c, ComboBox).Items.Clear()
-                        DirectCast(c, ComboBox).Items.AddRange(agregarItems.cbItems.Items.Cast(Of String).ToArray())
-                End Select
-            Else
-                Dim c = DirectCast(sender, Control)
-                If PreguntasYRespuestas.Find(Function(p) p.Pregunta Is c) IsNot Nothing Then
-                    Console.WriteLine("este control es una pregunta")
+            Select Case sender.GetType()
+                Case GetType(CheckBox)
+                    settings.pnlSettingsTXT.Visible = False
                     settings.chkSoyPregunta.Checked = True
-                    settings.txtIngreseTexto.Text = c.Text
+                    settings.chkSoyPregunta.Visible = False
+                    settings.txtIngreseTexto.Text = DirectCast(sender, CheckBox).Text
                     settings.ShowDialog()
-                    c.Font = settings.fuente
-                    c.Text = settings.texto
-                    If Not settings.chkSoyPregunta.Checked Then
-                        Console.WriteLine("ya no soy pregunta")
-                        PreguntasYRespuestas.Remove(PreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag))
-                        c.Tag = ""
+                    If String.IsNullOrWhiteSpace(settings.texto) Then
+                        PreguntasYRespuestas.Remove(PreguntasYRespuestas.Find(Function(p) p.Tag = DirectCast(sender, Control).Tag))
+                        sender = Nothing
+                        Exit Sub
+                    Else
+                        DirectCast(sender, CheckBox).Text = settings.texto
+                        DirectCast(sender, CheckBox).Font = settings.fuente
+                        DirectCast(sender, CheckBox).ForeColor = settings.color
                     End If
-                Else
-                    Console.WriteLine("este control no es una pregunta")
-
+                Case GetType(TextBox), GetType(ComboBox)
+                    Dim tipo = sender.GetType()
+                    Dim c = DirectCast(sender, Control)
+                    Dim tmpList As New List(Of Control)
+                    For Each pyr As PreguntaRespuesta In SoloLabels
+                        tmpList.Add(pyr.Pregunta)
+                    Next
+                    txtBox.cbPreguntas.DataSource = tmpList
+                    txtBox.cbPreguntas.DisplayMember = "Text"
+                    txtBox.cbPreguntas.ValueMember = "Tag"
+                    If Not String.IsNullOrEmpty(c.Tag) Then
+                        txtBox.cbPreguntas.SelectedValue = c.Tag
+                    End If
+                    txtBox.ShowDialog()
+                    c.Tag = txtBox.cbPreguntas.SelectedValue
+                    If c.Tag Is String.Empty Then
+                        Exit Sub
+                    Else
+                        PreguntasYRespuestas.Find(Function(p) p.Pregunta.Tag = txtBox.cbPreguntas.SelectedValue).Respuesta = c
+                    End If
+                    Select Case c.GetType()
+                        Case GetType(ComboBox)
+                            agregarItems.cbItems.Items.AddRange(DirectCast(c, ComboBox).Items.Cast(Of String).ToArray())
+                            agregarItems.ShowDialog()
+                            DirectCast(c, ComboBox).Items.Clear()
+                            DirectCast(c, ComboBox).Items.AddRange(agregarItems.cbItems.Items.Cast(Of String).ToArray())
+                    End Select
+                Case Else
+                    settings.pnlSettingsTXT.Visible = True
                     settings.chkSoyPregunta.Checked = False
-                    settings.txtIngreseTexto.Text = c.Text
-                    settings.ShowDialog()
-                    c.Font = settings.fuente
-                    c.Text = settings.texto
-                    If settings.chkSoyPregunta.Checked Then
-                        tagCount += 1
-                        c.Tag = String.Format("p{0}", tagCount) 'setteo el tag
-                        PreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c))
+                    settings.chkSoyPregunta.Visible = True
+                    Dim c = DirectCast(sender, Control)
+                    If PreguntasYRespuestas.Find(Function(p) p.Pregunta Is c) IsNot Nothing Then
+                        Console.WriteLine("este control es una pregunta")
+                        settings.chkSoyPregunta.Checked = True
+                        settings.txtIngreseTexto.Text = c.Text
+                        settings.ShowDialog()
+                        c.Font = settings.fuente
+                        c.Text = settings.texto
+                        If Not settings.chkSoyPregunta.Checked Then
+                            Console.WriteLine("ya no soy pregunta")
+                            PreguntasYRespuestas.Remove(PreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag))
+                            c.Tag = ""
+                        End If
+                    Else
+                        Console.WriteLine("este control no es una pregunta")
+                        settings.chkSoyPregunta.Checked = False
+                        settings.txtIngreseTexto.Text = c.Text
+                        settings.ShowDialog()
+                        If String.IsNullOrWhiteSpace(settings.Text) Then
+                            c = Nothing
+                            Exit Sub
+                        End If
+                        c.Font = settings.fuente
+                        c.Text = settings.texto
+                        If settings.chkSoyPregunta.Checked Then
+                            tagCount += 1
+                            c.Tag = String.Format("p{0}", tagCount) 'setteo el tag
+                            PreguntasYRespuestas.Add(New PreguntaRespuesta(c.Tag, c))
+                        End If
                     End If
-                End If
-
-            End If
-
+            End Select
         End If
-
     End Sub
 
     Public Sub _MouseMove(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.Move
@@ -131,7 +160,6 @@ Public Class formularioPlano
                 sender.Left = e.X + sender.Left - ubicacion_mouse.X
                 sender.Top = e.Y + sender.Top - ubicacion_mouse.Y
                 dragging = True
-                evaluarSiEstoyenPanel(ctrl_seleccionado)
                 If dragging Then
                     If sender.Left < Me.Left Then
                         Dim contenedor = DirectCast(sender, Control).Parent
@@ -149,27 +177,5 @@ Public Class formularioPlano
     Public Sub _MouseUp(ByVal sender As System.Object, ByVal e As MouseEventArgs)
         dragging = False
         ctrl_seleccionado = Nothing
-    End Sub
-
-    Public Sub evaluarSiEstoyenPanel(ctrl As Control)
-
-        If TypeOf ctrl.Parent Is TableLayoutPanel Or TypeOf ctrl.Parent Is GroupBox Or TypeOf ctrl.Parent Is Panel AndAlso ctrl.Parent IsNot Me.Controls(0) Then
-
-            If dragging Then
-
-                ctrl.Parent.Controls.Remove(ctrl)
-                ctrl.Dock = DockStyle.None
-                ctrl.Anchor = AnchorStyles.None
-
-                If TypeOf Me.Controls(0) Is Panel Then
-                    ctrl.Parent = Me.Controls(0)
-                Else
-                    ctrl.Parent = Me
-                End If
-
-            End If
-
-        End If
-
     End Sub
 End Class

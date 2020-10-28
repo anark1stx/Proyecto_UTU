@@ -28,10 +28,11 @@ Partial Class MsgBoxTipoDeTextBox
         '
         'lblSeleccioneTipoDeDato
         '
+        Me.lblSeleccioneTipoDeDato.AutoSize = True
         Me.lblSeleccioneTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSeleccioneTipoDeDato.Location = New System.Drawing.Point(12, 46)
+        Me.lblSeleccioneTipoDeDato.Location = New System.Drawing.Point(57, 46)
         Me.lblSeleccioneTipoDeDato.Name = "lblSeleccioneTipoDeDato"
-        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(757, 36)
+        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(708, 29)
         Me.lblSeleccioneTipoDeDato.TabIndex = 3
         Me.lblSeleccioneTipoDeDato.Text = "Seleccione la pregunta que será respondida en este campo"
         Me.lblSeleccioneTipoDeDato.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -44,7 +45,7 @@ Partial Class MsgBoxTipoDeTextBox
         Me.cbPreguntas.IntegralHeight = False
         Me.cbPreguntas.Location = New System.Drawing.Point(12, 112)
         Me.cbPreguntas.Name = "cbPreguntas"
-        Me.cbPreguntas.Size = New System.Drawing.Size(757, 37)
+        Me.cbPreguntas.Size = New System.Drawing.Size(826, 37)
         Me.cbPreguntas.TabIndex = 2
         '
         'MsgBoxTipoDeTextBox
@@ -52,7 +53,7 @@ Partial Class MsgBoxTipoDeTextBox
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGreen
-        Me.ClientSize = New System.Drawing.Size(781, 181)
+        Me.ClientSize = New System.Drawing.Size(850, 181)
         Me.Controls.Add(Me.lblSeleccioneTipoDeDato)
         Me.Controls.Add(Me.cbPreguntas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -62,6 +63,7 @@ Partial Class MsgBoxTipoDeTextBox
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MsgBoxTipoDeTextBox"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

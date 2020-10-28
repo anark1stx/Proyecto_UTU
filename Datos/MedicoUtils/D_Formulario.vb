@@ -33,15 +33,14 @@ Public Class D_Formulario
             Sesion.Cerrar(conexion)
             Return -2
         End Try
+        form.ID = cmd.Parameters("ID_F").Value
         Sesion.Cerrar(conexion)
 
-        If altaomod Then 'si es una modificacion tiro todos los records de la tabla "de" (ID_F,ID_P)
-            Dim res = BorrarPreguntasDeFormulario(form)
-            Select Case res
-                Case <> 1
-                    Return res
-            End Select
-        End If
+        Dim res = BorrarPreguntasDeFormulario(form)
+        Select Case res
+            Case <> 1
+                Return res
+        End Select
         Return AltaPreguntas(form)
     End Function
     Public Function BajaFormulario(form As E_Formulario) As Integer
@@ -167,11 +166,12 @@ Public Class D_Formulario
         If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
+        Console.WriteLine("cantidad de preguntas y respuestas: " & form.PreguntasYRespuestas.Count)
         For Each p As PreguntaRespuesta In form.PreguntasYRespuestas
             'hacer alta a la tabla preguntas 
             Dim cmd As New MySqlCommand With {
                     .CommandType = CommandType.StoredProcedure,
-                    .CommandText = "AltaPregunta", 'este proc usa insert ignore, y devuelve la ID de la pregunta
+                    .CommandText = "AltaPregunta",
                     .Connection = conexion
             }
             If p.ID_Pregunta = 0 Then
@@ -182,10 +182,9 @@ Public Class D_Formulario
                 Try
                     cmd.ExecuteNonQuery()
                     p.ID_Pregunta = cmd.Parameters("ID_P").Value
-                    Sesion.Cerrar(conexion)
                 Catch ex As Exception
                     Sesion.Cerrar(conexion)
-                    Console.WriteLine(ex.Message)
+                    Console.WriteLine("err altapregunta " & ex.Message)
                     Return -2
                 End Try
             End If
@@ -198,13 +197,14 @@ Public Class D_Formulario
 
             cmd2.Parameters.Add("ID_P", MySqlDbType.Int32).Value = p.ID_Pregunta
             cmd2.Parameters.Add("ID_F", MySqlDbType.Int32).Value = form.ID
-            cmd2.Parameters.Add("NOM_CONTROL_P", MySqlDbType.VarChar).Value = p.Pregunta.Name
-            cmd2.Parameters.Add("NOM_CONTROL_R", MySqlDbType.VarChar).Value = p.Respuesta.Name
+            cmd2.Parameters.Add("NOM_CONTROL_P", MySqlDbType.VarChar, 40).Value = p.Pregunta.Name
+            cmd2.Parameters.Add("NOM_CONTROL_R", MySqlDbType.VarChar, 40).Value = p.Respuesta.Name
             Try
                 cmd2.ExecuteNonQuery()
                 Console.WriteLine("INSERTO: pregunta" & p.ID_Pregunta & " formulario: " & form.ID & " nomcontrolp: " & p.Pregunta.Name & " nomcontrolr: " & p.Respuesta.Name)
             Catch ex As Exception
                 Sesion.Cerrar(conexion)
+                Console.WriteLine("err alta pregunta de form " & ex.Message)
                 Return -2
             End Try
         Next
@@ -394,7 +394,6 @@ Public Class D_Formulario
         Sesion.Cerrar(conexion)
         Return 1
     End Function
-    'mover esto a otra clase de la capa datos
     Public Function AltaDeterminaEnfermedad(form As E_Formulario) As Integer 'este metodo esta aca porque usa mas parametros del formulario y de la consulta que de la enfermedad en si
         If String.IsNullOrWhiteSpace(form.Enfermedad.Nombre) Then
             Return 1

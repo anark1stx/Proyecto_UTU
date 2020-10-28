@@ -47,7 +47,7 @@ Public Class frmCrearFormulario
             Dim _txt As New TextBox
 
             agregarHandlersBasicos(_txt)
-            _txt.Size = New Size(122, 55)
+            _txt.Size = New Size(128, 28)
             _txt.Name = "txt"
             _txt.Multiline = True
             _instancia = _txt
@@ -128,6 +128,7 @@ Public Class frmCrearFormulario
             frmPlano.tagCount += 1
             _instancia.Tag = String.Format("p{0}", frmPlano.tagCount) 'setteo el tag
             frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta(_instancia.Tag, _instancia))
+            frmPlano.SoloLabels.Add(New PreguntaRespuesta(_instancia.Tag, _instancia))
         End If
         settings.Hide()
     End Sub
@@ -165,10 +166,16 @@ Public Class frmCrearFormulario
         MostrarChk(False)
         settings.chkSoyPregunta.Checked = True
         settings.ShowDialog()
-        setType()
-        frmPlano.tagCount += 1
-        _instancia.Tag = String.Format("p{0}", frmPlano.tagCount) 'setteo el tag
-        frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta(_instancia.Tag, _instancia, _instancia))
+
+        If String.IsNullOrWhiteSpace(settings.texto) Then
+            _instancia = Nothing
+            Exit Sub
+        Else
+            setType()
+            frmPlano.tagCount += 1
+            _instancia.Tag = String.Format("p{0}", frmPlano.tagCount) 'setteo el tag
+            frmPlano.PreguntasYRespuestas.Add(New PreguntaRespuesta(_instancia.Tag, _instancia))
+        End If
     End Sub
 #End Region
 #Region "eventos para el Button"
@@ -288,10 +295,10 @@ Public Class frmCrearFormulario
                 _instancia.Font = settings.fuente
                 _instancia.ForeColor = settings.color
             Case Else
-                _instancia.Font = SystemFonts.DefaultFont
+                _instancia.Font = New Font("Arial", 14, FontStyle.Regular)
                 _instancia.ForeColor = Color.Black
         End Select
-        frmPlano.Controls.Add(_instancia)
+        frmPlano.pnlContenedor.Controls.Add(_instancia)
         Dim marginX As Double = pnlControles.Size.Width + (pnlFormularioPersonalizado.Left - pnlControles.Width)
         Dim marginY As Double = _instancia.Size.Height / 2
 
@@ -303,8 +310,8 @@ Public Class frmCrearFormulario
     End Function
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        Select Case frmPlano.Controls.Count
-            Case < 8
+        Select Case frmPlano.pnlContenedor.Controls.Count
+            Case < 3
                 MessageBox.Show("Agregue más controles al formulario personalizado. Mínimo aceptado: 8", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
             Case > 50
@@ -327,14 +334,17 @@ Public Class frmCrearFormulario
 
         PedirNombre.ShowDialog()
         FormDisenado.Nombre = PedirNombre.Nombre
-
-        For Each i As Control In frmPlano.Controls
+        If FormDisenado.ID > 0 Then
+            If MessageBox.Show("¿Desea sobreescribir el formulario original? Si lo hace se pueden perder datos del historial médico de los pacientes. Presione No para guardarlo como un formulario nuevo.", "Modificar existente o guardar como nuevo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbNo Then
+                FormDisenado.ID = 0
+            End If
+        End If
+        For Each i As Control In frmPlano.pnlContenedor.Controls
             controlesInstanciados.Add(i)
         Next
-
         Dim fbr As New FabricaDeControles
-        GuardarFormulario(FormDisenado, fbr.Serializar(controlesInstanciados), pnlFormularioPersonalizado)
-        frmPlano.Controls.Clear()
+        GuardarFormulario(FormDisenado, fbr.Serializar(controlesInstanciados), frmPlano.pnlContenedor)
+        frmPlano.pnlContenedor.Controls.Clear()
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -344,7 +354,7 @@ Public Class frmCrearFormulario
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         controlesInstanciados.Clear()
-        frmPlano.Controls.Clear()
+        frmPlano.pnlContenedor.Controls.Clear()
     End Sub
 
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
@@ -370,11 +380,18 @@ Public Class frmCrearFormulario
                 Else
                     agregarHandlersBasicos(c)
                 End If
-                frmPlano.Controls.Add(c)
+                frmPlano.pnlContenedor.Controls.Add(c)
             Next
         End If
         BuscarPreguntas(frmPlano, frmPlano.PreguntasYRespuestas)
         UnirPreguntasConRespuestas(frmPlano, frmPlano.PreguntasYRespuestas)
+        For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+            If pyr.Pregunta.GetType() = GetType(Label) Then
+                frmPlano.SoloLabels.Add(pyr)
+            End If
+        Next
+        frmPlano.PreguntasYRespuestas.Sort(Function(p1, p2) p1.Tag.CompareTo(p2.Tag))
+        frmPlano.SoloLabels.Sort(Function(p1, p2) p1.Tag.CompareTo(p2.Tag))
     End Sub
 
     Public Sub agregarHandlersBasicos(_ctrl As Control)
@@ -402,7 +419,7 @@ Public Class frmCrearFormulario
     End Sub
 
     Private Sub pBoxBorrar_MouseEnter(sender As Object, e As EventArgs) Handles pBoxBorrar.MouseEnter
-        frmPlano.Controls.Remove(frmPlano.ctrl_seleccionado)
+        frmPlano.pnlContenedor.Controls.Remove(frmPlano.ctrl_seleccionado)
     End Sub
 
     Private Sub pBoxBorrar_Click(sender As Object, e As EventArgs) Handles pBoxBorrar.Click
@@ -413,7 +430,7 @@ Public Class frmCrearFormulario
             If eleccion = vbYes Then
                 BajaFormulario(FormDisenado)
                 FormDisenado = Nothing
-                frmPlano.Controls.Clear()
+                frmPlano.pnlContenedor.Controls.Clear()
             Else
                 Exit Sub
             End If

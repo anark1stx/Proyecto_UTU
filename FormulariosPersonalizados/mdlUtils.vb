@@ -209,10 +209,10 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     End Function
 
     Public Sub BuscarPreguntas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
-
         For Each c As Control In contenedor.Controls
+            Console.WriteLine("nombre del control: " & c.Name & "tag: " & c.Tag)
             Select Case c.GetType
-                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel), GetType(Form)
                     BuscarPreguntas(c, ListaPreguntasYRespuestas)
                 Case Else
                     If Not String.IsNullOrEmpty(c.Tag) Then
@@ -229,16 +229,15 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                                 End If
                         End Select
                     End If
-
             End Select
         Next
-
     End Sub
     Public Sub UnirPreguntasConRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
 
         For Each c As Control In contenedor.Controls
+            Console.WriteLine("nombre del control: " & c.Name & "tag: " & c.Tag)
             Select Case c.GetType
-                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel)
+                Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel), GetType(Form)
                     UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
                 Case Else
                     If Not String.IsNullOrEmpty(c.Tag) Then
