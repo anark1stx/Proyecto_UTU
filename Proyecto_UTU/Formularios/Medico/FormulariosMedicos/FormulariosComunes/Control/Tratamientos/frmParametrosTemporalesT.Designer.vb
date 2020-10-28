@@ -24,26 +24,26 @@ Partial Class frmParametrosTemporalesT
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmParametrosTemporalesT))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblFechaIni = New System.Windows.Forms.Label()
-        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.lbDiasSelect = New System.Windows.Forms.ListBox()
+        Me.lblDiasSelect = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnSacarDia = New System.Windows.Forms.Button()
+        Me.btnAgregarDia = New System.Windows.Forms.Button()
+        Me.cbDiasSemana = New System.Windows.Forms.ComboBox()
+        Me.lblDiasSemana = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.dtpFechaFin = New System.Windows.Forms.DateTimePicker()
         Me.lblFechaFin = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lblDiasSemana = New System.Windows.Forms.Label()
-        Me.cbDiasSemana = New System.Windows.Forms.ComboBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.lblDiasSelect = New System.Windows.Forms.Label()
-        Me.btnAgregarDia = New System.Windows.Forms.Button()
-        Me.lbDiasSelect = New System.Windows.Forms.ListBox()
-        Me.btnSacarDia = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.lblFechaIni = New System.Windows.Forms.Label()
         Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -64,33 +64,88 @@ Partial Class frmParametrosTemporalesT
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(905, 340)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'Panel1
+        'Panel4
         '
-        Me.Panel1.Controls.Add(Me.dtpFechaInicio)
-        Me.Panel1.Controls.Add(Me.lblFechaIni)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(446, 164)
-        Me.Panel1.TabIndex = 0
+        Me.Panel4.Controls.Add(Me.lbDiasSelect)
+        Me.Panel4.Controls.Add(Me.lblDiasSelect)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(455, 173)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(447, 164)
+        Me.Panel4.TabIndex = 4
         '
-        'lblFechaIni
+        'lbDiasSelect
         '
-        Me.lblFechaIni.AutoSize = True
-        Me.lblFechaIni.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaIni.Location = New System.Drawing.Point(27, 53)
-        Me.lblFechaIni.Name = "lblFechaIni"
-        Me.lblFechaIni.Size = New System.Drawing.Size(376, 25)
-        Me.lblFechaIni.TabIndex = 0
-        Me.lblFechaIni.Text = "Indique fecha de inicio del tratamiento"
+        Me.lbDiasSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDiasSelect.FormattingEnabled = True
+        Me.lbDiasSelect.ItemHeight = 29
+        Me.lbDiasSelect.Location = New System.Drawing.Point(10, 37)
+        Me.lbDiasSelect.Name = "lbDiasSelect"
+        Me.lbDiasSelect.Size = New System.Drawing.Size(430, 120)
+        Me.lbDiasSelect.TabIndex = 1
         '
-        'dtpFechaInicio
+        'lblDiasSelect
         '
-        Me.dtpFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaInicio.Location = New System.Drawing.Point(45, 96)
-        Me.dtpFechaInicio.Name = "dtpFechaInicio"
-        Me.dtpFechaInicio.Size = New System.Drawing.Size(332, 34)
-        Me.dtpFechaInicio.TabIndex = 1
+        Me.lblDiasSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiasSelect.Location = New System.Drawing.Point(3, 6)
+        Me.lblDiasSelect.Name = "lblDiasSelect"
+        Me.lblDiasSelect.Size = New System.Drawing.Size(440, 32)
+        Me.lblDiasSelect.TabIndex = 0
+        Me.lblDiasSelect.Text = "Días seleccionados:"
+        Me.lblDiasSelect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.btnSacarDia)
+        Me.Panel3.Controls.Add(Me.btnAgregarDia)
+        Me.Panel3.Controls.Add(Me.cbDiasSemana)
+        Me.Panel3.Controls.Add(Me.lblDiasSemana)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(3, 173)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(446, 164)
+        Me.Panel3.TabIndex = 3
+        '
+        'btnSacarDia
+        '
+        Me.btnSacarDia.BackgroundImage = CType(resources.GetObject("btnSacarDia.BackgroundImage"), System.Drawing.Image)
+        Me.btnSacarDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSacarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSacarDia.Location = New System.Drawing.Point(396, 96)
+        Me.btnSacarDia.Name = "btnSacarDia"
+        Me.btnSacarDia.Size = New System.Drawing.Size(47, 37)
+        Me.btnSacarDia.TabIndex = 3
+        Me.btnSacarDia.UseVisualStyleBackColor = True
+        '
+        'btnAgregarDia
+        '
+        Me.btnAgregarDia.BackgroundImage = CType(resources.GetObject("btnAgregarDia.BackgroundImage"), System.Drawing.Image)
+        Me.btnAgregarDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarDia.Location = New System.Drawing.Point(343, 96)
+        Me.btnAgregarDia.Name = "btnAgregarDia"
+        Me.btnAgregarDia.Size = New System.Drawing.Size(47, 37)
+        Me.btnAgregarDia.TabIndex = 2
+        Me.btnAgregarDia.UseVisualStyleBackColor = True
+        '
+        'cbDiasSemana
+        '
+        Me.cbDiasSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbDiasSemana.FormattingEnabled = True
+        Me.cbDiasSemana.Location = New System.Drawing.Point(17, 96)
+        Me.cbDiasSemana.Name = "cbDiasSemana"
+        Me.cbDiasSemana.Size = New System.Drawing.Size(320, 37)
+        Me.cbDiasSemana.TabIndex = 1
+        '
+        'lblDiasSemana
+        '
+        Me.lblDiasSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiasSemana.Location = New System.Drawing.Point(3, 10)
+        Me.lblDiasSemana.Name = "lblDiasSemana"
+        Me.lblDiasSemana.Size = New System.Drawing.Size(440, 83)
+        Me.lblDiasSemana.TabIndex = 0
+        Me.lblDiasSemana.Text = "Días de la semana en los que se hace este tratamiento:"
+        Me.lblDiasSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel2
         '
@@ -120,88 +175,33 @@ Partial Class frmParametrosTemporalesT
         Me.lblFechaFin.TabIndex = 0
         Me.lblFechaFin.Text = "Indique fecha de finalización del tratamiento"
         '
-        'Panel3
+        'Panel1
         '
-        Me.Panel3.Controls.Add(Me.btnSacarDia)
-        Me.Panel3.Controls.Add(Me.btnAgregarDia)
-        Me.Panel3.Controls.Add(Me.cbDiasSemana)
-        Me.Panel3.Controls.Add(Me.lblDiasSemana)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(3, 173)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(446, 164)
-        Me.Panel3.TabIndex = 3
+        Me.Panel1.Controls.Add(Me.dtpFechaInicio)
+        Me.Panel1.Controls.Add(Me.lblFechaIni)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(446, 164)
+        Me.Panel1.TabIndex = 0
         '
-        'lblDiasSemana
+        'dtpFechaInicio
         '
-        Me.lblDiasSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiasSemana.Location = New System.Drawing.Point(3, 10)
-        Me.lblDiasSemana.Name = "lblDiasSemana"
-        Me.lblDiasSemana.Size = New System.Drawing.Size(440, 83)
-        Me.lblDiasSemana.TabIndex = 0
-        Me.lblDiasSemana.Text = "Días de la semana en los que se hace este tratamiento:"
-        Me.lblDiasSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.dtpFechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaInicio.Location = New System.Drawing.Point(45, 96)
+        Me.dtpFechaInicio.Name = "dtpFechaInicio"
+        Me.dtpFechaInicio.Size = New System.Drawing.Size(332, 34)
+        Me.dtpFechaInicio.TabIndex = 1
         '
-        'cbDiasSemana
+        'lblFechaIni
         '
-        Me.cbDiasSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbDiasSemana.FormattingEnabled = True
-        Me.cbDiasSemana.Location = New System.Drawing.Point(17, 96)
-        Me.cbDiasSemana.Name = "cbDiasSemana"
-        Me.cbDiasSemana.Size = New System.Drawing.Size(320, 37)
-        Me.cbDiasSemana.TabIndex = 1
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.lbDiasSelect)
-        Me.Panel4.Controls.Add(Me.lblDiasSelect)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(455, 173)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(447, 164)
-        Me.Panel4.TabIndex = 4
-        '
-        'lblDiasSelect
-        '
-        Me.lblDiasSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiasSelect.Location = New System.Drawing.Point(3, 6)
-        Me.lblDiasSelect.Name = "lblDiasSelect"
-        Me.lblDiasSelect.Size = New System.Drawing.Size(440, 32)
-        Me.lblDiasSelect.TabIndex = 0
-        Me.lblDiasSelect.Text = "Días seleccionados:"
-        Me.lblDiasSelect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnAgregarDia
-        '
-        Me.btnAgregarDia.BackgroundImage = CType(resources.GetObject("btnAgregarDia.BackgroundImage"), System.Drawing.Image)
-        Me.btnAgregarDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnAgregarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarDia.Location = New System.Drawing.Point(343, 96)
-        Me.btnAgregarDia.Name = "btnAgregarDia"
-        Me.btnAgregarDia.Size = New System.Drawing.Size(47, 37)
-        Me.btnAgregarDia.TabIndex = 2
-        Me.btnAgregarDia.UseVisualStyleBackColor = True
-        '
-        'lbDiasSelect
-        '
-        Me.lbDiasSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDiasSelect.FormattingEnabled = True
-        Me.lbDiasSelect.ItemHeight = 29
-        Me.lbDiasSelect.Location = New System.Drawing.Point(10, 37)
-        Me.lbDiasSelect.Name = "lbDiasSelect"
-        Me.lbDiasSelect.Size = New System.Drawing.Size(430, 120)
-        Me.lbDiasSelect.TabIndex = 1
-        '
-        'btnSacarDia
-        '
-        Me.btnSacarDia.BackgroundImage = CType(resources.GetObject("btnSacarDia.BackgroundImage"), System.Drawing.Image)
-        Me.btnSacarDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSacarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSacarDia.Location = New System.Drawing.Point(396, 96)
-        Me.btnSacarDia.Name = "btnSacarDia"
-        Me.btnSacarDia.Size = New System.Drawing.Size(47, 37)
-        Me.btnSacarDia.TabIndex = 3
-        Me.btnSacarDia.UseVisualStyleBackColor = True
+        Me.lblFechaIni.AutoSize = True
+        Me.lblFechaIni.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaIni.Location = New System.Drawing.Point(27, 53)
+        Me.lblFechaIni.Name = "lblFechaIni"
+        Me.lblFechaIni.Size = New System.Drawing.Size(376, 25)
+        Me.lblFechaIni.TabIndex = 0
+        Me.lblFechaIni.Text = "Indique fecha de inicio del tratamiento"
         '
         'btnConfirmar
         '
@@ -224,14 +224,14 @@ Partial Class frmParametrosTemporalesT
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "frmParametrosTemporalesT"
-        Me.Text = "frmParametrosTemporalesT"
+        Me.Text = "Definir parámetros temporales"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

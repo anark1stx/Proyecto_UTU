@@ -52,7 +52,6 @@ Public Class formularioPlano
     Dim txtBox As New MsgBoxTipoDeTextBox
     Dim resizingRight As Boolean = False
     Dim resizingBottom As Boolean = False
-    Dim agregarItems As New frmAgregarItems
     Public Sub _MouseDown(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.MouseDown
 
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
@@ -106,6 +105,7 @@ Public Class formularioPlano
                     End If
                     Select Case c.GetType()
                         Case GetType(ComboBox)
+                            Dim agregarItems As New frmAgregarItems
                             agregarItems.cbItems.Items.AddRange(DirectCast(c, ComboBox).Items.Cast(Of String).ToArray())
                             agregarItems.ShowDialog()
                             DirectCast(c, ComboBox).Items.Clear()

@@ -29,7 +29,11 @@ Public Class D_Atiende
         End Try
         consulta.ID = cmd.Parameters("ID_C").Value
         Sesion.Cerrar(conexion)
-        Return AltaConsultaDeReferencia(consulta)
+        If consulta.ConsultaReferencia IsNot Nothing Then
+            Return AltaConsultaDeReferencia(consulta)
+        Else
+            Return 1
+        End If
     End Function
 
     Public Function AltaConsultaDeReferencia(consulta As E_Atiende)

@@ -203,7 +203,7 @@ Partial Class frmAnalisisSeguimiento
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAnalisisSeguimiento"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmAnalisisSeguimiento"
+        Me.Text = "Seguimiento análisis"
         Me.pnlContenedor.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()

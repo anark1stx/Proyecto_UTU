@@ -23,18 +23,18 @@ Partial Class frmDatosAnalisis
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlData = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tblParametros = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblUnidad = New System.Windows.Forms.Label()
+        Me.lblValor = New System.Windows.Forms.Label()
+        Me.lblParametro = New System.Windows.Forms.Label()
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.lblParametro = New System.Windows.Forms.Label()
-        Me.lblValor = New System.Windows.Forms.Label()
-        Me.lblUnidad = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlData.SuspendLayout()
-        Me.tblParametros.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.tblParametros.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlData
@@ -48,6 +48,15 @@ Partial Class frmDatosAnalisis
         Me.pnlData.Name = "pnlData"
         Me.pnlData.Size = New System.Drawing.Size(1130, 774)
         Me.pnlData.TabIndex = 0
+        '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Controls.Add(Me.tblParametros)
+        Me.Panel1.Location = New System.Drawing.Point(3, 64)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1124, 707)
+        Me.Panel1.TabIndex = 4
         '
         'tblParametros
         '
@@ -70,9 +79,69 @@ Partial Class frmDatosAnalisis
         Me.tblParametros.Name = "tblParametros"
         Me.tblParametros.RowCount = 1
         Me.tblParametros.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblParametros.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 697.0!))
+        Me.tblParametros.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
         Me.tblParametros.Size = New System.Drawing.Size(1124, 27)
         Me.tblParametros.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(938, 1)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(143, 25)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Valor máximo"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(716, 1)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(137, 25)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Valor mínimo"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblUnidad
+        '
+        Me.lblUnidad.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblUnidad.AutoSize = True
+        Me.lblUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUnidad.Location = New System.Drawing.Point(520, 1)
+        Me.lblUnidad.Name = "lblUnidad"
+        Me.lblUnidad.Size = New System.Drawing.Size(80, 25)
+        Me.lblUnidad.TabIndex = 2
+        Me.lblUnidad.Text = "Unidad"
+        Me.lblUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblValor
+        '
+        Me.lblValor.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblValor.AutoSize = True
+        Me.lblValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblValor.Location = New System.Drawing.Point(305, 1)
+        Me.lblValor.Name = "lblValor"
+        Me.lblValor.Size = New System.Drawing.Size(63, 25)
+        Me.lblValor.TabIndex = 1
+        Me.lblValor.Text = "Valor"
+        Me.lblValor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblParametro
+        '
+        Me.lblParametro.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblParametro.AutoSize = True
+        Me.lblParametro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblParametro.Location = New System.Drawing.Point(57, 1)
+        Me.lblParametro.Name = "lblParametro"
+        Me.lblParametro.Size = New System.Drawing.Size(111, 25)
+        Me.lblParametro.TabIndex = 0
+        Me.lblParametro.Text = "Parámetro"
+        Me.lblParametro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblTitulo
         '
@@ -97,75 +166,6 @@ Partial Class frmDatosAnalisis
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
-        'lblParametro
-        '
-        Me.lblParametro.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.lblParametro.AutoSize = True
-        Me.lblParametro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblParametro.Location = New System.Drawing.Point(57, 1)
-        Me.lblParametro.Name = "lblParametro"
-        Me.lblParametro.Size = New System.Drawing.Size(111, 25)
-        Me.lblParametro.TabIndex = 0
-        Me.lblParametro.Text = "Parámetro"
-        Me.lblParametro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblValor
-        '
-        Me.lblValor.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.lblValor.AutoSize = True
-        Me.lblValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblValor.Location = New System.Drawing.Point(305, 1)
-        Me.lblValor.Name = "lblValor"
-        Me.lblValor.Size = New System.Drawing.Size(63, 25)
-        Me.lblValor.TabIndex = 1
-        Me.lblValor.Text = "Valor"
-        Me.lblValor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblUnidad
-        '
-        Me.lblUnidad.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.lblUnidad.AutoSize = True
-        Me.lblUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUnidad.Location = New System.Drawing.Point(520, 1)
-        Me.lblUnidad.Name = "lblUnidad"
-        Me.lblUnidad.Size = New System.Drawing.Size(80, 25)
-        Me.lblUnidad.TabIndex = 2
-        Me.lblUnidad.Text = "Unidad"
-        Me.lblUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(716, 1)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(137, 25)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Valor mínimo"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(938, 1)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(143, 25)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Valor máximo"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Panel1
-        '
-        Me.Panel1.AutoScroll = True
-        Me.Panel1.Controls.Add(Me.tblParametros)
-        Me.Panel1.Location = New System.Drawing.Point(3, 64)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1124, 707)
-        Me.Panel1.TabIndex = 4
-        '
         'frmDatosAnalisis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -177,13 +177,13 @@ Partial Class frmDatosAnalisis
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmDatosAnalisis"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmDatosAnalisis"
+        Me.Text = "Seguimiento análisis"
         Me.pnlData.ResumeLayout(False)
         Me.pnlData.PerformLayout()
-        Me.tblParametros.ResumeLayout(False)
-        Me.tblParametros.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.tblParametros.ResumeLayout(False)
+        Me.tblParametros.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

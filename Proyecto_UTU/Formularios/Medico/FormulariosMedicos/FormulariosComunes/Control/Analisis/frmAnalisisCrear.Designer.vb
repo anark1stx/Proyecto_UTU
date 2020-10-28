@@ -42,7 +42,6 @@ Partial Class frmAnalisisCrear
         Me.lblNomIndicacion = New System.Windows.Forms.Label()
         Me.dgwIndicaciones = New System.Windows.Forms.DataGridView()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IndicacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BorrarIndic = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.IndicacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgwParametros = New System.Windows.Forms.DataGridView()
@@ -230,7 +229,7 @@ Partial Class frmAnalisisCrear
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgwIndicaciones.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgwIndicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwIndicaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.IndicacionDataGridViewTextBoxColumn, Me.BorrarIndic})
+        Me.dgwIndicaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.BorrarIndic})
         Me.dgwIndicaciones.DataSource = Me.IndicacionBindingSource
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
@@ -256,15 +255,6 @@ Partial Class frmAnalisisCrear
         Me.NombreDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
         Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IndicacionDataGridViewTextBoxColumn
-        '
-        Me.IndicacionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.IndicacionDataGridViewTextBoxColumn.DataPropertyName = "Indicacion"
-        Me.IndicacionDataGridViewTextBoxColumn.HeaderText = "Indicacion"
-        Me.IndicacionDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.IndicacionDataGridViewTextBoxColumn.Name = "IndicacionDataGridViewTextBoxColumn"
-        Me.IndicacionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'BorrarIndic
         '
@@ -597,7 +587,7 @@ Partial Class frmAnalisisCrear
         Me.Controls.Add(Me.pnlContenedor)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAnalisisCrear"
-        Me.Text = "frmAnalisisCrear"
+        Me.Text = "Crear análisis"
         Me.pnlContenedor.ResumeLayout(False)
         Me.pnlContenedor.PerformLayout()
         Me.pnlDatos.ResumeLayout(False)

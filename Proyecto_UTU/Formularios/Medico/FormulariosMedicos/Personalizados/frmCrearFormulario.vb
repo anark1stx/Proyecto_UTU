@@ -16,7 +16,6 @@ Public Class frmCrearFormulario
     Dim TipoDeTxt As New MsgBoxTipoDeTextBox
     Dim settings As New MsgBoxControlSettings
     Dim catalogo As New frmCatalogoFormulariosBD
-    Dim agregarItems As New frmAgregarItems
 
     Dim PedirNombre As New frmPedirNombreForm
     Protected _formDisenado As New E_Formulario
@@ -254,7 +253,7 @@ Public Class frmCrearFormulario
             MostrarManito()
             Dim _cb As New ComboBox
             agregarHandlersBasicos(_cb)
-            _cb.Size = New Size(100, 25)
+            _cb.Size = New Size(122, 30)
             _cb.AutoSize = True
             _cb.Name = "cb"
             _cb.Text = "Combobox"
@@ -274,7 +273,7 @@ Public Class frmCrearFormulario
     End Sub
 
     Private Sub cbCombobox_MouseUp(sender As Object, e As MouseEventArgs) Handles cbCombobox.MouseUp
-        LimpiarControles(agregarItems)
+        Dim agregarItems As New frmAgregarItems
         agregarItems.ShowDialog()
         DirectCast(_instancia, ComboBox).Items.AddRange(agregarItems.cbItems.Items.Cast(Of String).ToArray())
         setType()

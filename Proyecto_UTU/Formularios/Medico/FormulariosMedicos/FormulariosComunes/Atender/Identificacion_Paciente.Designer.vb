@@ -107,7 +107,6 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.ColumnCount = 2
         Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.71552!))
         Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.28448!))
-        Me.tabDatos.Controls.Add(Me.lblTelefonoTXT, 0, 5)
         Me.tabDatos.Controls.Add(Me.lblCedula, 0, 0)
         Me.tabDatos.Controls.Add(Me.lblNombres, 0, 1)
         Me.tabDatos.Controls.Add(Me.lblNombresTXT, 1, 1)
@@ -127,6 +126,7 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.Controls.Add(Me.lblEtapa, 0, 9)
         Me.tabDatos.Controls.Add(Me.tblCedulaBuscar, 1, 0)
         Me.tabDatos.Controls.Add(Me.pnlEstado, 1, 9)
+        Me.tabDatos.Controls.Add(Me.lblTelefonoTXT, 1, 5)
         Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabDatos.Location = New System.Drawing.Point(385, 3)
         Me.tabDatos.Name = "tabDatos"
@@ -146,10 +146,10 @@ Partial Class Identificacion_Paciente
         '
         'lblTelefonoTXT
         '
-        Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lblTelefonoTXT.AutoSize = True
         Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(464, 144)
+        Me.lblTelefonoTXT.Location = New System.Drawing.Point(296, 144)
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(144, 29)
         Me.lblTelefonoTXT.TabIndex = 100
@@ -393,6 +393,7 @@ Partial Class Identificacion_Paciente
         Me.pnlEstado.Controls.Add(Me.btnActualizarEstado)
         Me.pnlEstado.Controls.Add(Me.txtEstado)
         Me.pnlEstado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlEstado.Enabled = False
         Me.pnlEstado.Location = New System.Drawing.Point(296, 263)
         Me.pnlEstado.Name = "pnlEstado"
         Me.pnlEstado.Size = New System.Drawing.Size(480, 27)
@@ -416,8 +417,9 @@ Partial Class Identificacion_Paciente
         Me.txtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEstado.Location = New System.Drawing.Point(0, 0)
         Me.txtEstado.MaxLength = 90
+        Me.txtEstado.Multiline = True
         Me.txtEstado.Name = "txtEstado"
-        Me.txtEstado.Size = New System.Drawing.Size(480, 30)
+        Me.txtEstado.Size = New System.Drawing.Size(480, 27)
         Me.txtEstado.TabIndex = 0
         '
         'tblAcciones

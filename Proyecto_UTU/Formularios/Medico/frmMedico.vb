@@ -428,30 +428,21 @@ Public Class frmMedico
         Select Case frmIdentificacion.PacienteBuscar.ErrCode
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                LimpiarControles(frmIdentificacion)
-                frmIdentificacion.btnReferenciaConsulta.Enabled = False
-                frmIdentificacion.cbConsultasPrevias.Enabled = False
-                frmIdentificacion.btnVerConsulta.Enabled = False
+                resetearCamposId()
             Case -2
                 MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando comando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                LimpiarControles(frmIdentificacion)
-                frmIdentificacion.btnReferenciaConsulta.Enabled = False
-                frmIdentificacion.cbConsultasPrevias.Enabled = False
-                frmIdentificacion.btnVerConsulta.Enabled = False
+                resetearCamposId()
             Case -8
                 MessageBox.Show("No se encontró un paciente con esa cédula.", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                LimpiarControles(frmIdentificacion)
-                frmIdentificacion.btnReferenciaConsulta.Enabled = False
-                frmIdentificacion.cbConsultasPrevias.Enabled = False
-                frmIdentificacion.btnVerConsulta.Enabled = False
+                resetearCamposId()
             Case Else
                 Consulta.Paciente.Cedula = frmIdentificacion.PacienteBuscar.Cedula
                 frmIdentificacion.PoblarDatos()
+                frmIdentificacion.pnlEstado.Enabled = True
                 frmIdentificacion.btnReferenciaConsulta.Enabled = True
                 frmIdentificacion.cbConsultasPrevias.Enabled = True
                 frmIdentificacion.btnVerConsulta.Enabled = True
         End Select
-
         Select Case frmIdentificacion.MiModo
             Case Identificacion_Paciente.Modo.AsignarTratamiento
                 Dim frmTratamientoC As New frmTratamientoCrear

@@ -7,4 +7,12 @@
             cbItems.Items.Add(cbItems.Text)
         End If
     End Sub
+
+    Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
+        If cbItems.Items.IndexOf(cbItems.Text) = -1 Then
+            Exit Sub
+        Else
+            cbItems.Items.Remove(cbItems.Text)
+        End If
+    End Sub
 End Class

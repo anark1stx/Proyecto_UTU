@@ -30,6 +30,10 @@ Partial Class frmTratamientoSeguir
         Me.tblSeguimiento = New System.Windows.Forms.TableLayoutPanel()
         Me.txtSeguimiento = New System.Windows.Forms.TextBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.tblResultado = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnResultado = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtResultado = New System.Windows.Forms.TextBox()
         Me.lblFechaFin = New System.Windows.Forms.Label()
         Me.lblFechaInicio = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -38,10 +42,6 @@ Partial Class frmTratamientoSeguir
         Me.lblNombreTratamientoTXT = New System.Windows.Forms.Label()
         Me.lblIndicaciones = New System.Windows.Forms.Label()
         Me.txtDescripcionTratamiento = New System.Windows.Forms.TextBox()
-        Me.tblResultado = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnResultado = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtResultado = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlContenedor.SuspendLayout()
         Me.tblSeguimiento.SuspendLayout()
@@ -151,6 +151,56 @@ Partial Class frmTratamientoSeguir
         Me.btnGuardar.Text = "GUARDAR SEGUIMIENTO DIARIO"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
+        'tblResultado
+        '
+        Me.tblResultado.ColumnCount = 3
+        Me.tblResultado.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblResultado.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblResultado.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblResultado.Controls.Add(Me.btnResultado, 2, 0)
+        Me.tblResultado.Controls.Add(Me.Label3, 0, 0)
+        Me.tblResultado.Controls.Add(Me.txtResultado, 1, 0)
+        Me.tblResultado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tblResultado.Location = New System.Drawing.Point(3, 494)
+        Me.tblResultado.Name = "tblResultado"
+        Me.tblResultado.RowCount = 1
+        Me.tblResultado.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblResultado.Size = New System.Drawing.Size(1183, 76)
+        Me.tblResultado.TabIndex = 109
+        '
+        'btnResultado
+        '
+        Me.btnResultado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnResultado.Enabled = False
+        Me.btnResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnResultado.Location = New System.Drawing.Point(791, 3)
+        Me.btnResultado.Name = "btnResultado"
+        Me.btnResultado.Size = New System.Drawing.Size(389, 70)
+        Me.btnResultado.TabIndex = 110
+        Me.btnResultado.Text = "ACTUALIZAR RESULTADO DEL TRATAMIENTO"
+        Me.btnResultado.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(37, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(319, 29)
+        Me.Label3.TabIndex = 111
+        Me.Label3.Text = "Resultado del tratamiento:"
+        '
+        'txtResultado
+        '
+        Me.txtResultado.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtResultado.Location = New System.Drawing.Point(404, 21)
+        Me.txtResultado.MaxLength = 60
+        Me.txtResultado.Name = "txtResultado"
+        Me.txtResultado.Size = New System.Drawing.Size(373, 34)
+        Me.txtResultado.TabIndex = 112
+        '
         'lblFechaFin
         '
         Me.lblFechaFin.AutoSize = True
@@ -236,56 +286,6 @@ Partial Class frmTratamientoSeguir
         Me.txtDescripcionTratamiento.Size = New System.Drawing.Size(1183, 422)
         Me.txtDescripcionTratamiento.TabIndex = 91
         '
-        'tblResultado
-        '
-        Me.tblResultado.ColumnCount = 3
-        Me.tblResultado.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.tblResultado.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.tblResultado.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.tblResultado.Controls.Add(Me.btnResultado, 2, 0)
-        Me.tblResultado.Controls.Add(Me.Label3, 0, 0)
-        Me.tblResultado.Controls.Add(Me.txtResultado, 1, 0)
-        Me.tblResultado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tblResultado.Location = New System.Drawing.Point(3, 494)
-        Me.tblResultado.Name = "tblResultado"
-        Me.tblResultado.RowCount = 1
-        Me.tblResultado.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblResultado.Size = New System.Drawing.Size(1183, 76)
-        Me.tblResultado.TabIndex = 109
-        '
-        'btnResultado
-        '
-        Me.btnResultado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnResultado.Enabled = False
-        Me.btnResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnResultado.Location = New System.Drawing.Point(791, 3)
-        Me.btnResultado.Name = "btnResultado"
-        Me.btnResultado.Size = New System.Drawing.Size(389, 70)
-        Me.btnResultado.TabIndex = 110
-        Me.btnResultado.Text = "ACTUALIZAR RESULTADO DEL TRATAMIENTO"
-        Me.btnResultado.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(37, 23)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(319, 29)
-        Me.Label3.TabIndex = 111
-        Me.Label3.Text = "Resultado del tratamiento:"
-        '
-        'txtResultado
-        '
-        Me.txtResultado.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResultado.Location = New System.Drawing.Point(404, 21)
-        Me.txtResultado.MaxLength = 60
-        Me.txtResultado.Name = "txtResultado"
-        Me.txtResultado.Size = New System.Drawing.Size(373, 34)
-        Me.txtResultado.TabIndex = 112
-        '
         'Panel1
         '
         Me.Panel1.AutoScroll = True
@@ -305,7 +305,7 @@ Partial Class frmTratamientoSeguir
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmTratamientoSeguir"
-        Me.Text = "frmTratamientoSeguir"
+        Me.Text = "Seguir tratamiento"
         Me.pnlContenedor.ResumeLayout(False)
         Me.pnlContenedor.PerformLayout()
         Me.tblSeguimiento.ResumeLayout(False)

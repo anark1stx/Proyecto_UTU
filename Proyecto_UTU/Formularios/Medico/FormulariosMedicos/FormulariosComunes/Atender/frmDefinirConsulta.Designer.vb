@@ -26,7 +26,6 @@ Partial Class frmDefinirConsulta
         Me.tblDatosMedico = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.lblNombresTXT = New System.Windows.Forms.Label()
         Me.lblApellido = New System.Windows.Forms.Label()
@@ -36,6 +35,7 @@ Partial Class frmDefinirConsulta
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnBuscarMedico = New System.Windows.Forms.Button()
         Me.txtCIMedico = New System.Windows.Forms.TextBox()
+        Me.lblCedula = New System.Windows.Forms.Label()
         Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.tblNomRef = New System.Windows.Forms.TableLayoutPanel()
         Me.lblNomReferencia = New System.Windows.Forms.Label()
@@ -85,8 +85,8 @@ Partial Class frmDefinirConsulta
         'tabDatos
         '
         Me.tabDatos.ColumnCount = 2
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.31757!))
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.68243!))
+        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.86486!))
+        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.13514!))
         Me.tabDatos.Controls.Add(Me.lblNombres, 0, 1)
         Me.tabDatos.Controls.Add(Me.lblNombresTXT, 1, 1)
         Me.tabDatos.Controls.Add(Me.lblApellido, 0, 2)
@@ -110,22 +110,12 @@ Partial Class frmDefinirConsulta
         Me.tabDatos.Size = New System.Drawing.Size(592, 538)
         Me.tabDatos.TabIndex = 103
         '
-        'lblCedula
-        '
-        Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(3, 51)
-        Me.lblCedula.Name = "lblCedula"
-        Me.lblCedula.Size = New System.Drawing.Size(208, 32)
-        Me.lblCedula.TabIndex = 82
-        Me.lblCedula.Text = "Cédula del médico:"
-        '
         'lblNombres
         '
         Me.lblNombres.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNombres.AutoSize = True
         Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(60, 188)
+        Me.lblNombres.Location = New System.Drawing.Point(70, 188)
         Me.lblNombres.Name = "lblNombres"
         Me.lblNombres.Size = New System.Drawing.Size(94, 25)
         Me.lblNombres.TabIndex = 80
@@ -136,7 +126,7 @@ Partial Class frmDefinirConsulta
         Me.lblNombresTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblNombresTXT.AutoSize = True
         Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(284, 188)
+        Me.lblNombresTXT.Location = New System.Drawing.Point(294, 188)
         Me.lblNombresTXT.Name = "lblNombresTXT"
         Me.lblNombresTXT.Size = New System.Drawing.Size(238, 25)
         Me.lblNombresTXT.TabIndex = 78
@@ -147,7 +137,7 @@ Partial Class frmDefinirConsulta
         Me.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblApellido.AutoSize = True
         Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(58, 322)
+        Me.lblApellido.Location = New System.Drawing.Point(69, 322)
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(97, 25)
         Me.lblApellido.TabIndex = 81
@@ -158,7 +148,7 @@ Partial Class frmDefinirConsulta
         Me.lblApellidosTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblApellidosTXT.AutoSize = True
         Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(271, 322)
+        Me.lblApellidosTXT.Location = New System.Drawing.Point(281, 322)
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
         Me.lblApellidosTXT.Size = New System.Drawing.Size(264, 25)
         Me.lblApellidosTXT.TabIndex = 79
@@ -169,7 +159,7 @@ Partial Class frmDefinirConsulta
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(36, 457)
+        Me.Label1.Location = New System.Drawing.Point(46, 457)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(142, 25)
         Me.Label1.TabIndex = 102
@@ -180,7 +170,7 @@ Partial Class frmDefinirConsulta
         Me.lblEspecialidadTXT.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblEspecialidadTXT.AutoSize = True
         Me.lblEspecialidadTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidadTXT.Location = New System.Drawing.Point(335, 457)
+        Me.lblEspecialidadTXT.Location = New System.Drawing.Point(346, 457)
         Me.lblEspecialidadTXT.Name = "lblEspecialidadTXT"
         Me.lblEspecialidadTXT.Size = New System.Drawing.Size(135, 25)
         Me.lblEspecialidadTXT.TabIndex = 101
@@ -191,16 +181,16 @@ Partial Class frmDefinirConsulta
         Me.Panel1.Controls.Add(Me.btnBuscarMedico)
         Me.Panel1.Controls.Add(Me.txtCIMedico)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(217, 3)
+        Me.Panel1.Location = New System.Drawing.Point(238, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(372, 128)
+        Me.Panel1.Size = New System.Drawing.Size(351, 128)
         Me.Panel1.TabIndex = 103
         '
         'btnBuscarMedico
         '
         Me.btnBuscarMedico.BackgroundImage = CType(resources.GetObject("btnBuscarMedico.BackgroundImage"), System.Drawing.Image)
         Me.btnBuscarMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBuscarMedico.Location = New System.Drawing.Point(308, 41)
+        Me.btnBuscarMedico.Location = New System.Drawing.Point(305, 48)
         Me.btnBuscarMedico.Name = "btnBuscarMedico"
         Me.btnBuscarMedico.Size = New System.Drawing.Size(43, 30)
         Me.btnBuscarMedico.TabIndex = 105
@@ -210,12 +200,23 @@ Partial Class frmDefinirConsulta
         '
         Me.txtCIMedico.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtCIMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCIMedico.Location = New System.Drawing.Point(23, 41)
+        Me.txtCIMedico.Location = New System.Drawing.Point(21, 48)
         Me.txtCIMedico.MaxLength = 8
         Me.txtCIMedico.Name = "txtCIMedico"
         Me.txtCIMedico.Size = New System.Drawing.Size(281, 30)
         Me.txtCIMedico.TabIndex = 104
         Me.txtCIMedico.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblCedula
+        '
+        Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblCedula.AutoSize = True
+        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCedula.Location = New System.Drawing.Point(18, 54)
+        Me.lblCedula.Name = "lblCedula"
+        Me.lblCedula.Size = New System.Drawing.Size(198, 25)
+        Me.lblCedula.TabIndex = 82
+        Me.lblCedula.Text = "Cédula del médico:"
         '
         'btnConfirmar
         '
