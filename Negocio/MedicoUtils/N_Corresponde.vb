@@ -8,7 +8,10 @@ Public Class N_Corresponde
     Public Function BajaCorresponde(crr As E_Corresponde) As Integer
         Return objDatos.BajaCorresponde(crr)
     End Function
-    Public Function BuscarAsignaciones(u As E_Usuario, auxomedico As Boolean) As List(Of E_Corresponde)
-        Return objDatos.BuscarAsignaciones_PMedico(u, auxomedico)
+    Public Function BuscarAsignacionesM(m As E_Medico) As List(Of E_Corresponde)
+        Return objDatos.BuscarAsignacionesM(m)
+    End Function
+    Public Function BuscarAsignacionesA(a As E_Usuario) As List(Of E_Corresponde)
+        Return objDatos.BuscarAsignacionesA(a)
     End Function
 End Class

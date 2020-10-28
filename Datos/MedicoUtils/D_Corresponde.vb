@@ -51,21 +51,54 @@ Public Class D_Corresponde
         Return 1
     End Function
 
-    Public Function BuscarAsignaciones_PMedico(u As E_Usuario, auxomedico As Boolean) As List(Of E_Corresponde)
+    Public Function BuscarAsignacionesM(m As E_Medico) As List(Of E_Corresponde)
         Dim crrList As New List(Of E_Corresponde)
         Dim leer As MySqlDataReader
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .Connection = conexion
+            .Connection = conexion,
+            .CommandText = "BuscarCrrMedico"
         }
 
-        If auxomedico Then
-            cmd.CommandText = "BuscarAsignacionesMedico"
-            cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = u.Cedula
-        Else
-            cmd.CommandText = "BuscarAsignacionesAuxiliar"
-            cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = u.Cedula
+        cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = m.Cedula
+
+        If Sesion.Conectar(conexion) = -1 Then
+            crrList.Add(New E_Corresponde With {.ErrCode = -1})
+            Return crrList
         End If
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            Console.WriteLine(ex.Message)
+            crrList.Add(New E_Corresponde With {.ErrCode = -2})
+            Return crrList
+        End Try
+        If leer.HasRows Then
+            While leer.Read()
+                crrList.Add(New E_Corresponde With {
+                    .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")},
+                    .Auxiliar = New E_Usuario With {.Cedula = leer.GetInt32("CI_auxiliar")},
+                    .Fecha = leer.GetDateTime("fecha")
+                })
+            End While
+        Else
+            crrList.Add(New E_Corresponde With {.ErrCode = -8})
+        End If
+        Sesion.Cerrar(conexion)
+        Return crrList
+    End Function
+    Public Function BuscarAsignacionesA(a As E_Usuario) As List(Of E_Corresponde)
+        Dim crrList As New List(Of E_Corresponde)
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+            .CommandType = CommandType.StoredProcedure,
+            .Connection = conexion,
+            .CommandText = "BuscarCrrAuxiliar"
+        }
+
+        cmd.Parameters.Add("CI_A", MySqlDbType.Int32).Value = a.Cedula
 
         If Sesion.Conectar(conexion) = -1 Then
             crrList.Add(New E_Corresponde With {.ErrCode = -1})

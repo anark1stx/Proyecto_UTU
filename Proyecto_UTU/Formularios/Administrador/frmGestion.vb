@@ -927,23 +927,35 @@ Public Class frmGestion
 
     Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick
         LimpiarControles(pnlDatosUsuario)
+        RowChanged()
+    End Sub
+    Sub RowChanged()
         Select Case Usuario
             Case TipoUsuario.Paciente
+                If pList.Count < 1 Then
+                    Exit Sub
+                End If
                 Dim p = pList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(p)
                 PacienteBindings(p)
                 ci_valida = True
             Case TipoUsuario.Medico
+                If mList.Count < 1 Then
+                    Exit Sub
+                End If
                 Dim m = mList(dgwUsuarios.CurrentCell.RowIndex)
+                MedicoSelected = m
                 basicBindings(m)
                 MedicoBindings(m)
                 ci_valida = True
-                MedicoSelected = m
             Case TipoUsuario.Auxiliar
+                If aList.Count < 1 Then
+                    Exit Sub
+                End If
                 Dim a = aList(dgwUsuarios.CurrentCell.RowIndex)
+                AuxiliarSelected = a
                 basicBindings(a)
                 ci_valida = True
-                AuxiliarSelected = a
         End Select
     End Sub
     Private Sub FiltroCambia(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click
