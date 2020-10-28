@@ -103,4 +103,9 @@ Public Class frmAdministrador
         frmIngreso_Usuario.Show()
         Me.Dispose()
     End Sub
+
+    Private Sub GestionarPersonalMedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarPersonalMedicoToolStripMenuItem.Click
+        Dim gestionarPMedico As New frmGestionPMedico
+        gestionarPMedico.ShowDialog()
+    End Sub
 End Class

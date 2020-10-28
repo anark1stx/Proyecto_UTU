@@ -110,36 +110,33 @@ Public Class D_auxiliar
         Sesion.Cerrar(conexion)
         Return uList
     End Function
-    Public Function AltaModAuxiliar(u As E_Usuario, accion As Boolean) As Integer
-        Dim code = MyBase.AltaModUsuarioSibim(u, accion)
+    Public Function AltaAuxiliar(u As E_Usuario) As Integer
+        Dim code = MyBase.AltaUsuarioSIBIM(u)
         Select Case code
             Case <> 1
                 Return code
         End Select
 
-        If Not accion Then 'darlo de alta en la tabla auxiliar
-            If Sesion.Conectar(conexion) = -1 Then
-                Return -1
-            End If
-
-            Dim cmd As New MySqlCommand With {
-                .CommandType = CommandType.StoredProcedure,
-                .CommandText = "AltaAuxiliar",
-                .Connection = conexion
-            }
-
-            cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
-
-            Try
-                cmd.ExecuteNonQuery()
-            Catch ex As Exception
-                Return -4 'No se pudo crear usuario sibim
-            End Try
-
-            Sesion.Cerrar(conexion)
-            Return 1
-        Else 'fue una modificacion y ya se hizo en mybase, los atributos modificables del auxiliar son los mismos que estan en la tabla usuario
-            Return code
+        If Sesion.Conectar(conexion) = -1 Then
+            Return -1
         End If
+
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "AltaAuxiliar",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Return -4 'No se pudo crear usuario sibim
+        End Try
+
+        Sesion.Cerrar(conexion)
+        Return 1
+
     End Function
 End Class

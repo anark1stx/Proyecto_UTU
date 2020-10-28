@@ -32,6 +32,8 @@ Partial Class frmGestion
         Me.btnAccion2 = New System.Windows.Forms.Button()
         Me.btnAccion1 = New System.Windows.Forms.Button()
         Me.pnlDspCedula = New System.Windows.Forms.Panel()
+        Me.lblEstadoTXT = New System.Windows.Forms.TextBox()
+        Me.lblEstado = New System.Windows.Forms.Label()
         Me.lblComma = New System.Windows.Forms.Label()
         Me.lblDireccionNumeroTXT = New System.Windows.Forms.MaskedTextBox()
         Me.lblContrasenaTXT = New System.Windows.Forms.TextBox()
@@ -79,8 +81,6 @@ Partial Class frmGestion
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.lblEstadoTXT = New System.Windows.Forms.TextBox()
-        Me.lblEstado = New System.Windows.Forms.Label()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlAcciones.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
@@ -116,7 +116,7 @@ Partial Class frmGestion
         Me.pnlDatosUsuario.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDatosUsuario.Location = New System.Drawing.Point(0, 0)
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
-        Me.pnlDatosUsuario.Size = New System.Drawing.Size(1062, 318)
+        Me.pnlDatosUsuario.Size = New System.Drawing.Size(1062, 314)
         Me.pnlDatosUsuario.TabIndex = 3
         '
         'pnlAcciones
@@ -198,10 +198,32 @@ Partial Class frmGestion
         Me.pnlDspCedula.Controls.Add(Me.lblNombre2)
         Me.pnlDspCedula.Controls.Add(Me.lblApellido2)
         Me.pnlDspCedula.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlDspCedula.Location = New System.Drawing.Point(0, 62)
+        Me.pnlDspCedula.Location = New System.Drawing.Point(0, 58)
         Me.pnlDspCedula.Name = "pnlDspCedula"
         Me.pnlDspCedula.Size = New System.Drawing.Size(1062, 256)
         Me.pnlDspCedula.TabIndex = 375
+        '
+        'lblEstadoTXT
+        '
+        Me.lblEstadoTXT.BackColor = System.Drawing.Color.LightBlue
+        Me.lblEstadoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoTXT.Location = New System.Drawing.Point(830, 182)
+        Me.lblEstadoTXT.Name = "lblEstadoTXT"
+        Me.lblEstadoTXT.ReadOnly = True
+        Me.lblEstadoTXT.Size = New System.Drawing.Size(220, 23)
+        Me.lblEstadoTXT.TabIndex = 417
+        Me.lblEstadoTXT.Text = "Estado"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(670, 187)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(73, 24)
+        Me.lblEstado.TabIndex = 416
+        Me.lblEstado.Text = "Estado:"
         '
         'lblComma
         '
@@ -241,7 +263,7 @@ Partial Class frmGestion
         '
         Me.lblContrasena.AutoSize = True
         Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasena.Location = New System.Drawing.Point(670, 222)
+        Me.lblContrasena.Location = New System.Drawing.Point(670, 218)
         Me.lblContrasena.Name = "lblContrasena"
         Me.lblContrasena.Size = New System.Drawing.Size(111, 24)
         Me.lblContrasena.TabIndex = 414
@@ -580,7 +602,7 @@ Partial Class frmGestion
         '
         Me.lblCorreo.AutoSize = True
         Me.lblCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCorreo.Location = New System.Drawing.Point(274, 226)
+        Me.lblCorreo.Location = New System.Drawing.Point(274, 223)
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(73, 24)
         Me.lblCorreo.TabIndex = 392
@@ -634,9 +656,9 @@ Partial Class frmGestion
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnlBusqueda)
         Me.pnlContenedorBusqueda.Controls.Add(Me.dgwUsuarios)
         Me.pnlContenedorBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(0, 321)
+        Me.pnlContenedorBusqueda.Location = New System.Drawing.Point(0, 317)
         Me.pnlContenedorBusqueda.Name = "pnlContenedorBusqueda"
-        Me.pnlContenedorBusqueda.Size = New System.Drawing.Size(1062, 318)
+        Me.pnlContenedorBusqueda.Size = New System.Drawing.Size(1062, 210)
         Me.pnlContenedorBusqueda.TabIndex = 4
         '
         'pnlBusqueda
@@ -646,16 +668,17 @@ Partial Class frmGestion
         Me.pnlBusqueda.Controls.Add(Me.rBtnCedula)
         Me.pnlBusqueda.Controls.Add(Me.btnBuscar)
         Me.pnlBusqueda.Controls.Add(Me.txtBusqueda)
-        Me.pnlBusqueda.Location = New System.Drawing.Point(12, 3)
+        Me.pnlBusqueda.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnlBusqueda.Location = New System.Drawing.Point(381, 0)
         Me.pnlBusqueda.Name = "pnlBusqueda"
-        Me.pnlBusqueda.Size = New System.Drawing.Size(1038, 47)
+        Me.pnlBusqueda.Size = New System.Drawing.Size(681, 43)
         Me.pnlBusqueda.TabIndex = 7
         '
         'rBtnEspecialidad
         '
         Me.rBtnEspecialidad.AutoSize = True
         Me.rBtnEspecialidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rBtnEspecialidad.Location = New System.Drawing.Point(399, 15)
+        Me.rBtnEspecialidad.Location = New System.Drawing.Point(38, 7)
         Me.rBtnEspecialidad.Name = "rBtnEspecialidad"
         Me.rBtnEspecialidad.Size = New System.Drawing.Size(144, 29)
         Me.rBtnEspecialidad.TabIndex = 359
@@ -667,7 +690,7 @@ Partial Class frmGestion
         '
         Me.rBtnApellido.AutoSize = True
         Me.rBtnApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rBtnApellido.Location = New System.Drawing.Point(554, 15)
+        Me.rBtnApellido.Location = New System.Drawing.Point(201, 7)
         Me.rBtnApellido.Name = "rBtnApellido"
         Me.rBtnApellido.Size = New System.Drawing.Size(103, 29)
         Me.rBtnApellido.TabIndex = 358
@@ -680,7 +703,7 @@ Partial Class frmGestion
         Me.rBtnCedula.AutoSize = True
         Me.rBtnCedula.Checked = True
         Me.rBtnCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rBtnCedula.Location = New System.Drawing.Point(675, 14)
+        Me.rBtnCedula.Location = New System.Drawing.Point(316, 7)
         Me.rBtnCedula.Name = "rBtnCedula"
         Me.rBtnCedula.Size = New System.Drawing.Size(96, 29)
         Me.rBtnCedula.TabIndex = 357
@@ -693,7 +716,7 @@ Partial Class frmGestion
         '
         Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
         Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBuscar.Location = New System.Drawing.Point(990, 10)
+        Me.btnBuscar.Location = New System.Drawing.Point(631, 3)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(45, 34)
         Me.btnBuscar.TabIndex = 356
@@ -702,7 +725,7 @@ Partial Class frmGestion
         'txtBusqueda
         '
         Me.txtBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBusqueda.Location = New System.Drawing.Point(777, 10)
+        Me.txtBusqueda.Location = New System.Drawing.Point(418, 3)
         Me.txtBusqueda.MaxLength = 50
         Me.txtBusqueda.Name = "txtBusqueda"
         Me.txtBusqueda.Size = New System.Drawing.Size(207, 34)
@@ -713,48 +736,28 @@ Partial Class frmGestion
         Me.dgwUsuarios.AllowUserToAddRows = False
         Me.dgwUsuarios.AllowUserToDeleteRows = False
         Me.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwUsuarios.Location = New System.Drawing.Point(11, 56)
+        Me.dgwUsuarios.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.dgwUsuarios.Location = New System.Drawing.Point(0, 43)
         Me.dgwUsuarios.MultiSelect = False
         Me.dgwUsuarios.Name = "dgwUsuarios"
         Me.dgwUsuarios.ReadOnly = True
         Me.dgwUsuarios.RowHeadersWidth = 51
         Me.dgwUsuarios.RowTemplate.Height = 24
         Me.dgwUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgwUsuarios.Size = New System.Drawing.Size(1039, 250)
+        Me.dgwUsuarios.Size = New System.Drawing.Size(1062, 167)
         Me.dgwUsuarios.TabIndex = 6
-        '
-        'lblEstadoTXT
-        '
-        Me.lblEstadoTXT.BackColor = System.Drawing.Color.LightBlue
-        Me.lblEstadoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoTXT.Location = New System.Drawing.Point(830, 182)
-        Me.lblEstadoTXT.Name = "lblEstadoTXT"
-        Me.lblEstadoTXT.ReadOnly = True
-        Me.lblEstadoTXT.Size = New System.Drawing.Size(220, 23)
-        Me.lblEstadoTXT.TabIndex = 417
-        Me.lblEstadoTXT.Text = "Estado"
-        '
-        'lblEstado
-        '
-        Me.lblEstado.AutoSize = True
-        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstado.Location = New System.Drawing.Point(670, 187)
-        Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(73, 24)
-        Me.lblEstado.TabIndex = 416
-        Me.lblEstado.Text = "Estado:"
         '
         'frmGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1062, 639)
+        Me.ClientSize = New System.Drawing.Size(1062, 527)
         Me.Controls.Add(Me.pnlContenedorBusqueda)
         Me.Controls.Add(Me.pnlDatosUsuario)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmGestion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Form2"
         Me.pnlDatosUsuario.ResumeLayout(False)
         Me.pnlDatosUsuario.PerformLayout()

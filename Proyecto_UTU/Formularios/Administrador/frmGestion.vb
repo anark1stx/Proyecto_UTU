@@ -17,6 +17,7 @@ Public Class frmGestion
         Alta
         Baja
         Modificacion
+        GestionarPMedico
     End Enum
 
     Public Enum TipoUsuario
@@ -138,6 +139,13 @@ Public Class frmGestion
                 btnAccion2.ImageIndex = 0 '1 = Modificar
                 pnlContenedorBusqueda.Visible = True
                 pnlBotonesTel.Visible = False
+            Case Accion.GestionarPMedico
+                pnlAcciones.Visible = False
+                pnlBotonesTel.Visible = False
+                pnlEspecialidadesBtns.Visible = False
+                pnlContenedorBusqueda.Visible = True
+                lblContrasena.Visible = False
+                lblContrasenaTXT.Visible = False
         End Select
     End Sub
 
@@ -177,7 +185,7 @@ Public Class frmGestion
         Select Case Mode
             Case Accion.Alta, Accion.Modificacion 'Todo en textboxes con fondo blanco
                 _readonly = False
-            Case Accion.Baja
+            Case Accion.Baja, Accion.GestionarPMedico
                 _readonly = True 'Todo en textboxes pero con fondo celeste, como si fuera label.
         End Select
 
@@ -583,7 +591,7 @@ Public Class frmGestion
         End Select
     End Sub
 
-    Async Sub ModificarU() 'pendiente: hacer procedimiento para modificar contrasena, por ahora sale la validacion pero realmente no se cambia.
+    Async Sub ModificarU()
         Dim u = Base_props_user()
         Dim code As Integer = 0
 
@@ -600,7 +608,7 @@ Public Class frmGestion
         Select Case Usuario
             Case TipoUsuario.Auxiliar
                 Dim nu As New N_Auxiliar
-                code = Await Task.Run(Function() nu.ModificacionAuxiliar(u))
+                code = Await Task.Run(Function() nu.AltaAuxiliar(u))
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 u = Base_props_paciente(u)
@@ -608,7 +616,7 @@ Public Class frmGestion
                     MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
-                code = Await Task.Run(Function() np.ModificacionPaciente(u))
+                code = Await Task.Run(Function() np.AltaPaciente(u))
             Case TipoUsuario.Medico
                 Dim nm As New N_Medico
                 u = Base_Props_Medico(u)
@@ -616,7 +624,7 @@ Public Class frmGestion
                     MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
-                code = Await Task.Run(Function() nm.ModificacionMedico(u))
+                code = Await Task.Run(Function() nm.AltaMedico(u))
         End Select
 
         Select Case code
@@ -947,4 +955,5 @@ Public Class frmGestion
     Private Sub btnAltaLogica_Click(sender As Object, e As EventArgs) Handles btnAltaLogica.Click
         AltaULogica()
     End Sub
+
 End Class

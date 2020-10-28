@@ -41,6 +41,7 @@ Partial Class frmAdministrador
         Me.AuxiliarBusquedaMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.InicioMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarPersonalMedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlContenedor = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
@@ -156,7 +157,7 @@ Partial Class frmAdministrador
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioMenuItem, Me.GestionMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioMenuItem, Me.GestionMenuItem, Me.GestionarPersonalMedicoToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1062, 28)
@@ -168,6 +169,12 @@ Partial Class frmAdministrador
         Me.InicioMenuItem.Name = "InicioMenuItem"
         Me.InicioMenuItem.Size = New System.Drawing.Size(59, 24)
         Me.InicioMenuItem.Text = "Inicio"
+        '
+        'GestionarPersonalMedicoToolStripMenuItem
+        '
+        Me.GestionarPersonalMedicoToolStripMenuItem.Name = "GestionarPersonalMedicoToolStripMenuItem"
+        Me.GestionarPersonalMedicoToolStripMenuItem.Size = New System.Drawing.Size(201, 24)
+        Me.GestionarPersonalMedicoToolStripMenuItem.Text = "Gestionar personal médico"
         '
         'SalirToolStripMenuItem
         '
@@ -224,4 +231,5 @@ Partial Class frmAdministrador
     Friend WithEvents AuxiliarMenuItemModificar As ToolStripMenuItem
     Friend WithEvents AuxiliarBusquedaMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestionarPersonalMedicoToolStripMenuItem As ToolStripMenuItem
 End Class

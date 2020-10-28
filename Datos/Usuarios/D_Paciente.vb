@@ -134,8 +134,8 @@ Public Class D_Paciente
         Return uList
     End Function
 
-    Public Function AltaModPaciente(u As E_Paciente, accion As Boolean) As Integer
-        Dim code = MyBase.AltaModUsuarioSibim(u, accion)
+    Public Function AltaPaciente(u As E_Paciente) As Integer
+        Dim code = MyBase.AltaUsuarioSIBIM(u)
         Select Case code
             Case <> 1
                 Return code
@@ -143,14 +143,9 @@ Public Class D_Paciente
 
         Dim cmd As New MySqlCommand With {
         .CommandType = CommandType.StoredProcedure,
-        .Connection = conexion
+        .Connection = conexion,
+        .CommandText = "AltaPaciente"
         }
-
-        If Not accion Then
-            cmd.CommandText = "AltaPaciente"
-        Else
-            cmd.CommandText = "ModificarPaciente"
-        End If
 
         If Sesion.Conectar(conexion) = -1 Then
             Return -1
@@ -168,7 +163,6 @@ Public Class D_Paciente
             Console.WriteLine("mod paciente " & ex.Message)
             Return -5 'No se pudo crear/modificar paciente
         End Try
-        'hacer alta a la tabla de notificaciones indicando que hubo un cambio de etapa en el paciente.
         Sesion.Cerrar(conexion)
         If AltaRegistroEstado(u) <> 1 Then
             Return -6

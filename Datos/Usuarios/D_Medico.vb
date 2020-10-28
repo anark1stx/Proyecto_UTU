@@ -177,42 +177,39 @@ Public Class D_Medico
         Return uList
 
     End Function
-    Public Function AltaModMedico(u As E_Medico, accion As Boolean)
-        Dim code = MyBase.AltaModUsuarioSibim(u, accion)
+    Public Function AltaMedico(u As E_Medico)
+        Dim code = MyBase.AltaUsuarioSIBIM(u)
 
         Select Case code
             Case <> 1 'si no es 1 es porque hubo algun error
                 Return code
         End Select
 
-        Dim cmd As New MySqlCommand With {
-                    .CommandType = CommandType.StoredProcedure,
-                    .Connection = conexion
-        }
-        If Not accion Then
-            cmd.CommandText = "AltaMedico"
-            If Sesion.Conectar(conexion) = -1 Then
-                Return -1
-            End If
-        Else 'es modificar sus especialidades
-            If ModificarMedicoEspecialidad(u) = 1 Then
-                Return -1 'todo OK
-            Else
-                Return -6 'fallo ingreso/mod especialidad
-            End If
+        If Sesion.Conectar(conexion) <> 1 Then
+            Return -1
         End If
 
-        cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .Connection = conexion,
+        .CommandText = "AltaMedico"
+        }
+
+        cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
 
         Try
             cmd.ExecuteNonQuery()
-            Sesion.Cerrar(conexion)
         Catch ex As Exception
             Sesion.Cerrar(conexion)
             Return -5 'No se pudo crear medico
         End Try
+        Sesion.Cerrar(conexion)
 
-        Return AltaMedicoEspecialidad(u)
+        If ModificarMedicoEspecialidad(u) = 1 Then
+            Return 1 'todo OK
+        Else
+            Return -6 'fallo ingreso/mod especialidad
+        End If
     End Function
 
     Public Function AltaMedicoEspecialidad(u As E_Medico) As Integer
@@ -226,7 +223,7 @@ Public Class D_Medico
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaMedicoEspecialidad"
             }
-            cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+            cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
             cmd.Parameters.Add("ESPECIALIDAD", MySqlDbType.VarChar, 50).Value = es
 
             Try

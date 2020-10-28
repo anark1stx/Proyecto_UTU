@@ -2,7 +2,6 @@
 Imports Datos
 Public Class N_Auxiliar
     Inherits N_Usuario
-
     Dim objDatos As New D_auxiliar
 
     Public Function BuscarAuxiliarCI(CI As String) As E_Usuario
@@ -12,9 +11,6 @@ Public Class N_Auxiliar
         Return objDatos.BuscarAuxiliarApellido(ap)
     End Function
     Public Function AltaAuxiliar(u As E_Usuario) As Integer
-        Return objDatos.AltaModAuxiliar(u, 0)
-    End Function
-    Public Function ModificacionAuxiliar(u As E_Usuario) As Integer
-        Return objDatos.AltaModAuxiliar(u, 0)
+        Return objDatos.AltaAuxiliar(u)
     End Function
 End Class

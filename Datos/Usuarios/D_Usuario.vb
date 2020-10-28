@@ -64,28 +64,25 @@ Public Class D_Usuario
         Return existe
     End Function
 
-    Public Function AltaModUsuarioSibim(u As E_Usuario, accion As Boolean) As Integer '0=alta, 1=modificacion
+    Public Function AltaUsuarioSIBIM(u As E_Usuario) As Integer
         Dim cmd = New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .Connection = conexion
+            .Connection = conexion,
+            .CommandText = "AltaUsuario"
         }
-        If Not accion Then 'alta
+
+        If Not String.IsNullOrEmpty(u.Contrasena) Then 'en caso de que la contrasena no este vacia, es o bien alta de usuario mysql o update a su contrasena.
             Dim mysqlUser As New E_UsuarioMYSQL("u" & u.Cedula, u.Contrasena, u.Rol)
             Dim code = MyBase.AltaUsuario(mysqlUser) 'usuario de mysql
             Select Case code
                 Case <> 1
                     Return code
             End Select
-            cmd.CommandText = "AltaUsuario"
-        Else
-            cmd.CommandText = "ModificarUsuario"
         End If
 
         If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If
-
-        Console.WriteLine(Text.Encoding.Default.GetString(u.Foto))
 
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
         cmd.Parameters.Add("NOM1", MySqlDbType.VarChar, 30).Value = u.Nombre1
@@ -106,10 +103,10 @@ Public Class D_Usuario
         End Try
 
         Sesion.Cerrar(conexion)
-        If AltaUsuarioTelefono(u) Then
-            Return 1 'todo ok
+        If ModificarUsuarioTelefono(u) = 1 Then
+            Return 1
         Else
-            Return -3 'Falla alta telefono
+            Return -3
         End If
 
     End Function
@@ -117,12 +114,7 @@ Public Class D_Usuario
     Public Function ModificarUsuarioTelefono(u As E_Usuario) As Integer
 
         If BorrarTelefonos(u.Cedula) = 1 Then
-
-            If AltaUsuarioTelefono(u) = 1 Then
-                Return 1 'todo ok
-            Else
-                Return -2 'error dando de alta telefonos
-            End If
+            Return AltaUsuarioTelefono(u)
         Else
             Return -5 'error borrando telefonos
         End If
@@ -140,7 +132,7 @@ Public Class D_Usuario
             .Connection = conexion
             }
 
-            cmd.Parameters.Add("CI", MySqlDbType.Int32).Value = u.Cedula
+            cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
             cmd.Parameters.Add("TELEFONO", MySqlDbType.VarChar).Value = t
 
             Try
