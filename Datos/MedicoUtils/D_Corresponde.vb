@@ -9,7 +9,7 @@ Public Class D_Corresponde
 
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
-            .CommandText = "AltaCorresponde",
+            .CommandText = "AltaAux_c_Med",
             .Connection = conexion
         }
 

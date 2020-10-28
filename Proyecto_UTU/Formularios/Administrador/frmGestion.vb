@@ -125,7 +125,7 @@ Public Class frmGestion
         rBtnCedula.Checked = True
         Filter = Filtro.Cedula
         pnlAcciones.Visible = ci_valida
-            Select Case Mode
+        Select Case Mode
             Case Accion.Alta
                 btnAccion1.ImageIndex = 1 '1 = Alta
                 btnAccion2.ImageIndex = 1 '1 = limpiar
@@ -951,13 +951,10 @@ Public Class frmGestion
                 AuxiliarSelected = a
         End Select
     End Sub
-
     Private Sub FiltroCambia(sender As Object, e As EventArgs) Handles rBtnCedula.Click, rBtnApellido.Click, rBtnEspecialidad.Click
         Filter = [Enum].Parse(GetType(Filtro), DirectCast(sender, Control).Tag)
     End Sub
-
     Private Sub btnAltaLogica_Click(sender As Object, e As EventArgs) Handles btnAltaLogica.Click
         AltaULogica()
     End Sub
-
 End Class

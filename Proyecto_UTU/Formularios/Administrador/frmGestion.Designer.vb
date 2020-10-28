@@ -49,7 +49,6 @@ Partial Class frmGestion
         Me.lblNombre2TXT = New System.Windows.Forms.TextBox()
         Me.lblNombre1TXT = New System.Windows.Forms.TextBox()
         Me.cbEstadoCivil = New System.Windows.Forms.ComboBox()
-        Me.cbEtapa = New System.Windows.Forms.ComboBox()
         Me.cbSexo = New System.Windows.Forms.ComboBox()
         Me.dtpFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.pnlBotonesTel = New System.Windows.Forms.Panel()
@@ -57,7 +56,6 @@ Partial Class frmGestion
         Me.btnAgregarTelefono = New System.Windows.Forms.Button()
         Me.cbEspecialidades = New System.Windows.Forms.ComboBox()
         Me.lblEspecialidades = New System.Windows.Forms.Label()
-        Me.lblEtapa = New System.Windows.Forms.Label()
         Me.lblEstadoCivil = New System.Windows.Forms.Label()
         Me.lblOcupacion = New System.Windows.Forms.Label()
         Me.lblSexo = New System.Windows.Forms.Label()
@@ -177,13 +175,11 @@ Partial Class frmGestion
         Me.pnlDspCedula.Controls.Add(Me.lblNombre2TXT)
         Me.pnlDspCedula.Controls.Add(Me.lblNombre1TXT)
         Me.pnlDspCedula.Controls.Add(Me.cbEstadoCivil)
-        Me.pnlDspCedula.Controls.Add(Me.cbEtapa)
         Me.pnlDspCedula.Controls.Add(Me.cbSexo)
         Me.pnlDspCedula.Controls.Add(Me.dtpFechaNacimiento)
         Me.pnlDspCedula.Controls.Add(Me.pnlBotonesTel)
         Me.pnlDspCedula.Controls.Add(Me.cbEspecialidades)
         Me.pnlDspCedula.Controls.Add(Me.lblEspecialidades)
-        Me.pnlDspCedula.Controls.Add(Me.lblEtapa)
         Me.pnlDspCedula.Controls.Add(Me.lblEstadoCivil)
         Me.pnlDspCedula.Controls.Add(Me.lblOcupacion)
         Me.pnlDspCedula.Controls.Add(Me.lblSexo)
@@ -208,7 +204,7 @@ Partial Class frmGestion
         Me.lblEstadoTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblEstadoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoTXT.Location = New System.Drawing.Point(830, 182)
+        Me.lblEstadoTXT.Location = New System.Drawing.Point(830, 147)
         Me.lblEstadoTXT.Name = "lblEstadoTXT"
         Me.lblEstadoTXT.ReadOnly = True
         Me.lblEstadoTXT.Size = New System.Drawing.Size(220, 23)
@@ -219,7 +215,7 @@ Partial Class frmGestion
         '
         Me.lblEstado.AutoSize = True
         Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstado.Location = New System.Drawing.Point(670, 187)
+        Me.lblEstado.Location = New System.Drawing.Point(670, 149)
         Me.lblEstado.Name = "lblEstado"
         Me.lblEstado.Size = New System.Drawing.Size(73, 24)
         Me.lblEstado.TabIndex = 416
@@ -252,7 +248,7 @@ Partial Class frmGestion
         Me.lblContrasenaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblContrasenaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lblContrasenaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasenaTXT.Location = New System.Drawing.Point(830, 217)
+        Me.lblContrasenaTXT.Location = New System.Drawing.Point(831, 188)
         Me.lblContrasenaTXT.Name = "lblContrasenaTXT"
         Me.lblContrasenaTXT.ReadOnly = True
         Me.lblContrasenaTXT.Size = New System.Drawing.Size(220, 23)
@@ -263,7 +259,7 @@ Partial Class frmGestion
         '
         Me.lblContrasena.AutoSize = True
         Me.lblContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrasena.Location = New System.Drawing.Point(670, 218)
+        Me.lblContrasena.Location = New System.Drawing.Point(670, 187)
         Me.lblContrasena.Name = "lblContrasena"
         Me.lblContrasena.Size = New System.Drawing.Size(111, 24)
         Me.lblContrasena.TabIndex = 414
@@ -401,17 +397,6 @@ Partial Class frmGestion
         Me.cbEstadoCivil.Size = New System.Drawing.Size(220, 28)
         Me.cbEstadoCivil.TabIndex = 406
         '
-        'cbEtapa
-        '
-        Me.cbEtapa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbEtapa.FormattingEnabled = True
-        Me.cbEtapa.Items.AddRange(New Object() {"a", "b", "c", "d", "e"})
-        Me.cbEtapa.Location = New System.Drawing.Point(830, 142)
-        Me.cbEtapa.Name = "cbEtapa"
-        Me.cbEtapa.Size = New System.Drawing.Size(220, 28)
-        Me.cbEtapa.TabIndex = 405
-        '
         'cbSexo
         '
         Me.cbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -484,16 +469,6 @@ Partial Class frmGestion
         Me.lblEspecialidades.Size = New System.Drawing.Size(155, 24)
         Me.lblEspecialidades.TabIndex = 399
         Me.lblEspecialidades.Text = "Especialidad(es):"
-        '
-        'lblEtapa
-        '
-        Me.lblEtapa.AutoSize = True
-        Me.lblEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEtapa.Location = New System.Drawing.Point(669, 146)
-        Me.lblEtapa.Name = "lblEtapa"
-        Me.lblEtapa.Size = New System.Drawing.Size(63, 24)
-        Me.lblEtapa.TabIndex = 398
-        Me.lblEtapa.Text = "Etapa:"
         '
         'lblEstadoCivil
         '
@@ -796,7 +771,6 @@ Partial Class frmGestion
     Friend WithEvents lblNombre2TXT As TextBox
     Friend WithEvents lblNombre1TXT As TextBox
     Friend WithEvents cbEstadoCivil As ComboBox
-    Friend WithEvents cbEtapa As ComboBox
     Friend WithEvents cbSexo As ComboBox
     Friend WithEvents dtpFechaNacimiento As DateTimePicker
     Friend WithEvents pnlBotonesTel As Panel
@@ -804,7 +778,6 @@ Partial Class frmGestion
     Friend WithEvents btnAgregarTelefono As Button
     Friend WithEvents cbEspecialidades As ComboBox
     Friend WithEvents lblEspecialidades As Label
-    Friend WithEvents lblEtapa As Label
     Friend WithEvents lblEstadoCivil As Label
     Friend WithEvents lblOcupacion As Label
     Friend WithEvents lblSexo As Label

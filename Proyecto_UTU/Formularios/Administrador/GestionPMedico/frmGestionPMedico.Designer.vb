@@ -24,14 +24,14 @@ Partial Class frmGestionPMedico
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGestionPMedico))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.btnAgregarAsignar = New System.Windows.Forms.Button()
         Me.tblPMedico = New System.Windows.Forms.TableLayoutPanel()
         Me.tblMedicoAsignaciones = New System.Windows.Forms.TableLayoutPanel()
         Me.lbMedicoAsignaciones = New System.Windows.Forms.ListBox()
-        Me.btnSacarAsignar = New System.Windows.Forms.Button()
         Me.tblAuxiliares = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.lbAuxiliarAsignaciones = New System.Windows.Forms.ListBox()
+        Me.btnAgregarAsignar = New System.Windows.Forms.Button()
+        Me.btnSacarAsignar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.pnlContenedor.SuspendLayout()
         Me.tblPMedico.SuspendLayout()
         Me.tblMedicoAsignaciones.SuspendLayout()
@@ -47,18 +47,6 @@ Partial Class frmGestionPMedico
         Me.pnlContenedor.Name = "pnlContenedor"
         Me.pnlContenedor.Size = New System.Drawing.Size(1446, 1055)
         Me.pnlContenedor.TabIndex = 0
-        '
-        'btnAgregarAsignar
-        '
-        Me.btnAgregarAsignar.BackColor = System.Drawing.Color.PaleGreen
-        Me.btnAgregarAsignar.BackgroundImage = CType(resources.GetObject("btnAgregarAsignar.BackgroundImage"), System.Drawing.Image)
-        Me.btnAgregarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAgregarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAgregarAsignar.Location = New System.Drawing.Point(1336, 0)
-        Me.btnAgregarAsignar.Name = "btnAgregarAsignar"
-        Me.btnAgregarAsignar.Size = New System.Drawing.Size(110, 1055)
-        Me.btnAgregarAsignar.TabIndex = 1
-        Me.btnAgregarAsignar.UseVisualStyleBackColor = False
         '
         'tblPMedico
         '
@@ -102,17 +90,6 @@ Partial Class frmGestionPMedico
         Me.lbMedicoAsignaciones.Size = New System.Drawing.Size(259, 440)
         Me.lbMedicoAsignaciones.TabIndex = 1
         '
-        'btnSacarAsignar
-        '
-        Me.btnSacarAsignar.BackgroundImage = CType(resources.GetObject("btnSacarAsignar.BackgroundImage"), System.Drawing.Image)
-        Me.btnSacarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnSacarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnSacarAsignar.Location = New System.Drawing.Point(3, 449)
-        Me.btnSacarAsignar.Name = "btnSacarAsignar"
-        Me.btnSacarAsignar.Size = New System.Drawing.Size(259, 69)
-        Me.btnSacarAsignar.TabIndex = 2
-        Me.btnSacarAsignar.UseVisualStyleBackColor = True
-        '
         'tblAuxiliares
         '
         Me.tblAuxiliares.ColumnCount = 1
@@ -128,17 +105,6 @@ Partial Class frmGestionPMedico
         Me.tblAuxiliares.Size = New System.Drawing.Size(265, 522)
         Me.tblAuxiliares.TabIndex = 1
         '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(3, 440)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(259, 79)
-        Me.Button1.TabIndex = 3
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'lbAuxiliarAsignaciones
         '
         Me.lbAuxiliarAsignaciones.Dock = System.Windows.Forms.DockStyle.Fill
@@ -150,6 +116,40 @@ Partial Class frmGestionPMedico
         Me.lbAuxiliarAsignaciones.Size = New System.Drawing.Size(259, 431)
         Me.lbAuxiliarAsignaciones.TabIndex = 2
         '
+        'btnAgregarAsignar
+        '
+        Me.btnAgregarAsignar.BackColor = System.Drawing.Color.PaleGreen
+        Me.btnAgregarAsignar.BackgroundImage = CType(resources.GetObject("btnAgregarAsignar.BackgroundImage"), System.Drawing.Image)
+        Me.btnAgregarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnAgregarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAgregarAsignar.Location = New System.Drawing.Point(1336, 0)
+        Me.btnAgregarAsignar.Name = "btnAgregarAsignar"
+        Me.btnAgregarAsignar.Size = New System.Drawing.Size(110, 1055)
+        Me.btnAgregarAsignar.TabIndex = 1
+        Me.btnAgregarAsignar.UseVisualStyleBackColor = False
+        '
+        'btnSacarAsignar
+        '
+        Me.btnSacarAsignar.BackgroundImage = CType(resources.GetObject("btnSacarAsignar.BackgroundImage"), System.Drawing.Image)
+        Me.btnSacarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnSacarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSacarAsignar.Location = New System.Drawing.Point(3, 449)
+        Me.btnSacarAsignar.Name = "btnSacarAsignar"
+        Me.btnSacarAsignar.Size = New System.Drawing.Size(259, 69)
+        Me.btnSacarAsignar.TabIndex = 2
+        Me.btnSacarAsignar.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button1.Location = New System.Drawing.Point(3, 440)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(259, 79)
+        Me.Button1.TabIndex = 3
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmGestionPMedico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -157,8 +157,6 @@ Partial Class frmGestionPMedico
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.ClientSize = New System.Drawing.Size(1446, 1055)
         Me.Controls.Add(Me.pnlContenedor)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "frmGestionPMedico"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmGestionPMedico"

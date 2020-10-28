@@ -11,8 +11,14 @@ Public Class frmGestionPMedico
         tblPMedico.Controls.Add(elegirAuxiliar, 0, 1)
         elegirMedico.Visible = True
         elegirAuxiliar.Visible = True
+        AddHandler elegirMedico.dgwUsuarios.SelectionChanged, AddressOf cambiar
+        AddHandler elegirAuxiliar.dgwUsuarios.SelectionChanged, AddressOf cambiar
+        Me.SetBounds(0, 0, Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height)
+        Me.MaximizeBox = False
     End Sub
-
+    Sub cambiar()
+        MsgBox("cambio")
+    End Sub
     Private Sub btnAgregarAsignar_Click(sender As Object, e As EventArgs) Handles btnAgregarAsignar.Click
         If String.IsNullOrEmpty(elegirMedico.lblCedulaTXT.Text) Then
             MessageBox.Show("Seleccione un médico primero.", "Falta proporcionar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -29,7 +35,16 @@ Public Class frmGestionPMedico
         If Not definirhorario.Cancelar Then
             Dim fechaelegida = New Date(definirhorario.dtpFecha.Value.Year, definirhorario.dtpFecha.Value.Month, definirhorario.dtpFecha.Value.Day, definirhorario.dtpHora.Value.Hour, definirhorario.dtpHora.Value.Minute, 0)
             Dim corresponde As New E_Corresponde(elegirMedico.MedicoSelected, elegirAuxiliar.AuxiliarSelected, fechaelegida)
-            Dim n_crr
+            Dim n_crr As New N_Corresponde
+            Dim result = n_crr.AltaCorresponde(corresponde)
+            Select Case result
+                Case -1
+                    MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Case -2
+                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Case 1
+                    MessageBox.Show("Ingresado con éxito.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Select
         End If
 
     End Sub
