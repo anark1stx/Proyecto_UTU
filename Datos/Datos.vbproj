@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Credenciales.vb" />
     <Compile Include="MedicoUtils\D_Atiende.vb" />
+    <Compile Include="MedicoUtils\D_Corresponde.vb" />
     <Compile Include="MedicoUtils\D_Enfermedad.vb" />
     <Compile Include="MedicoUtils\D_SignoClinico.vb" />
     <Compile Include="MedicoUtils\D_Sintoma.vb" />

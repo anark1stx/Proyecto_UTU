@@ -24,14 +24,14 @@ Partial Class frmGestionPMedico
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGestionPMedico))
         Me.pnlContenedor = New System.Windows.Forms.Panel()
-        Me.tblPMedico = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregarAsignar = New System.Windows.Forms.Button()
+        Me.tblPMedico = New System.Windows.Forms.TableLayoutPanel()
         Me.tblMedicoAsignaciones = New System.Windows.Forms.TableLayoutPanel()
         Me.lbMedicoAsignaciones = New System.Windows.Forms.ListBox()
         Me.btnSacarAsignar = New System.Windows.Forms.Button()
         Me.tblAuxiliares = New System.Windows.Forms.TableLayoutPanel()
-        Me.lbAuxiliarAsignaciones = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.lbAuxiliarAsignaciones = New System.Windows.Forms.ListBox()
         Me.pnlContenedor.SuspendLayout()
         Me.tblPMedico.SuspendLayout()
         Me.tblMedicoAsignaciones.SuspendLayout()
@@ -48,6 +48,18 @@ Partial Class frmGestionPMedico
         Me.pnlContenedor.Size = New System.Drawing.Size(1446, 1055)
         Me.pnlContenedor.TabIndex = 0
         '
+        'btnAgregarAsignar
+        '
+        Me.btnAgregarAsignar.BackColor = System.Drawing.Color.PaleGreen
+        Me.btnAgregarAsignar.BackgroundImage = CType(resources.GetObject("btnAgregarAsignar.BackgroundImage"), System.Drawing.Image)
+        Me.btnAgregarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnAgregarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAgregarAsignar.Location = New System.Drawing.Point(1336, 0)
+        Me.btnAgregarAsignar.Name = "btnAgregarAsignar"
+        Me.btnAgregarAsignar.Size = New System.Drawing.Size(110, 1055)
+        Me.btnAgregarAsignar.TabIndex = 1
+        Me.btnAgregarAsignar.UseVisualStyleBackColor = False
+        '
         'tblPMedico
         '
         Me.tblPMedico.ColumnCount = 2
@@ -63,18 +75,6 @@ Partial Class frmGestionPMedico
         Me.tblPMedico.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblPMedico.Size = New System.Drawing.Size(1336, 1055)
         Me.tblPMedico.TabIndex = 0
-        '
-        'btnAgregarAsignar
-        '
-        Me.btnAgregarAsignar.BackColor = System.Drawing.Color.PaleGreen
-        Me.btnAgregarAsignar.BackgroundImage = CType(resources.GetObject("btnAgregarAsignar.BackgroundImage"), System.Drawing.Image)
-        Me.btnAgregarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAgregarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAgregarAsignar.Location = New System.Drawing.Point(1336, 0)
-        Me.btnAgregarAsignar.Name = "btnAgregarAsignar"
-        Me.btnAgregarAsignar.Size = New System.Drawing.Size(110, 1055)
-        Me.btnAgregarAsignar.TabIndex = 1
-        Me.btnAgregarAsignar.UseVisualStyleBackColor = False
         '
         'tblMedicoAsignaciones
         '
@@ -99,7 +99,7 @@ Partial Class frmGestionPMedico
         Me.lbMedicoAsignaciones.ItemHeight = 25
         Me.lbMedicoAsignaciones.Location = New System.Drawing.Point(3, 3)
         Me.lbMedicoAsignaciones.Name = "lbMedicoAsignaciones"
-        Me.lbMedicoAsignaciones.Size = New System.Drawing.Size(259, 439)
+        Me.lbMedicoAsignaciones.Size = New System.Drawing.Size(259, 440)
         Me.lbMedicoAsignaciones.TabIndex = 1
         '
         'btnSacarAsignar
@@ -107,9 +107,9 @@ Partial Class frmGestionPMedico
         Me.btnSacarAsignar.BackgroundImage = CType(resources.GetObject("btnSacarAsignar.BackgroundImage"), System.Drawing.Image)
         Me.btnSacarAsignar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnSacarAsignar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnSacarAsignar.Location = New System.Drawing.Point(3, 448)
+        Me.btnSacarAsignar.Location = New System.Drawing.Point(3, 449)
         Me.btnSacarAsignar.Name = "btnSacarAsignar"
-        Me.btnSacarAsignar.Size = New System.Drawing.Size(259, 68)
+        Me.btnSacarAsignar.Size = New System.Drawing.Size(259, 69)
         Me.btnSacarAsignar.TabIndex = 2
         Me.btnSacarAsignar.UseVisualStyleBackColor = True
         '
@@ -128,17 +128,6 @@ Partial Class frmGestionPMedico
         Me.tblAuxiliares.Size = New System.Drawing.Size(265, 522)
         Me.tblAuxiliares.TabIndex = 1
         '
-        'lbAuxiliarAsignaciones
-        '
-        Me.lbAuxiliarAsignaciones.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbAuxiliarAsignaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbAuxiliarAsignaciones.FormattingEnabled = True
-        Me.lbAuxiliarAsignaciones.ItemHeight = 29
-        Me.lbAuxiliarAsignaciones.Location = New System.Drawing.Point(3, 3)
-        Me.lbAuxiliarAsignaciones.Name = "lbAuxiliarAsignaciones"
-        Me.lbAuxiliarAsignaciones.Size = New System.Drawing.Size(259, 431)
-        Me.lbAuxiliarAsignaciones.TabIndex = 2
-        '
         'Button1
         '
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
@@ -149,6 +138,17 @@ Partial Class frmGestionPMedico
         Me.Button1.Size = New System.Drawing.Size(259, 79)
         Me.Button1.TabIndex = 3
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'lbAuxiliarAsignaciones
+        '
+        Me.lbAuxiliarAsignaciones.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lbAuxiliarAsignaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbAuxiliarAsignaciones.FormattingEnabled = True
+        Me.lbAuxiliarAsignaciones.ItemHeight = 29
+        Me.lbAuxiliarAsignaciones.Location = New System.Drawing.Point(3, 3)
+        Me.lbAuxiliarAsignaciones.Name = "lbAuxiliarAsignaciones"
+        Me.lbAuxiliarAsignaciones.Size = New System.Drawing.Size(259, 431)
+        Me.lbAuxiliarAsignaciones.TabIndex = 2
         '
         'frmGestionPMedico
         '

@@ -4,13 +4,11 @@ Public Class D_Analisis
     Dim conexion As New MySqlConnection
 
     Public Function AltaAnalisis(a As E_Analisis) As Integer
-
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "AltaAnalisis",
             .Connection = conexion
         }
-        Dim leer As MySqlDataReader
 
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = a.Nombre
         cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Direction = ParameterDirection.Output
@@ -20,7 +18,7 @@ Public Class D_Analisis
         End If
 
         Try
-            leer = cmd.ExecuteReader() 'porque preciso el ID del analisis, sino seria NonQuery.
+            cmd.ExecuteNonQuery()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
             Return -2 'no se pudo ingresar analisis

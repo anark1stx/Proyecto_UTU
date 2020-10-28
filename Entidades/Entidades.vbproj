@@ -65,6 +65,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedicoUtils\E_Corresponde.vb" />
     <Compile Include="MedicoUtils\E_SignoClinico.vb" />
     <Compile Include="MedicoUtils\E_Sintoma.vb" />
     <Compile Include="MedicoUtils\E_Analisis.vb" />

@@ -85,10 +85,16 @@
     <Compile Include="Formularios\Administrador\frmGestion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Administrador\frmGestionPMedico.Designer.vb">
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.Designer.vb">
+      <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.Designer.vb">
       <DependentUpon>frmGestionPMedico.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Administrador\frmGestionPMedico.vb">
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormularioEntrevista.Designer.vb">
@@ -304,7 +310,10 @@
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administrador\frmGestionPMedico.resx">
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.resx">
+      <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.resx">
       <DependentUpon>frmGestionPMedico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormularioEntrevista.resx">

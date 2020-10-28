@@ -13,6 +13,8 @@ Public Class frmGestion
     Dim mList As New List(Of E_Medico)
     Dim aList As New List(Of E_Usuario)
     Dim bs As New BindingSource
+    Property MedicoSelected As E_Medico
+    Property AuxiliarSelected As E_Usuario
     Public Enum Accion
         Alta
         Baja
@@ -940,11 +942,13 @@ Public Class frmGestion
                 basicBindings(m)
                 MedicoBindings(m)
                 ci_valida = True
+                MedicoSelected = m
             Case TipoUsuario.Auxiliar
                 Dim a = aList(dgwUsuarios.CurrentCell.RowIndex)
                 basicBindings(a)
                 MedicoBindings(a)
                 ci_valida = True
+                AuxiliarSelected = a
         End Select
     End Sub
 
