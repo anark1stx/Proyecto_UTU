@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3FF304F-C60A-406C-A901-0CCC98A247DD}</ProjectGuid>
+    <ProjectGuid>{0791ABB7-1809-430A-9ECC-17F762E05C32}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DiagnosticoSugestivo</RootNamespace>
-    <AssemblyName>DiagnosticoSugestivo</AssemblyName>
+    <RootNamespace>Sugerencia</RootNamespace>
+    <AssemblyName>Sugerencia</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -19,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>DiagnosticoSugestivo.xml</DocumentationFile>
+    <DocumentationFile>Sugerencia.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -28,7 +28,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>DiagnosticoSugestivo.xml</DocumentationFile>
+    <DocumentationFile>Sugerencia.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -65,7 +65,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sugerir.vb" />
+    <Compile Include="Sugerencia.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

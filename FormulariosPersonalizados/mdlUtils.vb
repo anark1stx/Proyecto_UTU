@@ -25,10 +25,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
         Public Enum ModoEvento 'el boton guardar hace cosas diferentes segun lo q se haya seleccionado
             DatosFormulario = 0 'ingreso datos
-            DatosTratamiento = 1 'ingreso datos
-            DatosAnalisis = 2 'ingreso datos
-            AsignarAnalisis = 3
-            AsignarTratamiento = 4
             ConsultaDatos 'solo habilito btnImprimir, limpiar y guardar quedan deshabilitados.
         End Enum
 
@@ -89,22 +85,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                 _formDatos = value
             End Set
         End Property
-        Property AnalisisDatos As E_Analisis
-            Get
-                Return _analisisDatos
-            End Get
-            Set(value As E_Analisis)
-                _analisisDatos = value
-            End Set
-        End Property
-        Property TratamientoDatos As E_Tratamiento
-            Get
-                Return _tratamientoDatos
-            End Get
-            Set(value As E_Tratamiento)
-                _tratamientoDatos = value
-            End Set
-        End Property
         Sub AgregarHandlers()
             AddHandler Acciones.btnGuardar.Click, AddressOf Guardar
             AddHandler Acciones.btnImprimir.Click, AddressOf Imprimir
@@ -163,13 +143,13 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Next
 
                     If FormDatos.Analisis Is Nothing Then
-                        If MessageBox.Show("¿Desea guardar sin asignar un análisis?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                        If MessageBox.Show("¿Desea guardar sin requerir un análisis?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
 
                     If FormDatos.Tratamiento Is Nothing Then
-                        If MessageBox.Show("¿Desea guardar sin asignar un tratamiento?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
+                        If MessageBox.Show("¿Desea guardar sin sugerir un tratamiento?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
@@ -177,14 +157,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     Dim negocio As New N_Formulario
                     resultado = negocio.AltaFormularioDatos(FormDatos)
                     Console.WriteLine("ID DE LA CONSULTA: " & FormDatos.Atiende.ID)
-                Case 1
-                    'Console.WriteLine("Evento guardar Datos Tratamiento!!!!") 'por ahora solamente el tratamiento que se le asigno a un paciente, queda pendiente el seguimiento diario.
-                    'Dim negocio As New N_Tratamiento
-                    'resultado = negocio.AltaSeguimientoDiario(TratamientoDatos, TratamientoDatos.ListaSeguimientos(0),)
-                Case 2
-                    Console.WriteLine("Evento guardar Datos Analisis!!!!")
-                    Dim Negocio As New N_Analisis
-                    resultado = Negocio.AltaAnalisisResultados(AnalisisDatos)
             End Select
             Select Case resultado
                 Case -1

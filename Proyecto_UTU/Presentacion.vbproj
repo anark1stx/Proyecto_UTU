@@ -115,6 +115,12 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.Designer.vb">
+      <DependentUpon>frmLogSugerencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.Designer.vb">
       <DependentUpon>TarjetaPaciente.vb</DependentUpon>
     </Compile>
@@ -325,6 +331,9 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.resx">
       <DependentUpon>frmDefinirConsulta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.resx">
+      <DependentUpon>frmLogSugerencia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
       <DependentUpon>TarjetaPaciente.vb</DependentUpon>
     </EmbeddedResource>
@@ -445,10 +454,6 @@
     <None Include="Resources\icons8-hospital-100.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.vbproj">
-      <Project>{aea63ad7-2215-41ff-bd7f-3566fd6c745d}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.vbproj">
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
@@ -460,6 +465,10 @@
     <ProjectReference Include="..\Negocio\Negocio.vbproj">
       <Project>{c424e458-2687-4aee-bae4-b2a2fc18d00f}</Project>
       <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sugerencia\Sugerencia.vbproj">
+      <Project>{0791abb7-1809-430a-9ecc-17f762e05c32}</Project>
+      <Name>Sugerencia</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
       <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>

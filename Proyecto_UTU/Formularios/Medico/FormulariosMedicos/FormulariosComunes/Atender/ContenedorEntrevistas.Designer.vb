@@ -41,6 +41,8 @@ Partial Class ContenedorEntrevistas
         Me.lbSignosClinicos = New System.Windows.Forms.ListBox()
         Me.tpResolucion = New System.Windows.Forms.TabPage()
         Me.tblResolucion = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnSugereirTratamiento = New System.Windows.Forms.Button()
+        Me.btnSugerirAnalisis = New System.Windows.Forms.Button()
         Me.txtNomAnalisis = New System.Windows.Forms.TextBox()
         Me.lblAnalisisReq = New System.Windows.Forms.Label()
         Me.chkEnfermo = New System.Windows.Forms.CheckBox()
@@ -265,6 +267,8 @@ Partial Class ContenedorEntrevistas
         Me.tblResolucion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.tblResolucion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.tblResolucion.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblResolucion.Controls.Add(Me.btnSugereirTratamiento, 0, 3)
+        Me.tblResolucion.Controls.Add(Me.btnSugerirAnalisis, 0, 3)
         Me.tblResolucion.Controls.Add(Me.txtNomAnalisis, 2, 1)
         Me.tblResolucion.Controls.Add(Me.lblAnalisisReq, 1, 1)
         Me.tblResolucion.Controls.Add(Me.chkEnfermo, 0, 0)
@@ -285,6 +289,32 @@ Partial Class ContenedorEntrevistas
         Me.tblResolucion.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.tblResolucion.Size = New System.Drawing.Size(1318, 697)
         Me.tblResolucion.TabIndex = 0
+        '
+        'btnSugereirTratamiento
+        '
+        Me.btnSugereirTratamiento.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnSugereirTratamiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSugereirTratamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSugereirTratamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSugereirTratamiento.Location = New System.Drawing.Point(442, 525)
+        Me.btnSugereirTratamiento.Name = "btnSugereirTratamiento"
+        Me.btnSugereirTratamiento.Size = New System.Drawing.Size(433, 169)
+        Me.btnSugereirTratamiento.TabIndex = 12
+        Me.btnSugereirTratamiento.Text = "Solicitar sugerencia de tratamiento"
+        Me.btnSugereirTratamiento.UseVisualStyleBackColor = False
+        '
+        'btnSugerirAnalisis
+        '
+        Me.btnSugerirAnalisis.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnSugerirAnalisis.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSugerirAnalisis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSugerirAnalisis.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSugerirAnalisis.Location = New System.Drawing.Point(3, 525)
+        Me.btnSugerirAnalisis.Name = "btnSugerirAnalisis"
+        Me.btnSugerirAnalisis.Size = New System.Drawing.Size(433, 169)
+        Me.btnSugerirAnalisis.TabIndex = 11
+        Me.btnSugerirAnalisis.Text = "Solicitar sugerencia de análisis"
+        Me.btnSugerirAnalisis.UseVisualStyleBackColor = False
         '
         'txtNomAnalisis
         '
@@ -401,11 +431,11 @@ Partial Class ContenedorEntrevistas
         Me.btnSugerirDiagnostico.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnSugerirDiagnostico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSugerirDiagnostico.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSugerirDiagnostico.Location = New System.Drawing.Point(442, 525)
+        Me.btnSugerirDiagnostico.Location = New System.Drawing.Point(881, 525)
         Me.btnSugerirDiagnostico.Name = "btnSugerirDiagnostico"
-        Me.btnSugerirDiagnostico.Size = New System.Drawing.Size(433, 169)
+        Me.btnSugerirDiagnostico.Size = New System.Drawing.Size(434, 169)
         Me.btnSugerirDiagnostico.TabIndex = 10
-        Me.btnSugerirDiagnostico.Text = "Sugerir diagnóstico"
+        Me.btnSugerirDiagnostico.Text = "Solicitar sugerencia de diagnóstico"
         Me.btnSugerirDiagnostico.UseVisualStyleBackColor = False
         '
         'ContenedorEntrevistas
@@ -458,4 +488,6 @@ Partial Class ContenedorEntrevistas
     Friend WithEvents txtNomTratamiento As TextBox
     Friend WithEvents btnSugerirDiagnostico As Button
     Friend WithEvents chkAnalisis As CheckBox
+    Friend WithEvents btnSugereirTratamiento As Button
+    Friend WithEvents btnSugerirAnalisis As Button
 End Class

@@ -27,7 +27,6 @@ Partial Class Identificacion_Paciente
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblTelefonoTXT = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.lblNombresTXT = New System.Windows.Forms.Label()
@@ -51,6 +50,7 @@ Partial Class Identificacion_Paciente
         Me.pnlEstado = New System.Windows.Forms.Panel()
         Me.btnActualizarEstado = New System.Windows.Forms.Button()
         Me.txtEstado = New System.Windows.Forms.TextBox()
+        Me.lblTelefonoTXT = New System.Windows.Forms.Label()
         Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregarLista = New System.Windows.Forms.Button()
         Me.imgsBtnEntrevistar = New System.Windows.Forms.ImageList(Me.components)
@@ -144,17 +144,6 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.Size = New System.Drawing.Size(779, 293)
         Me.tabDatos.TabIndex = 103
         '
-        'lblTelefonoTXT
-        '
-        Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblTelefonoTXT.AutoSize = True
-        Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(296, 144)
-        Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
-        Me.lblTelefonoTXT.Size = New System.Drawing.Size(144, 29)
-        Me.lblTelefonoTXT.TabIndex = 100
-        Me.lblTelefonoTXT.Text = "Teléfono(s):"
-        '
         'lblCedula
         '
         Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -244,7 +233,7 @@ Partial Class Identificacion_Paciente
         Me.lblTelefonoa.Name = "lblTelefonoa"
         Me.lblTelefonoa.Size = New System.Drawing.Size(144, 29)
         Me.lblTelefonoa.TabIndex = 84
-        Me.lblTelefonoa.Tag = "datos"
+        Me.lblTelefonoa.Tag = ""
         Me.lblTelefonoa.Text = "Teléfono(s):"
         '
         'lblFechaNac
@@ -421,6 +410,17 @@ Partial Class Identificacion_Paciente
         Me.txtEstado.Name = "txtEstado"
         Me.txtEstado.Size = New System.Drawing.Size(480, 27)
         Me.txtEstado.TabIndex = 0
+        '
+        'lblTelefonoTXT
+        '
+        Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblTelefonoTXT.AutoSize = True
+        Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTelefonoTXT.Location = New System.Drawing.Point(296, 144)
+        Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
+        Me.lblTelefonoTXT.Size = New System.Drawing.Size(144, 29)
+        Me.lblTelefonoTXT.TabIndex = 100
+        Me.lblTelefonoTXT.Text = "Teléfono(s):"
         '
         'tblAcciones
         '

@@ -45,7 +45,7 @@ Public Class ContenedorEntrevistas
                 txtSgClinico.Visible = True
                 lblIngreseSignoClinico.Text = "Ingrese signo clínico:"
                 txtSintoma.Visible = True
-                lblIngreseSignoClinico.Text = "Ingrese síntoma:"
+                lblIngreseSintoma.Text = "Ingrese síntoma:"
                 btnAgregarSClinico.Visible = True
                 btnAgregarSintoma.Visible = True
                 btnBorrarSigno.Visible = True
@@ -222,12 +222,33 @@ Public Class ContenedorEntrevistas
         Eventos.Acciones.Visible = True
         Eventos.AgregarHandlers()
     End Sub
-
-    Private Sub btnSugerirDiagnostico_Click(sender As Object, e As EventArgs) Handles btnSugerirDiagnostico.Click
-        MsgBox("Aun no implementado.")
-        'ejecutar los procedimientos Sugerir[{enfermedad,tratamiento,analisis}] según [{pyr,sintomas,signos clinicos}]
-    End Sub
     Private Sub txtNomEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtNomEnfermedad.TextChanged
         Entrevista.MiFormulario.Enfermedad.Nombre = txtNomEnfermedad.Text
+    End Sub
+
+    Private Sub btnSugerirDiagnostico_Click(sender As Object, e As EventArgs) Handles btnSugerirDiagnostico.Click
+        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Enfermedad,
+        .Sintomas = Entrevista.MiFormulario.Enfermedad.Sintomas,
+        .SignosClinicos = Entrevista.MiFormulario.Enfermedad.SignosClinicos,
+        .PreguntasYRespuestas = Entrevista.MiFormulario.PreguntasYRespuestas}
+        frmSugerir.ShowDialog()
+    End Sub
+
+    Private Sub btnSugerirAnalisis_Click(sender As Object, e As EventArgs) Handles btnSugerirAnalisis.Click
+        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Enfermedad,
+        .Sintomas = Entrevista.MiFormulario.Enfermedad.Sintomas,
+        .SignosClinicos = Entrevista.MiFormulario.Enfermedad.SignosClinicos,
+        .Enfermedad = Entrevista.MiFormulario.Enfermedad,
+        .PreguntasYRespuestas = Entrevista.MiFormulario.PreguntasYRespuestas}
+        frmSugerir.ShowDialog()
+    End Sub
+
+    Private Sub btnSugereirTratamiento_Click(sender As Object, e As EventArgs) Handles btnSugereirTratamiento.Click
+        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Enfermedad,
+        .Sintomas = Entrevista.MiFormulario.Enfermedad.Sintomas,
+        .SignosClinicos = Entrevista.MiFormulario.Enfermedad.SignosClinicos,
+        .Enfermedad = Entrevista.MiFormulario.Enfermedad,
+        .PreguntasYRespuestas = Entrevista.MiFormulario.PreguntasYRespuestas}
+        frmSugerir.ShowDialog()
     End Sub
 End Class
