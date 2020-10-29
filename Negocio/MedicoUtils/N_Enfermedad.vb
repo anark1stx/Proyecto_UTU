@@ -6,15 +6,15 @@ Public Class N_Enfermedad
     Public Function AltaEnfermedad(e As E_Enfermedad) As Integer
         Return objDatos.AltaEnfermedad(e)
     End Function
-    Public Function SugerirEnfermedadSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Enfermedad
-        Return objDatos.SugerirEnfermedadSegunPyR(pyrList)
+    Public Function SugerirEnfermedadSegunPyR(pyr As PreguntaRespuesta) As E_Enfermedad
+        Return objDatos.SugerirEnfermedadSegunPyR(pyr)
     End Function
 
-    Public Function SugerirEnfermedadSegunSintomas(sList As List(Of E_Sintoma)) As E_Enfermedad
-        Return objDatos.SugerirEnfermedadSegunSintomas(sList)
+    Public Function SugerirEnfermedadSegunSintomas(sintoma As E_Sintoma) As E_Enfermedad
+        Return objDatos.SugerirEnfermedadSegunSintomas(sintoma)
     End Function
-    Public Function SugerirEnfermedadSegunSignosC(scList As List(Of E_SignoClinico)) As E_Enfermedad
-        Return objDatos.SugerirEnfermedadSegunSignosC(scList)
+    Public Function SugerirEnfermedadSegunSignosC(signoc As E_SignoClinico) As E_Enfermedad
+        Return objDatos.SugerirEnfermedadSegunSignosC(signoc)
     End Function
 
 End Class

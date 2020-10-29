@@ -315,14 +315,14 @@ Public Class D_Tratamiento
         Return t
     End Function
 
-    Public Function SugerirTratamientoSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Tratamiento
+    Public Function SugerirTratamientoSegunPyR(pyr As PreguntaRespuesta) As E_Tratamiento
 
     End Function
 
-    Public Function SugerirTratamientoSegunSintomas(sList As List(Of E_Sintoma)) As E_Tratamiento
+    Public Function SugerirTratamientoSegunSintomas(sintoma As E_Sintoma) As E_Tratamiento
 
     End Function
-    Public Function SugerirTratamientoSegunSignosC(scList As List(Of E_SignoClinico)) As E_Tratamiento
+    Public Function SugerirTratamientoSegunSignosC(signoc As E_SignoClinico) As E_Tratamiento
 
     End Function
 

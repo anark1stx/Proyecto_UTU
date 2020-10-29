@@ -33,15 +33,18 @@ Public Class N_Analisis
         Return objDatos.ListarAnalisisDePaciente(CI)
     End Function
 
-    Public Function SugerirAnalisisSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Analisis
-        Return objDatos.SugerirAnalisisSegunPyR(pyrList)
+    Public Function SugerirAnalisisSegunPyR(pyr As PreguntaRespuesta) As E_Analisis
+        Return objDatos.SugerirAnalisisSegunPyR(pyr)
     End Function
 
-    Public Function SugerirAnalisisSegunSintomas(sList As List(Of E_Sintoma)) As E_Analisis
-        Return objDatos.SugerirAnalisisSegunSintomas(sList)
+    Public Function SugerirAnalisisSegunSintomas(sintoma As E_Sintoma) As E_Analisis
+        Return objDatos.SugerirAnalisisSegunSintomas(sintoma)
     End Function
-    Public Function SugerirAnalisisSegunSignosC(scList As List(Of E_SignoClinico)) As E_Analisis
-        Return objDatos.SugerirAnalisisSegunSignosC(scList)
+    Public Function SugerirAnalisisSegunSignosC(signoc As E_SignoClinico) As E_Analisis
+        Return objDatos.SugerirAnalisisSegunSignosC(signoc)
+    End Function
+    Public Function SugerirAnalisisSegunEnfermedad(enfermedad As E_Enfermedad) As E_Analisis
+        Return objDatos.SugerirAnalisisSegunEnfermedad(enfermedad)
     End Function
 
 End Class

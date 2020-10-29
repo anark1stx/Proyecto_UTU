@@ -431,14 +431,14 @@ Public Class D_Analisis
         Return 1
     End Function
 
-    Public Function SugerirAnalisisSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Analisis
+    Public Function SugerirAnalisisSegunPyR(pyr As PreguntaRespuesta) As E_Analisis
 
     End Function
 
-    Public Function SugerirAnalisisSegunSintomas(sList As List(Of E_Sintoma)) As E_Analisis
+    Public Function SugerirAnalisisSegunSintomas(sintoma As E_Sintoma) As E_Analisis
 
     End Function
-    Public Function SugerirAnalisisSegunSignosC(scList As List(Of E_SignoClinico)) As E_Analisis
+    Public Function SugerirAnalisisSegunSignosC(signoc As E_SignoClinico) As E_Analisis
 
     End Function
 

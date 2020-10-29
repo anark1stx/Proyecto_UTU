@@ -74,15 +74,14 @@ Public Class D_Enfermedad
         enf.SignosClinicos = d_sign.BuscarExamenFisico(ID_C)
         Return enf
     End Function
-
-    Public Function SugerirEnfermedadSegunPyR(pyrList As List(Of PreguntaRespuesta)) As E_Enfermedad
-
-    End Function
-
-    Public Function SugerirEnfermedadSegunSintomas(sList As List(Of E_Sintoma)) As E_Enfermedad
+    Public Function SugerirEnfermedadSegunPyR(pyr As PreguntaRespuesta)
 
     End Function
-    Public Function SugerirEnfermedadSegunSignosC(scList As List(Of E_SignoClinico)) As E_Enfermedad
+
+    Public Function SugerirEnfermedadSegunSintomas(sintoma As E_Sintoma)
+
+    End Function
+    Public Function SugerirEnfermedadSegunSignosC(signoc As E_SignoClinico)
 
     End Function
 
