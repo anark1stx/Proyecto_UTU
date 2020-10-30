@@ -55,6 +55,7 @@ Public Class D_Atiende
             Sesion.Cerrar(conexion)
             Return -2
         End Try
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 

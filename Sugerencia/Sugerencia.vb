@@ -1,4 +1,4 @@
-﻿Imports System.Windows.Forms.Control
+﻿Imports System.Windows.Forms
 Imports System.ComponentModel
 Imports Entidades
 Imports Negocio
@@ -99,11 +99,10 @@ Public Class Sugerir
             Select Case enf.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron enfermedades diagnosticadas con este síntoma." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Enfermedad encontrada: " & enf.Nombre & Environment.NewLine)
                     posibles_enfermedades.Add(enf)
             End Select
@@ -120,11 +119,10 @@ Public Class Sugerir
             Select Case enf.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron enfermedades diagnosticadas con este signo clínico." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Enfermedad encontrada: " & enf.Nombre & Environment.NewLine)
                     posibles_enfermedades.Add(enf)
             End Select
@@ -136,16 +134,25 @@ Public Class Sugerir
         End If
         For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
             Log.Add(String.Format("Pregunta: {0}" & Environment.NewLine, pyr.Pregunta.Text))
+            Select Case pyr.Respuesta.GetType()
+                Case GetType(CheckBox)
+                    Dim respuesta As String = ""
+                    If DirectCast(pyr.Respuesta, CheckBox).Checked Then
+                        respuesta = "True"
+                    Else
+                        respuesta = "False"
+                    End If
+                    pyr.Respuesta.Text = respuesta
+            End Select
             Log.Add(String.Format("Buscando enfermedades diagnosticadas en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             Dim enf = ne.SugerirEnfermedadSegunPyR(pyr)
             Select Case enf.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron enfermedades diagnosticadas con esta respuesta a esa pregunta." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Enfermedad encontrada: " & enf.Nombre & Environment.NewLine)
                     posibles_enfermedades.Add(enf)
             End Select
@@ -181,11 +188,10 @@ Public Class Sugerir
             Select Case analisis.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron análisis requeridos para este síntoma." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Análisis encontrado: " & analisis.Nombre & Environment.NewLine)
                     posibles_analisis.Add(analisis)
             End Select
@@ -202,11 +208,10 @@ Public Class Sugerir
             Select Case analisis.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron análisis requeridos para este signo clinico." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Análisis encontrada: " & analisis.Nombre & Environment.NewLine)
                     posibles_analisis.Add(analisis)
             End Select
@@ -218,16 +223,25 @@ Public Class Sugerir
         End If
         For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
             Log.Add(String.Format("Pregunta: {0}", pyr.Pregunta.Text))
+            Select Case pyr.Respuesta.GetType()
+                Case GetType(CheckBox)
+                    Dim respuesta As String = ""
+                    If DirectCast(pyr.Respuesta, CheckBox).Checked Then
+                        respuesta = "True"
+                    Else
+                        respuesta = "False"
+                    End If
+                    pyr.Respuesta.Text = respuesta
+            End Select
             Log.Add(String.Format("Buscando análisis requeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             Dim analisis = na.SugerirAnalisisSegunPyR(pyr)
             Select Case analisis.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron análisis requeridos con esta respuesta a esa pregunta." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Análisis encontrado: " & analisis.Nombre & Environment.NewLine)
                     posibles_analisis.Add(analisis)
             End Select
@@ -242,11 +256,10 @@ Public Class Sugerir
             Select Case analisis.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron análisis requeridos para esa enfermedad." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Análisis encontrado: " & analisis.Nombre & Environment.NewLine)
                     posibles_analisis.Add(analisis)
             End Select
@@ -284,11 +297,10 @@ Public Class Sugerir
             Select Case tratamiento.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron tratamientos sugeridos para este síntoma." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Tratamiento encontrado: " & tratamiento.Nombre & Environment.NewLine)
                     posibles_tratamientos.Add(tratamiento)
             End Select
@@ -305,11 +317,10 @@ Public Class Sugerir
             Select Case tratamiento.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron tratamientos sugeridos para este signo clinico." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Tratamiento encontrado: " & tratamiento.Nombre & Environment.NewLine)
                     posibles_tratamientos.Add(tratamiento)
             End Select
@@ -320,17 +331,26 @@ Public Class Sugerir
             Log.Add("No fueron respondidas las preguntas del formulario. Procure proporcionar la mayor cantidad de información posible para que el sistema sea más preciso :)." & Environment.NewLine)
         End If
         For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
+            Select Case pyr.Respuesta.GetType()
+                Case GetType(CheckBox)
+                    Dim respuesta As String = ""
+                    If DirectCast(pyr.Respuesta, CheckBox).Checked Then
+                        respuesta = "True"
+                    Else
+                        respuesta = "False"
+                    End If
+                    pyr.Respuesta.Text = respuesta
+            End Select
             Log.Add(String.Format("Pregunta: {0}" & Environment.NewLine, pyr.Pregunta.Text))
             Log.Add(String.Format("Buscando tratamientos sugeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             Dim tratamiento = nt.SugerirTratamientoSegunPyR(pyr)
             Select Case tratamiento.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron tratamientos sugeridos con esta respuesta a esa pregunta." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Tratamiento encontrado: " & tratamiento.Nombre & Environment.NewLine)
                     posibles_tratamientos.Add(tratamiento)
             End Select
@@ -345,11 +365,10 @@ Public Class Sugerir
             Select Case tratamiento.ErrCode
                 Case -1, -2
                     Log.Add("Error consultando, abortando." & Environment.NewLine)
-
                     Exit Sub
                 Case -8
                     Log.Add("No se encontraron tratamientos requeridos para esa enfermedad." & Environment.NewLine)
-                Case 1
+                Case 0
                     Log.Add("Tratamiento encontrado: " & tratamiento.Nombre & Environment.NewLine)
                     posibles_tratamientos.Add(tratamiento)
             End Select

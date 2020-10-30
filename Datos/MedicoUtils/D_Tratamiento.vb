@@ -330,7 +330,7 @@ Public Class D_Tratamiento
         }
 
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Value = pyr.ID_Pregunta
-        cmd.Parameters.Add("RES", MySqlDbType.Int32).Value = pyr.Respuesta.Text
+        cmd.Parameters.Add("RES", MySqlDbType.VarChar, 7200).Value = pyr.Respuesta.Text
 
         Try
             leer = cmd.ExecuteReader()
@@ -342,8 +342,12 @@ Public Class D_Tratamiento
 
         If leer.HasRows Then
             While leer.Read()
-                trat = New E_Tratamiento With {
-                .Nombre = leer.GetString("nombre")}
+                If Not leer.IsDBNull(0) Then
+                    trat = New E_Tratamiento With {
+                    .Nombre = leer.GetString("nombre")}
+                Else
+                    trat.ErrCode = -8
+                End If
             End While
         Else
             trat.ErrCode = -8
@@ -378,8 +382,12 @@ Public Class D_Tratamiento
 
         If leer.HasRows Then
             While leer.Read()
-                trat = New E_Tratamiento With {
-                .Nombre = leer.GetString("nombret")}
+                If Not leer.IsDBNull(0) Then
+                    trat = New E_Tratamiento With {
+                    .Nombre = leer.GetString("nombret")}
+                Else
+                    trat.ErrCode = -8
+                End If
             End While
         Else
             trat.ErrCode = -8
@@ -449,8 +457,12 @@ Public Class D_Tratamiento
 
         If leer.HasRows Then
             While leer.Read()
-                trat = New E_Tratamiento With {
-                .Nombre = leer.GetString("nombre")}
+                If Not leer.IsDBNull(0) Then
+                    trat = New E_Tratamiento With {
+                    .Nombre = leer.GetString("nombre")}
+                Else
+                    trat.ErrCode = -8
+                End If
             End While
         Else
             trat.ErrCode = -8

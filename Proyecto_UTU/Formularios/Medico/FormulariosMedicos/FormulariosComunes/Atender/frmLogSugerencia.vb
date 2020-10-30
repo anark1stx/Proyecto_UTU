@@ -22,6 +22,8 @@ Public Class frmLogSugerencia
     End Enum
 
     Private Sub Sugerencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.SetBounds(0, 0, Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height)
+        Me.MaximizeBox = False
         Select Case Modo
             Case ASugerir.Enfermedad
                 Dim sugerir As New Sugerir(PreguntasYRespuestas, Sintomas, SignosClinicos)

@@ -114,9 +114,8 @@ Public Class ContenedorEntrevistas
         End If
         If Not lbSintomas.Items.Contains(txtSintoma.Text) Then
             lbSintomas.Items.Add(txtSintoma.Text)
-            Dim sintoma As New E_Sintoma With {
-                .Nombre = txtSintoma.Text
-            }
+            Dim sintoma As New E_Sintoma
+            sintoma.Nombre = txtSintoma.Text
             Entrevista.MiFormulario.Enfermedad.Sintomas.Add(sintoma)
             txtSintoma.Clear()
         Else
@@ -235,7 +234,7 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub btnSugerirAnalisis_Click(sender As Object, e As EventArgs) Handles btnSugerirAnalisis.Click
-        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Enfermedad,
+        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Analisis,
         .Sintomas = Entrevista.MiFormulario.Enfermedad.Sintomas,
         .SignosClinicos = Entrevista.MiFormulario.Enfermedad.SignosClinicos,
         .Enfermedad = Entrevista.MiFormulario.Enfermedad,
@@ -244,7 +243,7 @@ Public Class ContenedorEntrevistas
     End Sub
 
     Private Sub btnSugereirTratamiento_Click(sender As Object, e As EventArgs) Handles btnSugereirTratamiento.Click
-        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Enfermedad,
+        Dim frmSugerir As New frmLogSugerencia With {.Modo = frmLogSugerencia.ASugerir.Tratamiento,
         .Sintomas = Entrevista.MiFormulario.Enfermedad.Sintomas,
         .SignosClinicos = Entrevista.MiFormulario.Enfermedad.SignosClinicos,
         .Enfermedad = Entrevista.MiFormulario.Enfermedad,

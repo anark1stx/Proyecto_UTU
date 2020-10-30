@@ -194,6 +194,7 @@ Public Class frmMedico
             Case "BuscarFormulario"
                 If Not String.IsNullOrWhiteSpace(filtroB) Then
                     frmCatalogo.txtBuscar.Text = filtroB
+                    frmCatalogo.btnBuscar.PerformClick()
                 End If
                 frmCatalogo.ShowDialog()
                 If frmCatalogo.FormSeleccionado Is Nothing Then
@@ -205,9 +206,9 @@ Public Class frmMedico
                 CargarFormularioEntrevista(f)
                 filtroB = ""
             Case "CrearFormulario"
-                frmCrearFormulario.ShowDialog()
+                frmCrearFormulario.Show()
             Case "EditarFormulario"
-                frmCrearFormulario.ShowDialog()
+                frmCrearFormulario.Show()
                 frmCrearFormulario.btnAbrir.PerformClick()
             Case "IngresarTratamiento"
                 Dim frmTratamientoC As New frmTratamientoCrear
@@ -287,23 +288,18 @@ Public Class frmMedico
             End Sub
 
         AddHandler frmConsultasPendientes.btnRefrescar.Click, AddressOf VerConsultasDeHoy
-        'AddHandler frmConsultasPendientes.btnVerConsultasPrevias, <- pendiente
 
         AddHandler frmConsultasPendientes.btnVerAnalisis.Click,
             Sub()
                 Consulta.Paciente.Cedula = frmConsultasPendientes.ConsultaSeleccionada.Paciente.Cedula
                 InstanciarFormulario("SeguirAnalisis")
                 frmAnalisisS.txtBuscar.Text = Consulta.Paciente.Cedula
-                Dim s As New Object
-                Dim ev As New EventArgs
-                frmAnalisisS.btnBuscar_Click(s, ev)
             End Sub
         AddHandler frmConsultasPendientes.btnAtender.Click,
             Sub()
                 Consulta = frmConsultasPendientes.ConsultaSeleccionada
                 InstanciarFormulario("Entrevista")
             End Sub
-        'HANDLERS PARA FORMULARIO SELECCIONAR FORMULARIO
 
         AddHandler frmSeleccionarFrmEntrevista.btnFrmGenerico.Click,
                     Sub()

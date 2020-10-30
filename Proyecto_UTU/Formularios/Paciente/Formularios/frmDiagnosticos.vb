@@ -79,7 +79,7 @@ Public Class frmDiagnosticos
         pnlContenedorFormularios.Controls.Add(entrevista)
         Dim r = Await Task.Run(Function() na.BuscarAtiende(CI_Paciente))
 
-        Select Case r(0).ID
+        Select Case r(0).ErrCode
             Case -1
                 MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub

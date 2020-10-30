@@ -80,4 +80,9 @@ Public Class frmCargarTarjetasP
         End If
     End Sub
 
+    Private Sub btnVerConsultasPrevias_Click(sender As Object, e As EventArgs) Handles btnVerConsultasPrevias.Click
+        Dim frmDg As New frmDiagnosticos
+        frmDg.CI_Paciente = ConsultaSeleccionada.Paciente.Cedula
+        frmDg.FormBorderStyle = FormBorderStyle.FixedSingle
+    End Sub
 End Class

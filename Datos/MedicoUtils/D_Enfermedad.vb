@@ -89,7 +89,7 @@ Public Class D_Enfermedad
         }
 
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Value = pyr.ID_Pregunta
-        cmd.Parameters.Add("RES", MySqlDbType.Int32).Value = pyr.Respuesta.Text
+        cmd.Parameters.Add("RES", MySqlDbType.VarChar, 7200).Value = pyr.Respuesta.Text
 
         Try
             leer = cmd.ExecuteReader()
@@ -101,8 +101,12 @@ Public Class D_Enfermedad
 
         If leer.HasRows Then
             While leer.Read()
-                enf = New E_Enfermedad With {
-                .Nombre = leer.GetString("nombre_enfermedad")}
+                If Not leer.IsDBNull(0) Then
+                    enf = New E_Enfermedad With {
+                    .Nombre = leer.GetString("nombre_enfermedad")}
+                Else
+                    enf.ErrCode = -8
+                End If
             End While
         Else
             enf.ErrCode = -8
@@ -137,8 +141,12 @@ Public Class D_Enfermedad
 
         If leer.HasRows Then
             While leer.Read()
-                enf = New E_Enfermedad With {
-                .Nombre = leer.GetString("nombre_enfermedad")}
+                If Not leer.IsDBNull(0) Then
+                    enf = New E_Enfermedad With {
+                    .Nombre = leer.GetString("nombre_enfermedad")}
+                Else
+                    enf.ErrCode = -8
+                End If
             End While
         Else
             enf.ErrCode = -8
@@ -172,8 +180,12 @@ Public Class D_Enfermedad
 
         If leer.HasRows Then
             While leer.Read()
-                enf = New E_Enfermedad With {
-                .Nombre = leer.GetString("nombre_enfermedad")}
+                If Not leer.IsDBNull(0) Then
+                    enf = New E_Enfermedad With {
+                    .Nombre = leer.GetString("nombre_enfermedad")}
+                Else
+                    enf.ErrCode = -8
+                End If
             End While
         Else
             enf.ErrCode = -8

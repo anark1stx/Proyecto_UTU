@@ -134,17 +134,17 @@ Public Class Identificacion_Paciente
 
     Private Sub btnReferenciaConsulta_Click(sender As Object, e As EventArgs) Handles btnReferenciaConsulta.Click
         Consulta.ConsultaReferencia = ConsultasPrevias(cbConsultasPrevias.SelectedIndex)
+        Console.WriteLine("Seleccione consulta referencia: " & Consulta.ConsultaReferencia.ID)
     End Sub
-
     Private Sub txtMotivoC_TextChanged(sender As Object, e As EventArgs) Handles txtMotivoC.TextChanged
         Consulta.Motivo = txtMotivoC.Text
     End Sub
-
-    Private Sub cbConsultasPrevias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbConsultasPrevias.SelectedIndexChanged
-        Consulta.ConsultaReferencia = ConsultasPrevias(cbConsultasPrevias.SelectedIndex)
-    End Sub
-
     Private Sub btnActualizarEstado_Click(sender As Object, e As EventArgs) Handles btnActualizarEstado.Click
+        If Not check_Largo(txtEstado.Text, 3, 90, True) Then
+            MessageBox.Show(MensajeDeErrorLongitud(3, 90), "Información inválida.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         If Not check_regex(txtEstado.Text, RegexAlfaNumericoAcentosEspacios, True) Then
             MessageBox.Show(MensajeDeErrorCaracteres(), "Caracteres inválidos detectados", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
@@ -164,6 +164,8 @@ Public Class Identificacion_Paciente
     End Sub
 
     Private Sub btnVerConsulta_Click(sender As Object, e As EventArgs) Handles btnVerConsulta.Click
-        'abrir en una nueva ventana
+        Dim frmDg As New frmDiagnosticos
+        frmDg.CI_Paciente = PacienteBuscar.Cedula
+        frmDg.FormBorderStyle = FormBorderStyle.FixedSingle
     End Sub
 End Class

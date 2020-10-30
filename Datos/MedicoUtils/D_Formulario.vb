@@ -284,7 +284,6 @@ Public Class D_Formulario
     End Function
 
     Public Function AsignarAnalisis(form As E_Formulario) As Integer
-
         If Sesion.Conectar(conexion) = -1 Then
             Return -1
         End If

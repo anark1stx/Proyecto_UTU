@@ -446,7 +446,7 @@ Public Class D_Analisis
         }
 
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Value = pyr.ID_Pregunta
-        cmd.Parameters.Add("RES", MySqlDbType.Int32).Value = pyr.Respuesta.Text
+        cmd.Parameters.Add("RES", MySqlDbType.VarChar, 7200).Value = pyr.Respuesta.Text
 
         Try
             leer = cmd.ExecuteReader()
@@ -458,8 +458,12 @@ Public Class D_Analisis
 
         If leer.HasRows Then
             While leer.Read()
-                analisis = New E_Analisis With {
-                .Nombre = leer.GetString("nombre")}
+                If Not leer.IsDBNull(0) Then
+                    analisis = New E_Analisis With {
+                    .Nombre = leer.GetString("nombre")}
+                Else
+                    analisis.ErrCode = -8
+                End If
             End While
         Else
             analisis.ErrCode = -8
@@ -494,8 +498,12 @@ Public Class D_Analisis
 
         If leer.HasRows Then
             While leer.Read()
-                analisis = New E_Analisis With {
-                .Nombre = leer.GetString("nombrea")}
+                If Not leer.IsDBNull(0) Then
+                    analisis = New E_Analisis With {
+                    .Nombre = leer.GetString("nombrea")}
+                Else
+                    analisis.ErrCode = -8
+                End If
             End While
         Else
             analisis.ErrCode = -8
@@ -529,8 +537,12 @@ Public Class D_Analisis
 
         If leer.HasRows Then
             While leer.Read()
-                analisis = New E_Analisis With {
-                .Nombre = leer.GetString("nombrea")}
+                If Not leer.IsDBNull(0) Then
+                    analisis = New E_Analisis With {
+                    .Nombre = leer.GetString("nombrea")}
+                Else
+                    analisis.ErrCode = -8
+                End If
             End While
         Else
             analisis.ErrCode = -8
@@ -565,8 +577,12 @@ Public Class D_Analisis
 
         If leer.HasRows Then
             While leer.Read()
-                analisis = New E_Analisis With {
-                .Nombre = leer.GetString("nombre")}
+                If Not leer.IsDBNull(0) Then
+                    analisis = New E_Analisis With {
+                    .Nombre = leer.GetString("nombre")}
+                Else
+                    analisis.ErrCode = -8
+                End If
             End While
         Else
             analisis.ErrCode = -8
