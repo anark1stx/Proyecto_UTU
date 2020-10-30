@@ -432,18 +432,147 @@ Public Class D_Analisis
     End Function
 
     Public Function SugerirAnalisisSegunPyR(pyr As PreguntaRespuesta) As E_Analisis
+        Dim analisis As New E_Analisis
+        If Sesion.Conectar(conexion) = -1 Then
+            analisis.ErrCode = -1
+            Return analisis
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirAnalisisSegunPyR",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Value = pyr.ID_Pregunta
+        cmd.Parameters.Add("RES", MySqlDbType.Int32).Value = pyr.Respuesta.Text
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            analisis.ErrCode = -2
+            Return analisis
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                analisis = New E_Analisis With {
+                .Nombre = leer.GetString("nombre")}
+            End While
+        Else
+            analisis.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return analisis
     End Function
 
     Public Function SugerirAnalisisSegunSintomas(sintoma As E_Sintoma) As E_Analisis
+        Dim analisis As New E_Analisis
+        If Sesion.Conectar(conexion) = -1 Then
+            analisis.ErrCode = -1
+            Return analisis
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirAnalisisSegunS",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("SIN", MySqlDbType.VarChar).Value = sintoma.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            analisis.ErrCode = -2
+            Return analisis
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                analisis = New E_Analisis With {
+                .Nombre = leer.GetString("nombrea")}
+            End While
+        Else
+            analisis.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return analisis
     End Function
     Public Function SugerirAnalisisSegunSignosC(signoc As E_SignoClinico) As E_Analisis
+        Dim analisis As New E_Analisis
+        If Sesion.Conectar(conexion) = -1 Then
+            analisis.ErrCode = -1
+            Return analisis
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirAnalisisSegunS",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("SIGNOC", MySqlDbType.VarChar).Value = signoc.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            analisis.ErrCode = -2
+            Return analisis
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                analisis = New E_Analisis With {
+                .Nombre = leer.GetString("nombrea")}
+            End While
+        Else
+            analisis.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return analisis
     End Function
 
     Public Function SugerirAnalisisSegunEnfermedad(enf As E_Enfermedad) As E_Analisis
+        Dim analisis As New E_Analisis
+        If Sesion.Conectar(conexion) = -1 Then
+            analisis.ErrCode = -1
+            Return analisis
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirAnalisisSegunE",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ENF", MySqlDbType.Int32).Value = enf.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            analisis.ErrCode = -2
+            Return analisis
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                analisis = New E_Analisis With {
+                .Nombre = leer.GetString("nombre")}
+            End While
+        Else
+            analisis.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return analisis
     End Function
 
 End Class

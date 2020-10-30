@@ -316,18 +316,147 @@ Public Class D_Tratamiento
     End Function
 
     Public Function SugerirTratamientoSegunPyR(pyr As PreguntaRespuesta) As E_Tratamiento
+        Dim trat As New E_Tratamiento
+        If Sesion.Conectar(conexion) = -1 Then
+            trat.ErrCode = -1
+            Return trat
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirTratamientoSegunPyR",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Value = pyr.ID_Pregunta
+        cmd.Parameters.Add("RES", MySqlDbType.Int32).Value = pyr.Respuesta.Text
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            trat.ErrCode = -2
+            Return trat
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                trat = New E_Tratamiento With {
+                .Nombre = leer.GetString("nombre")}
+            End While
+        Else
+            trat.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return trat
     End Function
 
     Public Function SugerirTratamientoSegunSintomas(sintoma As E_Sintoma) As E_Tratamiento
+        Dim trat As New E_Tratamiento
+        If Sesion.Conectar(conexion) = -1 Then
+            trat.ErrCode = -1
+            Return trat
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirTratamientoSegunS",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("SIN", MySqlDbType.VarChar).Value = sintoma.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            trat.ErrCode = -2
+            Return trat
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                trat = New E_Tratamiento With {
+                .Nombre = leer.GetString("nombret")}
+            End While
+        Else
+            trat.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return trat
     End Function
     Public Function SugerirTratamientoSegunSignosC(signoc As E_SignoClinico) As E_Tratamiento
+        Dim trat As New E_Tratamiento
+        If Sesion.Conectar(conexion) = -1 Then
+            trat.ErrCode = -1
+            Return trat
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirTratamientoSegunS",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("SIGNOC", MySqlDbType.VarChar).Value = signoc.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            trat.ErrCode = -2
+            Return trat
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                trat = New E_Tratamiento With {
+                .Nombre = leer.GetString("nombret")}
+            End While
+        Else
+            trat.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return trat
     End Function
 
     Public Function SugerirTratamientoSegunEnfermedad(enf As E_Enfermedad) As E_Tratamiento
+        Dim trat As New E_Tratamiento
+        If Sesion.Conectar(conexion) = -1 Then
+            trat.ErrCode = -1
+            Return trat
+        End If
 
+        Dim leer As MySqlDataReader
+        Dim cmd As New MySqlCommand With {
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "SugerirTratamientoSegunE",
+        .Connection = conexion
+        }
+
+        cmd.Parameters.Add("ENF", MySqlDbType.Int32).Value = enf.Nombre
+
+        Try
+            leer = cmd.ExecuteReader()
+        Catch ex As Exception
+            Sesion.Cerrar(conexion)
+            trat.ErrCode = -2
+            Return trat
+        End Try
+
+        If leer.HasRows Then
+            While leer.Read()
+                trat = New E_Tratamiento With {
+                .Nombre = leer.GetString("nombre")}
+            End While
+        Else
+            trat.ErrCode = -8
+        End If
+        Sesion.Cerrar(conexion)
+        Return trat
     End Function
 
 End Class
