@@ -53,9 +53,9 @@ Partial Class frmInicio
         Me.lblAtender.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAtender.Location = New System.Drawing.Point(0, 0)
         Me.lblAtender.Name = "lblAtender"
-        Me.lblAtender.Size = New System.Drawing.Size(197, 29)
+        Me.lblAtender.Size = New System.Drawing.Size(140, 29)
         Me.lblAtender.TabIndex = 2
-        Me.lblAtender.Text = "Atender Paciente"
+        Me.lblAtender.Text = "Patient care"
         '
         'btnAtenderPaciente
         '
@@ -85,9 +85,9 @@ Partial Class frmInicio
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(208, 29)
+        Me.Label1.Size = New System.Drawing.Size(241, 29)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Crear Formularios"
+        Me.Label1.Text = "Create interview form"
         '
         'btnCrearFormulario
         '
@@ -108,9 +108,9 @@ Partial Class frmInicio
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(211, 29)
+        Me.Label2.Size = New System.Drawing.Size(240, 29)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Editar Formularios"
+        Me.Label2.Text = "Modify interview form"
         '
         'btnEditarFormulario
         '
@@ -180,9 +180,9 @@ Partial Class frmInicio
         Me.lblGestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGestion.Location = New System.Drawing.Point(0, 0)
         Me.lblGestion.Name = "lblGestion"
-        Me.lblGestion.Size = New System.Drawing.Size(96, 29)
+        Me.lblGestion.Size = New System.Drawing.Size(207, 29)
         Me.lblGestion.TabIndex = 2
-        Me.lblGestion.Text = "Gestión"
+        Me.lblGestion.Text = "Selft management"
         '
         'btnGestion
         '

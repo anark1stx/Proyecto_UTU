@@ -117,7 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblCedulaPaciente.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnIngresarDatos.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="btnIngresarDatos.Text" xml:space="preserve">
+    <value>Ingresar datos</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 31</value>
+  </data>
+  <data name="&gt;&gt;btnConsultarDatos.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
   <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -157,6 +173,317 @@
         hVAwcuTIThRAenp628SJE4O/JIEfvlHIzMx8PiMjo2rUqFHNIozRo0c3UjCl1N4v9D+c/Qe6/hB3ukRA
         zAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;txtBuscar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnIngresarDatos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 3</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel2.Name" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1110, 37</value>
+  </data>
+  <data name="txtBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>833, 30</value>
+  </data>
+  <data name="&gt;&gt;btnConsultarDatos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmAnalisisSeguimiento</value>
+  </data>
+  <data name="btnConsultarDatos.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="TableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="btnIngresarDatos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="dgwAnalisisPaciente.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tblAcciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 209</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="&gt;&gt;btnConsultarDatos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnIngresarDatos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pnlContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnConsultarDatos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 203</value>
+  </data>
+  <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaPaciente.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtBuscar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtBuscar.Name" xml:space="preserve">
+    <value>txtBuscar</value>
+  </data>
+  <data name="btnConsultarDatos.Text" xml:space="preserve">
+    <value>Consultar datos</value>
+  </data>
+  <data name="btnIngresarDatos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 203</value>
+  </data>
+  <data name="lblCedulaPaciente.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnConsultarDatos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;btnConsultarDatos.Name" xml:space="preserve">
+    <value>btnConsultarDatos</value>
+  </data>
+  <data name="&gt;&gt;btnIngresarDatos.Name" xml:space="preserve">
+    <value>btnIngresarDatos</value>
+  </data>
+  <data name="txtBuscar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnIngresarDatos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="TableLayoutPanel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;dgwAnalisisPaciente.Name" xml:space="preserve">
+    <value>dgwAnalisisPaciente</value>
+  </data>
+  <data name="tblAcciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 511</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Name" xml:space="preserve">
+    <value>btnBuscar</value>
+  </data>
+  <data name="tblAcciones.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnConsultarDatos" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnIngresarDatos" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tblAcciones.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel2.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaPaciente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnBuscar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnBuscar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dgwAnalisisPaciente.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="pnlContenedor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;txtBuscar.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 12</value>
+  </data>
+  <data name="lblCedulaPaciente.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="tblAcciones.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;dgwAnalisisPaciente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCedulaPaciente.Text" xml:space="preserve">
+    <value>Cédula del paciente:</value>
+  </data>
+  <data name="dgwAnalisisPaciente.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCedulaPaciente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="btnConsultarDatos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="&gt;&gt;btnIngresarDatos.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1050, 3</value>
+  </data>
+  <data name="btnConsultarDatos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnlContenedor.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="TableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnIngresarDatos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.Name" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="dgwAnalisisPaciente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 65</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Seguimiento análisis</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnConsultarDatos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnIngresarDatos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        iS7jti/DAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;btnIngresarDatos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaPaciente.Name" xml:space="preserve">
+    <value>lblCedulaPaciente</value>
+  </data>
+  <data name="btnConsultarDatos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaPaciente.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblAcciones.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Name" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="lblCedulaPaciente.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="txtBuscar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblCedulaPaciente.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="dgwAnalisisPaciente.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgwAnalisisPaciente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1124, 440</value>
+  </data>
+  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 720</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblCedulaPaciente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 37</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 720</value>
+  </data>
+  <data name="tblAcciones.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnBuscar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="txtBuscar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;dgwAnalisisPaciente.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="txtBuscar" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnBuscar" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblCedulaPaciente" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,18.73874,Percent,75.58559,Percent,5.585586" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="txtBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 3</value>
+  </data>
+  <data name="btnIngresarDatos.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="btnConsultarDatos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -198,32 +525,10 @@
         zAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnIngresarDatos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        iS7jti/DAAAAAElFTkSuQmCC
-</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

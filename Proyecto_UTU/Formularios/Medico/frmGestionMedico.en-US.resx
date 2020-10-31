@@ -117,447 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblEspecialidad.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblNombresTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pBoxFotoMedico.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="lblNombres.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTelefonoTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>83</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblApellido.Name" xml:space="preserve">
-    <value>lblApellido</value>
-  </data>
-  <data name="&gt;&gt;lblCedulaTXT.Name" xml:space="preserve">
-    <value>lblCedulaTXT</value>
-  </data>
-  <data name="&gt;&gt;lblCedulaTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pBoxFotoMedico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>442, 549</value>
-  </data>
-  <data name="&gt;&gt;lblApellido.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="lblCedulaTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="lblNombres.TabIndex" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="lblCedula.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="tabDatos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 3</value>
-  </data>
-  <data name="TableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="pBoxFotoMedico.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="lblDireccionTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>frmGestion</value>
-  </data>
-  <data name="lblDireccion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 492</value>
-  </data>
-  <data name="&gt;&gt;lblTelefonoTXT.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="tabDatos.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblCedula" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblCedulaTXT" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblNombres" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblNombresTXT" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblApellido" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblApellidosTXT" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDireccion" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblDireccionTXT" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblTelefono" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblTelefonoTXT" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEspecialidad" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblEspecialidadTXT" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,32.88591,Percent,67.1141" /&gt;&lt;Rows Styles="Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblCedula.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblDireccionTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 20</value>
-  </data>
-  <data name="lblApellidosTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.Name" xml:space="preserve">
-    <value>lblApellidosTXT</value>
-  </data>
-  <data name="lblCedulaTXT.Text" xml:space="preserve">
-    <value>Cédula</value>
-  </data>
-  <data name="lblApellidosTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 20</value>
-  </data>
-  <data name="lblNombresTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 126</value>
-  </data>
-  <data name="lblApellido.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="&gt;&gt;lblTelefono.Name" xml:space="preserve">
-    <value>lblTelefono</value>
-  </data>
-  <data name="lblNombres.Text" xml:space="preserve">
-    <value>Nombre:</value>
-  </data>
-  <data name="lblApellidosTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblNombres.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="lblApellidosTXT.Text" xml:space="preserve">
-    <value>APELLIDO 1 APELLIDO 2</value>
-  </data>
-  <data name="tabDatos.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabDatos.RowCount" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblTelefonoTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
-  </data>
-  <data name="lblCedula.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblNombresTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 20</value>
-  </data>
-  <data name="lblTelefono.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="lblTelefono.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 20</value>
-  </data>
-  <data name="pBoxFotoMedico.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidad.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="lblEspecialidad.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblTelefono.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblApellido.Text" xml:space="preserve">
-    <value>Apellido:</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="lblApellido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
-  </data>
-  <data name="&gt;&gt;lblTelefonoTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="TableLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblDireccion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDireccionTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.Name" xml:space="preserve">
-    <value>pBoxFotoMedico</value>
-  </data>
-  <data name="&gt;&gt;lblTelefonoTXT.Name" xml:space="preserve">
-    <value>lblTelefonoTXT</value>
-  </data>
-  <data name="lblEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;lblDireccionTXT.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.Name" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmGestionMedico</value>
-  </data>
-  <data name="lblTelefonoTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 399</value>
-  </data>
-  <data name="lblTelefono.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblApellido.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblEspecialidadTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblNombresTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lblApellidosTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>79</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblCedulaTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCedula.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 35</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.Name" xml:space="preserve">
-    <value>lblEspecialidadTXT</value>
-  </data>
-  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 308</value>
-  </data>
-  <data name="lblTelefono.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>896, 555</value>
-  </data>
-  <data name="lblCedulaTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="lblNombresTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;lblDireccionTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.Name" xml:space="preserve">
-    <value>lblNombresTXT</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblEspecialidadTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="lblNombres.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 126</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblNombres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.Name" xml:space="preserve">
-    <value>lblCedula</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblEspecialidadTXT.Text" xml:space="preserve">
-    <value>Especialidad</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lblDireccion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;lblCedulaTXT.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblDireccionTXT.Name" xml:space="preserve">
-    <value>lblDireccionTXT</value>
-  </data>
-  <data name="&gt;&gt;lblTelefono.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pBoxFotoMedico" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tabDatos" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblTelefono.TabIndex" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="lblCedulaTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="lblDireccionTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDireccion.TabIndex" type="System.Int32, mscorlib">
-    <value>98</value>
-  </data>
-  <data name="&gt;&gt;lblTelefonoTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblEspecialidadTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 492</value>
-  </data>
-  <data name="tabDatos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidad.Name" xml:space="preserve">
-    <value>lblEspecialidad</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblNombres.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblTelefonoTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="lblCedula.Text" xml:space="preserve">
-    <value>Cédula:</value>
-  </data>
-  <data name="lblNombresTXT.Text" xml:space="preserve">
-    <value>NOMBRE 1 NOMBRE 2</value>
-  </data>
-  <data name="lblApellidosTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="lblEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 20</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.Name" xml:space="preserve">
-    <value>lblNombres</value>
-  </data>
-  <data name="lblTelefono.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 399</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblDireccionTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>97</value>
-  </data>
-  <data name="lblEspecialidad.Text" xml:space="preserve">
-    <value>Especialidad:</value>
-  </data>
-  <data name="&gt;&gt;lblTelefono.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lblCedula.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidad.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lblDireccion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDireccionTXT.Text" xml:space="preserve">
-    <value>Dirección</value>
-  </data>
-  <data name="pBoxFotoMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="lblApellido.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabDatos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>442, 549</value>
-  </data>
-  <data name="lblDireccion.Text" xml:space="preserve">
-    <value>Dirección:</value>
-  </data>
-  <data name="lblCedulaTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>99</value>
-  </data>
-  <data name="lblEspecialidadTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDireccionTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 308</value>
-  </data>
-  <data name="lblCedulaTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 35</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>896, 555</value>
-  </data>
-  <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 20</value>
-  </data>
-  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="pBoxFotoMedico.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAJO
@@ -1179,82 +739,101 @@
         OMC7//ReeY2W12r2Gmb1bP0HBuqq8A/huPCi8ODwa9kcsVuT//f/Aam3nzqZedW1AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;tabDatos.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pBoxFotoMedico.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCedula.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCedula.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 35</value>
+  </data>
+  <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 20</value>
+  </data>
+  <data name="lblCedula.Text" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="lblCedulaTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblNombres.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblNombres.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 126</value>
+  </data>
+  <data name="lblNombres.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
+  </data>
+  <data name="lblNombres.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="lblNombresTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblApellido.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblApellido.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 217</value>
+    <value>32, 217</value>
   </data>
-  <data name="lblTelefonoTXT.Text" xml:space="preserve">
-    <value>TELEFONO1</value>
+  <data name="lblApellido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 20</value>
   </data>
-  <data name="&gt;&gt;lblDireccion.Name" xml:space="preserve">
-    <value>lblDireccion</value>
+  <data name="lblApellido.Text" xml:space="preserve">
+    <value>Surname:</value>
   </data>
-  <data name="lblEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>102</value>
+  <data name="lblApellidosTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="lblTelefonoTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblDireccion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="lblApellidosTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 217</value>
-  </data>
-  <data name="lblTelefono.Text" xml:space="preserve">
-    <value>Teléfono(s):</value>
-  </data>
-  <data name="&gt;&gt;lblCedulaTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="lblEspecialidadTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="lblApellido.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;lblDireccion.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="lblTelefonoTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabDatos.TabIndex" type="System.Int32, mscorlib">
-    <value>103</value>
-  </data>
-  <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblApellido.Parent" xml:space="preserve">
-    <value>tabDatos</value>
+  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 308</value>
   </data>
   <data name="lblDireccion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="lblDireccion.Text" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="lblDireccionTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTelefono.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTelefono.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 399</value>
+  </data>
+  <data name="lblTelefono.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="lblTelefono.Text" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="lblTelefonoTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEspecialidad.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 492</value>
+  </data>
+  <data name="lblEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 20</value>
   </data>
-  <data name="&gt;&gt;lblApellido.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblEspecialidad.Text" xml:space="preserve">
+    <value>Speciality:</value>
   </data>
-  <data name="lblNombresTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblEspecialidadTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="lblDireccionTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;lblDireccion.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblEspecialidadTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
 </root>

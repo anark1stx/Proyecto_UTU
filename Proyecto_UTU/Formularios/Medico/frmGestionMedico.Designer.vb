@@ -24,7 +24,6 @@ Partial Class frmGestionMedico
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGestionMedico))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblCedulaTXT = New System.Windows.Forms.Label()
@@ -38,45 +37,22 @@ Partial Class frmGestionMedico
         Me.lblTelefonoTXT = New System.Windows.Forms.Label()
         Me.lblEspecialidad = New System.Windows.Forms.Label()
         Me.lblEspecialidadTXT = New System.Windows.Forms.Label()
+        Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
         Me.TableLayoutPanel1.Controls.Add(Me.pBoxFotoMedico, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.tabDatos, 1, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(896, 555)
-        Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'pBoxFotoMedico
-        '
-        Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoMedico.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBoxFotoMedico.Image = CType(resources.GetObject("pBoxFotoMedico.Image"), System.Drawing.Image)
-        Me.pBoxFotoMedico.Location = New System.Drawing.Point(3, 3)
-        Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
-        Me.pBoxFotoMedico.Size = New System.Drawing.Size(442, 549)
-        Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoMedico.TabIndex = 101
-        Me.pBoxFotoMedico.TabStop = False
-        Me.pBoxFotoMedico.Tag = "noLimpiar"
         '
         'tabDatos
         '
-        Me.tabDatos.ColumnCount = 2
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.88591!))
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1141!))
+        resources.ApplyResources(Me.tabDatos, "tabDatos")
         Me.tabDatos.Controls.Add(Me.lblCedula, 0, 0)
         Me.tabDatos.Controls.Add(Me.lblCedulaTXT, 1, 0)
         Me.tabDatos.Controls.Add(Me.lblNombres, 0, 1)
@@ -89,168 +65,88 @@ Partial Class frmGestionMedico
         Me.tabDatos.Controls.Add(Me.lblTelefonoTXT, 1, 4)
         Me.tabDatos.Controls.Add(Me.lblEspecialidad, 0, 5)
         Me.tabDatos.Controls.Add(Me.lblEspecialidadTXT, 1, 5)
-        Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tabDatos.Location = New System.Drawing.Point(451, 3)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.RowCount = 6
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tabDatos.Size = New System.Drawing.Size(442, 549)
-        Me.tabDatos.TabIndex = 103
         '
         'lblCedula
         '
-        Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblCedula.AutoSize = True
-        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(39, 35)
+        resources.ApplyResources(Me.lblCedula, "lblCedula")
         Me.lblCedula.Name = "lblCedula"
-        Me.lblCedula.Size = New System.Drawing.Size(66, 20)
-        Me.lblCedula.TabIndex = 82
-        Me.lblCedula.Text = "Cédula:"
         '
         'lblCedulaTXT
         '
-        Me.lblCedulaTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblCedulaTXT.AutoSize = True
-        Me.lblCedulaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedulaTXT.Location = New System.Drawing.Point(263, 35)
+        resources.ApplyResources(Me.lblCedulaTXT, "lblCedulaTXT")
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
-        Me.lblCedulaTXT.Size = New System.Drawing.Size(61, 20)
-        Me.lblCedulaTXT.TabIndex = 99
-        Me.lblCedulaTXT.Text = "Cédula"
         '
         'lblNombres
         '
-        Me.lblNombres.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNombres.AutoSize = True
-        Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(36, 126)
+        resources.ApplyResources(Me.lblNombres, "lblNombres")
         Me.lblNombres.Name = "lblNombres"
-        Me.lblNombres.Size = New System.Drawing.Size(73, 20)
-        Me.lblNombres.TabIndex = 80
-        Me.lblNombres.Text = "Nombre:"
         '
         'lblNombresTXT
         '
-        Me.lblNombresTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNombresTXT.AutoSize = True
-        Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(198, 126)
+        resources.ApplyResources(Me.lblNombresTXT, "lblNombresTXT")
         Me.lblNombresTXT.Name = "lblNombresTXT"
-        Me.lblNombresTXT.Size = New System.Drawing.Size(190, 20)
-        Me.lblNombresTXT.TabIndex = 78
-        Me.lblNombresTXT.Text = "NOMBRE 1 NOMBRE 2"
         '
         'lblApellido
         '
-        Me.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblApellido.AutoSize = True
-        Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(36, 217)
+        resources.ApplyResources(Me.lblApellido, "lblApellido")
         Me.lblApellido.Name = "lblApellido"
-        Me.lblApellido.Size = New System.Drawing.Size(73, 20)
-        Me.lblApellido.TabIndex = 81
-        Me.lblApellido.Text = "Apellido:"
         '
         'lblApellidosTXT
         '
-        Me.lblApellidosTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblApellidosTXT.AutoSize = True
-        Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(189, 217)
+        resources.ApplyResources(Me.lblApellidosTXT, "lblApellidosTXT")
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
-        Me.lblApellidosTXT.Size = New System.Drawing.Size(208, 20)
-        Me.lblApellidosTXT.TabIndex = 79
-        Me.lblApellidosTXT.Text = "APELLIDO 1 APELLIDO 2"
         '
         'lblDireccion
         '
-        Me.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblDireccion.AutoSize = True
-        Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(29, 308)
+        resources.ApplyResources(Me.lblDireccion, "lblDireccion")
         Me.lblDireccion.Name = "lblDireccion"
-        Me.lblDireccion.Size = New System.Drawing.Size(86, 20)
-        Me.lblDireccion.TabIndex = 98
-        Me.lblDireccion.Text = "Dirección:"
         '
         'lblDireccionTXT
         '
-        Me.lblDireccionTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblDireccionTXT.AutoSize = True
-        Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(253, 308)
+        resources.ApplyResources(Me.lblDireccionTXT, "lblDireccionTXT")
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
-        Me.lblDireccionTXT.Size = New System.Drawing.Size(81, 20)
-        Me.lblDireccionTXT.TabIndex = 97
-        Me.lblDireccionTXT.Text = "Dirección"
         '
         'lblTelefono
         '
-        Me.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblTelefono.AutoSize = True
-        Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(23, 399)
+        resources.ApplyResources(Me.lblTelefono, "lblTelefono")
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(99, 20)
-        Me.lblTelefono.TabIndex = 84
-        Me.lblTelefono.Text = "Teléfono(s):"
         '
         'lblTelefonoTXT
         '
-        Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblTelefonoTXT.AutoSize = True
-        Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(239, 399)
+        resources.ApplyResources(Me.lblTelefonoTXT, "lblTelefonoTXT")
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
-        Me.lblTelefonoTXT.Size = New System.Drawing.Size(108, 20)
-        Me.lblTelefonoTXT.TabIndex = 83
-        Me.lblTelefonoTXT.Text = "TELEFONO1"
         '
         'lblEspecialidad
         '
-        Me.lblEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblEspecialidad.AutoSize = True
-        Me.lblEspecialidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidad.Location = New System.Drawing.Point(18, 492)
+        resources.ApplyResources(Me.lblEspecialidad, "lblEspecialidad")
         Me.lblEspecialidad.Name = "lblEspecialidad"
-        Me.lblEspecialidad.Size = New System.Drawing.Size(109, 20)
-        Me.lblEspecialidad.TabIndex = 102
-        Me.lblEspecialidad.Text = "Especialidad:"
         '
         'lblEspecialidadTXT
         '
-        Me.lblEspecialidadTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblEspecialidadTXT.AutoSize = True
-        Me.lblEspecialidadTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidadTXT.Location = New System.Drawing.Point(241, 492)
+        resources.ApplyResources(Me.lblEspecialidadTXT, "lblEspecialidadTXT")
         Me.lblEspecialidadTXT.Name = "lblEspecialidadTXT"
-        Me.lblEspecialidadTXT.Size = New System.Drawing.Size(104, 20)
-        Me.lblEspecialidadTXT.TabIndex = 101
-        Me.lblEspecialidadTXT.Text = "Especialidad"
+        '
+        'pBoxFotoMedico
+        '
+        resources.ApplyResources(Me.pBoxFotoMedico, "pBoxFotoMedico")
+        Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
+        Me.pBoxFotoMedico.TabStop = False
+        Me.pBoxFotoMedico.Tag = "noLimpiar"
         '
         'frmGestionMedico
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(896, 555)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmGestionMedico"
-        Me.Text = "frmGestion"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
         Me.tabDatos.PerformLayout()
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

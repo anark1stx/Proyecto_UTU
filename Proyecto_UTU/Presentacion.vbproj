@@ -370,6 +370,12 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.en-US.resx">
       <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.en-US.resx">
+      <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.en-US.resx">
+      <DependentUpon>frmDatosAnalisis.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.en-US.resx">
       <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
     </EmbeddedResource>
@@ -444,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFrm.resx">
       <DependentUpon>frmPresentacionFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.en-US.resx">
+      <DependentUpon>frmGestionMedico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmInicio.resx">
       <DependentUpon>frmInicio.vb</DependentUpon>
