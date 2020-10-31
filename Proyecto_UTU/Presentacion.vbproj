@@ -367,6 +367,9 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.resx">
       <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.en-US.resx">
+      <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.en-US.resx">
       <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
     </EmbeddedResource>
