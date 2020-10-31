@@ -325,6 +325,9 @@
     <EmbeddedResource Include="Formularios\Administrador\frmInicioAdm.en-US.resx">
       <DependentUpon>frmInicioAdm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.en-US.resx">
+      <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.resx">
       <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
     </EmbeddedResource>
