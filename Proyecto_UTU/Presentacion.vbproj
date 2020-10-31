@@ -370,6 +370,12 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.resx">
       <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.en-US.resx">
+      <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.en-US.resx">
+      <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.en-US.resx">
       <DependentUpon>frmAgregarItems.vb</DependentUpon>
     </EmbeddedResource>
