@@ -78,9 +78,6 @@ Public Class frmAdministrador
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
 
-        Dim sender = New Object
-        Dim e = New EventArgs
-
         'HANDLERS PARA FORMULARIO INICIO -> Acciones Paciente
         AddHandler _frmInicio.btnAltaPaciente.Click, AddressOf PacienteAltaMenuItem_Click
         AddHandler _frmInicio.btnBajaPaciente.Click, AddressOf PacienteBajaMenuItem_Click

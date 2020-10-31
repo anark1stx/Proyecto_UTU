@@ -250,7 +250,7 @@ Public Module mdlUtilidades
     End Function
 
     Function MensajeDeErrorCredsInvalidas() As String
-        Return "Su usuario o contraseña son incorrectos. Si olvidó su contraseña presione el botón ""Olvidé mi contraseña."" "
+        Return "Su usuario o contraseña son incorrectos."
     End Function
 
     Function check_Largo(propiedad As String, cantidadMinima As Integer, cantidadMaxima As Integer, requerido As Boolean) As Boolean

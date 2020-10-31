@@ -117,8 +117,320 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;PacienteBusquedaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PacienteModificacionMenuItem.Name" xml:space="preserve">
+    <value>PacienteModificacionMenuItem</value>
+  </data>
+  <data name="&gt;&gt;BusquedaDeUsuariosMenuItem.Name" xml:space="preserve">
+    <value>BusquedaDeUsuariosMenuItem</value>
+  </data>
+  <data name="&gt;&gt;PacienteBajaMenuItem.Name" xml:space="preserve">
+    <value>PacienteBajaMenuItem</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MedicoBusquedaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="SalirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarMenuItemAlta.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Name" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="AltaDeUsuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 26</value>
+  </data>
+  <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="BajaDeUsuariosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Baja de usuarios</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmAdministrador</value>
+  </data>
+  <data name="&gt;&gt;AltaDeUsuariosToolStripMenuItem.Name" xml:space="preserve">
+    <value>AltaDeUsuariosToolStripMenuItem</value>
+  </data>
+  <data name="AuxiliarMenuItemAlta.Text" xml:space="preserve">
+    <value>Auxiliar</value>
+  </data>
+  <data name="GestionarPersonalMedicoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 21</value>
+  </data>
+  <data name="&gt;&gt;BajaDeUsuariosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GestionarPersonalMedicoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AuxiliarBusquedaMenuItem.Text" xml:space="preserve">
+    <value>Auxiliar</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="&gt;&gt;AltaDeUsuariosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedicoModificacionMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PacienteBajaMenuItem.Text" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="MedicoBajaMenuItem.Text" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarBusquedaMenuItem.Name" xml:space="preserve">
+    <value>AuxiliarBusquedaMenuItem</value>
+  </data>
+  <data name="MenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 25</value>
+  </data>
+  <data name="&gt;&gt;MedicoBajaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BusquedaDeUsuariosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 26</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarMenuItemModificar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AuxiliarBusquedaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;SalirToolStripMenuItem.Name" xml:space="preserve">
+    <value>SalirToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PacienteAltaMenuItem.Text" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <data name="MedicoAltaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarMenuItemBaja.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarBusquedaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AuxiliarMenuItemModificar.Text" xml:space="preserve">
+    <value>Auxiliar</value>
+  </data>
+  <data name="ModificacionDeUsuariosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Modificación de usuarios</value>
+  </data>
+  <data name="AuxiliarMenuItemAlta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AuxiliarMenuItemBaja.Text" xml:space="preserve">
+    <value>Auxiliar</value>
+  </data>
+  <data name="&gt;&gt;BusquedaDeUsuariosMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InicioMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MedicoBusquedaMenuItem.Text" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarMenuItemModificar.Name" xml:space="preserve">
+    <value>AuxiliarMenuItemModificar</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarMenuItemAlta.Name" xml:space="preserve">
+    <value>AuxiliarMenuItemAlta</value>
+  </data>
+  <data name="PacienteModificacionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="MedicoModificacionMenuItem.Text" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="&gt;&gt;PacienteModificacionMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlContenedor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 31</value>
+  </data>
+  <data name="PacienteAltaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;MedicoBusquedaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ModificacionDeUsuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 26</value>
+  </data>
+  <data name="AltaDeUsuariosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Alta de usuarios</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PacienteModificacionMenuItem.Text" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <data name="AuxiliarMenuItemModificar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;PacienteBajaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MenuStrip1.Text" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;AuxiliarMenuItemBaja.Name" xml:space="preserve">
+    <value>AuxiliarMenuItemBaja</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pnlContenedor.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="BusquedaDeUsuariosMenuItem.Text" xml:space="preserve">
+    <value>Búsqueda de usuarios</value>
+  </data>
+  <data name="&gt;&gt;GestionMenuItem.Name" xml:space="preserve">
+    <value>GestionMenuItem</value>
+  </data>
+  <data name="GestionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <data name="AuxiliarMenuItemBaja.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;MedicoModificacionMenuItem.Name" xml:space="preserve">
+    <value>MedicoModificacionMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ModificacionDeUsuariosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedicoBajaMenuItem.Name" xml:space="preserve">
+    <value>MedicoBajaMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ModificacionDeUsuariosToolStripMenuItem.Name" xml:space="preserve">
+    <value>ModificacionDeUsuariosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GestionarPersonalMedicoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Gestionar personal médico</value>
+  </data>
+  <data name="MedicoAltaMenuItem.Text" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="&gt;&gt;MedicoAltaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="InicioMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 21</value>
+  </data>
+  <data name="&gt;&gt;PacienteAltaMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GestionMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedicoBusquedaMenuItem.Name" xml:space="preserve">
+    <value>MedicoBusquedaMenuItem</value>
+  </data>
+  <data name="PacienteBusquedaMenuItem.Text" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <data name="SalirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 21</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Name" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="PacienteBajaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="PacienteBusquedaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="MedicoModificacionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;MedicoAltaMenuItem.Name" xml:space="preserve">
+    <value>MedicoAltaMenuItem</value>
+  </data>
+  <data name="BajaDeUsuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 26</value>
+  </data>
+  <data name="&gt;&gt;InicioMenuItem.Name" xml:space="preserve">
+    <value>InicioMenuItem</value>
+  </data>
+  <data name="&gt;&gt;BajaDeUsuariosToolStripMenuItem.Name" xml:space="preserve">
+    <value>BajaDeUsuariosToolStripMenuItem</value>
+  </data>
+  <data name="MenuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 639</value>
+  </data>
+  <data name="InicioMenuItem.Text" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 673</value>
+  </data>
+  <data name="&gt;&gt;PacienteAltaMenuItem.Name" xml:space="preserve">
+    <value>PacienteAltaMenuItem</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GestionarPersonalMedicoToolStripMenuItem.Name" xml:space="preserve">
+    <value>GestionarPersonalMedicoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;PacienteBusquedaMenuItem.Name" xml:space="preserve">
+    <value>PacienteBusquedaMenuItem</value>
+  </data>
+  <data name="MedicoBajaMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 26</value>
+  </data>
+  <data name="&gt;&gt;SalirToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GestionMenuItem.Text" xml:space="preserve">
+    <value>Gestión de usuarios</value>
+  </data>
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>

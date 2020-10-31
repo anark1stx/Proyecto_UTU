@@ -22,6 +22,7 @@ Partial Class frmAdministrador
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdministrador))
         Me.GestionMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PacienteAltaMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,160 +50,132 @@ Partial Class frmAdministrador
         '
         'GestionMenuItem
         '
+        resources.ApplyResources(Me.GestionMenuItem, "GestionMenuItem")
         Me.GestionMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaDeUsuariosToolStripMenuItem, Me.BajaDeUsuariosToolStripMenuItem, Me.ModificacionDeUsuariosToolStripMenuItem, Me.BusquedaDeUsuariosMenuItem})
         Me.GestionMenuItem.Name = "GestionMenuItem"
-        Me.GestionMenuItem.Size = New System.Drawing.Size(152, 24)
-        Me.GestionMenuItem.Text = "Gestión de usuarios"
         '
         'AltaDeUsuariosToolStripMenuItem
         '
+        resources.ApplyResources(Me.AltaDeUsuariosToolStripMenuItem, "AltaDeUsuariosToolStripMenuItem")
         Me.AltaDeUsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteAltaMenuItem, Me.MedicoAltaMenuItem, Me.AuxiliarMenuItemAlta})
         Me.AltaDeUsuariosToolStripMenuItem.Name = "AltaDeUsuariosToolStripMenuItem"
-        Me.AltaDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(258, 26)
-        Me.AltaDeUsuariosToolStripMenuItem.Text = "Alta de usuarios"
         '
         'PacienteAltaMenuItem
         '
+        resources.ApplyResources(Me.PacienteAltaMenuItem, "PacienteAltaMenuItem")
         Me.PacienteAltaMenuItem.Name = "PacienteAltaMenuItem"
-        Me.PacienteAltaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.PacienteAltaMenuItem.Text = "Paciente"
         '
         'MedicoAltaMenuItem
         '
+        resources.ApplyResources(Me.MedicoAltaMenuItem, "MedicoAltaMenuItem")
         Me.MedicoAltaMenuItem.Name = "MedicoAltaMenuItem"
-        Me.MedicoAltaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.MedicoAltaMenuItem.Text = "Médico"
         '
         'AuxiliarMenuItemAlta
         '
+        resources.ApplyResources(Me.AuxiliarMenuItemAlta, "AuxiliarMenuItemAlta")
         Me.AuxiliarMenuItemAlta.Name = "AuxiliarMenuItemAlta"
-        Me.AuxiliarMenuItemAlta.Size = New System.Drawing.Size(147, 26)
-        Me.AuxiliarMenuItemAlta.Text = "Auxiliar"
         '
         'BajaDeUsuariosToolStripMenuItem
         '
+        resources.ApplyResources(Me.BajaDeUsuariosToolStripMenuItem, "BajaDeUsuariosToolStripMenuItem")
         Me.BajaDeUsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteBajaMenuItem, Me.MedicoBajaMenuItem, Me.AuxiliarMenuItemBaja})
         Me.BajaDeUsuariosToolStripMenuItem.Name = "BajaDeUsuariosToolStripMenuItem"
-        Me.BajaDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(258, 26)
-        Me.BajaDeUsuariosToolStripMenuItem.Text = "Baja de usuarios"
         '
         'PacienteBajaMenuItem
         '
+        resources.ApplyResources(Me.PacienteBajaMenuItem, "PacienteBajaMenuItem")
         Me.PacienteBajaMenuItem.Name = "PacienteBajaMenuItem"
-        Me.PacienteBajaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.PacienteBajaMenuItem.Text = "Paciente"
         '
         'MedicoBajaMenuItem
         '
+        resources.ApplyResources(Me.MedicoBajaMenuItem, "MedicoBajaMenuItem")
         Me.MedicoBajaMenuItem.Name = "MedicoBajaMenuItem"
-        Me.MedicoBajaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.MedicoBajaMenuItem.Text = "Médico"
         '
         'AuxiliarMenuItemBaja
         '
+        resources.ApplyResources(Me.AuxiliarMenuItemBaja, "AuxiliarMenuItemBaja")
         Me.AuxiliarMenuItemBaja.Name = "AuxiliarMenuItemBaja"
-        Me.AuxiliarMenuItemBaja.Size = New System.Drawing.Size(147, 26)
-        Me.AuxiliarMenuItemBaja.Text = "Auxiliar"
         '
         'ModificacionDeUsuariosToolStripMenuItem
         '
+        resources.ApplyResources(Me.ModificacionDeUsuariosToolStripMenuItem, "ModificacionDeUsuariosToolStripMenuItem")
         Me.ModificacionDeUsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteModificacionMenuItem, Me.MedicoModificacionMenuItem, Me.AuxiliarMenuItemModificar})
         Me.ModificacionDeUsuariosToolStripMenuItem.Name = "ModificacionDeUsuariosToolStripMenuItem"
-        Me.ModificacionDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(258, 26)
-        Me.ModificacionDeUsuariosToolStripMenuItem.Text = "Modificación de usuarios"
         '
         'PacienteModificacionMenuItem
         '
+        resources.ApplyResources(Me.PacienteModificacionMenuItem, "PacienteModificacionMenuItem")
         Me.PacienteModificacionMenuItem.Name = "PacienteModificacionMenuItem"
-        Me.PacienteModificacionMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.PacienteModificacionMenuItem.Text = "Paciente"
         '
         'MedicoModificacionMenuItem
         '
+        resources.ApplyResources(Me.MedicoModificacionMenuItem, "MedicoModificacionMenuItem")
         Me.MedicoModificacionMenuItem.Name = "MedicoModificacionMenuItem"
-        Me.MedicoModificacionMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.MedicoModificacionMenuItem.Text = "Médico"
         '
         'AuxiliarMenuItemModificar
         '
+        resources.ApplyResources(Me.AuxiliarMenuItemModificar, "AuxiliarMenuItemModificar")
         Me.AuxiliarMenuItemModificar.Name = "AuxiliarMenuItemModificar"
-        Me.AuxiliarMenuItemModificar.Size = New System.Drawing.Size(147, 26)
-        Me.AuxiliarMenuItemModificar.Text = "Auxiliar"
         '
         'BusquedaDeUsuariosMenuItem
         '
+        resources.ApplyResources(Me.BusquedaDeUsuariosMenuItem, "BusquedaDeUsuariosMenuItem")
         Me.BusquedaDeUsuariosMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteBusquedaMenuItem, Me.MedicoBusquedaMenuItem, Me.AuxiliarBusquedaMenuItem})
         Me.BusquedaDeUsuariosMenuItem.Name = "BusquedaDeUsuariosMenuItem"
-        Me.BusquedaDeUsuariosMenuItem.Size = New System.Drawing.Size(258, 26)
-        Me.BusquedaDeUsuariosMenuItem.Text = "Búsqueda de usuarios"
         '
         'PacienteBusquedaMenuItem
         '
+        resources.ApplyResources(Me.PacienteBusquedaMenuItem, "PacienteBusquedaMenuItem")
         Me.PacienteBusquedaMenuItem.Name = "PacienteBusquedaMenuItem"
-        Me.PacienteBusquedaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.PacienteBusquedaMenuItem.Text = "Paciente"
         '
         'MedicoBusquedaMenuItem
         '
+        resources.ApplyResources(Me.MedicoBusquedaMenuItem, "MedicoBusquedaMenuItem")
         Me.MedicoBusquedaMenuItem.Name = "MedicoBusquedaMenuItem"
-        Me.MedicoBusquedaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.MedicoBusquedaMenuItem.Text = "Médico"
         '
         'AuxiliarBusquedaMenuItem
         '
+        resources.ApplyResources(Me.AuxiliarBusquedaMenuItem, "AuxiliarBusquedaMenuItem")
         Me.AuxiliarBusquedaMenuItem.Name = "AuxiliarBusquedaMenuItem"
-        Me.AuxiliarBusquedaMenuItem.Size = New System.Drawing.Size(147, 26)
-        Me.AuxiliarBusquedaMenuItem.Text = "Auxiliar"
         '
         'MenuStrip1
         '
+        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioMenuItem, Me.GestionMenuItem, Me.GestionarPersonalMedicoToolStripMenuItem, Me.SalirToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1062, 28)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
         '
         'InicioMenuItem
         '
+        resources.ApplyResources(Me.InicioMenuItem, "InicioMenuItem")
         Me.InicioMenuItem.Name = "InicioMenuItem"
-        Me.InicioMenuItem.Size = New System.Drawing.Size(59, 24)
-        Me.InicioMenuItem.Text = "Inicio"
         '
         'GestionarPersonalMedicoToolStripMenuItem
         '
+        resources.ApplyResources(Me.GestionarPersonalMedicoToolStripMenuItem, "GestionarPersonalMedicoToolStripMenuItem")
         Me.GestionarPersonalMedicoToolStripMenuItem.Name = "GestionarPersonalMedicoToolStripMenuItem"
-        Me.GestionarPersonalMedicoToolStripMenuItem.Size = New System.Drawing.Size(201, 24)
-        Me.GestionarPersonalMedicoToolStripMenuItem.Text = "Gestionar personal médico"
         '
         'SalirToolStripMenuItem
         '
+        resources.ApplyResources(Me.SalirToolStripMenuItem, "SalirToolStripMenuItem")
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 24)
-        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'pnlContenedor
         '
-        Me.pnlContenedor.Location = New System.Drawing.Point(0, 31)
+        resources.ApplyResources(Me.pnlContenedor, "pnlContenedor")
         Me.pnlContenedor.Name = "pnlContenedor"
-        Me.pnlContenedor.Size = New System.Drawing.Size(1062, 639)
-        Me.pnlContenedor.TabIndex = 1
         '
         'frmAdministrador
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1062, 673)
         Me.Controls.Add(Me.pnlContenedor)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.Name = "frmAdministrador"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Administración"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

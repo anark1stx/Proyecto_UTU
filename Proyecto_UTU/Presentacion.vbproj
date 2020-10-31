@@ -313,6 +313,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.en-US.resx">
+      <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmGestion.en-US.resx">
       <DependentUpon>frmGestion.vb</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.resx">
       <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.en-US.resx">
+      <DependentUpon>frmGestionPMedico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.resx">
       <DependentUpon>frmGestionPMedico.vb</DependentUpon>

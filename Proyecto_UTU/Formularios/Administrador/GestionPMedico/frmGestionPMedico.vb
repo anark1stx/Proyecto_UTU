@@ -10,6 +10,8 @@ Public Class frmGestionPMedico
     Private Sub frmGestionPMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tblPMedico.Controls.Add(elegirMedico, 0, 0)
         tblPMedico.Controls.Add(elegirAuxiliar, 0, 1)
+        LimpiarControles(elegirAuxiliar)
+        LimpiarControles(elegirMedico)
         elegirMedico.Visible = True
         elegirAuxiliar.Visible = True
         Me.SetBounds(0, 0, Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height)
