@@ -530,4 +530,12 @@ Public Module mdlUtilidades
         Next
     End Sub
 
+    Public Sub TraducirFrasesFueraDeInterfaz(c As Control)
+        Select Case c.Text
+            Case ""
+        End Select
+
+    End Sub
+
+
 End Module

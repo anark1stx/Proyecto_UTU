@@ -89,7 +89,22 @@ Public Class D_Enfermedad
         }
 
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32).Value = pyr.ID_Pregunta
-        cmd.Parameters.Add("RES", MySqlDbType.VarChar, 7200).Value = pyr.Respuesta.Text
+
+        Select Case pyr.Respuesta.GetType()
+            Case GetType(System.Windows.Forms.CheckBox)
+                Dim respuesta As String = ""
+                Select Case DirectCast(pyr.Respuesta, System.Windows.Forms.CheckBox).Checked
+                    Case True
+                        respuesta = "True"
+                    Case False
+                        respuesta = "False"
+                End Select
+
+                cmd.Parameters.Add("RES", MySqlDbType.VarChar, 7200).Value = respuesta
+            Case Else
+                cmd.Parameters.Add("RES", MySqlDbType.VarChar, 7200).Value = pyr.Respuesta.Text
+        End Select
+
 
         Try
             leer = cmd.ExecuteReader()

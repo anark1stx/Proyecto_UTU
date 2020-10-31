@@ -70,6 +70,7 @@ Partial Class frmGestionMedico
         Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pBoxFotoMedico.TabIndex = 101
         Me.pBoxFotoMedico.TabStop = False
+        Me.pBoxFotoMedico.Tag = "noLimpiar"
         '
         'tabDatos
         '

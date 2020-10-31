@@ -87,6 +87,7 @@ Public Class D_Paciente
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
+            Console.WriteLine(ex.Message)
             lastU.ErrCode = -2
             uList.Add(lastU)
             Return uList

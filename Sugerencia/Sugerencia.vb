@@ -133,18 +133,12 @@ Public Class Sugerir
             Log.Add("No fueron respondidas las preguntas del formulario. Procure proporcionar la mayor cantidad de información posible para que el sistema sea más preciso :)." & Environment.NewLine)
         End If
         For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
-            Log.Add(String.Format("Pregunta: {0}" & Environment.NewLine, pyr.Pregunta.Text))
             Select Case pyr.Respuesta.GetType()
                 Case GetType(CheckBox)
-                    Dim respuesta As String = ""
-                    If DirectCast(pyr.Respuesta, CheckBox).Checked Then
-                        respuesta = "True"
-                    Else
-                        respuesta = "False"
-                    End If
-                    pyr.Respuesta.Text = respuesta
+                    Log.Add(String.Format("Buscando enfermedades diagnosticadas en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, DirectCast(pyr.Respuesta, CheckBox).Checked.ToString(), pyr.Pregunta.Text))
+                Case Else
+                    Log.Add(String.Format("Buscando enfermedades diagnosticadas en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             End Select
-            Log.Add(String.Format("Buscando enfermedades diagnosticadas en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             Dim enf = ne.SugerirEnfermedadSegunPyR(pyr)
             Select Case enf.ErrCode
                 Case -1, -2
@@ -222,18 +216,12 @@ Public Class Sugerir
             Log.Add("No fueron respondidas las preguntas del formulario. Procure proporcionar la mayor cantidad de información posible para que el sistema sea más preciso :)." & Environment.NewLine)
         End If
         For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
-            Log.Add(String.Format("Pregunta: {0}", pyr.Pregunta.Text))
             Select Case pyr.Respuesta.GetType()
                 Case GetType(CheckBox)
-                    Dim respuesta As String = ""
-                    If DirectCast(pyr.Respuesta, CheckBox).Checked Then
-                        respuesta = "True"
-                    Else
-                        respuesta = "False"
-                    End If
-                    pyr.Respuesta.Text = respuesta
+                    Log.Add(String.Format("Buscando análisis requeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, DirectCast(pyr.Respuesta, CheckBox).Checked.ToString(), pyr.Pregunta.Text))
+                Case Else
+                    Log.Add(String.Format("Buscando análisis requeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             End Select
-            Log.Add(String.Format("Buscando análisis requeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             Dim analisis = na.SugerirAnalisisSegunPyR(pyr)
             Select Case analisis.ErrCode
                 Case -1, -2
@@ -333,16 +321,10 @@ Public Class Sugerir
         For Each pyr As PreguntaRespuesta In PreguntasYRespuestas
             Select Case pyr.Respuesta.GetType()
                 Case GetType(CheckBox)
-                    Dim respuesta As String = ""
-                    If DirectCast(pyr.Respuesta, CheckBox).Checked Then
-                        respuesta = "True"
-                    Else
-                        respuesta = "False"
-                    End If
-                    pyr.Respuesta.Text = respuesta
+                    Log.Add(String.Format("Buscando tratamientos sugeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, DirectCast(pyr.Respuesta, CheckBox).Checked.ToString(), pyr.Pregunta.Text))
+                Case Else
+                    Log.Add(String.Format("Buscando tratamientos sugeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             End Select
-            Log.Add(String.Format("Pregunta: {0}" & Environment.NewLine, pyr.Pregunta.Text))
-            Log.Add(String.Format("Buscando tratamientos sugeridos en base a la respuesta ''{0}'' a la pregunta ''{1}''...: " & Environment.NewLine, pyr.Respuesta.Text, pyr.Pregunta.Text))
             Dim tratamiento = nt.SugerirTratamientoSegunPyR(pyr)
             Select Case tratamiento.ErrCode
                 Case -1, -2

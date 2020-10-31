@@ -117,244 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Accion1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="Accion1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
-        DQAAAk1TRnQBSQFMAgEBAwEAAfABAAHwAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
-        AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wwAARsBFwNHBPkBRwH/
-        FQABGwg1AVcB/xUAAS4BXQE6BTYCXQEuMwAB4wZHB/kBlBEAAVcNNQEIEQABXQE2ATUBLwQuBC8BNgE6
-        AVcvAAGUCEcJ+QH/DQABeRE1Af8NAAEuATYBLwYuBy8BNgFdAS4sAAEXCUcK+QG9CwABNhM1AQgLAAFd
-        ATUMLgUvATYBXSkAAf8LRwv5ARcIAAH/FjUBVwkAAV0BLw8uBC8BNgFeKAAMRwz5Ab0HABg1AQgHAAFd
-        AS8FLgsvAS4BLwI1AS8BNgFYJgAB4wxHDfkB/wUAAVcKNQGZAQgCvAs1Af8FAAEuAS8ELg8vAS4DNQE2
-        AS4kAAH0DUcO+QQAAfQLNQEIAfIC8Aw1BQABNQMuBy8B/wsvAVYBLwE1AV0kAA5HDvkBlAMADDUBCAHy
-        AvAMNQEIAwABOwEvAi4HLwP/Cy8BNQEvAjUiAAEaDkcP+QIAARsMNQEIAfIC8A01AwABNQIuBy8F/w0v
-        ATYiAA9HD/kB/wEADTUBCAHyAvANNQH/AQACLwEuBy8H/wwvATUBTyEAD0cP+QFHAQANNQEIAfIC8A01
-        AVcBAAE2AS4ELwM1Cf8GNQYvAVcgAAHzD0cQ+QEbDTUBCAHyAvAONQEABS8DNQv/BzUELwE1IAABvQ9H
-        EPkBnw01AQgB8gLwDjUBAAQvAzUN/wc1BC8gAAEWBkcJ8gnwAbwG+QF4BjUJ8gnwAbwGNQEIAy8DNQf/
-        ATUH/wY1BC8gAAEXBkcJ8gnwAbwG+QE2BjUJ8gnwAbwGNQFQAy8DNQEbBf8DNQf/BjUDLyAAAeMGRwny
-        CfABvAb5AVcGNQnyCfABvAY1AQgDLwQ1AfMD/wU1B/8FNQMvIAABlAZHCRoJvAEHBvkBmQY1BwgC8gLw
-        B7wBCAY1AQACLwY1AfYB/wc1B/8FNQIvIAABvQ9HEPkBGw01AQgB8gLwDjUBAAIvEDUH/wQ1AS8BLiAA
-        Af8PRxD5Af8NNQEIAfIC8A41AQABLgEvETUH/wM1AS8BLiEAD0cP+QGUAQANNQEIAfIC8A01AZkBAAEu
-        AS8SNQb/AzUBLwEuIQABFg5HD/kCAAF4DDUBCAHyAvANNQMAAS8TNQT/BDUBLyIAAf8ORw/5AgAB/ww1
-        AQgB8gLwDTUDAAE2FDUC/wU1AS8jAAEWDUcO+QQAAXgLNQEIAfIC8Aw1BAAB/xo1ATYlAA1HDfkBRwUA
-        CzUBCAHyAvALNQFXBQABLxk1AS4lAAH/DEcN+QYAAfQZNQcAATsBNgFXBjUHNgY1ATYBNQE2JwABvQtH
-        DPkIAAEIFzUJAAE7ATYCVwU1BTYFNQFXATYBNQE3KQABvQpHC/kB/wkAAQgVNQH/CgABNwVXCTUEVwI2
-        KwAB/wlHCvkMAAH0EzUNAAEuEVcBLi4AARYHRwj5Ab0PAAF4DzUBGxAAATYNVwE1MQAB/wEWBUcG+QGU
-        EgAB/wF4CzUBmRQAAS4BNgdXATYBLjYAAf8BvQGUAeMB+QFHAeMBvRgAAf8BGwGZAVcBNQFWAXgBCBwA
-        AfQvAAFCAU0BPgcAAT4DAAEoAwABgAMAASADAAEBAQABAQYAAQIWAAP/AQAB/wHgAQMC/wHgAQMC/wHg
-        AQMB/wQAAf8BgAEAAv8BgAEAAv8BgAEAAf8EAAH+AgABPwH+AgABPwH+AgABPwQAAfwCAAEfAfwCAAEf
-        AfwCAAEfBAAB8AIAAQ8B8AIAAQ8B+AIAAQ8EAAHwAgABBwHwAgABBwHwAgABBwQAAeACAAEDAeACAAED
-        AeACAAEDBAABwAIAAQMBwAIAAQMB4AIAAQMEAAHAAgABAQHAAgABAQHAAgABAQQAAYACAAEBAYACAAEB
-        AcACAAEBBAABgAMAAYADAAGABwABgAMAAYADAAGADwABgA8AAYA/AAGADwABgA8AAYAHAAGAAwABgAMA
-        AYAHAAGAAgABAQGAAgABAQHAAgABAQQAAYACAAEBAYACAAEBAcACAAEBBAABwAIAAQMBwAIAAQMBwAIA
-        AQMEAAHgAgABAwHgAgABAwHgAgABAwQAAeACAAEHAeACAAEHAfACAAEHBAAB8AIAAQ8B8AIAAQ8B+AIA
-        AQ8EAAH4AgABDwH4AgABDwH8AgABHwQAAfwCAAE/AfwCAAE/Af4CAAE/BAAB/wIAAX8B/wIAAX8B/wGA
-        AQAB/wQAAf8BgAEBAv8BgAEBAv8B4AEDAf8EAAH/AfABDwL/AfABDwP/AX8B/wQACw==
-</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnAccion2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
   </data>
-  <metadata name="Accion2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>128, 17</value>
-  </metadata>
-  <data name="Accion2.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
-        DQAAAk1TRnQBSQFMAgEBAgEAAfABAAHwAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
-        AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/xAAAfQCWQF6ARoBGwH/
-        FQAN/1cAARsBMQQ4AVkB/xQADf9XAAH/AjEEOAFZAf8NAAj/AfQB8wX0Cv9SAAMxBDgBWQH/DAAF/wP0
-        AfIBGgHwARsB8gPzBfQE/0MAARkJswLUAQkCAAFYAzEEOAFZAf8JAAX/A/QB8gEaAZkBeQSZAhoB8gPz
-        AvQF/0AAAfIKswLUAdsCAAGaBDEEOAFZAf8IAAT/AvQC8wEaAXkGWAF5AZkBvAHxAvIB8wP0A/9AAAuz
-        A9QB/wIAAXoEMQQ4AVkB/wcABP8C9AHzAfEBmQF5BlgCeQKZARoB8gLzAvQD/0AAC7MD1AHbAf8CAAF6
-        BDEEOAFZAf8GAAT/AvQB8gEaAXkLWAGZAvIB8wL0A/9AAAuzBNQB3AH/AgABegQxBDgBWQH/BQAF/wH0
-        ARsBmQF5C1gBeQGZARoBGwH0BP9AAASzAQkG8AEZBPMB9AH/AgABegQxBDgBWQH/BgAE/wEbAXkFWAFZ
-        A1gBNwRYAZkBGwH0Av9CAASzB/EB9AX/AfQB/wIAAXoEMQQ4AVkB/wUABP8BGgF5A1gDWQNYATcDWAF5
-        AZkBGgH0Av9CAAWzBroICQH/AgABegQxBDgBmgcAAf8B9gEaA1gDWQhYAnkBmQEbRAALswjUAdwB/wIA
-        AXoEMQM4AVkHAAL/ARoCWARZB1gBeQGZARoBGwH/RAAFswa6BwkC1AHcAf8CAAF6BDECOAF6BwAB/wH0
-        AZoBWAVZAlgBNwNYAXkBGgEbAfRGAASzB/EB9Ab/AfMC1AHcAf8CAAF6BDEBWQH2BQAC/wH0ARsBmQdZ
-        AVgBNwJYAZkBGgEbAfQB/0YABLMBCQbwARkG8wHcA9QBCQMAAXoDMQH0BgAC/wH0ARoBmQJZAXoEWQFY
-        ATcBWAF5ARoB9AH/SAALswvUAdwEAAEbAZoB9gcAAf8B9AEaAnQBUgFYAnoDWQJYAZkBGgH0Av9IAAuz
-        C9QB3A4AAfQBvAFvAR8BJAFMAVIBeQF6A1kBWAF5ARoB9gH/SgAEswfxAfQG/wEZA9QB3AwAAv8B8wGZ
-        AXQBJAJGAUwBdAJSAnkBmgEbAfQC/0oABLMH8QH0Bv8BGQPUAdwMAAL/ARsBmQF0AUsERgJMAXQBmQEb
-        Av9MAAuzC9QB3AwAAv8BGwGZAXkDUgRMAZkB8wP/TAALswvUAdwMAAL/ARsBmQF5A3oBdAJMAW4BGlAA
-        C7ML1AHcDAAC/wEbAZkBeQFSAVgCeQF0AZkBvAH0UAAGswatBLMG1AHcDgABGwGTAVIBKwFSAnkBmQEb
-        Av9QAAWzAa0FrAatBdQBCQwAAf8B9AEaAXQBUgFMAXkDGgH0Av9QAAWzAa0FrAatBdQBGQwAAfQBGgGZ
-        A0wBmQP0A/9QAAEZBLMBrQWsBq0E1AHVAf8KAAL/ARsBmQF0AlIBdAEaAf8B9gT/UQABGQOzAa0FrAat
-        A9QBCQH/CwAB/wH0ARoEUgF5ARsC/1kAAbQFrAatAfMPAAH/AfMBmQNSAXQBGgHzAv9ZAAH/AQkBuwOs
-        A60BtALzAf8PAAH0ARsBmQF0AlIBmQEbAfReAAG0AqwDrQH0EgAB/wH0ARoCdAGZARoB9AH/XgAB/wG1
-        Aq0BtAH0EwAC/wEbApkBGgH0WAABQgFNAT4HAAE+AwABKAMAAYADAAEgAwABAQEAAQEGAAECFgAD/wEA
-        Af8B/gEDAv8B4AEAAf8IAAH/Af4BAQL/AeABAAH/CAAB/wH+AQAB/wH4AgABAwgAAv8BAAF/AfgCAAED
-        CAABgAEDAQABPwHgDAABAwEAAR8B4AwAAQEBgAEPAeANAAHAAQcB4A0AAWABAwHgDQABMAEBAfgCAAED
-        CgABGAEAAfgCAAEDCgABDAEAAf4CAAEPCgABBgEAAf4CAAEPCgABAwEAAf4CAAE/CgABAQGAAfgCAAE/
-        CgABAQHBAfgCAAH/CgABAQHjAfgCAAH/CgABAQH/AfgBAAEDAf8KAAEBAf8B4AEAAQMB/woAAQEB/wHg
-        AQABDwH/CgABAQH/AeABAAEPAf8KAAEBAf8B4AEAAv8KAAEBAf8B4AEAAv8KAAEBAf8B+AEAAv8KAAEB
-        Af8B4AEAAv8KAAEBAf8B4AEAAv8KAAEBAf8BgAEAAv8IAAGAAQABAwH/AYABDwL/CAAB+AEAAT8B/wGA
-        AQ8C/wgAAfgBAAE/Af8BgAE/Av8IAAH/AQEC/wGAAT8C/wgAAf8BAwL/AYAD/wgACw==
-</value>
+  <data name="&gt;&gt;pnlBusqueda.Name" xml:space="preserve">
+    <value>pnlBusqueda</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblEstado.TabIndex" type="System.Int32, mscorlib">
+    <value>416</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="&gt;&gt;lblEspecialidades.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;btnBorrarEspecialidad.Parent" xml:space="preserve">
+    <value>pnlEspecialidadesBtns</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAltaLogica.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        3QAAAN0BcFOiBwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJySURBVFhH7Zax
-        axNxHMWr4KCzg7jUoavg4CD+BS5NLsFgm/tdiaLXQUQduvTu2h+FFrKoixYE62YdHFQoCII4OEiFOIiQ
-        UR0EsxgQqSDNr993vSu/XF9yRloQSeED1/d73/e+dzS5jhhj/opx7R9xQvclwDXz/AlUzEN+DjiReuKE
-        ysTINTTmzYOKeUjpAor9O9MxySILzJsHFftRDNwLKKwuXey8/nLPAFxDwxmb6QcVe1EIvNOlUG2U57zO
-        s4+3zPv2SgyuoeEMHjbbCyoyCnriuNzlV9zpwzeLO+Up0HAGD7wsg0HFLJWblcMSvI6C+tPZXeUpOEuW
-        WMcMy8pCxSzFUK0ieGbluml8f0DLAc7ggRczLCsLFW2cwAsReOX2tHnbuk+LbeCBN34SMssybaiYUgq9
-        sgR1JhdrnVef79JCBryYwSwyWHYKFcG4njzqRN5P3Ml5PWXcpUtmqn7ZPHpXp6UAZ/DAi5n4KUgGslgH
-        oCKo6NoxCfggtEEpUj8QqB/P0HKAM3jglY9kGyADWawDUJFRDtwzCJ9f7b0AzuCBl2UwqMgYLjBc4P9f
-        wPf9Q46unchSDqqjWuuDgy6wPVMdZZno2rWADDYwTInU83SBa8tX41cvA2fwxF6Z6cropsEW+CVvsA0n
-        cF90EapNoVmM3JPJcC6JtylsZvPiDumiCwif0t8zehPXpcibkJAb/YAnmcMCO0Up6LB1+6DfAt9YmY18
-        75/LzO3ZAi2BPmobPFr7j0s0/AfVsrMSfcAFZqun5JVay6MYqLP2XEGrMczaGhh4gb1muMA/v8BvAR+f
-        /QQddIE1gX7E9oG17V4zsgWGb7PxEpVhuAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnBorrarEspecialidad.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANnSURBVHhe7Zu7
-        bhNREIbtBMVETqxIvsRKmlSIylIU2dtQ5AXSAC9AQUPFE9DQhTeIRBPRB0EZKaJCgoImTUDiUmEaQJjE
-        awPKYWY3TtbH/673cs4KZSi+wlMk/z+7ey4z5xSUUnZptcqq3d5SjnNfdTrbxBPigDgieiezs6f9UmnY
-        L5e/9SuVj+7S0qtBtbrn1usPfy4vN+DfNAgMZmZjo0aG75DBZ4RLqDCOSUIoMzOqv7DwZVivP1arq9fg
-        /8oIDKZic/MKPem7ZOoF8SdoMgpoHFEsKnpLvg9rtV21tnYVakgBDCbGcW6RmXe6uThAs1M4KZV+DRqN
-        R1BLQmAwNo5zg0y81E0lARmMizs/3xs0m/egtpjA4FTW1+skfk83kwZkLCn9xcXPw5WV61DrFGAwEsdp
-        kfBPupG0IENp6M/N/R42m7eh5ghgMJR2+yaJPtZNZAGZSQ3NGjQ2bEPtIcDgBIVCkZ78AxJ8qhvICjSS
-        EbdaPSDNM9CLBgyOweY7nV1duCmQARO4lcr7OEmAwTH8Jw/FmwCJN4X3JiBPAWDwHP+bN/7aB0HCTTJt
-        TIBBD3+0NzrgIZBoo9DAGDU7wODZPG9sqosCijaMN0WGrBMmAh6GFjlxQIJtwIsl5HUicLa8hWJtgMTa
-        Ai2bx354ZFzbJwUJtQXvHXS/Yz/o6fOuDgq1BRJqE30XeWGe9/Mpt7RZQCJtwlvpYD3hIgF+MQOKtAkS
-        aRuvqDKRAL+SA0XaBAm0DVeWxhPANbwEZSyTIIHWKRbVqMboJ8AvYEKBtoECc8ArtJ4nwK/eQoG2QeLy
-        gKvNfgK4bj+ldG0TJC4XaI/AfQce/beQsLyA4nKCmy/8/XPHBorLAyQsL7gDxd8/t6uguDxAwvKC23Cc
-        AO7VQXFh/NjZUV/3943w9vUbI3x4+hyajIJ7kZwAblRCo2Gw8G63a4TDwyMjcBKQySi4IcsJ4C4tNBrG
-        pUlAqTTkBPR0g9O4LAng1vz/BJAh8Z+A+EFQ/DQofCEkfiksfjMkfjssviDCCRBfEhNfFGVEl8UZ8Y0R
-        8a0xRnRzdITo9jgj/oAEI/qIDCP+kBQj+pjcCNEHJUeIPirLiD8szYg+Lh9E7IWJIKKvzIwQfWkqiNhr
-        czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnAgregarEspecialidad.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
-        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
-        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
-        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
-        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
-        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
-        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
-        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
-        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
-        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
-        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
-        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
-        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
-        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
-        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
-        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
-        OQcdTIoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnSacarTelefono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANnSURBVHhe7Zu7
-        bhNREIbtBMVETqxIvsRKmlSIylIU2dtQ5AXSAC9AQUPFE9DQhTeIRBPRB0EZKaJCgoImTUDiUmEaQJjE
-        awPKYWY3TtbH/673cs4KZSi+wlMk/z+7ey4z5xSUUnZptcqq3d5SjnNfdTrbxBPigDgieiezs6f9UmnY
-        L5e/9SuVj+7S0qtBtbrn1usPfy4vN+DfNAgMZmZjo0aG75DBZ4RLqDCOSUIoMzOqv7DwZVivP1arq9fg
-        /8oIDKZic/MKPem7ZOoF8SdoMgpoHFEsKnpLvg9rtV21tnYVakgBDCbGcW6RmXe6uThAs1M4KZV+DRqN
-        R1BLQmAwNo5zg0y81E0lARmMizs/3xs0m/egtpjA4FTW1+skfk83kwZkLCn9xcXPw5WV61DrFGAwEsdp
-        kfBPupG0IENp6M/N/R42m7eh5ghgMJR2+yaJPtZNZAGZSQ3NGjQ2bEPtIcDgBIVCkZ78AxJ8qhvICjSS
-        EbdaPSDNM9CLBgyOweY7nV1duCmQARO4lcr7OEmAwTH8Jw/FmwCJN4X3JiBPAWDwHP+bN/7aB0HCTTJt
-        TIBBD3+0NzrgIZBoo9DAGDU7wODZPG9sqosCijaMN0WGrBMmAh6GFjlxQIJtwIsl5HUicLa8hWJtgMTa
-        Ai2bx354ZFzbJwUJtQXvHXS/Yz/o6fOuDgq1BRJqE30XeWGe9/Mpt7RZQCJtwlvpYD3hIgF+MQOKtAkS
-        aRuvqDKRAL+SA0XaBAm0DVeWxhPANbwEZSyTIIHWKRbVqMboJ8AvYEKBtoECc8ArtJ4nwK/eQoG2QeLy
-        gKvNfgK4bj+ldG0TJC4XaI/AfQce/beQsLyA4nKCmy/8/XPHBorLAyQsL7gDxd8/t6uguDxAwvKC23Cc
-        AO7VQXFh/NjZUV/3943w9vUbI3x4+hyajIJ7kZwAblRCo2Gw8G63a4TDwyMjcBKQySi4IcsJ4C4tNBrG
-        pUlAqTTkBPR0g9O4LAng1vz/BJAh8Z+A+EFQ/DQofCEkfiksfjMkfjssviDCCRBfEhNfFGVEl8UZ8Y0R
-        8a0xRnRzdITo9jgj/oAEI/qIDCP+kBQj+pjcCNEHJUeIPirLiD8szYg+Lh9E7IWJIKKvzIwQfWkqiNhr
-        czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnAgregarTelefono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
-        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
-        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
-        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
-        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
-        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
-        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
-        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
-        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
-        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
-        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
-        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
-        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
-        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
-        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
-        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
-        OQcdTIoAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="pBoxFotoUsuario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAJO
@@ -976,6 +759,754 @@
         OMC7//ReeY2W12r2Gmb1bP0HBuqq8A/huPCi8ODwa9kcsVuT//f/Aam3nzqZedW1AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="&gt;&gt;lblNombre2TXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;btnBorrarEspecialidad.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;Accion2.Name" xml:space="preserve">
+    <value>Accion2</value>
+  </data>
+  <data name="rBtnCedula.Location" type="System.Drawing.Point, System.Drawing">
+    <value>316, 7</value>
+  </data>
+  <data name="cbEspecialidades.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 3</value>
+  </data>
+  <data name="&gt;&gt;Accion1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblOcupacionTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblDireccion.Text" xml:space="preserve">
+    <value>Dirección:</value>
+  </data>
+  <data name="lblApellido1TXT.Text" xml:space="preserve">
+    <value>1° Apellido</value>
+  </data>
+  <data name="lblCedulaTXT.Text" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
+  <data name="&gt;&gt;cbEstadoCivil.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblComma.Text" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="&gt;&gt;pnlBusqueda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTelefono.TabIndex" type="System.Int32, mscorlib">
+    <value>388</value>
+  </data>
+  <data name="&gt;&gt;cbTelefonos.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;pnlEspecialidadesBtns.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="rBtnApellido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 29</value>
+  </data>
+  <data name="lblNombre1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 24</value>
+  </data>
+  <data name="lblDireccionTXT.Text" xml:space="preserve">
+    <value>Direccion</value>
+  </data>
+  <data name="&gt;&gt;cbEspecialidades.Name" xml:space="preserve">
+    <value>cbEspecialidades</value>
+  </data>
+  <data name="pnlDspCedula.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="lblEspecialidades.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rBtnEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 29</value>
+  </data>
+  <data name="&gt;&gt;btnBorrarEspecialidad.Name" xml:space="preserve">
+    <value>btnBorrarEspecialidad</value>
+  </data>
+  <data name="lblDireccionNumeroTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 23</value>
+  </data>
+  <data name="lblApellido1.TabIndex" type="System.Int32, mscorlib">
+    <value>387</value>
+  </data>
+  <data name="&gt;&gt;lblSexo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblOcupacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 111</value>
+  </data>
+  <data name="&gt;&gt;btnBorrarEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbEspecialidades.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pBoxFotoUsuario.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="pnlDspCedula.TabIndex" type="System.Int32, mscorlib">
+    <value>375</value>
+  </data>
+  <data name="lblDireccionTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>411</value>
+  </data>
+  <data name="txtBusqueda.Location" type="System.Drawing.Point, System.Drawing">
+    <value>418, 3</value>
+  </data>
+  <data name="lblCorreoTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="&gt;&gt;rBtnEspecialidad.Name" xml:space="preserve">
+    <value>rBtnEspecialidad</value>
+  </data>
+  <data name="&gt;&gt;lblEspecialidades.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionTXT.Name" xml:space="preserve">
+    <value>lblDireccionTXT</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2TXT.Name" xml:space="preserve">
+    <value>lblNombre2TXT</value>
+  </data>
+  <data name="&gt;&gt;btnAccion2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblOcupacion.TabIndex" type="System.Int32, mscorlib">
+    <value>396</value>
+  </data>
+  <data name="cbEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 28</value>
+  </data>
+  <data name="&gt;&gt;cbSexo.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblContrasena.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pnlBotonesTel.Name" xml:space="preserve">
+    <value>pnlBotonesTel</value>
+  </data>
+  <data name="lblApellido1TXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblSexo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnSacarTelefono.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 30</value>
+  </data>
+  <data name="lblCedula.TabIndex" type="System.Int32, mscorlib">
+    <value>338</value>
+  </data>
+  <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 24</value>
+  </data>
+  <data name="lblFnac.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;btnSacarTelefono.Parent" xml:space="preserve">
+    <value>pnlBotonesTel</value>
+  </data>
+  <data name="lblContrasenaTXT.Text" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="lblOcupacionTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 23</value>
+  </data>
+  <data name="lblApellido1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblNombre1.TabIndex" type="System.Int32, mscorlib">
+    <value>386</value>
+  </data>
+  <data name="dgwUsuarios.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 167</value>
+  </data>
+  <data name="lblEstadoCivil.TabIndex" type="System.Int32, mscorlib">
+    <value>397</value>
+  </data>
+  <data name="lblApellido2TXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblCorreoTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>393, 223</value>
+  </data>
+  <data name="btnAltaLogica.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 40</value>
+  </data>
+  <data name="cbEstadoCivil.Items1" xml:space="preserve">
+    <value>Casado</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorBusqueda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbEstadoCivil.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 28</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Form2</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1.Name" xml:space="preserve">
+    <value>lblApellido1</value>
+  </data>
+  <data name="lblEstadoTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 23</value>
+  </data>
+  <data name="lblContrasenaTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>831, 188</value>
+  </data>
+  <data name="lblCorreoTXT.Text" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="btnBuscar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="lblCorreo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 24</value>
+  </data>
+  <data name="rBtnEspecialidad.Text" xml:space="preserve">
+    <value>Especialidad</value>
+  </data>
+  <data name="&gt;&gt;btnSacarTelefono.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAgregarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>368</value>
+  </data>
+  <data name="&gt;&gt;lblContrasenaTXT.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="dgwUsuarios.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 43</value>
+  </data>
+  <data name="&gt;&gt;btnAccion1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblApellido2.Text" xml:space="preserve">
+    <value>2° Apellido:</value>
+  </data>
+  <data name="&gt;&gt;lblEspecialidades.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rBtnEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNombre2TXT.TabIndex" type="System.Int32, mscorlib">
+    <value>408</value>
+  </data>
+  <data name="lblApellido2.TabIndex" type="System.Int32, mscorlib">
+    <value>391</value>
+  </data>
+  <data name="lblApellido2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 24</value>
+  </data>
+  <data name="&gt;&gt;cbEstadoCivil.Name" xml:space="preserve">
+    <value>cbEstadoCivil</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoTXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblDireccion.TabIndex" type="System.Int32, mscorlib">
+    <value>389</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacionTXT.Name" xml:space="preserve">
+    <value>lblOcupacionTXT</value>
+  </data>
+  <data name="lblEstadoTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>417</value>
+  </data>
+  <data name="txtBusqueda.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="btnAltaLogica.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rBtnCedula.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;lblEstado.Name" xml:space="preserve">
+    <value>lblEstado</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="pnlDatosUsuario.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1.Name" xml:space="preserve">
+    <value>lblNombre1</value>
+  </data>
+  <data name="&gt;&gt;lblContrasenaTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbTelefonos.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;lblFnac.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;rBtnApellido.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAltaLogica.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="lblOcupacion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;cbSexo.Name" xml:space="preserve">
+    <value>cbSexo</value>
+  </data>
+  <data name="cbTelefonos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 182</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2.Name" xml:space="preserve">
+    <value>lblNombre2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="lblCorreo.Text" xml:space="preserve">
+    <value>Correo:</value>
+  </data>
+  <data name="&gt;&gt;lblComma.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlEspecialidadesBtns.Name" xml:space="preserve">
+    <value>pnlEspecialidadesBtns</value>
+  </data>
+  <data name="lblComma.Location" type="System.Drawing.Point, System.Drawing">
+    <value>579, 147</value>
+  </data>
+  <data name="lblComma.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacionTXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;cbTelefonos.Name" xml:space="preserve">
+    <value>cbTelefonos</value>
+  </data>
+  <data name="&gt;&gt;lblEstado.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblCorreoTXT.Name" xml:space="preserve">
+    <value>lblCorreoTXT</value>
+  </data>
+  <data name="&gt;&gt;lblCedula.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblContrasena.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNombre2TXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblNombre1TXT.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="lblTelefono.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNombre1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 11</value>
+  </data>
+  <data name="lblEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 24</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblSexo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblApellido2TXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
+  </data>
+  <data name="&gt;&gt;lblContrasena.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblContrasenaTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>415</value>
+  </data>
+  <data name="lblCedula.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 29</value>
+  </data>
+  <data name="lblCedulaTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 26</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacion.Name" xml:space="preserve">
+    <value>lblOcupacion</value>
+  </data>
+  <data name="cbSexo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="Accion1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
+        DQAAAk1TRnQBSQFMAgEBAwEAAfgBAAEgAQEBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wwAARsBFwNHBPkBRwH/
+        FQABGwg1AVcB/xUAAS4BXQE6BTYCXQEuMwAB4wZHB/kBlBEAAVcNNQEIEQABXQE2ATUBLwQuBC8BNgE6
+        AVcvAAGUCEcJ+QH/DQABeRE1Af8NAAEuATYBLwYuBy8BNgFdAS4sAAEXCUcK+QG9CwABNhM1AQgLAAFd
+        ATUMLgUvATYBXSkAAf8LRwv5ARcIAAH/FjUBVwkAAV0BLw8uBC8BNgFeKAAMRwz5Ab0HABg1AQgHAAFd
+        AS8FLgsvAS4BLwI1AS8BNgFYJgAB4wxHDfkB/wUAAVcKNQGZAQgCvAs1Af8FAAEuAS8ELg8vAS4DNQE2
+        AS4kAAH0DUcO+QQAAfQLNQEIAfIC8Aw1BQABNQMuBy8B/wsvAVYBLwE1AV0kAA5HDvkBlAMADDUBCAHy
+        AvAMNQEIAwABOwEvAi4HLwP/Cy8BNQEvAjUiAAEaDkcP+QIAARsMNQEIAfIC8A01AwABNQIuBy8F/w0v
+        ATYiAA9HD/kB/wEADTUBCAHyAvANNQH/AQACLwEuBy8H/wwvATUBTyEAD0cP+QFHAQANNQEIAfIC8A01
+        AVcBAAE2AS4ELwM1Cf8GNQYvAVcgAAHzD0cQ+QEbDTUBCAHyAvAONQEABS8DNQv/BzUELwE1IAABvQ9H
+        EPkBnw01AQgB8gLwDjUBAAQvAzUN/wc1BC8gAAEWBkcJ8gnwAbwG+QF4BjUJ8gnwAbwGNQEIAy8DNQf/
+        ATUH/wY1BC8gAAEXBkcJ8gnwAbwG+QE2BjUJ8gnwAbwGNQFQAy8DNQEbBf8DNQf/BjUDLyAAAeMGRwny
+        CfABvAb5AVcGNQnyCfABvAY1AQgDLwQ1AfMD/wU1B/8FNQMvIAABlAZHCRoJvAEHBvkBmQY1BwgC8gLw
+        B7wBCAY1AQACLwY1AfYB/wc1B/8FNQIvIAABvQ9HEPkBGw01AQgB8gLwDjUBAAIvEDUH/wQ1AS8BLiAA
+        Af8PRxD5Af8NNQEIAfIC8A41AQABLgEvETUH/wM1AS8BLiEAD0cP+QGUAQANNQEIAfIC8A01AZkBAAEu
+        AS8SNQb/AzUBLwEuIQABFg5HD/kCAAF4DDUBCAHyAvANNQMAAS8TNQT/BDUBLyIAAf8ORw/5AgAB/ww1
+        AQgB8gLwDTUDAAE2FDUC/wU1AS8jAAEWDUcO+QQAAXgLNQEIAfIC8Aw1BAAB/xo1ATYlAA1HDfkBRwUA
+        CzUBCAHyAvALNQFXBQABLxk1AS4lAAH/DEcN+QYAAfQZNQcAATsBNgFXBjUHNgY1ATYBNQE2JwABvQtH
+        DPkIAAEIFzUJAAE7ATYCVwU1BTYFNQFXATYBNQE3KQABvQpHC/kB/wkAAQgVNQH/CgABNwVXCTUEVwI2
+        KwAB/wlHCvkMAAH0EzUNAAEuEVcBLi4AARYHRwj5Ab0PAAF4DzUBGxAAATYNVwE1MQAB/wEWBUcG+QGU
+        EgAB/wF4CzUBmRQAAS4BNgdXATYBLjYAAf8BvQGUAeMB+QFHAeMBvRgAAf8BGwGZAVcBNQFWAXgBCBwA
+        AfQvAAFCAU0BPgcAAT4DAAEoAwABgAMAASADAAEBAQABAQYAAQIWAAP/AQAB/wHgAQMC/wHgAQMC/wHg
+        AQMB/wQAAf8BgAEAAv8BgAEAAv8BgAEAAf8EAAH+AgABPwH+AgABPwH+AgABPwQAAfwCAAEfAfwCAAEf
+        AfwCAAEfBAAB8AIAAQ8B8AIAAQ8B+AIAAQ8EAAHwAgABBwHwAgABBwHwAgABBwQAAeACAAEDAeACAAED
+        AeACAAEDBAABwAIAAQMBwAIAAQMB4AIAAQMEAAHAAgABAQHAAgABAQHAAgABAQQAAYACAAEBAYACAAEB
+        AcACAAEBBAABgAMAAYADAAGABwABgAMAAYADAAGADwABgA8AAYA/AAGADwABgA8AAYAHAAGAAwABgAMA
+        AYAHAAGAAgABAQGAAgABAQHAAgABAQQAAYACAAEBAYACAAEBAcACAAEBBAABwAIAAQMBwAIAAQMBwAIA
+        AQMEAAHgAgABAwHgAgABAwHgAgABAwQAAeACAAEHAeACAAEHAfACAAEHBAAB8AIAAQ8B8AIAAQ8B+AIA
+        AQ8EAAH4AgABDwH4AgABDwH8AgABHwQAAfwCAAE/AfwCAAE/Af4CAAE/BAAB/wIAAX8B/wIAAX8B/wGA
+        AQAB/wQAAf8BgAEBAv8BgAEBAv8B4AEDAf8EAAH/AfABDwL/AfABDwP/AX8B/xoACw==
+</value>
+  </data>
+  <data name="lblApellido1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 80</value>
+  </data>
+  <data name="lblDireccionNumeroTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>596, 145</value>
+  </data>
+  <data name="&gt;&gt;pnlAcciones.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblNombre1TXT.Text" xml:space="preserve">
+    <value>1° Nombre</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarTelefono.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblContrasena.TabIndex" type="System.Int32, mscorlib">
+    <value>414</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Name" xml:space="preserve">
+    <value>btnBuscar</value>
+  </data>
+  <data name="rBtnCedula.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFnac.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 5</value>
+  </data>
+  <data name="rBtnApellido.TabIndex" type="System.Int32, mscorlib">
+    <value>358</value>
+  </data>
+  <data name="&gt;&gt;cbEspecialidades.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;rBtnCedula.Name" xml:space="preserve">
+    <value>rBtnCedula</value>
+  </data>
+  <data name="lblFnac.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 24</value>
+  </data>
+  <data name="lblDireccionTXT.MaxLength" type="System.Int32, mscorlib">
+    <value>160</value>
+  </data>
+  <data name="&gt;&gt;btnAccion2.Name" xml:space="preserve">
+    <value>btnAccion2</value>
+  </data>
+  <data name="&gt;&gt;lblFnac.Name" xml:space="preserve">
+    <value>lblFnac</value>
+  </data>
+  <data name="&gt;&gt;pnlDspCedula.Parent" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacion.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivil.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlDspCedula.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rBtnEspecialidad.Parent" xml:space="preserve">
+    <value>pnlBusqueda</value>
+  </data>
+  <data name="lblDireccionTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 145</value>
+  </data>
+  <data name="lblNombre1.Text" xml:space="preserve">
+    <value>1° Nombre:</value>
+  </data>
+  <data name="lblApellido1TXT.TabIndex" type="System.Int32, mscorlib">
+    <value>409</value>
+  </data>
+  <data name="btnAccion1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 7</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionNumeroTXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="dtpFechaNacimiento.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarTelefono.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>631, 3</value>
+  </data>
+  <data name="&gt;&gt;dgwUsuarios.Parent" xml:space="preserve">
+    <value>pnlContenedorBusqueda</value>
+  </data>
+  <data name="btnAccion2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 7</value>
+  </data>
+  <data name="&gt;&gt;lblFnac.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="lblApellido1TXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 76</value>
+  </data>
+  <data name="&gt;&gt;lblCorreoTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCorreo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 223</value>
+  </data>
+  <data name="lblDireccionNumeroTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblNombre1TXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
+  </data>
+  <data name="&gt;&gt;lblTelefono.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="btnAgregarTelefono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
+        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
+        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
+        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
+        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
+        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
+        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
+        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
+        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
+        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
+        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
+        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
+        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
+        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
+        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
+        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
+        OQcdTIoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnAltaLogica.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        3QAAAN0BcFOiBwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJySURBVFhH7Zax
+        axNxHMWr4KCzg7jUoavg4CD+BS5NLsFgm/tdiaLXQUQduvTu2h+FFrKoixYE62YdHFQoCII4OEiFOIiQ
+        UR0EsxgQqSDNr993vSu/XF9yRloQSeED1/d73/e+dzS5jhhj/opx7R9xQvclwDXz/AlUzEN+DjiReuKE
+        ysTINTTmzYOKeUjpAor9O9MxySILzJsHFftRDNwLKKwuXey8/nLPAFxDwxmb6QcVe1EIvNOlUG2U57zO
+        s4+3zPv2SgyuoeEMHjbbCyoyCnriuNzlV9zpwzeLO+Up0HAGD7wsg0HFLJWblcMSvI6C+tPZXeUpOEuW
+        WMcMy8pCxSzFUK0ieGbluml8f0DLAc7ggRczLCsLFW2cwAsReOX2tHnbuk+LbeCBN34SMssybaiYUgq9
+        sgR1JhdrnVef79JCBryYwSwyWHYKFcG4njzqRN5P3Ml5PWXcpUtmqn7ZPHpXp6UAZ/DAi5n4KUgGslgH
+        oCKo6NoxCfggtEEpUj8QqB/P0HKAM3jglY9kGyADWawDUJFRDtwzCJ9f7b0AzuCBl2UwqMgYLjBc4P9f
+        wPf9Q46unchSDqqjWuuDgy6wPVMdZZno2rWADDYwTInU83SBa8tX41cvA2fwxF6Z6cropsEW+CVvsA0n
+        cF90EapNoVmM3JPJcC6JtylsZvPiDumiCwif0t8zehPXpcibkJAb/YAnmcMCO0Up6LB1+6DfAt9YmY18
+        75/LzO3ZAi2BPmobPFr7j0s0/AfVsrMSfcAFZqun5JVay6MYqLP2XEGrMczaGhh4gb1muMA/v8BvAR+f
+        /QQddIE1gX7E9oG17V4zsgWGb7PxEpVhuAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2TXT.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lblEstado.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 24</value>
+  </data>
+  <data name="lblCedula.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 149</value>
+  </data>
+  <data name="btnBorrarEspecialidad.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANnSURBVHhe7Zu7
+        bhNREIbtBMVETqxIvsRKmlSIylIU2dtQ5AXSAC9AQUPFE9DQhTeIRBPRB0EZKaJCgoImTUDiUmEaQJjE
+        awPKYWY3TtbH/673cs4KZSi+wlMk/z+7ey4z5xSUUnZptcqq3d5SjnNfdTrbxBPigDgieiezs6f9UmnY
+        L5e/9SuVj+7S0qtBtbrn1usPfy4vN+DfNAgMZmZjo0aG75DBZ4RLqDCOSUIoMzOqv7DwZVivP1arq9fg
+        /8oIDKZic/MKPem7ZOoF8SdoMgpoHFEsKnpLvg9rtV21tnYVakgBDCbGcW6RmXe6uThAs1M4KZV+DRqN
+        R1BLQmAwNo5zg0y81E0lARmMizs/3xs0m/egtpjA4FTW1+skfk83kwZkLCn9xcXPw5WV61DrFGAwEsdp
+        kfBPupG0IENp6M/N/R42m7eh5ghgMJR2+yaJPtZNZAGZSQ3NGjQ2bEPtIcDgBIVCkZ78AxJ8qhvICjSS
+        EbdaPSDNM9CLBgyOweY7nV1duCmQARO4lcr7OEmAwTH8Jw/FmwCJN4X3JiBPAWDwHP+bN/7aB0HCTTJt
+        TIBBD3+0NzrgIZBoo9DAGDU7wODZPG9sqosCijaMN0WGrBMmAh6GFjlxQIJtwIsl5HUicLa8hWJtgMTa
+        Ai2bx354ZFzbJwUJtQXvHXS/Yz/o6fOuDgq1BRJqE30XeWGe9/Mpt7RZQCJtwlvpYD3hIgF+MQOKtAkS
+        aRuvqDKRAL+SA0XaBAm0DVeWxhPANbwEZSyTIIHWKRbVqMboJ8AvYEKBtoECc8ArtJ4nwK/eQoG2QeLy
+        gKvNfgK4bj+ldG0TJC4XaI/AfQce/beQsLyA4nKCmy/8/XPHBorLAyQsL7gDxd8/t6uguDxAwvKC23Cc
+        AO7VQXFh/NjZUV/3943w9vUbI3x4+hyajIJ7kZwAblRCo2Gw8G63a4TDwyMjcBKQySi4IcsJ4C4tNBrG
+        pUlAqTTkBPR0g9O4LAng1vz/BJAh8Z+A+EFQ/DQofCEkfiksfjMkfjssviDCCRBfEhNfFGVEl8UZ8Y0R
+        8a0xRnRzdITo9jgj/oAEI/qIDCP+kBQj+pjcCNEHJUeIPirLiD8szYg+Lh9E7IWJIKKvzIwQfWkqiNhr
+        czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lblNombre1TXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="dgwUsuarios.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;pnlAcciones.Parent" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
+  </data>
+  <data name="&gt;&gt;lblCorreoTXT.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lblContrasena.Name" xml:space="preserve">
+    <value>lblContrasena</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarEspecialidad.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnAgregarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 30</value>
+  </data>
+  <data name="pnlContenedorBusqueda.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="cbSexo.Items" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="rBtnApellido.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 7</value>
+  </data>
+  <data name="&gt;&gt;rBtnEspecialidad.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNacimiento.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblCorreoTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>412</value>
+  </data>
+  <data name="txtBusqueda.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblNombre2TXT.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;pnlDspCedula.Name" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="pnlDatosUsuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblComma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 25</value>
+  </data>
+  <data name="lblCorreo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblContrasenaTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 23</value>
+  </data>
+  <data name="lblEstadoCivil.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 24</value>
+  </data>
+  <data name="lblDireccion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 24</value>
+  </data>
+  <data name="&gt;&gt;pnlDatosUsuario.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="pBoxFotoUsuario.TabIndex" type="System.Int32, mscorlib">
+    <value>385</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2TXT.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="pnlDspCedula.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 58</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNacimiento.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="lblComma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;lblNombre2TXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblOcupacion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -1016,4 +1547,981 @@
         zAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="lblApellido2TXT.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="lblDireccion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblContrasenaTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;lblContrasena.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAgregarTelefono.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 2</value>
+  </data>
+  <data name="cbTelefonos.TabIndex" type="System.Int32, mscorlib">
+    <value>393</value>
+  </data>
+  <data name="pnlDspCedula.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 256</value>
+  </data>
+  <data name="lblDireccion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblApellido2TXT.Text" xml:space="preserve">
+    <value>2° Apellido</value>
+  </data>
+  <data name="lblApellido2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;pnlAcciones.Name" xml:space="preserve">
+    <value>pnlAcciones</value>
+  </data>
+  <data name="lblEstadoCivil.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNombre1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblContrasena.Text" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="&gt;&gt;btnAltaLogica.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlBotonesTel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 32</value>
+  </data>
+  <data name="lblEstado.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;cbTelefonos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlBusqueda.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 0</value>
+  </data>
+  <data name="lblEstadoTXT.Text" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="pnlContenedorBusqueda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 210</value>
+  </data>
+  <data name="pBoxFotoUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 247</value>
+  </data>
+  <data name="&gt;&gt;lblCorreo.Name" xml:space="preserve">
+    <value>lblCorreo</value>
+  </data>
+  <data name="&gt;&gt;lblCedula.Parent" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
+  </data>
+  <data name="lblContrasena.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="btnAccion2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 40</value>
+  </data>
+  <data name="rBtnApellido.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblCedula.Name" xml:space="preserve">
+    <value>lblCedula</value>
+  </data>
+  <data name="btnAgregarTelefono.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnSacarTelefono.TabIndex" type="System.Int32, mscorlib">
+    <value>369</value>
+  </data>
+  <data name="btnAltaLogica.TabIndex" type="System.Int32, mscorlib">
+    <value>386</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarEspecialidad.Name" xml:space="preserve">
+    <value>btnAgregarEspecialidad</value>
+  </data>
+  <data name="lblOcupacionTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 106</value>
+  </data>
+  <data name="lblDireccionNumeroTXT.Mask" xml:space="preserve">
+    <value>9999</value>
+  </data>
+  <data name="pnlBusqueda.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblEstadoTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 147</value>
+  </data>
+  <data name="lblDireccionTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 23</value>
+  </data>
+  <data name="lblEstadoTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblTelefono.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 184</value>
+  </data>
+  <data name="lblApellido2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtBusqueda.Parent" xml:space="preserve">
+    <value>pnlBusqueda</value>
+  </data>
+  <data name="pnlBusqueda.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorBusqueda.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgwUsuarios.Name" xml:space="preserve">
+    <value>dgwUsuarios</value>
+  </data>
+  <data name="&gt;&gt;pnlBusqueda.Parent" xml:space="preserve">
+    <value>pnlContenedorBusqueda</value>
+  </data>
+  <data name="lblNombre1TXT.TabIndex" type="System.Int32, mscorlib">
+    <value>407</value>
+  </data>
+  <data name="&gt;&gt;cbEstadoCivil.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="lblDireccionTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;btnAccion2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblDireccionNumeroTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>385</value>
+  </data>
+  <data name="pnlEspecialidadesBtns.TabIndex" type="System.Int32, mscorlib">
+    <value>404</value>
+  </data>
+  <data name="lblCedulaTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
+  </data>
+  <data name="&gt;&gt;btnAltaLogica.Name" xml:space="preserve">
+    <value>btnAltaLogica</value>
+  </data>
+  <data name="btnSacarTelefono.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEspecialidades.Name" xml:space="preserve">
+    <value>lblEspecialidades</value>
+  </data>
+  <data name="lblContrasena.Location" type="System.Drawing.Point, System.Drawing">
+    <value>670, 187</value>
+  </data>
+  <data name="lblEstado.Location" type="System.Drawing.Point, System.Drawing">
+    <value>670, 149</value>
+  </data>
+  <data name="lblTelefono.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 24</value>
+  </data>
+  <data name="btnSacarTelefono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANnSURBVHhe7Zu7
+        bhNREIbtBMVETqxIvsRKmlSIylIU2dtQ5AXSAC9AQUPFE9DQhTeIRBPRB0EZKaJCgoImTUDiUmEaQJjE
+        awPKYWY3TtbH/673cs4KZSi+wlMk/z+7ey4z5xSUUnZptcqq3d5SjnNfdTrbxBPigDgieiezs6f9UmnY
+        L5e/9SuVj+7S0qtBtbrn1usPfy4vN+DfNAgMZmZjo0aG75DBZ4RLqDCOSUIoMzOqv7DwZVivP1arq9fg
+        /8oIDKZic/MKPem7ZOoF8SdoMgpoHFEsKnpLvg9rtV21tnYVakgBDCbGcW6RmXe6uThAs1M4KZV+DRqN
+        R1BLQmAwNo5zg0y81E0lARmMizs/3xs0m/egtpjA4FTW1+skfk83kwZkLCn9xcXPw5WV61DrFGAwEsdp
+        kfBPupG0IENp6M/N/R42m7eh5ghgMJR2+yaJPtZNZAGZSQ3NGjQ2bEPtIcDgBIVCkZ78AxJ8qhvICjSS
+        EbdaPSDNM9CLBgyOweY7nV1duCmQARO4lcr7OEmAwTH8Jw/FmwCJN4X3JiBPAWDwHP+bN/7aB0HCTTJt
+        TIBBD3+0NzrgIZBoo9DAGDU7wODZPG9sqosCijaMN0WGrBMmAh6GFjlxQIJtwIsl5HUicLa8hWJtgMTa
+        Ai2bx354ZFzbJwUJtQXvHXS/Yz/o6fOuDgq1BRJqE30XeWGe9/Mpt7RZQCJtwlvpYD3hIgF+MQOKtAkS
+        aRuvqDKRAL+SA0XaBAm0DVeWxhPANbwEZSyTIIHWKRbVqMboJ8AvYEKBtoECc8ArtJ4nwK/eQoG2QeLy
+        gKvNfgK4bj+ldG0TJC4XaI/AfQce/beQsLyA4nKCmy/8/XPHBorLAyQsL7gDxd8/t6uguDxAwvKC23Cc
+        AO7VQXFh/NjZUV/3943w9vUbI3x4+hyajIJ7kZwAblRCo2Gw8G63a4TDwyMjcBKQySi4IcsJ4C4tNBrG
+        pUlAqTTkBPR0g9O4LAng1vz/BJAh8Z+A+EFQ/DQofCEkfiksfjMkfjssviDCCRBfEhNfFGVEl8UZ8Y0R
+        8a0xRnRzdITo9jgj/oAEI/qIDCP+kBQj+pjcCNEHJUeIPirLiD8szYg+Lh9E7IWJIKKvzIwQfWkqiNhr
+        czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1TXT.Name" xml:space="preserve">
+    <value>lblApellido1TXT</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Parent" xml:space="preserve">
+    <value>pnlBusqueda</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNacimiento.Name" xml:space="preserve">
+    <value>dtpFechaNacimiento</value>
+  </data>
+  <data name="btnAccion2.TabIndex" type="System.Int32, mscorlib">
+    <value>384</value>
+  </data>
+  <data name="btnBuscar.TabIndex" type="System.Int32, mscorlib">
+    <value>356</value>
+  </data>
+  <data name="rBtnApellido.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtBusqueda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 34</value>
+  </data>
+  <data name="dtpFechaNacimiento.TabIndex" type="System.Int32, mscorlib">
+    <value>402</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaTXT.Name" xml:space="preserve">
+    <value>lblCedulaTXT</value>
+  </data>
+  <data name="&gt;&gt;btnAccion1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlAcciones.TabIndex" type="System.Int32, mscorlib">
+    <value>385</value>
+  </data>
+  <data name="cbEstadoCivil.TabIndex" type="System.Int32, mscorlib">
+    <value>406</value>
+  </data>
+  <data name="lblEspecialidades.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblApellido2TXT.TabIndex" type="System.Int32, mscorlib">
+    <value>410</value>
+  </data>
+  <data name="btnBorrarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 2</value>
+  </data>
+  <data name="&gt;&gt;pnlEspecialidadesBtns.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;rBtnCedula.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnBorrarEspecialidad.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnSacarTelefono.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 2</value>
+  </data>
+  <data name="rBtnEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnAccion1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 40</value>
+  </data>
+  <data name="&gt;&gt;btnAccion2.Parent" xml:space="preserve">
+    <value>pnlAcciones</value>
+  </data>
+  <data name="&gt;&gt;pBoxFotoUsuario.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pBoxFotoUsuario.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="rBtnCedula.Text" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
+  <data name="&gt;&gt;pnlBotonesTel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNombre2TXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 42</value>
+  </data>
+  <data name="lblApellido1TXT.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;pnlDspCedula.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarTelefono.Name" xml:space="preserve">
+    <value>btnAgregarTelefono</value>
+  </data>
+  <data name="btnAgregarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 2</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionNumeroTXT.Name" xml:space="preserve">
+    <value>lblDireccionNumeroTXT</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblSexo.TabIndex" type="System.Int32, mscorlib">
+    <value>395</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacionTXT.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblEspecialidades.Text" xml:space="preserve">
+    <value>Especialidad(es):</value>
+  </data>
+  <data name="lblSexo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 24</value>
+  </data>
+  <data name="lblNombre2.Text" xml:space="preserve">
+    <value>2° Nombre:</value>
+  </data>
+  <data name="lblApellido1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1TXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblSexo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 42</value>
+  </data>
+  <data name="pBoxFotoUsuario.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="pBoxFotoUsuario.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="lblApellido2TXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 111</value>
+  </data>
+  <data name="dgwUsuarios.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblOcupacion.Text" xml:space="preserve">
+    <value>Ocupación:</value>
+  </data>
+  <data name="&gt;&gt;lblDireccion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionNumeroTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtBusqueda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbSexo.TabIndex" type="System.Int32, mscorlib">
+    <value>403</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivil.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarEspecialidad.Parent" xml:space="preserve">
+    <value>pnlEspecialidadesBtns</value>
+  </data>
+  <data name="&gt;&gt;lblCorreoTXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblCorreoTXT.MaxLength" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2TXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1TXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAccion1.Parent" xml:space="preserve">
+    <value>pnlAcciones</value>
+  </data>
+  <data name="&gt;&gt;lblTelefono.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivil.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="pnlDatosUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 314</value>
+  </data>
+  <data name="cbTelefonos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 28</value>
+  </data>
+  <data name="btnAccion1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;rBtnApellido.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblComma.TabIndex" type="System.Int32, mscorlib">
+    <value>385</value>
+  </data>
+  <data name="&gt;&gt;btnAltaLogica.Parent" xml:space="preserve">
+    <value>pnlAcciones</value>
+  </data>
+  <data name="&gt;&gt;lblSexo.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;lblEstado.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dgwUsuarios.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbEspecialidades.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="btnAccion1.TabIndex" type="System.Int32, mscorlib">
+    <value>383</value>
+  </data>
+  <data name="lblCorreo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="dgwUsuarios.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnAgregarTelefono.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 30</value>
+  </data>
+  <data name="cbSexo.Items1" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+  <data name="txtBusqueda.MaxLength" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="cbTelefonos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="&gt;&gt;Accion1.Name" xml:space="preserve">
+    <value>Accion1</value>
+  </data>
+  <data name="&gt;&gt;cbEspecialidades.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="lblNombre2TXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
+  </data>
+  <data name="lblCedula.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmGestion</value>
+  </data>
+  <data name="lblCorreoTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDireccion.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="pnlEspecialidadesBtns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 32</value>
+  </data>
+  <data name="&gt;&gt;lblTelefono.Name" xml:space="preserve">
+    <value>lblTelefono</value>
+  </data>
+  <data name="&gt;&gt;pnlEspecialidadesBtns.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTelefono.Text" xml:space="preserve">
+    <value>Teléfono(s):</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2.Name" xml:space="preserve">
+    <value>lblApellido2</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1TXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblTelefono.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCedulaTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>374</value>
+  </data>
+  <data name="pnlEspecialidadesBtns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>987, 3</value>
+  </data>
+  <data name="lblOcupacionTXT.TabIndex" type="System.Int32, mscorlib">
+    <value>413</value>
+  </data>
+  <data name="pBoxFotoUsuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 3</value>
+  </data>
+  <data name="lblEspecialidades.TabIndex" type="System.Int32, mscorlib">
+    <value>399</value>
+  </data>
+  <data name="&gt;&gt;pnlBotonesTel.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblEstadoCivil.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblOcupacionTXT.Text" xml:space="preserve">
+    <value>Ocupacion</value>
+  </data>
+  <data name="pnlContenedorBusqueda.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 317</value>
+  </data>
+  <data name="pnlAcciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>889, 6</value>
+  </data>
+  <data name="lblNombre2.TabIndex" type="System.Int32, mscorlib">
+    <value>390</value>
+  </data>
+  <data name="pnlDatosUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnAgregarEspecialidad.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="lblEspecialidades.Location" type="System.Drawing.Point, System.Drawing">
+    <value>670, 9</value>
+  </data>
+  <data name="&gt;&gt;cbSexo.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacion.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;lblSexo.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblTelefono.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="lblApellido1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 24</value>
+  </data>
+  <data name="&gt;&gt;pnlBusqueda.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnAgregarTelefono.TabIndex" type="System.Int32, mscorlib">
+    <value>368</value>
+  </data>
+  <data name="rBtnCedula.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 29</value>
+  </data>
+  <data name="dtpFechaNacimiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 28</value>
+  </data>
+  <data name="&gt;&gt;pBoxFotoUsuario.Name" xml:space="preserve">
+    <value>pBoxFotoUsuario</value>
+  </data>
+  <data name="cbEspecialidades.TabIndex" type="System.Int32, mscorlib">
+    <value>400</value>
+  </data>
+  <data name="&gt;&gt;lblSexo.Name" xml:space="preserve">
+    <value>lblSexo</value>
+  </data>
+  <data name="cbSexo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 38</value>
+  </data>
+  <data name="&gt;&gt;lblContrasenaTXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1TXT.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;txtBusqueda.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblCorreo.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblCorreo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblFnac.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSexo.Text" xml:space="preserve">
+    <value>Sexo:</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2TXT.Name" xml:space="preserve">
+    <value>lblApellido2TXT</value>
+  </data>
+  <data name="cbSexo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 28</value>
+  </data>
+  <data name="&gt;&gt;pnlDatosUsuario.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblEstadoCivil.Location" type="System.Drawing.Point, System.Drawing">
+    <value>670, 76</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbEstadoCivil.Items" xml:space="preserve">
+    <value>Soltero</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rBtnApellido.Text" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="&gt;&gt;lblDireccion.Name" xml:space="preserve">
+    <value>lblDireccion</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaTXT.Parent" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
+  </data>
+  <data name="lblNombre2TXT.Text" xml:space="preserve">
+    <value>2° Nombre</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1TXT.Name" xml:space="preserve">
+    <value>lblNombre1TXT</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarTelefono.Parent" xml:space="preserve">
+    <value>pnlBotonesTel</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorBusqueda.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rBtnCedula.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlBotonesTel.TabIndex" type="System.Int32, mscorlib">
+    <value>401</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNacimiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2TXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAgregarTelefono.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="pnlBotonesTel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 179</value>
+  </data>
+  <data name="btnAgregarEspecialidad.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
+        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
+        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
+        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
+        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
+        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
+        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
+        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
+        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
+        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
+        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
+        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
+        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
+        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
+        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
+        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
+        OQcdTIoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="lblCedula.Text" xml:space="preserve">
+    <value>Cédula:</value>
+  </data>
+  <data name="lblEstadoCivil.Text" xml:space="preserve">
+    <value>Estado civíl:</value>
+  </data>
+  <data name="&gt;&gt;btnAccion1.Name" xml:space="preserve">
+    <value>btnAccion1</value>
+  </data>
+  <data name="rBtnEspecialidad.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtBusqueda.Name" xml:space="preserve">
+    <value>txtBusqueda</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 527</value>
+  </data>
+  <data name="&gt;&gt;pnlAcciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCorreo.TabIndex" type="System.Int32, mscorlib">
+    <value>392</value>
+  </data>
+  <data name="lblNombre2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 47</value>
+  </data>
+  <data name="btnBorrarEspecialidad.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblCedula.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorBusqueda.Name" xml:space="preserve">
+    <value>pnlContenedorBusqueda</value>
+  </data>
+  <data name="cbEstadoCivil.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="&gt;&gt;cbEstadoCivil.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblApellido1.Text" xml:space="preserve">
+    <value>1° Apellido:</value>
+  </data>
+  <data name="btnAgregarEspecialidad.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnSacarTelefono.Name" xml:space="preserve">
+    <value>btnSacarTelefono</value>
+  </data>
+  <data name="lblApellido1TXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
+  </data>
+  <data name="lblNombre1TXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 8</value>
+  </data>
+  <data name="lblApellido2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 114</value>
+  </data>
+  <data name="&gt;&gt;lblCedulaTXT.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivil.Name" xml:space="preserve">
+    <value>lblEstadoCivil</value>
+  </data>
+  <data name="lblContrasena.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 24</value>
+  </data>
+  <data name="&gt;&gt;lblComma.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblEstado.Text" xml:space="preserve">
+    <value>Estado:</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionNumeroTXT.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionTXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblOcupacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 24</value>
+  </data>
+  <data name="Accion2.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
+        DQAAAk1TRnQBSQFMAgEBAgEAAfgBAAEgAQEBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/xAAAfQCWQF6ARoBGwH/
+        FQAN/1cAARsBMQQ4AVkB/xQADf9XAAH/AjEEOAFZAf8NAAj/AfQB8wX0Cv9SAAMxBDgBWQH/DAAF/wP0
+        AfIBGgHwARsB8gPzBfQE/0MAARkJswLUAQkCAAFYAzEEOAFZAf8JAAX/A/QB8gEaAZkBeQSZAhoB8gPz
+        AvQF/0AAAfIKswLUAdsCAAGaBDEEOAFZAf8IAAT/AvQC8wEaAXkGWAF5AZkBvAHxAvIB8wP0A/9AAAuz
+        A9QB/wIAAXoEMQQ4AVkB/wcABP8C9AHzAfEBmQF5BlgCeQKZARoB8gLzAvQD/0AAC7MD1AHbAf8CAAF6
+        BDEEOAFZAf8GAAT/AvQB8gEaAXkLWAGZAvIB8wL0A/9AAAuzBNQB3AH/AgABegQxBDgBWQH/BQAF/wH0
+        ARsBmQF5C1gBeQGZARoBGwH0BP9AAASzAQkG8AEZBPMB9AH/AgABegQxBDgBWQH/BgAE/wEbAXkFWAFZ
+        A1gBNwRYAZkBGwH0Av9CAASzB/EB9AX/AfQB/wIAAXoEMQQ4AVkB/wUABP8BGgF5A1gDWQNYATcDWAF5
+        AZkBGgH0Av9CAAWzBroICQH/AgABegQxBDgBmgcAAf8B9gEaA1gDWQhYAnkBmQEbRAALswjUAdwB/wIA
+        AXoEMQM4AVkHAAL/ARoCWARZB1gBeQGZARoBGwH/RAAFswa6BwkC1AHcAf8CAAF6BDECOAF6BwAB/wH0
+        AZoBWAVZAlgBNwNYAXkBGgEbAfRGAASzB/EB9Ab/AfMC1AHcAf8CAAF6BDEBWQH2BQAC/wH0ARsBmQdZ
+        AVgBNwJYAZkBGgEbAfQB/0YABLMBCQbwARkG8wHcA9QBCQMAAXoDMQH0BgAC/wH0ARoBmQJZAXoEWQFY
+        ATcBWAF5ARoB9AH/SAALswvUAdwEAAEbAZoB9gcAAf8B9AEaAnQBUgFYAnoDWQJYAZkBGgH0Av9IAAuz
+        C9QB3A4AAfQBvAFvAR8BJAFMAVIBeQF6A1kBWAF5ARoB9gH/SgAEswfxAfQG/wEZA9QB3AwAAv8B8wGZ
+        AXQBJAJGAUwBdAJSAnkBmgEbAfQC/0oABLMH8QH0Bv8BGQPUAdwMAAL/ARsBmQF0AUsERgJMAXQBmQEb
+        Av9MAAuzC9QB3AwAAv8BGwGZAXkDUgRMAZkB8wP/TAALswvUAdwMAAL/ARsBmQF5A3oBdAJMAW4BGlAA
+        C7ML1AHcDAAC/wEbAZkBeQFSAVgCeQF0AZkBvAH0UAAGswatBLMG1AHcDgABGwGTAVIBKwFSAnkBmQEb
+        Av9QAAWzAa0FrAatBdQBCQwAAf8B9AEaAXQBUgFMAXkDGgH0Av9QAAWzAa0FrAatBdQBGQwAAfQBGgGZ
+        A0wBmQP0A/9QAAEZBLMBrQWsBq0E1AHVAf8KAAL/ARsBmQF0AlIBdAEaAf8B9gT/UQABGQOzAa0FrAat
+        A9QBCQH/CwAB/wH0ARoEUgF5ARsC/1kAAbQFrAatAfMPAAH/AfMBmQNSAXQBGgHzAv9ZAAH/AQkBuwOs
+        A60BtALzAf8PAAH0ARsBmQF0AlIBmQEbAfReAAG0AqwDrQH0EgAB/wH0ARoCdAGZARoB9AH/XgAB/wG1
+        Aq0BtAH0EwAC/wEbApkBGgH0WAABQgFNAT4HAAE+AwABKAMAAYADAAEgAwABAQEAAQEGAAECFgAD/wEA
+        Af8B/gEDAv8B4AEAAf8IAAH/Af4BAQL/AeABAAH/CAAB/wH+AQAB/wH4AgABAwgAAv8BAAF/AfgCAAED
+        CAABgAEDAQABPwHgDAABAwEAAR8B4AwAAQEBgAEPAeANAAHAAQcB4A0AAWABAwHgDQABMAEBAfgCAAED
+        CgABGAEAAfgCAAEDCgABDAEAAf4CAAEPCgABBgEAAf4CAAEPCgABAwEAAf4CAAE/CgABAQGAAfgCAAE/
+        CgABAQHBAfgCAAH/CgABAQHjAfgCAAH/CgABAQH/AfgBAAEDAf8KAAEBAf8B4AEAAQMB/woAAQEB/wHg
+        AQABDwH/CgABAQH/AeABAAEPAf8KAAEBAf8B4AEAAv8KAAEBAf8B4AEAAv8KAAEBAf8B+AEAAv8KAAEB
+        Af8B4AEAAv8KAAEBAf8B4AEAAv8KAAEBAf8BgAEAAv8IAAGAAQABAwH/AYABDwL/CAAB+AEAAT8B/wGA
+        AQ8C/wgAAfgBAAE/Af8BgAE/Av8IAAH/AQEC/wGAAT8C/wgAAf8BAwL/AYAD/x4ACw==
+</value>
+  </data>
+  <data name="&gt;&gt;lblContrasenaTXT.Name" xml:space="preserve">
+    <value>lblContrasenaTXT</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoTXT.Name" xml:space="preserve">
+    <value>lblEstadoTXT</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblNombre1TXT.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;pnlBotonesTel.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;btnAltaLogica.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rBtnEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 7</value>
+  </data>
+  <data name="pnlBusqueda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>681, 43</value>
+  </data>
+  <data name="rBtnCedula.TabIndex" type="System.Int32, mscorlib">
+    <value>357</value>
+  </data>
+  <data name="pnlAcciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 53</value>
+  </data>
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 34</value>
+  </data>
+  <data name="&gt;&gt;lblCorreo.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;lblDireccion.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="cbEstadoCivil.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 72</value>
+  </data>
+  <data name="&gt;&gt;pnlDatosUsuario.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblEstado.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblComma.Name" xml:space="preserve">
+    <value>lblComma</value>
+  </data>
+  <data name="&gt;&gt;lblApellido2.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="lblNombre2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 24</value>
+  </data>
+  <data name="&gt;&gt;cbSexo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFnac.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblFnac.TabIndex" type="System.Int32, mscorlib">
+    <value>394</value>
+  </data>
+  <data name="&gt;&gt;Accion2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCedulaTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="pnlContenedorBusqueda.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;rBtnCedula.Parent" xml:space="preserve">
+    <value>pnlBusqueda</value>
+  </data>
+  <data name="&gt;&gt;rBtnApellido.Name" xml:space="preserve">
+    <value>rBtnApellido</value>
+  </data>
+  <data name="&gt;&gt;lblApellido1TXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNombre2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnBorrarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 30</value>
+  </data>
+  <data name="&gt;&gt;dgwUsuarios.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoTXT.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBorrarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>369</value>
+  </data>
+  <data name="lblEstado.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;lblComma.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCedulaTXT.MaxLength" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="dtpFechaNacimiento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 3</value>
+  </data>
+  <data name="btnSacarTelefono.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnAltaLogica.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 7</value>
+  </data>
+  <data name="rBtnEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>359</value>
+  </data>
+  <data name="&gt;&gt;pnlDatosUsuario.Name" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
+  </data>
+  <data name="&gt;&gt;lblDireccionTXT.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblFnac.Text" xml:space="preserve">
+    <value>Fecha Nac.</value>
+  </data>
+  <data name="&gt;&gt;rBtnApellido.Parent" xml:space="preserve">
+    <value>pnlBusqueda</value>
+  </data>
+  <data name="cbTelefonos.MaxLength" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lblOcupacionTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNombre2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;btnSacarTelefono.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblNombre1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <metadata name="Accion2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>128, 17</value>
+  </metadata>
+  <metadata name="Accion1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

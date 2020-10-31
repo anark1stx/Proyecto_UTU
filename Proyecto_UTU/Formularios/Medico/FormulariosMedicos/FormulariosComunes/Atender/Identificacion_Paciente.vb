@@ -111,12 +111,12 @@ Public Class Identificacion_Paciente
         txtEstado.Text = PacienteBuscar.Estado.Nombre
         pBoxFotoPaciente.Image = Bytes2Image(PacienteBuscar.Foto)
 
-        lblTelefonoa.Text = ""
+        lblTelefonoTXT.Text = ""
         For Each t As String In PacienteBuscar.TelefonosLista
             If Not t Is PacienteBuscar.TelefonosLista.Last() Then
-                lblTelefonoa.Text &= t & ", "
+                lblTelefonoTXT.Text &= t & ", "
             Else
-                lblTelefonoa.Text &= t
+                lblTelefonoTXT.Text &= t
             End If
         Next
 

@@ -34,7 +34,7 @@ Partial Class Identificacion_Paciente
         Me.lblApellidosTXT = New System.Windows.Forms.Label()
         Me.lblDireccion = New System.Windows.Forms.Label()
         Me.lblDireccionTXT = New System.Windows.Forms.Label()
-        Me.lblTelefonoa = New System.Windows.Forms.Label()
+        Me.lblTelefonos = New System.Windows.Forms.Label()
         Me.lblFechaNac = New System.Windows.Forms.Label()
         Me.lblFechaNacTXT = New System.Windows.Forms.Label()
         Me.lblSexo = New System.Windows.Forms.Label()
@@ -114,7 +114,7 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.Controls.Add(Me.lblApellidosTXT, 1, 2)
         Me.tabDatos.Controls.Add(Me.lblDireccion, 0, 3)
         Me.tabDatos.Controls.Add(Me.lblDireccionTXT, 1, 3)
-        Me.tabDatos.Controls.Add(Me.lblTelefonoa, 0, 5)
+        Me.tabDatos.Controls.Add(Me.lblTelefonos, 0, 5)
         Me.tabDatos.Controls.Add(Me.lblFechaNac, 0, 4)
         Me.tabDatos.Controls.Add(Me.lblFechaNacTXT, 1, 4)
         Me.tabDatos.Controls.Add(Me.lblSexo, 0, 6)
@@ -224,17 +224,17 @@ Partial Class Identificacion_Paciente
         Me.lblDireccionTXT.Tag = "datos"
         Me.lblDireccionTXT.Text = "Dirección"
         '
-        'lblTelefonoa
+        'lblTelefonos
         '
-        Me.lblTelefonoa.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblTelefonoa.AutoSize = True
-        Me.lblTelefonoa.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoa.Location = New System.Drawing.Point(74, 144)
-        Me.lblTelefonoa.Name = "lblTelefonoa"
-        Me.lblTelefonoa.Size = New System.Drawing.Size(144, 29)
-        Me.lblTelefonoa.TabIndex = 84
-        Me.lblTelefonoa.Tag = ""
-        Me.lblTelefonoa.Text = "Teléfono(s):"
+        Me.lblTelefonos.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblTelefonos.AutoSize = True
+        Me.lblTelefonos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTelefonos.Location = New System.Drawing.Point(74, 144)
+        Me.lblTelefonos.Name = "lblTelefonos"
+        Me.lblTelefonos.Size = New System.Drawing.Size(144, 29)
+        Me.lblTelefonos.TabIndex = 84
+        Me.lblTelefonos.Tag = ""
+        Me.lblTelefonos.Text = "Teléfono(s):"
         '
         'lblFechaNac
         '
@@ -420,6 +420,7 @@ Partial Class Identificacion_Paciente
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Size = New System.Drawing.Size(144, 29)
         Me.lblTelefonoTXT.TabIndex = 100
+        Me.lblTelefonoTXT.Tag = "datos"
         Me.lblTelefonoTXT.Text = "Teléfono(s):"
         '
         'tblAcciones
@@ -611,7 +612,7 @@ Partial Class Identificacion_Paciente
     Friend WithEvents lblApellidosTXT As Label
     Friend WithEvents lblDireccion As Label
     Friend WithEvents lblDireccionTXT As Label
-    Friend WithEvents lblTelefonoa As Label
+    Friend WithEvents lblTelefonos As Label
     Friend WithEvents lblFechaNac As Label
     Friend WithEvents lblFechaNacTXT As Label
     Friend WithEvents lblSexo As Label

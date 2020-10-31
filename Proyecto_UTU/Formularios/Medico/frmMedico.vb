@@ -132,14 +132,19 @@ Public Class frmMedico
             Case "Gestion"
                 addFrm(frmGestion, pnlContenedorFormularios)
             Case "Identificacion"
-                If String.IsNullOrEmpty(Consulta.NombreConsulta) Then
+                If String.IsNullOrWhiteSpace(Consulta.NombreConsulta) Then
                     InstanciarFormulario("SeleccionarMedico") 'pedimos el nombre de la consulta
+                    Exit Sub
+                Else
+                    LimpiarControles(frmIdentificacion)
+                    Consulta.Paciente.Cedula = 0 'reseteo los datos
+                    Consulta.ID = 0
+                    frmIdentificacion.PacienteBuscar.Cedula = 0
+                    frmIdentificacion.Consulta = New E_Atiende
+                    frmIdentificacion.ConsultasPrevias.Clear()
+                    frmIdentificacion.MiModo = Identificacion_Paciente.Modo.ConsultaComoMedico
+                    addFrm(frmIdentificacion, pnlContenedorFormularios)
                 End If
-                LimpiarControles(frmIdentificacion)
-                Consulta.Paciente.Cedula = 0 'reseteo los datos
-                Consulta.ID = 0
-                frmIdentificacion.MiModo = Identificacion_Paciente.Modo.ConsultaComoMedico
-                addFrm(frmIdentificacion, pnlContenedorFormularios)
             Case "SeleccionarMedico"
                 If MiModo = Modo.SoyMedico Then
                     CargarDatosMedico()
@@ -168,6 +173,7 @@ Public Class frmMedico
                         End If
                     Case Else
                         frmIdentificacion.Enabled = True
+                        InstanciarFormulario("Identificacion")
                 End Select
             Case "EntrevistaInicial"
                 If MedicoActual.Cedula = 0 Then 'hasta que no seleccione un medico, no le dejamos agregar pacienes al listado
@@ -232,12 +238,6 @@ Public Class frmMedico
                 frmAnalisisS.ShowDialog()
             Case "DatosAnalisis"
                 LimpiarControles(frmAnalisisS)
-
-                'pac.buscarPorCI()
-
-                'Dim a = pac.buscarAnalisis()
-
-                'frmAnalisisResultados.Consulta.Paciente = pac
                 addFrm(frmAnalisisResultados, pnlContenedorFormularios)
         End Select
 
@@ -263,7 +263,7 @@ Public Class frmMedico
         Me.Dispose()
     End Sub
 
-    Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
+    Public Sub agregarHandlers()
         AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnAtenderPaciente.Click, AddressOf IdentificarPacienteToolStripMenuItem_Click
         AddHandler frmIni.btnCrearFormulario.Click, AddressOf CrearFormularioMenuItem_Click
@@ -358,6 +358,7 @@ Public Class frmMedico
         Consulta.Fecha = frmDefinirConsulta.FechaConsulta
         Consulta.Medico = frmDefinirConsulta.MedicoSelect
         Consulta.Motivo = frmIdentificacion.Consulta.Motivo
+        Consulta.ConsultaReferencia = frmIdentificacion.Consulta.ConsultaReferencia
         Dim na As New N_Atiende
 
         Dim result = Await Task.Run(Function() na.AltaAtiende(Consulta))

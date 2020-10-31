@@ -24,6 +24,8 @@ Public Class D_UsuarioMYSQL
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
+            Sesion.Cerrar(conexion)
+            Console.WriteLine("err buscarrol")
             u.ErrCode = -2
             Return u
         End Try
