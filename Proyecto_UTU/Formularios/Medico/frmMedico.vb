@@ -570,7 +570,7 @@ Public Class frmMedico
     Private Sub IdentificarPacienteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem1.Click
         InstanciarFormulario("EntrevistaInicial")
     End Sub
-    Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraMedicaToolStripMenuItem.Click
+    Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs) 
         'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
     End Sub
 
