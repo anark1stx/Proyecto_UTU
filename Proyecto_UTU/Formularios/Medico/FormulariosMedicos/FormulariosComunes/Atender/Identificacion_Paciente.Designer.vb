@@ -25,7 +25,6 @@ Partial Class Identificacion_Paciente
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
-        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
@@ -45,68 +44,43 @@ Partial Class Identificacion_Paciente
         Me.lblE_CivilTXT = New System.Windows.Forms.Label()
         Me.lblEtapa = New System.Windows.Forms.Label()
         Me.tblCedulaBuscar = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
         Me.pnlEstado = New System.Windows.Forms.Panel()
-        Me.btnActualizarEstado = New System.Windows.Forms.Button()
         Me.txtEstado = New System.Windows.Forms.TextBox()
         Me.lblTelefonoTXT = New System.Windows.Forms.Label()
         Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnAgregarLista = New System.Windows.Forms.Button()
         Me.imgsBtnEntrevistar = New System.Windows.Forms.ImageList(Me.components)
-        Me.btnAtenderAhora = New System.Windows.Forms.Button()
         Me.pnlConsultasPrevias = New System.Windows.Forms.Panel()
         Me.btnReferenciaConsulta = New System.Windows.Forms.Button()
-        Me.btnVerConsulta = New System.Windows.Forms.Button()
         Me.cbConsultasPrevias = New System.Windows.Forms.ComboBox()
         Me.lblConsultasPrevias = New System.Windows.Forms.Label()
         Me.txtMotivoC = New System.Windows.Forms.TextBox()
         Me.lblMotivo = New System.Windows.Forms.Label()
+        Me.btnAgregarLista = New System.Windows.Forms.Button()
+        Me.btnAtenderAhora = New System.Windows.Forms.Button()
+        Me.btnVerConsulta = New System.Windows.Forms.Button()
+        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.btnActualizarEstado = New System.Windows.Forms.Button()
         Me.tblDatosPaciente.SuspendLayout()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.tblCedulaBuscar.SuspendLayout()
         Me.pnlEstado.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
         Me.pnlConsultasPrevias.SuspendLayout()
+        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tblDatosPaciente
         '
-        Me.tblDatosPaciente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblDatosPaciente.AutoSize = True
-        Me.tblDatosPaciente.ColumnCount = 2
-        Me.tblDatosPaciente.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.74336!))
-        Me.tblDatosPaciente.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.25664!))
+        resources.ApplyResources(Me.tblDatosPaciente, "tblDatosPaciente")
         Me.tblDatosPaciente.Controls.Add(Me.pBoxFotoPaciente, 0, 0)
         Me.tblDatosPaciente.Controls.Add(Me.tabDatos, 1, 0)
-        Me.tblDatosPaciente.Location = New System.Drawing.Point(0, 0)
         Me.tblDatosPaciente.Name = "tblDatosPaciente"
-        Me.tblDatosPaciente.RowCount = 1
-        Me.tblDatosPaciente.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblDatosPaciente.Size = New System.Drawing.Size(1167, 299)
-        Me.tblDatosPaciente.TabIndex = 103
-        '
-        'pBoxFotoPaciente
-        '
-        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
-        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.Size = New System.Drawing.Size(376, 293)
-        Me.pBoxFotoPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoPaciente.TabIndex = 101
-        Me.pBoxFotoPaciente.TabStop = False
         '
         'tabDatos
         '
-        Me.tabDatos.ColumnCount = 2
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.71552!))
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.28448!))
+        resources.ApplyResources(Me.tabDatos, "tabDatos")
         Me.tabDatos.Controls.Add(Me.lblCedula, 0, 0)
         Me.tabDatos.Controls.Add(Me.lblNombres, 0, 1)
         Me.tabDatos.Controls.Add(Me.lblNombresTXT, 1, 1)
@@ -119,7 +93,6 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.Controls.Add(Me.lblFechaNacTXT, 1, 4)
         Me.tabDatos.Controls.Add(Me.lblSexo, 0, 6)
         Me.tabDatos.Controls.Add(Me.lblSexoTXT, 1, 6)
-        Me.tabDatos.Controls.Add(Me.lblOcupacion, 0, 7)
         Me.tabDatos.Controls.Add(Me.lblOcupacionTXT, 1, 7)
         Me.tabDatos.Controls.Add(Me.lblE_Civil, 0, 8)
         Me.tabDatos.Controls.Add(Me.lblE_CivilTXT, 1, 8)
@@ -127,340 +100,142 @@ Partial Class Identificacion_Paciente
         Me.tabDatos.Controls.Add(Me.tblCedulaBuscar, 1, 0)
         Me.tabDatos.Controls.Add(Me.pnlEstado, 1, 9)
         Me.tabDatos.Controls.Add(Me.lblTelefonoTXT, 1, 5)
-        Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tabDatos.Location = New System.Drawing.Point(385, 3)
+        Me.tabDatos.Controls.Add(Me.lblOcupacion, 0, 7)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.RowCount = 10
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.41141!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.408408!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.tabDatos.Size = New System.Drawing.Size(779, 293)
-        Me.tabDatos.TabIndex = 103
         '
         'lblCedula
         '
-        Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblCedula.AutoSize = True
-        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(98, 2)
+        resources.ApplyResources(Me.lblCedula, "lblCedula")
         Me.lblCedula.Name = "lblCedula"
-        Me.lblCedula.Size = New System.Drawing.Size(96, 29)
-        Me.lblCedula.TabIndex = 82
-        Me.lblCedula.Text = "Cédula:"
         '
         'lblNombres
         '
-        Me.lblNombres.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNombres.AutoSize = True
-        Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(93, 33)
+        resources.ApplyResources(Me.lblNombres, "lblNombres")
         Me.lblNombres.Name = "lblNombres"
-        Me.lblNombres.Size = New System.Drawing.Size(107, 24)
-        Me.lblNombres.TabIndex = 80
-        Me.lblNombres.Text = "Nombre:"
         '
         'lblNombresTXT
         '
-        Me.lblNombresTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblNombresTXT.AutoSize = True
-        Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(296, 33)
+        resources.ApplyResources(Me.lblNombresTXT, "lblNombresTXT")
         Me.lblNombresTXT.Name = "lblNombresTXT"
-        Me.lblNombresTXT.Size = New System.Drawing.Size(269, 24)
-        Me.lblNombresTXT.TabIndex = 78
         Me.lblNombresTXT.Tag = "datos"
-        Me.lblNombresTXT.Text = "NOMBRE 1 NOMBRE 2"
         '
         'lblApellido
         '
-        Me.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblApellido.AutoSize = True
-        Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(92, 57)
+        resources.ApplyResources(Me.lblApellido, "lblApellido")
         Me.lblApellido.Name = "lblApellido"
-        Me.lblApellido.Size = New System.Drawing.Size(108, 29)
-        Me.lblApellido.TabIndex = 81
-        Me.lblApellido.Text = "Apellido:"
         '
         'lblApellidosTXT
         '
-        Me.lblApellidosTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblApellidosTXT.AutoSize = True
-        Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(296, 57)
+        resources.ApplyResources(Me.lblApellidosTXT, "lblApellidosTXT")
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
-        Me.lblApellidosTXT.Size = New System.Drawing.Size(287, 29)
-        Me.lblApellidosTXT.TabIndex = 79
         Me.lblApellidosTXT.Tag = "datos"
-        Me.lblApellidosTXT.Text = "APELLIDO 1 APELLIDO 2"
         '
         'lblDireccion
         '
-        Me.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblDireccion.AutoSize = True
-        Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(86, 86)
+        resources.ApplyResources(Me.lblDireccion, "lblDireccion")
         Me.lblDireccion.Name = "lblDireccion"
-        Me.lblDireccion.Size = New System.Drawing.Size(121, 29)
-        Me.lblDireccion.TabIndex = 98
-        Me.lblDireccion.Text = "Dirección:"
         '
         'lblDireccionTXT
         '
-        Me.lblDireccionTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblDireccionTXT.AutoSize = True
-        Me.lblDireccionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccionTXT.Location = New System.Drawing.Point(296, 86)
+        resources.ApplyResources(Me.lblDireccionTXT, "lblDireccionTXT")
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
-        Me.lblDireccionTXT.Size = New System.Drawing.Size(115, 29)
-        Me.lblDireccionTXT.TabIndex = 97
         Me.lblDireccionTXT.Tag = "datos"
-        Me.lblDireccionTXT.Text = "Dirección"
         '
         'lblTelefonos
         '
-        Me.lblTelefonos.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblTelefonos.AutoSize = True
-        Me.lblTelefonos.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonos.Location = New System.Drawing.Point(74, 144)
+        resources.ApplyResources(Me.lblTelefonos, "lblTelefonos")
         Me.lblTelefonos.Name = "lblTelefonos"
-        Me.lblTelefonos.Size = New System.Drawing.Size(144, 29)
-        Me.lblTelefonos.TabIndex = 84
         Me.lblTelefonos.Tag = ""
-        Me.lblTelefonos.Text = "Teléfono(s):"
         '
         'lblFechaNac
         '
-        Me.lblFechaNac.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblFechaNac.AutoSize = True
-        Me.lblFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaNac.Location = New System.Drawing.Point(39, 115)
+        resources.ApplyResources(Me.lblFechaNac, "lblFechaNac")
         Me.lblFechaNac.Name = "lblFechaNac"
-        Me.lblFechaNac.Size = New System.Drawing.Size(214, 29)
-        Me.lblFechaNac.TabIndex = 101
-        Me.lblFechaNac.Text = "Fecha Nacimiento:"
         '
         'lblFechaNacTXT
         '
-        Me.lblFechaNacTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblFechaNacTXT.AutoSize = True
-        Me.lblFechaNacTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaNacTXT.Location = New System.Drawing.Point(296, 115)
+        resources.ApplyResources(Me.lblFechaNacTXT, "lblFechaNacTXT")
         Me.lblFechaNacTXT.Name = "lblFechaNacTXT"
-        Me.lblFechaNacTXT.Size = New System.Drawing.Size(202, 29)
-        Me.lblFechaNacTXT.TabIndex = 102
         Me.lblFechaNacTXT.Tag = "datos"
-        Me.lblFechaNacTXT.Text = "FechaNacimiento"
         '
         'lblSexo
         '
-        Me.lblSexo.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblSexo.AutoSize = True
-        Me.lblSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexo.Location = New System.Drawing.Point(109, 173)
+        resources.ApplyResources(Me.lblSexo, "lblSexo")
         Me.lblSexo.Name = "lblSexo"
-        Me.lblSexo.Size = New System.Drawing.Size(74, 29)
-        Me.lblSexo.TabIndex = 103
-        Me.lblSexo.Text = "Sexo:"
         '
         'lblSexoTXT
         '
-        Me.lblSexoTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblSexoTXT.AutoSize = True
-        Me.lblSexoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSexoTXT.Location = New System.Drawing.Point(296, 173)
+        resources.ApplyResources(Me.lblSexoTXT, "lblSexoTXT")
         Me.lblSexoTXT.Name = "lblSexoTXT"
-        Me.lblSexoTXT.Size = New System.Drawing.Size(68, 29)
-        Me.lblSexoTXT.TabIndex = 104
         Me.lblSexoTXT.Tag = "datos"
-        Me.lblSexoTXT.Text = "Sexo"
         '
         'lblOcupacion
         '
-        Me.lblOcupacion.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblOcupacion.AutoSize = True
-        Me.lblOcupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacion.Location = New System.Drawing.Point(79, 202)
+        resources.ApplyResources(Me.lblOcupacion, "lblOcupacion")
         Me.lblOcupacion.Name = "lblOcupacion"
-        Me.lblOcupacion.Size = New System.Drawing.Size(135, 29)
-        Me.lblOcupacion.TabIndex = 105
-        Me.lblOcupacion.Text = "Ocupación:"
         '
         'lblOcupacionTXT
         '
-        Me.lblOcupacionTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblOcupacionTXT.AutoSize = True
-        Me.lblOcupacionTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOcupacionTXT.Location = New System.Drawing.Point(296, 202)
+        resources.ApplyResources(Me.lblOcupacionTXT, "lblOcupacionTXT")
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
-        Me.lblOcupacionTXT.Size = New System.Drawing.Size(129, 29)
-        Me.lblOcupacionTXT.TabIndex = 106
         Me.lblOcupacionTXT.Tag = "datos"
-        Me.lblOcupacionTXT.Text = "Ocupacion"
         '
         'lblE_Civil
         '
-        Me.lblE_Civil.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblE_Civil.AutoSize = True
-        Me.lblE_Civil.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblE_Civil.Location = New System.Drawing.Point(73, 231)
+        resources.ApplyResources(Me.lblE_Civil, "lblE_Civil")
         Me.lblE_Civil.Name = "lblE_Civil"
-        Me.lblE_Civil.Size = New System.Drawing.Size(146, 29)
-        Me.lblE_Civil.TabIndex = 107
-        Me.lblE_Civil.Text = "Estado Civil:"
         '
         'lblE_CivilTXT
         '
-        Me.lblE_CivilTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblE_CivilTXT.AutoSize = True
-        Me.lblE_CivilTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblE_CivilTXT.Location = New System.Drawing.Point(296, 231)
+        resources.ApplyResources(Me.lblE_CivilTXT, "lblE_CivilTXT")
         Me.lblE_CivilTXT.Name = "lblE_CivilTXT"
-        Me.lblE_CivilTXT.Size = New System.Drawing.Size(134, 29)
-        Me.lblE_CivilTXT.TabIndex = 108
         Me.lblE_CivilTXT.Tag = "datos"
-        Me.lblE_CivilTXT.Text = "EstadoCivil"
         '
         'lblEtapa
         '
-        Me.lblEtapa.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblEtapa.AutoSize = True
-        Me.lblEtapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEtapa.Location = New System.Drawing.Point(99, 262)
+        resources.ApplyResources(Me.lblEtapa, "lblEtapa")
         Me.lblEtapa.Name = "lblEtapa"
-        Me.lblEtapa.Size = New System.Drawing.Size(94, 29)
-        Me.lblEtapa.TabIndex = 109
-        Me.lblEtapa.Text = "Estado:"
         '
         'tblCedulaBuscar
         '
-        Me.tblCedulaBuscar.ColumnCount = 2
-        Me.tblCedulaBuscar.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.54166!))
-        Me.tblCedulaBuscar.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.45833!))
+        resources.ApplyResources(Me.tblCedulaBuscar, "tblCedulaBuscar")
         Me.tblCedulaBuscar.Controls.Add(Me.btnBuscar, 1, 0)
         Me.tblCedulaBuscar.Controls.Add(Me.txtCedulaPaciente, 0, 0)
-        Me.tblCedulaBuscar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tblCedulaBuscar.Location = New System.Drawing.Point(296, 3)
         Me.tblCedulaBuscar.Name = "tblCedulaBuscar"
-        Me.tblCedulaBuscar.RowCount = 1
-        Me.tblCedulaBuscar.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblCedulaBuscar.Size = New System.Drawing.Size(480, 27)
-        Me.tblCedulaBuscar.TabIndex = 111
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBuscar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(428, 3)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(49, 21)
-        Me.btnBuscar.TabIndex = 113
-        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'txtCedulaPaciente
         '
-        Me.txtCedulaPaciente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtCedulaPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCedulaPaciente.Location = New System.Drawing.Point(3, 3)
-        Me.txtCedulaPaciente.MaxLength = 8
+        resources.ApplyResources(Me.txtCedulaPaciente, "txtCedulaPaciente")
         Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
-        Me.txtCedulaPaciente.Size = New System.Drawing.Size(419, 34)
-        Me.txtCedulaPaciente.TabIndex = 112
         Me.txtCedulaPaciente.Tag = "noLimpiar"
         '
         'pnlEstado
         '
+        resources.ApplyResources(Me.pnlEstado, "pnlEstado")
         Me.pnlEstado.Controls.Add(Me.btnActualizarEstado)
         Me.pnlEstado.Controls.Add(Me.txtEstado)
-        Me.pnlEstado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlEstado.Enabled = False
-        Me.pnlEstado.Location = New System.Drawing.Point(296, 263)
         Me.pnlEstado.Name = "pnlEstado"
-        Me.pnlEstado.Size = New System.Drawing.Size(480, 27)
-        Me.pnlEstado.TabIndex = 112
-        '
-        'btnActualizarEstado
-        '
-        Me.btnActualizarEstado.BackgroundImage = CType(resources.GetObject("btnActualizarEstado.BackgroundImage"), System.Drawing.Image)
-        Me.btnActualizarEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnActualizarEstado.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnActualizarEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnActualizarEstado.Location = New System.Drawing.Point(441, 0)
-        Me.btnActualizarEstado.Name = "btnActualizarEstado"
-        Me.btnActualizarEstado.Size = New System.Drawing.Size(39, 27)
-        Me.btnActualizarEstado.TabIndex = 1
-        Me.btnActualizarEstado.UseVisualStyleBackColor = True
         '
         'txtEstado
         '
-        Me.txtEstado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEstado.Location = New System.Drawing.Point(0, 0)
-        Me.txtEstado.MaxLength = 90
-        Me.txtEstado.Multiline = True
+        resources.ApplyResources(Me.txtEstado, "txtEstado")
         Me.txtEstado.Name = "txtEstado"
-        Me.txtEstado.Size = New System.Drawing.Size(480, 27)
-        Me.txtEstado.TabIndex = 0
         '
         'lblTelefonoTXT
         '
-        Me.lblTelefonoTXT.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblTelefonoTXT.AutoSize = True
-        Me.lblTelefonoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefonoTXT.Location = New System.Drawing.Point(296, 144)
+        resources.ApplyResources(Me.lblTelefonoTXT, "lblTelefonoTXT")
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
-        Me.lblTelefonoTXT.Size = New System.Drawing.Size(144, 29)
-        Me.lblTelefonoTXT.TabIndex = 100
         Me.lblTelefonoTXT.Tag = "datos"
-        Me.lblTelefonoTXT.Text = "Teléfono(s):"
         '
         'tblAcciones
         '
-        Me.tblAcciones.ColumnCount = 1
-        Me.tblAcciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        resources.ApplyResources(Me.tblAcciones, "tblAcciones")
         Me.tblAcciones.Controls.Add(Me.btnAgregarLista, 0, 4)
         Me.tblAcciones.Controls.Add(Me.btnAtenderAhora, 0, 3)
         Me.tblAcciones.Controls.Add(Me.pnlConsultasPrevias, 0, 2)
         Me.tblAcciones.Controls.Add(Me.txtMotivoC, 0, 1)
         Me.tblAcciones.Controls.Add(Me.lblMotivo, 0, 0)
-        Me.tblAcciones.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.tblAcciones.Location = New System.Drawing.Point(0, 305)
         Me.tblAcciones.Name = "tblAcciones"
-        Me.tblAcciones.RowCount = 5
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.04425!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.95575!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 119.0!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 111.0!))
-        Me.tblAcciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tblAcciones.Size = New System.Drawing.Size(1166, 491)
-        Me.tblAcciones.TabIndex = 104
-        '
-        'btnAgregarLista
-        '
-        Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
-        Me.btnAgregarLista.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAgregarLista.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregarLista.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAgregarLista.ImageIndex = 1
-        Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAgregarLista.Location = New System.Drawing.Point(3, 382)
-        Me.btnAgregarLista.Name = "btnAgregarLista"
-        Me.btnAgregarLista.Size = New System.Drawing.Size(1160, 106)
-        Me.btnAgregarLista.TabIndex = 105
-        Me.btnAgregarLista.Text = "Agregar a Listado"
-        Me.btnAgregarLista.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAgregarLista.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnAgregarLista.UseVisualStyleBackColor = False
         '
         'imgsBtnEntrevistar
         '
@@ -470,123 +245,96 @@ Partial Class Identificacion_Paciente
         Me.imgsBtnEntrevistar.Images.SetKeyName(1, "subir.png")
         Me.imgsBtnEntrevistar.Images.SetKeyName(2, "MedicoAtiendePaciente.png")
         '
-        'btnAtenderAhora
-        '
-        Me.btnAtenderAhora.BackColor = System.Drawing.Color.PapayaWhip
-        Me.btnAtenderAhora.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAtenderAhora.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtenderAhora.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAtenderAhora.ImageIndex = 2
-        Me.btnAtenderAhora.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAtenderAhora.Location = New System.Drawing.Point(3, 263)
-        Me.btnAtenderAhora.Name = "btnAtenderAhora"
-        Me.btnAtenderAhora.Size = New System.Drawing.Size(1160, 113)
-        Me.btnAtenderAhora.TabIndex = 106
-        Me.btnAtenderAhora.Text = "Atender Ahora"
-        Me.btnAtenderAhora.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAtenderAhora.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnAtenderAhora.UseVisualStyleBackColor = False
-        '
         'pnlConsultasPrevias
         '
+        resources.ApplyResources(Me.pnlConsultasPrevias, "pnlConsultasPrevias")
         Me.pnlConsultasPrevias.Controls.Add(Me.btnReferenciaConsulta)
         Me.pnlConsultasPrevias.Controls.Add(Me.btnVerConsulta)
         Me.pnlConsultasPrevias.Controls.Add(Me.cbConsultasPrevias)
         Me.pnlConsultasPrevias.Controls.Add(Me.lblConsultasPrevias)
-        Me.pnlConsultasPrevias.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlConsultasPrevias.Location = New System.Drawing.Point(3, 204)
         Me.pnlConsultasPrevias.Name = "pnlConsultasPrevias"
-        Me.pnlConsultasPrevias.Size = New System.Drawing.Size(1160, 53)
-        Me.pnlConsultasPrevias.TabIndex = 108
         '
         'btnReferenciaConsulta
         '
-        Me.btnReferenciaConsulta.Anchor = System.Windows.Forms.AnchorStyles.None
+        resources.ApplyResources(Me.btnReferenciaConsulta, "btnReferenciaConsulta")
         Me.btnReferenciaConsulta.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnReferenciaConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnReferenciaConsulta.Enabled = False
-        Me.btnReferenciaConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnReferenciaConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReferenciaConsulta.Location = New System.Drawing.Point(864, 5)
         Me.btnReferenciaConsulta.Name = "btnReferenciaConsulta"
-        Me.btnReferenciaConsulta.Size = New System.Drawing.Size(249, 37)
-        Me.btnReferenciaConsulta.TabIndex = 3
-        Me.btnReferenciaConsulta.Text = "Referir"
-        Me.btnReferenciaConsulta.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnReferenciaConsulta.UseVisualStyleBackColor = False
-        '
-        'btnVerConsulta
-        '
-        Me.btnVerConsulta.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnVerConsulta.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.btnVerConsulta.BackgroundImage = CType(resources.GetObject("btnVerConsulta.BackgroundImage"), System.Drawing.Image)
-        Me.btnVerConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnVerConsulta.Enabled = False
-        Me.btnVerConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVerConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVerConsulta.Location = New System.Drawing.Point(1119, 5)
-        Me.btnVerConsulta.Name = "btnVerConsulta"
-        Me.btnVerConsulta.Size = New System.Drawing.Size(38, 37)
-        Me.btnVerConsulta.TabIndex = 2
-        Me.btnVerConsulta.UseVisualStyleBackColor = False
         '
         'cbConsultasPrevias
         '
-        Me.cbConsultasPrevias.Anchor = System.Windows.Forms.AnchorStyles.None
+        resources.ApplyResources(Me.cbConsultasPrevias, "cbConsultasPrevias")
         Me.cbConsultasPrevias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbConsultasPrevias.Enabled = False
-        Me.cbConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbConsultasPrevias.FormattingEnabled = True
-        Me.cbConsultasPrevias.Location = New System.Drawing.Point(243, 8)
         Me.cbConsultasPrevias.Name = "cbConsultasPrevias"
-        Me.cbConsultasPrevias.Size = New System.Drawing.Size(615, 33)
-        Me.cbConsultasPrevias.TabIndex = 1
         '
         'lblConsultasPrevias
         '
-        Me.lblConsultasPrevias.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblConsultasPrevias.AutoSize = True
-        Me.lblConsultasPrevias.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblConsultasPrevias.Location = New System.Drawing.Point(8, 11)
+        resources.ApplyResources(Me.lblConsultasPrevias, "lblConsultasPrevias")
         Me.lblConsultasPrevias.Name = "lblConsultasPrevias"
-        Me.lblConsultasPrevias.Size = New System.Drawing.Size(229, 29)
-        Me.lblConsultasPrevias.TabIndex = 0
-        Me.lblConsultasPrevias.Text = "Consultas Previas:"
         '
         'txtMotivoC
         '
-        Me.txtMotivoC.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtMotivoC.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMotivoC.Location = New System.Drawing.Point(3, 33)
-        Me.txtMotivoC.Multiline = True
+        resources.ApplyResources(Me.txtMotivoC, "txtMotivoC")
         Me.txtMotivoC.Name = "txtMotivoC"
-        Me.txtMotivoC.Size = New System.Drawing.Size(1160, 165)
-        Me.txtMotivoC.TabIndex = 109
         '
         'lblMotivo
         '
-        Me.lblMotivo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.lblMotivo.AutoSize = True
-        Me.lblMotivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMotivo.Location = New System.Drawing.Point(467, 1)
+        resources.ApplyResources(Me.lblMotivo, "lblMotivo")
         Me.lblMotivo.Name = "lblMotivo"
-        Me.lblMotivo.Size = New System.Drawing.Size(231, 29)
-        Me.lblMotivo.TabIndex = 110
-        Me.lblMotivo.Text = "Motivo de consulta"
+        '
+        'btnAgregarLista
+        '
+        resources.ApplyResources(Me.btnAgregarLista, "btnAgregarLista")
+        Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
+        Me.btnAgregarLista.Name = "btnAgregarLista"
+        Me.btnAgregarLista.UseVisualStyleBackColor = False
+        '
+        'btnAtenderAhora
+        '
+        resources.ApplyResources(Me.btnAtenderAhora, "btnAtenderAhora")
+        Me.btnAtenderAhora.BackColor = System.Drawing.Color.PapayaWhip
+        Me.btnAtenderAhora.ImageList = Me.imgsBtnEntrevistar
+        Me.btnAtenderAhora.Name = "btnAtenderAhora"
+        Me.btnAtenderAhora.UseVisualStyleBackColor = False
+        '
+        'btnVerConsulta
+        '
+        resources.ApplyResources(Me.btnVerConsulta, "btnVerConsulta")
+        Me.btnVerConsulta.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.btnVerConsulta.Name = "btnVerConsulta"
+        Me.btnVerConsulta.UseVisualStyleBackColor = False
+        '
+        'pBoxFotoPaciente
+        '
+        resources.ApplyResources(Me.pBoxFotoPaciente, "pBoxFotoPaciente")
+        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
+        Me.pBoxFotoPaciente.TabStop = False
+        '
+        'btnBuscar
+        '
+        resources.ApplyResources(Me.btnBuscar, "btnBuscar")
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'btnActualizarEstado
+        '
+        resources.ApplyResources(Me.btnActualizarEstado, "btnActualizarEstado")
+        Me.btnActualizarEstado.Name = "btnActualizarEstado"
+        Me.btnActualizarEstado.UseVisualStyleBackColor = True
         '
         'Identificacion_Paciente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1166, 796)
         Me.Controls.Add(Me.tblAcciones)
         Me.Controls.Add(Me.tblDatosPaciente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Identificacion_Paciente"
-        Me.Text = "frmConsultaConPaciente"
         Me.tblDatosPaciente.ResumeLayout(False)
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
         Me.tabDatos.PerformLayout()
         Me.tblCedulaBuscar.ResumeLayout(False)
@@ -597,6 +345,7 @@ Partial Class Identificacion_Paciente
         Me.tblAcciones.PerformLayout()
         Me.pnlConsultasPrevias.ResumeLayout(False)
         Me.pnlConsultasPrevias.PerformLayout()
+        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

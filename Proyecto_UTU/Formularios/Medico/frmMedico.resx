@@ -121,126 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="InicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 21</value>
-  </data>
-  <data name="InicioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Inicio</value>
-  </data>
-  <data name="GestionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
-  </data>
-  <data name="GestionMenuItem.Text" xml:space="preserve">
-    <value>Gestión</value>
-  </data>
-  <data name="SeleccionarMedicoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 26</value>
-  </data>
-  <data name="SeleccionarMedicoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Seleccionar médico</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 26</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Identificar Paciente</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 26</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Ver listado de hoy</value>
-  </data>
-  <data name="EntrevistaInicialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 21</value>
-  </data>
-  <data name="EntrevistaInicialToolStripMenuItem.Text" xml:space="preserve">
-    <value>Entrevista inicial</value>
-  </data>
-  <data name="DefinirConsultaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 26</value>
-  </data>
-  <data name="DefinirConsultaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nueva Consulta</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 26</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Identificar Paciente</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 26</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ver listado de hoy</value>
-  </data>
-  <data name="AtenderMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 21</value>
-  </data>
-  <data name="AtenderMenuItem.Text" xml:space="preserve">
-    <value>Atender Pacientes</value>
-  </data>
-  <data name="CrearFormularioMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 26</value>
-  </data>
-  <data name="CrearFormularioMenuItem.Text" xml:space="preserve">
-    <value>Crear y Editar Formularios</value>
-  </data>
-  <data name="FormulariosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="FormulariosMenuItem.Text" xml:space="preserve">
-    <value>Formularios</value>
-  </data>
-  <data name="IngresarNuevoTratamientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="IngresarNuevoTratamientoMenuItem.Text" xml:space="preserve">
-    <value>Ingresar nuevo</value>
-  </data>
-  <data name="TratamientoSeguimientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="TratamientoSeguimientoMenuItem.Text" xml:space="preserve">
-    <value>Hacer seguimiento</value>
-  </data>
-  <data name="AsginarTratamientoPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="AsginarTratamientoPacienteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Asginar a paciente</value>
-  </data>
-  <data name="TratamientosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 21</value>
-  </data>
-  <data name="TratamientosMenuItem.Text" xml:space="preserve">
-    <value>Tratamientos</value>
-  </data>
-  <data name="AnalisisIngresarMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="AnalisisIngresarMenuItem1.Text" xml:space="preserve">
-    <value>Ingresar nuevo</value>
-  </data>
-  <data name="AnalisisHacerSeguimientoMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="AnalisisHacerSeguimientoMenuItem1.Text" xml:space="preserve">
-    <value>Hacer seguimiento</value>
-  </data>
-  <data name="AnalisisMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
-  </data>
-  <data name="AnalisisMenuItem.Text" xml:space="preserve">
-    <value>Análisis</value>
-  </data>
-  <data name="SalirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 21</value>
-  </data>
-  <data name="SalirToolStripMenuItem.Text" xml:space="preserve">
-    <value>Salir</value>
-  </data>
   <data name="MenuOpciones.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -265,6 +145,126 @@
   </data>
   <data name="&gt;&gt;MenuOpciones.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="InicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 21</value>
+  </data>
+  <data name="InicioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="GestionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 21</value>
+  </data>
+  <data name="GestionMenuItem.Text" xml:space="preserve">
+    <value>Gestión</value>
+  </data>
+  <data name="EntrevistaInicialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 21</value>
+  </data>
+  <data name="EntrevistaInicialToolStripMenuItem.Text" xml:space="preserve">
+    <value>Entrevista inicial</value>
+  </data>
+  <data name="SeleccionarMedicoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="SeleccionarMedicoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Seleccionar médico</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Identificar Paciente</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Ver listado de hoy</value>
+  </data>
+  <data name="AtenderMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 21</value>
+  </data>
+  <data name="AtenderMenuItem.Text" xml:space="preserve">
+    <value>Atender Pacientes</value>
+  </data>
+  <data name="DefinirConsultaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 26</value>
+  </data>
+  <data name="DefinirConsultaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nueva Consulta</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 26</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Identificar Paciente</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 26</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ver listado de hoy</value>
+  </data>
+  <data name="FormulariosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="FormulariosMenuItem.Text" xml:space="preserve">
+    <value>Formularios</value>
+  </data>
+  <data name="CrearFormularioMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 26</value>
+  </data>
+  <data name="CrearFormularioMenuItem.Text" xml:space="preserve">
+    <value>Crear y Editar Formularios</value>
+  </data>
+  <data name="TratamientosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 21</value>
+  </data>
+  <data name="TratamientosMenuItem.Text" xml:space="preserve">
+    <value>Tratamientos</value>
+  </data>
+  <data name="IngresarNuevoTratamientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
+  </data>
+  <data name="IngresarNuevoTratamientoMenuItem.Text" xml:space="preserve">
+    <value>Ingresar nuevo</value>
+  </data>
+  <data name="TratamientoSeguimientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
+  </data>
+  <data name="TratamientoSeguimientoMenuItem.Text" xml:space="preserve">
+    <value>Hacer seguimiento</value>
+  </data>
+  <data name="AsginarTratamientoPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
+  </data>
+  <data name="AsginarTratamientoPacienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Asginar a paciente</value>
+  </data>
+  <data name="AnalisisMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 21</value>
+  </data>
+  <data name="AnalisisMenuItem.Text" xml:space="preserve">
+    <value>Análisis</value>
+  </data>
+  <data name="AnalisisIngresarMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
+  </data>
+  <data name="AnalisisIngresarMenuItem1.Text" xml:space="preserve">
+    <value>Ingresar nuevo</value>
+  </data>
+  <data name="AnalisisHacerSeguimientoMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
+  </data>
+  <data name="AnalisisHacerSeguimientoMenuItem1.Text" xml:space="preserve">
+    <value>Hacer seguimiento</value>
+  </data>
+  <data name="SalirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 21</value>
+  </data>
+  <data name="SalirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salir</value>
   </data>
   <data name="pnlContenedorFormularios.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -296,6 +296,9 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>43</value>

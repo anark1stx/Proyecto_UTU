@@ -22,6 +22,7 @@ Partial Class frmAgregarItems
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarItems))
         Me.cbItems = New System.Windows.Forms.ComboBox()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnQuitar = New System.Windows.Forms.Button()
@@ -29,41 +30,30 @@ Partial Class frmAgregarItems
         '
         'cbItems
         '
-        Me.cbItems.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.cbItems, "cbItems")
         Me.cbItems.FormattingEnabled = True
-        Me.cbItems.Location = New System.Drawing.Point(12, 12)
         Me.cbItems.Name = "cbItems"
-        Me.cbItems.Size = New System.Drawing.Size(568, 37)
-        Me.cbItems.TabIndex = 0
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(586, 12)
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(90, 37)
-        Me.btnAgregar.TabIndex = 1
-        Me.btnAgregar.Text = "AGREGAR"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
         'btnQuitar
         '
-        Me.btnQuitar.Location = New System.Drawing.Point(698, 12)
+        resources.ApplyResources(Me.btnQuitar, "btnQuitar")
         Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(90, 37)
-        Me.btnQuitar.TabIndex = 2
-        Me.btnQuitar.Text = "QUITAR"
         Me.btnQuitar.UseVisualStyleBackColor = True
         '
         'frmAgregarItems
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 52)
         Me.Controls.Add(Me.btnQuitar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.cbItems)
         Me.Name = "frmAgregarItems"
-        Me.Text = "frmAgregarItems"
         Me.ResumeLayout(False)
 
     End Sub

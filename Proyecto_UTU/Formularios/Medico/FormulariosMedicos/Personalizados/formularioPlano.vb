@@ -49,7 +49,7 @@ Public Class formularioPlano
     End Property
     Dim dragging As Boolean = False
     Dim settings As New MsgBoxControlSettings
-    Dim txtBox As New MsgBoxTipoDeTextBox
+    Dim txtBox As New SeleccionarPreguntaCrr
     Dim resizingRight As Boolean = False
     Dim resizingBottom As Boolean = False
     Public Sub _MouseDown(ByVal sender As System.Object, ByVal e As MouseEventArgs) 'Handles Control.MouseDown

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MsgBoxTipoDeTextBox
+Partial Class SeleccionarPreguntaCrr
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,46 +22,34 @@ Partial Class MsgBoxTipoDeTextBox
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SeleccionarPreguntaCrr))
         Me.lblSeleccioneTipoDeDato = New System.Windows.Forms.Label()
         Me.cbPreguntas = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblSeleccioneTipoDeDato
         '
-        Me.lblSeleccioneTipoDeDato.AutoSize = True
-        Me.lblSeleccioneTipoDeDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSeleccioneTipoDeDato.Location = New System.Drawing.Point(57, 46)
+        resources.ApplyResources(Me.lblSeleccioneTipoDeDato, "lblSeleccioneTipoDeDato")
         Me.lblSeleccioneTipoDeDato.Name = "lblSeleccioneTipoDeDato"
-        Me.lblSeleccioneTipoDeDato.Size = New System.Drawing.Size(708, 29)
-        Me.lblSeleccioneTipoDeDato.TabIndex = 3
-        Me.lblSeleccioneTipoDeDato.Text = "Seleccione la pregunta que será respondida en este campo"
-        Me.lblSeleccioneTipoDeDato.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'cbPreguntas
         '
+        resources.ApplyResources(Me.cbPreguntas, "cbPreguntas")
         Me.cbPreguntas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbPreguntas.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbPreguntas.FormattingEnabled = True
-        Me.cbPreguntas.IntegralHeight = False
-        Me.cbPreguntas.Location = New System.Drawing.Point(12, 112)
         Me.cbPreguntas.Name = "cbPreguntas"
-        Me.cbPreguntas.Size = New System.Drawing.Size(826, 37)
-        Me.cbPreguntas.TabIndex = 2
         '
-        'MsgBoxTipoDeTextBox
+        'SeleccionarPreguntaCrr
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGreen
-        Me.ClientSize = New System.Drawing.Size(850, 181)
         Me.Controls.Add(Me.lblSeleccioneTipoDeDato)
         Me.Controls.Add(Me.cbPreguntas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "MsgBoxTipoDeTextBox"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MsgBoxTipoDeTextBox"
+        Me.Name = "SeleccionarPreguntaCrr"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

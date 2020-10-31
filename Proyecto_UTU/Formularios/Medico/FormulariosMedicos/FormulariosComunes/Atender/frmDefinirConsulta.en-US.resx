@@ -117,547 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblHoraConsulta.Text" xml:space="preserve">
-    <value>Hora de la consulta:</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblHoraConsulta.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="dtpHoraConsulta.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblNombresTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblNomReferencia.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 25</value>
-  </data>
-  <data name="pBoxFotoMedico.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pBoxFotoMedico.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;tblDatosMedico.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.Name" xml:space="preserve">
-    <value>lblEspecialidadTXT</value>
-  </data>
-  <data name="txtCIMedico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 30</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtCIMedico.MaxLength" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btnBuscarMedico.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        zAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnConfirmar.Text" xml:space="preserve">
-    <value>CONFIRMAR</value>
-  </data>
-  <data name="&gt;&gt;lblApellido.Name" xml:space="preserve">
-    <value>lblApellido</value>
-  </data>
-  <data name="lblNomReferencia.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;tblNomRef.Name" xml:space="preserve">
-    <value>tblNomRef</value>
-  </data>
-  <data name="&gt;&gt;btnBuscarMedico.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblNomReferencia.Parent" xml:space="preserve">
-    <value>tblNomRef</value>
-  </data>
-  <data name="pBoxFotoMedico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>591, 538</value>
-  </data>
-  <data name="lblNomReferencia.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblCedula.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="tabDatos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>600, 3</value>
-  </data>
-  <data name="&gt;&gt;lblNomReferencia.Name" xml:space="preserve">
-    <value>lblNomReferencia</value>
-  </data>
-  <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>46, 457</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Definir parámetros de consulta médica</value>
-  </data>
-  <data name="txtCIMedico.TabIndex" type="System.Int32, mscorlib">
-    <value>104</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;lblNomReferencia.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabDatos.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblNombres" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblNombresTXT" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblApellido" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblApellidosTXT" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblEspecialidadTXT" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Panel1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblCedula" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,39.86486,Percent,60.13514" /&gt;&lt;Rows Styles="Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblCedula.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="lblApellidosTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.Name" xml:space="preserve">
-    <value>lblApellidosTXT</value>
-  </data>
-  <data name="tblNomRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1195, 39</value>
-  </data>
-  <data name="TableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblApellidosTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 25</value>
-  </data>
-  <data name="lblNombresTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 188</value>
-  </data>
-  <data name="lblNomReferencia.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblApellido.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="&gt;&gt;btnBuscarMedico.Name" xml:space="preserve">
-    <value>btnBuscarMedico</value>
-  </data>
-  <data name="tblNomRef.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnBuscarMedico.Parent" xml:space="preserve">
-    <value>Panel1</value>
-  </data>
-  <data name="btnBuscarMedico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 30</value>
-  </data>
-  <data name="lblNombres.Text" xml:space="preserve">
-    <value>Nombre:</value>
-  </data>
-  <data name="lblApellidosTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblNombres.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblApellidosTXT.Text" xml:space="preserve">
-    <value>APELLIDO 1 APELLIDO 2</value>
-  </data>
-  <data name="tabDatos.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtCIMedico.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtNomConsulta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>594, 30</value>
-  </data>
-  <data name="Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tblNomRef.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="lblCedula.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblNombresTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 25</value>
-  </data>
-  <data name="lblNomReferencia.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="txtNomConsulta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>598, 3</value>
-  </data>
-  <data name="&gt;&gt;lblApellido.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnConfirmar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="pBoxFotoMedico.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="txtCIMedico.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="tblDatosMedico.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="lblApellidosTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>79</value>
-  </data>
-  <data name="lblApellido.Text" xml:space="preserve">
-    <value>Apellido:</value>
-  </data>
-  <data name="tblNomRef.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tblNomRef.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtCIMedico.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblHoraConsulta.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="tabDatos.RowCount" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblNomReferencia.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tblDatosMedico.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtNomConsulta.Name" xml:space="preserve">
-    <value>txtNomConsulta</value>
-  </data>
-  <data name="btnBuscarMedico.TabIndex" type="System.Int32, mscorlib">
-    <value>105</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.Name" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="tblNomRef.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tblDatosMedico.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtCIMedico.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="btnConfirmar.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btnBuscarMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>305, 48</value>
-  </data>
-  <data name="lblNombresTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="&gt;&gt;txtCIMedico.Parent" xml:space="preserve">
-    <value>Panel1</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtCIMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblCedula.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 54</value>
-  </data>
-  <data name="&gt;&gt;dtpHoraConsulta.Name" xml:space="preserve">
-    <value>dtpHoraConsulta</value>
-  </data>
-  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>351, 128</value>
-  </data>
-  <data name="btnConfirmar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1198, 81</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.Parent" xml:space="preserve">
-    <value>tblDatosMedico</value>
-  </data>
-  <data name="&gt;&gt;tblDatosMedico.Name" xml:space="preserve">
-    <value>tblDatosMedico</value>
-  </data>
-  <data name="&gt;&gt;txtNomConsulta.Parent" xml:space="preserve">
-    <value>tblNomRef</value>
-  </data>
-  <data name="&gt;&gt;tblNomRef.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="dtpHoraConsulta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>598, 3</value>
-  </data>
-  <data name="&gt;&gt;tblDatosMedico.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1195, 39</value>
-  </data>
-  <data name="lblEspecialidadTXT.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="lblNombresTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblNomReferencia.Text" xml:space="preserve">
-    <value>Ingrese un nombre de referencia para la consulta:</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.Name" xml:space="preserve">
-    <value>lblNombresTXT</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;txtNomConsulta.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pBoxFotoMedico.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="lblEspecialidadTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblNombres.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 188</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.Parent" xml:space="preserve">
-    <value>tblDatosMedico</value>
-  </data>
-  <data name="&gt;&gt;btnBuscarMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCedula.Name" xml:space="preserve">
-    <value>lblCedula</value>
-  </data>
-  <data name="tblDatosMedico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1195, 544</value>
-  </data>
-  <data name="&gt;&gt;lblHoraConsulta.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNombres.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblNombres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 25</value>
-  </data>
-  <data name="lblEspecialidadTXT.Text" xml:space="preserve">
-    <value>Especialidad</value>
-  </data>
-  <data name="&gt;&gt;lblApellidosTXT.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtCIMedico.Name" xml:space="preserve">
-    <value>txtCIMedico</value>
-  </data>
-  <data name="lblHoraConsulta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 7</value>
-  </data>
-  <data name="&gt;&gt;txtNomConsulta.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblApellidosTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnBuscarMedico.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="tblNomRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 550</value>
-  </data>
-  <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
-    <value>Panel1</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidadTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblHoraConsulta" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dtpHoraConsulta" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,49.80392,Percent,50.19608" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="btnConfirmar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 640</value>
-  </data>
-  <data name="tblNomRef.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblNomReferencia" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtNomConsulta" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,49.80392,Percent,50.19608" /&gt;&lt;Rows Styles="Percent,50,Absolute,39" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblNombres.TabIndex" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="lblHoraConsulta.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="dtpHoraConsulta.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;lblNombresTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="&gt;&gt;pBoxFotoMedico.Name" xml:space="preserve">
-    <value>pBoxFotoMedico</value>
-  </data>
-  <data name="lblCedula.Text" xml:space="preserve">
-    <value>Cédula del médico:</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 25</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmDefinirConsulta</value>
-  </data>
-  <data name="&gt;&gt;dtpHoraConsulta.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="lblNomReferencia.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 7</value>
-  </data>
-  <data name="txtNomConsulta.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblNombresTXT.Text" xml:space="preserve">
-    <value>NOMBRE 1 NOMBRE 2</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Especialidad:</value>
-  </data>
-  <data name="lblEspecialidadTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>346, 457</value>
-  </data>
-  <data name="tabDatos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lblHoraConsulta.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="txtCIMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 48</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblApellido.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblNombres.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 3</value>
-  </data>
-  <data name="lblApellidosTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 322</value>
-  </data>
   <data name="pBoxFotoMedico.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAJO
@@ -1279,163 +739,101 @@
         OMC7//ReeY2W12r2Gmb1bP0HBuqq8A/huPCi8ODwa9kcsVuT//f/Aam3nzqZedW1AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="lblApellido.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  <data name="lblNombres.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 188</value>
   </data>
-  <data name="lblEspecialidadTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+  <data name="lblNombres.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 25</value>
   </data>
-  <data name="&gt;&gt;lblNombres.Name" xml:space="preserve">
-    <value>lblNombres</value>
-  </data>
-  <data name="&gt;&gt;tabDatos.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>103</value>
-  </data>
-  <data name="&gt;&gt;lblHoraConsulta.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblCedula.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
-  <data name="btnConfirmar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 595</value>
-  </data>
-  <data name="&gt;&gt;dtpHoraConsulta.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tblDatosMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblApellido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 25</value>
-  </data>
-  <data name="dtpHoraConsulta.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;btnConfirmar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="pBoxFotoMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="lblApellido.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
-  <data name="&gt;&gt;lblHoraConsulta.Name" xml:space="preserve">
-    <value>lblHoraConsulta</value>
-  </data>
-  <data name="txtNomConsulta.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;lblHoraConsulta.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="tabDatos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 538</value>
-  </data>
-  <data name="tblDatosMedico.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
-    <value>tabDatos</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1198, 721</value>
-  </data>
-  <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 25</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnConfirmar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="lblNombres.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tblDatosMedico.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pBoxFotoMedico" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tabDatos" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="dtpHoraConsulta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>594, 34</value>
-  </data>
-  <data name="tblDatosMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;tblNomRef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblEspecialidadTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblHoraConsulta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 25</value>
-  </data>
-  <data name="&gt;&gt;dtpHoraConsulta.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblNombres.Text" xml:space="preserve">
+    <value>Name:</value>
   </data>
   <data name="lblApellido.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 322</value>
+    <value>64, 322</value>
   </data>
-  <data name="lblHoraConsulta.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+  <data name="lblApellido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 25</value>
   </data>
-  <data name="&gt;&gt;lblApellidosTXT.Parent" xml:space="preserve">
-    <value>tabDatos</value>
+  <data name="lblApellido.Text" xml:space="preserve">
+    <value>Surname:</value>
   </data>
-  <data name="tabDatos.TabIndex" type="System.Int32, mscorlib">
-    <value>103</value>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 457</value>
   </data>
-  <data name="&gt;&gt;btnConfirmar.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 25</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Speciality:</value>
   </data>
-  <data name="&gt;&gt;lblApellido.Parent" xml:space="preserve">
-    <value>tabDatos</value>
+  <data name="btnBuscarMedico.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        zAAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="&gt;&gt;btnConfirmar.Name" xml:space="preserve">
-    <value>btnConfirmar</value>
+  <data name="lblCedula.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 54</value>
   </data>
-  <data name="&gt;&gt;lblCedula.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 25</value>
   </data>
-  <data name="&gt;&gt;lblApellido.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCedula.Text" xml:space="preserve">
+    <value>Doctor's ID:</value>
   </data>
-  <data name="lblNombresTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="btnConfirmar.Text" xml:space="preserve">
+    <value>CONFIRM</value>
   </data>
-  <data name="tblDatosMedico.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="lblNomReferencia.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 7</value>
   </data>
-  <data name="txtNomConsulta.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="lblNomReferencia.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 25</value>
   </data>
-  <data name="lblEspecialidadTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 25</value>
+  <data name="lblNomReferencia.Text" xml:space="preserve">
+    <value>Input a reference name for the consultation:</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
+  <data name="lblHoraConsulta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 7</value>
+  </data>
+  <data name="lblHoraConsulta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 25</value>
+  </data>
+  <data name="lblHoraConsulta.Text" xml:space="preserve">
+    <value>Time for the consultation to start:</value>
+  </data>
 </root>

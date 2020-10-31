@@ -13,7 +13,7 @@ Public Class frmCrearFormulario
     Dim controlesInstanciados As New List(Of Control)
     Dim control_count As Integer = 0
 
-    Dim TipoDeTxt As New MsgBoxTipoDeTextBox
+    Dim TipoDeTxt As New SeleccionarPreguntaCrr
     Dim settings As New MsgBoxControlSettings
     Dim catalogo As New frmCatalogoFormulariosBD
 
@@ -178,7 +178,7 @@ Public Class frmCrearFormulario
     End Sub
 #End Region
 #Region "eventos para el Button"
-    Private Sub btnButton_MouseDown(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseDown
+    Private Sub btnButton_MouseDown(sender As Object, e As MouseEventArgs)
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             Dim _btn As New Button
@@ -194,7 +194,7 @@ Public Class frmCrearFormulario
         End If
     End Sub
 
-    Private Sub btnButton_MouseMove(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseMove
+    Private Sub btnButton_MouseMove(sender As Object, e As MouseEventArgs)
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             _instancia.Left = e.X + btnBoton.Left - ubicacion_mouse.X
@@ -203,7 +203,7 @@ Public Class frmCrearFormulario
     End Sub
 
     'PENDIENTE: Serializar los eventos del boton
-    Private Sub btnBoton_MouseUp(sender As Object, e As MouseEventArgs) Handles btnBoton.MouseUp
+    Private Sub btnBoton_MouseUp(sender As Object, e As MouseEventArgs)
         LimpiarControles(settings)
         MostrarChk(False)
         SettingsTXTvisibles(False)
@@ -213,7 +213,7 @@ Public Class frmCrearFormulario
     End Sub
 #End Region
 #Region "eventos para la ListBox"
-    Private Sub lbListbox_MouseDown(sender As Object, e As MouseEventArgs) Handles lbListBox.MouseDown
+    Private Sub lbListbox_MouseDown(sender As Object, e As MouseEventArgs)
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             Dim _lb As New ListBox
@@ -229,7 +229,7 @@ Public Class frmCrearFormulario
         End If
     End Sub
 
-    Private Sub lbListbox_MouseMove(sender As Object, e As MouseEventArgs) Handles lbListBox.MouseMove
+    Private Sub lbListbox_MouseMove(sender As Object, e As MouseEventArgs)
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             MostrarManito()
             _instancia.Left = e.X + lbListBox.Left - ubicacion_mouse.X
@@ -238,7 +238,7 @@ Public Class frmCrearFormulario
     End Sub
 
     'PENDIENTE: Serializar los eventos del boton
-    Private Sub lbListbox_MouseUp(sender As Object, e As MouseEventArgs) Handles lbListBox.MouseUp
+    Private Sub lbListbox_MouseUp(sender As Object, e As MouseEventArgs)
         LimpiarControles(settings)
         SettingsTXTvisibles(False)
         MostrarChk(False)

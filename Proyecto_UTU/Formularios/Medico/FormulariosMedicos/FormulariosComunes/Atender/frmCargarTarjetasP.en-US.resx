@@ -118,98 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+  <data name="btnRefrescar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AAAASUVORK5CYII=
+</value>
   </data>
-  <data name="cbItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>568, 37</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnRefrescar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;btnAgregar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnVerTratamientos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnAgregar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="btnVerTratamientos.Text" xml:space="preserve">
+    <value>View treatments</value>
   </data>
-  <data name="cbItems.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnVerAnalisis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;btnQuitar.Name" xml:space="preserve">
-    <value>btnQuitar</value>
+  <data name="btnVerAnalisis.Text" xml:space="preserve">
+    <value>View analysis</value>
   </data>
-  <data name="btnQuitar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 37</value>
+  <data name="btnVerConsultasPrevias.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="cbItems.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
+  <data name="btnVerConsultasPrevias.Text" xml:space="preserve">
+    <value>View previous visits</value>
   </data>
-  <data name="&gt;&gt;cbItems.Name" xml:space="preserve">
-    <value>cbItems</value>
+  <data name="btnAtender.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>586, 12</value>
+  <data name="btnAtender.Text" xml:space="preserve">
+    <value>Start interview</value>
   </data>
-  <data name="btnQuitar.Text" xml:space="preserve">
-    <value>QUITAR</value>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 52</value>
-  </data>
-  <data name="btnQuitar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>698, 12</value>
-  </data>
-  <data name="&gt;&gt;btnQuitar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbItems.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
-    <value>btnAgregar</value>
-  </data>
-  <data name="btnQuitar.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmAgregarItems</value>
-  </data>
-  <data name="&gt;&gt;cbItems.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnQuitar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnQuitar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 37</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbItems.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnAgregar.Text" xml:space="preserve">
-    <value>AGREGAR</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbItems.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Agregar items</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
 </root>

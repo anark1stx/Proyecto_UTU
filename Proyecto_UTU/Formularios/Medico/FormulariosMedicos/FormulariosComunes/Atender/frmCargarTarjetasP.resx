@@ -117,7 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>frmCargarTarjetasP</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tblTodo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;pnlTodo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1124, 513</value>
+  </data>
+  <data name="btnAtender.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="pnlTodo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tblTodo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnVerTratamientos.Name" xml:space="preserve">
+    <value>btnVerTratamientos</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnVerAnalisis.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnVerConsultasPrevias.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 52</value>
+  </data>
+  <data name="&gt;&gt;btnVerTratamientos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnAtender.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetasYRefrescar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnVerTratamientos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
+  <data name="tblTodo.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="btnRefrescar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -155,4 +208,325 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="&gt;&gt;btnVerConsultasPrevias.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblTarjetas.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlTodo.Name" xml:space="preserve">
+    <value>pnlTodo</value>
+  </data>
+  <data name="&gt;&gt;btnRefrescar.Parent" xml:space="preserve">
+    <value>tblTarjetasYRefrescar</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.Parent" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnVerConsultasPrevias.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnRefrescar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1071, 3</value>
+  </data>
+  <data name="tblAcciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1124, 197</value>
+  </data>
+  <data name="Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 513</value>
+  </data>
+  <data name="btnRefrescar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="&gt;&gt;btnAtender.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnVerTratamientos.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="&gt;&gt;btnRefrescar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tblTarjetas.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetasYRefrescar.Name" xml:space="preserve">
+    <value>tblTarjetasYRefrescar</value>
+  </data>
+  <data name="&gt;&gt;Panel2.Name" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="tblTarjetas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 45</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnVerTratamientos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnVerConsultasPrevias.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="tblTodo.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pnlTodo" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetasYRefrescar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnAtender.Text" xml:space="preserve">
+    <value>Atender</value>
+  </data>
+  <data name="btnRefrescar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tblTarjetas.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnVerAnalisis.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
+  <data name="tblTodo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tblAcciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 4</value>
+  </data>
+  <data name="tblTarjetas.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tblAcciones.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnVerTratamientos" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnVerAnalisis" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnVerConsultasPrevias" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAtender" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tblAcciones.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetasYRefrescar.Parent" xml:space="preserve">
+    <value>pnlTodo</value>
+  </data>
+  <data name="btnVerAnalisis.Text" xml:space="preserve">
+    <value>Ver análisis</value>
+  </data>
+  <data name="btnVerAnalisis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnRefrescar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="btnAtender.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.Name" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1124, 201</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tblAcciones.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnAtender.Name" xml:space="preserve">
+    <value>btnAtender</value>
+  </data>
+  <data name="btnAtender.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1118, 43</value>
+  </data>
+  <data name="btnVerConsultasPrevias.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
+  <data name="btnVerConsultasPrevias.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnAtender.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="btnRefrescar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 36</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetas.Parent" xml:space="preserve">
+    <value>tblTarjetasYRefrescar</value>
+  </data>
+  <data name="&gt;&gt;btnVerAnalisis.Name" xml:space="preserve">
+    <value>btnVerAnalisis</value>
+  </data>
+  <data name="&gt;&gt;btnVerConsultasPrevias.Name" xml:space="preserve">
+    <value>btnVerConsultasPrevias</value>
+  </data>
+  <data name="tblTarjetas.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnVerAnalisis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAtender.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;pnlTodo.Parent" xml:space="preserve">
+    <value>tblTodo</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnVerTratamientos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 150</value>
+  </data>
+  <data name="pnlTodo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1124, 714</value>
+  </data>
+  <data name="&gt;&gt;Panel2.Parent" xml:space="preserve">
+    <value>pnlTodo</value>
+  </data>
+  <data name="pnlTodo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnVerConsultasPrevias.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1118, 43</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetas.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlTodo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnVerTratamientos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tblTodo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnAtender.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
+  <data name="btnVerConsultasPrevias.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;btnVerConsultasPrevias.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmCargarTarjetasP</value>
+  </data>
+  <data name="btnVerTratamientos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1118, 44</value>
+  </data>
+  <data name="tblTarjetas.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tblTodo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnVerTratamientos.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pnlTodo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnVerAnalisis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1118, 43</value>
+  </data>
+  <data name="&gt;&gt;tblTodo.Name" xml:space="preserve">
+    <value>tblTodo</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetas.Name" xml:space="preserve">
+    <value>tblTarjetas</value>
+  </data>
+  <data name="tblTodo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblAcciones.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnVerConsultasPrevias.Text" xml:space="preserve">
+    <value>Ver consultas previas</value>
+  </data>
+  <data name="btnRefrescar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnVerAnalisis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 101</value>
+  </data>
+  <data name="&gt;&gt;btnVerAnalisis.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tblTarjetas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1118, 465</value>
+  </data>
+  <data name="&gt;&gt;tblAcciones.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tblTarjetas" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnRefrescar" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,8.382067,Percent,91.61794" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tblTodo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 720</value>
+  </data>
+  <data name="&gt;&gt;tblTarjetas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnVerTratamientos.Text" xml:space="preserve">
+    <value>Ver tratamientos</value>
+  </data>
+  <data name="btnVerAnalisis.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 720</value>
+  </data>
+  <data name="tblAcciones.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblTarjetasYRefrescar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;btnVerAnalisis.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnRefrescar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnVerTratamientos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="tblTarjetas.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tblTodo.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnRefrescar.Name" xml:space="preserve">
+    <value>btnRefrescar</value>
+  </data>
+  <data name="&gt;&gt;btnAtender.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

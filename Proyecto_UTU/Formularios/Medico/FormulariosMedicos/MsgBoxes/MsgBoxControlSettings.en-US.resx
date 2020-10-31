@@ -117,4 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 81</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 32</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Select font</value>
+  </data>
+  <data name="lblEscribaTexto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 253</value>
+  </data>
+  <data name="lblEscribaTexto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 32</value>
+  </data>
+  <data name="lblEscribaTexto.Text" xml:space="preserve">
+    <value>Input text</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 5</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 32</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Select font size</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 154</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 32</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Select colour</value>
+  </data>
+  <data name="chkSoyPregunta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 14</value>
+  </data>
+  <data name="chkSoyPregunta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>376, 29</value>
+  </data>
+  <data name="chkSoyPregunta.Text" xml:space="preserve">
+    <value>Consider this as a medical question</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Customize control</value>
+  </data>
 </root>

@@ -117,30 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pBoxBorrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAABBNJREFUeF7t
-        nbtPFFEUhycqRi3UhsZEO43aKIKKcYXlVVlZ+woIWBAeNtb8A8ZYGY3agLG00UTpbPwbtLUiihDlkbjA
-        HM8Z7jXL7mGZxwXPzD2/5AvGgTP3dz9mh1kKAo1Go9FoNBqNRqPRaDSaZIFScAc6gmeZwBlmnCZL4Fow
-        hIQIZIRmjJqxmjTBDXQlw6JS0gY3zrUMi39SYKTnFIyV78JY13Aqbp6ZghvHQgR2iBBunX7DnjsW1K3j
-        pKkrNzDc2oSLfYGECBScEEa7nlNnU19eYLz8mFl4wel8ZOrLCkyUj+Li/vCLLjLYebj3iNkGOYGJziv8
-        gj1gtNxutkFO8Aops4v1AexutkFOVIiwqBBhwZ+wSri4+RoWWEY7lmGkBKKhNXJr32BzT+xutkFu8Gm4
-        uerpuGg0m5r5CS26pkSRUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHC
-        8FhI3yH+/9PgbpafQsIHfVCZ/Qbh0EX2eBLCgZZo1vrD6+zxhPgnJJKx9BsqlQpUFn5kkhLJmJvdmLW8
-        5EKKX0I2ybCklLJJhiW7FH+EsDIsCaWwMizZpPghpKEMS0wpDWVY0kspvpCw/9z2Mizz3yEcbGXnEOFg
-        W/Q57NfWguekc3NzGuDBFdK5B9beveQ3jWOLKyXWlVHF2sdpPPfeujnb4Mk9JKOUXZJB+HNTTytlF2UQ
-        Hgkhkkr5NY9i5vhjDBllEJ4JIZJKiYkDGYSHQgjHUhzJIDwVQjiS4lAG4bEQIqMUxzIIz4UQKaXsgAxC
-        hRDhwAWoLC+yG8+ysgzh/XZ2VkZUSNh/PtFzxj/oOWX4EjszA34LSS3D4l6Kv0Iyy7C4leKnEGcyLO6k
-        +CfEuQyLGyl+CUkqY23mNf5I/Io9xpJdij9CEsuwzxlJn1OySfFDSGoZdsbuSSm+kPD22fi/dkXoJYoE
-        1M2KpCR4+aJfB+O56+Y0xoMrpHs/rH56y29aDdu+HZLgSln9/B6g9yA/Z2s8uYfEkBL7vakYUlLKIPy5
-        qTeSkviNwgZSMsggPBJCMFISy7AwUiIZPQf4z4+HZ0KIKimpZViqpDiQQXgohMCNW38yHm0oezwJOCOa
-        lV0G4akQuagQYagQYagQYagQYagQYagQYagQYagQYeRQyOXgMFOkGGA3UzNfwcUv1ZXJP4umXv4CpWCG
-        KZR3Pph6+Qt0BPeYQvmmFAyYevkLtAZNWOJrXan88gXKwT5TL5/Bq6QFixThXrICV4M2UyvfQSndWOhn
-        TcE8MQedQZepU4zga+8JLDaNrFUVlQ6tdQq/oY6bGsULFmw2f457Ev/9FD/yf277f7GxpslojXl8ANRo
-        NBqNRqPRaDQajUbjLEHwF5LktNgycHcfAAAAAElFTkSuQmCC
-</value>
+  <data name="&gt;&gt;btnLimpiar.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Formulario Personalizado</value>
+  </data>
+  <data name="&gt;&gt;cbCombobox.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="&gt;&gt;lblLabel.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="&gt;&gt;lblLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAbrir.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAABW5JREFUaEPt
@@ -170,6 +162,223 @@
         Hv8BzEQyVD6KxnwAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="chkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 97</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cbCombobox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnGuardar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="chkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtTextBox.Text" xml:space="preserve">
+    <value>Caja de texto</value>
+  </data>
+  <data name="btnGuardar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 64</value>
+  </data>
+  <data name="&gt;&gt;lblLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 28</value>
+  </data>
+  <data name="&gt;&gt;btnAbrir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.Name" xml:space="preserve">
+    <value>btnGuardar</value>
+  </data>
+  <data name="btnLimpiar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 647</value>
+  </data>
+  <data name="&gt;&gt;pnlFormularioPersonalizado.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbCombobox.Name" xml:space="preserve">
+    <value>cbCombobox</value>
+  </data>
+  <data name="btnAbrir.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="pnlControles.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="pBoxBorrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAABBNJREFUeF7t
+        nbtPFFEUhycqRi3UhsZEO43aKIKKcYXlVVlZ+woIWBAeNtb8A8ZYGY3agLG00UTpbPwbtLUiihDlkbjA
+        HM8Z7jXL7mGZxwXPzD2/5AvGgTP3dz9mh1kKAo1Go9FoNBqNRqPRaDSaZIFScAc6gmeZwBlmnCZL4Fow
+        hIQIZIRmjJqxmjTBDXQlw6JS0gY3zrUMi39SYKTnFIyV78JY13Aqbp6ZghvHQgR2iBBunX7DnjsW1K3j
+        pKkrNzDc2oSLfYGECBScEEa7nlNnU19eYLz8mFl4wel8ZOrLCkyUj+Li/vCLLjLYebj3iNkGOYGJziv8
+        gj1gtNxutkFO8Aops4v1AexutkFOVIiwqBBhwZ+wSri4+RoWWEY7lmGkBKKhNXJr32BzT+xutkFu8Gm4
+        uerpuGg0m5r5CS26pkSRUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHCUCHC
+        8FhI3yH+/9PgbpafQsIHfVCZ/Qbh0EX2eBLCgZZo1vrD6+zxhPgnJJKx9BsqlQpUFn5kkhLJmJvdmLW8
+        5EKKX0I2ybCklLJJhiW7FH+EsDIsCaWwMizZpPghpKEMS0wpDWVY0kspvpCw/9z2Mizz3yEcbGXnEOFg
+        W/Q57NfWguekc3NzGuDBFdK5B9beveQ3jWOLKyXWlVHF2sdpPPfeujnb4Mk9JKOUXZJB+HNTTytlF2UQ
+        Hgkhkkr5NY9i5vhjDBllEJ4JIZJKiYkDGYSHQgjHUhzJIDwVQjiS4lAG4bEQIqMUxzIIz4UQKaXsgAxC
+        hRDhwAWoLC+yG8+ysgzh/XZ2VkZUSNh/PtFzxj/oOWX4EjszA34LSS3D4l6Kv0Iyy7C4leKnEGcyLO6k
+        +CfEuQyLGyl+CUkqY23mNf5I/Io9xpJdij9CEsuwzxlJn1OySfFDSGoZdsbuSSm+kPD22fi/dkXoJYoE
+        1M2KpCR4+aJfB+O56+Y0xoMrpHs/rH56y29aDdu+HZLgSln9/B6g9yA/Z2s8uYfEkBL7vakYUlLKIPy5
+        qTeSkviNwgZSMsggPBJCMFISy7AwUiIZPQf4z4+HZ0KIKimpZViqpDiQQXgohMCNW38yHm0oezwJOCOa
+        lV0G4akQuagQYagQYagQYagQYagQYagQYagQYagQYeRQyOXgMFOkGGA3UzNfwcUv1ZXJP4umXv4CpWCG
+        KZR3Pph6+Qt0BPeYQvmmFAyYevkLtAZNWOJrXan88gXKwT5TL5/Bq6QFixThXrICV4M2UyvfQSndWOhn
+        TcE8MQedQZepU4zga+8JLDaNrFUVlQ6tdQq/oY6bGsULFmw2f457Ev/9FD/yf277f7GxpslojXl8ANRo
+        NBqNRqPRaDQajUbjLEHwF5LktNgycHcfAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="cbCombobox.Text" xml:space="preserve">
+    <value>Combobox</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="&gt;&gt;pBoxBorrar.Name" xml:space="preserve">
+    <value>pBoxBorrar</value>
+  </data>
+  <data name="chkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnGuardar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="pnlFormularioPersonalizado.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 12</value>
+  </data>
+  <data name="&gt;&gt;cbCombobox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pnlFormularioPersonalizado.Size" type="System.Drawing.Size, System.Drawing">
+    <value>966, 835</value>
+  </data>
+  <data name="lblLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnLimpiar.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="lblLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 57</value>
+  </data>
+  <data name="pnlFormularioPersonalizado.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnLimpiar.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 29</value>
+  </data>
+  <data name="lblLabel.Text" xml:space="preserve">
+    <value>Titulo</value>
+  </data>
+  <data name="lblLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="btnSalir.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnAbrir.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnLimpiar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 29</value>
+  </data>
+  <data name="pBoxBorrar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="pBoxBorrar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 538</value>
+  </data>
+  <data name="&gt;&gt;pBoxBorrar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlControles.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnSalir.Text" xml:space="preserve">
+    <value>SALIR</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cbCombobox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 141</value>
+  </data>
+  <data name="lblLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 24</value>
+  </data>
+  <data name="&gt;&gt;chkBox.Name" xml:space="preserve">
+    <value>chkBox</value>
+  </data>
+  <data name="pBoxBorrar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnLimpiar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbCombobox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 24</value>
+  </data>
+  <data name="&gt;&gt;pnlFormularioPersonalizado.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlControles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbCombobox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlFormularioPersonalizado.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblLabel.Name" xml:space="preserve">
+    <value>lblLabel</value>
+  </data>
+  <data name="btnAbrir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 705</value>
+  </data>
+  <data name="txtTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;txtTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlControles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;txtTextBox.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="pnlControles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
   <data name="btnGuardar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAABBZJREFUaEPt
@@ -193,4 +402,112 @@
         ZwjhDwVzZ22sdtppp52WSkfHX73kPZbCPkbXAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnGuardar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;txtTextBox.Name" xml:space="preserve">
+    <value>txtTextBox</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlControles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmCrearFormulario</value>
+  </data>
+  <data name="pBoxBorrar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 109</value>
+  </data>
+  <data name="&gt;&gt;pnlFormularioPersonalizado.Name" xml:space="preserve">
+    <value>pnlFormularioPersonalizado</value>
+  </data>
+  <data name="btnLimpiar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="pnlControles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 835</value>
+  </data>
+  <data name="&gt;&gt;pBoxBorrar.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="&gt;&gt;pnlControles.Name" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="&gt;&gt;btnAbrir.Name" xml:space="preserve">
+    <value>btnAbrir</value>
+  </data>
+  <data name="pBoxBorrar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnGuardar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 769</value>
+  </data>
+  <data name="&gt;&gt;btnLimpiar.Name" xml:space="preserve">
+    <value>btnLimpiar</value>
+  </data>
+  <data name="&gt;&gt;btnAbrir.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="chkBox.Text" xml:space="preserve">
+    <value>Check Box</value>
+  </data>
+  <data name="txtTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 14</value>
+  </data>
+  <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 676</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
+    <value>btnSalir</value>
+  </data>
+  <data name="txtTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 28</value>
+  </data>
+  <data name="btnAbrir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 64</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1156, 859</value>
+  </data>
+  <data name="&gt;&gt;chkBox.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <data name="&gt;&gt;chkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnLimpiar.Text" xml:space="preserve">
+    <value>LIMPIAR</value>
+  </data>
+  <data name="&gt;&gt;pBoxBorrar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAbrir.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pnlFormularioPersonalizado.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnAbrir.Parent" xml:space="preserve">
+    <value>pnlControles</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

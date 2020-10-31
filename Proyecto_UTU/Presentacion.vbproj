@@ -211,10 +211,10 @@
     <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.Designer.vb">
-      <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.Designer.vb">
+      <DependentUpon>SeleccionarPreguntaCrr.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.vb">
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
@@ -340,14 +340,26 @@
     <EmbeddedResource Include="Formularios\Medico\FormularioEntrevista.resx">
       <DependentUpon>FormularioEntrevista.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.en-US.resx">
+      <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.resx">
       <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.en-US.resx">
+      <DependentUpon>frmDefinirConsulta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.resx">
       <DependentUpon>frmDefinirConsulta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.resx">
       <DependentUpon>frmLogSugerencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.en-US.resx">
+      <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.en-US.resx">
+      <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
       <DependentUpon>TarjetaPaciente.vb</DependentUpon>
@@ -358,6 +370,9 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.resx">
       <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.en-US.resx">
+      <DependentUpon>frmAgregarItems.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">
       <DependentUpon>frmAgregarItems.vb</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +381,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.en-US.resx">
+      <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.en-US.resx">
+      <DependentUpon>SeleccionarPreguntaCrr.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.resx">
       <DependentUpon>formularioPlano.vb</DependentUpon>
@@ -385,8 +406,14 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.resx">
       <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.en-US.resx">
+      <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.resx">
       <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.en-US.resx">
+      <DependentUpon>frmCrearFormulario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.resx">
       <DependentUpon>frmCrearFormulario.vb</DependentUpon>
@@ -394,8 +421,11 @@
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.resx">
       <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxTipoDeTextBox.resx">
-      <DependentUpon>MsgBoxTipoDeTextBox.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.resx">
+      <DependentUpon>SeleccionarPreguntaCrr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.en-US.resx">
+      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
       <DependentUpon>frmPedirNombreForm.vb</DependentUpon>

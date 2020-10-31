@@ -30,48 +30,31 @@ Partial Class frmPedirNombreForm
         '
         'lblNomForm
         '
-        Me.lblNomForm.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.lblNomForm.AutoSize = True
-        Me.lblNomForm.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomForm.Location = New System.Drawing.Point(99, 9)
+        resources.ApplyResources(Me.lblNomForm, "lblNomForm")
         Me.lblNomForm.Name = "lblNomForm"
-        Me.lblNomForm.Size = New System.Drawing.Size(560, 25)
-        Me.lblNomForm.TabIndex = 0
-        Me.lblNomForm.Text = "Ingrese el nombre con el que desea guardar el formulario"
         '
         'txtNombreForm
         '
-        Me.txtNombreForm.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombreForm.Location = New System.Drawing.Point(100, 50)
+        resources.ApplyResources(Me.txtNombreForm, "txtNombreForm")
         Me.txtNombreForm.Name = "txtNombreForm"
-        Me.txtNombreForm.Size = New System.Drawing.Size(499, 30)
-        Me.txtNombreForm.TabIndex = 1
         '
         'btnOK
         '
+        resources.ApplyResources(Me.btnOK, "btnOK")
         Me.btnOK.BackColor = System.Drawing.Color.Yellow
-        Me.btnOK.BackgroundImage = CType(resources.GetObject("btnOK.BackgroundImage"), System.Drawing.Image)
-        Me.btnOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOK.Location = New System.Drawing.Point(605, 50)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(46, 30)
-        Me.btnOK.TabIndex = 2
         Me.btnOK.UseVisualStyleBackColor = False
         '
         'frmPedirNombreForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.PaleGreen
-        Me.ClientSize = New System.Drawing.Size(794, 95)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.txtNombreForm)
         Me.Controls.Add(Me.lblNomForm)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPedirNombreForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "frmPedirNombreForm"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

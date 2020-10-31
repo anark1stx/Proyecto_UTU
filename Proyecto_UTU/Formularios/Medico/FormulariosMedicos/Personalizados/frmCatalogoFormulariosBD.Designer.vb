@@ -24,73 +24,43 @@ Partial Class frmCatalogoFormulariosBD
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCatalogoFormulariosBD))
         Me.txtBuscar = New System.Windows.Forms.TextBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.tblFormularios = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtBuscar
         '
-        Me.txtBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscar.Location = New System.Drawing.Point(726, 8)
+        resources.ApplyResources(Me.txtBuscar, "txtBuscar")
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.Size = New System.Drawing.Size(321, 34)
-        Me.txtBuscar.TabIndex = 1
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscar.BackgroundImage = CType(resources.GetObject("btnBuscar.BackgroundImage"), System.Drawing.Image)
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnBuscar.Location = New System.Drawing.Point(1053, 8)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(37, 34)
-        Me.btnBuscar.TabIndex = 2
-        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'tblFormularios
         '
-        Me.tblFormularios.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblFormularios.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.tblFormularios.ColumnCount = 3
-        Me.tblFormularios.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.tblFormularios.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.tblFormularios.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.tblFormularios.Location = New System.Drawing.Point(12, 49)
+        resources.ApplyResources(Me.tblFormularios, "tblFormularios")
         Me.tblFormularios.Name = "tblFormularios"
-        Me.tblFormularios.RowCount = 2
-        Me.tblFormularios.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblFormularios.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblFormularios.Size = New System.Drawing.Size(1078, 719)
-        Me.tblFormularios.TabIndex = 3
         '
         'btnAceptar
         '
+        resources.ApplyResources(Me.btnAceptar, "btnAceptar")
         Me.btnAceptar.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnAceptar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAceptar.Location = New System.Drawing.Point(0, 774)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(1102, 48)
-        Me.btnAceptar.TabIndex = 4
-        Me.btnAceptar.Text = "CONFIRMAR"
         Me.btnAceptar.UseVisualStyleBackColor = False
+        '
+        'btnBuscar
+        '
+        resources.ApplyResources(Me.btnBuscar, "btnBuscar")
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'frmCatalogoFormulariosBD
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1102, 822)
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.tblFormularios)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtBuscar)
         Me.Name = "frmCatalogoFormulariosBD"
-        Me.Text = "frmCatalogoFormulariosBD"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

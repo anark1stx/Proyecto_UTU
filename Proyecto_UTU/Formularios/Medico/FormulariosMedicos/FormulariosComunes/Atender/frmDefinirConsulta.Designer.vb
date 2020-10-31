@@ -53,40 +53,22 @@ Partial Class frmDefinirConsulta
         '
         'tblDatosMedico
         '
-        Me.tblDatosMedico.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblDatosMedico.AutoSize = True
+        resources.ApplyResources(Me.tblDatosMedico, "tblDatosMedico")
         Me.tblDatosMedico.BackColor = System.Drawing.Color.LightBlue
-        Me.tblDatosMedico.ColumnCount = 2
-        Me.tblDatosMedico.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblDatosMedico.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tblDatosMedico.Controls.Add(Me.pBoxFotoMedico, 0, 0)
         Me.tblDatosMedico.Controls.Add(Me.tabDatos, 1, 0)
-        Me.tblDatosMedico.Location = New System.Drawing.Point(0, 0)
         Me.tblDatosMedico.Name = "tblDatosMedico"
-        Me.tblDatosMedico.RowCount = 1
-        Me.tblDatosMedico.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblDatosMedico.Size = New System.Drawing.Size(1195, 544)
-        Me.tblDatosMedico.TabIndex = 1
         '
         'pBoxFotoMedico
         '
-        Me.pBoxFotoMedico.BackgroundImage = CType(resources.GetObject("pBoxFotoMedico.BackgroundImage"), System.Drawing.Image)
-        Me.pBoxFotoMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        resources.ApplyResources(Me.pBoxFotoMedico, "pBoxFotoMedico")
         Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoMedico.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBoxFotoMedico.Location = New System.Drawing.Point(3, 3)
         Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
-        Me.pBoxFotoMedico.Size = New System.Drawing.Size(591, 538)
-        Me.pBoxFotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pBoxFotoMedico.TabIndex = 101
         Me.pBoxFotoMedico.TabStop = False
         '
         'tabDatos
         '
-        Me.tabDatos.ColumnCount = 2
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.86486!))
-        Me.tabDatos.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.13514!))
+        resources.ApplyResources(Me.tabDatos, "tabDatos")
         Me.tabDatos.Controls.Add(Me.lblNombres, 0, 1)
         Me.tabDatos.Controls.Add(Me.lblNombresTXT, 1, 1)
         Me.tabDatos.Controls.Add(Me.lblApellido, 0, 2)
@@ -95,229 +77,114 @@ Partial Class frmDefinirConsulta
         Me.tabDatos.Controls.Add(Me.lblEspecialidadTXT, 1, 3)
         Me.tabDatos.Controls.Add(Me.Panel1, 1, 0)
         Me.tabDatos.Controls.Add(Me.lblCedula, 0, 0)
-        Me.tabDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tabDatos.Location = New System.Drawing.Point(600, 3)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.RowCount = 4
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tabDatos.Size = New System.Drawing.Size(592, 538)
-        Me.tabDatos.TabIndex = 103
         '
         'lblNombres
         '
-        Me.lblNombres.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNombres.AutoSize = True
-        Me.lblNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombres.Location = New System.Drawing.Point(70, 188)
+        resources.ApplyResources(Me.lblNombres, "lblNombres")
         Me.lblNombres.Name = "lblNombres"
-        Me.lblNombres.Size = New System.Drawing.Size(94, 25)
-        Me.lblNombres.TabIndex = 80
-        Me.lblNombres.Text = "Nombre:"
         '
         'lblNombresTXT
         '
-        Me.lblNombresTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNombresTXT.AutoSize = True
-        Me.lblNombresTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombresTXT.Location = New System.Drawing.Point(294, 188)
+        resources.ApplyResources(Me.lblNombresTXT, "lblNombresTXT")
         Me.lblNombresTXT.Name = "lblNombresTXT"
-        Me.lblNombresTXT.Size = New System.Drawing.Size(238, 25)
-        Me.lblNombresTXT.TabIndex = 78
-        Me.lblNombresTXT.Text = "NOMBRE 1 NOMBRE 2"
         '
         'lblApellido
         '
-        Me.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblApellido.AutoSize = True
-        Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(69, 322)
+        resources.ApplyResources(Me.lblApellido, "lblApellido")
         Me.lblApellido.Name = "lblApellido"
-        Me.lblApellido.Size = New System.Drawing.Size(97, 25)
-        Me.lblApellido.TabIndex = 81
-        Me.lblApellido.Text = "Apellido:"
         '
         'lblApellidosTXT
         '
-        Me.lblApellidosTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblApellidosTXT.AutoSize = True
-        Me.lblApellidosTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosTXT.Location = New System.Drawing.Point(281, 322)
+        resources.ApplyResources(Me.lblApellidosTXT, "lblApellidosTXT")
         Me.lblApellidosTXT.Name = "lblApellidosTXT"
-        Me.lblApellidosTXT.Size = New System.Drawing.Size(264, 25)
-        Me.lblApellidosTXT.TabIndex = 79
-        Me.lblApellidosTXT.Text = "APELLIDO 1 APELLIDO 2"
         '
         'Label1
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(46, 457)
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(142, 25)
-        Me.Label1.TabIndex = 102
-        Me.Label1.Text = "Especialidad:"
         '
         'lblEspecialidadTXT
         '
-        Me.lblEspecialidadTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblEspecialidadTXT.AutoSize = True
-        Me.lblEspecialidadTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEspecialidadTXT.Location = New System.Drawing.Point(346, 457)
+        resources.ApplyResources(Me.lblEspecialidadTXT, "lblEspecialidadTXT")
         Me.lblEspecialidadTXT.Name = "lblEspecialidadTXT"
-        Me.lblEspecialidadTXT.Size = New System.Drawing.Size(135, 25)
-        Me.lblEspecialidadTXT.TabIndex = 101
-        Me.lblEspecialidadTXT.Text = "Especialidad"
         '
         'Panel1
         '
+        resources.ApplyResources(Me.Panel1, "Panel1")
         Me.Panel1.Controls.Add(Me.btnBuscarMedico)
         Me.Panel1.Controls.Add(Me.txtCIMedico)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(238, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(351, 128)
-        Me.Panel1.TabIndex = 103
         '
         'btnBuscarMedico
         '
-        Me.btnBuscarMedico.BackgroundImage = CType(resources.GetObject("btnBuscarMedico.BackgroundImage"), System.Drawing.Image)
-        Me.btnBuscarMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnBuscarMedico.Location = New System.Drawing.Point(305, 48)
+        resources.ApplyResources(Me.btnBuscarMedico, "btnBuscarMedico")
         Me.btnBuscarMedico.Name = "btnBuscarMedico"
-        Me.btnBuscarMedico.Size = New System.Drawing.Size(43, 30)
-        Me.btnBuscarMedico.TabIndex = 105
         Me.btnBuscarMedico.UseVisualStyleBackColor = True
         '
         'txtCIMedico
         '
-        Me.txtCIMedico.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtCIMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCIMedico.Location = New System.Drawing.Point(21, 48)
-        Me.txtCIMedico.MaxLength = 8
+        resources.ApplyResources(Me.txtCIMedico, "txtCIMedico")
         Me.txtCIMedico.Name = "txtCIMedico"
-        Me.txtCIMedico.Size = New System.Drawing.Size(281, 30)
-        Me.txtCIMedico.TabIndex = 104
-        Me.txtCIMedico.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblCedula
         '
-        Me.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblCedula.AutoSize = True
-        Me.lblCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCedula.Location = New System.Drawing.Point(18, 54)
+        resources.ApplyResources(Me.lblCedula, "lblCedula")
         Me.lblCedula.Name = "lblCedula"
-        Me.lblCedula.Size = New System.Drawing.Size(198, 25)
-        Me.lblCedula.TabIndex = 82
-        Me.lblCedula.Text = "Cédula del médico:"
         '
         'btnConfirmar
         '
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.btnConfirmar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnConfirmar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirmar.Location = New System.Drawing.Point(0, 640)
         Me.btnConfirmar.Name = "btnConfirmar"
-        Me.btnConfirmar.Size = New System.Drawing.Size(1198, 81)
-        Me.btnConfirmar.TabIndex = 4
-        Me.btnConfirmar.Text = "CONFIRMAR"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'tblNomRef
         '
-        Me.tblNomRef.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblNomRef.ColumnCount = 2
-        Me.tblNomRef.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.80392!))
-        Me.tblNomRef.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.19608!))
+        resources.ApplyResources(Me.tblNomRef, "tblNomRef")
         Me.tblNomRef.Controls.Add(Me.lblNomReferencia, 0, 0)
         Me.tblNomRef.Controls.Add(Me.txtNomConsulta, 1, 0)
-        Me.tblNomRef.Location = New System.Drawing.Point(3, 550)
         Me.tblNomRef.Name = "tblNomRef"
-        Me.tblNomRef.RowCount = 1
-        Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblNomRef.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
-        Me.tblNomRef.Size = New System.Drawing.Size(1195, 39)
-        Me.tblNomRef.TabIndex = 5
         '
         'lblNomReferencia
         '
-        Me.lblNomReferencia.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblNomReferencia.AutoSize = True
-        Me.lblNomReferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomReferencia.Location = New System.Drawing.Point(52, 7)
+        resources.ApplyResources(Me.lblNomReferencia, "lblNomReferencia")
         Me.lblNomReferencia.Name = "lblNomReferencia"
-        Me.lblNomReferencia.Size = New System.Drawing.Size(490, 25)
-        Me.lblNomReferencia.TabIndex = 2
-        Me.lblNomReferencia.Text = "Ingrese un nombre de referencia para la consulta:"
         '
         'txtNomConsulta
         '
-        Me.txtNomConsulta.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtNomConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomConsulta.Location = New System.Drawing.Point(598, 3)
+        resources.ApplyResources(Me.txtNomConsulta, "txtNomConsulta")
         Me.txtNomConsulta.Name = "txtNomConsulta"
-        Me.txtNomConsulta.Size = New System.Drawing.Size(594, 30)
-        Me.txtNomConsulta.TabIndex = 3
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.80392!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.19608!))
+        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
         Me.TableLayoutPanel1.Controls.Add(Me.lblHoraConsulta, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.dtpHoraConsulta, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 595)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1195, 39)
-        Me.TableLayoutPanel1.TabIndex = 6
         '
         'lblHoraConsulta
         '
-        Me.lblHoraConsulta.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblHoraConsulta.AutoSize = True
-        Me.lblHoraConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHoraConsulta.Location = New System.Drawing.Point(195, 7)
+        resources.ApplyResources(Me.lblHoraConsulta, "lblHoraConsulta")
         Me.lblHoraConsulta.Name = "lblHoraConsulta"
-        Me.lblHoraConsulta.Size = New System.Drawing.Size(205, 25)
-        Me.lblHoraConsulta.TabIndex = 2
-        Me.lblHoraConsulta.Text = "Hora de la consulta:"
-        Me.lblHoraConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'dtpHoraConsulta
         '
-        Me.dtpHoraConsulta.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dtpHoraConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.dtpHoraConsulta, "dtpHoraConsulta")
         Me.dtpHoraConsulta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpHoraConsulta.Location = New System.Drawing.Point(598, 3)
         Me.dtpHoraConsulta.Name = "dtpHoraConsulta"
         Me.dtpHoraConsulta.ShowUpDown = True
-        Me.dtpHoraConsulta.Size = New System.Drawing.Size(594, 34)
-        Me.dtpHoraConsulta.TabIndex = 3
         '
         'frmDefinirConsulta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(1198, 721)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.tblNomRef)
         Me.Controls.Add(Me.btnConfirmar)
         Me.Controls.Add(Me.tblDatosMedico)
         Me.Name = "frmDefinirConsulta"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Definir parámetros de consulta médica"
         Me.tblDatosMedico.ResumeLayout(False)
         CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
