@@ -177,19 +177,17 @@ Public Class E_Usuario
                 Return 0
             End If
         End If
-
-        If Not check_Correo(Me.Correo) Then
-            Me.ErrCode = "Correo: " & MensajeDeErrorCorreo()
+        If Not check_direccion(New List(Of String)(New String() {Direccion_Calle, Direccion_Numero.ToString()})) Then
+            Me.ErrCode = "Dirección: " & MensajeDeErrorDireccion()
             Return 0
         End If
-
         If Not check_Telefonos(Me.TelefonosLista()) Then
             Me.ErrCode = "Teléfonos: " & MensajeDeErrorTelefonos()
             Return 0
         End If
 
-        If Not check_direccion(New List(Of String)(New String() {Direccion_Calle, Direccion_Numero.ToString()})) Then
-            Me.ErrCode = "Dirección: " & MensajeDeErrorDireccion()
+        If Not check_Correo(Me.Correo) Then
+            Me.ErrCode = "Correo: " & MensajeDeErrorCorreo()
             Return 0
         End If
 

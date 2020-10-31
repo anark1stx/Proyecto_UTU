@@ -28,6 +28,7 @@ Partial Class frmGestion
         Me.Accion2 = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlDatosUsuario = New System.Windows.Forms.Panel()
         Me.pnlAcciones = New System.Windows.Forms.Panel()
+        Me.btnAltaLogica = New System.Windows.Forms.Button()
         Me.btnAccion2 = New System.Windows.Forms.Button()
         Me.btnAccion1 = New System.Windows.Forms.Button()
         Me.pnlDspCedula = New System.Windows.Forms.Panel()
@@ -38,6 +39,8 @@ Partial Class frmGestion
         Me.lblContrasenaTXT = New System.Windows.Forms.TextBox()
         Me.lblContrasena = New System.Windows.Forms.Label()
         Me.pnlEspecialidadesBtns = New System.Windows.Forms.Panel()
+        Me.btnBorrarEspecialidad = New System.Windows.Forms.Button()
+        Me.btnAgregarEspecialidad = New System.Windows.Forms.Button()
         Me.lblOcupacionTXT = New System.Windows.Forms.TextBox()
         Me.lblCorreoTXT = New System.Windows.Forms.TextBox()
         Me.lblDireccionTXT = New System.Windows.Forms.TextBox()
@@ -49,6 +52,8 @@ Partial Class frmGestion
         Me.cbSexo = New System.Windows.Forms.ComboBox()
         Me.dtpFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.pnlBotonesTel = New System.Windows.Forms.Panel()
+        Me.btnSacarTelefono = New System.Windows.Forms.Button()
+        Me.btnAgregarTelefono = New System.Windows.Forms.Button()
         Me.cbEspecialidades = New System.Windows.Forms.ComboBox()
         Me.lblEspecialidades = New System.Windows.Forms.Label()
         Me.lblEstadoCivil = New System.Windows.Forms.Label()
@@ -56,6 +61,7 @@ Partial Class frmGestion
         Me.lblSexo = New System.Windows.Forms.Label()
         Me.lblFnac = New System.Windows.Forms.Label()
         Me.cbTelefonos = New System.Windows.Forms.ComboBox()
+        Me.pBoxFotoUsuario = New System.Windows.Forms.PictureBox()
         Me.lblNombre1 = New System.Windows.Forms.Label()
         Me.lblApellido1 = New System.Windows.Forms.Label()
         Me.lblTelefono = New System.Windows.Forms.Label()
@@ -70,24 +76,18 @@ Partial Class frmGestion
         Me.rBtnEspecialidad = New System.Windows.Forms.RadioButton()
         Me.rBtnApellido = New System.Windows.Forms.RadioButton()
         Me.rBtnCedula = New System.Windows.Forms.RadioButton()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.dgwUsuarios = New System.Windows.Forms.DataGridView()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.btnAltaLogica = New System.Windows.Forms.Button()
-        Me.btnBorrarEspecialidad = New System.Windows.Forms.Button()
-        Me.btnAgregarEspecialidad = New System.Windows.Forms.Button()
-        Me.btnSacarTelefono = New System.Windows.Forms.Button()
-        Me.btnAgregarTelefono = New System.Windows.Forms.Button()
-        Me.pBoxFotoUsuario = New System.Windows.Forms.PictureBox()
         Me.pnlDatosUsuario.SuspendLayout()
         Me.pnlAcciones.SuspendLayout()
         Me.pnlDspCedula.SuspendLayout()
         Me.pnlEspecialidadesBtns.SuspendLayout()
         Me.pnlBotonesTel.SuspendLayout()
+        CType(Me.pBoxFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedorBusqueda.SuspendLayout()
         Me.pnlBusqueda.SuspendLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pBoxFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Accion1
@@ -121,6 +121,12 @@ Partial Class frmGestion
         Me.pnlAcciones.Controls.Add(Me.btnAccion2)
         Me.pnlAcciones.Controls.Add(Me.btnAccion1)
         Me.pnlAcciones.Name = "pnlAcciones"
+        '
+        'btnAltaLogica
+        '
+        resources.ApplyResources(Me.btnAltaLogica, "btnAltaLogica")
+        Me.btnAltaLogica.Name = "btnAltaLogica"
+        Me.btnAltaLogica.UseVisualStyleBackColor = True
         '
         'btnAccion2
         '
@@ -220,6 +226,18 @@ Partial Class frmGestion
         Me.pnlEspecialidadesBtns.Controls.Add(Me.btnAgregarEspecialidad)
         Me.pnlEspecialidadesBtns.Name = "pnlEspecialidadesBtns"
         '
+        'btnBorrarEspecialidad
+        '
+        resources.ApplyResources(Me.btnBorrarEspecialidad, "btnBorrarEspecialidad")
+        Me.btnBorrarEspecialidad.Name = "btnBorrarEspecialidad"
+        Me.btnBorrarEspecialidad.UseVisualStyleBackColor = True
+        '
+        'btnAgregarEspecialidad
+        '
+        resources.ApplyResources(Me.btnAgregarEspecialidad, "btnAgregarEspecialidad")
+        Me.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad"
+        Me.btnAgregarEspecialidad.UseVisualStyleBackColor = True
+        '
         'lblOcupacionTXT
         '
         resources.ApplyResources(Me.lblOcupacionTXT, "lblOcupacionTXT")
@@ -307,6 +325,18 @@ Partial Class frmGestion
         Me.pnlBotonesTel.Controls.Add(Me.btnAgregarTelefono)
         Me.pnlBotonesTel.Name = "pnlBotonesTel"
         '
+        'btnSacarTelefono
+        '
+        resources.ApplyResources(Me.btnSacarTelefono, "btnSacarTelefono")
+        Me.btnSacarTelefono.Name = "btnSacarTelefono"
+        Me.btnSacarTelefono.UseVisualStyleBackColor = True
+        '
+        'btnAgregarTelefono
+        '
+        resources.ApplyResources(Me.btnAgregarTelefono, "btnAgregarTelefono")
+        Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
+        Me.btnAgregarTelefono.UseVisualStyleBackColor = True
+        '
         'cbEspecialidades
         '
         resources.ApplyResources(Me.cbEspecialidades, "cbEspecialidades")
@@ -345,6 +375,13 @@ Partial Class frmGestion
         Me.cbTelefonos.FormattingEnabled = True
         Me.cbTelefonos.Name = "cbTelefonos"
         Me.cbTelefonos.Tag = "datos"
+        '
+        'pBoxFotoUsuario
+        '
+        resources.ApplyResources(Me.pBoxFotoUsuario, "pBoxFotoUsuario")
+        Me.pBoxFotoUsuario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoUsuario.Name = "pBoxFotoUsuario"
+        Me.pBoxFotoUsuario.TabStop = False
         '
         'lblNombre1
         '
@@ -434,6 +471,12 @@ Partial Class frmGestion
         Me.rBtnCedula.Tag = "Cedula"
         Me.rBtnCedula.UseVisualStyleBackColor = True
         '
+        'btnBuscar
+        '
+        resources.ApplyResources(Me.btnBuscar, "btnBuscar")
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'txtBusqueda
         '
         resources.ApplyResources(Me.txtBusqueda, "txtBusqueda")
@@ -451,49 +494,6 @@ Partial Class frmGestion
         Me.dgwUsuarios.RowTemplate.Height = 24
         Me.dgwUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         '
-        'btnBuscar
-        '
-        resources.ApplyResources(Me.btnBuscar, "btnBuscar")
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'btnAltaLogica
-        '
-        resources.ApplyResources(Me.btnAltaLogica, "btnAltaLogica")
-        Me.btnAltaLogica.Name = "btnAltaLogica"
-        Me.btnAltaLogica.UseVisualStyleBackColor = True
-        '
-        'btnBorrarEspecialidad
-        '
-        resources.ApplyResources(Me.btnBorrarEspecialidad, "btnBorrarEspecialidad")
-        Me.btnBorrarEspecialidad.Name = "btnBorrarEspecialidad"
-        Me.btnBorrarEspecialidad.UseVisualStyleBackColor = True
-        '
-        'btnAgregarEspecialidad
-        '
-        resources.ApplyResources(Me.btnAgregarEspecialidad, "btnAgregarEspecialidad")
-        Me.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad"
-        Me.btnAgregarEspecialidad.UseVisualStyleBackColor = True
-        '
-        'btnSacarTelefono
-        '
-        resources.ApplyResources(Me.btnSacarTelefono, "btnSacarTelefono")
-        Me.btnSacarTelefono.Name = "btnSacarTelefono"
-        Me.btnSacarTelefono.UseVisualStyleBackColor = True
-        '
-        'btnAgregarTelefono
-        '
-        resources.ApplyResources(Me.btnAgregarTelefono, "btnAgregarTelefono")
-        Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
-        Me.btnAgregarTelefono.UseVisualStyleBackColor = True
-        '
-        'pBoxFotoUsuario
-        '
-        resources.ApplyResources(Me.pBoxFotoUsuario, "pBoxFotoUsuario")
-        Me.pBoxFotoUsuario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoUsuario.Name = "pBoxFotoUsuario"
-        Me.pBoxFotoUsuario.TabStop = False
-        '
         'frmGestion
         '
         resources.ApplyResources(Me, "$this")
@@ -510,11 +510,11 @@ Partial Class frmGestion
         Me.pnlDspCedula.PerformLayout()
         Me.pnlEspecialidadesBtns.ResumeLayout(False)
         Me.pnlBotonesTel.ResumeLayout(False)
+        CType(Me.pBoxFotoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlContenedorBusqueda.ResumeLayout(False)
         Me.pnlBusqueda.ResumeLayout(False)
         Me.pnlBusqueda.PerformLayout()
         CType(Me.dgwUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pBoxFotoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

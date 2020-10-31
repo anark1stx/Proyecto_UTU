@@ -38,6 +38,11 @@ Public Class E_Medico
             Return 0
         End If
 
+        If Especialidad.Count < 1 Then
+            Me.ErrCode = "Ingrese al menos una especialidad. En el caso de que el médico no tenga una, ingrese ""Medicina general"""
+            Return 0
+        End If
+
         For Each es As String In Especialidad
             If Not check_Largo(es, 3, 50, True) Then
                 Me.ErrCode = "Especialidad: " & es & " " & MensajeDeErrorLongitud(3, 50)

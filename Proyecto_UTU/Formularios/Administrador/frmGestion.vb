@@ -285,7 +285,7 @@ Public Class frmGestion
                         ci_valida = True
                     End If
                     If Mode = Accion.Alta AndAlso ci_valida Then
-                        Dim nu As New N_Auxiliar
+                        Dim nu As New N_Usuario
                         Dim code = Await Task.Run(Function() nu.UsuarioExiste(Val(lblCedulaTXT.Text)))
 
                         Select Case code
@@ -346,6 +346,11 @@ Public Class frmGestion
 
     Async Sub AltaU()
 
+        Dim u = Base_props_user()
+        If Not u.ValidarMisDatos() Then
+            MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
         If pBoxFotoUsuario.Image Is Nothing Then
             Dim eleccion = MessageBox.Show("¿Desea guardar al usuario sin una imagen?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
             If eleccion = vbNo Then
@@ -355,14 +360,11 @@ Public Class frmGestion
 
         Select Case Usuario
             Case TipoUsuario.Paciente
-                Dim u = Base_props_user()
                 Dim p = Base_props_paciente(u)
-
                 If Not p.ValidarMisDatos() Then
                     MessageBox.Show(p.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
-
                     Dim np As New N_Paciente
                     Dim res = Await Task.Run(Function() np.AltaPaciente(p))
                     Select Case res
@@ -390,7 +392,6 @@ Public Class frmGestion
                 End If
 
             Case TipoUsuario.Medico
-                Dim u = Base_props_user()
                 Dim m = Base_Props_Medico(u)
                 If Not m.ValidarMisDatos() Then
                     MessageBox.Show(m.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -419,14 +420,6 @@ Public Class frmGestion
                     End Select
                 End If
             Case TipoUsuario.Auxiliar
-
-                Dim u = Base_props_user()
-
-                If Not u.ValidarMisDatos() Then
-                    MessageBox.Show(u.ErrCode, "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
-
                 Dim nu As New N_Auxiliar
                 Dim res = Await Task.Run(Function() nu.AltaAuxiliar(u))
                 Select Case res
@@ -445,22 +438,12 @@ Public Class frmGestion
                         MessageBox.Show(MensajeDeErrorUsuarioBase(), "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case -5
                         MessageBox.Show("Error ingresando al auxiliar", "Alta fallo", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
                 End Select
         End Select
 
     End Sub
 
     Function Base_Props_Medico(u As E_Usuario) As E_Medico
-
-        Dim u_default As New E_Usuario
-        If cbEspecialidades.Items.Count < 1 Then
-            MessageBox.Show("Ingrese al menos una especialidad. En el caso de que el médico no tenga una, ingrese ""Medicina general""", "Falta ingresar información", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return New E_Medico With {
-                .Cedula = 0
-            }
-        End If
-
         Dim especialidades As New List(Of String)
         For Each es As String In cbEspecialidades.Items
             especialidades.Add(es)
@@ -483,7 +466,6 @@ Public Class frmGestion
                     .TelefonosLista = u.TelefonosLista,
                     .Especialidad = especialidades
         }
-
     End Function
 
     Function Base_props_paciente(u As E_Usuario) As E_Paciente
@@ -512,13 +494,16 @@ Public Class frmGestion
     End Function
 
     Function Base_props_user() As E_Usuario
-        Dim u_default As New E_Usuario
-
 
         Dim telefonos As New List(Of String)
         For Each t As String In cbTelefonos.Items
             telefonos.Add(t)
         Next
+        Dim direccionNro As Integer = 0
+
+        If Not String.IsNullOrEmpty(lblDireccionNumeroTXT.Text) Then
+            direccionNro = lblDireccionNumeroTXT.Text
+        End If
 
         Return New E_Usuario With {
                     .Nombre = "u" & lblCedulaTXT.Text,
@@ -530,7 +515,7 @@ Public Class frmGestion
                     .Apellido1 = lblApellido1TXT.Text,
                     .Apellido2 = lblApellido2TXT.Text,
                     .Direccion_Calle = lblDireccionTXT.Text,
-                    .Direccion_Numero = lblDireccionNumeroTXT.Text,
+                    .Direccion_Numero = direccionNro,
                     .Foto = Image2Bytes(pBoxFotoUsuario.Image),
                     .Activo = 1,
                     .Correo = lblCorreoTXT.Text,

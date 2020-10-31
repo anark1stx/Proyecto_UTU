@@ -340,13 +340,9 @@ Public Module mdlUtilidades
         Return 1
     End Function
     Public Function check_Telefonos(telefonos As List(Of String)) As Boolean
-
-        If telefonos.Count = 1 Then
-            If String.IsNullOrWhiteSpace(telefonos(0)) Then
-                optMsg = "Ingrese un número telefónico de contacto"
-                Return 0
-            End If
-
+        If telefonos.Count < 1 Then
+            optMsg = "Ingrese un número telefónico de contacto"
+            Return 0
         End If
 
         For Each tel In telefonos
@@ -438,15 +434,21 @@ Public Module mdlUtilidades
         If direccion.Count <> 2 Then
             Return 0
         Else
+
+            If Not check_Largo(direccion(0), 3, 160, True) Then
+                optMsg = MensajeDeErrorLongitud(3, 160)
+                Return 0
+            End If
             If Not check_regex(direccion(0), RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
                 optMsg = "Caractéres inválidos"
                 Return 0
             End If
 
             If Not check_Largo(direccion(1), 2, 4, True) Then 'En Montevideo los numeros de puerta van desde 2 digitos hasta 4.
-                optMsg = MensajeDeErrorLongitud(3, 160)
+                optMsg = "Número de puerta: " & MensajeDeErrorLongitud(2, 4)
                 Return 0
             End If
+
             If Not IsNumeric(direccion(1)) Then
                 optMsg = "Número de puerta no válido."
                 Return 0

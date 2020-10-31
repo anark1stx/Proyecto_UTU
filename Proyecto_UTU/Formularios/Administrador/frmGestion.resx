@@ -124,10 +124,6 @@
   <data name="&gt;&gt;pnlBusqueda.Name" xml:space="preserve">
     <value>pnlBusqueda</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblEstado.TabIndex" type="System.Int32, mscorlib">
-    <value>416</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
@@ -780,6 +776,10 @@
   <data name="&gt;&gt;Accion1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblComma.TabIndex" type="System.Int32, mscorlib">
+    <value>385</value>
+  </data>
   <data name="lblOcupacionTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
@@ -801,8 +801,8 @@
   <data name="lblComma.Text" xml:space="preserve">
     <value>,</value>
   </data>
-  <data name="&gt;&gt;pnlBusqueda.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cbEspecialidades.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
   <data name="lblTelefono.TabIndex" type="System.Int32, mscorlib">
     <value>388</value>
@@ -846,9 +846,6 @@
   <data name="&gt;&gt;lblSexo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblOcupacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>669, 111</value>
-  </data>
   <data name="&gt;&gt;btnBorrarEspecialidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -882,26 +879,35 @@
   <data name="&gt;&gt;lblNombre2TXT.Name" xml:space="preserve">
     <value>lblNombre2TXT</value>
   </data>
+  <data name="&gt;&gt;lblCedulaTXT.Parent" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
+  </data>
   <data name="&gt;&gt;btnAccion2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="lblOcupacion.TabIndex" type="System.Int32, mscorlib">
     <value>396</value>
   </data>
-  <data name="cbEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 28</value>
-  </data>
   <data name="&gt;&gt;cbSexo.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
+  </data>
+  <data name="pBoxFotoUsuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 3</value>
   </data>
   <data name="&gt;&gt;lblContrasena.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="dgwUsuarios.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblNombre2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 47</value>
+  </data>
   <data name="&gt;&gt;pnlBotonesTel.Name" xml:space="preserve">
     <value>pnlBotonesTel</value>
   </data>
-  <data name="lblApellido1TXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="cbSexo.TabIndex" type="System.Int32, mscorlib">
+    <value>403</value>
   </data>
   <data name="lblSexo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -917,9 +923,6 @@
   </data>
   <data name="lblFnac.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
-  </data>
-  <data name="&gt;&gt;btnSacarTelefono.Parent" xml:space="preserve">
-    <value>pnlBotonesTel</value>
   </data>
   <data name="lblContrasenaTXT.Text" xml:space="preserve">
     <value>Contraseña</value>
@@ -948,9 +951,6 @@
   <data name="btnAltaLogica.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 40</value>
   </data>
-  <data name="cbEstadoCivil.Items1" xml:space="preserve">
-    <value>Casado</value>
-  </data>
   <data name="&gt;&gt;pnlContenedorBusqueda.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -959,9 +959,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form2</value>
-  </data>
-  <data name="&gt;&gt;lblApellido1.Name" xml:space="preserve">
-    <value>lblApellido1</value>
   </data>
   <data name="lblEstadoTXT.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 23</value>
@@ -984,9 +981,6 @@
   <data name="&gt;&gt;btnSacarTelefono.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnAgregarEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>368</value>
-  </data>
   <data name="&gt;&gt;lblContrasenaTXT.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
@@ -1001,9 +995,6 @@
   </data>
   <data name="&gt;&gt;lblEspecialidades.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rBtnEspecialidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblNombre2TXT.TabIndex" type="System.Int32, mscorlib">
     <value>408</value>
@@ -1029,8 +1020,11 @@
   <data name="lblEstadoTXT.TabIndex" type="System.Int32, mscorlib">
     <value>417</value>
   </data>
-  <data name="txtBusqueda.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
+  <data name="pnlBusqueda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>681, 43</value>
+  </data>
+  <data name="lblFnac.Text" xml:space="preserve">
+    <value>Fecha Nac.</value>
   </data>
   <data name="&gt;&gt;lblApellido1.ZOrder" xml:space="preserve">
     <value>27</value>
@@ -1067,6 +1061,9 @@
   </data>
   <data name="&gt;&gt;rBtnApellido.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblComma.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="btnAltaLogica.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1116,8 +1113,8 @@
   <data name="&gt;&gt;lblEstado.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
   </data>
-  <data name="&gt;&gt;lblCorreoTXT.Name" xml:space="preserve">
-    <value>lblCorreoTXT</value>
+  <data name="&gt;&gt;lblComma.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
   </data>
   <data name="&gt;&gt;lblCedula.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1130,6 +1127,12 @@
   </data>
   <data name="lblNombre1TXT.MaxLength" type="System.Int32, mscorlib">
     <value>30</value>
+  </data>
+  <data name="pBoxFotoUsuario.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="&gt;&gt;cbSexo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTelefono.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1149,6 +1152,9 @@
   <data name="lblApellido2TXT.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 23</value>
   </data>
+  <data name="lblEstado.Text" xml:space="preserve">
+    <value>Estado:</value>
+  </data>
   <data name="&gt;&gt;lblContrasena.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
   </data>
@@ -1167,12 +1173,15 @@
   <data name="cbSexo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
+  <data name="&gt;&gt;rBtnApellido.Name" xml:space="preserve">
+    <value>rBtnApellido</value>
+  </data>
   <data name="Accion1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
-        DQAAAk1TRnQBSQFMAgEBAwEAAfgBAAEgAQEBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DQAAAk1TRnQBSQFMAgEBAwEAAfgBAAEkAQEBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1231,8 +1240,8 @@
         AQAB/wQAAf8BgAEBAv8BgAEBAv8B4AEDAf8EAAH/AfABDwL/AfABDwP/AX8B/xoACw==
 </value>
   </data>
-  <data name="lblApellido1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 80</value>
+  <data name="&gt;&gt;pnlDatosUsuario.Name" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
   </data>
   <data name="lblDireccionNumeroTXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>596, 145</value>
@@ -1240,8 +1249,8 @@
   <data name="&gt;&gt;pnlAcciones.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblNombre1TXT.Text" xml:space="preserve">
-    <value>1° Nombre</value>
+  <data name="dgwUsuarios.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="&gt;&gt;btnAgregarTelefono.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1255,9 +1264,6 @@
   <data name="rBtnCedula.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblFnac.Location" type="System.Drawing.Point, System.Drawing">
-    <value>669, 5</value>
-  </data>
   <data name="rBtnApellido.TabIndex" type="System.Int32, mscorlib">
     <value>358</value>
   </data>
@@ -1270,6 +1276,9 @@
   <data name="lblFnac.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 24</value>
   </data>
+  <data name="&gt;&gt;txtBusqueda.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="lblDireccionTXT.MaxLength" type="System.Int32, mscorlib">
     <value>160</value>
   </data>
@@ -1281,6 +1290,9 @@
   </data>
   <data name="&gt;&gt;pnlDspCedula.Parent" xml:space="preserve">
     <value>pnlDatosUsuario</value>
+  </data>
+  <data name="lblTelefono.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="&gt;&gt;lblOcupacion.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
@@ -1327,6 +1339,9 @@
   <data name="&gt;&gt;lblFnac.ZOrder" xml:space="preserve">
     <value>23</value>
   </data>
+  <data name="&gt;&gt;lblEstadoTXT.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lblApellido1TXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>394, 76</value>
   </data>
@@ -1339,33 +1354,8 @@
   <data name="lblDireccionNumeroTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="lblNombre1TXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 23</value>
-  </data>
   <data name="&gt;&gt;lblTelefono.ZOrder" xml:space="preserve">
     <value>28</value>
-  </data>
-  <data name="btnAgregarTelefono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
-        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
-        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
-        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
-        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
-        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
-        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
-        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
-        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
-        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
-        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
-        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
-        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
-        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
-        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
-        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
-        OQcdTIoAAAAASUVORK5CYII=
-</value>
   </data>
   <data name="btnAltaLogica.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1389,12 +1379,6 @@
   </data>
   <data name="lblEstado.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 24</value>
-  </data>
-  <data name="lblCedula.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
-  </data>
-  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 149</value>
   </data>
   <data name="btnBorrarEspecialidad.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1423,9 +1407,6 @@
   <data name="dgwUsuarios.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
-  <data name="&gt;&gt;pnlAcciones.Parent" xml:space="preserve">
-    <value>pnlDatosUsuario</value>
-  </data>
   <data name="&gt;&gt;lblCorreoTXT.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
@@ -1441,11 +1422,11 @@
   <data name="pnlContenedorBusqueda.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
+  <data name="&gt;&gt;dgwUsuarios.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="cbSexo.Items" xml:space="preserve">
     <value>Masculino</value>
-  </data>
-  <data name="rBtnApellido.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 7</value>
   </data>
   <data name="&gt;&gt;rBtnEspecialidad.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1468,14 +1449,8 @@
   <data name="pnlDatosUsuario.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="lblComma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 25</value>
-  </data>
   <data name="lblCorreo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lblContrasenaTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 23</value>
   </data>
   <data name="lblEstadoCivil.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 24</value>
@@ -1492,20 +1467,26 @@
   <data name="&gt;&gt;lblApellido2TXT.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="&gt;&gt;lblEstadoTXT.Name" xml:space="preserve">
+    <value>lblEstadoTXT</value>
+  </data>
   <data name="pnlDspCedula.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 58</value>
   </data>
+  <data name="&gt;&gt;dgwUsuarios.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;dtpFechaNacimiento.ZOrder" xml:space="preserve">
     <value>16</value>
+  </data>
+  <data name="&gt;&gt;Accion1.Name" xml:space="preserve">
+    <value>Accion1</value>
   </data>
   <data name="lblComma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="&gt;&gt;lblNombre2TXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblOcupacion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1550,8 +1531,11 @@
   <data name="lblApellido2TXT.MaxLength" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="lblDireccion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pnlBusqueda.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lblNombre2TXT.Text" xml:space="preserve">
+    <value>2° Nombre</value>
   </data>
   <data name="lblContrasenaTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -1568,11 +1552,11 @@
   <data name="pnlDspCedula.Size" type="System.Drawing.Size, System.Drawing">
     <value>1062, 256</value>
   </data>
-  <data name="lblDireccion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
-  </data>
   <data name="lblApellido2TXT.Text" xml:space="preserve">
     <value>2° Apellido</value>
+  </data>
+  <data name="lblNombre1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="lblApellido2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
@@ -1601,11 +1585,17 @@
   <data name="&gt;&gt;cbTelefonos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="lblContrasena.Location" type="System.Drawing.Point, System.Drawing">
+    <value>670, 187</value>
+  </data>
   <data name="pnlBusqueda.Location" type="System.Drawing.Point, System.Drawing">
     <value>381, 0</value>
   </data>
-  <data name="lblEstadoTXT.Text" xml:space="preserve">
-    <value>Estado</value>
+  <data name="&gt;&gt;lblComma.Name" xml:space="preserve">
+    <value>lblComma</value>
+  </data>
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 34</value>
   </data>
   <data name="pnlContenedorBusqueda.Size" type="System.Drawing.Size, System.Drawing">
     <value>1062, 210</value>
@@ -1622,9 +1612,6 @@
   <data name="lblContrasena.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
-  <data name="btnAccion2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 40</value>
-  </data>
   <data name="rBtnApellido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1633,6 +1620,9 @@
   </data>
   <data name="btnAgregarTelefono.ImageIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="cbSexo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 38</value>
   </data>
   <data name="btnSacarTelefono.TabIndex" type="System.Int32, mscorlib">
     <value>369</value>
@@ -1646,9 +1636,6 @@
   <data name="lblOcupacionTXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>830, 106</value>
   </data>
-  <data name="lblDireccionNumeroTXT.Mask" xml:space="preserve">
-    <value>9999</value>
-  </data>
   <data name="pnlBusqueda.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -1661,6 +1648,12 @@
   <data name="lblEstadoTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
+  <data name="&gt;&gt;lblApellido2TXT.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
+  <data name="lblDireccion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="lblTelefono.Location" type="System.Drawing.Point, System.Drawing">
     <value>275, 184</value>
   </data>
@@ -1670,17 +1663,14 @@
   <data name="&gt;&gt;txtBusqueda.Parent" xml:space="preserve">
     <value>pnlBusqueda</value>
   </data>
-  <data name="pnlBusqueda.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
   <data name="&gt;&gt;pnlContenedorBusqueda.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;dgwUsuarios.Name" xml:space="preserve">
     <value>dgwUsuarios</value>
   </data>
-  <data name="&gt;&gt;pnlBusqueda.Parent" xml:space="preserve">
-    <value>pnlContenedorBusqueda</value>
+  <data name="rBtnEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 7</value>
   </data>
   <data name="lblNombre1TXT.TabIndex" type="System.Int32, mscorlib">
     <value>407</value>
@@ -1700,9 +1690,6 @@
   <data name="pnlEspecialidadesBtns.TabIndex" type="System.Int32, mscorlib">
     <value>404</value>
   </data>
-  <data name="lblCedulaTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 23</value>
-  </data>
   <data name="&gt;&gt;btnAltaLogica.Name" xml:space="preserve">
     <value>btnAltaLogica</value>
   </data>
@@ -1715,8 +1702,8 @@
   <data name="&gt;&gt;lblEspecialidades.Name" xml:space="preserve">
     <value>lblEspecialidades</value>
   </data>
-  <data name="lblContrasena.Location" type="System.Drawing.Point, System.Drawing">
-    <value>670, 187</value>
+  <data name="lblEstado.TabIndex" type="System.Int32, mscorlib">
+    <value>416</value>
   </data>
   <data name="lblEstado.Location" type="System.Drawing.Point, System.Drawing">
     <value>670, 149</value>
@@ -1808,9 +1795,6 @@
   <data name="rBtnEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="btnAccion1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 40</value>
-  </data>
   <data name="&gt;&gt;btnAccion2.Parent" xml:space="preserve">
     <value>pnlAcciones</value>
   </data>
@@ -1823,8 +1807,8 @@
   <data name="rBtnCedula.Text" xml:space="preserve">
     <value>Cédula</value>
   </data>
-  <data name="&gt;&gt;pnlBotonesTel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnAgregarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>368</value>
   </data>
   <data name="lblNombre2TXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>394, 42</value>
@@ -1837,12 +1821,6 @@
   </data>
   <data name="&gt;&gt;btnAgregarTelefono.Name" xml:space="preserve">
     <value>btnAgregarTelefono</value>
-  </data>
-  <data name="btnAgregarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 2</value>
-  </data>
-  <data name="&gt;&gt;lblDireccionNumeroTXT.Name" xml:space="preserve">
-    <value>lblDireccionNumeroTXT</value>
   </data>
   <data name="&gt;&gt;lblApellido2.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
@@ -1877,14 +1855,14 @@
   <data name="pBoxFotoUsuario.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="pBoxFotoUsuario.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+  <data name="lblContrasenaTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 23</value>
   </data>
   <data name="lblApellido2TXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>394, 111</value>
   </data>
-  <data name="dgwUsuarios.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="lblFnac.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 5</value>
   </data>
   <data name="lblOcupacion.Text" xml:space="preserve">
     <value>Ocupación:</value>
@@ -1892,17 +1870,11 @@
   <data name="&gt;&gt;lblDireccion.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblDireccionNumeroTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;txtBusqueda.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbSexo.TabIndex" type="System.Int32, mscorlib">
-    <value>403</value>
-  </data>
-  <data name="&gt;&gt;lblEstadoCivil.ZOrder" xml:space="preserve">
-    <value>20</value>
+  <data name="lblNombre1TXT.Text" xml:space="preserve">
+    <value>1° Nombre</value>
   </data>
   <data name="&gt;&gt;btnAgregarEspecialidad.Parent" xml:space="preserve">
     <value>pnlEspecialidadesBtns</value>
@@ -1913,8 +1885,8 @@
   <data name="lblCorreoTXT.MaxLength" type="System.Int32, mscorlib">
     <value>50</value>
   </data>
-  <data name="&gt;&gt;lblApellido2TXT.Parent" xml:space="preserve">
-    <value>pnlDspCedula</value>
+  <data name="cbEstadoCivil.Items1" xml:space="preserve">
+    <value>Casado</value>
   </data>
   <data name="&gt;&gt;lblCedulaTXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1922,8 +1894,8 @@
   <data name="&gt;&gt;lblNombre1TXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnAccion1.Parent" xml:space="preserve">
-    <value>pnlAcciones</value>
+  <data name="lblCedulaTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
   </data>
   <data name="&gt;&gt;lblTelefono.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
@@ -1943,8 +1915,8 @@
   <data name="&gt;&gt;rBtnApellido.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lblComma.TabIndex" type="System.Int32, mscorlib">
-    <value>385</value>
+  <data name="lblComma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 25</value>
   </data>
   <data name="&gt;&gt;btnAltaLogica.Parent" xml:space="preserve">
     <value>pnlAcciones</value>
@@ -1955,20 +1927,23 @@
   <data name="&gt;&gt;lblEstado.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;dgwUsuarios.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lblDireccionNumeroTXT.Mask" xml:space="preserve">
+    <value>9999</value>
   </data>
-  <data name="cbEspecialidades.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
+  <data name="lblDireccion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorBusqueda.Name" xml:space="preserve">
+    <value>pnlContenedorBusqueda</value>
   </data>
   <data name="btnAccion1.TabIndex" type="System.Int32, mscorlib">
     <value>383</value>
   </data>
-  <data name="lblCorreo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
+  <data name="btnAccion2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 40</value>
   </data>
-  <data name="dgwUsuarios.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="btnAgregarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 2</value>
   </data>
   <data name="btnAgregarTelefono.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 30</value>
@@ -1982,8 +1957,8 @@
   <data name="cbTelefonos.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
-  <data name="&gt;&gt;Accion1.Name" xml:space="preserve">
-    <value>Accion1</value>
+  <data name="rBtnApellido.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 7</value>
   </data>
   <data name="&gt;&gt;cbEspecialidades.ZOrder" xml:space="preserve">
     <value>18</value>
@@ -1996,9 +1971,6 @@
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmGestion</value>
-  </data>
-  <data name="lblCorreoTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="&gt;&gt;btnAgregarEspecialidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2036,8 +2008,8 @@
   <data name="lblOcupacionTXT.TabIndex" type="System.Int32, mscorlib">
     <value>413</value>
   </data>
-  <data name="pBoxFotoUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 3</value>
+  <data name="lblOcupacion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblEspecialidades.TabIndex" type="System.Int32, mscorlib">
     <value>399</value>
@@ -2078,7 +2050,7 @@
   <data name="&gt;&gt;lblSexo.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
   </data>
-  <data name="lblTelefono.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblCedula.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="lblApellido1.Size" type="System.Drawing.Size, System.Drawing">
@@ -2105,8 +2077,11 @@
   <data name="&gt;&gt;lblSexo.Name" xml:space="preserve">
     <value>lblSexo</value>
   </data>
-  <data name="cbSexo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>830, 38</value>
+  <data name="&gt;&gt;lblEstado.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCorreoTXT.Name" xml:space="preserve">
+    <value>lblCorreoTXT</value>
   </data>
   <data name="&gt;&gt;lblContrasenaTXT.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
@@ -2114,8 +2089,27 @@
   <data name="&gt;&gt;lblApellido1TXT.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;txtBusqueda.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="btnAgregarTelefono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
+        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
+        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
+        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
+        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
+        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
+        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
+        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
+        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
+        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
+        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
+        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
+        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
+        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
+        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
+        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
+        OQcdTIoAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="&gt;&gt;lblCorreo.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
@@ -2141,6 +2135,9 @@
   <data name="&gt;&gt;pnlDatosUsuario.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;lblDireccion.Parent" xml:space="preserve">
+    <value>pnlDspCedula</value>
+  </data>
   <data name="lblEstadoCivil.Location" type="System.Drawing.Point, System.Drawing">
     <value>670, 76</value>
   </data>
@@ -2159,11 +2156,11 @@
   <data name="&gt;&gt;lblDireccion.Name" xml:space="preserve">
     <value>lblDireccion</value>
   </data>
-  <data name="&gt;&gt;lblCedulaTXT.Parent" xml:space="preserve">
-    <value>pnlDatosUsuario</value>
+  <data name="lblApellido1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 80</value>
   </data>
-  <data name="lblNombre2TXT.Text" xml:space="preserve">
-    <value>2° Nombre</value>
+  <data name="&gt;&gt;rBtnEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblNombre1TXT.Name" xml:space="preserve">
     <value>lblNombre1TXT</value>
@@ -2238,8 +2235,8 @@
   <data name="lblCorreo.TabIndex" type="System.Int32, mscorlib">
     <value>392</value>
   </data>
-  <data name="lblNombre2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 47</value>
+  <data name="lblEstadoTXT.Text" xml:space="preserve">
+    <value>Estado</value>
   </data>
   <data name="btnBorrarEspecialidad.ImageIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2247,8 +2244,8 @@
   <data name="&gt;&gt;lblCedula.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pnlContenedorBusqueda.Name" xml:space="preserve">
-    <value>pnlContenedorBusqueda</value>
+  <data name="cbEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 28</value>
   </data>
   <data name="cbEstadoCivil.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
@@ -2268,8 +2265,8 @@
   <data name="lblApellido1TXT.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 23</value>
   </data>
-  <data name="lblNombre1TXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 8</value>
+  <data name="&gt;&gt;pnlBotonesTel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblApellido2.Location" type="System.Drawing.Point, System.Drawing">
     <value>275, 114</value>
@@ -2283,11 +2280,11 @@
   <data name="lblContrasena.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 24</value>
   </data>
-  <data name="&gt;&gt;lblComma.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;pnlBusqueda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblEstado.Text" xml:space="preserve">
-    <value>Estado:</value>
+  <data name="btnAccion1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 40</value>
   </data>
   <data name="&gt;&gt;lblDireccionNumeroTXT.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -2303,7 +2300,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
-        DQAAAk1TRnQBSQFMAgEBAgEAAfgBAAEgAQEBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DQAAAk1TRnQBSQFMAgEBAgEAAfgBAAEkAQEBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -2365,8 +2362,8 @@
   <data name="&gt;&gt;lblContrasenaTXT.Name" xml:space="preserve">
     <value>lblContrasenaTXT</value>
   </data>
-  <data name="&gt;&gt;lblEstadoTXT.Name" xml:space="preserve">
-    <value>lblEstadoTXT</value>
+  <data name="&gt;&gt;lblDireccionNumeroTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblApellido1.Parent" xml:space="preserve">
     <value>pnlDspCedula</value>
@@ -2380,26 +2377,29 @@
   <data name="&gt;&gt;btnAltaLogica.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="rBtnEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 7</value>
+  <data name="&gt;&gt;lblDireccionNumeroTXT.Name" xml:space="preserve">
+    <value>lblDireccionNumeroTXT</value>
   </data>
-  <data name="pnlBusqueda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>681, 43</value>
+  <data name="txtBusqueda.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="rBtnCedula.TabIndex" type="System.Int32, mscorlib">
     <value>357</value>
   </data>
+  <data name="&gt;&gt;lblApellido2.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
   <data name="pnlAcciones.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 53</value>
   </data>
-  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 34</value>
+  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 149</value>
   </data>
   <data name="&gt;&gt;lblCorreo.ZOrder" xml:space="preserve">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;lblDireccion.Parent" xml:space="preserve">
-    <value>pnlDspCedula</value>
+  <data name="lblOcupacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 111</value>
   </data>
   <data name="cbEstadoCivil.Location" type="System.Drawing.Point, System.Drawing">
     <value>830, 72</value>
@@ -2407,20 +2407,20 @@
   <data name="&gt;&gt;pnlDatosUsuario.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblEstado.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCorreo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
-  <data name="&gt;&gt;lblComma.Name" xml:space="preserve">
-    <value>lblComma</value>
+  <data name="lblNombre1TXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 8</value>
   </data>
-  <data name="&gt;&gt;lblApellido2.ZOrder" xml:space="preserve">
-    <value>32</value>
+  <data name="&gt;&gt;btnAccion1.Parent" xml:space="preserve">
+    <value>pnlAcciones</value>
   </data>
   <data name="lblNombre2.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 24</value>
   </data>
-  <data name="&gt;&gt;cbSexo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCorreoTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="&gt;&gt;lblFnac.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2440,8 +2440,8 @@
   <data name="&gt;&gt;rBtnCedula.Parent" xml:space="preserve">
     <value>pnlBusqueda</value>
   </data>
-  <data name="&gt;&gt;rBtnApellido.Name" xml:space="preserve">
-    <value>rBtnApellido</value>
+  <data name="&gt;&gt;pnlBusqueda.Parent" xml:space="preserve">
+    <value>pnlContenedorBusqueda</value>
   </data>
   <data name="&gt;&gt;lblApellido1TXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2452,11 +2452,11 @@
   <data name="btnBorrarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 30</value>
   </data>
-  <data name="&gt;&gt;dgwUsuarios.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblNombre1TXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 23</value>
   </data>
-  <data name="&gt;&gt;lblEstadoTXT.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;btnSacarTelefono.Parent" xml:space="preserve">
+    <value>pnlBotonesTel</value>
   </data>
   <data name="btnBorrarEspecialidad.TabIndex" type="System.Int32, mscorlib">
     <value>369</value>
@@ -2464,8 +2464,8 @@
   <data name="lblEstado.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
-  <data name="&gt;&gt;lblComma.Parent" xml:space="preserve">
-    <value>pnlDspCedula</value>
+  <data name="&gt;&gt;lblEstadoCivil.ZOrder" xml:space="preserve">
+    <value>20</value>
   </data>
   <data name="&gt;&gt;lblDireccionTXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2485,14 +2485,14 @@
   <data name="rBtnEspecialidad.TabIndex" type="System.Int32, mscorlib">
     <value>359</value>
   </data>
-  <data name="&gt;&gt;pnlDatosUsuario.Name" xml:space="preserve">
-    <value>pnlDatosUsuario</value>
+  <data name="&gt;&gt;lblApellido1.Name" xml:space="preserve">
+    <value>lblApellido1</value>
   </data>
   <data name="&gt;&gt;lblDireccionTXT.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="lblFnac.Text" xml:space="preserve">
-    <value>Fecha Nac.</value>
+  <data name="lblApellido1TXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="&gt;&gt;rBtnApellido.Parent" xml:space="preserve">
     <value>pnlBusqueda</value>
@@ -2509,8 +2509,8 @@
   <data name="&gt;&gt;btnSacarTelefono.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblNombre1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
+  <data name="&gt;&gt;pnlAcciones.Parent" xml:space="preserve">
+    <value>pnlDatosUsuario</value>
   </data>
   <metadata name="Accion2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>128, 17</value>
@@ -2520,8 +2520,5 @@
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
   </metadata>
 </root>
