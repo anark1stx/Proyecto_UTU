@@ -8,7 +8,6 @@ Public Class Sugerir
     Protected _sintomas As New List(Of E_Sintoma)
     Protected _signos_clinicos As New List(Of E_SignoClinico)
     Protected _enfermedad As New E_Enfermedad
-    Protected _emitir As Boolean = False
     Private ne As New N_Enfermedad
     Private na As New N_Analisis
     Private nt As New N_Tratamiento
@@ -48,15 +47,6 @@ Public Class Sugerir
         End Set
     End Property
 
-    Property Emitir As Boolean
-        Get
-            Return _emitir
-        End Get
-        Set(value As Boolean)
-            _emitir = value
-        End Set
-    End Property
-
     Property Log As BindingList(Of String)
         Get
             Return _log
@@ -84,7 +74,7 @@ Public Class Sugerir
     End Sub
 
     Sub SugerirEnfermedad() 'respuestas a preguntas, sintomas, signosclinicos
-        Emitir = False
+        
         Dim posibles_enfermedades As New List(Of E_Enfermedad)
         Log.Add("---------SUGESTOR DE DIAGNÓSTICO---------" & Environment.NewLine)
         Log.Add("Recibiendo información..." & Environment.NewLine)
@@ -167,7 +157,7 @@ Public Class Sugerir
     End Sub
 
     Sub SugerirAnalisis() 'segun todo + enfermedad si es posible
-        Emitir = False
+        
         Dim posibles_analisis As New List(Of E_Analisis)
         Log.Add("---------SUGESTOR DE ANÁLISIS---------" & Environment.NewLine)
         Log.Add("Recibiendo información..." & Environment.NewLine)
@@ -270,7 +260,7 @@ Public Class Sugerir
     End Sub
 
     Sub SugerirTratamiento() 'segun todo + enfermedad si es posible
-        Emitir = False
+        
         Dim posibles_tratamientos As New List(Of E_Tratamiento)
         Log.Add("---------SUGESTOR DE TRATAMIENTOS---------" & Environment.NewLine)
         Log.Add("Recibiendo información..." & Environment.NewLine)

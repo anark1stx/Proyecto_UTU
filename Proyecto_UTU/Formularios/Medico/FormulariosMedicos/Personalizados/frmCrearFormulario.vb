@@ -321,6 +321,8 @@ Public Class frmCrearFormulario
         Next
         frmPlano.PreguntasYRespuestas.Sort(Function(p1, p2) p1.Tag.CompareTo(p2.Tag))
         frmPlano.SoloLabels.Sort(Function(p1, p2) p1.Tag.CompareTo(p2.Tag))
+        Console.WriteLine("ultimo tag: " & frmPlano.PreguntasYRespuestas.Last().Tag)
+        frmPlano.tagCount = CInt(frmPlano.PreguntasYRespuestas.Last().Tag.ToString().Replace("p", ""))
     End Sub
 
     Public Sub agregarHandlersBasicos(_ctrl As Control)

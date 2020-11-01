@@ -161,7 +161,6 @@
 
     End Class
     Public Class Indicacion
-        Protected _id_a As Integer
         Protected _nombre As String
         Protected _descripcion As String
 
@@ -182,21 +181,11 @@
                 _descripcion = value
             End Set
         End Property
-
-        Property ID_AN As Integer
-            Get
-                Return _id_a
-            End Get
-            Set(value As Integer)
-                _id_a = value
-            End Set
-        End Property
         Sub New()
 
         End Sub
 
-        Sub New(id_an As Integer, nombre As String, descripcion As String)
-            _id_a = id_an
+        Sub New(nombre As String, descripcion As String)
             _nombre = nombre
             _descripcion = descripcion
         End Sub
