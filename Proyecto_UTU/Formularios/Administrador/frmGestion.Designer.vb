@@ -107,19 +107,19 @@ Partial Class frmGestion
         '
         'pnlDatosUsuario
         '
-        resources.ApplyResources(Me.pnlDatosUsuario, "pnlDatosUsuario")
         Me.pnlDatosUsuario.Controls.Add(Me.pnlAcciones)
         Me.pnlDatosUsuario.Controls.Add(Me.pnlDspCedula)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedulaTXT)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedula)
+        resources.ApplyResources(Me.pnlDatosUsuario, "pnlDatosUsuario")
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
         '
         'pnlAcciones
         '
-        resources.ApplyResources(Me.pnlAcciones, "pnlAcciones")
         Me.pnlAcciones.Controls.Add(Me.btnAltaLogica)
         Me.pnlAcciones.Controls.Add(Me.btnAccion2)
         Me.pnlAcciones.Controls.Add(Me.btnAccion1)
+        resources.ApplyResources(Me.pnlAcciones, "pnlAcciones")
         Me.pnlAcciones.Name = "pnlAcciones"
         '
         'btnAltaLogica
@@ -144,7 +144,6 @@ Partial Class frmGestion
         '
         'pnlDspCedula
         '
-        resources.ApplyResources(Me.pnlDspCedula, "pnlDspCedula")
         Me.pnlDspCedula.Controls.Add(Me.lblEstadoTXT)
         Me.pnlDspCedula.Controls.Add(Me.lblEstado)
         Me.pnlDspCedula.Controls.Add(Me.lblComma)
@@ -178,13 +177,14 @@ Partial Class frmGestion
         Me.pnlDspCedula.Controls.Add(Me.lblCorreo)
         Me.pnlDspCedula.Controls.Add(Me.lblNombre2)
         Me.pnlDspCedula.Controls.Add(Me.lblApellido2)
+        resources.ApplyResources(Me.pnlDspCedula, "pnlDspCedula")
         Me.pnlDspCedula.Name = "pnlDspCedula"
         '
         'lblEstadoTXT
         '
-        resources.ApplyResources(Me.lblEstadoTXT, "lblEstadoTXT")
         Me.lblEstadoTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblEstadoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblEstadoTXT, "lblEstadoTXT")
         Me.lblEstadoTXT.Name = "lblEstadoTXT"
         Me.lblEstadoTXT.ReadOnly = True
         '
@@ -200,17 +200,17 @@ Partial Class frmGestion
         '
         'lblDireccionNumeroTXT
         '
-        resources.ApplyResources(Me.lblDireccionNumeroTXT, "lblDireccionNumeroTXT")
         Me.lblDireccionNumeroTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblDireccionNumeroTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblDireccionNumeroTXT, "lblDireccionNumeroTXT")
         Me.lblDireccionNumeroTXT.Name = "lblDireccionNumeroTXT"
         Me.lblDireccionNumeroTXT.ValidatingType = GetType(Integer)
         '
         'lblContrasenaTXT
         '
-        resources.ApplyResources(Me.lblContrasenaTXT, "lblContrasenaTXT")
         Me.lblContrasenaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblContrasenaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblContrasenaTXT, "lblContrasenaTXT")
         Me.lblContrasenaTXT.Name = "lblContrasenaTXT"
         Me.lblContrasenaTXT.ReadOnly = True
         '
@@ -221,9 +221,9 @@ Partial Class frmGestion
         '
         'pnlEspecialidadesBtns
         '
-        resources.ApplyResources(Me.pnlEspecialidadesBtns, "pnlEspecialidadesBtns")
         Me.pnlEspecialidadesBtns.Controls.Add(Me.btnBorrarEspecialidad)
         Me.pnlEspecialidadesBtns.Controls.Add(Me.btnAgregarEspecialidad)
+        resources.ApplyResources(Me.pnlEspecialidadesBtns, "pnlEspecialidadesBtns")
         Me.pnlEspecialidadesBtns.Name = "pnlEspecialidadesBtns"
         '
         'btnBorrarEspecialidad
@@ -240,72 +240,72 @@ Partial Class frmGestion
         '
         'lblOcupacionTXT
         '
-        resources.ApplyResources(Me.lblOcupacionTXT, "lblOcupacionTXT")
         Me.lblOcupacionTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblOcupacionTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblOcupacionTXT, "lblOcupacionTXT")
         Me.lblOcupacionTXT.Name = "lblOcupacionTXT"
         Me.lblOcupacionTXT.ReadOnly = True
         '
         'lblCorreoTXT
         '
-        resources.ApplyResources(Me.lblCorreoTXT, "lblCorreoTXT")
         Me.lblCorreoTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCorreoTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblCorreoTXT, "lblCorreoTXT")
         Me.lblCorreoTXT.Name = "lblCorreoTXT"
         Me.lblCorreoTXT.ReadOnly = True
         '
         'lblDireccionTXT
         '
-        resources.ApplyResources(Me.lblDireccionTXT, "lblDireccionTXT")
         Me.lblDireccionTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblDireccionTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblDireccionTXT, "lblDireccionTXT")
         Me.lblDireccionTXT.Name = "lblDireccionTXT"
         Me.lblDireccionTXT.ReadOnly = True
         '
         'lblApellido2TXT
         '
-        resources.ApplyResources(Me.lblApellido2TXT, "lblApellido2TXT")
         Me.lblApellido2TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblApellido2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblApellido2TXT, "lblApellido2TXT")
         Me.lblApellido2TXT.Name = "lblApellido2TXT"
         Me.lblApellido2TXT.ReadOnly = True
         '
         'lblApellido1TXT
         '
-        resources.ApplyResources(Me.lblApellido1TXT, "lblApellido1TXT")
         Me.lblApellido1TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblApellido1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblApellido1TXT, "lblApellido1TXT")
         Me.lblApellido1TXT.Name = "lblApellido1TXT"
         Me.lblApellido1TXT.ReadOnly = True
         '
         'lblNombre2TXT
         '
-        resources.ApplyResources(Me.lblNombre2TXT, "lblNombre2TXT")
         Me.lblNombre2TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblNombre2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblNombre2TXT, "lblNombre2TXT")
         Me.lblNombre2TXT.Name = "lblNombre2TXT"
         Me.lblNombre2TXT.ReadOnly = True
         '
         'lblNombre1TXT
         '
-        resources.ApplyResources(Me.lblNombre1TXT, "lblNombre1TXT")
         Me.lblNombre1TXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblNombre1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblNombre1TXT, "lblNombre1TXT")
         Me.lblNombre1TXT.Name = "lblNombre1TXT"
         Me.lblNombre1TXT.ReadOnly = True
         '
         'cbEstadoCivil
         '
-        resources.ApplyResources(Me.cbEstadoCivil, "cbEstadoCivil")
         Me.cbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cbEstadoCivil, "cbEstadoCivil")
         Me.cbEstadoCivil.FormattingEnabled = True
         Me.cbEstadoCivil.Items.AddRange(New Object() {resources.GetString("cbEstadoCivil.Items"), resources.GetString("cbEstadoCivil.Items1")})
         Me.cbEstadoCivil.Name = "cbEstadoCivil"
         '
         'cbSexo
         '
-        resources.ApplyResources(Me.cbSexo, "cbSexo")
         Me.cbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cbSexo, "cbSexo")
         Me.cbSexo.FormattingEnabled = True
         Me.cbSexo.Items.AddRange(New Object() {resources.GetString("cbSexo.Items"), resources.GetString("cbSexo.Items1")})
         Me.cbSexo.Name = "cbSexo"
@@ -320,9 +320,9 @@ Partial Class frmGestion
         '
         'pnlBotonesTel
         '
-        resources.ApplyResources(Me.pnlBotonesTel, "pnlBotonesTel")
         Me.pnlBotonesTel.Controls.Add(Me.btnSacarTelefono)
         Me.pnlBotonesTel.Controls.Add(Me.btnAgregarTelefono)
+        resources.ApplyResources(Me.pnlBotonesTel, "pnlBotonesTel")
         Me.pnlBotonesTel.Name = "pnlBotonesTel"
         '
         'btnSacarTelefono
@@ -420,9 +420,9 @@ Partial Class frmGestion
         '
         'lblCedulaTXT
         '
-        resources.ApplyResources(Me.lblCedulaTXT, "lblCedulaTXT")
         Me.lblCedulaTXT.BackColor = System.Drawing.Color.LightBlue
         Me.lblCedulaTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.lblCedulaTXT, "lblCedulaTXT")
         Me.lblCedulaTXT.Name = "lblCedulaTXT"
         Me.lblCedulaTXT.ReadOnly = True
         '
@@ -433,19 +433,19 @@ Partial Class frmGestion
         '
         'pnlContenedorBusqueda
         '
-        resources.ApplyResources(Me.pnlContenedorBusqueda, "pnlContenedorBusqueda")
         Me.pnlContenedorBusqueda.Controls.Add(Me.pnlBusqueda)
         Me.pnlContenedorBusqueda.Controls.Add(Me.dgwUsuarios)
+        resources.ApplyResources(Me.pnlContenedorBusqueda, "pnlContenedorBusqueda")
         Me.pnlContenedorBusqueda.Name = "pnlContenedorBusqueda"
         '
         'pnlBusqueda
         '
-        resources.ApplyResources(Me.pnlBusqueda, "pnlBusqueda")
         Me.pnlBusqueda.Controls.Add(Me.rBtnEspecialidad)
         Me.pnlBusqueda.Controls.Add(Me.rBtnApellido)
         Me.pnlBusqueda.Controls.Add(Me.rBtnCedula)
         Me.pnlBusqueda.Controls.Add(Me.btnBuscar)
         Me.pnlBusqueda.Controls.Add(Me.txtBusqueda)
+        resources.ApplyResources(Me.pnlBusqueda, "pnlBusqueda")
         Me.pnlBusqueda.Name = "pnlBusqueda"
         '
         'rBtnEspecialidad
@@ -484,10 +484,10 @@ Partial Class frmGestion
         '
         'dgwUsuarios
         '
-        resources.ApplyResources(Me.dgwUsuarios, "dgwUsuarios")
         Me.dgwUsuarios.AllowUserToAddRows = False
         Me.dgwUsuarios.AllowUserToDeleteRows = False
         Me.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        resources.ApplyResources(Me.dgwUsuarios, "dgwUsuarios")
         Me.dgwUsuarios.MultiSelect = False
         Me.dgwUsuarios.Name = "dgwUsuarios"
         Me.dgwUsuarios.ReadOnly = True

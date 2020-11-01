@@ -183,7 +183,7 @@ Public Class D_Paciente
         }
 
         cmd.Parameters.Add("NOM", MySqlDbType.VarChar, 90).Value = p.Estado.Nombre
-
+        Console.WriteLine("estado:" & p.Estado.Nombre)
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
@@ -199,7 +199,7 @@ Public Class D_Paciente
         }
         cmd2.Parameters.Add("CI_P", MySqlDbType.Int32).Value = p.Cedula
         cmd2.Parameters.Add("NOM_E", MySqlDbType.VarChar, 90).Value = p.Estado.Nombre
-
+        Console.WriteLine("estado:" & p.Estado.Nombre & " paciente: " & p.Cedula)
         Try
             cmd2.ExecuteNonQuery()
         Catch ex As Exception
@@ -207,6 +207,7 @@ Public Class D_Paciente
             Sesion.Cerrar(conexion)
             Return -2
         End Try
+        Sesion.Cerrar(conexion)
         Return 1
     End Function
 
