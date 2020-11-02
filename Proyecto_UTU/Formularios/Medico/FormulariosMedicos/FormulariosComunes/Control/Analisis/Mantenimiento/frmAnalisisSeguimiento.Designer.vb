@@ -44,10 +44,10 @@ Partial Class frmAnalisisSeguimiento
         '
         'pnlContenedor
         '
-        resources.ApplyResources(Me.pnlContenedor, "pnlContenedor")
         Me.pnlContenedor.Controls.Add(Me.TableLayoutPanel2)
         Me.pnlContenedor.Controls.Add(Me.tblAcciones)
         Me.pnlContenedor.Controls.Add(Me.dgwAnalisisPaciente)
+        resources.ApplyResources(Me.pnlContenedor, "pnlContenedor")
         Me.pnlContenedor.Name = "pnlContenedor"
         '
         'TableLayoutPanel2
@@ -83,25 +83,25 @@ Partial Class frmAnalisisSeguimiento
         '
         'btnConsultarDatos
         '
-        resources.ApplyResources(Me.btnConsultarDatos, "btnConsultarDatos")
         Me.btnConsultarDatos.BackColor = System.Drawing.Color.PaleGreen
+        resources.ApplyResources(Me.btnConsultarDatos, "btnConsultarDatos")
         Me.btnConsultarDatos.Name = "btnConsultarDatos"
         Me.btnConsultarDatos.UseVisualStyleBackColor = False
         '
         'btnIngresarDatos
         '
-        resources.ApplyResources(Me.btnIngresarDatos, "btnIngresarDatos")
         Me.btnIngresarDatos.BackColor = System.Drawing.Color.PaleGreen
+        resources.ApplyResources(Me.btnIngresarDatos, "btnIngresarDatos")
         Me.btnIngresarDatos.Name = "btnIngresarDatos"
         Me.btnIngresarDatos.UseVisualStyleBackColor = False
         '
         'dgwAnalisisPaciente
         '
-        resources.ApplyResources(Me.dgwAnalisisPaciente, "dgwAnalisisPaciente")
         Me.dgwAnalisisPaciente.AllowUserToAddRows = False
         Me.dgwAnalisisPaciente.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgwAnalisisPaciente.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        resources.ApplyResources(Me.dgwAnalisisPaciente, "dgwAnalisisPaciente")
         Me.dgwAnalisisPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control

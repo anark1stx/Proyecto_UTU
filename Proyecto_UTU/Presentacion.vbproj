@@ -271,12 +271,6 @@
     <Compile Include="Formularios\Medico\frmMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Paciente\Formularios\frmAnalisis.Designer.vb">
-      <DependentUpon>frmAnalisis.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Paciente\Formularios\frmAnalisis.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Paciente\Formularios\frmDiagnosticos.Designer.vb">
       <DependentUpon>frmDiagnosticos.vb</DependentUpon>
     </Compile>
@@ -486,9 +480,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmMedico.resx">
       <DependentUpon>frmMedico.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Paciente\Formularios\frmAnalisis.resx">
-      <DependentUpon>frmAnalisis.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Paciente\Formularios\frmDiagnosticos.resx">
       <DependentUpon>frmDiagnosticos.vb</DependentUpon>

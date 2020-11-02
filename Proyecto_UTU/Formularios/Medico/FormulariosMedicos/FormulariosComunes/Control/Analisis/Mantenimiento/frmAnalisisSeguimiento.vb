@@ -79,7 +79,8 @@ Public Class frmAnalisisSeguimiento
                 '2- Abrir formulario de datos en modo de ingreso (campos con textbox)
                 Dim resultadosA As New frmDatosAnalisis With {
                     .AnalisisACargar = AnalisisSelect,
-                    .CI_Paciente = CI_paciente
+                    .CI_Paciente = CI_paciente,
+                    .MiModo = frmDatosAnalisis.Modo.Ingreso
                 }
                 resultadosA.ShowDialog()
             Case Modo.Asignar
@@ -89,15 +90,42 @@ Public Class frmAnalisisSeguimiento
     End Sub
 
     Private Sub btnConsultarDatos_Click(sender As Object, e As EventArgs) Handles btnConsultarDatos.Click
-        '-1 Abrir formulario de datos en modo de lectura (todo con labels)
+        If AnalisisSelect.ID = 0 Then
+            MessageBox.Show("Seleccione un análisis primero", "Debe seleccionar un análisis", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        '1- Verificar que ese análisis aún no se haya llenado
+        If AnalisisSelect.FechaRes.ToString() = "1/1/0001 0:00:00" Then 'significa que aun no fueron ingresados los resultados
+            MessageBox.Show("Aún no hay resultados ingresados para el análisis.", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        'agregar todos los parametros del analisis
+        Dim res = na.RetornarParametrosDeAnalisis(AnalisisSelect)
+        Select Case res
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+        End Select
+
+        '2- Abrir formulario de datos en modo de ingreso (campos con textbox)
+        Dim resultadosA As New frmDatosAnalisis With {
+            .AnalisisACargar = AnalisisSelect,
+            .CI_Paciente = CI_paciente,
+            .MiModo = frmDatosAnalisis.Modo.Consulta
+        }
+        resultadosA.ShowDialog()
     End Sub
 
     Public Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Select Case MiModo
-            Case Modo.Buscar 'busco pacientes x ci
-                'primero buscar si existe paciente con esa cedula
-                'primero buscar si existe paciente con esa cedula
-                'primero buscar si existe paciente con esa cedula
+            Case Modo.Buscar
+                If Not check_Cedula(txtBuscar.Text) Then
+                    Exit Sub
+                End If
                 CI_paciente = txtBuscar.Text
                 Dim na As New N_Analisis
                 Dim result = na.ListadoAnalisisPaciente(CI_paciente)

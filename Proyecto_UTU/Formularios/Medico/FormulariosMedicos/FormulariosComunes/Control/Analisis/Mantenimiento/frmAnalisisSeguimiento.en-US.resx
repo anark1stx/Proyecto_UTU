@@ -118,6 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtBuscar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="txtBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>625, 26</value>
+  </data>
   <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -158,8 +168,35 @@
         zAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>787, 2</value>
+  </data>
+  <data name="btnBuscar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="lblCedulaPaciente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 0</value>
+  </data>
+  <data name="lblCedulaPaciente.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="lblCedulaPaciente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 30</value>
+  </data>
   <data name="lblCedulaPaciente.Text" xml:space="preserve">
     <value>Patient ID:</value>
+  </data>
+  <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 10</value>
+  </data>
+  <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>832, 30</value>
   </data>
   <data name="btnConsultarDatos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -201,6 +238,15 @@
         zAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnConsultarDatos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="btnConsultarDatos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnConsultarDatos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 166</value>
+  </data>
   <data name="btnConsultarDatos.Text" xml:space="preserve">
     <value>Query data</value>
   </data>
@@ -232,8 +278,50 @@
         iS7jti/DAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnIngresarDatos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 2</value>
+  </data>
+  <data name="btnIngresarDatos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnIngresarDatos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 166</value>
+  </data>
   <data name="btnIngresarDatos.Text" xml:space="preserve">
     <value>Input data</value>
+  </data>
+  <data name="tblAcciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 415</value>
+  </data>
+  <data name="tblAcciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tblAcciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>848, 170</value>
+  </data>
+  <data name="dgwAnalisisPaciente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 53</value>
+  </data>
+  <data name="dgwAnalisisPaciente.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="dgwAnalisisPaciente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>843, 358</value>
+  </data>
+  <data name="pnlContenedor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>848, 585</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>848, 585</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Analysis follow-up</value>

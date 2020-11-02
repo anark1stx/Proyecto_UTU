@@ -23,8 +23,9 @@ Public Class D_UsuarioMYSQL
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = usuario
         Try
             leer = cmd.ExecuteReader()
-        Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
+        Catch ex As MysqlException 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
             Sesion.Cerrar(conexion)
+            Console.WriteLine(ex.Message)
             Console.WriteLine("err buscarrol")
             u.ErrCode = -2
             Return u

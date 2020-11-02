@@ -36,41 +36,41 @@ Partial Class frmPaciente
         '
         'MenuStrip1
         '
-        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionToolStripMenuItem, Me.DiagnosticoToolStripMenuItem, Me.AnalisisToolStripMenuItem, Me.MisTratamientosToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
+        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.Name = "MenuStrip1"
         '
         'InicioToolStripMenuItem
         '
-        resources.ApplyResources(Me.InicioToolStripMenuItem, "InicioToolStripMenuItem")
         Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
+        resources.ApplyResources(Me.InicioToolStripMenuItem, "InicioToolStripMenuItem")
         '
         'GestionToolStripMenuItem
         '
-        resources.ApplyResources(Me.GestionToolStripMenuItem, "GestionToolStripMenuItem")
         Me.GestionToolStripMenuItem.Name = "GestionToolStripMenuItem"
+        resources.ApplyResources(Me.GestionToolStripMenuItem, "GestionToolStripMenuItem")
         '
         'DiagnosticoToolStripMenuItem
         '
-        resources.ApplyResources(Me.DiagnosticoToolStripMenuItem, "DiagnosticoToolStripMenuItem")
         Me.DiagnosticoToolStripMenuItem.Name = "DiagnosticoToolStripMenuItem"
+        resources.ApplyResources(Me.DiagnosticoToolStripMenuItem, "DiagnosticoToolStripMenuItem")
         '
         'AnalisisToolStripMenuItem
         '
-        resources.ApplyResources(Me.AnalisisToolStripMenuItem, "AnalisisToolStripMenuItem")
         Me.AnalisisToolStripMenuItem.Name = "AnalisisToolStripMenuItem"
+        resources.ApplyResources(Me.AnalisisToolStripMenuItem, "AnalisisToolStripMenuItem")
         '
         'MisTratamientosToolStripMenuItem
         '
-        resources.ApplyResources(Me.MisTratamientosToolStripMenuItem, "MisTratamientosToolStripMenuItem")
         Me.MisTratamientosToolStripMenuItem.Name = "MisTratamientosToolStripMenuItem"
+        resources.ApplyResources(Me.MisTratamientosToolStripMenuItem, "MisTratamientosToolStripMenuItem")
         '
         'SalirToolStripMenuItem
         '
-        resources.ApplyResources(Me.SalirToolStripMenuItem, "SalirToolStripMenuItem")
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        resources.ApplyResources(Me.SalirToolStripMenuItem, "SalirToolStripMenuItem")
         '
         'pnlContenedorFormularios
         '

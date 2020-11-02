@@ -155,8 +155,6 @@ Public Class frmTratamientoCrear
     End Sub
 
     Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Console.WriteLine("click en btnBuscar")
-        Console.WriteLine(ModoActual.ToString())
         Select Case ModoActual
             Case Modo.Asignar, Modo.Sugerir
                 If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
@@ -180,7 +178,6 @@ Public Class frmTratamientoCrear
                 End If
             Case Modo.HistorialPacienteConsulta, Modo.HistorialPacienteIngreso
                 Dim result = Await Task.Run(Function() negocio.ConsultarHistorialTratamientos(CI_P))
-                Console.WriteLine("buscando tratamientos para el paciente: " & CI_Paciente)
                 Select Case result(0).ErrCode
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -193,7 +190,6 @@ Public Class frmTratamientoCrear
                         Exit Sub
                 End Select
                 listaTrats = result
-                Console.WriteLine("trats encontrados: " & listaTrats.Count)
                 fixCols()
         End Select
     End Sub
@@ -258,11 +254,9 @@ Public Class frmTratamientoCrear
         For Each day As DayOfWeek In tmpParams.lbDiasSelect.Items
             TratamientoSeleccionado.DiasAsignados.Add(day)
         Next
-
         For Each day As DayOfWeek In TratamientoSeleccionado.DiasAsignados
             Console.WriteLine("dia asignado: " & day)
         Next
-
     End Sub
 
 End Class

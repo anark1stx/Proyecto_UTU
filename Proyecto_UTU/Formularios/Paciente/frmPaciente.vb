@@ -2,7 +2,6 @@
 Imports Utilidades
 Public Class frmPaciente
     Dim frmDiagnostico As New frmDiagnosticos 'Instancia de formulario que tiene los diagnosticos del paciente
-    Dim frmAnalisis As New frmAnalisis 'Instancia de formulario que tiene los diagnosticos del paciente
     Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
     Dim frmIni As New frmInicioPaciente
     Protected _paciente As New E_Paciente
@@ -32,19 +31,28 @@ Public Class frmPaciente
     End Sub
 
     Public Sub InstanciarFormulario(formulario As String)
-
         Select Case formulario
             Case "Inicio"
                 addFrm(frmIni, pnlContenedorFormularios)
             Case "Diagnostico"
-
                 addFrm(frmDiagnostico, pnlContenedorFormularios)
-
             Case "Gestion"
                 addFrm(frmGestion, pnlContenedorFormularios)
-
             Case "Analisis"
-                addFrm(frmAnalisis, pnlContenedorFormularios)
+                Dim frmAnalisis As New frmAnalisisSeguimiento
+                frmAnalisis.MiModo = frmAnalisisSeguimiento.Modo.Buscar
+                frmAnalisis.btnIngresarDatos.Visible = False
+                frmAnalisis.CI_paciente = PacienteActual.Cedula
+                frmAnalisis.txtBuscar.Text = PacienteActual.Cedula.ToString()
+                frmAnalisis.Show()
+                frmAnalisis.btnBuscar.PerformClick()
+            Case "Tratamiento"
+                Dim frmTratamiento As New frmTratamientoCrear
+                frmTratamiento.ModoActual = frmTratamientoCrear.Modo.HistorialPacienteConsulta
+                frmTratamiento.CI_Paciente = PacienteActual.Cedula
+                frmTratamiento.txtNombreTratamiento.Text = PacienteActual.Cedula.ToString()
+                frmTratamiento.Show()
+                frmTratamiento.btnBuscar.PerformClick()
         End Select
     End Sub
 
@@ -66,7 +74,6 @@ Public Class frmPaciente
     End Sub
 
     Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
-
         'HANDLERS PARA FORMULARIO INICIO
         AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnDiagnosticos.Click, AddressOf DiagnosticoToolStripMenuItem_Click
@@ -77,5 +84,9 @@ Public Class frmPaciente
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         frmIngreso_Usuario.Show()
         Me.Dispose()
+    End Sub
+
+    Private Sub MisTratamientosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisTratamientosToolStripMenuItem.Click
+        InstanciarFormulario("Tratamiento")
     End Sub
 End Class
