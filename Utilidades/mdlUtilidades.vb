@@ -167,11 +167,13 @@ Public Module mdlUtilidades
     Public Function Bytes2Image(ByVal bytes() As Byte) As Image
         If bytes Is Nothing Then
             Return Nothing
+        End If
+        If bytes.Count < 1 Then
+            Return Nothing
         Else
             Dim ms As New MemoryStream(bytes)
             Return Image.FromStream(ms)
         End If
-
     End Function
 
     Public Function Image2Bytes(ByVal img As Image) As Byte()

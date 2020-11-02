@@ -117,7 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbMedicoAsignaciones.ItemHeight" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbMedicoAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbMedicoAsignaciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="lbMedicoAsignaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 349</value>
+  </data>
   <data name="btnSacarAsignarM.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -138,6 +152,24 @@
         8a0xRnRzdITo9jgj/oAEI/qIDCP+kBQj+pjcCNEHJUeIPirLiD8szYg+Lh9E7IWJIKKvzIwQfWkqiNhr
         czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="btnSacarAsignarM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 355</value>
+  </data>
+  <data name="btnSacarAsignarM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnSacarAsignarM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 65</value>
+  </data>
+  <data name="tblMedicoAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>764, 2</value>
+  </data>
+  <data name="tblMedicoAsignaciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tblMedicoAsignaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 422</value>
   </data>
   <data name="btnSacarAsginarA.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -160,6 +192,45 @@
         czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnSacarAsginarA.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 356</value>
+  </data>
+  <data name="btnSacarAsginarA.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnSacarAsginarA.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 65</value>
+  </data>
+  <data name="lbAuxiliarAsignaciones.ItemHeight" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="lbAuxiliarAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="lbAuxiliarAsignaciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="lbAuxiliarAsignaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 350</value>
+  </data>
+  <data name="tblAuxiliares.Location" type="System.Drawing.Point, System.Drawing">
+    <value>764, 428</value>
+  </data>
+  <data name="tblAuxiliares.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tblAuxiliares.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 423</value>
+  </data>
+  <data name="tblPMedico.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="tblPMedico.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tblPMedico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>991, 853</value>
+  </data>
   <data name="btnAgregarAsignar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -181,6 +252,42 @@
         PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
         OQcdTIoAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="btnAgregarAsignar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>997, 2</value>
+  </data>
+  <data name="btnAgregarAsignar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnAgregarAsignar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 853</value>
+  </data>
+  <data name="TableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1084, 857</value>
+  </data>
+  <data name="Panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1084, 857</value>
+  </data>
+  <data name="pnlContenedor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1084, 857</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1084, 857</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Medical Staff Management</value>

@@ -27,6 +27,8 @@ Partial Class frmGestion
         Me.Accion1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Accion2 = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlDatosUsuario = New System.Windows.Forms.Panel()
+        Me.lblauxiliar = New System.Windows.Forms.Label()
+        Me.lblmedico = New System.Windows.Forms.Label()
         Me.pnlAcciones = New System.Windows.Forms.Panel()
         Me.btnAltaLogica = New System.Windows.Forms.Button()
         Me.btnAccion2 = New System.Windows.Forms.Button()
@@ -107,12 +109,24 @@ Partial Class frmGestion
         '
         'pnlDatosUsuario
         '
+        Me.pnlDatosUsuario.Controls.Add(Me.lblauxiliar)
+        Me.pnlDatosUsuario.Controls.Add(Me.lblmedico)
         Me.pnlDatosUsuario.Controls.Add(Me.pnlAcciones)
         Me.pnlDatosUsuario.Controls.Add(Me.pnlDspCedula)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedulaTXT)
         Me.pnlDatosUsuario.Controls.Add(Me.lblCedula)
         resources.ApplyResources(Me.pnlDatosUsuario, "pnlDatosUsuario")
         Me.pnlDatosUsuario.Name = "pnlDatosUsuario"
+        '
+        'lblauxiliar
+        '
+        resources.ApplyResources(Me.lblauxiliar, "lblauxiliar")
+        Me.lblauxiliar.Name = "lblauxiliar"
+        '
+        'lblmedico
+        '
+        resources.ApplyResources(Me.lblmedico, "lblmedico")
+        Me.lblmedico.Name = "lblmedico"
         '
         'pnlAcciones
         '
@@ -573,4 +587,6 @@ Partial Class frmGestion
     Friend WithEvents btnAltaLogica As Button
     Friend WithEvents lblEstadoTXT As TextBox
     Friend WithEvents lblEstado As Label
+    Friend WithEvents lblmedico As Label
+    Friend WithEvents lblauxiliar As Label
 End Class

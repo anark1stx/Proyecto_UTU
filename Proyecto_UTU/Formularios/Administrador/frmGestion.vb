@@ -109,6 +109,7 @@ Public Class frmGestion
     Private Sub frmGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RRefresh()
         setup()
+        Me.Dock = DockStyle.Fill
     End Sub
 
     Sub setup()
@@ -910,7 +911,6 @@ Public Class frmGestion
         dgw.Columns("Foto").Visible = False
         dgw.Columns("Nombre").Visible = False
         dgw.Columns("ErrCode").Visible = False
-        dgw.Columns("Estado").Visible = False
         dgw.Columns("Cedula").DisplayIndex = 0
         dgw.Columns("Nombre1").DisplayIndex = 1
         dgw.Columns("Nombre1").HeaderText = "1° Nombre"
@@ -920,6 +920,10 @@ Public Class frmGestion
         dgw.Columns("Apellido1").HeaderText = "1° Apellido"
         dgw.Columns("Apellido2").DisplayIndex = 4
         dgw.Columns("Apellido2").HeaderText = "2° Apellido"
+        Select Case Usuario
+            Case TipoUsuario.Paciente
+                dgw.Columns("Estado").Visible = False
+        End Select
     End Sub
 
     Private Sub dgwUsuarios_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwUsuarios.CellMouseClick

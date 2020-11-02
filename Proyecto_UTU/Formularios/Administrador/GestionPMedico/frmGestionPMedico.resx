@@ -117,21 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;tblAuxiliares.Parent" xml:space="preserve">
+    <value>tblPMedico</value>
+  </data>
   <data name="&gt;&gt;tblPMedico.Name" xml:space="preserve">
     <value>tblPMedico</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tblPMedico.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tblMedicoAsignaciones" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tblAuxiliares" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,1065,Absolute,271" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1446, 1055</value>
   </data>
   <data name="&gt;&gt;lbAuxiliarAsignaciones.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;btnAgregarAsignar.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
-    <value>Panel1</value>
   </data>
   <data name="&gt;&gt;tblPMedico.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -142,9 +142,7 @@
   <data name="&gt;&gt;Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbMedicoAsignaciones.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -158,18 +156,11 @@
   <data name="&gt;&gt;tblPMedico.Parent" xml:space="preserve">
     <value>TableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;btnSacarAsginarA.Parent" xml:space="preserve">
-    <value>tblAuxiliares</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1446, 1055</value>
-  </data>
   <data name="&gt;&gt;btnSacarAsignarM.Name" xml:space="preserve">
     <value>btnSacarAsignarM</value>
   </data>
-  <data name="&gt;&gt;lbAuxiliarAsignaciones.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbAuxiliarAsignaciones.Parent" xml:space="preserve">
+    <value>tblAuxiliares</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmGestionPMedico</value>
@@ -237,8 +228,14 @@
   <data name="&gt;&gt;lbAuxiliarAsignaciones.Name" xml:space="preserve">
     <value>lbAuxiliarAsignaciones</value>
   </data>
-  <data name="btnSacarAsginarA.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 79</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tblPMedico.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -252,14 +249,8 @@
   <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
     <value>1446, 1055</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
-    <value>Panel1</value>
   </data>
   <data name="lbMedicoAsignaciones.HorizontalScrollbar" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -276,11 +267,11 @@
   <data name="lbMedicoAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="lbAuxiliarAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="tblMedicoAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1068, 3</value>
   </data>
-  <data name="btnAgregarAsignar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 1049</value>
+  <data name="&gt;&gt;btnSacarAsginarA.Parent" xml:space="preserve">
+    <value>tblAuxiliares</value>
   </data>
   <data name="&gt;&gt;tblAuxiliares.Name" xml:space="preserve">
     <value>tblAuxiliares</value>
@@ -294,14 +285,11 @@
   <data name="btnSacarAsignarM.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;lbMedicoAsignaciones.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="lbAuxiliarAsignaciones.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
@@ -328,8 +316,14 @@
         OQcdTIoAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="pnlContenedor.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="lbAuxiliarAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
   <data name="tblPMedico.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -346,17 +340,20 @@
   <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="btnAgregarAsignar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="tblPMedico.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tblMedicoAsignaciones" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tblAuxiliares" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,76.89203,Percent,23.10797" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;lbMedicoAsignaciones.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
+    <value>Panel1</value>
   </data>
   <data name="btnSacarAsginarA.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 437</value>
+  </data>
+  <data name="btnAgregarAsignar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;pnlContenedor.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -373,8 +370,8 @@
   <data name="btnAgregarAsignar.Location" type="System.Drawing.Point, System.Drawing">
     <value>1331, 3</value>
   </data>
-  <data name="&gt;&gt;tblAuxiliares.Parent" xml:space="preserve">
-    <value>tblPMedico</value>
+  <data name="btnAgregarAsignar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 1049</value>
   </data>
   <data name="lbMedicoAsignaciones.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 438</value>
@@ -394,14 +391,14 @@
   <data name="btnSacarAsginarA.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
-    <value>pnlContenedor</value>
-  </data>
   <data name="lbAuxiliarAsignaciones.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 428</value>
   </data>
   <data name="tblAuxiliares.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnSacarAsginarA" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbAuxiliarAsignaciones" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,83.77706,Percent,16.22294" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="tblAuxiliares.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
@@ -409,14 +406,17 @@
   <data name="tblAuxiliares.Size" type="System.Drawing.Size, System.Drawing">
     <value>265, 519</value>
   </data>
-  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1446, 1055</value>
+  <data name="btnSacarAsginarA.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 79</value>
   </data>
   <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="lbAuxiliarAsignaciones.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tblMedicoAsignaciones.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btnSacarAsginarA.Name" xml:space="preserve">
     <value>btnSacarAsginarA</value>
@@ -442,6 +442,9 @@
   <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tblPMedico" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAgregarAsignar" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,91.83955,Percent,8.160442" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="tblMedicoAsignaciones.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbMedicoAsignaciones" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSacarAsignarM" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,83.78133,Percent,16.21867" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="tblPMedico.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -460,14 +463,14 @@
   <data name="TableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tblMedicoAsignaciones.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbMedicoAsignaciones" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSacarAsignarM" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,85.74181,Percent,14.25819" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1446, 1055</value>
   </data>
   <data name="btnSacarAsginarA.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;tblMedicoAsignaciones.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btnAgregarAsignar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tblMedicoAsignaciones.Parent" xml:space="preserve">
     <value>tblPMedico</value>
@@ -502,11 +505,11 @@
   <data name="pnlContenedor.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tblMedicoAsignaciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1068, 3</value>
+  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
+    <value>Panel1</value>
   </data>
-  <data name="btnSacarAsignarM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 447</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlContenedor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -514,11 +517,11 @@
   <data name="&gt;&gt;tblMedicoAsignaciones.Name" xml:space="preserve">
     <value>tblMedicoAsignaciones</value>
   </data>
-  <data name="&gt;&gt;lbAuxiliarAsignaciones.Parent" xml:space="preserve">
-    <value>tblAuxiliares</value>
+  <data name="&gt;&gt;lbAuxiliarAsignaciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnAgregarAsignar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
   </data>
   <data name="&gt;&gt;btnAgregarAsignar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -526,8 +529,8 @@
   <data name="&gt;&gt;lbMedicoAsignaciones.Name" xml:space="preserve">
     <value>lbMedicoAsignaciones</value>
   </data>
-  <data name="&gt;&gt;tblPMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnSacarAsignarM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 447</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -13,7 +13,9 @@ Public Class frmGestionPMedico
         LimpiarControles(elegirAuxiliar)
         LimpiarControles(elegirMedico)
         elegirMedico.Visible = True
+        elegirMedico.lblmedico.Visible = True
         elegirAuxiliar.Visible = True
+        elegirAuxiliar.lblauxiliar.Visible = True
         Me.SetBounds(0, 0, Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height)
         Me.MaximizeBox = False
         AddHandler elegirMedico.dgwUsuarios.CurrentCellChanged, AddressOf CargarCrrMedico
@@ -22,10 +24,14 @@ Public Class frmGestionPMedico
 
     Sub CargarCrrMedico()
         listaMedico = n_crr.BuscarAsignacionesM(elegirMedico.MedicoSelected)
-        If listaMedico(0).Fecha.ToShortDateString() = "1/1/0001" Then
-            listaMedico.Clear()
-            Exit Sub
-        End If
+        Select Case listaMedico(0).ErrCode
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -8
+                Exit Sub
+        End Select
         Dim itemsFormateados = listaMedico.Select(Function(crr) New With {
         crr.Auxiliar.Cedula,
         crr.Fecha,
@@ -36,10 +42,14 @@ Public Class frmGestionPMedico
     End Sub
     Sub CargarCrrAuxiliar()
         listaAuxiliar = n_crr.BuscarAsignacionesA(elegirAuxiliar.AuxiliarSelected)
-        If listaAuxiliar(0).Fecha.ToShortDateString() = "1/1/0001" Then
-            listaAuxiliar.Clear()
-            Exit Sub
-        End If
+        Select Case listaAuxiliar(0).ErrCode
+            Case -1
+                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -2
+                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Case -8
+                Exit Sub
+        End Select
         Dim itemsFormateados = listaAuxiliar.Select(Function(crr) New With {
         crr.Medico.Cedula,
         crr.Fecha,

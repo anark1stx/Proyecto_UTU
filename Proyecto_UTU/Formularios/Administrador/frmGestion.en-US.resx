@@ -122,7 +122,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
-        DQAAAk1TRnQBSQFMAgEBAwEAARABAQEQAQEBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DQAAAk1TRnQBSQFMAgEBAwEAARgBAQEYAQEBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -186,7 +186,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABM
-        DQAAAk1TRnQBSQFMAgEBAgEAARABAQEQAQEBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DQAAAk1TRnQBSQFMAgEBAgEAARgBAQEYAQEBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -246,6 +246,21 @@
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblauxiliar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="lblauxiliar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="lblauxiliar.Text" xml:space="preserve">
+    <value>Select medical assistant</value>
+  </data>
+  <data name="lblmedico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 20</value>
+  </data>
+  <data name="lblmedico.Text" xml:space="preserve">
+    <value>Select Doctor</value>
+  </data>
   <data name="btnAltaLogica.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -280,7 +295,7 @@
     <value>670, 153</value>
   </data>
   <data name="lblEstado.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 24</value>
+    <value>46, 18</value>
   </data>
   <data name="lblEstado.Text" xml:space="preserve">
     <value>State:</value>
@@ -298,7 +313,7 @@
     <value>670, 198</value>
   </data>
   <data name="lblContrasena.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 24</value>
+    <value>79, 18</value>
   </data>
   <data name="lblContrasena.Text" xml:space="preserve">
     <value>Password:</value>
@@ -411,7 +426,7 @@
     <value>670, 4</value>
   </data>
   <data name="lblEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 24</value>
+    <value>74, 18</value>
   </data>
   <data name="lblEspecialidades.Text" xml:space="preserve">
     <value>Speciality:</value>
@@ -420,7 +435,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblEstadoCivil.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 24</value>
+    <value>82, 18</value>
   </data>
   <data name="lblEstadoCivil.Text" xml:space="preserve">
     <value>Civic State:</value>
@@ -429,7 +444,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblOcupacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 24</value>
+    <value>88, 18</value>
   </data>
   <data name="lblOcupacion.Text" xml:space="preserve">
     <value>Occupation:</value>
@@ -438,7 +453,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblSexo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 24</value>
+    <value>37, 18</value>
   </data>
   <data name="lblSexo.Text" xml:space="preserve">
     <value>Sex:</value>
@@ -447,7 +462,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblFnac.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>74, 18</value>
   </data>
   <data name="lblFnac.Text" xml:space="preserve">
     <value>Birth date:</value>
@@ -1080,7 +1095,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblNombre1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 24</value>
+    <value>70, 18</value>
   </data>
   <data name="lblNombre1.Text" xml:space="preserve">
     <value>1° Name:</value>
@@ -1089,7 +1104,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblApellido1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 24</value>
+    <value>90, 18</value>
   </data>
   <data name="lblApellido1.Text" xml:space="preserve">
     <value>1° Surname:</value>
@@ -1098,7 +1113,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblTelefono.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 24</value>
+    <value>55, 18</value>
   </data>
   <data name="lblTelefono.Text" xml:space="preserve">
     <value>Phone:</value>
@@ -1107,7 +1122,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblDireccion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 24</value>
+    <value>66, 18</value>
   </data>
   <data name="lblDireccion.Text" xml:space="preserve">
     <value>Address:</value>
@@ -1119,7 +1134,7 @@
     <value>274, 218</value>
   </data>
   <data name="lblCorreo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 24</value>
+    <value>39, 18</value>
   </data>
   <data name="lblCorreo.Text" xml:space="preserve">
     <value>Mail:</value>
@@ -1128,7 +1143,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblNombre2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 24</value>
+    <value>70, 18</value>
   </data>
   <data name="lblNombre2.Text" xml:space="preserve">
     <value>2° Name:</value>
@@ -1137,7 +1152,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblApellido2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 24</value>
+    <value>90, 18</value>
   </data>
   <data name="lblApellido2.Text" xml:space="preserve">
     <value>2° Surname:</value>
@@ -1146,7 +1161,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 24</value>
+    <value>26, 18</value>
   </data>
   <data name="lblCedula.Text" xml:space="preserve">
     <value>ID:</value>
@@ -1155,7 +1170,7 @@
     <value>NoControl</value>
   </data>
   <data name="rBtnEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 29</value>
+    <value>94, 24</value>
   </data>
   <data name="rBtnEspecialidad.Text" xml:space="preserve">
     <value>Speciality</value>
@@ -1167,7 +1182,7 @@
     <value>198, 7</value>
   </data>
   <data name="rBtnApellido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 29</value>
+    <value>92, 24</value>
   </data>
   <data name="rBtnApellido.Text" xml:space="preserve">
     <value>Surname</value>
@@ -1179,7 +1194,7 @@
     <value>317, 7</value>
   </data>
   <data name="rBtnCedula.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 29</value>
+    <value>44, 24</value>
   </data>
   <data name="rBtnCedula.Text" xml:space="preserve">
     <value>ID</value>
