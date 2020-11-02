@@ -6,8 +6,10 @@ Public Class D_auxiliar
     Dim conexion As New MySqlConnection
     Public Function BuscarAuxiliarCI(ci As Integer) As E_Usuario
         Dim leer As MySqlDataReader
+        Dim u As New E_Usuario
         If Sesion.Conectar(conexion) = -1 Then
-            Return New E_Usuario With {.ErrCode = -1}
+            u.ErrCode = -1
+            Return u
         End If
 
         Dim cmd = New MySqlCommand With {
@@ -16,7 +18,6 @@ Public Class D_auxiliar
                 .Connection = conexion
         }
 
-        Dim u As New E_Usuario
         Dim listaTel As New List(Of String)
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
 
@@ -24,7 +25,8 @@ Public Class D_auxiliar
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
-            Return New E_Usuario With {.ErrCode = -2}
+            u.ErrCode = -2
+            Return u
         End Try
 
         If leer.HasRows Then
@@ -41,7 +43,6 @@ Public Class D_auxiliar
                      .Activo = leer.GetBoolean("activo"),
                      .TelefonosLista = New List(Of String)(New String() {})
                 }
-
                 listaTel.Add(leer.GetString("telefono"))
             End While
             u.TelefonosLista = listaTel.Distinct().ToList()
@@ -75,7 +76,7 @@ Public Class D_auxiliar
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
-            lastU.ErrCode = 2
+            lastU.ErrCode = -2
             uList.Add(lastU)
             Return uList
         End Try
@@ -104,7 +105,8 @@ Public Class D_auxiliar
                 End If
             End While
         Else
-            uList = New List(Of E_Usuario)(New E_Usuario With {.ErrCode = 8}) 'no encontre usuarios
+            lastU.ErrCode = -8
+            uList.Add(lastU) 'no encontre usuarios
         End If
 
         Sesion.Cerrar(conexion)

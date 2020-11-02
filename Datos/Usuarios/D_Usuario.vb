@@ -80,7 +80,7 @@ Public Class D_Usuario
             End Select
         End If
 
-        If Sesion.Conectar(conexion) = -1 Then
+        If Sesion.Conectar(conexion) <> 1 Then
             Return -1
         End If
 

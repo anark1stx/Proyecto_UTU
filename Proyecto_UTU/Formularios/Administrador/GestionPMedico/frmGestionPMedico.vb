@@ -18,6 +18,8 @@ Public Class frmGestionPMedico
         elegirAuxiliar.lblauxiliar.Visible = True
         Me.SetBounds(0, 0, Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height)
         Me.MaximizeBox = False
+        AddHandler elegirMedico.dgwUsuarios.RowsAdded, AddressOf CargarCrrMedico
+        AddHandler elegirAuxiliar.dgwUsuarios.RowsAdded, AddressOf CargarCrrAuxiliar
         AddHandler elegirMedico.dgwUsuarios.CurrentCellChanged, AddressOf CargarCrrMedico
         AddHandler elegirAuxiliar.dgwUsuarios.CurrentCellChanged, AddressOf CargarCrrAuxiliar
     End Sub
@@ -82,6 +84,8 @@ Public Class frmGestionPMedico
                     MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error ejecutando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Case 1
                     MessageBox.Show("Ingresado con éxito.", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    CargarCrrAuxiliar()
+                    CargarCrrMedico()
             End Select
         End If
 

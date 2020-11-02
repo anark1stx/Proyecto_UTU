@@ -648,22 +648,18 @@ Public Class frmGestion
             MessageBox.Show(MensajeDeErrorLongitud(3, 50), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-
         Select Case Usuario
             Case TipoUsuario.Paciente
                 Dim np As New N_Paciente
                 Dim p As New E_Paciente
                 Select Case Filter
                     Case Filtro.Cedula
-
                         If Not check_Cedula(txtBusqueda.Text) Then
                             MessageBox.Show(MensajeDeErrorCedula(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                             Exit Sub
                         End If
-
                         p = Await Task.Run(Function() np.BuscarPacienteCI(txtBusqueda.Text))
-
                         Select Case p.ErrCode
                             Case -1
                                 MessageBox.Show(MensajeDeErrorConexion(), "Error en la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -675,7 +671,6 @@ Public Class frmGestion
                                 MessageBox.Show("No fue encontrado un paciente con esa cédula", "Paciente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
-
                         bs.DataSource = p
                         basicBindings(p)
                         dgwSetup(dgwUsuarios, bs)
@@ -733,7 +728,7 @@ Public Class frmGestion
                                 MessageBox.Show("No fue encontrado un medico con esa cédula", "Medico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
-
+                        MedicoSelected = m
                         bs.DataSource = m
                         basicBindings(m)
                         MedicoBindings(m)
@@ -757,15 +752,15 @@ Public Class frmGestion
                                 MessageBox.Show("No fueron encontrados médicos con ese apellido", "Médicos no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
-
                         m = mList(0)
-
+                        MedicoSelected = m
                         bs.DataSource = mList
                         basicBindings(m)
                         dgwSetup(dgwUsuarios, bs)
                         MedicoBindings(m)
                         mList.Add(m)
                         ci_valida = True
+                        MedicoSelected = m
                     Case Filtro.Especialidad
                         If Not check_regex(txtBusqueda.Text, RegexLiteralAcentos, True) Then
                             MessageBox.Show(MensajeDeErrorsoloLetras(), "Información inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -784,9 +779,8 @@ Public Class frmGestion
                                 MessageBox.Show("No fueron encontrados médicos con esa especialidad", "Médicos no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
-
                         m = mList(0)
-
+                        MedicoSelected = m
                         bs.DataSource = mList
                         basicBindings(m)
                         dgwSetup(dgwUsuarios, bs)
@@ -794,7 +788,6 @@ Public Class frmGestion
                         mList.Add(m)
                         ci_valida = True
                 End Select
-
             Case TipoUsuario.Auxiliar
                 Dim naux As New N_Auxiliar
                 Dim a As New E_Usuario
@@ -816,7 +809,7 @@ Public Class frmGestion
                                 MessageBox.Show("No fue encontrado un auxiliar con esa cédula", "Medico no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
-
+                        AuxiliarSelected = a
                         bs.DataSource = a
                         basicBindings(a)
                         dgwSetup(dgwUsuarios, bs)
@@ -839,8 +832,8 @@ Public Class frmGestion
                                 MessageBox.Show("No fueron encontrados auxiliares con ese apellido", "Auxiliares no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
                         End Select
-
                         a = aList(0)
+                        AuxiliarSelected = a
                         bs.DataSource = aList
                         basicBindings(a)
                         dgwSetup(dgwUsuarios, bs)

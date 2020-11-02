@@ -121,7 +121,8 @@ Public Class D_Paciente
                 End If
             End While
         Else
-            uList.Add(New E_Paciente() With {.ErrCode = -8}) 'no encontre usuarios
+            lastU.ErrCode = -8
+            uList.Add(lastU) 'no encontre usuarios
         End If
         Sesion.Cerrar(conexion)
 
@@ -230,7 +231,8 @@ Public Class D_Paciente
         Catch ex As Exception
             Console.WriteLine(ex.Message)
             Sesion.Cerrar(conexion)
-            eList.Add(New E_Estado With {.ErrCode = -1})
+            Dim e As New E_Estado With {.ErrCode = -1}
+            eList.Add(e)
             Return eList
         End Try
 
@@ -240,7 +242,8 @@ Public Class D_Paciente
             End While
             p.Estado = eList.Last()
         Else
-            eList.Add(New E_Estado With {.ErrCode = -8})
+            Dim e As New E_Estado With {.ErrCode = -8}
+            eList.Add(e)
         End If
 
         Sesion.Cerrar(conexion)

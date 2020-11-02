@@ -64,7 +64,8 @@ Public Class D_Medico
         Dim leer As MySqlDataReader
 
         If Sesion.Conectar(conexion) = -1 Then
-            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -1})
+            uList.Add(New E_Medico With {.ErrCode = -1})
+            Return uList
         End If
 
         Dim cmd = New MySqlCommand With {
@@ -78,7 +79,8 @@ Public Class D_Medico
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
-            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -2})
+            uList.Add(New E_Medico With {.ErrCode = -2})
+            Return uList
         End Try
 
         If leer.HasRows Then
@@ -139,7 +141,8 @@ Public Class D_Medico
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
-            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -2})
+            uList.Add(New E_Medico With {.ErrCode = -2})
+            Return uList
         End Try
 
         If leer.HasRows Then
@@ -170,12 +173,10 @@ Public Class D_Medico
                 End If
             End While
         Else
-            uList = New List(Of E_Medico)(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
+            uList.Add(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
         End If
-
         Sesion.Cerrar(conexion)
         Return uList
-
     End Function
     Public Function AltaMedico(u As E_Medico)
         Dim code = MyBase.AltaUsuarioSIBIM(u)
