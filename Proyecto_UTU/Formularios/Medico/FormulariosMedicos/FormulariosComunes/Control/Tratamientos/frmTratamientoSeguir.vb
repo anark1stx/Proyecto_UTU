@@ -41,10 +41,14 @@ Public Class frmTratamientoSeguir
         txtFechaInicio.Text = Tratamiento.FechaFin.ToShortDateString()
         txtDescripcionTratamiento.Text = t.Descripcion
         CargarInfoSeguimientos()
+        If MiModo = Modo.ConsultarDatosS Then
+            btnGuardar.Visible = False
+            txtSeguimiento.ReadOnly = True
+            tblResultado.Visible = False
+        End If
     End Sub
 
     Async Sub CargarInfoSeguimientos()
-        Console.WriteLine("querying")
         Dim result = Await Task.Run(Function() nt.ConsultarDiasSemana(t, CI_Paciente))
         Select Case result
             Case -1
@@ -104,10 +108,7 @@ Public Class frmTratamientoSeguir
             VerificarSeguimientos()
         End If
         VerificarResultado()
-        If MiModo = Modo.ConsultarDatosS Then
-            btnGuardar.Visible = False
-            txtSeguimiento.ReadOnly = True
-        End If
+
     End Sub
 
     Sub VerificarSeguimientos() 'si el tratamiento tiene todos sus seguimientos definidos, habilito el tblResultado

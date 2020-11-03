@@ -122,37 +122,37 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="InicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 26</value>
+    <value>55, 24</value>
   </data>
   <data name="InicioToolStripMenuItem.Text" xml:space="preserve">
     <value>Inicio</value>
   </data>
   <data name="GestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 26</value>
+    <value>72, 24</value>
   </data>
   <data name="GestionToolStripMenuItem.Text" xml:space="preserve">
     <value>Gestión</value>
   </data>
   <data name="DiagnosticoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 26</value>
+    <value>130, 24</value>
   </data>
   <data name="DiagnosticoToolStripMenuItem.Text" xml:space="preserve">
     <value>Mis diagnósticos</value>
   </data>
   <data name="AnalisisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 26</value>
+    <value>97, 24</value>
   </data>
   <data name="AnalisisToolStripMenuItem.Text" xml:space="preserve">
     <value>Mis análisis</value>
   </data>
   <data name="MisTratamientosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 26</value>
+    <value>129, 24</value>
   </data>
   <data name="MisTratamientosToolStripMenuItem.Text" xml:space="preserve">
     <value>Mis tratamientos</value>
   </data>
   <data name="SalirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 26</value>
+    <value>51, 24</value>
   </data>
   <data name="SalirToolStripMenuItem.Text" xml:space="preserve">
     <value>Salir</value>
@@ -165,7 +165,7 @@
     <value>5, 2, 0, 2</value>
   </data>
   <data name="MenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1131, 30</value>
+    <value>1131, 28</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="MenuStrip1.TabIndex" type="System.Int32, mscorlib">
@@ -193,13 +193,13 @@
     <value>Fill</value>
   </data>
   <data name="pnlContenedorFormularios.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 30</value>
+    <value>0, 28</value>
   </data>
   <data name="pnlContenedorFormularios.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="pnlContenedorFormularios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1131, 718</value>
+    <value>1131, 720</value>
   </data>
   <data name="pnlContenedorFormularios.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

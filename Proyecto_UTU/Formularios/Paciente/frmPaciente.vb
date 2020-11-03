@@ -47,12 +47,11 @@ Public Class frmPaciente
                 frmAnalisis.Show()
                 frmAnalisis.btnBuscar.PerformClick()
             Case "Tratamiento"
-                Dim frmTratamiento As New frmTratamientoCrear
-                frmTratamiento.ModoActual = frmTratamientoCrear.Modo.HistorialPacienteConsulta
-                frmTratamiento.CI_Paciente = PacienteActual.Cedula
-                frmTratamiento.txtNombreTratamiento.Text = PacienteActual.Cedula.ToString()
-                frmTratamiento.Show()
-                frmTratamiento.btnBuscar.PerformClick()
+                Console.WriteLine("cedula " & PacienteActual.Cedula)
+                Dim frmTratamientoC As New frmTratamientoCrear
+                frmTratamientoC.CI_Paciente = PacienteActual.Cedula
+                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.HistorialPacienteConsulta
+                frmTratamientoC.Show()
         End Select
     End Sub
 

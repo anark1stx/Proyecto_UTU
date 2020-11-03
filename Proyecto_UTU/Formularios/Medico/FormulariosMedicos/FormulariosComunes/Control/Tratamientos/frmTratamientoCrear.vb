@@ -162,17 +162,19 @@ Public Class frmTratamientoCrear
                 tblElementos.RowStyles(2).Height = 78.7
                 dgwTratamientos.Visible = True
                 btnGuardar.Text = "Sugerir Tratamiento"
-            Case Modo.HistorialPacienteConsulta, Modo.HistorialPacienteIngreso
+            Case Modo.HistorialPacienteConsulta,
                 DefinirToolStripMenuItem.Visible = False
                 tblBusqueda.Visible = False
                 lblNombreTratamiento.Visible = False
                 btnGuardar.Visible = False
                 tblElementos.SetRowSpan(dgwTratamientos, 3)
-                btnBuscar_Click(sender:=New Object, e:=New EventArgs)
+                Console.WriteLine("antes boton buscar")
+                btnBuscar_Click(New Object, New EventArgs)
         End Select
     End Sub
 
     Private Async Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Console.WriteLine("boton buscar")
         Select Case ModoActual
             Case Modo.Asignar, Modo.Sugerir
                 If Not check_regex(txtNombreTratamiento.Text, RegexAlfaNumericoEspaciosPuntosComasTildes, True) Then
@@ -195,7 +197,7 @@ Public Class frmTratamientoCrear
                     dgwTratamientos.DataSource = listaTrats
                 End If
             Case Modo.HistorialPacienteConsulta, Modo.HistorialPacienteIngreso
-                Dim result = Await Task.Run(Function() negocio.ConsultarHistorialTratamientos(CI_P))
+                Dim result = Await Task.Run(Function() negocio.ConsultarHistorialTratamientos(CI_Paciente))
                 Select Case result(0).ErrCode
                     Case -1
                         MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -208,6 +210,10 @@ Public Class frmTratamientoCrear
                         Exit Sub
                 End Select
                 listaTrats = result
+                Console.WriteLine("analisis " & result.Count)
+                For Each t As E_Tratamiento In listaTrats
+                    Console.WriteLine("tratamiento: " & t.ID.ToString() & " nom:" & t.Nombre)
+                Next
                 fixCols()
         End Select
     End Sub
@@ -222,20 +228,10 @@ Public Class frmTratamientoCrear
         dgwTratamientos.Columns.Add("F_FIN", "Fecha de Finalización")
         dgwTratamientos.Columns.Add("RES", "Resultado")
         For Each t As E_Tratamiento In listaTrats
+            Console.WriteLine("tratamiento: " & t.ID.ToString() & " nom:" & t.Nombre)
             dgwTratamientos.Rows.Add(t.ID, t.Nombre, t.Descripcion, t.FechaInicio.ToShortDateString(), t.FechaFin.ToShortDateString(), t.Resultado)
         Next
     End Sub
-
-    Private Sub txtNombreTratamiento_TextChanged(sender As Object, e As EventArgs) Handles txtNombreTratamiento.TextChanged
-        If listaTrats.Exists(Function(p) p.Nombre = txtNombreTratamiento.Text) Then
-            Dim trat As E_Tratamiento = listaTrats.Find(Function(p) p.Nombre = txtNombreTratamiento.Text)
-            txtDescripcionTratamiento.Text = trat.Descripcion
-            TratamientoSeleccionado = trat
-        Else
-            TratamientoSeleccionado = New E_Tratamiento With {.ID = 0}
-        End If
-    End Sub
-
     Private Sub dgwTratamientos_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgwTratamientos.CellMouseClick
         TratamientoSeleccionado = listaTrats(dgwTratamientos.CurrentCell.RowIndex)
         Select Case ModoActual
