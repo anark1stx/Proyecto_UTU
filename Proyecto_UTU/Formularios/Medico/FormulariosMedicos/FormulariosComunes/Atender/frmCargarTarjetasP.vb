@@ -55,7 +55,6 @@ Public Class frmCargarTarjetasP
 
 
     Sub addHandlers(tarjeta As TarjetaPaciente)
-        'AddHandler tarjeta.MouseHover, AddressOf SeleccionarTarjetaDeTBL
         AddHandler tarjeta.MouseDown, AddressOf SeleccionarTarjetaDeTBL
     End Sub
 

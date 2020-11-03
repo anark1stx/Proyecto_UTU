@@ -167,5 +167,6 @@ Public Class Identificacion_Paciente
         Dim frmDg As New frmDiagnosticos
         frmDg.CI_Paciente = PacienteBuscar.Cedula
         frmDg.FormBorderStyle = FormBorderStyle.FixedSingle
+        frmDg.ShowDialog()
     End Sub
 End Class

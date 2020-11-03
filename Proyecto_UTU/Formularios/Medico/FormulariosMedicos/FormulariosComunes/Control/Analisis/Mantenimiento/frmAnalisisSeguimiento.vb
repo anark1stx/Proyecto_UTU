@@ -96,6 +96,7 @@ Public Class frmAnalisisSeguimiento
         End If
         If AnalisisSelect.FechaRes.Year = 1 Then
             MessageBox.Show("Aún no hay resultados ingresados para el análisis.", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
         Else
             Dim res2 = na.ConsultarResultadosAnalisis(AnalisisSelect)
             Select Case res2

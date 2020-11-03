@@ -12,7 +12,6 @@ Public Class frmMedico
 
     Dim frmAnalisisC As New frmAnalisisCrear
     Dim frmAnalisisS As New frmAnalisisSeguimiento
-    Dim frmAnalisisResultados As New frmDatosAnalisis
 
     Dim filtroB As String = ""
     Dim frmCatalogo As New frmCatalogoFormulariosBD
@@ -235,13 +234,8 @@ Public Class frmMedico
             Case "SeguirAnalisis"
                 LimpiarControles(frmAnalisisS)
                 frmAnalisisS.MiModo = frmAnalisisSeguimiento.Modo.Buscar
-                frmAnalisisS.resetMode()
                 frmAnalisisS.ShowDialog()
-            Case "DatosAnalisis"
-                LimpiarControles(frmAnalisisS)
-                addFrm(frmAnalisisResultados, pnlContenedorFormularios)
         End Select
-
     End Sub
 
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionMenuItem.Click
@@ -293,8 +287,8 @@ Public Class frmMedico
         AddHandler frmConsultasPendientes.btnVerAnalisis.Click,
             Sub()
                 Consulta.Paciente.Cedula = frmConsultasPendientes.ConsultaSeleccionada.Paciente.Cedula
-                InstanciarFormulario("SeguirAnalisis")
                 frmAnalisisS.txtBuscar.Text = Consulta.Paciente.Cedula
+                InstanciarFormulario("SeguirAnalisis")
             End Sub
         AddHandler frmConsultasPendientes.btnAtender.Click,
             Sub()
@@ -403,6 +397,8 @@ Public Class frmMedico
     Sub resetearCamposId()
         Consulta.Paciente.Cedula = 0
         frmIdentificacion.btnReferenciaConsulta.Enabled = False
+        frmIdentificacion.cbConsultasPrevias.DataSource = Nothing
+        frmIdentificacion.cbConsultasPrevias.Items.Clear()
         frmIdentificacion.cbConsultasPrevias.Enabled = False
         frmIdentificacion.btnVerConsulta.Enabled = False
         frmIdentificacion.pnlEstado.Enabled = False
