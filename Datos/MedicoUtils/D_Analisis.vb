@@ -292,7 +292,8 @@ Public Class D_Analisis
         Dim aList As New List(Of E_Analisis)
         Dim leer As MySqlDataReader
         If Sesion.Conectar(conexion) = -1 Then
-            aList.Add(New E_Analisis With {.ErrCode = -1})
+            Dim a As New E_Analisis With {.ErrCode = -1}
+            aList.Add(a)
             Return aList
         End If
 
@@ -308,7 +309,8 @@ Public Class D_Analisis
         Catch ex As Exception
             Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            aList.Add(New E_Analisis With {.ErrCode = -2})
+            Dim a As New E_Analisis With {.ErrCode = -2}
+            aList.Add(a)
             Return aList
         End Try
 
@@ -324,9 +326,9 @@ Public Class D_Analisis
                 .Medico = New E_Medico With {.Cedula = leer.GetInt32("CI_medico")}
                 }})
             End While
-
         Else
-            aList.Add(New E_Analisis With {.ErrCode = -8})
+            Dim a As New E_Analisis With {.ErrCode = -8}
+            aList.Add(a)
         End If
         Sesion.Cerrar(conexion)
         Return aList
