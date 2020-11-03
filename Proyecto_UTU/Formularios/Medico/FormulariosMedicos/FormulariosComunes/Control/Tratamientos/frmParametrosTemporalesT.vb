@@ -22,9 +22,7 @@
         fixFechaFin()
     End Sub
     Sub fixFechaFin()
-        If dtpFechaFin.Value <= dtpFechaInicio.Value Then
-            dtpFechaFin.MinDate = New Date(dtpFechaInicio.Value.Year, dtpFechaInicio.Value.Month, dtpFechaInicio.Value.Day + 1)
-        End If
+        dtpFechaFin.MinDate = New Date(dtpFechaInicio.Value.Year, dtpFechaInicio.Value.Month, dtpFechaInicio.Value.Day + 1)
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
@@ -40,11 +38,34 @@
     End Sub
 
     Sub FixAvailableDays()
+        cbDiasSemana.DataSource = Nothing
         cbDiasSemana.Items.Clear()
         lbDiasSelect.Items.Clear()
-        For i = dtpFechaInicio.Value.DayOfWeek To dtpFechaFin.Value.DayOfWeek
-            cbDiasSemana.Items.Add(i)
-        Next
+        Dim diasDisponibles As New List(Of DayOfWeek)
+        Dim diasdiff = (dtpFechaFin.Value - dtpFechaInicio.Value).TotalDays
+        If diasdiff <= 7 Then
+            If dtpFechaFin.Value.DayOfWeek < dtpFechaInicio.Value.DayOfWeek Then
+                For i = DayOfWeek.Sunday To dtpFechaFin.Value.DayOfWeek
+                    diasDisponibles.Add(i)
+                Next
+                For i = dtpFechaInicio.Value.DayOfWeek To DayOfWeek.Saturday
+                    diasDisponibles.Add(i)
+                Next
+            ElseIf dtpFechaFin.Value.DayOfWeek > dtpFechaInicio.Value.DayOfWeek Then
+                For i = dtpFechaInicio.Value.DayOfWeek To dtpFechaFin.Value.DayOfWeek
+                    diasDisponibles.Add(i)
+                Next
+            ElseIf dtpFechaFin.Value.DayOfWeek = dtpFechaInicio.Value.DayOfWeek Then
+                For i = DayOfWeek.Sunday To DayOfWeek.Saturday
+                    diasDisponibles.Add(i)
+                Next
+            End If
+        Else
+            For i = DayOfWeek.Sunday To DayOfWeek.Saturday
+                diasDisponibles.Add(i)
+            Next
+        End If
+        cbDiasSemana.DataSource = diasDisponibles
     End Sub
 
 End Class

@@ -28,6 +28,8 @@ Partial Class frmParametrosTemporalesT
         Me.lbDiasSelect = New System.Windows.Forms.ListBox()
         Me.lblDiasSelect = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnSacarDia = New System.Windows.Forms.Button()
+        Me.btnAgregarDia = New System.Windows.Forms.Button()
         Me.cbDiasSemana = New System.Windows.Forms.ComboBox()
         Me.lblDiasSemana = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -37,8 +39,6 @@ Partial Class frmParametrosTemporalesT
         Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.lblFechaIni = New System.Windows.Forms.Label()
         Me.btnConfirmar = New System.Windows.Forms.Button()
-        Me.btnSacarDia = New System.Windows.Forms.Button()
-        Me.btnAgregarDia = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -57,9 +57,9 @@ Partial Class frmParametrosTemporalesT
         '
         'Panel4
         '
-        resources.ApplyResources(Me.Panel4, "Panel4")
         Me.Panel4.Controls.Add(Me.lbDiasSelect)
         Me.Panel4.Controls.Add(Me.lblDiasSelect)
+        resources.ApplyResources(Me.Panel4, "Panel4")
         Me.Panel4.Name = "Panel4"
         '
         'lbDiasSelect
@@ -75,12 +75,24 @@ Partial Class frmParametrosTemporalesT
         '
         'Panel3
         '
-        resources.ApplyResources(Me.Panel3, "Panel3")
         Me.Panel3.Controls.Add(Me.btnSacarDia)
         Me.Panel3.Controls.Add(Me.btnAgregarDia)
         Me.Panel3.Controls.Add(Me.cbDiasSemana)
         Me.Panel3.Controls.Add(Me.lblDiasSemana)
+        resources.ApplyResources(Me.Panel3, "Panel3")
         Me.Panel3.Name = "Panel3"
+        '
+        'btnSacarDia
+        '
+        resources.ApplyResources(Me.btnSacarDia, "btnSacarDia")
+        Me.btnSacarDia.Name = "btnSacarDia"
+        Me.btnSacarDia.UseVisualStyleBackColor = True
+        '
+        'btnAgregarDia
+        '
+        resources.ApplyResources(Me.btnAgregarDia, "btnAgregarDia")
+        Me.btnAgregarDia.Name = "btnAgregarDia"
+        Me.btnAgregarDia.UseVisualStyleBackColor = True
         '
         'cbDiasSemana
         '
@@ -95,9 +107,9 @@ Partial Class frmParametrosTemporalesT
         '
         'Panel2
         '
-        resources.ApplyResources(Me.Panel2, "Panel2")
         Me.Panel2.Controls.Add(Me.dtpFechaFin)
         Me.Panel2.Controls.Add(Me.lblFechaFin)
+        resources.ApplyResources(Me.Panel2, "Panel2")
         Me.Panel2.Name = "Panel2"
         '
         'dtpFechaFin
@@ -112,9 +124,9 @@ Partial Class frmParametrosTemporalesT
         '
         'Panel1
         '
-        resources.ApplyResources(Me.Panel1, "Panel1")
         Me.Panel1.Controls.Add(Me.dtpFechaInicio)
         Me.Panel1.Controls.Add(Me.lblFechaIni)
+        resources.ApplyResources(Me.Panel1, "Panel1")
         Me.Panel1.Name = "Panel1"
         '
         'dtpFechaInicio
@@ -132,18 +144,6 @@ Partial Class frmParametrosTemporalesT
         resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = True
-        '
-        'btnSacarDia
-        '
-        resources.ApplyResources(Me.btnSacarDia, "btnSacarDia")
-        Me.btnSacarDia.Name = "btnSacarDia"
-        Me.btnSacarDia.UseVisualStyleBackColor = True
-        '
-        'btnAgregarDia
-        '
-        resources.ApplyResources(Me.btnAgregarDia, "btnAgregarDia")
-        Me.btnAgregarDia.Name = "btnAgregarDia"
-        Me.btnAgregarDia.UseVisualStyleBackColor = True
         '
         'frmParametrosTemporalesT
         '

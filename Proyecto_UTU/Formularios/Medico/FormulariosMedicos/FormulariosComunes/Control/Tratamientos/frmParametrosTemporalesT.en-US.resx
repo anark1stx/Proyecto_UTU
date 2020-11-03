@@ -180,6 +180,12 @@
   <data name="lblDiasSemana.Text" xml:space="preserve">
     <value>Days of the week this treatment is going to be followed on:</value>
   </data>
+  <data name="dtpFechaFin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 96</value>
+  </data>
+  <data name="dtpFechaFin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>441, 34</value>
+  </data>
   <data name="lblFechaFin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -191,6 +197,12 @@
   </data>
   <data name="lblFechaFin.Text" xml:space="preserve">
     <value>Completion date:</value>
+  </data>
+  <data name="dtpFechaInicio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 96</value>
+  </data>
+  <data name="dtpFechaInicio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 34</value>
   </data>
   <data name="lblFechaIni.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -209,9 +221,6 @@
   </data>
   <data name="btnConfirmar.Text" xml:space="preserve">
     <value>CONFIRM</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Define schedule for the treatment</value>
