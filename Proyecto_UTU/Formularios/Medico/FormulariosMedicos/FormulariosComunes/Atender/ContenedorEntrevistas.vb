@@ -63,6 +63,8 @@ Public Class ContenedorEntrevistas
                 btnBorrarSigno.Visible = False
                 btnBorrarSintoma.Visible = False
                 btnSugerirDiagnostico.Visible = False
+                btnSugereirTratamiento.Visible = False
+                btnSugerirAnalisis.Visible = False
                 Eventos.Modo = EventosDeTBP.ModoEvento.ConsultaDatos
                 makeFormReadOnly(Me)
         End Select
