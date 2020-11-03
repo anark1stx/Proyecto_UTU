@@ -184,7 +184,7 @@ Public Class ContenedorEntrevistas
             lblTratamientoS.Visible = True
             txtNomTratamiento.Visible = True
             Dim frmAsignarT As New frmTratamientoCrear
-            frmAsignarT.ModoActual = frmTratamientoCrear.Modo.Asignar
+            frmAsignarT.ModoActual = frmTratamientoCrear.Modo.Sugerir
             frmAsignarT.ShowDialog()
             If frmAsignarT.TratamientoSeleccionado IsNot Nothing Then
                 Entrevista.MiFormulario.Tratamiento = frmAsignarT.TratamientoSeleccionado
