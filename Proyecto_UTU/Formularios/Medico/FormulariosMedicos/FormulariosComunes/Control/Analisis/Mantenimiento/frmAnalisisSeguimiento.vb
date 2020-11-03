@@ -60,7 +60,7 @@ Public Class frmAnalisisSeguimiento
         Select Case MiModo
             Case Modo.Buscar
                 '1- Verificar que ese análisis aún no se haya llenado
-                If AnalisisSelect.FechaRes.ToString() <> "1/1/0001 0:00:00" Then 'significa que aun no fueron ingresados los resultados
+                If AnalisisSelect.FechaRes.Year <> 1 Then 'significa que aun no fueron ingresados los resultados
                     MessageBox.Show("Ya fueron ingresados resultados para ese análisis", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
@@ -94,30 +94,25 @@ Public Class frmAnalisisSeguimiento
             MessageBox.Show("Seleccione un análisis primero", "Debe seleccionar un análisis", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        '1- Verificar que ese análisis aún no se haya llenado
-        If AnalisisSelect.FechaRes.ToString() = "1/1/0001 0:00:00" Then 'significa que aun no fueron ingresados los resultados
+        If AnalisisSelect.FechaRes.Year = 1 Then
             MessageBox.Show("Aún no hay resultados ingresados para el análisis.", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
+        Else
+            Dim res2 = na.ConsultarResultadosAnalisis(AnalisisSelect)
+            Select Case res2
+                Case -1
+                    MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                Case -2
+                    MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+            End Select
+            Dim resultadosA As New frmDatosAnalisis With {
+                .AnalisisACargar = AnalisisSelect,
+                .CI_Paciente = CI_paciente,
+                .MiModo = frmDatosAnalisis.Modo.Consulta
+            }
+            resultadosA.ShowDialog()
         End If
-
-        'agregar todos los parametros del analisis
-        Dim res = na.RetornarParametrosDeAnalisis(AnalisisSelect)
-        Select Case res
-            Case -1
-                MessageBox.Show(MensajeDeErrorConexion(), "Hay errores con la conexion", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            Case -2
-                MessageBox.Show(MensajeDeErrorPermisoProcedimiento(), "Error efectuando acción", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-        End Select
-
-        '2- Abrir formulario de datos en modo de ingreso (campos con textbox)
-        Dim resultadosA As New frmDatosAnalisis With {
-            .AnalisisACargar = AnalisisSelect,
-            .CI_Paciente = CI_paciente,
-            .MiModo = frmDatosAnalisis.Modo.Consulta
-        }
-        resultadosA.ShowDialog()
     End Sub
 
     Public Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -156,37 +151,32 @@ Public Class frmAnalisisSeguimiento
                         Exit Sub
                 End Select
                 analisis_encontrados = result
-                For Each a As E_Analisis In analisis_encontrados
-                    Console.WriteLine(a.Nombre)
-                Next
                 fixCols()
         End Select
     End Sub
 
     Sub fixCols()
+        dgwAnalisisPaciente.Columns.Clear()
         Select Case MiModo
             Case Modo.Buscar
                 dgwAnalisisPaciente.Columns.Add("ID_analisis", "ID de análisis")
                 dgwAnalisisPaciente.Columns.Add("nombreA", "Análisis")
                 dgwAnalisisPaciente.Columns.Add("FechaR", "Fecha Requerido")
                 dgwAnalisisPaciente.Columns.Add("FechaRes", "Fecha Resultado")
-
                 For Each a As E_Analisis In analisis_encontrados
-                    Dim fecha As String = "-"
-                    If a.FechaRes.ToString() <> "1/1/0001 0:00:00" Then 'si no hay fecha de resultado defaultea a ese valor en vez de quedar en null.
-                        fecha = a.FechaRes.ToString()
+                    Dim f As String = "-"
+                    If a.FechaRes.Year <> 1 Then
+                        f = a.FechaRes.ToString()
                     End If
-                    dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre, a.ConsultaReq.Fecha, fecha)
+                    dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre, a.ConsultaReq.Fecha, f)
                 Next
             Case Modo.Asignar
                 dgwAnalisisPaciente.Columns.Add("ID_analisis", "ID de análisis")
                 dgwAnalisisPaciente.Columns.Add("nombreA", "Análisis")
                 For Each a As E_Analisis In analisis_encontrados
-                    Console.WriteLine("2 " & a.Nombre)
                     dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre)
                 Next
         End Select
-
     End Sub
 
     Sub resetMode()
@@ -209,9 +199,6 @@ Public Class frmAnalisisSeguimiento
         Me.WindowState = FormWindowState.Maximized
     End Sub
     Private Sub dgwAnalisisPaciente_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwAnalisisPaciente.CellClick
-        If e.RowIndex = -1 Then
-            Exit Sub
-        End If
         AnalisisSelect = analisis_encontrados(e.RowIndex)
     End Sub
 End Class

@@ -330,6 +330,33 @@ Public Class D_Analisis
             Dim a As New E_Analisis With {.ErrCode = -8}
             aList.Add(a)
         End If
+        leer.Close()
+
+        Dim cmd2 As New MySqlCommand With {
+        .Connection = conexion,
+        .CommandType = CommandType.StoredProcedure,
+        .CommandText = "CargarFechaResultadoA"
+        }
+        cmd2.Parameters.Add("ID_C", MySqlDbType.Int32)
+        cmd2.Parameters.Add("ID_AN", MySqlDbType.Int32)
+        For Each a As E_Analisis In aList
+            cmd2.Parameters("ID_C").Value = a.ConsultaReq.ID
+            cmd2.Parameters("ID_AN").Value = a.ID
+            Try
+                leer = cmd2.ExecuteReader()
+            Catch ex As Exception
+                Sesion.Cerrar(conexion)
+                Console.WriteLine(ex.Message)
+                a.ErrCode = -2
+                Return aList
+            End Try
+
+            If leer.HasRows Then
+                While leer.Read()
+                    a.FechaRes = leer.GetDateTime("fecha")
+                End While
+            End If
+        Next
         Sesion.Cerrar(conexion)
         Return aList
     End Function
@@ -349,7 +376,7 @@ Public Class D_Analisis
         cmd.Parameters.Add("CI_P", MySqlDbType.Int32).Value = a.ConsultaReq.Paciente.Cedula
         cmd.Parameters.Add("CI_M", MySqlDbType.Int32).Value = a.ConsultaReq.Medico.Cedula
         cmd.Parameters.Add("ID_AN", MySqlDbType.Int32).Value = a.ID
-        cmd.Parameters.Add("FEC_R", MySqlDbType.Int32).Value = Date.Now()
+        cmd.Parameters.Add("FEC_R", MySqlDbType.DateTime).Value = Date.Now()
         cmd.Parameters.Add("ID_P", MySqlDbType.Int32)
         cmd.Parameters.Add("VAL", MySqlDbType.Decimal)
 

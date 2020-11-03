@@ -40,6 +40,10 @@ Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
     End Property
 
     Private Sub frmDatosAnalisis_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Select Case MiModo
+            Case Modo.Consulta
+                btnGuardar.Visible = False
+        End Select
         Dim rowIndex As Integer = 0
 
         lblTitulo.Text = String.Format("{0} - Paciente: {1}", AnalisisACargar.Nombre, _ci_paciente)
@@ -105,16 +109,14 @@ Public Class frmDatosAnalisis ' NOMBRE | VALOR | UNIDAD | MINIMO | MAXIMO
                     .TextAlign = ContentAlignment.MiddleCenter,
                     .Anchor = AnchorStyles.Top
             }
-
             tblParametros.Controls.Add(valorParametroMax)
-
             rowIndex += 1
-
         Next
         For i = 0 To tblParametros.RowStyles.Count - 1
             tblParametros.RowStyles(i).SizeType = SizeType.AutoSize
         Next
         Me.ControlBox = False
+        Me.ControlBox = True
     End Sub
 
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click

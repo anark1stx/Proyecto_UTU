@@ -104,6 +104,7 @@ Partial Class frmDatosAnalisis
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.pnlData)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmDatosAnalisis"
         Me.pnlData.ResumeLayout(False)
