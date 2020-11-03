@@ -25,6 +25,7 @@ Partial Class Identificacion_Paciente
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identificacion_Paciente))
         Me.tblDatosPaciente = New System.Windows.Forms.TableLayoutPanel()
+        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
@@ -38,37 +39,36 @@ Partial Class Identificacion_Paciente
         Me.lblFechaNacTXT = New System.Windows.Forms.Label()
         Me.lblSexo = New System.Windows.Forms.Label()
         Me.lblSexoTXT = New System.Windows.Forms.Label()
-        Me.lblOcupacion = New System.Windows.Forms.Label()
         Me.lblOcupacionTXT = New System.Windows.Forms.Label()
         Me.lblE_Civil = New System.Windows.Forms.Label()
         Me.lblE_CivilTXT = New System.Windows.Forms.Label()
         Me.lblEtapa = New System.Windows.Forms.Label()
         Me.tblCedulaBuscar = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtCedulaPaciente = New System.Windows.Forms.TextBox()
         Me.pnlEstado = New System.Windows.Forms.Panel()
+        Me.btnActualizarEstado = New System.Windows.Forms.Button()
         Me.txtEstado = New System.Windows.Forms.TextBox()
         Me.lblTelefonoTXT = New System.Windows.Forms.Label()
+        Me.lblOcupacion = New System.Windows.Forms.Label()
         Me.tblAcciones = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnAgregarLista = New System.Windows.Forms.Button()
         Me.imgsBtnEntrevistar = New System.Windows.Forms.ImageList(Me.components)
+        Me.btnAtenderAhora = New System.Windows.Forms.Button()
         Me.pnlConsultasPrevias = New System.Windows.Forms.Panel()
         Me.btnReferenciaConsulta = New System.Windows.Forms.Button()
+        Me.btnVerConsulta = New System.Windows.Forms.Button()
         Me.cbConsultasPrevias = New System.Windows.Forms.ComboBox()
         Me.lblConsultasPrevias = New System.Windows.Forms.Label()
         Me.txtMotivoC = New System.Windows.Forms.TextBox()
         Me.lblMotivo = New System.Windows.Forms.Label()
-        Me.btnAgregarLista = New System.Windows.Forms.Button()
-        Me.btnAtenderAhora = New System.Windows.Forms.Button()
-        Me.btnVerConsulta = New System.Windows.Forms.Button()
-        Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.btnActualizarEstado = New System.Windows.Forms.Button()
         Me.tblDatosPaciente.SuspendLayout()
+        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
         Me.tblCedulaBuscar.SuspendLayout()
         Me.pnlEstado.SuspendLayout()
         Me.tblAcciones.SuspendLayout()
         Me.pnlConsultasPrevias.SuspendLayout()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tblDatosPaciente
@@ -77,6 +77,13 @@ Partial Class Identificacion_Paciente
         Me.tblDatosPaciente.Controls.Add(Me.pBoxFotoPaciente, 0, 0)
         Me.tblDatosPaciente.Controls.Add(Me.tabDatos, 1, 0)
         Me.tblDatosPaciente.Name = "tblDatosPaciente"
+        '
+        'pBoxFotoPaciente
+        '
+        resources.ApplyResources(Me.pBoxFotoPaciente, "pBoxFotoPaciente")
+        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
+        Me.pBoxFotoPaciente.TabStop = False
         '
         'tabDatos
         '
@@ -169,11 +176,6 @@ Partial Class Identificacion_Paciente
         Me.lblSexoTXT.Name = "lblSexoTXT"
         Me.lblSexoTXT.Tag = "datos"
         '
-        'lblOcupacion
-        '
-        resources.ApplyResources(Me.lblOcupacion, "lblOcupacion")
-        Me.lblOcupacion.Name = "lblOcupacion"
-        '
         'lblOcupacionTXT
         '
         resources.ApplyResources(Me.lblOcupacionTXT, "lblOcupacionTXT")
@@ -203,11 +205,17 @@ Partial Class Identificacion_Paciente
         Me.tblCedulaBuscar.Controls.Add(Me.txtCedulaPaciente, 0, 0)
         Me.tblCedulaBuscar.Name = "tblCedulaBuscar"
         '
+        'btnBuscar
+        '
+        resources.ApplyResources(Me.btnBuscar, "btnBuscar")
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'txtCedulaPaciente
         '
         resources.ApplyResources(Me.txtCedulaPaciente, "txtCedulaPaciente")
         Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
-        Me.txtCedulaPaciente.Tag = "noLimpiar"
+        Me.txtCedulaPaciente.Tag = ""
         '
         'pnlEstado
         '
@@ -215,6 +223,12 @@ Partial Class Identificacion_Paciente
         Me.pnlEstado.Controls.Add(Me.btnActualizarEstado)
         Me.pnlEstado.Controls.Add(Me.txtEstado)
         Me.pnlEstado.Name = "pnlEstado"
+        '
+        'btnActualizarEstado
+        '
+        resources.ApplyResources(Me.btnActualizarEstado, "btnActualizarEstado")
+        Me.btnActualizarEstado.Name = "btnActualizarEstado"
+        Me.btnActualizarEstado.UseVisualStyleBackColor = True
         '
         'txtEstado
         '
@@ -227,6 +241,11 @@ Partial Class Identificacion_Paciente
         Me.lblTelefonoTXT.Name = "lblTelefonoTXT"
         Me.lblTelefonoTXT.Tag = "datos"
         '
+        'lblOcupacion
+        '
+        resources.ApplyResources(Me.lblOcupacion, "lblOcupacion")
+        Me.lblOcupacion.Name = "lblOcupacion"
+        '
         'tblAcciones
         '
         resources.ApplyResources(Me.tblAcciones, "tblAcciones")
@@ -237,6 +256,14 @@ Partial Class Identificacion_Paciente
         Me.tblAcciones.Controls.Add(Me.lblMotivo, 0, 0)
         Me.tblAcciones.Name = "tblAcciones"
         '
+        'btnAgregarLista
+        '
+        resources.ApplyResources(Me.btnAgregarLista, "btnAgregarLista")
+        Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
+        Me.btnAgregarLista.Name = "btnAgregarLista"
+        Me.btnAgregarLista.UseVisualStyleBackColor = False
+        '
         'imgsBtnEntrevistar
         '
         Me.imgsBtnEntrevistar.ImageStream = CType(resources.GetObject("imgsBtnEntrevistar.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -244,6 +271,14 @@ Partial Class Identificacion_Paciente
         Me.imgsBtnEntrevistar.Images.SetKeyName(0, "icons8-health-checkup-80.png")
         Me.imgsBtnEntrevistar.Images.SetKeyName(1, "subir.png")
         Me.imgsBtnEntrevistar.Images.SetKeyName(2, "MedicoAtiendePaciente.png")
+        '
+        'btnAtenderAhora
+        '
+        resources.ApplyResources(Me.btnAtenderAhora, "btnAtenderAhora")
+        Me.btnAtenderAhora.BackColor = System.Drawing.Color.PapayaWhip
+        Me.btnAtenderAhora.ImageList = Me.imgsBtnEntrevistar
+        Me.btnAtenderAhora.Name = "btnAtenderAhora"
+        Me.btnAtenderAhora.UseVisualStyleBackColor = False
         '
         'pnlConsultasPrevias
         '
@@ -260,6 +295,13 @@ Partial Class Identificacion_Paciente
         Me.btnReferenciaConsulta.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnReferenciaConsulta.Name = "btnReferenciaConsulta"
         Me.btnReferenciaConsulta.UseVisualStyleBackColor = False
+        '
+        'btnVerConsulta
+        '
+        resources.ApplyResources(Me.btnVerConsulta, "btnVerConsulta")
+        Me.btnVerConsulta.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.btnVerConsulta.Name = "btnVerConsulta"
+        Me.btnVerConsulta.UseVisualStyleBackColor = False
         '
         'cbConsultasPrevias
         '
@@ -283,48 +325,6 @@ Partial Class Identificacion_Paciente
         resources.ApplyResources(Me.lblMotivo, "lblMotivo")
         Me.lblMotivo.Name = "lblMotivo"
         '
-        'btnAgregarLista
-        '
-        resources.ApplyResources(Me.btnAgregarLista, "btnAgregarLista")
-        Me.btnAgregarLista.BackColor = System.Drawing.Color.LemonChiffon
-        Me.btnAgregarLista.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAgregarLista.Name = "btnAgregarLista"
-        Me.btnAgregarLista.UseVisualStyleBackColor = False
-        '
-        'btnAtenderAhora
-        '
-        resources.ApplyResources(Me.btnAtenderAhora, "btnAtenderAhora")
-        Me.btnAtenderAhora.BackColor = System.Drawing.Color.PapayaWhip
-        Me.btnAtenderAhora.ImageList = Me.imgsBtnEntrevistar
-        Me.btnAtenderAhora.Name = "btnAtenderAhora"
-        Me.btnAtenderAhora.UseVisualStyleBackColor = False
-        '
-        'btnVerConsulta
-        '
-        resources.ApplyResources(Me.btnVerConsulta, "btnVerConsulta")
-        Me.btnVerConsulta.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.btnVerConsulta.Name = "btnVerConsulta"
-        Me.btnVerConsulta.UseVisualStyleBackColor = False
-        '
-        'pBoxFotoPaciente
-        '
-        resources.ApplyResources(Me.pBoxFotoPaciente, "pBoxFotoPaciente")
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
-        Me.pBoxFotoPaciente.TabStop = False
-        '
-        'btnBuscar
-        '
-        resources.ApplyResources(Me.btnBuscar, "btnBuscar")
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'btnActualizarEstado
-        '
-        resources.ApplyResources(Me.btnActualizarEstado, "btnActualizarEstado")
-        Me.btnActualizarEstado.Name = "btnActualizarEstado"
-        Me.btnActualizarEstado.UseVisualStyleBackColor = True
-        '
         'Identificacion_Paciente
         '
         resources.ApplyResources(Me, "$this")
@@ -335,6 +335,7 @@ Partial Class Identificacion_Paciente
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Identificacion_Paciente"
         Me.tblDatosPaciente.ResumeLayout(False)
+        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
         Me.tabDatos.PerformLayout()
         Me.tblCedulaBuscar.ResumeLayout(False)
@@ -345,7 +346,6 @@ Partial Class Identificacion_Paciente
         Me.tblAcciones.PerformLayout()
         Me.pnlConsultasPrevias.ResumeLayout(False)
         Me.pnlConsultasPrevias.PerformLayout()
-        CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

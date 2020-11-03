@@ -77,11 +77,31 @@ Public Class frmTratamientoCrear
                     Case 1
                         MessageBox.Show("Tratamiento ingresado con éxito", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Select
-            Case Modo.Sugerir, Modo.Asignar
+            Case Modo.Sugerir
                 If TratamientoSeleccionado.ID = 0 Then
                     MessageBox.Show("Seleccione un tratamiento primero", "Debe seleccionar un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 Else
+                    Me.Hide()
+                End If
+            Case Modo.Asignar
+                If TratamientoSeleccionado.ID = 0 Then
+                    MessageBox.Show("Seleccione un tratamiento primero", "Debe seleccionar un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                Else
+                    If TratamientoSeleccionado.FechaInicio.Year = 1 Then
+                        MessageBox.Show("Defina los parametros temporales del tratamiento. Ingrese fecha de inicio.", "Falta proporcionar informacion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    If TratamientoSeleccionado.FechaFin.Year = 1 Then
+                        MessageBox.Show("Defina los parametros temporales del tratamiento. Ingrese fecha de finalizacion.", "Falta proporcionar informacion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    If TratamientoSeleccionado.DiasAsignados.Count < 1 Then
+                        MessageBox.Show("Defina los parametros temporales del tratamiento. Ingrese los dias de la semana en los que se va a seguir el tratamiento.", "Falta proporcionar informacion", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
                     Me.Hide()
                 End If
         End Select

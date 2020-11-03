@@ -465,9 +465,8 @@ Public Module mdlUtilidades
     Public Sub addFrm(frm As Form, pnlDestino As Panel)
         If Not pnlDestino.Controls.Contains(frm) Then
             pnlDestino.Controls.Clear()
-            LimpiarControles(frm) 'a lo que reutilizo las instancias de los formularios cada vez tengo que borrar los datos que hayan quedado del ultimo ingreso de datos
             frm.Dock = DockStyle.Fill
-            frm.TopLevel = False 'es necesario marcar esto como false, ya que jerarquicamente frmIdentificacion no está en el nivel más alto.
+            frm.TopLevel = False
             frm.TopMost = True
             pnlDestino.Controls.Add(frm)
             frm.Show()
@@ -533,13 +532,5 @@ Public Module mdlUtilidades
             readOnlyControl(c, _readonly)
         Next
     End Sub
-
-    Public Sub TraducirFrasesFueraDeInterfaz(c As Control)
-        Select Case c.Text
-            Case ""
-        End Select
-
-    End Sub
-
 
 End Module

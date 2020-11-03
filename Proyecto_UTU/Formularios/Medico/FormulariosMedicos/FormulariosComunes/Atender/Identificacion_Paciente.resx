@@ -127,6 +127,9 @@
   <data name="&gt;&gt;lblTelefonoTXT.Parent" xml:space="preserve">
     <value>tabDatos</value>
   </data>
+  <data name="lblOcupacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 202</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTelefonos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -140,8 +143,11 @@
   <data name="lblE_CivilTXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 231</value>
   </data>
-  <data name="&gt;&gt;cbConsultasPrevias.Name" xml:space="preserve">
-    <value>cbConsultasPrevias</value>
+  <data name="&gt;&gt;txtEstado.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblApellidosTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>287, 29</value>
   </data>
   <data name="lblOcupacionTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
@@ -156,17 +162,20 @@
   <data name="lblDireccion.Text" xml:space="preserve">
     <value>Dirección:</value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1166, 796</value>
+  </data>
   <data name="lblE_CivilTXT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="btnVerConsulta.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="lblSexoTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="lblApellidosTXT.Text" xml:space="preserve">
     <value>APELLIDO 1 APELLIDO 2</value>
+  </data>
+  <data name="pnlEstado.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lblEtapa.Parent" xml:space="preserve">
     <value>tabDatos</value>
@@ -185,9 +194,6 @@
   </data>
   <data name="lblE_CivilTXT.TabIndex" type="System.Int32, mscorlib">
     <value>108</value>
-  </data>
-  <data name="tblDatosPaciente.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1167, 299</value>
   </data>
   <data name="&gt;&gt;tblDatosPaciente.Parent" xml:space="preserve">
     <value>$this</value>
@@ -210,9 +216,6 @@
   <data name="&gt;&gt;lblSexo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblApellido.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="tblDatosPaciente.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pBoxFotoPaciente" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tabDatos" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,32.74336,Percent,67.25664" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
@@ -222,8 +225,8 @@
   <data name="&gt;&gt;lblFechaNacTXT.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;btnVerConsulta.Parent" xml:space="preserve">
-    <value>pnlConsultasPrevias</value>
+  <data name="&gt;&gt;lblNombresTXT.Name" xml:space="preserve">
+    <value>lblNombresTXT</value>
   </data>
   <data name="lblCedula.Text" xml:space="preserve">
     <value>Cédula:</value>
@@ -267,8 +270,11 @@
   <data name="&gt;&gt;btnVerConsulta.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblApellidosTXT.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="cbConsultasPrevias.Size" type="System.Drawing.Size, System.Drawing">
+    <value>615, 33</value>
+  </data>
+  <data name="tblDatosPaciente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1167, 299</value>
   </data>
   <data name="lblEtapa.Location" type="System.Drawing.Point, System.Drawing">
     <value>99, 262</value>
@@ -282,14 +288,8 @@
   <data name="lblCedula.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 29</value>
   </data>
-  <data name="pBoxFotoPaciente.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="lblOcupacionTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 29</value>
-  </data>
-  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 21</value>
+  <data name="&gt;&gt;tblCedulaBuscar.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
   <data name="&gt;&gt;lblE_CivilTXT.Parent" xml:space="preserve">
     <value>tabDatos</value>
@@ -305,6 +305,9 @@
   </data>
   <data name="tblAcciones.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnAgregarLista" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAtenderAhora" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pnlConsultasPrevias" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtMotivoC" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblMotivo" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,15.04425,Percent,84.95575,Absolute,59,Absolute,119,Absolute,111,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="lblMotivo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="btnAgregarLista.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -345,9 +348,6 @@
   <data name="lblDireccion.TabIndex" type="System.Int32, mscorlib">
     <value>98</value>
   </data>
-  <data name="&gt;&gt;lblNombres.Name" xml:space="preserve">
-    <value>lblNombres</value>
-  </data>
   <data name="lblTelefonos.TabIndex" type="System.Int32, mscorlib">
     <value>84</value>
   </data>
@@ -356,7 +356,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB8
-        WwAAAk1TRnQBSQFMAgEBAwEAAYABAAGYAQABQAEAAUABAAT/AREBEAj/AUIBTQE2BwABNgMAASgEAAEB
+        WwAAAk1TRnQBSQFMAgEBAwEAAYABAAGcAQABQAEAAUABAAT/AREBEAj/AUIBTQE2BwABNgMAASgEAAEB
         AgABQAMAAQEBAAEQBgABgJoAAZwBcwHvAT0BjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGM
         ATEBjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGM
         ATEBjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGMATEBjAExAYwBMQGM
@@ -773,14 +773,8 @@
   <data name="lblFechaNacTXT.Text" xml:space="preserve">
     <value>FechaNacimiento</value>
   </data>
-  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 3</value>
-  </data>
-  <data name="pnlConsultasPrevias.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 204</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarLista.Parent" xml:space="preserve">
-    <value>tblAcciones</value>
+  <data name="&gt;&gt;tblAcciones.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblOcupacion.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
@@ -803,17 +797,17 @@
   <data name="&gt;&gt;lblFechaNacTXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblDireccion.Parent" xml:space="preserve">
-    <value>tabDatos</value>
+  <data name="lblConsultasPrevias.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 11</value>
   </data>
   <data name="pBoxFotoPaciente.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="lblNombresTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
   <data name="&gt;&gt;btnAtenderAhora.Parent" xml:space="preserve">
     <value>tblAcciones</value>
-  </data>
-  <data name="tblDatosPaciente.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="pBoxFotoPaciente.Size" type="System.Drawing.Size, System.Drawing">
     <value>376, 293</value>
@@ -836,14 +830,14 @@
   <data name="&gt;&gt;lblCedula.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lblTelefonoTXT.Name" xml:space="preserve">
-    <value>lblTelefonoTXT</value>
-  </data>
   <data name="txtMotivoC.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 33</value>
   </data>
   <data name="&gt;&gt;lblNombres.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnVerConsulta.Parent" xml:space="preserve">
+    <value>pnlConsultasPrevias</value>
   </data>
   <data name="cbConsultasPrevias.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -863,12 +857,6 @@
   <data name="lblSexo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
-  <data name="lblEtapa.Text" xml:space="preserve">
-    <value>Estado:</value>
-  </data>
-  <data name="pnlEstado.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 263</value>
-  </data>
   <data name="lblCedula.Location" type="System.Drawing.Point, System.Drawing">
     <value>98, 2</value>
   </data>
@@ -883,9 +871,6 @@
   </data>
   <data name="&gt;&gt;lblE_Civil.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tblCedulaBuscar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 3</value>
   </data>
   <data name="txtCedulaPaciente.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -926,35 +911,26 @@
   <data name="&gt;&gt;lblEtapa.Name" xml:space="preserve">
     <value>lblEtapa</value>
   </data>
-  <data name="&gt;&gt;lblNombresTXT.Name" xml:space="preserve">
-    <value>lblNombresTXT</value>
-  </data>
   <data name="btnAgregarLista.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16.2pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;btnActualizarEstado.Name" xml:space="preserve">
     <value>btnActualizarEstado</value>
   </data>
-  <data name="&gt;&gt;lblMotivo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnReferenciaConsulta.Name" xml:space="preserve">
+    <value>btnReferenciaConsulta</value>
   </data>
   <data name="btnBuscar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;btnAtenderAhora.Name" xml:space="preserve">
-    <value>btnAtenderAhora</value>
+  <data name="lblSexoTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 29</value>
   </data>
-  <data name="txtMotivoC.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="lblOcupacionTXT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 29</value>
   </data>
-  <data name="cbConsultasPrevias.Size" type="System.Drawing.Size, System.Drawing">
-    <value>615, 33</value>
-  </data>
-  <data name="lblFechaNacTXT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="lblE_CivilTXT.Text" xml:space="preserve">
-    <value>EstadoCivil</value>
+  <data name="&gt;&gt;lblCedula.Name" xml:space="preserve">
+    <value>lblCedula</value>
   </data>
   <data name="btnActualizarEstado.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2453,11 +2429,14 @@
   <data name="lblE_Civil.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
+  <data name="&gt;&gt;pnlConsultasPrevias.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lblFechaNacTXT.TabIndex" type="System.Int32, mscorlib">
     <value>102</value>
   </data>
-  <data name="&gt;&gt;lblNombresTXT.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>428, 3</value>
   </data>
   <data name="cbConsultasPrevias.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -2470,6 +2449,9 @@
   </data>
   <data name="lblNombres.TabIndex" type="System.Int32, mscorlib">
     <value>80</value>
+  </data>
+  <data name="lblApellidosTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;btnAgregarLista.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -2504,6 +2486,9 @@
   <data name="&gt;&gt;txtMotivoC.Parent" xml:space="preserve">
     <value>tblAcciones</value>
   </data>
+  <data name="pnlConsultasPrevias.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 204</value>
+  </data>
   <data name="cbConsultasPrevias.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2512,6 +2497,9 @@
   </data>
   <data name="&gt;&gt;pBoxFotoPaciente.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 86</value>
   </data>
   <data name="lblApellidosTXT.TabIndex" type="System.Int32, mscorlib">
     <value>79</value>
@@ -2540,14 +2528,14 @@
   <data name="lblDireccion.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 29</value>
   </data>
+  <data name="&gt;&gt;cbConsultasPrevias.Parent" xml:space="preserve">
+    <value>pnlConsultasPrevias</value>
+  </data>
   <data name="&gt;&gt;btnReferenciaConsulta.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="lblE_Civil.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 29</value>
-  </data>
-  <data name="lblFechaNac.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="lblConsultasPrevias.Text" xml:space="preserve">
     <value>Consultas Previas:</value>
@@ -2604,6 +2592,12 @@
   <data name="tblCedulaBuscar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="&gt;&gt;lblApellidosTXT.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tblAcciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 305</value>
+  </data>
   <data name="btnAgregarLista.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
   </data>
@@ -2627,6 +2621,9 @@
   </data>
   <data name="&gt;&gt;lblTelefonos.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblDireccionTXT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 86</value>
   </data>
   <data name="btnReferenciaConsulta.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -2661,8 +2658,8 @@
   <data name="&gt;&gt;btnAtenderAhora.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblCedula.Name" xml:space="preserve">
-    <value>lblCedula</value>
+  <data name="&gt;&gt;lblTelefonoTXT.Name" xml:space="preserve">
+    <value>lblTelefonoTXT</value>
   </data>
   <data name="lblNombresTXT.Text" xml:space="preserve">
     <value>NOMBRE 1 NOMBRE 2</value>
@@ -2699,9 +2696,6 @@
   </data>
   <data name="&gt;&gt;btnVerConsulta.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblFechaNac.Name" xml:space="preserve">
-    <value>lblFechaNac</value>
   </data>
   <data name="lblDireccionTXT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2781,9 +2775,6 @@
   <data name="tabDatos.Location" type="System.Drawing.Point, System.Drawing">
     <value>385, 3</value>
   </data>
-  <data name="&gt;&gt;tblCedulaBuscar.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
   <data name="tblDatosPaciente.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -2801,6 +2792,9 @@
   </data>
   <data name="&gt;&gt;btnBuscar.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>frmConsultaConPaciente</value>
   </data>
   <data name="&gt;&gt;lblE_Civil.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -2838,9 +2832,6 @@
   <data name="&gt;&gt;lblOcupacionTXT.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;lblOcupacionTXT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lblSexo.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 29</value>
   </data>
@@ -2853,11 +2844,11 @@
   <data name="&gt;&gt;btnReferenciaConsulta.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;lblFechaNacTXT.Name" xml:space="preserve">
+    <value>lblFechaNacTXT</value>
+  </data>
   <data name="lblCedula.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="tabDatos.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="lblOcupacion.Text" xml:space="preserve">
     <value>Ocupación:</value>
@@ -2883,8 +2874,8 @@
   <data name="&gt;&gt;lblFechaNac.Parent" xml:space="preserve">
     <value>tabDatos</value>
   </data>
-  <data name="lblConsultasPrevias.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 11</value>
+  <data name="&gt;&gt;lblNombresTXT.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="tabDatos.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblCedula" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblNombres" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblNombresTXT" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblApellido" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblApellidosTXT" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDireccion" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblDireccionTXT" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblTelefonos" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblFechaNac" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblFechaNacTXT" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblSexo" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblSexoTXT" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblOcupacionTXT" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblE_Civil" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblE_CivilTXT" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEtapa" Row="9" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tblCedulaBuscar" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="pnlEstado" Row="9" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblTelefonoTXT" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblOcupacion" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,37.71552,Percent,62.28448" /&gt;&lt;Rows Styles="Percent,11.41141,Percent,8.408408,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -2907,6 +2898,9 @@
   <data name="lblDireccion.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
+  <data name="lblE_Civil.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 231</value>
+  </data>
   <data name="lblApellido.Text" xml:space="preserve">
     <value>Apellido:</value>
   </data>
@@ -2922,12 +2916,6 @@
   <data name="tabDatos.RowCount" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;tblAcciones.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblFechaNacTXT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;lblApellido.Parent" xml:space="preserve">
     <value>tabDatos</value>
   </data>
@@ -2939,6 +2927,9 @@
   </data>
   <data name="&gt;&gt;lblE_CivilTXT.Name" xml:space="preserve">
     <value>lblE_CivilTXT</value>
+  </data>
+  <data name="&gt;&gt;txtEstado.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Identificacion_Paciente</value>
@@ -2958,11 +2949,11 @@
   <data name="lblMotivo.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 29</value>
   </data>
-  <data name="lblMotivo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="btnVerConsulta.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="lblSexoTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 29</value>
+  <data name="tblCedulaBuscar.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
   </data>
   <data name="lblTelefonoTXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 144</value>
@@ -2973,8 +2964,8 @@
   <data name="lblTelefonoTXT.TabIndex" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
-  <data name="&gt;&gt;txtEstado.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lblEtapa.Text" xml:space="preserve">
+    <value>Estado:</value>
   </data>
   <data name="lblTelefonoTXT.Text" xml:space="preserve">
     <value>Teléfono(s):</value>
@@ -2991,8 +2982,8 @@
   <data name="lblOcupacionTXT.Text" xml:space="preserve">
     <value>Ocupacion</value>
   </data>
-  <data name="tblCedulaBuscar.TabIndex" type="System.Int32, mscorlib">
-    <value>111</value>
+  <data name="lblE_CivilTXT.Text" xml:space="preserve">
+    <value>EstadoCivil</value>
   </data>
   <data name="lblSexoTXT.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 173</value>
@@ -3027,23 +3018,26 @@
   <data name="lblCedula.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
+  <data name="&gt;&gt;lblMotivo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lblDireccionTXT.Text" xml:space="preserve">
     <value>Dirección</value>
   </data>
   <data name="lblEtapa.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="&gt;&gt;btnReferenciaConsulta.Name" xml:space="preserve">
-    <value>btnReferenciaConsulta</value>
+  <data name="&gt;&gt;lblNombres.Name" xml:space="preserve">
+    <value>lblNombres</value>
   </data>
   <data name="btnActualizarEstado.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 27</value>
   </data>
-  <data name="&gt;&gt;pnlConsultasPrevias.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbConsultasPrevias.Name" xml:space="preserve">
+    <value>cbConsultasPrevias</value>
   </data>
-  <data name="lblApellidosTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
+  <data name="lblFechaNacTXT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="&gt;&gt;tblAcciones.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3066,11 +3060,17 @@
   <data name="pnlConsultasPrevias.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="lblEtapa.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="lblE_Civil.TabIndex" type="System.Int32, mscorlib">
+    <value>107</value>
+  </data>
   <data name="&gt;&gt;lblTelefonoTXT.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="lblE_Civil.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 231</value>
+  <data name="tabDatos.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;cbConsultasPrevias.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3129,8 +3129,8 @@
   <data name="btnReferenciaConsulta.Size" type="System.Drawing.Size, System.Drawing">
     <value>249, 37</value>
   </data>
-  <data name="&gt;&gt;lblFechaNacTXT.Name" xml:space="preserve">
-    <value>lblFechaNacTXT</value>
+  <data name="lblFechaNacTXT.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;lblTelefonoTXT.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3756,14 +3756,17 @@
         OMC7//ReeY2W12r2Gmb1bP0HBuqq8A/huPCi8ODwa9kcsVuT//f/Aam3nzqZedW1AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1166, 796</value>
+  <data name="btnVerConsulta.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblApellido.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblApellidosTXT.Name" xml:space="preserve">
     <value>lblApellidosTXT</value>
   </data>
-  <data name="tblAcciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 305</value>
+  <data name="&gt;&gt;btnAgregarLista.Parent" xml:space="preserve">
+    <value>tblAcciones</value>
   </data>
   <data name="lblMotivo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt, style=Bold, Underline</value>
@@ -3774,14 +3777,14 @@
   <data name="txtEstado.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblNombresTXT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
+  <data name="&gt;&gt;lblFechaNac.Name" xml:space="preserve">
+    <value>lblFechaNac</value>
   </data>
   <data name="lblSexoTXT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>frmConsultaConPaciente</value>
+  <data name="&gt;&gt;btnAtenderAhora.Name" xml:space="preserve">
+    <value>btnAtenderAhora</value>
   </data>
   <data name="&gt;&gt;pnlConsultasPrevias.Parent" xml:space="preserve">
     <value>tblAcciones</value>
@@ -3789,14 +3792,14 @@
   <data name="lblApellidosTXT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblApellidosTXT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>287, 29</value>
+  <data name="txtMotivoC.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;tblAcciones.Name" xml:space="preserve">
     <value>tblAcciones</value>
   </data>
-  <data name="btnVerConsulta.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="pnlEstado.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 263</value>
   </data>
   <data name="&gt;&gt;lblNombres.Parent" xml:space="preserve">
     <value>tabDatos</value>
@@ -3828,20 +3831,20 @@
   <data name="&gt;&gt;cbConsultasPrevias.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lblDireccionTXT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 86</value>
+  <data name="tblCedulaBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 3</value>
   </data>
   <data name="tblCedulaBuscar.Size" type="System.Drawing.Size, System.Drawing">
     <value>480, 27</value>
   </data>
-  <data name="lblDireccion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 86</value>
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 21</value>
   </data>
   <data name="lblNombresTXT.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
-  <data name="lblOcupacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 202</value>
+  <data name="&gt;&gt;lblDireccion.Parent" xml:space="preserve">
+    <value>tabDatos</value>
   </data>
   <data name="tblCedulaBuscar.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnBuscar" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="txtCedulaPaciente" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,88.54166,Percent,11.45833" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -3900,7 +3903,7 @@
   <data name="&gt;&gt;lblConsultasPrevias.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblEtapa.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblFechaNac.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="btnVerConsulta.Font" type="System.Drawing.Font, System.Drawing">
@@ -3918,8 +3921,8 @@
   <data name="&gt;&gt;tblDatosPaciente.Name" xml:space="preserve">
     <value>tblDatosPaciente</value>
   </data>
-  <data name="&gt;&gt;txtEstado.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pBoxFotoPaciente.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
   </data>
   <data name="&gt;&gt;txtEstado.Name" xml:space="preserve">
     <value>txtEstado</value>
@@ -3930,14 +3933,11 @@
   <data name="&gt;&gt;lblDireccionTXT.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lblE_Civil.TabIndex" type="System.Int32, mscorlib">
-    <value>107</value>
+  <data name="tblDatosPaciente.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="pnlEstado.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cbConsultasPrevias.Parent" xml:space="preserve">
-    <value>pnlConsultasPrevias</value>
+  <data name="&gt;&gt;lblOcupacionTXT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
