@@ -44,10 +44,8 @@ Public Class frmTratamientoCrear
             Return _modo
         End Get
         Set(value As Modo)
-            If _modo <> value Then 'si modo es diferente del valor que tenia antes, reset.
-                _modo = value
-                ResetMode()
-            End If
+            _modo = value
+            ResetMode()
         End Set
     End Property
 

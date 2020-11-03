@@ -251,7 +251,8 @@ Public Class D_Analisis
         Dim aList As New List(Of E_Analisis)
         If Sesion.Conectar(conexion) = -1 Then
             Sesion.Cerrar(conexion)
-            aList.Add(New E_Analisis With {.ErrCode = -1})
+            Dim a As New E_Analisis With {.ErrCode = -1}
+            aList.Add(a)
             Return aList
         End If
 
@@ -268,7 +269,8 @@ Public Class D_Analisis
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
-            aList.Add(New E_Analisis With {.ErrCode = -2})
+            Dim a As New E_Analisis With {.ErrCode = -2}
+            aList.Add(a)
             Return aList
         End Try
 
@@ -280,7 +282,8 @@ Public Class D_Analisis
                 })
             End While
         Else
-            aList.Add(New E_Analisis With {.ErrCode = -8})
+            Dim a As New E_Analisis With {.ErrCode = -8}
+            aList.Add(a)
         End If
         Sesion.Cerrar(conexion)
         Return aList

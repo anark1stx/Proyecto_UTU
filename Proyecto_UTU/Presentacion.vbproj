@@ -448,6 +448,9 @@
     <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.en-US.resx">
       <DependentUpon>frmGestionMedico.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmInicio.en-US.resx">
+      <DependentUpon>frmInicio.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmInicio.resx">
       <DependentUpon>frmInicio.vb</DependentUpon>
     </EmbeddedResource>
@@ -456,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Medico\frmMedico.en-US.resx">
       <DependentUpon>frmMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.en-GB.resx">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.en-US.resx">
       <DependentUpon>frmInicioPaciente.vb</DependentUpon>

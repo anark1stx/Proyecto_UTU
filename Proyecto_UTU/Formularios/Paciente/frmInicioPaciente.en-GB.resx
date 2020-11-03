@@ -117,17 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblGestion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblGestion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 29</value>
-  </data>
-  <data name="lblGestion.Text" xml:space="preserve">
-    <value>Self management</value>
-  </data>
   <data name="btnGestion.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAL8AAACqCAYAAAD88Z4uAAAABGdBTUEAALGPC/xhBQAATNNJREFUeF7t
@@ -461,18 +451,6 @@
         9H3/Q8SM8JlxZFCH6cGtu44oggb6LIcM4XPwP4j/XYg/T/2AHub/DxiAQST4grOfAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnGestion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblDiagnosticos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblDiagnosticos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 29</value>
-  </data>
-  <data name="lblDiagnosticos.Text" xml:space="preserve">
-    <value>Diagnosis</value>
-  </data>
   <data name="btnDiagnosticos.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAhlJREFUeF7t
@@ -487,18 +465,6 @@
         CGKGIGYIYoYgZghihiBm/hRkOJr9PADdqd9p6yBIq3nd66c+jO41r5sxxhhj/dtg8AWjsi1WQCs5OgAA
         AABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="btnDiagnosticos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblAnalisis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblAnalisis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 29</value>
-  </data>
-  <data name="lblAnalisis.Text" xml:space="preserve">
-    <value>Analysis</value>
   </data>
   <data name="btnAnalisis.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -542,43 +508,6 @@
         EKF+uOTgrB8kHgRv5q6U48NWVDhORRiPEby/tJ1/OKzw+eP74xbs7sCAtzJhUTZo9l64bkWFIUTI/lII
         3lcKQXmlmfyjYUVq4vzt8257KrMfA97KtFV5oDlQ5lhRIQhBMDCW0FzdFP6hsBLq9viMgElzMwomzX3/
         awx4I3cnfQQztxZAUG4Jt6bIZAxg+Pn9Hytp+tjbt9P2AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnAnalisis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 29</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Treatments</value>
-  </data>
-  <data name="btnTratamientos.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
 </value>
   </data>
 </root>

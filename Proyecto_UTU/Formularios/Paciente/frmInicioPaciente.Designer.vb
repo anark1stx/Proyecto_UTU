@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmInicioPaciente
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmInicioPaciente
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInicioPaciente))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -35,7 +35,7 @@ Partial Class frmInicioPaciente
         Me.btnAnalisis = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnTratamientos = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -110,7 +110,7 @@ Partial Class frmInicioPaciente
         '
         resources.ApplyResources(Me.Panel4, "Panel4")
         Me.Panel4.Controls.Add(Me.Label1)
-        Me.Panel4.Controls.Add(Me.btnSalir)
+        Me.Panel4.Controls.Add(Me.btnTratamientos)
         Me.Panel4.Name = "Panel4"
         '
         'Label1
@@ -118,11 +118,11 @@ Partial Class frmInicioPaciente
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
-        'btnSalir
+        'btnTratamientos
         '
-        resources.ApplyResources(Me.btnSalir, "btnSalir")
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.btnTratamientos, "btnTratamientos")
+        Me.btnTratamientos.Name = "btnTratamientos"
+        Me.btnTratamientos.UseVisualStyleBackColor = True
         '
         'frmInicioPaciente
         '
@@ -156,6 +156,6 @@ Partial Class frmInicioPaciente
     Friend WithEvents btnAnalisis As Button
     Friend WithEvents lblAnalisis As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents btnSalir As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnTratamientos As Button
 End Class

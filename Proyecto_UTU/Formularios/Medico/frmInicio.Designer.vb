@@ -48,27 +48,14 @@ Partial Class frmInicio
         '
         'lblAtender
         '
-        Me.lblAtender.AutoSize = True
-        Me.lblAtender.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblAtender.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAtender.Location = New System.Drawing.Point(0, 0)
+        resources.ApplyResources(Me.lblAtender, "lblAtender")
         Me.lblAtender.Name = "lblAtender"
-        Me.lblAtender.Size = New System.Drawing.Size(140, 29)
-        Me.lblAtender.TabIndex = 2
-        Me.lblAtender.Text = "Patient care"
         '
         'btnAtenderPaciente
         '
-        Me.btnAtenderPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAtenderPaciente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAtenderPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAtenderPaciente.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAtenderPaciente.ImageIndex = 0
+        resources.ApplyResources(Me.btnAtenderPaciente, "btnAtenderPaciente")
         Me.btnAtenderPaciente.ImageList = Me.fotoAtender
-        Me.btnAtenderPaciente.Location = New System.Drawing.Point(0, 0)
         Me.btnAtenderPaciente.Name = "btnAtenderPaciente"
-        Me.btnAtenderPaciente.Size = New System.Drawing.Size(442, 271)
-        Me.btnAtenderPaciente.TabIndex = 3
         Me.btnAtenderPaciente.UseVisualStyleBackColor = True
         '
         'fotoAtender
@@ -80,122 +67,66 @@ Partial Class frmInicio
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(241, 29)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Create interview form"
         '
         'btnCrearFormulario
         '
-        Me.btnCrearFormulario.BackgroundImage = CType(resources.GetObject("btnCrearFormulario.BackgroundImage"), System.Drawing.Image)
-        Me.btnCrearFormulario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCrearFormulario.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnCrearFormulario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCrearFormulario.Location = New System.Drawing.Point(0, 0)
+        resources.ApplyResources(Me.btnCrearFormulario, "btnCrearFormulario")
         Me.btnCrearFormulario.Name = "btnCrearFormulario"
-        Me.btnCrearFormulario.Size = New System.Drawing.Size(442, 272)
-        Me.btnCrearFormulario.TabIndex = 5
         Me.btnCrearFormulario.UseVisualStyleBackColor = True
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(0, 0)
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(240, 29)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Modify interview form"
         '
         'btnEditarFormulario
         '
-        Me.btnEditarFormulario.BackgroundImage = CType(resources.GetObject("btnEditarFormulario.BackgroundImage"), System.Drawing.Image)
-        Me.btnEditarFormulario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnEditarFormulario.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnEditarFormulario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditarFormulario.Location = New System.Drawing.Point(0, 0)
+        resources.ApplyResources(Me.btnEditarFormulario, "btnEditarFormulario")
         Me.btnEditarFormulario.Name = "btnEditarFormulario"
-        Me.btnEditarFormulario.Size = New System.Drawing.Size(442, 272)
-        Me.btnEditarFormulario.TabIndex = 7
         Me.btnEditarFormulario.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
         Me.TableLayoutPanel1.Controls.Add(Me.Panel4, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel3, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 1, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(896, 555)
-        Me.TableLayoutPanel1.TabIndex = 8
         '
         'Panel4
         '
+        resources.ApplyResources(Me.Panel4, "Panel4")
         Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Controls.Add(Me.btnEditarFormulario)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(451, 280)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(442, 272)
-        Me.Panel4.TabIndex = 2
         '
         'Panel3
         '
+        resources.ApplyResources(Me.Panel3, "Panel3")
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.btnCrearFormulario)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(3, 280)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(442, 272)
-        Me.Panel3.TabIndex = 2
         '
         'Panel1
         '
+        resources.ApplyResources(Me.Panel1, "Panel1")
         Me.Panel1.Controls.Add(Me.lblGestion)
         Me.Panel1.Controls.Add(Me.btnGestion)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(442, 271)
-        Me.Panel1.TabIndex = 0
         '
         'lblGestion
         '
-        Me.lblGestion.AutoSize = True
-        Me.lblGestion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblGestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGestion.Location = New System.Drawing.Point(0, 0)
+        resources.ApplyResources(Me.lblGestion, "lblGestion")
         Me.lblGestion.Name = "lblGestion"
-        Me.lblGestion.Size = New System.Drawing.Size(207, 29)
-        Me.lblGestion.TabIndex = 2
-        Me.lblGestion.Text = "Selft management"
         '
         'btnGestion
         '
-        Me.btnGestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnGestion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGestion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGestion.ImageIndex = 0
+        resources.ApplyResources(Me.btnGestion, "btnGestion")
         Me.btnGestion.ImageList = Me.fotoAuxOmed
-        Me.btnGestion.Location = New System.Drawing.Point(0, 0)
         Me.btnGestion.Name = "btnGestion"
-        Me.btnGestion.Size = New System.Drawing.Size(442, 271)
-        Me.btnGestion.TabIndex = 3
         Me.btnGestion.UseVisualStyleBackColor = True
         '
         'fotoAuxOmed
@@ -207,25 +138,19 @@ Partial Class frmInicio
         '
         'Panel2
         '
+        resources.ApplyResources(Me.Panel2, "Panel2")
         Me.Panel2.Controls.Add(Me.lblAtender)
         Me.Panel2.Controls.Add(Me.btnAtenderPaciente)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(451, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(442, 271)
-        Me.Panel2.TabIndex = 1
         '
         'frmInicio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(896, 555)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmInicio"
-        Me.Text = "frmInicio"
         Me.TopMost = True
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)

@@ -78,7 +78,7 @@ Public Class frmPaciente
         AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnDiagnosticos.Click, AddressOf DiagnosticoToolStripMenuItem_Click
         AddHandler frmIni.btnAnalisis.Click, AddressOf AnalisisToolStripMenuItem_Click
-        AddHandler frmIni.btnSalir.Click, AddressOf frmPaciente_FormClosing
+        AddHandler frmIni.btnTratamientos.Click, AddressOf MisTratamientosToolStripMenuItem_Click
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click

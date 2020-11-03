@@ -142,7 +142,6 @@ Public Class frmAnalisisSeguimiento
                 End Select
                 analisis_encontrados = result
                 fixCols()
-                Exit Sub
             Case Modo.Asignar 'busco analisis x nombre
                 Dim result = na.BuscarAnalisisXNombre(txtBuscar.Text)
                 Select Case result(0).ErrCode
@@ -157,29 +156,37 @@ Public Class frmAnalisisSeguimiento
                         Exit Sub
                 End Select
                 analisis_encontrados = result
+                For Each a As E_Analisis In analisis_encontrados
+                    Console.WriteLine(a.Nombre)
+                Next
                 fixCols()
         End Select
     End Sub
 
     Sub fixCols()
-        dgwAnalisisPaciente.Columns.Add("ID_analisis", "ID de análisis")
-        dgwAnalisisPaciente.Columns.Add("nombreA", "Análisis")
-        dgwAnalisisPaciente.Columns.Add("FechaR", "Fecha Requerido")
-        dgwAnalisisPaciente.Columns.Add("FechaRes", "Fecha Resultado")
-
-        For Each a As E_Analisis In analisis_encontrados
-            Dim fecha As String = "-"
-            If a.FechaRes.ToString() <> "1/1/0001 0:00:00" Then 'si no hay fecha de resultado defaultea a ese valor en vez de quedar en null.
-                fecha = a.FechaRes.ToString()
-            End If
-            dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre, a.ConsultaReq.Fecha, fecha)
-        Next
         Select Case MiModo
-            Case Modo.Asignar
-                dgwAnalisisPaciente.Columns("FechaRes").Visible = False
             Case Modo.Buscar
+                dgwAnalisisPaciente.Columns.Add("ID_analisis", "ID de análisis")
+                dgwAnalisisPaciente.Columns.Add("nombreA", "Análisis")
+                dgwAnalisisPaciente.Columns.Add("FechaR", "Fecha Requerido")
+                dgwAnalisisPaciente.Columns.Add("FechaRes", "Fecha Resultado")
 
+                For Each a As E_Analisis In analisis_encontrados
+                    Dim fecha As String = "-"
+                    If a.FechaRes.ToString() <> "1/1/0001 0:00:00" Then 'si no hay fecha de resultado defaultea a ese valor en vez de quedar en null.
+                        fecha = a.FechaRes.ToString()
+                    End If
+                    dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre, a.ConsultaReq.Fecha, fecha)
+                Next
+            Case Modo.Asignar
+                dgwAnalisisPaciente.Columns.Add("ID_analisis", "ID de análisis")
+                dgwAnalisisPaciente.Columns.Add("nombreA", "Análisis")
+                For Each a As E_Analisis In analisis_encontrados
+                    Console.WriteLine("2 " & a.Nombre)
+                    dgwAnalisisPaciente.Rows.Add(a.ID, a.Nombre)
+                Next
         End Select
+
     End Sub
 
     Sub resetMode()
@@ -202,6 +209,9 @@ Public Class frmAnalisisSeguimiento
         Me.WindowState = FormWindowState.Maximized
     End Sub
     Private Sub dgwAnalisisPaciente_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwAnalisisPaciente.CellClick
+        If e.RowIndex = -1 Then
+            Exit Sub
+        End If
         AnalisisSelect = analisis_encontrados(e.RowIndex)
     End Sub
 End Class

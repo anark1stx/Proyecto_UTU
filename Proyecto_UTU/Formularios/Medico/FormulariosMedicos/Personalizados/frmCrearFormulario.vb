@@ -314,15 +314,17 @@ Public Class frmCrearFormulario
         End If
         BuscarPreguntas(frmPlano, frmPlano.PreguntasYRespuestas)
         UnirPreguntasConRespuestas(frmPlano, frmPlano.PreguntasYRespuestas)
+        frmPlano.tagCount = 0
         For Each pyr As PreguntaRespuesta In frmPlano.PreguntasYRespuestas
+            Dim tcount As Integer = CInt(pyr.Tag.Replace("p", ""))
+            If tcount > frmPlano.tagCount Then
+                frmPlano.tagCount = tcount
+            End If
             If pyr.Pregunta.GetType() = GetType(Label) Then
                 frmPlano.SoloLabels.Add(pyr)
             End If
         Next
-        frmPlano.PreguntasYRespuestas.Sort(Function(p1, p2) p1.Tag.CompareTo(p2.Tag))
-        frmPlano.SoloLabels.Sort(Function(p1, p2) p1.Tag.CompareTo(p2.Tag))
-        Console.WriteLine("ultimo tag: " & frmPlano.PreguntasYRespuestas.Last().Tag)
-        frmPlano.tagCount = CInt(frmPlano.PreguntasYRespuestas.Last().Tag.ToString().Replace("p", ""))
+        Console.WriteLine("ultimo tag " & frmPlano.tagCount)
     End Sub
 
     Public Sub agregarHandlersBasicos(_ctrl As Control)

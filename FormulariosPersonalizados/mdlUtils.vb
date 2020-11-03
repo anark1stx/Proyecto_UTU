@@ -116,11 +116,10 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                 Case 0
 
                     If FormDatos.Enfermedad.SignosClinicos.Count < 1 Then
-                        If MessageBox.Show("¿Desea guardar sin ingresar un signo clínico?", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Warning) = vbNo Then
+                        If MessageBox.Show("¿Desea guardar sin ingresar un signo clínico?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                             Exit Sub
                         End If
                     End If
-
 
                     If FormDatos.Enfermedad.Sintomas.Count < 1 Then
                         If MessageBox.Show("¿Desea guardar sin ingresar un síntoma?", "Falta información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
@@ -135,7 +134,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                     End If
 
                     For Each p As PreguntaRespuesta In FormDatos.PreguntasYRespuestas
-                        If String.IsNullOrEmpty(p.Respuesta.Text) Then
+                        If String.IsNullOrWhiteSpace(p.Respuesta.Text) Then
                             If MessageBox.Show("La pregunta: " & p.Pregunta.Text & " no fue respondida, seguro que desea guardar?", "Falta ingresar información", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = vbNo Then
                                 Exit Sub
                             End If
@@ -156,7 +155,6 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
 
                     Dim negocio As New N_Formulario
                     resultado = negocio.AltaFormularioDatos(FormDatos)
-                    Console.WriteLine("ID DE LA CONSULTA: " & FormDatos.Atiende.ID)
             End Select
             Select Case resultado
                 Case -1
@@ -171,9 +169,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
     End Class
 
     Public Function ColorTOHTML(col As Color) As String 'XMLSerializer no puede guardar System.Drawing.Color
-
         Return ColorTranslator.ToHtml(col)
-
     End Function
 
     Public Function HTMLTOColor(col As String) As Color

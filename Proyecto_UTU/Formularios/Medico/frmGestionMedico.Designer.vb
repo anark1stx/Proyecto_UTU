@@ -24,6 +24,7 @@ Partial Class frmGestionMedico
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGestionMedico))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblCedulaTXT = New System.Windows.Forms.Label()
@@ -37,10 +38,9 @@ Partial Class frmGestionMedico
         Me.lblTelefonoTXT = New System.Windows.Forms.Label()
         Me.lblEspecialidad = New System.Windows.Forms.Label()
         Me.lblEspecialidadTXT = New System.Windows.Forms.Label()
-        Me.pBoxFotoMedico = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.tabDatos.SuspendLayout()
         CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabDatos.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -49,6 +49,14 @@ Partial Class frmGestionMedico
         Me.TableLayoutPanel1.Controls.Add(Me.pBoxFotoMedico, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.tabDatos, 1, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'pBoxFotoMedico
+        '
+        resources.ApplyResources(Me.pBoxFotoMedico, "pBoxFotoMedico")
+        Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
+        Me.pBoxFotoMedico.TabStop = False
+        Me.pBoxFotoMedico.Tag = ""
         '
         'tabDatos
         '
@@ -127,26 +135,19 @@ Partial Class frmGestionMedico
         resources.ApplyResources(Me.lblEspecialidadTXT, "lblEspecialidadTXT")
         Me.lblEspecialidadTXT.Name = "lblEspecialidadTXT"
         '
-        'pBoxFotoMedico
-        '
-        resources.ApplyResources(Me.pBoxFotoMedico, "pBoxFotoMedico")
-        Me.pBoxFotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pBoxFotoMedico.Name = "pBoxFotoMedico"
-        Me.pBoxFotoMedico.TabStop = False
-        Me.pBoxFotoMedico.Tag = "noLimpiar"
-        '
         'frmGestionMedico
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmGestionMedico"
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatos.ResumeLayout(False)
         Me.tabDatos.PerformLayout()
-        CType(Me.pBoxFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

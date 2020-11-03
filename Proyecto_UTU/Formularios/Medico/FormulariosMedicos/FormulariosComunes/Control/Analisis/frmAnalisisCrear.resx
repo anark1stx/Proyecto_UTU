@@ -117,429 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn8.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn8</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblNombreTratamiento.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dgwParametros.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 128</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtVMax.TabIndex" type="System.Int32, mscorlib">
-    <value>162</value>
-  </data>
-  <data name="txtUnidad.MaxLength" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn15.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lblNindicacion.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblNombreTratamiento.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="txtNomIndicacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1122, 34</value>
-  </data>
-  <data name="lblUnidadM.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewButtonColumn1.Name" xml:space="preserve">
-    <value>DataGridViewButtonColumn1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn7.HeaderText" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="btnAgregarIndicacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 85</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="txtNomIndicacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 709</value>
-  </data>
-  <data name="lblNindicacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 29</value>
-  </data>
-  <data name="Borrar.HeaderText" xml:space="preserve">
-    <value>Borrar</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCheckNombreA.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="&gt;&gt;dgwIndicaciones.Name" xml:space="preserve">
-    <value>dgwIndicaciones</value>
-  </data>
-  <data name="btnAgregarIndicacion.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
-        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
-        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
-        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
-        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
-        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
-        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
-        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
-        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
-        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
-        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
-        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
-        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
-        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
-        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
-        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
-        OQcdTIoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="lblNombreParametro.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 29</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarIndicacion.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn14.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;borrarInd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dgwIndicaciones.TabIndex" type="System.Int32, mscorlib">
-    <value>170</value>
-  </data>
-  <data name="btnAgregarAnalisis.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="&gt;&gt;txtNombreAnalisis.Name" xml:space="preserve">
-    <value>txtNombreAnalisis</value>
-  </data>
-  <data name="pnlDatos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="btnAgregarAnalisis.TabIndex" type="System.Int32, mscorlib">
-    <value>154</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn8.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="txtIndicacionDescripcion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1013, 85</value>
-  </data>
-  <data name="pnlDatos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1286, 1125</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>153</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn15.HeaderText" xml:space="preserve">
-    <value>Valor Mínimo</value>
-  </data>
-  <data name="&gt;&gt;txtVMin.Name" xml:space="preserve">
-    <value>txtVMin</value>
-  </data>
-  <data name="&gt;&gt;lblVMax.Name" xml:space="preserve">
-    <value>lblVMax</value>
-  </data>
-  <data name="&gt;&gt;txtNombrePrm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtNombrePrm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtUnidad.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn16.HeaderText" xml:space="preserve">
-    <value>Valor Máximo</value>
-  </data>
-  <data name="btnCheckNombreA.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 34</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn7.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="btnAgregarPrm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="lblNindicacion.Text" xml:space="preserve">
-    <value>Ingresar indicaciones del análisis</value>
-  </data>
-  <data name="&gt;&gt;lblNombreTratamiento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblNombreParametro.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblNomIndicacion.TabIndex" type="System.Int32, mscorlib">
-    <value>167</value>
-  </data>
-  <data name="txtVMax.MaxLength" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lblNindicacion.Name" xml:space="preserve">
-    <value>lblNindicacion</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn14.HeaderText" xml:space="preserve">
-    <value>Unidad</value>
-  </data>
-  <data name="txtNombrePrm.MaxLength" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <data name="txtIndicacionDescripcion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Crear análisis</value>
-  </data>
-  <data name="&gt;&gt;txtVMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BorrarPrm.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lblVMax.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="pnlContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn9.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="txtUnidad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="&gt;&gt;lblNindicacion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarAnalisis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1009</value>
-  </data>
-  <data name="lblVMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 29</value>
-  </data>
-  <data name="lblVMin.TabIndex" type="System.Int32, mscorlib">
-    <value>158</value>
-  </data>
-  <data name="&gt;&gt;ParametroBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblVMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>321, 84</value>
-  </data>
-  <data name="dgwParametros.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn13.HeaderText" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="lblVMax.TabIndex" type="System.Int32, mscorlib">
-    <value>159</value>
-  </data>
-  <data name="&gt;&gt;txtNomIndicacion.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="&gt;&gt;pnlContenedor.Name" xml:space="preserve">
-    <value>pnlContenedor</value>
-  </data>
-  <data name="dgwParametros.TabIndex" type="System.Int32, mscorlib">
-    <value>166</value>
-  </data>
-  <data name="borrarInd.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="lblNombreTratamiento.Text" xml:space="preserve">
-    <value>Nombre del análisis:</value>
-  </data>
-  <data name="lblVMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtNombrePrm.Name" xml:space="preserve">
-    <value>txtNombrePrm</value>
-  </data>
-  <data name="btnAgregarPrm.TabIndex" type="System.Int32, mscorlib">
-    <value>155</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarPrm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 94</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn7.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="txtIndicacionDescripcion.TabIndex" type="System.Int32, mscorlib">
-    <value>164</value>
-  </data>
-  <data name="lblUnidadM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>698, 25</value>
-  </data>
-  <data name="&gt;&gt;lblUnidadM.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="&gt;&gt;txtNomIndicacion.Name" xml:space="preserve">
-    <value>txtNomIndicacion</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewButtonColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNomIndicacion.Name" xml:space="preserve">
-    <value>lblNomIndicacion</value>
-  </data>
-  <data name="lblNomIndicacion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="&gt;&gt;lblNombreParametro.Name" xml:space="preserve">
-    <value>lblNombreParametro</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtNombrePrm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;lblNomIndicacion.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;pnlDatos.Name" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="lblNindicacion.TabIndex" type="System.Int32, mscorlib">
-    <value>163</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn8.HeaderText" xml:space="preserve">
-    <value>Unidad</value>
-  </data>
-  <data name="btnAgregarIndicacion.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="txtNomIndicacion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="&gt;&gt;dgwParametros.Name" xml:space="preserve">
-    <value>dgwParametros</value>
-  </data>
-  <data name="lblUnidadM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 29</value>
-  </data>
-  <data name="&gt;&gt;lblNombreTratamiento.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtNombreAnalisis.Parent" xml:space="preserve">
-    <value>pnlContenedor</value>
-  </data>
-  <data name="lblVMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="&gt;&gt;IndicacionBindingSource.Name" xml:space="preserve">
-    <value>IndicacionBindingSource</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn9.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn9</value>
-  </data>
-  <data name="txtVMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 34</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarAnalisis.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
-  </data>
-  <data name="lblNombreParametro.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="txtNombreAnalisis.TabIndex" type="System.Int32, mscorlib">
-    <value>129</value>
-  </data>
-  <data name="&gt;&gt;txtNombreAnalisis.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="&gt;&gt;Borrar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pnlDatos.TabIndex" type="System.Int32, mscorlib">
-    <value>130</value>
-  </data>
-  <data name="lblVMin.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;NombreDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>NombreDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="btnAgregarPrm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="pnlContenedor.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="dgwIndicaciones.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;btnCheckNombreA.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="lblNombreTratamiento.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 9</value>
   </data>
-  <data name="txtIndicacionDescripcion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 749</value>
+  <data name="lblNombreTratamiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 29</value>
   </data>
-  <data name="txtVMin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
+  <data name="lblNombreTratamiento.TabIndex" type="System.Int32, mscorlib">
+    <value>128</value>
   </data>
-  <data name="txtNomIndicacion.TabIndex" type="System.Int32, mscorlib">
-    <value>168</value>
+  <data name="lblNombreTratamiento.Text" xml:space="preserve">
+    <value>Nombre del análisis:</value>
   </data>
-  <data name="txtVMin.MaxLength" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="&gt;&gt;lblNombreTratamiento.Name" xml:space="preserve">
+    <value>lblNombreTratamiento</value>
   </data>
-  <data name="&gt;&gt;txtVMax.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
+  <data name="&gt;&gt;lblNombreTratamiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnAgregarPrm.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="Borrar.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarAnalisis.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="txtIndicacionDescripcion.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;btnCheckNombreA.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblNombreTratamiento.Parent" xml:space="preserve">
     <value>pnlContenedor</value>
   </data>
-  <data name="BorrarIndic.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;lblNombreTratamiento.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>169</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtNombreAnalisis.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtNombreAnalisis.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="txtNombreAnalisis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 4</value>
+  </data>
+  <data name="txtNombreAnalisis.MaxLength" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="txtNombreAnalisis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 34</value>
+  </data>
+  <data name="txtNombreAnalisis.TabIndex" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
+  <data name="&gt;&gt;txtNombreAnalisis.Name" xml:space="preserve">
+    <value>txtNombreAnalisis</value>
+  </data>
+  <data name="&gt;&gt;txtNombreAnalisis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNombreAnalisis.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="&gt;&gt;txtNombreAnalisis.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlContenedor.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnCheckNombreA.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="btnCheckNombreA.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2032,296 +1677,678 @@
         p1Obn2lEYWTB3+/6bCUUAq46WRxwNepFi/x//z9OnmRF0oOOYwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="lblNombreParametro.Location" type="System.Drawing.Point, System.Drawing">
-    <value>321, 25</value>
+  <data name="btnCheckNombreA.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="txtNombreAnalisis.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
+  <data name="btnCheckNombreA.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="txtVMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
+  <data name="btnCheckNombreA.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1241, 4</value>
   </data>
-  <data name="&gt;&gt;lblNombreParametro.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
+  <data name="btnCheckNombreA.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 34</value>
   </data>
-  <data name="&gt;&gt;txtNombreAnalisis.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="btnCheckNombreA.TabIndex" type="System.Int32, mscorlib">
+    <value>131</value>
   </data>
-  <data name="&gt;&gt;txtUnidad.Name" xml:space="preserve">
-    <value>txtUnidad</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn9.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lblVMin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="lblNombreTratamiento.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblNomIndicacion.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;btnCheckNombreA.Name" xml:space="preserve">
+    <value>btnCheckNombreA</value>
   </data>
   <data name="&gt;&gt;btnCheckNombreA.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
+  <data name="&gt;&gt;btnCheckNombreA.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
   </data>
-  <data name="DataGridViewTextBoxColumn16.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;btnCheckNombreA.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;dgwIndicaciones.Parent" xml:space="preserve">
+  <data name="pnlDatos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtNombrePrm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtNombrePrm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="txtNombrePrm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 19</value>
+  </data>
+  <data name="txtNombrePrm.MaxLength" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="txtNombrePrm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 34</value>
+  </data>
+  <data name="txtNombrePrm.TabIndex" type="System.Int32, mscorlib">
+    <value>171</value>
+  </data>
+  <data name="&gt;&gt;txtNombrePrm.Name" xml:space="preserve">
+    <value>txtNombrePrm</value>
+  </data>
+  <data name="&gt;&gt;txtNombrePrm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNombrePrm.Parent" xml:space="preserve">
     <value>pnlDatos</value>
   </data>
-  <data name="&gt;&gt;lblNombreParametro.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="&gt;&gt;txtNombrePrm.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;IndicacionBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtNomIndicacion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtNomIndicacion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="txtNomIndicacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 709</value>
   </data>
   <data name="txtNomIndicacion.MaxLength" type="System.Int32, mscorlib">
     <value>90</value>
   </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtNomIndicacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1122, 34</value>
   </data>
-  <data name="&gt;&gt;dgwParametros.Parent" xml:space="preserve">
+  <data name="txtNomIndicacion.TabIndex" type="System.Int32, mscorlib">
+    <value>168</value>
+  </data>
+  <data name="&gt;&gt;txtNomIndicacion.Name" xml:space="preserve">
+    <value>txtNomIndicacion</value>
+  </data>
+  <data name="&gt;&gt;txtNomIndicacion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNomIndicacion.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;txtNomIndicacion.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnAgregarIndicacion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnAgregarIndicacion.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOKSURBVHhe7ZtP
+        S1RRGMbfokXQtvoI0apP4FdwU32BFqWNGoKitonInX2GNtI6oaBNpaJimhLFGGilCZHjqkCC6A/e3mea
+        uRzPPHfuzL1nmItvi5/oWcw8z+O95897zpEoijrK6L6cGd+R3rFtGR7bkamJbXk4vi2zyqZy0PdCDvvn
+        5WdpQb6WluTT4LKsDq7IzNCKTPa/lfPsM0NCG/MysiVn1fA1NfhY+aFESdx41oTnEpUWZV/DeDCwKhfY
+        d+WFNmbh7pyc0v/09YmPMq/G/vhGk6DGE9Cn5JuGMa3fdZppyAJtbBd9rK+omfe+uVZgRtPon5Nft1bk
+        PtPSLrSxVdRAj77Xy76pdmAGW+XmghwMvpIS09YqtDGN2x/knIqf8c1kgRlrF+0n9kbW5SLTmgZtbMbo
+        jlzSR36XmckCM5QFfS1+D63JVaa5GbQxCe3ZL6vo776JPDAzWenTUUM7ySmmPQna6CORnFCxd5RDV3wI
+        mJG8DLyUWdV8knnxoY0uMK9D2zQTHwJmIAQDS6Kfnh4CbXRRkfjPU/EhYOJDgSeBeXKhjXVq73zwx96F
+        CQ9JWp9AGwF6exUYtMNjMNEhqXaMTUYH2ohxPuRQ5/L0871o7cujmDfvXscslp9QE3nBEJk0T2hoACo0
+        yCSHAdOVSiWmXN6MQQjMQAgwWWJeGxpUZI8vOiTdCgCwafORP0DeuX0a3QwAawff75E/aqs6KjwU3QwA
+        +KvI+Jfqej7jkrYduh0AltJuPSEOAMUMJjg03Q4AoKjSEECtkkNFh6QIAaCydCQA1PBUXMtlrDwUIQBQ
+        rzFWA6gVMKng0BQlABRa4wBUGKq3VHBoihIAqs3VAKp1+5TSdUiKEgBK7th3QO/fy4R2isIEoOhrMIn3
+        f5gJ7RRFCgA7UJj6TjGhnaJQASzLKqa/2KujYpPwl7TtsLu3lRjAxsa/ELKQZSmNvUiMANiopEaTgBHX
+        RB7cAPKAEJjJZmBDFgFgl5YaTeK4BIBdaQRw4BtM47gEgK35/wGoIfOvgO1O0PwwaH4iZH4qbH4xZH45
+        bL4ggh/mS2Lmi6LAdFkcmN8YMb81BkxvjtYxvT0OVKTtAxJAhdo9IgPMH5ICpo/J1TF9ULKOirR7VBaY
+        PywNEIKKtXlc3qXWJ9i7MOFi+spMHdOXplzUgM1rcz61VaS9i5Mu1XqC1auzPiYvTydR7OvzkfwFjMRv
+        OQcdTIoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnAgregarIndicacion.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnAgregarIndicacion.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnAgregarIndicacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1180, 749</value>
+  </data>
+  <data name="btnAgregarIndicacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 85</value>
+  </data>
+  <data name="btnAgregarIndicacion.TabIndex" type="System.Int32, mscorlib">
+    <value>165</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarIndicacion.Name" xml:space="preserve">
+    <value>btnAgregarIndicacion</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarIndicacion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarIndicacion.Parent" xml:space="preserve">
     <value>pnlDatos</value>
   </data>
   <data name="&gt;&gt;btnAgregarIndicacion.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="DataGridViewTextBoxColumn6.HeaderText" xml:space="preserve">
-    <value>Indicacion</value>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
-  <data name="DataGridViewTextBoxColumn6.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="dgwIndicaciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1280, 152</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarPrm.Name" xml:space="preserve">
-    <value>btnAgregarPrm</value>
-  </data>
-  <data name="lblNomIndicacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 714</value>
-  </data>
-  <data name="&gt;&gt;txtIndicacionDescripcion.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="&gt;&gt;lblNindicacion.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lblNombreParametro.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;txtUnidad.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;lblUnidadM.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarAnalisis.Name" xml:space="preserve">
-    <value>btnAgregarAnalisis</value>
-  </data>
-  <data name="dgwParametros.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;lblUnidadM.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BorrarIndic.HeaderText" xml:space="preserve">
-    <value>Borrar</value>
-  </data>
-  <data name="&gt;&gt;lblVMax.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1313, 720</value>
-  </data>
-  <data name="txtVMin.TabIndex" type="System.Int32, mscorlib">
-    <value>161</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn10.HeaderText" xml:space="preserve">
-    <value>ValorMaximo</value>
-  </data>
-  <data name="borrarInd.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn12.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;Borrar.Name" xml:space="preserve">
-    <value>Borrar</value>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 773</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 29</value>
   </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>169</value>
   </data>
-  <data name="&gt;&gt;lblVMax.Type" xml:space="preserve">
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Descripción:</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblNomIndicacion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNomIndicacion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="lblNomIndicacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 714</value>
+  </data>
+  <data name="lblNomIndicacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 29</value>
+  </data>
+  <data name="lblNomIndicacion.TabIndex" type="System.Int32, mscorlib">
+    <value>167</value>
+  </data>
+  <data name="lblNomIndicacion.Text" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="&gt;&gt;lblNomIndicacion.Name" xml:space="preserve">
+    <value>lblNomIndicacion</value>
+  </data>
+  <data name="&gt;&gt;lblNomIndicacion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNomIndicacion.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;lblNomIndicacion.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="dgwIndicaciones.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="NombreDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NombreDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DescripcionDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="DescripcionDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <metadata name="BorrarIndic.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="BorrarIndic.HeaderText" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="BorrarIndic.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BorrarIndic.Width" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <metadata name="IndicacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>920, 17</value>
+  </metadata>
+  <data name="dgwIndicaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 840</value>
+  </data>
+  <data name="dgwIndicaciones.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="dgwIndicaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1280, 152</value>
+  </data>
+  <data name="dgwIndicaciones.TabIndex" type="System.Int32, mscorlib">
+    <value>170</value>
+  </data>
+  <data name="&gt;&gt;dgwIndicaciones.Name" xml:space="preserve">
+    <value>dgwIndicaciones</value>
+  </data>
+  <data name="&gt;&gt;dgwIndicaciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgwIndicaciones.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;dgwIndicaciones.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="dgwParametros.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn13.HeaderText" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn13.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn14.HeaderText" xml:space="preserve">
+    <value>Unidad</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn14.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn15.HeaderText" xml:space="preserve">
+    <value>Valor Mínimo</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn15.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn16.HeaderText" xml:space="preserve">
+    <value>Valor Máximo</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn16.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <metadata name="BorrarPrm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="BorrarPrm.HeaderText" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="BorrarPrm.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BorrarPrm.Width" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <metadata name="ParametroBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>691, 17</value>
+  </metadata>
+  <data name="dgwParametros.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 128</value>
+  </data>
+  <data name="dgwParametros.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="dgwParametros.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1283, 522</value>
+  </data>
+  <data name="dgwParametros.TabIndex" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="&gt;&gt;dgwParametros.Name" xml:space="preserve">
+    <value>dgwParametros</value>
+  </data>
+  <data name="&gt;&gt;dgwParametros.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgwParametros.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;dgwParametros.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtIndicacionDescripcion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtIndicacionDescripcion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtIndicacionDescripcion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 749</value>
+  </data>
+  <data name="txtIndicacionDescripcion.MaxLength" type="System.Int32, mscorlib">
+    <value>1200</value>
+  </data>
+  <data name="txtIndicacionDescripcion.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtIndicacionDescripcion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1013, 85</value>
+  </data>
+  <data name="txtIndicacionDescripcion.TabIndex" type="System.Int32, mscorlib">
+    <value>164</value>
+  </data>
+  <data name="&gt;&gt;txtIndicacionDescripcion.Name" xml:space="preserve">
+    <value>txtIndicacionDescripcion</value>
+  </data>
+  <data name="&gt;&gt;txtIndicacionDescripcion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtIndicacionDescripcion.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;txtIndicacionDescripcion.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtVMax.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtVMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="txtVMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>869, 79</value>
+  </data>
+  <data name="txtVMax.MaxLength" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="txtVMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 34</value>
+  </data>
+  <data name="txtVMax.TabIndex" type="System.Int32, mscorlib">
+    <value>162</value>
+  </data>
+  <data name="&gt;&gt;txtVMax.Name" xml:space="preserve">
+    <value>txtVMax</value>
+  </data>
+  <data name="&gt;&gt;txtVMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtVMax.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;txtVMax.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblUnidadM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblUnidadM.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUnidadM.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="lblUnidadM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>698, 25</value>
+  </data>
+  <data name="lblUnidadM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 29</value>
+  </data>
+  <data name="lblUnidadM.TabIndex" type="System.Int32, mscorlib">
+    <value>157</value>
+  </data>
+  <data name="lblUnidadM.Text" xml:space="preserve">
+    <value>Unidad:</value>
+  </data>
+  <data name="&gt;&gt;lblUnidadM.Name" xml:space="preserve">
+    <value>lblUnidadM</value>
+  </data>
+  <data name="&gt;&gt;lblUnidadM.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblUnidadM.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;lblUnidadM.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblNindicacion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblNindicacion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNindicacion.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="lblNindicacion.Location" type="System.Drawing.Point, System.Drawing">
     <value>454, 668</value>
   </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 773</value>
+  <data name="lblNindicacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 29</value>
   </data>
-  <data name="NombreDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="lblNindicacion.TabIndex" type="System.Int32, mscorlib">
+    <value>163</value>
   </data>
-  <data name="&gt;&gt;BorrarIndic.Name" xml:space="preserve">
-    <value>BorrarIndic</value>
+  <data name="lblNindicacion.Text" xml:space="preserve">
+    <value>Ingresar indicaciones del análisis</value>
   </data>
-  <data name="&gt;&gt;txtNomIndicacion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblNindicacion.Name" xml:space="preserve">
+    <value>lblNindicacion</value>
   </data>
-  <data name="pnlDatos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 41</value>
-  </data>
-  <data name="lblNombreParametro.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="&gt;&gt;lblNombreTratamiento.Name" xml:space="preserve">
-    <value>lblNombreTratamiento</value>
-  </data>
-  <data name="btnAgregarAnalisis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1286, 116</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNomIndicacion.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblNindicacion.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtNomIndicacion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;lblNindicacion.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
   </data>
-  <data name="txtNombreAnalisis.MaxLength" type="System.Int32, mscorlib">
-    <value>90</value>
+  <data name="&gt;&gt;lblNindicacion.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
-  <data name="lblUnidadM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblVMax.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="lblVMax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;btnAgregarIndicacion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarPrm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="NombreDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="txtNombreAnalisis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>992, 34</value>
-  </data>
-  <data name="&gt;&gt;dgwParametros.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn10.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="txtVMax.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblVMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
-  <data name="BorrarPrm.HeaderText" xml:space="preserve">
-    <value>Borrar</value>
+  <data name="lblVMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>698, 84</value>
   </data>
-  <data name="txtNombrePrm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
+  <data name="lblVMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 29</value>
   </data>
-  <data name="txtNombreAnalisis.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="btnAgregarIndicacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1180, 749</value>
+  <data name="lblVMax.TabIndex" type="System.Int32, mscorlib">
+    <value>159</value>
   </data>
   <data name="lblVMax.Text" xml:space="preserve">
     <value>Valor máximo:</value>
   </data>
-  <data name="lblNombreTratamiento.TabIndex" type="System.Int32, mscorlib">
-    <value>128</value>
+  <data name="&gt;&gt;lblVMax.Name" xml:space="preserve">
+    <value>lblVMax</value>
   </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblVMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblVMax.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
   </data>
-  <data name="&gt;&gt;lblNombreTratamiento.Parent" xml:space="preserve">
-    <value>pnlContenedor</value>
+  <data name="&gt;&gt;lblVMax.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;pnlDatos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtUnidad.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="&gt;&gt;pnlDatos.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="txtUnidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
-  <data name="&gt;&gt;borrarInd.Name" xml:space="preserve">
-    <value>borrarInd</value>
+  <data name="txtUnidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>869, 19</value>
   </data>
-  <data name="&gt;&gt;btnAgregarIndicacion.Name" xml:space="preserve">
-    <value>btnAgregarIndicacion</value>
+  <data name="txtUnidad.MaxLength" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
-  <data name="lblUnidadM.TabIndex" type="System.Int32, mscorlib">
-    <value>157</value>
+  <data name="txtUnidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 34</value>
   </data>
-  <data name="DataGridViewTextBoxColumn12.HeaderText" xml:space="preserve">
-    <value>Indicacion</value>
+  <data name="txtUnidad.TabIndex" type="System.Int32, mscorlib">
+    <value>160</value>
+  </data>
+  <data name="&gt;&gt;txtUnidad.Name" xml:space="preserve">
+    <value>txtUnidad</value>
   </data>
   <data name="&gt;&gt;txtUnidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DataGridViewTextBoxColumn6.Width" type="System.Int32, mscorlib">
-    <value>316</value>
+  <data name="&gt;&gt;txtUnidad.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
   </data>
-  <data name="&gt;&gt;lblVMin.Name" xml:space="preserve">
-    <value>lblVMin</value>
+  <data name="&gt;&gt;txtUnidad.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
-  <data name="&gt;&gt;txtVMin.ZOrder" xml:space="preserve">
-    <value>16</value>
+  <data name="lblNombreParametro.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="txtVMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>869, 79</value>
+  <data name="lblNombreParametro.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="txtNombreAnalisis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 4</value>
+  <data name="lblNombreParametro.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
-  <data name="DataGridViewButtonColumn1.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="lblNombreParametro.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 25</value>
+  </data>
+  <data name="lblNombreParametro.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 29</value>
+  </data>
+  <data name="lblNombreParametro.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
+  </data>
+  <data name="lblNombreParametro.Text" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="&gt;&gt;lblNombreParametro.Name" xml:space="preserve">
+    <value>lblNombreParametro</value>
+  </data>
+  <data name="&gt;&gt;lblNombreParametro.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNombreParametro.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;lblNombreParametro.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btnAgregarAnalisis.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnAgregarAnalisis.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
+  <data name="btnAgregarAnalisis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1009</value>
+  </data>
+  <data name="btnAgregarAnalisis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1286, 116</value>
+  </data>
+  <data name="btnAgregarAnalisis.TabIndex" type="System.Int32, mscorlib">
+    <value>154</value>
+  </data>
+  <data name="btnAgregarAnalisis.Text" xml:space="preserve">
+    <value>Guardar Análisis</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarAnalisis.Name" xml:space="preserve">
+    <value>btnAgregarAnalisis</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarAnalisis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarAnalisis.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarAnalisis.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 45</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 29</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>153</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Nuevo parámetro:</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="txtVMin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtVMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="txtVMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 79</value>
+  </data>
+  <data name="txtVMin.MaxLength" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="txtVMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 34</value>
+  </data>
+  <data name="txtVMin.TabIndex" type="System.Int32, mscorlib">
+    <value>161</value>
+  </data>
+  <data name="&gt;&gt;txtVMin.Name" xml:space="preserve">
+    <value>txtVMin</value>
   </data>
   <data name="&gt;&gt;txtVMin.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmAnalisisCrear</value>
+  <data name="&gt;&gt;txtVMin.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
   </data>
-  <data name="&gt;&gt;pnlContenedor.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;txtVMin.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
-  <data name="&gt;&gt;txtIndicacionDescripcion.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="lblVMin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblVMin.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblVMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="lblVMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 84</value>
+  </data>
+  <data name="lblVMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 29</value>
+  </data>
+  <data name="lblVMin.TabIndex" type="System.Int32, mscorlib">
+    <value>158</value>
+  </data>
+  <data name="lblVMin.Text" xml:space="preserve">
+    <value>Valor mínimo:</value>
+  </data>
+  <data name="&gt;&gt;lblVMin.Name" xml:space="preserve">
+    <value>lblVMin</value>
+  </data>
+  <data name="&gt;&gt;lblVMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblVMin.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
   </data>
   <data name="&gt;&gt;lblVMin.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="txtVMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 79</value>
+  <data name="btnAgregarPrm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="btnAgregarPrm.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2345,316 +2372,298 @@
         OQcdTIoAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnAgregarPrm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnAgregarPrm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="btnAgregarPrm.Location" type="System.Drawing.Point, System.Drawing">
     <value>1180, 19</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 29</value>
+  <data name="btnAgregarPrm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 94</value>
   </data>
-  <data name="lblNindicacion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
+  <data name="btnAgregarPrm.TabIndex" type="System.Int32, mscorlib">
+    <value>155</value>
   </data>
-  <data name="&gt;&gt;lblNombreParametro.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn15.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn15</value>
-  </data>
-  <data name="btnCheckNombreA.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnAgregarPrm.Name" xml:space="preserve">
+    <value>btnAgregarPrm</value>
   </data>
   <data name="&gt;&gt;btnAgregarPrm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblVMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="txtUnidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>869, 19</value>
-  </data>
-  <data name="txtIndicacionDescripcion.MaxLength" type="System.Int32, mscorlib">
-    <value>1200</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn12.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn12</value>
+  <data name="&gt;&gt;btnAgregarPrm.Parent" xml:space="preserve">
+    <value>pnlDatos</value>
   </data>
   <data name="&gt;&gt;btnAgregarPrm.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Nuevo parámetro:</value>
+  <data name="pnlDatos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 41</value>
   </data>
-  <data name="&gt;&gt;txtVMax.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="pnlDatos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1286, 1125</value>
   </data>
-  <data name="lblNomIndicacion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pnlDatos.TabIndex" type="System.Int32, mscorlib">
+    <value>130</value>
   </data>
-  <data name="&gt;&gt;NombreDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarIndicacion.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn12.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="&gt;&gt;txtVMax.Name" xml:space="preserve">
-    <value>txtVMax</value>
-  </data>
-  <data name="btnCheckNombreA.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1241, 4</value>
-  </data>
-  <data name="&gt;&gt;pnlContenedor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblVMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>698, 84</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn13.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn13</value>
-  </data>
-  <data name="&gt;&gt;txtVMin.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pnlDatos.Name" xml:space="preserve">
     <value>pnlDatos</value>
   </data>
-  <data name="txtNombrePrm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 34</value>
-  </data>
-  <data name="dgwParametros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1283, 522</value>
-  </data>
-  <data name="lblNombreTratamiento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 29</value>
-  </data>
-  <data name="txtNombrePrm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 19</value>
-  </data>
-  <data name="&gt;&gt;dgwParametros.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Borrar.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtVMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 34</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarAnalisis.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUnidadM.Text" xml:space="preserve">
-    <value>Unidad:</value>
-  </data>
-  <data name="&gt;&gt;pnlContenedor.Type" xml:space="preserve">
+  <data name="&gt;&gt;pnlDatos.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="borrarInd.HeaderText" xml:space="preserve">
-    <value>Borrar</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn10.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn10</value>
-  </data>
-  <data name="&gt;&gt;BorrarPrm.Name" xml:space="preserve">
-    <value>BorrarPrm</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn6.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn6</value>
-  </data>
-  <data name="&gt;&gt;lblVMin.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="lblVMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 29</value>
-  </data>
-  <data name="lblVMin.Text" xml:space="preserve">
-    <value>Valor mínimo:</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn16.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn16</value>
-  </data>
-  <data name="btnCheckNombreA.TabIndex" type="System.Int32, mscorlib">
-    <value>131</value>
-  </data>
-  <data name="btnAgregarIndicacion.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="lblNomIndicacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 29</value>
-  </data>
-  <data name="lblVMax.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Descripción:</value>
-  </data>
-  <data name="&gt;&gt;txtNombrePrm.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="BorrarPrm.Width" type="System.Int32, mscorlib">
-    <value>94</value>
-  </data>
-  <data name="&gt;&gt;txtIndicacionDescripcion.Name" xml:space="preserve">
-    <value>txtIndicacionDescripcion</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarAnalisis.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="txtIndicacionDescripcion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="&gt;&gt;pnlDatos.Parent" xml:space="preserve">
     <value>pnlContenedor</value>
   </data>
-  <data name="txtUnidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 34</value>
-  </data>
-  <data name="DataGridViewButtonColumn1.Width" type="System.Int32, mscorlib">
-    <value>316</value>
-  </data>
-  <data name="lblNombreParametro.Text" xml:space="preserve">
-    <value>Nombre:</value>
-  </data>
-  <data name="&gt;&gt;txtNomIndicacion.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pnlDatos.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnAgregarAnalisis.Text" xml:space="preserve">
-    <value>Guardar Análisis</value>
-  </data>
-  <data name="dgwIndicaciones.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="txtUnidad.TabIndex" type="System.Int32, mscorlib">
-    <value>160</value>
-  </data>
-  <data name="&gt;&gt;ParametroBindingSource.Name" xml:space="preserve">
-    <value>ParametroBindingSource</value>
-  </data>
-  <data name="lblNomIndicacion.Text" xml:space="preserve">
-    <value>Nombre:</value>
-  </data>
-  <data name="&gt;&gt;dgwIndicaciones.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1313, 720</value>
-  </data>
-  <data name="txtNombrePrm.TabIndex" type="System.Int32, mscorlib">
-    <value>171</value>
-  </data>
-  <data name="lblNindicacion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 45</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn9.HeaderText" xml:space="preserve">
-    <value>ValorMinimo</value>
-  </data>
-  <data name="&gt;&gt;btnCheckNombreA.Name" xml:space="preserve">
-    <value>btnCheckNombreA</value>
-  </data>
-  <data name="lblUnidadM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="pnlContenedor.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn13.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;BorrarPrm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarIndicacion.TabIndex" type="System.Int32, mscorlib">
-    <value>165</value>
-  </data>
-  <data name="txtVMax.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn8.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn14.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn14</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pnlContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="pnlContenedor.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="lblNombreTratamiento.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
+  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1313, 720</value>
   </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn7.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn7</value>
+  <data name="pnlContenedor.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="BorrarIndic.Width" type="System.Int32, mscorlib">
-    <value>94</value>
+  <data name="&gt;&gt;pnlContenedor.Name" xml:space="preserve">
+    <value>pnlContenedor</value>
   </data>
-  <data name="&gt;&gt;dgwIndicaciones.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;pnlContenedor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dgwIndicaciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 840</value>
+  <data name="&gt;&gt;pnlContenedor.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtUnidad.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
+  <data name="&gt;&gt;pnlContenedor.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;lblUnidadM.Name" xml:space="preserve">
-    <value>lblUnidadM</value>
-  </data>
-  <data name="&gt;&gt;lblNindicacion.Parent" xml:space="preserve">
-    <value>pnlDatos</value>
-  </data>
-  <data name="DataGridViewButtonColumn1.HeaderText" xml:space="preserve">
+  <metadata name="Borrar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Borrar.HeaderText" xml:space="preserve">
     <value>Borrar</value>
   </data>
-  <data name="btnCheckNombreA.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="DataGridViewTextBoxColumn10.MinimumWidth" type="System.Int32, mscorlib">
+  <data name="Borrar.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;BorrarIndic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblVMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtIndicacionDescripcion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Borrar.Width" type="System.Int32, mscorlib">
+    <value>125</value>
   </data>
   <metadata name="borrarInd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
+  <data name="borrarInd.HeaderText" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="borrarInd.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="borrarInd.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn7.HeaderText" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn7.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn7.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn9.HeaderText" xml:space="preserve">
+    <value>ValorMinimo</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn9.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn9.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn10.HeaderText" xml:space="preserve">
+    <value>ValorMaximo</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn10.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn10.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="DataGridViewButtonColumn1.HeaderText" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="DataGridViewButtonColumn1.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewButtonColumn1.Width" type="System.Int32, mscorlib">
+    <value>316</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn6.HeaderText" xml:space="preserve">
+    <value>Indicacion</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn6.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn6.Width" type="System.Int32, mscorlib">
+    <value>316</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn8.HeaderText" xml:space="preserve">
+    <value>Unidad</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn8.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn8.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn12.HeaderText" xml:space="preserve">
+    <value>Indicacion</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn12.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn12.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BorrarPrm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>78</value>
   </metadata>
-  <metadata name="Borrar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="IndicacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>917, 17</value>
-  </metadata>
-  <metadata name="ParametroBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>691, 17</value>
-  </metadata>
-  <metadata name="BorrarIndic.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1313, 720</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Crear análisis</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn13.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn13</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn14.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn14</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn15.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn15</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn16.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn16</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BorrarPrm.Name" xml:space="preserve">
+    <value>BorrarPrm</value>
+  </data>
+  <data name="&gt;&gt;BorrarPrm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ParametroBindingSource.Name" xml:space="preserve">
+    <value>ParametroBindingSource</value>
+  </data>
+  <data name="&gt;&gt;ParametroBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Borrar.Name" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="&gt;&gt;Borrar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;borrarInd.Name" xml:space="preserve">
+    <value>borrarInd</value>
+  </data>
+  <data name="&gt;&gt;borrarInd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn7.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn7</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn9.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn9</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn10.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn10</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewButtonColumn1.Name" xml:space="preserve">
+    <value>DataGridViewButtonColumn1</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewButtonColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn6.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn6</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn8.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn8</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn12.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn12</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IndicacionBindingSource.Name" xml:space="preserve">
+    <value>IndicacionBindingSource</value>
+  </data>
+  <data name="&gt;&gt;IndicacionBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NombreDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>NombreDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;NombreDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DescripcionDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>DescripcionDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;DescripcionDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BorrarIndic.Name" xml:space="preserve">
+    <value>BorrarIndic</value>
+  </data>
+  <data name="&gt;&gt;BorrarIndic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmAnalisisCrear</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

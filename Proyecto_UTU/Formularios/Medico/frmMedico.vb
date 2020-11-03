@@ -217,8 +217,9 @@ Public Class frmMedico
                 frmCrearFormulario.Show()
                 frmCrearFormulario.btnAbrir.PerformClick()
             Case "IngresarTratamiento"
-                Dim frmTratamientoC As New frmTratamientoCrear
-                frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.Alta
+                Dim frmTratamientoC As New frmTratamientoCrear With {
+                    .ModoActual = frmTratamientoCrear.Modo.Alta
+                }
                 frmTratamientoC.ShowDialog()
             Case "AsignarTratamiento"
                 LimpiarControles(frmIdentificacion)

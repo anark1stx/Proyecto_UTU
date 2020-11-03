@@ -254,4 +254,5 @@ Public Class frmAnalisisCrear
     Private Sub txtNombreAnalisis_TextChanged(sender As Object, e As EventArgs) Handles txtNombreAnalisis.TextChanged
         pnlDatos.Enabled = False
     End Sub
+
 End Class

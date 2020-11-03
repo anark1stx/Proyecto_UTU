@@ -26,8 +26,6 @@ Partial Class frmGestionPaciente
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.pBoxFotoPaciente = New System.Windows.Forms.PictureBox()
         Me.tabDatos = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblEstado = New System.Windows.Forms.Label()
-        Me.lblEstadoTXT = New System.Windows.Forms.Label()
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.lblCedula = New System.Windows.Forms.Label()
         Me.lblCedulaTXT = New System.Windows.Forms.Label()
@@ -46,6 +44,8 @@ Partial Class frmGestionPaciente
         Me.lblOcupacionTXT = New System.Windows.Forms.Label()
         Me.lblE_Civil = New System.Windows.Forms.Label()
         Me.lblE_CivilTXT = New System.Windows.Forms.Label()
+        Me.lblEstado = New System.Windows.Forms.Label()
+        Me.lblEstadoTXT = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.pBoxFotoPaciente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDatos.SuspendLayout()
@@ -69,9 +69,9 @@ Partial Class frmGestionPaciente
         '
         'pBoxFotoPaciente
         '
-        Me.pBoxFotoPaciente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pBoxFotoPaciente.BackgroundImage = CType(resources.GetObject("pBoxFotoPaciente.BackgroundImage"), System.Drawing.Image)
+        Me.pBoxFotoPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pBoxFotoPaciente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBoxFotoPaciente.Image = CType(resources.GetObject("pBoxFotoPaciente.Image"), System.Drawing.Image)
         Me.pBoxFotoPaciente.Location = New System.Drawing.Point(3, 3)
         Me.pBoxFotoPaciente.Name = "pBoxFotoPaciente"
         Me.pBoxFotoPaciente.Size = New System.Drawing.Size(419, 545)
@@ -120,28 +120,6 @@ Partial Class frmGestionPaciente
         Me.tabDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.tabDatos.Size = New System.Drawing.Size(465, 545)
         Me.tabDatos.TabIndex = 103
-        '
-        'lblEstado
-        '
-        Me.lblEstado.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblEstado.AutoSize = True
-        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstado.Location = New System.Drawing.Point(48, 503)
-        Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(79, 25)
-        Me.lblEstado.TabIndex = 112
-        Me.lblEstado.Text = "Estado:"
-        '
-        'lblEstadoTXT
-        '
-        Me.lblEstadoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblEstadoTXT.AutoSize = True
-        Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoTXT.Location = New System.Drawing.Point(283, 503)
-        Me.lblEstadoTXT.Name = "lblEstadoTXT"
-        Me.lblEstadoTXT.Size = New System.Drawing.Size(73, 25)
-        Me.lblEstadoTXT.TabIndex = 111
-        Me.lblEstadoTXT.Text = "Estado"
         '
         'lblTelefono
         '
@@ -340,6 +318,28 @@ Partial Class frmGestionPaciente
         Me.lblE_CivilTXT.Size = New System.Drawing.Size(110, 25)
         Me.lblE_CivilTXT.TabIndex = 108
         Me.lblE_CivilTXT.Text = "EstadoCivil"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(48, 503)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(79, 25)
+        Me.lblEstado.TabIndex = 112
+        Me.lblEstado.Text = "Estado:"
+        '
+        'lblEstadoTXT
+        '
+        Me.lblEstadoTXT.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblEstadoTXT.AutoSize = True
+        Me.lblEstadoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoTXT.Location = New System.Drawing.Point(283, 503)
+        Me.lblEstadoTXT.Name = "lblEstadoTXT"
+        Me.lblEstadoTXT.Size = New System.Drawing.Size(73, 25)
+        Me.lblEstadoTXT.TabIndex = 111
+        Me.lblEstadoTXT.Text = "Estado"
         '
         'frmGestionPaciente
         '
