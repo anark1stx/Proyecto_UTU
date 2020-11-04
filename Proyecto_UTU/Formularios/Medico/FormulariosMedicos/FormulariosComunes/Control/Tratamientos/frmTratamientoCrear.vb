@@ -33,11 +33,11 @@ Public Class frmTratamientoCrear
         End Set
     End Property
     Public Enum Modo
-        Alta 'habilito los campos para escribir
-        Asignar 'habilito la lupa y un datagridview
-        Sugerir 'habilito la lupa y un datagridview
-        HistorialPacienteConsulta 'cargo todos los tratamientos del paciente
-        HistorialPacienteIngreso 'cargo todos los tratamientos del paciente
+        Alta
+        Asignar
+        Sugerir
+        HistorialPacienteConsulta
+        HistorialPacienteIngreso
     End Enum
     Property ModoActual As Modo
         Get
@@ -162,7 +162,7 @@ Public Class frmTratamientoCrear
                 tblElementos.RowStyles(2).Height = 78.7
                 dgwTratamientos.Visible = True
                 btnGuardar.Text = "Sugerir Tratamiento"
-            Case Modo.HistorialPacienteConsulta,
+            Case Modo.HistorialPacienteConsulta, Modo.HistorialPacienteIngreso
                 DefinirToolStripMenuItem.Visible = False
                 tblBusqueda.Visible = False
                 lblNombreTratamiento.Visible = False
@@ -245,7 +245,6 @@ Public Class frmTratamientoCrear
                 frmSeguir.MiModo = frmTratamientoSeguir.Modo.DefinirDatosS
                 frmSeguir.ShowDialog()
             Case Modo.HistorialPacienteConsulta
-                'abrir seguimiento
                 Dim frmSeguir As New frmTratamientoSeguir
                 frmSeguir.Tratamiento = TratamientoSeleccionado
                 frmSeguir.CI_Paciente = CI_Paciente

@@ -17,12 +17,10 @@ Public Class frmPaciente
         End Set
     End Property
     Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
-        'Cargar Formulario de gestión para el médico.
         InstanciarFormulario("Gestion")
     End Sub
 
     Private Sub DiagnosticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiagnosticoToolStripMenuItem.Click
-        'Cargar formulario de consulta con el paciente.
         InstanciarFormulario("Diagnostico")
     End Sub
 
@@ -47,7 +45,6 @@ Public Class frmPaciente
                 frmAnalisis.Show()
                 frmAnalisis.btnBuscar.PerformClick()
             Case "Tratamiento"
-                Console.WriteLine("cedula " & PacienteActual.Cedula)
                 Dim frmTratamientoC As New frmTratamientoCrear
                 frmTratamientoC.CI_Paciente = PacienteActual.Cedula
                 frmTratamientoC.ModoActual = frmTratamientoCrear.Modo.HistorialPacienteConsulta
@@ -66,14 +63,7 @@ Public Class frmPaciente
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
         InstanciarFormulario("Inicio")
     End Sub
-
-    Private Sub frmPaciente_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        frmIngreso_Usuario.Show()
-        Me.Dispose()
-    End Sub
-
-    Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
-        'HANDLERS PARA FORMULARIO INICIO
+    Public Sub agregarHandlers()
         AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnDiagnosticos.Click, AddressOf DiagnosticoToolStripMenuItem_Click
         AddHandler frmIni.btnAnalisis.Click, AddressOf AnalisisToolStripMenuItem_Click
@@ -81,8 +71,7 @@ Public Class frmPaciente
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        frmIngreso_Usuario.Show()
-        Me.Dispose()
+        Me.Close()
     End Sub
 
     Private Sub MisTratamientosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MisTratamientosToolStripMenuItem.Click

@@ -253,11 +253,6 @@ Public Class frmMedico
     Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InicioToolStripMenuItem.Click
         InstanciarFormulario("Inicio")
     End Sub
-    Private Sub frmMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        frmIngreso_Usuario.Show()
-        Me.Dispose()
-    End Sub
-
     Public Sub agregarHandlers()
         AddHandler frmIni.btnGestion.Click, AddressOf GestionToolStripMenuItem_Click
         AddHandler frmIni.btnAtenderPaciente.Click, AddressOf IdentificarPacienteToolStripMenuItem_Click
@@ -266,22 +261,16 @@ Public Class frmMedico
                     Sub()
                         InstanciarFormulario("EditarFormulario")
                     End Sub
-        'HANDLERS PARA FORMULARIO SELECCIONAR MEDICO
         AddHandler frmDefinirConsulta.btnBuscarMedico.Click, AddressOf CargarDatosMedico
-
-        'HANDLERS PARA FORMULARIO IDENTIFICACION PACIENTE
-
         AddHandler frmIdentificacion.btnBuscar.Click, AddressOf CargarDatosPaciente
         AddHandler frmIdentificacion.btnAgregarLista.Click, Sub()
                                                                 AgregarPacienteAListado(False)
                                                             End Sub
         AddHandler frmIdentificacion.txtCedulaPaciente.TextChanged, AddressOf CargarDatosPaciente
-
         AddHandler frmIdentificacion.btnAtenderAhora.Click,
             Sub()
                 AgregarPacienteAListado(True)
             End Sub
-
         AddHandler frmConsultasPendientes.btnRefrescar.Click, AddressOf VerConsultasDeHoy
 
         AddHandler frmConsultasPendientes.btnVerAnalisis.Click,
@@ -295,7 +284,6 @@ Public Class frmMedico
                 Consulta = frmConsultasPendientes.ConsultaSeleccionada
                 InstanciarFormulario("Entrevista")
             End Sub
-
         AddHandler frmSeleccionarFrmEntrevista.btnFrmGenerico.Click,
                     Sub()
                         filtroB = "generico"
@@ -322,7 +310,6 @@ Public Class frmMedico
                         filtroB = ""
                         InstanciarFormulario("BuscarFormulario")
                     End Sub
-        'HANDLERS PARA SEGUIMIENTO ANALISIS
         AddHandler frmAnalisisS.btnConsultarDatos.Click,
             Sub()
                 InstanciarFormulario("DatosAnalisis")
@@ -349,13 +336,11 @@ Public Class frmMedico
             MessageBox.Show("Ingrese la cédula del médico que atenderá esta consulta", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-
         Consulta.Fecha = frmDefinirConsulta.FechaConsulta
         Consulta.Medico = frmDefinirConsulta.MedicoSelect
         Consulta.Motivo = frmIdentificacion.Consulta.Motivo
         Consulta.ConsultaReferencia = frmIdentificacion.Consulta.ConsultaReferencia
         Dim na As New N_Atiende
-
         Dim result = Await Task.Run(Function() na.AltaAtiende(Consulta))
         Select Case result
             Case -1
@@ -405,7 +390,7 @@ Public Class frmMedico
         LimpiarControles(frmIdentificacion)
         frmIdentificacion.PacienteBuscar.Cedula = 0
     End Sub
-    Async Sub CargarDatosPaciente() 'cargo tambien las consultas previas ademas de sus datos
+    Async Sub CargarDatosPaciente()
         If Not frmIdentificacion.txtCedulaPaciente.TextLength = 8 Then
             resetearCamposId()
             Exit Sub
@@ -446,7 +431,6 @@ Public Class frmMedico
                     MessageBox.Show("No se seleccionó ningún tratamiento.", "Seleccione un tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Exit Sub
                 Else
-                    'hacer alta a la tabla sigue,dia_semana
                     Dim nt As New N_Tratamiento
                     Dim res = nt.AltaPacienteSigueTratamiento(frmIdentificacion.PacienteBuscar.Cedula, frmTratamientoC.TratamientoSeleccionado)
                     Select Case res
@@ -567,12 +551,8 @@ Public Class frmMedico
     Private Sub IdentificarPacienteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IdentificarPacienteToolStripMenuItem1.Click
         InstanciarFormulario("EntrevistaInicial")
     End Sub
-    Private Sub BitacoraMedicaToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        'abrir nueva ventana para buscar enfermedades y sintomas, guardar información sobre ellas.
-    End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        frmIngreso_Usuario.Show()
-        Me.Dispose()
+        Me.Close()
     End Sub
 End Class

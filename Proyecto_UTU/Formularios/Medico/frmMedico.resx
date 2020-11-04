@@ -117,328 +117,325 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="MenuOpciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="InicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 24</value>
+  </data>
+  <data name="InicioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="GestionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 24</value>
+  </data>
+  <data name="GestionMenuItem.Text" xml:space="preserve">
+    <value>Gestión</value>
+  </data>
+  <data name="SeleccionarMedicoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="SeleccionarMedicoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Seleccionar médico</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Identificar Paciente</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Ver listado de hoy</value>
+  </data>
   <data name="EntrevistaInicialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 21</value>
-  </data>
-  <data name="&gt;&gt;pnlContenedorFormularios.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AnalisisHacerSeguimientoMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="AsginarTratamientoPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <data name="CrearFormularioMenuItem.Text" xml:space="preserve">
-    <value>Crear y Editar Formularios</value>
-  </data>
-  <data name="TratamientosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 21</value>
-  </data>
-  <data name="SalirToolStripMenuItem.Text" xml:space="preserve">
-    <value>Salir</value>
-  </data>
-  <data name="MenuOpciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1130, 25</value>
-  </data>
-  <data name="&gt;&gt;pnlContenedorFormularios.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TratamientoSeguimientoMenuItem.Name" xml:space="preserve">
-    <value>TratamientoSeguimientoMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AtenderMenuItem.Name" xml:space="preserve">
-    <value>AtenderMenuItem</value>
-  </data>
-  <data name="pnlContenedorFormularios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1130, 723</value>
-  </data>
-  <data name="&gt;&gt;DefinirConsultaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmMedico</value>
+    <value>127, 24</value>
   </data>
   <data name="EntrevistaInicialToolStripMenuItem.Text" xml:space="preserve">
     <value>Entrevista inicial</value>
   </data>
-  <data name="AnalisisIngresarMenuItem1.Text" xml:space="preserve">
+  <data name="DefinirConsultaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 26</value>
+  </data>
+  <data name="DefinirConsultaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nueva Consulta</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 26</value>
+  </data>
+  <data name="IdentificarPacienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Identificar Paciente</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 26</value>
+  </data>
+  <data name="VerListadoDeHoyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ver listado de hoy</value>
+  </data>
+  <data name="AtenderMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 24</value>
+  </data>
+  <data name="AtenderMenuItem.Text" xml:space="preserve">
+    <value>Atender Pacientes</value>
+  </data>
+  <data name="CrearFormularioMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 26</value>
+  </data>
+  <data name="CrearFormularioMenuItem.Text" xml:space="preserve">
+    <value>Crear y Editar Formularios</value>
+  </data>
+  <data name="FormulariosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 24</value>
+  </data>
+  <data name="FormulariosMenuItem.Text" xml:space="preserve">
+    <value>Formularios</value>
+  </data>
+  <data name="IngresarNuevoTratamientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
+  </data>
+  <data name="IngresarNuevoTratamientoMenuItem.Text" xml:space="preserve">
     <value>Ingresar nuevo</value>
   </data>
   <data name="TratamientoSeguimientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 26</value>
   </data>
-  <data name="IngresarNuevoTratamientoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TratamientoSeguimientoMenuItem.Text" xml:space="preserve">
+    <value>Hacer seguimiento</value>
+  </data>
+  <data name="AsginarTratamientoPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 26</value>
   </data>
-  <data name="&gt;&gt;IngresarNuevoTratamientoMenuItem.Name" xml:space="preserve">
-    <value>IngresarNuevoTratamientoMenuItem</value>
+  <data name="AsginarTratamientoPacienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Asginar a paciente</value>
   </data>
-  <data name="IdentificarPacienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 26</value>
-  </data>
-  <data name="&gt;&gt;InicioToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuOpciones.Name" xml:space="preserve">
-    <value>MenuOpciones</value>
-  </data>
-  <data name="MenuOpciones.Text" xml:space="preserve">
-    <value>MenuStrip1</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="&gt;&gt;TratamientoSeguimientoMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AnalisisIngresarMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 26</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 26</value>
-  </data>
-  <data name="&gt;&gt;EntrevistaInicialToolStripMenuItem.Name" xml:space="preserve">
-    <value>EntrevistaInicialToolStripMenuItem</value>
+  <data name="TratamientosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 24</value>
   </data>
   <data name="TratamientosMenuItem.Text" xml:space="preserve">
     <value>Tratamientos</value>
   </data>
-  <data name="CrearFormularioMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 26</value>
+  <data name="AnalisisIngresarMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
   </data>
-  <data name="&gt;&gt;MenuOpciones.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="AnalisisIngresarMenuItem1.Text" xml:space="preserve">
+    <value>Ingresar nuevo</value>
   </data>
-  <data name="&gt;&gt;IngresarNuevoTratamientoMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="AnalisisHacerSeguimientoMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 26</value>
   </data>
-  <data name="&gt;&gt;MenuOpciones.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SalirToolStripMenuItem.Name" xml:space="preserve">
-    <value>SalirToolStripMenuItem</value>
+  <data name="AnalisisHacerSeguimientoMenuItem1.Text" xml:space="preserve">
+    <value>Hacer seguimiento</value>
   </data>
   <data name="AnalisisMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
+    <value>72, 24</value>
   </data>
-  <data name="&gt;&gt;pnlContenedorFormularios.Name" xml:space="preserve">
-    <value>pnlContenedorFormularios</value>
+  <data name="AnalisisMenuItem.Text" xml:space="preserve">
+    <value>Análisis</value>
   </data>
-  <data name="VerListadoDeHoyToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 26</value>
+  <data name="SalirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 24</value>
   </data>
-  <data name="DefinirConsultaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nueva Consulta</value>
-  </data>
-  <data name="&gt;&gt;MenuOpciones.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;TratamientosMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 26</value>
-  </data>
-  <data name="&gt;&gt;FormulariosMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem.Name" xml:space="preserve">
-    <value>VerListadoDeHoyToolStripMenuItem</value>
+  <data name="SalirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salir</value>
   </data>
   <data name="MenuOpciones.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="SeleccionarMedicoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 26</value>
+  <data name="MenuOpciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 28</value>
   </data>
-  <data name="&gt;&gt;AnalisisHacerSeguimientoMenuItem1.Type" xml:space="preserve">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MenuOpciones.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="MenuOpciones.Text" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;MenuOpciones.Name" xml:space="preserve">
+    <value>MenuOpciones</value>
+  </data>
+  <data name="&gt;&gt;MenuOpciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuOpciones.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MenuOpciones.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlContenedorFormularios.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pnlContenedorFormularios.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlContenedorFormularios.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
+  </data>
+  <data name="pnlContenedorFormularios.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 720</value>
+  </data>
+  <data name="pnlContenedorFormularios.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorFormularios.Name" xml:space="preserve">
+    <value>pnlContenedorFormularios</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorFormularios.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorFormularios.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedorFormularios.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>43</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 748</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Personal Médico</value>
+  </data>
+  <data name="&gt;&gt;InicioToolStripMenuItem.Name" xml:space="preserve">
+    <value>InicioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;InicioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GestionMenuItem.Name" xml:space="preserve">
+    <value>GestionMenuItem</value>
+  </data>
+  <data name="&gt;&gt;GestionMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EntrevistaInicialToolStripMenuItem.Name" xml:space="preserve">
+    <value>EntrevistaInicialToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EntrevistaInicialToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SeleccionarMedicoToolStripMenuItem.Name" xml:space="preserve">
+    <value>SeleccionarMedicoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;SeleccionarMedicoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem1.Name" xml:space="preserve">
+    <value>IdentificarPacienteToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem1.Name" xml:space="preserve">
     <value>VerListadoDeHoyToolStripMenuItem1</value>
   </data>
-  <data name="&gt;&gt;AnalisisIngresarMenuItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AtenderMenuItem.Name" xml:space="preserve">
+    <value>AtenderMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AtenderMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DefinirConsultaToolStripMenuItem.Name" xml:space="preserve">
+    <value>DefinirConsultaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DefinirConsultaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem.Name" xml:space="preserve">
+    <value>IdentificarPacienteToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem.Name" xml:space="preserve">
+    <value>VerListadoDeHoyToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;FormulariosMenuItem.Name" xml:space="preserve">
     <value>FormulariosMenuItem</value>
   </data>
-  <data name="&gt;&gt;AsginarTratamientoPacienteToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;FormulariosMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TratamientoSeguimientoMenuItem.Text" xml:space="preserve">
-    <value>Hacer seguimiento</value>
-  </data>
-  <data name="&gt;&gt;pnlContenedorFormularios.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;AnalisisHacerSeguimientoMenuItem1.Name" xml:space="preserve">
-    <value>AnalisisHacerSeguimientoMenuItem1</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pnlContenedorFormularios.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Ver listado de hoy</value>
-  </data>
-  <data name="pnlContenedorFormularios.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;SeleccionarMedicoToolStripMenuItem.Name" xml:space="preserve">
-    <value>SeleccionarMedicoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;TratamientosMenuItem.Name" xml:space="preserve">
-    <value>TratamientosMenuItem</value>
-  </data>
-  <data name="pnlContenedorFormularios.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 25</value>
-  </data>
-  <data name="&gt;&gt;GestionMenuItem.Name" xml:space="preserve">
-    <value>GestionMenuItem</value>
-  </data>
-  <data name="&gt;&gt;CrearFormularioMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GestionMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
-  </data>
-  <data name="InicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 21</value>
-  </data>
-  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem1.Name" xml:space="preserve">
-    <value>IdentificarPacienteToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem.Name" xml:space="preserve">
-    <value>IdentificarPacienteToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AnalisisIngresarMenuItem1.Name" xml:space="preserve">
-    <value>AnalisisIngresarMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;VerListadoDeHoyToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VerListadoDeHoyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ver listado de hoy</value>
-  </data>
-  <data name="IngresarNuevoTratamientoMenuItem.Text" xml:space="preserve">
-    <value>Ingresar nuevo</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Identificar Paciente</value>
-  </data>
-  <data name="&gt;&gt;DefinirConsultaToolStripMenuItem.Name" xml:space="preserve">
-    <value>DefinirConsultaToolStripMenuItem</value>
-  </data>
-  <data name="AtenderMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 21</value>
-  </data>
-  <data name="&gt;&gt;AsginarTratamientoPacienteToolStripMenuItem.Name" xml:space="preserve">
-    <value>AsginarTratamientoPacienteToolStripMenuItem</value>
-  </data>
-  <data name="SeleccionarMedicoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Seleccionar médico</value>
-  </data>
-  <data name="AsginarTratamientoPacienteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Asginar a paciente</value>
-  </data>
-  <data name="DefinirConsultaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 26</value>
   </data>
   <data name="&gt;&gt;CrearFormularioMenuItem.Name" xml:space="preserve">
     <value>CrearFormularioMenuItem</value>
   </data>
-  <data name="FormulariosMenuItem.Text" xml:space="preserve">
-    <value>Formularios</value>
-  </data>
-  <data name="&gt;&gt;GestionMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;CrearFormularioMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AnalisisHacerSeguimientoMenuItem1.Text" xml:space="preserve">
-    <value>Hacer seguimiento</value>
+  <data name="&gt;&gt;TratamientosMenuItem.Name" xml:space="preserve">
+    <value>TratamientosMenuItem</value>
   </data>
-  <data name="SalirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 21</value>
+  <data name="&gt;&gt;TratamientosMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;IngresarNuevoTratamientoMenuItem.Name" xml:space="preserve">
+    <value>IngresarNuevoTratamientoMenuItem</value>
+  </data>
+  <data name="&gt;&gt;IngresarNuevoTratamientoMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TratamientoSeguimientoMenuItem.Name" xml:space="preserve">
+    <value>TratamientoSeguimientoMenuItem</value>
+  </data>
+  <data name="&gt;&gt;TratamientoSeguimientoMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AsginarTratamientoPacienteToolStripMenuItem.Name" xml:space="preserve">
+    <value>AsginarTratamientoPacienteToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AsginarTratamientoPacienteToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;AnalisisMenuItem.Name" xml:space="preserve">
     <value>AnalisisMenuItem</value>
   </data>
-  <data name="&gt;&gt;AtenderMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pnlContenedorFormularios.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Personal Médico</value>
-  </data>
-  <data name="AtenderMenuItem.Text" xml:space="preserve">
-    <value>Atender Pacientes</value>
-  </data>
-  <data name="InicioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Inicio</value>
-  </data>
   <data name="&gt;&gt;AnalisisMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;IdentificarPacienteToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;AnalisisIngresarMenuItem1.Name" xml:space="preserve">
+    <value>AnalisisIngresarMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;AnalisisIngresarMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1130, 748</value>
+  <data name="&gt;&gt;AnalisisHacerSeguimientoMenuItem1.Name" xml:space="preserve">
+    <value>AnalisisHacerSeguimientoMenuItem1</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AnalisisMenuItem.Text" xml:space="preserve">
-    <value>Análisis</value>
-  </data>
-  <data name="IdentificarPacienteToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Identificar Paciente</value>
-  </data>
-  <data name="&gt;&gt;InicioToolStripMenuItem.Name" xml:space="preserve">
-    <value>InicioToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;SeleccionarMedicoToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;AnalisisHacerSeguimientoMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;EntrevistaInicialToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;SalirToolStripMenuItem.Name" xml:space="preserve">
+    <value>SalirToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;SalirToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FormulariosMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmMedico</value>
   </data>
-  <data name="MenuOpciones.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="GestionMenuItem.Text" xml:space="preserve">
-    <value>Gestión</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MenuOpciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>43</value>
-  </metadata>
 </root>

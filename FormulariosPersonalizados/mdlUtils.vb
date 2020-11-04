@@ -201,9 +201,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         Next
     End Sub
     Public Sub UnirPreguntasConRespuestas(contenedor As Control, ListaPreguntasYRespuestas As List(Of PreguntaRespuesta))
-
         For Each c As Control In contenedor.Controls
-            Console.WriteLine("nombre del control: " & c.Name & "tag: " & c.Tag)
             Select Case c.GetType
                 Case GetType(Panel), GetType(GroupBox), GetType(TableLayoutPanel), GetType(Form)
                     UnirPreguntasConRespuestas(c, ListaPreguntasYRespuestas)
@@ -212,21 +210,16 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
                         Select Case c.GetType()
                             Case GetType(TextBox), GetType(ComboBox)
                                 If c.Tag.StartsWith("p") Then
-                                    Console.WriteLine("Respuesta: " & c.Tag)
                                     ListaPreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag).Respuesta = c
                                 End If
                             Case GetType(ListBox)
                                 If c.Tag.StartsWith("p") Then
-                                    Console.WriteLine("Respuesta: " & c.Tag)
                                     ListaPreguntasYRespuestas.Find(Function(p) p.Tag = c.Tag).Respuesta = c
                                 End If
-
                         End Select
                     End If
-
             End Select
         Next
-
     End Sub
 
     Public Sub PoblarRespuestas(pyr As List(Of PreguntaRespuesta), control_list As List(Of Control))

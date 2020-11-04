@@ -50,115 +50,115 @@ Partial Class frmMedico
         '
         'MenuOpciones
         '
-        resources.ApplyResources(Me.MenuOpciones, "MenuOpciones")
         Me.MenuOpciones.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuOpciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.GestionMenuItem, Me.EntrevistaInicialToolStripMenuItem, Me.AtenderMenuItem, Me.FormulariosMenuItem, Me.TratamientosMenuItem, Me.AnalisisMenuItem, Me.SalirToolStripMenuItem})
+        resources.ApplyResources(Me.MenuOpciones, "MenuOpciones")
         Me.MenuOpciones.Name = "MenuOpciones"
         '
         'InicioToolStripMenuItem
         '
-        resources.ApplyResources(Me.InicioToolStripMenuItem, "InicioToolStripMenuItem")
         Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
+        resources.ApplyResources(Me.InicioToolStripMenuItem, "InicioToolStripMenuItem")
         '
         'GestionMenuItem
         '
-        resources.ApplyResources(Me.GestionMenuItem, "GestionMenuItem")
         Me.GestionMenuItem.Name = "GestionMenuItem"
+        resources.ApplyResources(Me.GestionMenuItem, "GestionMenuItem")
         '
         'EntrevistaInicialToolStripMenuItem
         '
-        resources.ApplyResources(Me.EntrevistaInicialToolStripMenuItem, "EntrevistaInicialToolStripMenuItem")
         Me.EntrevistaInicialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionarMedicoToolStripMenuItem, Me.IdentificarPacienteToolStripMenuItem1, Me.VerListadoDeHoyToolStripMenuItem1})
         Me.EntrevistaInicialToolStripMenuItem.Name = "EntrevistaInicialToolStripMenuItem"
+        resources.ApplyResources(Me.EntrevistaInicialToolStripMenuItem, "EntrevistaInicialToolStripMenuItem")
         '
         'SeleccionarMedicoToolStripMenuItem
         '
-        resources.ApplyResources(Me.SeleccionarMedicoToolStripMenuItem, "SeleccionarMedicoToolStripMenuItem")
         Me.SeleccionarMedicoToolStripMenuItem.Name = "SeleccionarMedicoToolStripMenuItem"
+        resources.ApplyResources(Me.SeleccionarMedicoToolStripMenuItem, "SeleccionarMedicoToolStripMenuItem")
         '
         'IdentificarPacienteToolStripMenuItem1
         '
-        resources.ApplyResources(Me.IdentificarPacienteToolStripMenuItem1, "IdentificarPacienteToolStripMenuItem1")
         Me.IdentificarPacienteToolStripMenuItem1.Name = "IdentificarPacienteToolStripMenuItem1"
+        resources.ApplyResources(Me.IdentificarPacienteToolStripMenuItem1, "IdentificarPacienteToolStripMenuItem1")
         '
         'VerListadoDeHoyToolStripMenuItem1
         '
-        resources.ApplyResources(Me.VerListadoDeHoyToolStripMenuItem1, "VerListadoDeHoyToolStripMenuItem1")
         Me.VerListadoDeHoyToolStripMenuItem1.Name = "VerListadoDeHoyToolStripMenuItem1"
+        resources.ApplyResources(Me.VerListadoDeHoyToolStripMenuItem1, "VerListadoDeHoyToolStripMenuItem1")
         '
         'AtenderMenuItem
         '
-        resources.ApplyResources(Me.AtenderMenuItem, "AtenderMenuItem")
         Me.AtenderMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefinirConsultaToolStripMenuItem, Me.IdentificarPacienteToolStripMenuItem, Me.VerListadoDeHoyToolStripMenuItem})
         Me.AtenderMenuItem.Name = "AtenderMenuItem"
+        resources.ApplyResources(Me.AtenderMenuItem, "AtenderMenuItem")
         '
         'DefinirConsultaToolStripMenuItem
         '
-        resources.ApplyResources(Me.DefinirConsultaToolStripMenuItem, "DefinirConsultaToolStripMenuItem")
         Me.DefinirConsultaToolStripMenuItem.Name = "DefinirConsultaToolStripMenuItem"
+        resources.ApplyResources(Me.DefinirConsultaToolStripMenuItem, "DefinirConsultaToolStripMenuItem")
         '
         'IdentificarPacienteToolStripMenuItem
         '
-        resources.ApplyResources(Me.IdentificarPacienteToolStripMenuItem, "IdentificarPacienteToolStripMenuItem")
         Me.IdentificarPacienteToolStripMenuItem.Name = "IdentificarPacienteToolStripMenuItem"
+        resources.ApplyResources(Me.IdentificarPacienteToolStripMenuItem, "IdentificarPacienteToolStripMenuItem")
         '
         'VerListadoDeHoyToolStripMenuItem
         '
-        resources.ApplyResources(Me.VerListadoDeHoyToolStripMenuItem, "VerListadoDeHoyToolStripMenuItem")
         Me.VerListadoDeHoyToolStripMenuItem.Name = "VerListadoDeHoyToolStripMenuItem"
+        resources.ApplyResources(Me.VerListadoDeHoyToolStripMenuItem, "VerListadoDeHoyToolStripMenuItem")
         '
         'FormulariosMenuItem
         '
-        resources.ApplyResources(Me.FormulariosMenuItem, "FormulariosMenuItem")
         Me.FormulariosMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CrearFormularioMenuItem})
         Me.FormulariosMenuItem.Name = "FormulariosMenuItem"
+        resources.ApplyResources(Me.FormulariosMenuItem, "FormulariosMenuItem")
         '
         'CrearFormularioMenuItem
         '
-        resources.ApplyResources(Me.CrearFormularioMenuItem, "CrearFormularioMenuItem")
         Me.CrearFormularioMenuItem.Name = "CrearFormularioMenuItem"
+        resources.ApplyResources(Me.CrearFormularioMenuItem, "CrearFormularioMenuItem")
         '
         'TratamientosMenuItem
         '
-        resources.ApplyResources(Me.TratamientosMenuItem, "TratamientosMenuItem")
         Me.TratamientosMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarNuevoTratamientoMenuItem, Me.TratamientoSeguimientoMenuItem, Me.AsginarTratamientoPacienteToolStripMenuItem})
         Me.TratamientosMenuItem.Name = "TratamientosMenuItem"
+        resources.ApplyResources(Me.TratamientosMenuItem, "TratamientosMenuItem")
         '
         'IngresarNuevoTratamientoMenuItem
         '
-        resources.ApplyResources(Me.IngresarNuevoTratamientoMenuItem, "IngresarNuevoTratamientoMenuItem")
         Me.IngresarNuevoTratamientoMenuItem.Name = "IngresarNuevoTratamientoMenuItem"
+        resources.ApplyResources(Me.IngresarNuevoTratamientoMenuItem, "IngresarNuevoTratamientoMenuItem")
         '
         'TratamientoSeguimientoMenuItem
         '
-        resources.ApplyResources(Me.TratamientoSeguimientoMenuItem, "TratamientoSeguimientoMenuItem")
         Me.TratamientoSeguimientoMenuItem.Name = "TratamientoSeguimientoMenuItem"
+        resources.ApplyResources(Me.TratamientoSeguimientoMenuItem, "TratamientoSeguimientoMenuItem")
         '
         'AsginarTratamientoPacienteToolStripMenuItem
         '
-        resources.ApplyResources(Me.AsginarTratamientoPacienteToolStripMenuItem, "AsginarTratamientoPacienteToolStripMenuItem")
         Me.AsginarTratamientoPacienteToolStripMenuItem.Name = "AsginarTratamientoPacienteToolStripMenuItem"
+        resources.ApplyResources(Me.AsginarTratamientoPacienteToolStripMenuItem, "AsginarTratamientoPacienteToolStripMenuItem")
         '
         'AnalisisMenuItem
         '
-        resources.ApplyResources(Me.AnalisisMenuItem, "AnalisisMenuItem")
         Me.AnalisisMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AnalisisIngresarMenuItem1, Me.AnalisisHacerSeguimientoMenuItem1})
         Me.AnalisisMenuItem.Name = "AnalisisMenuItem"
+        resources.ApplyResources(Me.AnalisisMenuItem, "AnalisisMenuItem")
         '
         'AnalisisIngresarMenuItem1
         '
-        resources.ApplyResources(Me.AnalisisIngresarMenuItem1, "AnalisisIngresarMenuItem1")
         Me.AnalisisIngresarMenuItem1.Name = "AnalisisIngresarMenuItem1"
+        resources.ApplyResources(Me.AnalisisIngresarMenuItem1, "AnalisisIngresarMenuItem1")
         '
         'AnalisisHacerSeguimientoMenuItem1
         '
-        resources.ApplyResources(Me.AnalisisHacerSeguimientoMenuItem1, "AnalisisHacerSeguimientoMenuItem1")
         Me.AnalisisHacerSeguimientoMenuItem1.Name = "AnalisisHacerSeguimientoMenuItem1"
+        resources.ApplyResources(Me.AnalisisHacerSeguimientoMenuItem1, "AnalisisHacerSeguimientoMenuItem1")
         '
         'SalirToolStripMenuItem
         '
-        resources.ApplyResources(Me.SalirToolStripMenuItem, "SalirToolStripMenuItem")
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        resources.ApplyResources(Me.SalirToolStripMenuItem, "SalirToolStripMenuItem")
         '
         'pnlContenedorFormularios
         '

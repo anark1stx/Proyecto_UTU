@@ -284,10 +284,14 @@ Public Class frmCrearFormulario
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         controlesInstanciados.Clear()
         frmPlano.pnlContenedor.Controls.Clear()
+        frmPlano.tagCount = 0
     End Sub
 
     Public Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
         btnLimpiar_Click(sender, e)
+        FormDisenado = Nothing
+        frmPlano.PreguntasYRespuestas = New List(Of PreguntaRespuesta)
+        frmPlano.SoloLabels = New List(Of PreguntaRespuesta)
         catalogo.tblFormularios.Controls.Clear()
         catalogo.ShowDialog()
 
@@ -324,7 +328,6 @@ Public Class frmCrearFormulario
                 frmPlano.SoloLabels.Add(pyr)
             End If
         Next
-        Console.WriteLine("ultimo tag " & frmPlano.tagCount)
     End Sub
 
     Public Sub agregarHandlersBasicos(_ctrl As Control)

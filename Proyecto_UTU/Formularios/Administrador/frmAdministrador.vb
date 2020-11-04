@@ -5,27 +5,20 @@ Public Class frmAdministrador
 
     Dim _frmGestion As New frmGestion 'Gestion muestra Datos[tipoUsuario] + DatagridView que lista a los usuarios según parametros de busqueda
     Friend Sub InstanciarFormulario(formularioPadre As String, Optional uType As frmGestion.TipoUsuario = Nothing, Optional aType As frmGestion.Accion = Nothing)
-
         Select Case formularioPadre
-
             Case "Inicio"
                 addFrm(_frmInicio, pnlContenedor)
-
             Case "Gestion"
                 _frmGestion.Usuario = uType
                 _frmGestion.Mode = aType
                 addFrm(_frmGestion, pnlContenedor)
                 LimpiarControles(_frmGestion)
-
                 _frmGestion.Usuario = uType
                 _frmGestion.Mode = aType
                 _frmGestion.RRefresh()
                 _frmGestion.setup()
         End Select
     End Sub
-
-#Region "Eventos"
-
     Private Sub PacienteModificacionMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteModificacionMenuItem.Click
         InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Paciente, frmGestion.Accion.Modificacion)
     End Sub
@@ -70,26 +63,16 @@ Public Class frmAdministrador
     Private Sub AuxiliarMenuItemBaja_Click(sender As Object, e As EventArgs) Handles AuxiliarBusquedaMenuItem.Click, AuxiliarMenuItemBaja.Click
         InstanciarFormulario("Gestion", frmGestion.TipoUsuario.Auxiliar, frmGestion.Accion.Baja)
     End Sub
-    Private Sub frmAdmin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        frmIngreso_Usuario.Show()
-        Me.Dispose()
-    End Sub
-#End Region
 
-    Public Sub agregarHandlers() 'Este evento agrega handlers a todos los formularios hijo
-
-        'HANDLERS PARA FORMULARIO INICIO -> Acciones Paciente
+    Public Sub agregarHandlers()
         AddHandler _frmInicio.btnAltaPaciente.Click, AddressOf PacienteAltaMenuItem_Click
         AddHandler _frmInicio.btnBajaPaciente.Click, AddressOf PacienteBajaMenuItem_Click
         AddHandler _frmInicio.btnModificarPaciente.Click, AddressOf PacienteModificacionMenuItem_Click
         AddHandler _frmInicio.btnBusquedaPaciente.Click, AddressOf PacienteBajaMenuItem_Click
-
-        'HANDLERS PARA FORMULARIO INICIO -> Acciones Medico
         AddHandler _frmInicio.btnAltaMedico.Click, AddressOf MedicoAltaMenuItem_Click
         AddHandler _frmInicio.btnBajaMedico.Click, AddressOf MedicoBajaMenuItem_Click
         AddHandler _frmInicio.btnModificarMedico.Click, AddressOf MedicoModificacionMenuItem_Click
         AddHandler _frmInicio.btnBusquedaMedico.Click, AddressOf MedicoBajaMenuItem_Click
-        'HANDLERS PARA FORMULARIO INICIO -> Acciones Auxiliar
         AddHandler _frmInicio.btnAltaAuxiliar.Click, AddressOf AuxiliarAltaMenuItem_Click
         AddHandler _frmInicio.btnBajaAuxiliar.Click, AddressOf AuxiliarMenuItemBaja_Click
         AddHandler _frmInicio.btnModificarAuxiliar.Click, AddressOf AuxiliarModificacionMenuItem_Click
@@ -97,8 +80,7 @@ Public Class frmAdministrador
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        frmIngreso_Usuario.Show()
-        Me.Dispose()
+        Me.Close()
     End Sub
 
     Private Sub GestionarPersonalMedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarPersonalMedicoToolStripMenuItem.Click

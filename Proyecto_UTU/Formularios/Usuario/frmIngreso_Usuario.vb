@@ -32,25 +32,27 @@ Public Class frmIngreso_Usuario
                     Me.Hide()
                     Dim frmAdm As New frmAdministrador
                     frmAdm.Show()
+                    AddHandler frmAdm.FormClosing, AddressOf ReabrirLogin
                 Case "medico"
                     Dim frmMed As New frmMedico
                     Me.Hide()
                     frmMed.MedicoActual = New E_Medico With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
                     frmMed.MiModo = frmMedico.Modo.SoyMedico
                     frmMed.Show()
+                    AddHandler frmMed.FormClosing, AddressOf ReabrirLogin
                 Case "auxiliar"
                     Dim frmMed As New frmMedico
                     Me.Hide()
                     frmMed.AuxiliarActual = New E_Usuario With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
                     frmMed.MiModo = frmMedico.Modo.SoyAuxiliar
                     frmMed.Show()
-                    frmMed.resetMode()
+                    AddHandler frmMed.FormClosing, AddressOf ReabrirLogin
                 Case "paciente"
-                    Console.WriteLine("rol paciente")
                     Dim frmPac As New frmPaciente
                     Me.Hide()
                     frmPac.Show()
                     frmPac.PacienteActual = New E_Paciente With {.Cedula = CInt(txtIngresarCi.Text.Replace("u", ""))}
+                    AddHandler frmPac.FormClosing, AddressOf ReabrirLogin
             End Select
             lblMensajeErrorCI.Visible = False
         End If
@@ -89,4 +91,9 @@ Public Class frmIngreso_Usuario
             InitializeComponent()
         End If
     End Sub
+
+    Sub ReabrirLogin()
+        Me.Show()
+    End Sub
+
 End Class
