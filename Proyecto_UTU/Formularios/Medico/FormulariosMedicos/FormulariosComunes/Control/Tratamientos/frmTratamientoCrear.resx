@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 30</value>
+  </data>
+  <data name="&gt;&gt;dgwTratamientos.Name" xml:space="preserve">
+    <value>dgwTratamientos</value>
+  </data>
+  <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        zAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tblBusqueda.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtDescripcionTratamiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1121, 581</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Name" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnGuardar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtNombreTratamiento.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnGuardar.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="tblElementos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 55</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnGuardar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 67</value>
+  </data>
+  <data name="tblBusqueda.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 12</value>
+  </data>
+  <data name="lblIndicaciones.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="&gt;&gt;txtNombreTratamiento.Name" xml:space="preserve">
+    <value>txtNombreTratamiento</value>
+  </data>
+  <data name="tblElementos.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblNombreTratamiento.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.Name" xml:space="preserve">
+    <value>btnGuardar</value>
+  </data>
+  <data name="pnlContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcionTratamiento.Parent" xml:space="preserve">
+    <value>tblElementos</value>
+  </data>
+  <data name="lblNombreTratamiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 29</value>
+  </data>
+  <data name="&gt;&gt;DefinirToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblElementos.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNombreTratamiento.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="txtDescripcionTratamiento.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="&gt;&gt;DescripcionDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>DescripcionDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;tblBusqueda.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="dgwTratamientos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;txtNombreTratamiento.Parent" xml:space="preserve">
+    <value>tblBusqueda</value>
+  </data>
+  <data name="&gt;&gt;ETratamientoBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DefinirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Definir parámetros temporales del tratamiento</value>
+  </data>
+  <data name="&gt;&gt;tblElementos.Name" xml:space="preserve">
+    <value>tblElementos</value>
+  </data>
+  <data name="dgwTratamientos.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;dgwTratamientos.Parent" xml:space="preserve">
+    <value>tblElementos</value>
+  </data>
+  <data name="pnlContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 873</value>
+  </data>
+  <data name="&gt;&gt;tblBusqueda.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblIndicaciones.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblNombreTratamiento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 16</value>
+  </data>
+  <data name="lblIndicaciones.Text" xml:space="preserve">
+    <value>Indicaciones del tratamiento</value>
+  </data>
+  <data name="txtNombreTratamiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 30</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tblBusqueda.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="txtDescripcionTratamiento.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Name" xml:space="preserve">
+    <value>btnBuscar</value>
+  </data>
+  <data name="lblIndicaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 121</value>
+  </data>
+  <data name="lblIndicaciones.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 13.8pt, style=Underline</value>
+  </data>
+  <data name="tblElementos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="lblIndicaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>312, 27</value>
+  </data>
+  <data name="btnBuscar.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="&gt;&gt;lblIndicaciones.Parent" xml:space="preserve">
+    <value>tblElementos</value>
+  </data>
+  <data name="pnlContenedor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="&gt;&gt;ETratamientoBindingSource.Name" xml:space="preserve">
+    <value>ETratamientoBindingSource</value>
+  </data>
+  <data name="&gt;&gt;btnGuardar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tblElementos.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DescripcionDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="&gt;&gt;lblNombreTratamiento.Name" xml:space="preserve">
+    <value>lblNombreTratamiento</value>
+  </data>
+  <data name="DefinirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 21</value>
+  </data>
+  <data name="dgwTratamientos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1121, 105</value>
+  </data>
+  <data name="&gt;&gt;lblIndicaciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblIndicaciones.Name" xml:space="preserve">
+    <value>lblIndicaciones</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcionTratamiento.Name" xml:space="preserve">
+    <value>txtDescripcionTratamiento</value>
+  </data>
+  <data name="dgwTratamientos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="txtNombreTratamiento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tblBusqueda.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="dgwTratamientos.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="&gt;&gt;DescripcionDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MenuStrip1.Text" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>787, 3</value>
+  </data>
+  <data name="pnlContenedor.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="MenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 25</value>
+  </data>
+  <data name="&gt;&gt;tblElementos.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tblElementos.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="dgwTratamientos" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtDescripcionTratamiento" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblIndicaciones" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,14.92347,Percent,6.377551,Percent,78.69898" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="txtNombreTratamiento.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnGuardar.Text" xml:space="preserve">
+    <value>Guardar Tratamiento</value>
+  </data>
+  <data name="tblElementos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1127, 745</value>
+  </data>
+  <data name="&gt;&gt;tblElementos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtDescripcionTratamiento.MaxLength" type="System.Int32, mscorlib">
+    <value>16000</value>
+  </data>
+  <data name="btnBuscar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;NombreDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnGuardar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="NombreDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="tblBusqueda.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dgwTratamientos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tblElementos.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="txtNombreTratamiento.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="lblIndicaciones.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtNombreTratamiento.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;NombreDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>NombreDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Crear y asignar tratamientos</value>
+  </data>
+  <data name="DescripcionDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;IDDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IDDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcionTratamiento.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;IDDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>IDDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="txtDescripcionTratamiento.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;DefinirToolStripMenuItem.Name" xml:space="preserve">
+    <value>DefinirToolStripMenuItem</value>
+  </data>
+  <data name="NombreDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblNombreTratamiento.Text" xml:space="preserve">
+    <value>Nombre del tratamiento:</value>
+  </data>
+  <data name="&gt;&gt;tblBusqueda.Name" xml:space="preserve">
+    <value>tblBusqueda</value>
+  </data>
+  <data name="&gt;&gt;lblNombreTratamiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNombreTratamiento.TabIndex" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Name" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="btnGuardar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 806</value>
+  </data>
+  <data name="&gt;&gt;lblNombreTratamiento.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblNombreTratamiento.Parent" xml:space="preserve">
+    <value>pnlContenedor</value>
+  </data>
+  <data name="lblIndicaciones.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MenuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tblBusqueda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtDescripcionTratamiento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 161</value>
+  </data>
+  <data name="txtDescripcionTratamiento.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;txtNombreTratamiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblBusqueda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>837, 37</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1130, 898</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Parent" xml:space="preserve">
+    <value>tblBusqueda</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmTratamientoCrear</value>
+  </data>
+  <data name="&gt;&gt;pnlContenedor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnBuscar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="IDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgwTratamientos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcionTratamiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tblBusqueda.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnBuscar" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="txtNombreTratamiento" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,93.54839,Percent,6.451613" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="ETratamientoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>263, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
+</root>

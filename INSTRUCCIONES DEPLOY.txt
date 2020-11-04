@@ -1,0 +1,27 @@
+La base de datos de este software fue implementada con el SGBD MySQL 8. https://dev.mysql.com/downloads/mysql/
+
+Es indispensable tener esa versión ya que el proyecto usa la creación de roles de la tabla mysql.default_roles y role_edges, una caraterística presente a partir de esta versión. https://dev.mysql.com/doc/refman/8.0/en/roles.html
+
+El driver usado es MySQL Connector /NET. https://dev.mysql.com/downloads/connector/net/ (ya incluido en las referencias del proyecto)
+La librería usada es Mysql.Data (La aplicación no usa ADO debido a problemas con esta librería para leer imágenes).
+
+En el archivo sibim_nodata se encuentra la base de datos SIBIM, con todos sus procedimientos almacenados incluidos (sin datos).
+
+En el archivo solosibim se encuentra la base de datos SIBIM, con todos sus procedimientos almacenados y poblada con datos. (Si no se importa la base de datos mysql, los usuarios no podrán ingresar ya que no tienen su usuario mysql).
+
+En el archivo sibim_mysql se encuentra tanto la base de datos sibim como la de mysql, con usuarios mysql de prueba ya cargados y con sus respectivos roles.
+
+En el archivo usuarios_roles_mysql se encuentran las tablas: user, default_roles, role_edges y procs_priv, incluye la creacion de usuarios y la asignación de sus roles.
+
+Si no se desea importar el último, y solo se quiere la base de datos sibim, se debe hacer lo siguiente:
+
+
+CREATE ROLE IF NOT EXISTS 'administrador';
+GRANT ALL PRIVILEGES ON sibim.* TO 'administrador';
+GRANT EXECUTE ON sibim.* TO 'administrador';
+CREATE USER IF NOT EXISTS 'admin'@'localhost' IDENTIFIED BY 'overcl0de-4DM' DEFAULT ROLE 'administrador';
+GRANT 'administrador' TO 'admin'@'localhost';
+
+Es indispensable tener los procedimientos creados.
+
+Los usuarios ingresan con u{cédula}.

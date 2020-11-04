@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A37B48EB-2EB8-4CBA-9255-C16AB6B2DAF3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Proyecto_UTU.My.MyApplication</StartupObject>
+    <RootNamespace>Proyecto_UTU</RootNamespace>
+    <AssemblyName>Proyecto_UTU</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Proyecto_UTU.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Proyecto_UTU.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formularios\Administrador\frmGestion.Designer.vb">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmGestion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.Designer.vb">
+      <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.Designer.vb">
+      <DependentUpon>frmGestionPMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormularioEntrevista.Designer.vb">
+      <DependentUpon>FormularioEntrevista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormularioEntrevista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.Designer.vb">
+      <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.Designer.vb">
+      <DependentUpon>frmDefinirConsulta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.Designer.vb">
+      <DependentUpon>frmLogSugerencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.Designer.vb">
+      <DependentUpon>TarjetaPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.Designer.vb">
+      <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.Designer.vb">
+      <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.Designer.vb">
+      <DependentUpon>frmAgregarItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmInicioAdm.Designer.vb">
+      <DependentUpon>frmInicioAdm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmInicioAdm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmAdministrador.Designer.vb">
+      <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\frmAdministrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.Designer.vb">
+      <DependentUpon>formularioPlano.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.Designer.vb">
+      <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.Designer.vb">
+      <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.Designer.vb">
+      <DependentUpon>frmDatosAnalisis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.Designer.vb">
+      <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.Designer.vb">
+      <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.Designer.vb">
+      <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.Designer.vb">
+      <DependentUpon>frmCrearFormulario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.Designer.vb">
+      <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.Designer.vb">
+      <DependentUpon>SeleccionarPreguntaCrr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.Designer.vb">
+      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFrm.Designer.vb">
+      <DependentUpon>frmPresentacionFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFrm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmInicio.Designer.vb">
+      <DependentUpon>frmInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.Designer.vb">
+      <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmInicioPaciente.Designer.vb">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmInicioPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuario\frmIngreso_Usuario.Designer.vb">
+      <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuario\frmIngreso_Usuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.Designer.vb">
+      <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmGestionMedico.Designer.vb">
+      <DependentUpon>frmGestionMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmGestionMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmMedico.Designer.vb">
+      <DependentUpon>frmMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Medico\frmMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Paciente\Formularios\frmDiagnosticos.Designer.vb">
+      <DependentUpon>frmDiagnosticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\Formularios\frmDiagnosticos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Paciente\Formularios\frmGestionPaciente.Designer.vb">
+      <DependentUpon>frmGestionPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\Formularios\frmGestionPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmPaciente.Designer.vb">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Paciente\frmPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.en-US.resx">
+      <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmGestion.en-US.resx">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmGestion.resx">
+      <DependentUpon>frmGestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmInicioAdm.en-US.resx">
+      <DependentUpon>frmInicioAdm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.en-US.resx">
+      <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmDefinirFechaAsignacion.resx">
+      <DependentUpon>frmDefinirFechaAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.en-US.resx">
+      <DependentUpon>frmGestionPMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\GestionPMedico\frmGestionPMedico.resx">
+      <DependentUpon>frmGestionPMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormularioEntrevista.resx">
+      <DependentUpon>FormularioEntrevista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.en-US.resx">
+      <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmCargarTarjetasP.resx">
+      <DependentUpon>frmCargarTarjetasP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.en-US.resx">
+      <DependentUpon>frmDefinirConsulta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmDefinirConsulta.resx">
+      <DependentUpon>frmDefinirConsulta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmLogSugerencia.resx">
+      <DependentUpon>frmLogSugerencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.en-US.resx">
+      <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.en-US.resx">
+      <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\TarjetaPaciente.resx">
+      <DependentUpon>TarjetaPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\ContenedorEntrevistas.resx">
+      <DependentUpon>ContenedorEntrevistas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.en-US.resx">
+      <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.en-US.resx">
+      <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.en-US.resx">
+      <DependentUpon>frmDatosAnalisis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.en-US.resx">
+      <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmParametrosTemporalesT.resx">
+      <DependentUpon>frmParametrosTemporalesT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.en-US.resx">
+      <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.en-US.resx">
+      <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.en-US.resx">
+      <DependentUpon>frmAgregarItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\frmAgregarItems.resx">
+      <DependentUpon>frmAgregarItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmInicioAdm.resx">
+      <DependentUpon>frmInicioAdm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\frmAdministrador.resx">
+      <DependentUpon>frmAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.en-US.resx">
+      <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.en-US.resx">
+      <DependentUpon>SeleccionarPreguntaCrr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\formularioPlano.resx">
+      <DependentUpon>formularioPlano.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\frmAnalisisCrear.resx">
+      <DependentUpon>frmAnalisisCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmAnalisisSeguimiento.resx">
+      <DependentUpon>frmAnalisisSeguimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Analisis\Mantenimiento\frmDatosAnalisis.resx">
+      <DependentUpon>frmDatosAnalisis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoCrear.resx">
+      <DependentUpon>frmTratamientoCrear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Control\Tratamientos\frmTratamientoSeguir.resx">
+      <DependentUpon>frmTratamientoSeguir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.en-US.resx">
+      <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCatalogoFormulariosBD.resx">
+      <DependentUpon>frmCatalogoFormulariosBD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.en-US.resx">
+      <DependentUpon>frmCrearFormulario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmCrearFormulario.resx">
+      <DependentUpon>frmCrearFormulario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\MsgBoxControlSettings.resx">
+      <DependentUpon>MsgBoxControlSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\MsgBoxes\SeleccionarPreguntaCrr.resx">
+      <DependentUpon>SeleccionarPreguntaCrr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.en-US.resx">
+      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPedirNombreForm.resx">
+      <DependentUpon>frmPedirNombreForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\Personalizados\frmPresentacionFrm.resx">
+      <DependentUpon>frmPresentacionFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.en-US.resx">
+      <DependentUpon>frmGestionMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmInicio.en-US.resx">
+      <DependentUpon>frmInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmInicio.resx">
+      <DependentUpon>frmInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\frmSeleccionarFormularioEntrevista.resx">
+      <DependentUpon>frmSeleccionarFormularioEntrevista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmMedico.en-US.resx">
+      <DependentUpon>frmMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.en-GB.resx">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.en-US.resx">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmInicioPaciente.resx">
+      <DependentUpon>frmInicioPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmPaciente.en-US.resx">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.en-US.resx">
+      <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuario\frmIngreso_Usuario.resx">
+      <DependentUpon>frmIngreso_Usuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\FormulariosMedicos\FormulariosComunes\Atender\Identificacion_Paciente.resx">
+      <DependentUpon>Identificacion_Paciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmGestionMedico.resx">
+      <DependentUpon>frmGestionMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Medico\frmMedico.resx">
+      <DependentUpon>frmMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\Formularios\frmDiagnosticos.resx">
+      <DependentUpon>frmDiagnosticos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\Formularios\frmGestionPaciente.resx">
+      <DependentUpon>frmGestionPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Paciente\frmPaciente.resx">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\DataSources\Analisis.datasource" />
+    <None Include="My Project\DataSources\Analisis.Indicacion.datasource" />
+    <None Include="My Project\DataSources\Analisis.Parametro.datasource" />
+    <None Include="My Project\DataSources\AnalisisParametro.datasource" />
+    <None Include="My Project\DataSources\Entidades.E_Analisis+Indicacion.datasource" />
+    <None Include="My Project\DataSources\Entidades.E_Analisis+Parametro.datasource" />
+    <None Include="My Project\DataSources\Entidades.E_Analisis.datasource" />
+    <None Include="My Project\DataSources\Entidades.E_Tratamiento.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.vbproj">
+      <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulariosPersonalizados\FormulariosPersonalizados.vbproj">
+      <Project>{b5abbd55-bc6c-48db-9d57-784b1bce89eb}</Project>
+      <Name>FormulariosPersonalizados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.vbproj">
+      <Project>{c424e458-2687-4aee-bae4-b2a2fc18d00f}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sugerencia\Sugerencia.vbproj">
+      <Project>{0791abb7-1809-430a-9ecc-17f762e05c32}</Project>
+      <Name>Sugerencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.vbproj">
+      <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
