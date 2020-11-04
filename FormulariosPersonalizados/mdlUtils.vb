@@ -3,17 +3,13 @@ Imports System.Windows.Forms
 Imports Utilidades
 Imports Entidades
 Imports Negocio
-Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a los controles de los formularios personalizados en tiempo de ejecuccion
+Public Module mdlUtils
     Public Class EventosDeTBP
         Protected _acciones As AccionesFormulario
         Protected _panelDestino As Panel
         Protected _pd As Printing.PrintDocument
         Protected _memobmp As Bitmap
-        Protected _formDatos As E_Formulario 'las respuestas que se hayan ingresado en el formulario, sintomas, signos clinicos, analisis requerido, tratamiento sugerido.
-
-        Protected _analisisDatos As E_Analisis
-        Protected _tratamientoDatos As E_Tratamiento
-
+        Protected _formDatos As E_Formulario
         Protected _exitCode As Integer
         Protected _modo As ModoEvento
         Sub New(acciones As AccionesFormulario)
@@ -110,7 +106,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
             e.Graphics.DrawImage(Memobmp, 0, 0, e.PageBounds.Width, e.PageBounds.Height)
         End Sub
 
-         Sub Guardar()
+        Sub Guardar()
             Dim resultado = 0
             Select Case Modo
                 Case 0
@@ -276,7 +272,7 @@ Public Module mdlUtils 'la finalidad de este modulo es poder agregar eventos a l
         If FormDisenado.ID = 0 Then 'si es 0 es porque no lo estamos editando, es un form nuevo
             resultado = Negocio.AltaModFormulario(FormDisenado, 0)
         Else
-            resultado = Negocio.AltaModFormulario(FormDisenado, 1) 'hacer alta y baja con las preguntas aca!
+            resultado = Negocio.AltaModFormulario(FormDisenado, 1)
         End If
         Select Case resultado
             Case -1

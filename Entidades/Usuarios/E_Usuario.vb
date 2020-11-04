@@ -7,7 +7,7 @@ Public Class E_Usuario
     Protected _apellido1 As String
     Protected _apellido2 As String
     Protected _correo As String
-    Protected _telefonosLista As List(Of String) '-> {099523212, 23363539}
+    Protected _telefonosLista As List(Of String)
     Protected _direccion_calle As String
     Protected _direccion_numero As Integer
     Protected _foto As Byte()
@@ -15,8 +15,6 @@ Public Class E_Usuario
     Sub New()
 
     End Sub
-
-    'CONSTRUCTOR COMPLETO
     Sub New(cedula As Integer, nombre1 As String, nombre2 As String, apellido1 As String, apellido2 As String, direccion_calle As String, direccion_numero As Integer, telefonosLista As List(Of String), correo As String, contrasena As String, imagen As Byte(), rol As String, activo As Boolean)
         _nombre1 = nombre1
         _nombre2 = nombre2
@@ -32,8 +30,6 @@ Public Class E_Usuario
         _rol = rol
         _activo = activo
     End Sub
-
-    'PROPIEDADES GET & SET
     Property Nombre1 As String
         Get
             Return (_nombre1)

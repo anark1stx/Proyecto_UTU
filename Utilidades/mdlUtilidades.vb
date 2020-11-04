@@ -3,7 +3,6 @@ Imports System.IO
 Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
 Imports System.Globalization
-Imports System.Threading
 
 Public Module mdlUtilidades
     Dim lista_dominios As New List(Of String)(New String() {"gmail.com", "outlook.com", "yahoo.com", "zohomail.com", "tutanota.com", "yandex.com"})

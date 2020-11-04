@@ -1,5 +1,4 @@
-﻿Imports Utilidades
-Imports Entidades
+﻿Imports Entidades
 Imports MySql.Data.MySqlClient
 Public Class D_UsuarioMYSQL
     Dim conexion As New MySqlConnection
@@ -11,7 +10,8 @@ Public Class D_UsuarioMYSQL
         Dim exitCode As Integer = Sesion.Conectar(conexion)
 
         If exitCode <> 1 Then
-            Return New E_UsuarioMYSQL With {.ErrCode = exitCode}
+            u.ErrCode = exitCode
+            Return u
         End If
 
         Dim cmd As New MySqlCommand With {
@@ -23,10 +23,9 @@ Public Class D_UsuarioMYSQL
         cmd.Parameters.Add("USUARIO", MySqlDbType.VarChar, 50).Value = usuario
         Try
             leer = cmd.ExecuteReader()
-        Catch ex As MysqlException 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
+        Catch ex As MysqlException
             Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
-            Console.WriteLine("err buscarrol")
             u.ErrCode = -2
             Return u
         End Try
@@ -61,7 +60,7 @@ Public Class D_UsuarioMYSQL
             While leer.Read()
                 activo = leer.GetBoolean("activo")
             End While
-        Catch ex As Exception 'la unica excepcion que se deberia producir en este punto es que el usuario no tenga permisos de ejecucion sobre el procedimiento
+        Catch ex As Exception
             Console.WriteLine(ex.Message)
             u.ErrCode = -2
         End Try

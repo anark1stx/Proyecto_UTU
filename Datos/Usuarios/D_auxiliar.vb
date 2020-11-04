@@ -1,5 +1,4 @@
-﻿Imports Utilidades
-Imports Entidades
+﻿Imports Entidades
 Imports MySql.Data.MySqlClient
 Public Class D_auxiliar
     Inherits D_Usuario
@@ -128,17 +127,14 @@ Public Class D_auxiliar
         .CommandText = "AltaAuxiliar",
         .Connection = conexion
         }
-
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = u.Cedula
-
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            Return -4 'No se pudo crear usuario sibim
+            Sesion.Cerrar(conexion)
+            Return -4
         End Try
-
         Sesion.Cerrar(conexion)
         Return 1
-
     End Function
 End Class

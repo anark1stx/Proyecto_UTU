@@ -1,5 +1,4 @@
-﻿Imports Utilidades
-Imports Entidades
+﻿Imports Entidades
 Imports MySql.Data.MySqlClient
 Public Class D_Usuario
     Inherits D_UsuarioMYSQL

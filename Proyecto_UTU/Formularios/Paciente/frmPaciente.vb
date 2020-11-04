@@ -1,8 +1,8 @@
 ﻿Imports Entidades
 Imports Utilidades
 Public Class frmPaciente
-    Dim frmDiagnostico As New frmDiagnosticos 'Instancia de formulario que tiene los diagnosticos del paciente
-    Dim frmGestion As New frmGestionPaciente 'Instancia del formulario que tiene la ventana de gestión del paciente
+    Dim frmDiagnostico As New frmDiagnosticos
+    Dim frmGestion As New frmGestionPaciente
     Dim frmIni As New frmInicioPaciente
     Protected _paciente As New E_Paciente
 

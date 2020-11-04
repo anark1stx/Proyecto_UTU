@@ -1,9 +1,9 @@
 ﻿Imports Entidades
 Imports Utilidades
 Public Class frmAdministrador
-    Dim _frmInicio As New frmInicioAdm 'Este es el formulario que muestra los botones grandes para hacer ABMLB
+    Dim _frmInicio As New frmInicioAdm
 
-    Dim _frmGestion As New frmGestion 'Gestion muestra Datos[tipoUsuario] + DatagridView que lista a los usuarios según parametros de busqueda
+    Dim _frmGestion As New frmGestion
     Friend Sub InstanciarFormulario(formularioPadre As String, Optional uType As frmGestion.TipoUsuario = Nothing, Optional aType As frmGestion.Accion = Nothing)
         Select Case formularioPadre
             Case "Inicio"

@@ -22,7 +22,7 @@ Public Class D_Atiende
 
         Try
             cmd.ExecuteNonQuery()
-        Catch ex As Exception 'lo mas seguro es que la excepcion que se produzca aca sea que ya existe una tupla con la misma clave primaria {CI_M,CI_P,CI_A} (duplicate entry)
+        Catch ex As Exception
             Sesion.Cerrar(conexion)
             Console.WriteLine(ex.Message)
             Return -2

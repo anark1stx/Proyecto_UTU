@@ -6,19 +6,18 @@ Public Class D_Medico
     Dim conexion As New MySqlConnection
 
     Public Function BuscarMedicoCI(ci As Integer) As E_Medico
-
+        Dim u As New E_Medico With {.Cedula = ci}
         Dim leer As MySqlDataReader
-
         Dim cmd As New MySqlCommand With {
             .CommandType = CommandType.StoredProcedure,
             .CommandText = "BuscarMEDICOxCI",
             .Connection = conexion
         }
 
-        If Sesion.Conectar(conexion) = -1 Then
-            Return New E_Medico With {.ErrCode = -1}
+        If Sesion.Conectar(conexion) <> 1 Then
+            u.ErrCode = -1
+            Return u
         End If
-        Dim u As New E_Medico With {.Cedula = ci}
         Dim listaEsp As New List(Of String)
         Dim listaTel As New List(Of String)
 
@@ -50,7 +49,7 @@ Public Class D_Medico
             u.TelefonosLista = listaTel.Distinct().ToList()
             u.Especialidad = listaEsp.Distinct().ToList()
         Else
-            u.Cedula = -8 'no encontre usuario
+            u.ErrCode = -8 'no encontre usuario
         End If
         Sesion.Cerrar(conexion)
         Return u
@@ -113,23 +112,20 @@ Public Class D_Medico
         Else
             uList.Add(New E_Medico With {.ErrCode = -8}) 'no encontre usuarios
         End If
-
         Sesion.Cerrar(conexion)
         Return uList
-
     End Function
 
     Public Function BuscarMedicoEspecialidad(es As String) As List(Of E_Medico)
         Dim uList As New List(Of E_Medico)
         Dim ultima_ci As Integer = 0
         Dim lastU As New E_Medico
-
         Dim leer As MySqlDataReader
-
-        If Sesion.Conectar(conexion) = -1 Then
-            Return New List(Of E_Medico)(New E_Medico With {.ErrCode = -1})
+        If Sesion.Conectar(conexion) <> 1 Then
+            lastU.ErrCode = -1
+            uList.Add(lastU)
+            Return uList
         End If
-
         Dim cmd = New MySqlCommand With {
                 .CommandType = CommandType.StoredProcedure,
                 .CommandText = "BuscarMEDICOxEspecialidad", 'este procedimiento filtra a aquellos usuarios que no estan en la tabla medico ni paciente, es decir solo a los que estan en la tabla usuario

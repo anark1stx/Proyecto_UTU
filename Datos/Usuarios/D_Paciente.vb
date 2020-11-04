@@ -4,9 +4,12 @@ Public Class D_Paciente
     Inherits D_Usuario
     Dim conexion As New MySqlConnection
     Public Function BuscarPacienteCI(ci As Integer) As E_Paciente
-        Console.WriteLine("leyendo paciente por ci")
+        Dim u As New E_Paciente With {
+        .Cedula = ci
+        }
         If Sesion.Conectar(conexion) = -1 Then
-            Return New E_Paciente With {.ErrCode = -1} '-1 exit code para conexion fallida
+            u.ErrCode = -1
+            Return u
         End If
 
         Dim leer As MySqlDataReader
@@ -18,16 +21,13 @@ Public Class D_Paciente
             .Connection = conexion
         }
 
-        Dim u As New E_Paciente With {
-        .Cedula = ci
-        }
-
         cmd.Parameters.Add("cedula", MySqlDbType.Int32).Value = ci
         Try
             leer = cmd.ExecuteReader()
         Catch ex As Exception
             Sesion.Cerrar(conexion)
-            Return New E_Paciente With {.ErrCode = -2} 'error ejecutando
+            u.ErrCode = -2
+            Return u
         End Try
 
         Dim listaTel As New List(Of String)
@@ -51,7 +51,9 @@ Public Class D_Paciente
                 listaTel.Add(leer.GetString("telefono"))
             End While
         Else
-            Return New E_Paciente With {.ErrCode = -8} 'no encontre
+            u.ErrCode = -8
+            Sesion.Cerrar(conexion)
+            Return u
         End If
         u.TelefonosLista = listaTel.Distinct.ToList()
         Sesion.Cerrar(conexion)

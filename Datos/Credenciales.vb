@@ -25,7 +25,7 @@ Module Credenciales
                 conn.Open()
             Catch ex As MySqlException
                 Console.WriteLine(ex.Message)
-                Select Case ex.Number 'como son numeros feos los cambio
+                Select Case ex.Number
                     Case 1042 'codigo de salida para conexion fallida de la clase MysqlException
                         Return -1
                     Case 0 'codigo de error de autenticacion

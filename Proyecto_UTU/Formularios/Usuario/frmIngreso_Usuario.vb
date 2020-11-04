@@ -71,7 +71,6 @@ Public Class frmIngreso_Usuario
     End Sub
 
     Private Sub btnEspanol_Click(sender As Object, e As EventArgs) Handles btnEspanol.Click
-        'capaz que es mejor solamente recargar la aplicación en vez de cambiar el idioma a espana, puede dar problemas
         If Idioma Is Globalization.CultureInfo.GetCultureInfo("es-ES") Then
             Exit Sub
         Else

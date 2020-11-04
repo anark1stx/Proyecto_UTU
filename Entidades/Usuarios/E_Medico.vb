@@ -1,7 +1,6 @@
 ﻿Imports Utilidades
 Public Class E_Medico
     Inherits E_Usuario
-
     Protected _especialidad As List(Of String)
 
     Property Especialidad() As List(Of String)
@@ -53,9 +52,6 @@ Public Class E_Medico
                 End If
             End If
         Next
-
         Return 1
     End Function
-
-
 End Class
