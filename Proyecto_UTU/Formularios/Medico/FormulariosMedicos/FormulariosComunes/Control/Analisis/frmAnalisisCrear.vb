@@ -201,8 +201,6 @@ Public Class frmAnalisisCrear
     End Sub
 
     Private Async Sub btnCheckNombreA_Click(sender As Object, e As EventArgs) Handles btnCheckNombreA.Click, txtNombreAnalisis.Leave
-        '()-> BUSCAR NOMBRE DEL ANALISIS
-
         If Not txtNombreAnalisis.Text Is String.Empty Then
             Dim existe As Integer = Await Task.Run(Function() negocio.AnalisisExiste(txtNombreAnalisis.Text))
 

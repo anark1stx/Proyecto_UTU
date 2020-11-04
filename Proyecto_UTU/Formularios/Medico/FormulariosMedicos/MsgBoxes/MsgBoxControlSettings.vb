@@ -1,5 +1,4 @@
 ﻿Imports System.Reflection
-'TODO LO REFERIDO A LOS COLORES EN ESTE SCRIPT FUE EXTRAIDO DE: https://www.daniweb.com/programming/software-development/code/495380/color-combobox-in-vb
 Public Class MsgBoxControlSettings
     Public fuente As Font = SystemFonts.DefaultFont
     Public multilinea As Boolean = False

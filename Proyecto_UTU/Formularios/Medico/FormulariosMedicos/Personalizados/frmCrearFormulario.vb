@@ -1,22 +1,16 @@
 ﻿Imports FormulariosPersonalizados
 Imports Entidades
-Imports Negocio
 Imports Utilidades
 Public Class frmCrearFormulario
-
     Dim _cursor As Cursor = Cursors.Hand
     Dim frmPlano As New formularioPlano
-
     Dim ubicacion_mouse As Point
-
     Dim _instancia As New Control
     Dim controlesInstanciados As New List(Of Control)
     Dim control_count As Integer = 0
-
     Dim TipoDeTxt As New SeleccionarPreguntaCrr
     Dim settings As New MsgBoxControlSettings
     Dim catalogo As New frmCatalogoFormulariosBD
-
     Dim PedirNombre As New frmPedirNombreForm
     Protected _formDisenado As New E_Formulario
 

@@ -53,11 +53,6 @@ Public Class frmCatalogoFormulariosBD
         Next
 
     End Sub
-
-    Private Sub frmCatalogoFormulariosBD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Podria ver de ejecutar un metodo que cargara todos los formularios capaz, puede ser un procedimiento con TOP 10 
-    End Sub
-
     Sub MostrarManito(sender As Object, e As EventArgs)
         Cursor.Current = Cursors.Hand
     End Sub
