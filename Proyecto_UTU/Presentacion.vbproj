@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -523,9 +526,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-hospital-100.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.vbproj">
       <Project>{e53d8994-6911-4daf-89e1-c63dd1c8e64f}</Project>
       <Name>Entidades</Name>
@@ -546,6 +546,12 @@
       <Project>{b557aeac-041f-45ad-9992-54ec059d461a}</Project>
       <Name>Utilidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
