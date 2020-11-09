@@ -5,23 +5,11 @@ Es indispensable tener esa versión ya que el proyecto usa la creación de roles
 El driver usado es MySQL Connector /NET. https://dev.mysql.com/downloads/connector/net/ (ya incluido en las referencias del proyecto)
 La librería usada es Mysql.Data (La aplicación no usa ADO debido a problemas con esta librería para leer imágenes).
 
-En el archivo sibim_nodata se encuentra la base de datos SIBIM, con todos sus procedimientos almacenados incluidos (sin datos).
+Finalmente: para poder establecer conexion con el programa se debe editar el archivo
+C:\Windows\System32\drivers\etc\hosts , agregando la siguiente linea al final del archivo:
 
-En el archivo solosibim se encuentra la base de datos SIBIM, con todos sus procedimientos almacenados y poblada con datos. (Si no se importa la base de datos mysql, los usuarios no podrán ingresar ya que no tienen su usuario mysql).
+192.168.1.x		archivos
 
-En el archivo sibim_mysql se encuentra tanto la base de datos sibim como la de mysql, con usuarios mysql de prueba ya cargados y con sus respectivos roles.
-
-En el archivo usuarios_roles_mysql se encuentran las tablas: user, default_roles, role_edges y procs_priv, incluye la creacion de usuarios y la asignación de sus roles.
-
-Si no se desea importar el último, y solo se quiere la base de datos sibim, se debe hacer lo siguiente:
-
-
-CREATE ROLE IF NOT EXISTS 'administrador';
-GRANT ALL PRIVILEGES ON sibim.* TO 'administrador';
-GRANT EXECUTE ON sibim.* TO 'administrador';
-CREATE USER IF NOT EXISTS 'admin'@'localhost' IDENTIFIED BY 'overcl0de-4DM' DEFAULT ROLE 'administrador';
-GRANT 'administrador' TO 'admin'@'localhost';
-
-Es indispensable tener los procedimientos creados.
+En el lugar de la X iria la IP que obtiene esa interfaz cuando se instala el servidor, en mi caso resultaba la 192.168.1.120.
 
 Los usuarios ingresan con u{cédula}.
