@@ -215,7 +215,7 @@ Partial Class Identificacion_Paciente
         '
         resources.ApplyResources(Me.txtCedulaPaciente, "txtCedulaPaciente")
         Me.txtCedulaPaciente.Name = "txtCedulaPaciente"
-        Me.txtCedulaPaciente.Tag = ""
+        Me.txtCedulaPaciente.Tag = "noLimpiar"
         '
         'pnlEstado
         '
