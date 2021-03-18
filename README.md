@@ -6,6 +6,6 @@ Proyecto de finalización de curso de 3ro bachillerato de informática, ITI, Mon
                                        https://github.com/system32uwu/Proyecto_UTU
 
 
-Proyecto de sistemas operativos: https://github.com/anark1stx/SistemasOperativosProyecto
+Proyecto de sistemas operativos: https://github.com/system32uwu/SistemasOperativosProyecto
 
 Carpetas de las demás materias: https://drive.google.com/drive/folders/1aesjE-iDmhV-IU_7ypGilJJs2G10TiZL?usp=sharing
